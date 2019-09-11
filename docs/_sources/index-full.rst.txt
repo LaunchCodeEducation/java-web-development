@@ -1,5 +1,5 @@
 Chapters
-========
+--------
 
 .. toctree::
    :numbered:
@@ -12,21 +12,21 @@ Chapters
    genindex
    
 Studios
-=======
+-------
 
 .. toctree::
    :maxdepth: 1
    :name: studiostoc
 
 Assignments
-===========
+-----------
 
 .. toctree::
    :maxdepth: 1
    :name: assignmentstoc
 
 Appendices
-==========
+----------
 
 .. toctree::
    :maxdepth: 1
@@ -36,4 +36,4 @@ Appendices
    :hidden:
 
    todos
-   index-full
+
