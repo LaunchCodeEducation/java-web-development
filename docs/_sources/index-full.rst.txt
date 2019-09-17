@@ -1,22 +1,24 @@
 Chapters
---------
+=========
 
 .. toctree::
-   :numbered:
-   :maxdepth: 1
+   :maxdepth: 2
    :name: chapterstoc
 
+   chapters/setup-intro-data-types/index
 
 .. toctree::
 
    genindex
-   
+
 Studios
 -------
 
 .. toctree::
    :maxdepth: 1
    :name: studiostoc
+
+   chapters/setup-intro-data-types/studio
 
 Assignments
 -----------
