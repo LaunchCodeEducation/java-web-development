@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>1.5. More Data Types &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.6. Exercises: Data Types" href="exercises.html" />
+    <link rel="prev" title="1.4. A Code Comparison" href="code-comparison.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">1. Setup, Introduction, and Data Types</a></li>
+    <li class="active">1.5. More Data Types</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="more-data-types">
+<h1>1.5. More Data Types<a class="headerlink" href="#more-data-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="class-types">
+<h2>1.5.1. Class Types<a class="headerlink" href="#class-types" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the types introduced so far - primitives and their
+objectified counterparts - any class in Java defines a type. Classes and
+objects are conceptually the same as in Python: A class is a template
+for creating objects. We’ll have much more to say about classes and
+objects, but for now you need to be comfortable seeing the basic syntax
+of class types and class creation.</p>
+<p>If I have a class <code class="docutils literal notranslate"><span class="pre">Cat</span></code> with a constructor that takes no arguments, I
+can declare and create a new instance of <code class="docutils literal notranslate"><span class="pre">Cat</span></code> using its constructor.
+In Python, we did this as follows:</p>
+<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span># Python
+my_cat = Cat()
+</pre></div>
+</div>
+<p>And the Java version is:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Cat myCat = new Cat();
+</pre></div>
+</div>
+<p>Each of these statements creates a new variable that is initialized to
+hold a new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object. Note that in Java, we must declare the
+variable’s type. Also note that we precede the constructor with the
+<code class="docutils literal notranslate"><span class="pre">new</span></code> keyword. And, of course, the Java example ends with a
+semi-colon.</p>
+<p>Variables and parameters that are of the type of a class are said to be
+of <strong>reference type</strong> (in contrast to <strong>primitive type</strong>). In plain
+English, we would say of the Java example: “<code class="docutils literal notranslate"><span class="pre">myCat</span></code> is a reference
+variable of type <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.”</p>
+<div class="section" id="references">
+<h3>1.5.1.1. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<p>Reference types are different from primitive types in an essential way.
+A variable of a reference type (such as <code class="docutils literal notranslate"><span class="pre">myCat</span></code> above) does not
+actually store the object in question. Instead, it stores a
+<strong>reference</strong> to the object. A reference is literally a memory address.
+We visualize references as an arrow pointing to the object in memory.</p>
+<p>Consider this code:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>int catAge = 11;
+Cat myCat = new Cat();
+Cat sameCat = myCat;
+</pre></div>
+</div>
+<p>Visually, we can represent these three variables as shown below.</p>
+<div class="figure" id="id1">
+<img alt="Reference Types" src="../../_images/references.png" />
+<p class="caption"><span class="caption-text">Reference Types</span></p>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">int</span></code> is a primitive type, the variable <code class="docutils literal notranslate"><span class="pre">catAge</span></code> functions as
+a box holding the integer value 11. On the other hand, <code class="docutils literal notranslate"><span class="pre">myCat</span></code> is a
+reference variable, since it holds an object. The variable actually
+stores the address of the object, which we visualize as an arrow from
+the variable box to the object.</p>
+<p>When we assign a value to a reference type, as in
+<code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">sameCat</span> <span class="pre">=</span> <span class="pre">myCat</span></code>, we are not creating a second copy of the
+object, but instead are creating a second “arrow” pointing to the same
+object.</p>
+<p>The distinction between references types and primitives is important, if
+difficult, to wrap your brain around at first. We will see that
+reference types are handled differently in essential and important ways
+in a lot of different situations.</p>
+</div>
+</div>
+<div class="section" id="arrays">
+<h2>1.5.2. Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<p>Just as Java has primitive types for things that were objects in Python
+– such as integers and booleans – it also has a type that you might
+consider to be a “primitive list”, arrays.</p>
+<p>An array is an ordered, fixed-size collection of elements. Since Java is
+statically-typed, arrays may only store one type of object. We can
+create an array of integers or an array of strings, but we may not
+create an array that holds both integers and strings.</p>
+<p>The syntax for creating an array capable of holding 10 integers is:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>int[] someInts = new int[10];
+</pre></div>
+</div>
+<p>To create an array of a different size, replace the number 10 in
+brackets with the desired size. To create an array holding a different
+type, replace <code class="docutils literal notranslate"><span class="pre">int</span></code> (on both sides of the assignment) with the desired
+type, for instance, <code class="docutils literal notranslate"><span class="pre">double</span></code>. Unlike lists in Python, arrays in Java
+<em>may not</em> change size once created. This turns out to be not very
+practical, so thankfully Java provides more flexible ways to store data,
+which we’ll explore in a later lesson.</p>
+<p>In addition to the technique above, we can initialize an array using a
+literal expression:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>int[] someOtherInts = {1, 1, 2, 3, 5, 8};
+</pre></div>
+</div>
+<p>Here, the size is implicit in the number of elements in the literal
+expression <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">8}</span></code>.</p>
+<p>To access array elements, we use square brackets, as with Python lists.</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>int anInt = someInts[0];
+</pre></div>
+</div>
+<p>As with Python lists, arrays have <em>zero-based indexing</em>.</p>
+<p>Aside from using arrays to build some simple loop examples in the next
+lesson, we’ll only use them in special cases. However, they’re a core
+part of Java, so it’s good to know how they work.</p>
+</div>
+<div class="section" id="static-methods">
+<h2>1.5.3. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
+<p>In pure object-oriented languages like Java and C#, we don’t have
+functions in the sense you’re used to. For example, functions may not be
+declared outside of a class. Within the context of a class, functions
+are referred to as <strong>methods</strong>. We will adopt this terminology from now
+on, and you are encouraged not to refer to methods as “functions” when
+you are talking about Java code.</p>
+<p>We’ll dive into learning about classes and objects in Java soon enough,
+but until we do, we’ll frequently need to write methods, so we should
+understand a little bit about them. In particular, we’ll use <strong>static
+methods</strong>, which behave similarly to functions as you knew them in
+Python.</p>
+<p>A static method is one with the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword, as our <code class="docutils literal notranslate"><span class="pre">main</span></code>
+method above has:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public static void main(String[] args)
+{
+    // some code
+}
+</pre></div>
+</div>
+<p>We’ve already explored each element of this line, however, we haven’t
+really shown you how you might create your own methods in other
+contexts. To do so involves using a different name for our method, and
+adjusting the return type and parameter types accordingly.</p>
+<aside class="aside-warning"><p>Until we get into Object Oriented Programming, every method we write
+will have the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword. Leaving off <code class="docutils literal notranslate"><span class="pre">static</span></code> will prevent
+you from calling methods you define as you would like to.</p>
+<p>We will explore exactly what <code class="docutils literal notranslate"><span class="pre">static</span></code> does in more detail in later
+lessons.</p>
+</aside><p>Let’s create two classes in Java to demonstrate this. One will have a
+<code class="docutils literal notranslate"><span class="pre">main</span></code> method and the other will have a method that we want to call
+from within <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class HelloMethods {
+
+    public static void main(String[] args) {
+        String message = Message.getMessage(&quot;fr&quot;);
+        System.out.println(message);
+    }
+
+}
+</pre></div>
+</div>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Message {
+
+    public static String getMessage(String lang) {
+
+        if (lang.equals(&quot;sp&quot;)) {
+            return &quot;Hola Mundo&quot;;
+        } else if (lang.equals(&quot;fr&quot;)) {
+            return &quot;Bonjour le monde&quot;;
+        } else {
+            return &quot;Hello World&quot;;
+        }
+    }
+}
+</pre></div>
+</div>
+<p>We won’t explore every new aspect of this example, but rather will focus
+on the two methods.</p>
+<aside class="aside-warning"><p>As you’ve been following along with these examples using the code in
+IntelliJ, you’ve probably noticed that each class file, for example
+<code class="docutils literal notranslate"><span class="pre">Message.java</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code>, is named exactly the same as
+the class that file holds, for example <code class="docutils literal notranslate"><span class="pre">Message</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code>
+respectively.</p>
+<p>It is a rule in Java that a file containing a class marked <code class="docutils literal notranslate"><span class="pre">public</span></code>
+<strong>must</strong> be named the same as that class. So remember to name each Java
+file you create to match the public class that file contains.</p>
+</aside><p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> method in the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> class is the same in
+structure as that of our previous examples. Take a look at the
+<code class="docutils literal notranslate"><span class="pre">Message</span></code> class. Note that it <em>does not</em> have a <code class="docutils literal notranslate"><span class="pre">main</span></code> method, so it
+can’t be run on it’s own. Code within the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class must be
+called from elsewhere in order to execute.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Message</span></code> class has a method of its own: <code class="docutils literal notranslate"><span class="pre">getMessage</span></code>. Like
+<code class="docutils literal notranslate"><span class="pre">main</span></code>, it has the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword. Unlike <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">getMessage</span></code>
+has a return type of <code class="docutils literal notranslate"><span class="pre">String</span></code>. It also has a single parameter,
+<code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">lang</span></code>.</p>
+<p>Since Java is statically typed, each method must declare its return type
+– that is, the data type of what it will return – along with the type of
+each parameter. One consequence of this that may not be immediately
+obvious is that a method in Java may not have return statements that
+return different types of data. For example, we would not be able to
+replace the last <code class="docutils literal notranslate"><span class="pre">return</span></code> statement of <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> with something
+like <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">42;</span></code>. This would be flagged as a compiler error.</p>
+<p>Finally, let’s note how a static method is called. The first line of
+<code class="docutils literal notranslate"><span class="pre">main</span></code> in the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> class is:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Message.getMessage(&quot;fr&quot;);
+</pre></div>
+</div>
+<p>To call a static method we must use the name of the class in which it is
+defined, followed by <code class="docutils literal notranslate"><span class="pre">.</span></code>, followed by the name of the method.</p>
+<p>We are able to call this method from another class because it is
+declared to be <code class="docutils literal notranslate"><span class="pre">public</span></code>. If we wanted to restrict the method from
+being called by another class, we could instead use the <code class="docutils literal notranslate"><span class="pre">private</span></code>
+modifier. We’ll explore access modifiers in more depth in coming
+lessons.</p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="code-comparison.html"><span aria-hidden="true">&larr;</span> 1.4. A Code Comparison</a></li>
+        
+        
+        <li class="next"><a href="exercises.html">1.6. Exercises: Data Types <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/setup-intro-data-types/more-data-types.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -7,5 +7,7 @@ Setup, Introduction, and Data Types
    setup
    why-java
    data-types
+   code-comparison
+   more-data-types
    exercises
    studio
