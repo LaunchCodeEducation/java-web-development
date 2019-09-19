@@ -96,12 +96,13 @@ to Celsius.</p>
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;readline-sync&#39;</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">fahrenheit</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="s2">&quot;Enter the temperature in F: &quot;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">celsius</span> <span class="o">=</span> <span class="p">(</span><span class="nx">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">fahrenheit</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">question</span><span class="p">(</span><span class="s2">&quot;Enter the temperature in °F: &quot;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">celsius</span> <span class="o">=</span> <span class="p">(</span><span class="nx">fahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span><span class="p">);</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`The temperature in Celsius is: </span><span class="si">${</span><span class="nx">celsius</span><span class="si">}</span><span class="sb"> °C`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`The temperature in Celsius is: </span><span class="si">${</span><span class="nx">celsius</span><span class="si">}</span><span class="sb">°C`</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
+<p class="repl-link"><a class="reference external" href="https://repl.it/&#64;launchcode/NodeFtoCConverter" target="_blank">repl.it<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
 <p>Next, lets look at the Java equivalent:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -124,11 +125,11 @@ to Celsius.</p>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
       <span class="kt">double</span> <span class="n">fahrenheit</span><span class="o">;</span>
       <span class="kt">double</span> <span class="n">celsius</span><span class="o">;</span>
-      <span class="n">Scanner</span> <span class="n">in</span><span class="o">;</span>
+      <span class="n">Scanner</span> <span class="n">input</span><span class="o">;</span>
 
-      <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter the temperature in F: &quot;</span><span class="o">);</span>
-      <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+      <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter the temperature in °F: &quot;</span><span class="o">);</span>
+      <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
 
       <span class="n">celsius</span> <span class="o">=</span> <span class="o">(</span><span class="n">fahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="o">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="o">;</span>
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;The temperature in Celsius is: &quot;</span> <span class="o">+</span> <span class="n">celsius</span> <span class="o">+</span> <span class="s">&quot;°C&quot;</span><span class="o">);</span>
@@ -136,6 +137,7 @@ to Celsius.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
+<p class="repl-link"><a class="reference external" href="https://repl.it/&#64;launchcode/JavaFtoCConverter" target="_blank">repl.it<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
 <p>There are several new concepts introduced in this example. We will look
 at them in the following order:</p>
 <ol class="arabic simple">
@@ -145,21 +147,52 @@ at them in the following order:</p>
 </ol>
 <div class="section" id="import">
 <h2>1.4.1. <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
-<p>In Java, you can use any class that is available without having to
-import the class, but you must adhere to two very important conditions:</p>
-<ol class="arabic simple">
+<p>You can think of the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in Java as working a little
+bit like the <code class="docutils literal notranslate"><span class="pre">const</span> <span class="pre">variableName</span> <span class="pre">=</span> <span class="pre">require('ModuleName');</span></code> statement in
+JavaScript. The <code class="docutils literal notranslate"><span class="pre">require</span></code> command imports the specified module, and assigns
+it to <code class="docutils literal notranslate"><span class="pre">variableName</span></code>. We can then access the class, functions, or data stored
+in the module by referencing <code class="docutils literal notranslate"><span class="pre">variableName</span></code>.</p>
+<p>The Java <code class="docutils literal notranslate"><span class="pre">import</span></code> statement tells the compiler that we are going to use a
+shortened version of the class’s name. In this example we are going to use the
+class <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code>, but we can refer to it as just <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>. We
+could use the <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code> class without any problem and without any
+import statement provided that we always referred to it by its full name.</p>
+<p>This brings up an important distinction between Java and JavaScript. In Java,
+you can use any class that is available WITHOUT having to import the class, but
+you must adhere to two very important conditions:</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li>The <code class="docutils literal notranslate"><span class="pre">javac</span></code> and <code class="docutils literal notranslate"><span class="pre">java</span></code> commands must know that the class exists.</li>
-<li>You must use the full name of the class</li>
+<li>You must use the full name of the class.</li>
 </ol>
+</div></blockquote>
+<div class="admonition-try-it admonition">
+<p class="first admonition-title"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>Try It</p>
+<p class="last">Remove the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement and change <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> on lines 7 &amp; 9 to
+<code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code>. The program should still compile and run.</p>
+</div>
+<p>The class naming system in Java is very hierarchical. The <em>full</em> name of the
+<code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class is really <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code>. You can think of this name
+as having two parts:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">java.util</span></code> is called the <strong>package</strong>,</li>
+<li><code class="docutils literal notranslate"><span class="pre">Scanner</span></code> is the class.</li>
+</ol>
+<p>We’ll talk more about the class naming system a bit later.</p>
+<div class="admonition-note-to-ed-team admonition">
+<p class="first admonition-title">Note to Ed Team</p>
+<p>Here is some text from the old Python curriculum. It was originally placed
+at the start of the <code class="docutils literal notranslate"><span class="pre">import</span></code> section, but I think it distracts from what
+the students need to know about USING <code class="docutils literal notranslate"><span class="pre">import</span></code>.  Thoughts?</p>
 <p>How do the <code class="docutils literal notranslate"><span class="pre">java</span></code> and <code class="docutils literal notranslate"><span class="pre">javac</span></code> commands know that certain classes
 exist? We have these rules:</p>
-<ol class="arabic simple">
+<ol class="last arabic simple">
 <li>Java knows about all the classes that are defined in <code class="docutils literal notranslate"><span class="pre">.java</span></code> and
 <code class="docutils literal notranslate"><span class="pre">.class</span></code> files in your current working directory.</li>
 <li>Java knows about all the classes that are shipped with java.</li>
 <li>Java knows about all the classes that are included in your
 <code class="docutils literal notranslate"><span class="pre">CLASSPATH</span></code> environment variable. Your <code class="docutils literal notranslate"><span class="pre">CLASSPATH</span></code> environment
-variable can name two kinds of structures:<ol class="arabic">
+variable can name two kinds of structures:<ol class="loweralpha">
 <li>A jar file that contains java classes. (A jar file is a “Java
 archive”, and ends in <code class="docutils literal notranslate"><span class="pre">.jar</span></code>. For now, think of it as a zip file
 that contains a bunch of classes.)</li>
@@ -167,26 +200,7 @@ that contains a bunch of classes.)</li>
 </ol>
 </li>
 </ol>
-<p>You can think of the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in Java as working a little
-bit like the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">module</span> <span class="pre">import</span> <span class="pre">xxx</span></code> statement in Python. However,
-behind the scenes the two statements actually do very different things.</p>
-<p>The first important difference to understand is that the class naming
-system in Java is very hierarchical. The <em>full</em> name of the Scanner
-class is really <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code>. You can think of this name as
-having two parts: The first part <code class="docutils literal notranslate"><span class="pre">java.util</span></code> is called the
-<strong>package</strong>, and the last part is the class. We’ll talk more about the
-class naming system a bit later. The second important difference is that
-it is the Java class loader’s responsibility to load classes into
-memory, not the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement’s.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">import</span></code> statement tells the compiler that we are going to use a
-shortened version of the class’s name. In this example we are going to
-use the class <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code>, but we can refer to it as just
-<code class="docutils literal notranslate"><span class="pre">Scanner</span></code>. We could use the <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code> class without any
-problem and without any import statement provided that we always
-referred to it by its full name.</p>
-<p>Don’t just trust us, try it yourself! Remove the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement
-and change <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> to <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code> in the rest of the code.
-The program should still compile and run.</p>
+</div>
 </div>
 <div class="section" id="declaring-variables">
 <h2>1.4.2. Declaring Variables<a class="headerlink" href="#declaring-variables" title="Permalink to this headline">¶</a></h2>
