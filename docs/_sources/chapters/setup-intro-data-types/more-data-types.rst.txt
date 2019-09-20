@@ -213,71 +213,78 @@ Let’s create two classes in Java to practice defining and using methods. The
 first class will have a ``main`` method and the second will have a method that
 we want to call from within ``main``.
 
-.. sourcecode:: java
-   :linenos:
+.. admonition:: Examples
 
-   public class HelloMethods {
+   HelloMethods.java:
 
-      public static void main(String[] args) {
-         String message = Message.getMessage("fr");
-         System.out.println(message);
+   .. sourcecode:: java
+      :linenos:
+
+      public class HelloMethods {
+
+         public static void main(String[] args) {
+            String message = Message.getMessage("fr");
+            System.out.println(message);
+         }
+
       }
 
-   }
+   Message.java:
 
-.. sourcecode:: java
+   .. sourcecode:: java
+      :linenos:
 
-   public class Message {
+      public class Message {
 
-      public static String getMessage(String lang) {
+         public static String getMessage(String lang) {
 
-         if (lang.equals("sp")) {
-            return "Hola Mundo";
-         } else if (lang.equals("fr")) {
-            return "Bonjour le monde";
-         } else {
-            return "Hello World";
+            if (lang.equals("sp")) {
+               return "Hola Mundo";
+            } else if (lang.equals("fr")) {
+               return "Bonjour le monde";
+            } else {
+               return "Hello World";
+            }
          }
       }
-   }
 
 We won’t explore every new aspect of this example, but instead focus on the two
 methods.
 
-The ``main`` method in the ``HelloMethods`` class is the same in
-structure as that of our :ref:`temperature conversion example <temp-conversion>`.
-
-Take a look at the ``Message`` class. Note that it does NOT have a ``main``
-method, so it can’t be run on it’s own. Code within the ``Message`` class must
-be called from elsewhere in order to execute.
-
-The ``Message`` class contains the ``getMessage`` method. Like ``main``, it has
-the ``static`` keyword. Unlike ``main``, ``getMessage`` has a return type of
-``String``. It also has a single parameter, ``String lang``.
+#. The ``main`` method in the ``HelloMethods`` class is the same in
+   structure as that of our
+   :ref:`temperature conversion example <temp-conversion>`.
+#. Take a look at the ``Message`` class. Note that it does NOT have a ``main``
+   method, so it can’t be run on it’s own. Code within the ``Message`` class
+   must be called from elsewhere in order to execute.
+#. The ``Message`` class contains the ``getMessage`` method. Like ``main``, it
+   has the ``static`` keyword. Unlike ``main``, ``getMessage`` has a return
+   type of ``String``. It also has a single ``String`` parameter, ``lang``.
 
 Since Java is statically typed, creating methods will be similar to writing
-functions in TypeScript. We must declare the data type for each parameter, AND
-we must declare the data type for the return value.
+`functions in TypeScript <https://education.launchcode.org/intro-to-professional-web-dev/chapters/typescript/functions.html#functions-in-typescript>`__.
+We must declare the data type for each parameter, AND we must declare the data
+type for the return value.
 
 One consequence of this is that a method in Java may NOT have ``return``
 statements that send back different types of data. Note that lines 6, 8, and 10
-in ``getMessage`` each return a string. If we try to replace line 10 with
+in ``Message.java`` each return a string. If we try to replace line 10 with
 ``return 42;``, then we would generate a compiler error.
 
 To call a static method, we follow a specific syntax. Line 4 in the
-``HelloMethods`` example is:
+``HelloMethods.java`` shows this:
 
 .. sourcecode:: java
 
    Message.getMessage("fr");
 
-To call a static method we must use the name of the class in which it is
-defined, followed by ``.``, followed by the name of the method.
+To call a static method we must use the format
+``ClassName.methodName(arguments)``.
 
 Note that ``getMessage`` is NOT defined within the ``HelloMessage`` class. We
 can do this because ``getMessage`` is declared as ``public``. If we wanted to
 restrict the method from being called by another class, we could instead use
-the ``private`` modifier. We’ll explore access modifiers in more depth in
+the ``private`` modifier. We will explore access modifiers in more depth in
 coming lessons.
 
    TODO: Ask about the implications of a repository with the code samples
@@ -288,9 +295,7 @@ coming lessons.
    As you’ve been following along with these examples using the code in
    IntelliJ, you’ve probably noticed that each class file, for example
    ``Message.java`` and ``HelloMethods.java``, is named exactly the same as
-   the class that file holds (``Message`` and ``HelloMethods``,
-   respectively).
+   the class it holds (``Message`` and ``HelloMethods``, respectively).
 
    It is a rule in Java that a file containing a class marked ``public``
-   **must** be named the same as that class. So remember to name each Java
-   file you create to match the public class that file contains.
+   MUST be named the same as that class.
