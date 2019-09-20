@@ -2,80 +2,83 @@ More Data Types
 ================
 
 Class Types
------------
+------------
 
-In addition to the types introduced so far - primitives and their
-objectified counterparts - any class in Java defines a type. Classes and
-objects are conceptually the same as in Python: A class is a template
-for creating objects. We’ll have much more to say about classes and
-objects, but for now you need to be comfortable seeing the basic syntax
-of class types and class creation.
+.. index:: ! class
 
-If I have a class ``Cat`` with a constructor that takes no arguments, I
-can declare and create a new instance of ``Cat`` using its constructor.
-In Python, we did this as follows:
+Java classes and objects are conceptually the same as in JavaScript. A
+**class** is a template for creating objects. In addition to the data types
+introduced so far, any class in Java also defines a type. We’ll have much more
+to say about classes and objects, but for now you need to recognize the basic
+syntax of class types and class creation.
 
-.. code:: python
+If we have a class ``Cat`` with a constructor that takes no arguments, we
+declare and create a new instance of ``Cat`` using its constructor. In
+JavaScript, we did this as follows:
 
-   # Python
-   my_cat = Cat()
+.. sourcecode:: JavaScript
+
+   let myCat = new Cat();
 
 And the Java version is:
 
-.. code:: java
+.. sourcecode:: java
 
    Cat myCat = new Cat();
 
-Each of these statements creates a new variable that is initialized to
-hold a new ``Cat`` object. Note that in Java, we must declare the
-variable’s type. Also note that we precede the constructor with the
-``new`` keyword. And, of course, the Java example ends with a
-semi-colon.
+Each of these statements creates a variable that is initialized to hold a new
+``Cat`` object. The difference in Java is that we must declare the variable’s
+type.
 
-Variables and parameters that are of the type of a class are said to be
-of **reference type** (in contrast to **primitive type**). In plain
-English, we would say of the Java example: “``myCat`` is a reference
-variable of type ``Cat``.”
+.. index:: ! reference type
+
+Just like variables or parameters can be declared as an ``int`` or ``String``
+data type, they can also be declared as a specific *class* type. Variables
+that are class type---as opposed to primitive types like ``double`` or object
+types like ``String``---are said to be of **reference type**. Using this
+terminology, ``myCat`` is a *reference variable* of type ``Cat``.
 
 References
 ^^^^^^^^^^^
 
-Reference types are different from primitive types in an essential way.
-A variable of a reference type (such as ``myCat`` above) does not
-actually store the object in question. Instead, it stores a
-**reference** to the object. A reference is literally a memory address.
-We visualize references as an arrow pointing to the object in memory.
+Reference types are different from primitive types in an essential way. A
+variable of a reference type (such as ``myCat`` above) does not actually store
+the object in question. Instead, it stores a **reference** to the object. A
+reference is literally a memory address. We visualize references as an arrow
+pointing to the object in memory.
 
 Consider this code:
 
-.. code:: java
+.. sourcecode:: java
+   :linenos:
 
-   int catAge = 11;
+   int firstCatAge = 11;
+   int secondCatAge = firstCatAge;
    Cat myCat = new Cat();
    Cat sameCat = myCat;
 
 Visually, we can represent these three variables as shown below.
+
+   TODO: Update diagram to show multiple int variables.
 
 .. figure:: figures/references.png
    :alt: Reference Types
 
    Reference Types
 
-Since ``int`` is a primitive type, the variable ``catAge`` functions as
-a box holding the integer value 11. On the other hand, ``myCat`` is a
-reference variable, since it holds an object. The variable actually
-stores the address of the object, which we visualize as an arrow from
-the variable box to the object.
+Since ``int`` is a primitive type, the variable ``catAge`` functions as a box
+holding the integer value ``11``. On the other hand, ``myCat`` is a reference
+variable, since it holds an object. The variable actually stores the address of
+the object, which we visualize as an arrow from the variable box to the object.
 
-When we assign a value to a reference type, as in
-``Cat sameCat = myCat``, we are not creating a second copy of the
-object, but instead are creating a second “arrow” pointing to the same
-object.
+When we assign a value to a reference type, as in ``Cat sameCat = myCat``, we
+are not creating a second copy of the object. Instead, we create a second
+“arrow” pointing to the same object.
 
 The distinction between references types and primitives is important, if
-difficult, to wrap your brain around at first. We will see that
-reference types are handled differently in essential and important ways
-in a lot of different situations.
+subtle, to wrap your brain around at first. We will see that reference types
+are handled differently in essential and important ways in a lot of different
+situations.
 
 Arrays
 ------
