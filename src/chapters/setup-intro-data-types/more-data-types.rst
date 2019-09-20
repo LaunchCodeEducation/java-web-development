@@ -12,23 +12,22 @@ introduced so far, any class in Java also defines a type. We’ll have much more
 to say about classes and objects, but for now you need to recognize the basic
 syntax of class types and class creation.
 
-If we have a class ``Cat`` with a constructor that takes no arguments, we
-declare and create a new instance of ``Cat`` using its constructor. In
-JavaScript, we did this as follows:
+In JavaScript, if we have a class ``Cat`` with a constructor that takes no
+arguments, we can declare and create an instance of ``Cat`` using the ``new``
+keyword:
 
 .. sourcecode:: JavaScript
 
    let myCat = new Cat();
 
-And the Java version is:
+In Java, the syntax is:
 
 .. sourcecode:: java
 
    Cat myCat = new Cat();
 
-Each of these statements creates a variable that is initialized to hold a new
-``Cat`` object. The difference in Java is that we must declare the variable’s
-type.
+Each of these statements declares and initializes a variable with a new ``Cat``
+object. The difference in Java is that we must declare the variable’s type.
 
 .. index:: ! reference type
 
@@ -57,102 +56,144 @@ Consider this code:
    Cat myCat = new Cat();
    Cat sameCat = myCat;
 
-Visually, we can represent these three variables as shown below.
+Visually, we can represent these four variables as shown below.
 
-   TODO: Update diagram to show multiple int variables.
+   TODO: Update diagram to show the two int variables.
 
 .. figure:: figures/references.png
    :alt: Reference Types
 
    Reference Types
 
-Since ``int`` is a primitive type, the variable ``catAge`` functions as a box
-holding the integer value ``11``. On the other hand, ``myCat`` is a reference
-variable, since it holds an object. The variable actually stores the address of
-the object, which we visualize as an arrow from the variable box to the object.
+Since ``int`` is a primitive type, the variables ``firstCatAge`` and
+``secondCatAge`` function like separate boxes, each one holding the integer
+value ``11``. On the other hand, ``myCat`` is a reference variable, since it
+holds an object of type ``Cat``. The variable actually stores the *memory
+address* of the object, which we visualize as an arrow from the variable box to
+where the data is stored. Instead of holding the actual ``Cat`` data, ``myCat``
+stores *directions* for finding the data in memory.
 
 When we assign a value to a reference type, as in ``Cat sameCat = myCat``, we
-are not creating a second copy of the object. Instead, we create a second
-“arrow” pointing to the same object.
+are not creating a second copy of the object or its data. Instead, we create a
+second arrow pointing to the same memory location.
 
-The distinction between references types and primitives is important, if
-subtle, to wrap your brain around at first. We will see that reference types
-are handled differently in essential and important ways in a lot of different
-situations.
+The distinction between reference types and primitives is important, if
+subtle. As you continue learning Java, you will see that reference types are
+handled differently in essential and important ways.
 
 Arrays
-------
+-------
 
-Just as Java has primitive types for things that were objects in Python
-– such as integers and booleans – it also has a type that you might
-consider to be a “primitive list”, arrays.
+In unit 1, we frequently used arrays in JavaScript to store ordered collections
+of data---strings, numbers, objects, other arrays, etc. In your exercises,
+studios, and assignments, you often mutated arrays by rearranging the elements
+or by adding/removing data.
 
-An array is an ordered, fixed-size collection of elements. Since Java is
-statically-typed, arrays may only store one type of object. We can
-create an array of integers or an array of strings, but we may not
-create an array that holds both integers and strings.
+.. sourcecode:: JavaScript
+   :linenos:
+
+   let firstArray = [1, 2, 3];
+   let secondArray = ['LC101', 42, ['Hello', 'World'], {name: "Fabulous Fox", astronautID: 12, age: 5}];
+
+In Java, an array is an ordered, *fixed-size* collection of elements. Since
+Java is statically-typed, the items stored in an array must all be the same
+data type. We can create an array of integers or an array of strings, but we
+may NOT create an array that holds both integers and strings.
 
 The syntax for creating an array capable of holding 10 integers is:
 
-.. code:: java
+.. sourcecode:: java
 
    int[] someInts = new int[10];
 
-To create an array of a different size, replace the number 10 in
-brackets with the desired size. To create an array holding a different
-type, replace ``int`` (on both sides of the assignment) with the desired
-type, for instance, ``double``. Unlike lists in Python, arrays in Java
-*may not* change size once created. This turns out to be not very
-practical, so thankfully Java provides more flexible ways to store data,
-which we’ll explore in a later lesson.
+To create an array of a different size, replace the number ``10`` in the
+brackets with the desired size. To create an array holding a different type,
+replace ``int`` (on both sides of the assignment) with the desired type, for
+instance, ``double``.
 
-In addition to the technique above, we can initialize an array using a
-literal expression:
+In addition to the example above, we can initialize an array using a literal
+expression:
 
-.. code:: java
+.. sourcecode:: java
 
    int[] someOtherInts = {1, 1, 2, 3, 5, 8};
 
 Here, the size is implicit in the number of elements in the literal
-expression ``{1, 1, 2, 3, 5, 8}``.
+expression ``{1, 1, 2, 3, 5, 8}``. Also note the use of braces ``{ }`` instead
+of square brackets ``[ ]``.
 
-To access array elements, we use square brackets, as with Python lists.
+To access array elements, we use square brackets and *zero-based indexing* just
+like in JavaScript.
 
-.. code:: java
+.. sourcecode:: java
 
-   int anInt = someInts[0];
+   int anInt = someOtherInts[4];
+   // anInt stores the integer 5.
 
-As with Python lists, arrays have *zero-based indexing*.
+Unlike in JavaScript, arrays in Java may NOT change size once created, which is
+not very practical. Thankfully, Java provides more flexible ways to store data,
+which we will explore in a later lesson.
 
-Aside from using arrays to build some simple loop examples in the next
-lesson, we’ll only use them in special cases. However, they’re a core
-part of Java, so it’s good to know how they work.
+Aside from using arrays to build some simple loop examples, we will only use
+them in special cases. However, they are a core part of Java, so it’s good to
+know how they work, especially since the term "arrays" in JavaScript refers to
+something with much different behavior.
 
 Static Methods
---------------
+---------------
 
-In pure object-oriented languages like Java and C#, we don’t have
-functions in the sense you’re used to. For example, functions may not be
-declared outside of a class. Within the context of a class, functions
-are referred to as **methods**. We will adopt this terminology from now
-on, and you are encouraged not to refer to methods as “functions” when
-you are talking about Java code.
+In pure object-oriented languages like Java and C#, we don’t have functions in
+the sense you’re used to. Unlike JavaScript, functions may NOT be declared
+outside of a class. Even a simple function that checks if an integer is even
+needs to be defined within a class.
 
-We’ll dive into learning about classes and objects in Java soon enough,
-but until we do, we’ll frequently need to write methods, so we should
-understand a little bit about them. In particular, we’ll use **static
-methods**, which behave similarly to functions as you knew them in
-Python.
+.. index:: ! methods
 
-A static method is one with the ``static`` keyword, as our ``main``
-method above has:
+Within the context of a class, functions are referred to as **methods**, and we
+will adopt this terminology from now on.
 
-.. code:: java
+.. admonition:: Warning
 
-   public static void main(String[] args)
-   {
-       // some code
-   }
+   Be prepared for push-back and negative judgement from Java coders if you
+   accidentally refer to methods as “functions”.
+
+We’ll dive deeper into classes and objects in Java soon enough. For now, we
+will explore how to write methods. In particular, we’ll use **static methods**,
+which behave similarly to the functions you built in JavaScript.
+
+A static method is one that can be called without creating an instance of the
+class to which it belongs.
+
+.. admonition:: Example
+
+   Define the class ``Cat`` and include the ``static`` keyword before the
+   ``makeNoise`` method name:
+
+   .. sourcecode:: java
+
+      public class Cat {
+         public static void makeNoise(String[] args) {
+            // some code
+         }
+      }
+
+   Since ``makeNoise`` is ``static``, we do NOT need to create a ``Cat`` object to
+   access it.
+
+   Instead of doing this:
+
+   .. sourcecode:: java
+      :linenos:
+
+      Cat myCat = new Cat();     // Create a new Cat object.
+      myCat.makeNoise("purr");   // Call the makeNoise method.
+
+   We can call the method directly:
+
+   .. sourcecode:: java
+      :linenos:
+
+      Cat.makeNoise("roar")
 
 We’ve already explored each element of this line, however, we haven’t
 really shown you how you might create your own methods in other
