@@ -8,29 +8,31 @@ The steps here will walk you through setting up a repository that you’ll
 use to study example code, work on studios, and complete your first
 assignment of this unit.
 
-#. Create a *Fork* of `LaunchCodeEducation/java-exercises <https://github.com/LaunchCodeEducation/java-exercises>`__ 
-	
+#. Create a *Fork* of `LaunchCodeEducation/java-exercises <https://github.com/LaunchCodeEducation/java-exercises>`__.
+   Do not clone and create a local version of this repo just yet. 
+   
 #. Open IntelliJ.
 
-.. note::
+   .. note::
 
-	If the app opens up to an existing project, select *IntelliJ >
-	Preferences > Appearance & Behavior > System Settings* and uncheck
-	*Reopen last project on startup*. (For Windows users: *File >
-	Settings > Appearance & Behavior > System Settings*.) Close and
-	Reopen IntelliJ.
+      If the app opens up to an existing project, select *IntelliJ >
+      Preferences > Appearance & Behavior > System Settings* and uncheck
+      *Reopen last project on startup*. (For Windows users: *File >
+      Settings > Appearance & Behavior > System Settings*.) Close and
+      Reopen IntelliJ.
 
--  From the “Welcome to IntelliJ” dialog, select *Check out from Version
-   Control > GitHub*
--  The first time you use GitHub within IntelliJ you’ll have to
-   configure IntelliJ to use your GitHub Account. We recommend taking
+#. From the “Welcome to IntelliJ” dialog, select *Check out from Version
+   Control > Git*
+   TODO: Get screenshots of this process.
+#. Click the button on the lower left corner of the dialog to configure your Github account.
+#. The first time you use GitHub within IntelliJ, you’ll have to
+   configure IntelliJ to use your GitHub account. We recommend taking
    the extra step of authenticating using a token. This takes only one
    brief extra step, and will prevent you from having to update IntelliJ
    settings if you ever change your GitHub password.
--  From the project selection dialog, select the ``java-exercises``
-   repository, along with an appropriate source destination directory
-   (i.e. a folder where you’ve stored other projects for this class).
--  When asked “Would you like to create and IDEA project…” select *Yes*,
+#. From the URL dropdown options, select your fork of ``java-exercises``, 
+   along with an appropriate source destination directory (i.e. a folder where you’ve stored other projects for this class).
+#. When asked “Would you like to create and IDEA project…” select *Yes*, 
    and then accept all of the default options that are presented.
 
 With that, you’re ready to go!
@@ -60,67 +62,67 @@ ClassNotFoundException
 ~~~~~~~~~~~~~~~~~~~~~~
 
 If you experience ``java.lang.ClassNotFoundException`` when trying to
-run code after setting up the project, follow these steps: 1. Select
-*File > Close Project* 2. From the IntelliJ modal window, click the *X*
-next to ``java-exercises`` in the left-hand pane. 3. From the same modal
-window, select *Import Project* from the right-hand pane. 4. Follow the
-steps that IntelliJ guides you through, accepting all defaults. When
-prompted to overwrite IntelliJ settings files, you confirm that you want
-to do so.
+run code after setting up the project, follow these steps: 
+
+#. Select *File > Close Project*.
+#. From the IntelliJ modal window, click the *X* next to ``java-exercises`` in the left-hand pane.
+#. From the same modal window, select *Import Project* from the right-hand pane.
+#. Follow the steps that IntelliJ guides you through, accepting all defaults. When prompted to overwrite IntelliJ settings files, you confirm that you want to do so.
 
 
 Instructions
 ------------
 
-Work on these exercises in the ``java-exercises`` project, creating a
+Work on these exercises in the IntelliJ ``java-exercises`` project, creating a
 new class for each. You may name the classes whatever you like, but use
-proper `Java naming
-conventions <../../java4python/naming-conventions/>`__ and make sure
+proper :ref:`naming-conventions` and make sure
 that the file name matches the class name!
 
 Here is how to create a new package to store these exercises, and how to
 create new classes within this package:
 
-1. Click on the folder ``src`` in the Project pane, then right click and
-   select “New” and then select “Package”.
+#. Click on the folder ``src`` in the Project pane, then right click and
+   select *New* and then select *Package*.
 
-.. figure:: images/newPackage.png
-   :alt: New Package
+   .. figure:: images/newPackage.png
+      :alt: New Package
 
-   New Package
+      New Package
 
-2. Name the package “exercises”.
+#. Name the package “exercises”.
 
-.. figure:: images/namePackage.png
-   :alt: Name Package
+   .. figure:: images/namePackage.png
+      :alt: Name Package
 
-   Name Package
+      Name Package
 
-3. Then click on the newly-created folder ``exercises`` and right click
-   to select “New” and then select “Class”.
+#. Then click on the newly-created folder ``exercises`` and right click
+   to select *New* and then select *Class*.
 
-.. figure:: images/newClass.png
-   :alt: New Class
+   .. figure:: images/newClass.png
+      :alt: New Class
 
-   New Class
+      New Class
 
-4. Name the package what you will name your class (for example, in the
+#. Name the package what you will name your class (for example, in the
    4th exercise below, you might name the class ``Alice``).
-   **Note:** You will be asked whether you want to add this file to Git.
-   Press the “Yes” button.
 
-.. figure:: images/nameClass.png
-   :alt: Name Class
+   .. note:: 
+      You will be asked whether you want to add this file to Git.
+      Press the “Yes” button.
 
-   Name Class
+   .. figure:: images/nameClass.png
+      :alt: Name Class
+
+      Name Class
 
 5. The new class is now created! You can proceed to write code within
    it. (Don’t forget to write the ``main`` method!)
 
-.. figure:: images/newClassCreated.png
-   :alt: Ready to start
+   .. figure:: images/newClassCreated.png
+      :alt: Ready to start
 
-   Ready to start
+      Ready to start
 
 Exercises
 ---------
