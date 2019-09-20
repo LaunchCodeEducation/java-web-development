@@ -156,8 +156,14 @@ of data—strings, numbers, objects, other arrays, etc. In your exercises,
 studios, and assignments, you often mutated arrays by rearranging the elements
 or by adding/removing data.</p>
 <div class="highlight-JavaScript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">firstArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">firstArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
 <span class="kd">let</span> <span class="nx">secondArray</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LC101&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">],</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Fabulous Fox&quot;</span><span class="p">,</span> <span class="nx">astronautID</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">5</span><span class="p">}];</span>
+
+<span class="nx">firstArray</span><span class="p">.</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;LaunchCode ROCKS!&#39;</span><span class="p">);</span>
+<span class="c1">// Results in [3, 2, 1, &#39;LaunchCode ROCKS!&#39;]</span>
 </pre></div>
 </td></tr></table></div>
 <p>In Java, an array is an ordered, <em>fixed-size</em> collection of elements. Since
@@ -170,8 +176,8 @@ may NOT create an array that holds both integers and strings.</p>
 </div>
 <p>To create an array of a different size, replace the number <code class="docutils literal notranslate"><span class="pre">10</span></code> in the
 brackets with the desired size. To create an array holding a different type,
-replace <code class="docutils literal notranslate"><span class="pre">int</span></code> (on both sides of the assignment) with the desired type, for
-instance, <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
+replace <code class="docutils literal notranslate"><span class="pre">int</span></code> (on both sides of the assignment) with the desired type, like
+<code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
 <p>In addition to the example above, we can initialize an array using a literal
 expression:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[]</span> <span class="n">someOtherInts</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
@@ -207,7 +213,7 @@ will adopt this terminology from now on.</p>
 <p class="last">Be prepared for push-back and negative judgement from Java coders if you
 accidentally refer to methods as “functions”.</p>
 </div>
-<p>We’ll dive deeper into classes and objects in Java soon enough. For now, we
+<p id="index-3">We’ll dive deeper into classes and objects in Java soon enough. For now, we
 will explore how to write methods. In particular, we’ll use <strong>static methods</strong>,
 which behave similarly to the functions you built in JavaScript.</p>
 <p>A static method is one that can be called without creating an instance of the
@@ -232,85 +238,95 @@ access it.</p>
 </pre></div>
 </td></tr></table></div>
 <p>We can call the method directly:</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Cat</span><span class="o">.</span><span class="na">makeNoise</span><span class="o">(</span><span class="s">&quot;roar&quot;</span><span class="o">)</span>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Cat</span><span class="o">.</span><span class="na">makeNoise</span><span class="o">(</span><span class="s">&quot;roar&quot;</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>We’ve already explored each element of this line, however, we haven’t
-really shown you how you might create your own methods in other
-contexts. To do so involves using a different name for our method, and
-adjusting the return type and parameter types accordingly.</p>
-<aside class="aside-warning"><p>Until we get into Object Oriented Programming, every method we write
-will have the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword. Leaving off <code class="docutils literal notranslate"><span class="pre">static</span></code> will prevent
-you from calling methods you define as you would like to.</p>
-<p>We will explore exactly what <code class="docutils literal notranslate"><span class="pre">static</span></code> does in more detail in later
-lessons.</p>
-</aside><p>Let’s create two classes in Java to demonstrate this. One will have a
-<code class="docutils literal notranslate"><span class="pre">main</span></code> method and the other will have a method that we want to call
-from within <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class HelloMethods {
+<p>Until we get further into Object Oriented Programming, every method you write
+should use the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword. Leaving off <code class="docutils literal notranslate"><span class="pre">static</span></code> will prevent or
+complicate the process of calling the methods you defined.</p>
+<p>We will explore exactly what <code class="docutils literal notranslate"><span class="pre">static</span></code> does in more detail in later lessons.</p>
+<div class="section" id="static-method-practice">
+<h3>1.5.3.1. Static Method Practice<a class="headerlink" href="#static-method-practice" title="Permalink to this headline">¶</a></h3>
+<p>Let’s create two classes in Java to practice defining and using methods. The
+first class will have a <code class="docutils literal notranslate"><span class="pre">main</span></code> method and the second will have a method that
+we want to call from within <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloMethods</span> <span class="o">{</span>
 
-    public static void main(String[] args) {
-        String message = Message.getMessage(&quot;fr&quot;);
-        System.out.println(message);
-    }
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">Message</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="s">&quot;fr&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+   <span class="o">}</span>
 
-}
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span> <span class="o">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">lang</span><span class="o">)</span> <span class="o">{</span>
+
+      <span class="k">if</span> <span class="o">(</span><span class="n">lang</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;sp&quot;</span><span class="o">))</span> <span class="o">{</span>
+         <span class="k">return</span> <span class="s">&quot;Hola Mundo&quot;</span><span class="o">;</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">lang</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;fr&quot;</span><span class="o">))</span> <span class="o">{</span>
+         <span class="k">return</span> <span class="s">&quot;Bonjour le monde&quot;</span><span class="o">;</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+         <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 </div>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Message {
-
-    public static String getMessage(String lang) {
-
-        if (lang.equals(&quot;sp&quot;)) {
-            return &quot;Hola Mundo&quot;;
-        } else if (lang.equals(&quot;fr&quot;)) {
-            return &quot;Bonjour le monde&quot;;
-        } else {
-            return &quot;Hello World&quot;;
-        }
-    }
-}
-</pre></div>
-</div>
-<p>We won’t explore every new aspect of this example, but rather will focus
-on the two methods.</p>
-<aside class="aside-warning"><p>As you’ve been following along with these examples using the code in
-IntelliJ, you’ve probably noticed that each class file, for example
-<code class="docutils literal notranslate"><span class="pre">Message.java</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code>, is named exactly the same as
-the class that file holds, for example <code class="docutils literal notranslate"><span class="pre">Message</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code>
-respectively.</p>
-<p>It is a rule in Java that a file containing a class marked <code class="docutils literal notranslate"><span class="pre">public</span></code>
-<strong>must</strong> be named the same as that class. So remember to name each Java
-file you create to match the public class that file contains.</p>
-</aside><p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> method in the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> class is the same in
-structure as that of our previous examples. Take a look at the
-<code class="docutils literal notranslate"><span class="pre">Message</span></code> class. Note that it <em>does not</em> have a <code class="docutils literal notranslate"><span class="pre">main</span></code> method, so it
-can’t be run on it’s own. Code within the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class must be
-called from elsewhere in order to execute.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Message</span></code> class has a method of its own: <code class="docutils literal notranslate"><span class="pre">getMessage</span></code>. Like
-<code class="docutils literal notranslate"><span class="pre">main</span></code>, it has the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword. Unlike <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">getMessage</span></code>
-has a return type of <code class="docutils literal notranslate"><span class="pre">String</span></code>. It also has a single parameter,
-<code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">lang</span></code>.</p>
-<p>Since Java is statically typed, each method must declare its return type
-– that is, the data type of what it will return – along with the type of
-each parameter. One consequence of this that may not be immediately
-obvious is that a method in Java may not have return statements that
-return different types of data. For example, we would not be able to
-replace the last <code class="docutils literal notranslate"><span class="pre">return</span></code> statement of <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> with something
-like <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">42;</span></code>. This would be flagged as a compiler error.</p>
-<p>Finally, let’s note how a static method is called. The first line of
-<code class="docutils literal notranslate"><span class="pre">main</span></code> in the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> class is:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Message.getMessage(&quot;fr&quot;);
+<p>We won’t explore every new aspect of this example, but instead focus on the two
+methods.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> method in the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> class is the same in
+structure as that of our <a class="reference internal" href="code-comparison.html#temp-conversion"><span class="std std-ref">temperature conversion example</span></a>.</p>
+<p>Take a look at the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class. Note that it does NOT have a <code class="docutils literal notranslate"><span class="pre">main</span></code>
+method, so it can’t be run on it’s own. Code within the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class must
+be called from elsewhere in order to execute.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Message</span></code> class contains the <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> method. Like <code class="docutils literal notranslate"><span class="pre">main</span></code>, it has
+the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword. Unlike <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> has a return type of
+<code class="docutils literal notranslate"><span class="pre">String</span></code>. It also has a single parameter, <code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">lang</span></code>.</p>
+<p>Since Java is statically typed, creating methods will be similar to writing
+functions in TypeScript. We must declare the data type for each parameter, AND
+we must declare the data type for the return value.</p>
+<p>One consequence of this is that a method in Java may NOT have <code class="docutils literal notranslate"><span class="pre">return</span></code>
+statements that send back different types of data. Note that lines 6, 8, and 10
+in <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> each return a string. If we try to replace line 10 with
+<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">42;</span></code>, then we would generate a compiler error.</p>
+<p>To call a static method, we follow a specific syntax. Line 4 in the
+<code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> example is:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Message</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="s">&quot;fr&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 <p>To call a static method we must use the name of the class in which it is
 defined, followed by <code class="docutils literal notranslate"><span class="pre">.</span></code>, followed by the name of the method.</p>
-<p>We are able to call this method from another class because it is
-declared to be <code class="docutils literal notranslate"><span class="pre">public</span></code>. If we wanted to restrict the method from
-being called by another class, we could instead use the <code class="docutils literal notranslate"><span class="pre">private</span></code>
-modifier. We’ll explore access modifiers in more depth in coming
-lessons.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> is NOT defined within the <code class="docutils literal notranslate"><span class="pre">HelloMessage</span></code> class. We
+can do this because <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> is declared as <code class="docutils literal notranslate"><span class="pre">public</span></code>. If we wanted to
+restrict the method from being called by another class, we could instead use
+the <code class="docutils literal notranslate"><span class="pre">private</span></code> modifier. We’ll explore access modifiers in more depth in
+coming lessons.</p>
+<blockquote>
+<div>TODO: Ask about the implications of a repository with the code samples
+mentioned in this section.</div></blockquote>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>As you’ve been following along with these examples using the code in
+IntelliJ, you’ve probably noticed that each class file, for example
+<code class="docutils literal notranslate"><span class="pre">Message.java</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code>, is named exactly the same as
+the class that file holds (<code class="docutils literal notranslate"><span class="pre">Message</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code>,
+respectively).</p>
+<p class="last">It is a rule in Java that a file containing a class marked <code class="docutils literal notranslate"><span class="pre">public</span></code>
+<strong>must</strong> be named the same as that class. So remember to name each Java
+file you create to match the public class that file contains.</p>
+</div>
+</div>
 </div>
 </div>
 

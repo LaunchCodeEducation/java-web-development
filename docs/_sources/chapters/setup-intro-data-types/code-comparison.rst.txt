@@ -20,6 +20,8 @@ to Celsius.
 
 Next, lets look at the Java equivalent:
 
+.. _temp-conversion:
+
 .. replit:: java
    :slug: JavaFtoCConverter
    :linenos:
@@ -121,18 +123,18 @@ variable ``input`` references a ``Scanner`` object.
 
 The following error is common for new Java programmers. Suppose we forget to
 include the declaration for ``celsius`` on line 6. What happens if we try to
-manually compile our program using ``javac TempConv.java`` on the command line?
+manually compile our program using ``javac Main.java`` on the command line?
 
 .. sourcecode:: bash
 
-   TempConv.java:13: cannot find symbol
+   Main.java:13: cannot find symbol
    symbol  : variable celsius
-   location: class TempConv
+   location: class Main
             celsius = (fahrenheit - 32) * 5.0/9.0;
             ^
-   TempConv.java:14: cannot find symbol
+   Main.java:14: cannot find symbol
    symbol  : variable celsius
-   location: class TempConv
+   location: class Main
             System.out.println("The temperature in °C is: " + celsius);
                                                              ^
    2 errors

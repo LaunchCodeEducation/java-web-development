@@ -106,7 +106,7 @@ to Celsius.</p>
 </td></tr></table></div>
 <p class="repl-link"><a class="reference external" href="https://repl.it/&#64;launchcode/NodeFtoCConverter" target="_blank">repl.it<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
 <p>Next, lets look at the Java equivalent:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-java notranslate" id="temp-conversion"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -215,15 +215,15 @@ try something like <code class="docutils literal notranslate"><span class="pre">
 variable <code class="docutils literal notranslate"><span class="pre">input</span></code> references a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object.</p>
 <p>The following error is common for new Java programmers. Suppose we forget to
 include the declaration for <code class="docutils literal notranslate"><span class="pre">celsius</span></code> on line 6. What happens if we try to
-manually compile our program using <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">TempConv.java</span></code> on the command line?</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>TempConv.java:13: cannot find symbol
+manually compile our program using <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">Main.java</span></code> on the command line?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Main.java:13: cannot find symbol
 symbol  : variable celsius
-location: class TempConv
+location: class Main
          <span class="nv">celsius</span> <span class="o">=</span> <span class="o">(</span>fahrenheit - <span class="m">32</span><span class="o">)</span> * <span class="m">5</span>.0/9.0<span class="p">;</span>
          ^
-TempConv.java:14: cannot find symbol
+Main.java:14: cannot find symbol
 symbol  : variable celsius
-location: class TempConv
+location: class Main
          System.out.println<span class="o">(</span><span class="s2">&quot;The temperature in °C is: &quot;</span> + celsius<span class="o">)</span><span class="p">;</span>
                                                           ^
 <span class="m">2</span> errors

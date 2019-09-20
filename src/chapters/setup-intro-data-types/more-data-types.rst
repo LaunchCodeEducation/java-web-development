@@ -95,6 +95,9 @@ or by adding/removing data.
    let firstArray = [1, 2, 3];
    let secondArray = ['LC101', 42, ['Hello', 'World'], {name: "Fabulous Fox", astronautID: 12, age: 5}];
 
+   firstArray.reverse().push('LaunchCode ROCKS!');
+   // Results in [3, 2, 1, 'LaunchCode ROCKS!']
+
 In Java, an array is an ordered, *fixed-size* collection of elements. Since
 Java is statically-typed, the items stored in an array must all be the same
 data type. We can create an array of integers or an array of strings, but we
@@ -108,8 +111,8 @@ The syntax for creating an array capable of holding 10 integers is:
 
 To create an array of a different size, replace the number ``10`` in the
 brackets with the desired size. To create an array holding a different type,
-replace ``int`` (on both sides of the assignment) with the desired type, for
-instance, ``double``.
+replace ``int`` (on both sides of the assignment) with the desired type, like
+``double``.
 
 In addition to the example above, we can initialize an array using a literal
 expression:
@@ -157,6 +160,8 @@ will adopt this terminology from now on.
    Be prepared for push-back and negative judgement from Java coders if you
    accidentally refer to methods as “functions”.
 
+.. index:: ! static methods
+
 We’ll dive deeper into classes and objects in Java soon enough. For now, we
 will explore how to write methods. In particular, we’ll use **static methods**,
 which behave similarly to the functions you built in JavaScript.
@@ -193,111 +198,99 @@ class to which it belongs.
    .. sourcecode:: java
       :linenos:
 
-      Cat.makeNoise("roar")
+      Cat.makeNoise("roar");
 
-We’ve already explored each element of this line, however, we haven’t
-really shown you how you might create your own methods in other
-contexts. To do so involves using a different name for our method, and
-adjusting the return type and parameter types accordingly.
+Until we get further into Object Oriented Programming, every method you write
+should use the ``static`` keyword. Leaving off ``static`` will prevent or
+complicate the process of calling the methods you defined.
 
-.. raw:: html
+We will explore exactly what ``static`` does in more detail in later lessons.
 
-   <aside class="aside-warning">
+Static Method Practice
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Until we get into Object Oriented Programming, every method we write
-will have the ``static`` keyword. Leaving off ``static`` will prevent
-you from calling methods you define as you would like to.
+Let’s create two classes in Java to practice defining and using methods. The
+first class will have a ``main`` method and the second will have a method that
+we want to call from within ``main``.
 
-We will explore exactly what ``static`` does in more detail in later
-lessons.
-
-.. raw:: html
-
-   </aside>
-
-Let’s create two classes in Java to demonstrate this. One will have a
-``main`` method and the other will have a method that we want to call
-from within ``main``.
-
-.. code:: java
+.. sourcecode:: java
+   :linenos:
 
    public class HelloMethods {
 
-       public static void main(String[] args) {
-           String message = Message.getMessage("fr");
-           System.out.println(message);
-       }
+      public static void main(String[] args) {
+         String message = Message.getMessage("fr");
+         System.out.println(message);
+      }
 
    }
 
-.. code:: java
+.. sourcecode:: java
 
    public class Message {
 
-       public static String getMessage(String lang) {
+      public static String getMessage(String lang) {
 
-           if (lang.equals("sp")) {
-               return "Hola Mundo";
-           } else if (lang.equals("fr")) {
-               return "Bonjour le monde";
-           } else {
-               return "Hello World";
-           }
-       }
+         if (lang.equals("sp")) {
+            return "Hola Mundo";
+         } else if (lang.equals("fr")) {
+            return "Bonjour le monde";
+         } else {
+            return "Hello World";
+         }
+      }
    }
 
-We won’t explore every new aspect of this example, but rather will focus
-on the two methods.
-
-.. raw:: html
-
-   <aside class="aside-warning">
-
-As you’ve been following along with these examples using the code in
-IntelliJ, you’ve probably noticed that each class file, for example
-``Message.java`` and ``HelloMethods.java``, is named exactly the same as
-the class that file holds, for example ``Message`` and ``HelloMethods``
-respectively.
-
-It is a rule in Java that a file containing a class marked ``public``
-**must** be named the same as that class. So remember to name each Java
-file you create to match the public class that file contains.
-
-.. raw:: html
-
-   </aside>
+We won’t explore every new aspect of this example, but instead focus on the two
+methods.
 
 The ``main`` method in the ``HelloMethods`` class is the same in
-structure as that of our previous examples. Take a look at the
-``Message`` class. Note that it *does not* have a ``main`` method, so it
-can’t be run on it’s own. Code within the ``Message`` class must be
-called from elsewhere in order to execute.
+structure as that of our :ref:`temperature conversion example <temp-conversion>`.
 
-The ``Message`` class has a method of its own: ``getMessage``. Like
-``main``, it has the ``static`` keyword. Unlike ``main``, ``getMessage``
-has a return type of ``String``. It also has a single parameter,
-``String lang``.
+Take a look at the ``Message`` class. Note that it does NOT have a ``main``
+method, so it can’t be run on it’s own. Code within the ``Message`` class must
+be called from elsewhere in order to execute.
 
-Since Java is statically typed, each method must declare its return type
-– that is, the data type of what it will return – along with the type of
-each parameter. One consequence of this that may not be immediately
-obvious is that a method in Java may not have return statements that
-return different types of data. For example, we would not be able to
-replace the last ``return`` statement of ``getMessage`` with something
-like ``return 42;``. This would be flagged as a compiler error.
+The ``Message`` class contains the ``getMessage`` method. Like ``main``, it has
+the ``static`` keyword. Unlike ``main``, ``getMessage`` has a return type of
+``String``. It also has a single parameter, ``String lang``.
 
-Finally, let’s note how a static method is called. The first line of
-``main`` in the ``HelloMethods`` class is:
+Since Java is statically typed, creating methods will be similar to writing
+functions in TypeScript. We must declare the data type for each parameter, AND
+we must declare the data type for the return value.
 
-.. code:: java
+One consequence of this is that a method in Java may NOT have ``return``
+statements that send back different types of data. Note that lines 6, 8, and 10
+in ``getMessage`` each return a string. If we try to replace line 10 with
+``return 42;``, then we would generate a compiler error.
+
+To call a static method, we follow a specific syntax. Line 4 in the
+``HelloMethods`` example is:
+
+.. sourcecode:: java
 
    Message.getMessage("fr");
 
 To call a static method we must use the name of the class in which it is
 defined, followed by ``.``, followed by the name of the method.
 
-We are able to call this method from another class because it is
-declared to be ``public``. If we wanted to restrict the method from
-being called by another class, we could instead use the ``private``
-modifier. We’ll explore access modifiers in more depth in coming
-lessons.
+Note that ``getMessage`` is NOT defined within the ``HelloMessage`` class. We
+can do this because ``getMessage`` is declared as ``public``. If we wanted to
+restrict the method from being called by another class, we could instead use
+the ``private`` modifier. We’ll explore access modifiers in more depth in
+coming lessons.
+
+   TODO: Ask about the implications of a repository with the code samples
+   mentioned in this section.
+
+.. admonition:: Warning
+
+   As you’ve been following along with these examples using the code in
+   IntelliJ, you’ve probably noticed that each class file, for example
+   ``Message.java`` and ``HelloMethods.java``, is named exactly the same as
+   the class that file holds (``Message`` and ``HelloMethods``,
+   respectively).
+
+   It is a rule in Java that a file containing a class marked ``public``
+   **must** be named the same as that class. So remember to name each Java
+   file you create to match the public class that file contains.
