@@ -220,6 +220,8 @@ to form a ``String`` data type.
 Autoboxing
 ^^^^^^^^^^^
 
+   TODO: This section needs major revision and relocation.
+
 In older versions of Java it was the programmer’s responsibility to
 convert back and forth from a primitive to an object whenever necessary.
 This involved converting a value of a primitive type to an object type,
@@ -251,11 +253,6 @@ object types interchangeably.
 References
 ----------
 
--  `Primitive Data Types
-   (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html>`__
--  `Autoboxing and Unboxing
-   (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/data/autoboxing.html>`__
--  `Variables
-   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html>`__
--  `Arrays
-   (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html>`__
+#. `Primitive Data Types (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html>`__
+#. `Autoboxing and Unboxing (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/data/autoboxing.html>`__
+#. `Variables (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html>`__
