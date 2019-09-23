@@ -259,3 +259,8 @@ References
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html>`__
 -  `Arrays
    (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html>`__
+
+Check Your Understanding
+-------------------------
+
+Lorem ipsum...

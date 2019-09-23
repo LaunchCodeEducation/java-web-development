@@ -299,3 +299,8 @@ coming lessons.
 
    It is a rule in Java that a file containing a class marked ``public``
    MUST be named the same as that class.
+
+Check Your Understanding
+-------------------------
+
+Lorem ipsum...

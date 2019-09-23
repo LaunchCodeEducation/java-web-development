@@ -251,3 +251,8 @@ Moving Beyond the Command Line
 You will see in other examples that we can create a ``Scanner`` object by
 passing a ``File`` object as a parameter instead of ``System.in``. ``Scanner``
 serves as a kind of “adapter” that makes low level objects easier to use.
+
+Check Your Understanding
+-------------------------
+
+Lorem ipsum...
