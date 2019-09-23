@@ -92,7 +92,7 @@
 use to study example code, work on studios, and complete your first
 assignment of this unit.</p>
 <ol class="arabic">
-<li><p class="first">Create a <em>Fork</em> of <a class="reference external" href="https://github.com/LaunchCodeEducation/java-exercises" target="_blank">LaunchCodeEducation/java-exercises<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+<li><p class="first">Create a <em>Fork</em> of <a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-exercises" target="_blank">LaunchCodeEducation/java-web-dev-exercises<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 Do not clone and create a local version of this repo just yet.</p>
 </li>
 <li><p class="first">Open IntelliJ.</p>
@@ -107,7 +107,7 @@ Reopen IntelliJ.</p>
 </li>
 <li><p class="first">From the “Welcome to IntelliJ” dialog, select <em>Check out from Version
 Control &gt; Git</em>
-TODO: Get screenshots of this process.</p>
+<strong>TODO: Get screenshots of this process.</strong></p>
 </li>
 <li><p class="first">Click the button on the lower left corner of the dialog to configure your Github account.</p>
 </li>
@@ -117,10 +117,10 @@ the extra step of authenticating using a token. This takes only one
 brief extra step, and will prevent you from having to update IntelliJ
 settings if you ever change your GitHub password.</p>
 </li>
-<li><p class="first">From the URL dropdown options, select your fork of <code class="docutils literal notranslate"><span class="pre">java-exercises</span></code>,
+<li><p class="first">From the URL dropdown options, select your fork of <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>,
 along with an appropriate source destination directory (i.e.&nbsp;a folder where you’ve stored other projects for this class).</p>
 </li>
-<li><p class="first">When asked “Would you like to create and IDEA project…” select <em>Yes</em>,
+<li><p class="first">When asked “Would you like to create an IDEA project…” select <em>Yes</em>,
 and then accept all of the default options that are presented.</p>
 </li>
 </ol>
@@ -135,7 +135,7 @@ and then accept all of the default options that are presented.</p>
 run code after setting up the project, follow these steps:</p>
 <ol class="arabic simple">
 <li>Select <em>File &gt; Close Project</em>.</li>
-<li>From the IntelliJ modal window, click the <em>X</em> next to <code class="docutils literal notranslate"><span class="pre">java-exercises</span></code> in the left-hand pane.</li>
+<li>From the IntelliJ modal window, click the <em>X</em> next to <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> in the left-hand pane.</li>
 <li>From the same modal window, select <em>Import Project</em> from the right-hand pane.</li>
 <li>Follow the steps that IntelliJ guides you through, accepting all defaults. When prompted to overwrite IntelliJ settings files, you confirm that you want to do so.</li>
 </ol>
@@ -143,74 +143,85 @@ run code after setting up the project, follow these steps:</p>
 </div>
 <div class="section" id="instructions">
 <h2>1.7.3. Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h2>
-<p>Work on these exercises in the IntelliJ <code class="docutils literal notranslate"><span class="pre">java-exercises</span></code> project, creating a
-new class for each. You may name the classes whatever you like, but use
-proper <a class="reference internal" href="naming-conventions.html#naming-conventions"><span class="std std-ref">Java Naming conventions</span></a> and make sure
-that the file name matches the class name!</p>
+<p>Work on these exercises in the IntelliJ <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project. Create a
+new class for each numbered exercise. You may name the classes whatever you like, but use
+proper <a class="reference internal" href="naming-conventions.html#naming-conventions"><span class="std std-ref">Java Naming conventions</span></a> and make sure that the file name matches the class name.</p>
+<div class="section" id="creating-a-package-and-classes">
+<h3>1.7.3.1. Creating a Package and Classes<a class="headerlink" href="#creating-a-package-and-classes" title="Permalink to this headline">¶</a></h3>
 <p>Here is how to create a new package to store these exercises, and how to
 create new classes within this package:</p>
 <ol class="arabic">
 <li><p class="first">Click on the folder <code class="docutils literal notranslate"><span class="pre">src</span></code> in the Project pane, then right click and
 select <em>New</em> and then select <em>Package</em>.</p>
 <div class="figure" id="id1">
-<img alt="New Package" src="chapters/setup-intro-data-types/images/newPackage.png" />
+<img alt="New Package" src="../../_images/newPackage.png" />
 <p class="caption"><span class="caption-text">New Package</span></p>
 </div>
 </li>
 <li><p class="first">Name the package “exercises”.</p>
 <div class="figure" id="id2">
-<img alt="Name Package" src="chapters/setup-intro-data-types/images/namePackage.png" />
+<img alt="Name Package" src="../../_images/namePackage.png" />
 <p class="caption"><span class="caption-text">Name Package</span></p>
 </div>
 </li>
 <li><p class="first">Then click on the newly-created folder <code class="docutils literal notranslate"><span class="pre">exercises</span></code> and right click
 to select <em>New</em> and then select <em>Class</em>.</p>
 <div class="figure" id="id3">
-<img alt="New Class" src="chapters/setup-intro-data-types/images/newClass.png" />
+<img alt="New Class" src="../../_images/newClass.png" />
 <p class="caption"><span class="caption-text">New Class</span></p>
 </div>
 </li>
-<li><p class="first">Name the package what you will name your class (for example, in the
+<li><p class="first">Name this what you will name your class (for example, in the
 4th exercise below, you might name the class <code class="docutils literal notranslate"><span class="pre">Alice</span></code>).</p>
+<div class="figure" id="id4">
+<img alt="Name Class" src="../../_images/nameClass.png" />
+<p class="caption"><span class="caption-text">Name Class</span></p>
+</div>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">You will be asked whether you want to add this file to Git.
 Press the “Yes” button.</p>
 </div>
-<div class="figure" id="id4">
-<img alt="Name Class" src="chapters/setup-intro-data-types/images/nameClass.png" />
-<p class="caption"><span class="caption-text">Name Class</span></p>
+<div class="figure" id="id5">
+<img alt="Add class to Git" src="../../_images/addToGit.png" />
+<p class="caption"><span class="caption-text">Add class to Git</span></p>
 </div>
 </li>
 </ol>
 <ol class="arabic" start="5">
 <li><p class="first">The new class is now created! You can proceed to write code within
 it. (Don’t forget to write the <code class="docutils literal notranslate"><span class="pre">main</span></code> method!)</p>
-<div class="figure" id="id5">
-<img alt="Ready to start" src="chapters/setup-intro-data-types/images/newClassCreated.png" />
+<div class="figure" id="id6">
+<img alt="Ready to start" src="../../_images/newClassCreated.png" />
 <p class="caption"><span class="caption-text">Ready to start</span></p>
 </div>
 </li>
 </ol>
 </div>
+</div>
 <div class="section" id="exercises">
 <h2>1.7.4. Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><strong>Input/output</strong>: Modify your “Hello, World” program to prompt the
-user for their name, and greet them by name.</li>
-<li><strong>Numeric types</strong>: Write a program to calculate the area of a
+<ol class="arabic">
+<li><p class="first"><strong>Input/output</strong>: Write a new “Hello, World” program to prompt the
+user for their name and greet them by name.</p>
+</li>
+<li><p class="first"><strong>Numeric types</strong>: Write a program to calculate the area of a
 rectangle and print the answer to the console. You should prompt the
-user for the dimensions. (What data types should the dimensions be?)</li>
-<li><strong>Numeric types</strong>: Write a program that asks a user for the number of
+user for the dimensions. (What data types should the dimensions be?)</p>
+</li>
+<li><p class="first"><strong>Numeric types</strong>: Write a program that asks a user for the number of
 miles they have driven and the amount of gas they’ve consumed (in
-gallons), and print their miles-per-gallon.</li>
-<li><strong>Strings</strong>: The first sentence of <em>Alice’s Adventures in Wonderland</em>
+gallons), and print their miles-per-gallon.</p>
+</li>
+<li><p class="first"><strong>Strings</strong>: The first sentence of <em>Alice’s Adventures in Wonderland</em>
 is below. Store this sentence in a string, and then prompt the user
 for a term to search for within this string. Print whether or not the
 search term was found. See if you can make the search
-case-insensitive, so that searching for “alice”, for example, prints
-<code class="docutils literal notranslate"><span class="pre">true</span></code>.
-<code class="docutils literal notranslate"><span class="pre">nohighlight</span>&#160; <span class="pre">Alice</span> <span class="pre">was</span> <span class="pre">beginning</span> <span class="pre">to</span> <span class="pre">get</span> <span class="pre">very</span> <span class="pre">tired</span> <span class="pre">of</span> <span class="pre">sitting</span> <span class="pre">by</span> <span class="pre">her</span> <span class="pre">sister</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">bank,</span> <span class="pre">and</span> <span class="pre">of</span> <span class="pre">having</span> <span class="pre">nothing</span> <span class="pre">to</span> <span class="pre">do:</span> <span class="pre">once</span> <span class="pre">or</span> <span class="pre">twice</span> <span class="pre">she</span> <span class="pre">had</span> <span class="pre">peeped</span> <span class="pre">into</span> <span class="pre">the</span> <span class="pre">book</span> <span class="pre">her</span> <span class="pre">sister</span> <span class="pre">was</span> <span class="pre">reading,</span> <span class="pre">but</span> <span class="pre">it</span> <span class="pre">had</span> <span class="pre">no</span> <span class="pre">pictures</span> <span class="pre">or</span> <span class="pre">conversations</span> <span class="pre">in</span> <span class="pre">it,</span> <span class="pre">'and</span> <span class="pre">what</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">use</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">book,'</span> <span class="pre">thought</span> <span class="pre">Alice</span> <span class="pre">'without</span> <span class="pre">pictures</span> <span class="pre">or</span> <span class="pre">conversation?'</span></code></li>
+case-insensitive, so that searching for “alice”, for example, prints <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Alice</span> <span class="pre">was</span> <span class="pre">beginning</span> <span class="pre">to</span> <span class="pre">get</span> <span class="pre">very</span> <span class="pre">tired</span> <span class="pre">of</span> <span class="pre">sitting</span> <span class="pre">by</span> <span class="pre">her</span> <span class="pre">sister</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">bank,</span> <span class="pre">and</span> <span class="pre">of</span> <span class="pre">having</span> <span class="pre">nothing</span> <span class="pre">to</span> <span class="pre">do:</span> <span class="pre">once</span> <span class="pre">or</span> <span class="pre">twice</span> <span class="pre">she</span> <span class="pre">had</span> <span class="pre">peeped</span> <span class="pre">into</span> <span class="pre">the</span> <span class="pre">book</span> <span class="pre">her</span> <span class="pre">sister</span> <span class="pre">was</span> <span class="pre">reading,</span> <span class="pre">but</span> <span class="pre">it</span> <span class="pre">had</span> <span class="pre">no</span> <span class="pre">pictures</span> <span class="pre">or</span> <span class="pre">conversations</span> <span class="pre">in</span> <span class="pre">it,</span> <span class="pre">'and</span> <span class="pre">what</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">use</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">book,'</span> <span class="pre">thought</span> <span class="pre">Alice</span> <span class="pre">'without</span> <span class="pre">pictures</span> <span class="pre">or</span> <span class="pre">conversation?'</span></code></p>
+</div></blockquote>
+</li>
 </ol>
 </div>
 </div>
