@@ -132,7 +132,7 @@ create new classes within this package:
 
       Add class to Git
 
-5. The new class is now created! You can proceed to write code within
+#. The new class is now created! You can proceed to write code within
    it. (Don’t forget to write the ``main`` method!)
 
    .. figure:: figures/newClassCreated.png
@@ -143,15 +143,48 @@ create new classes within this package:
 Exercises
 ---------
 
-1. **Input/output**: Write a new “Hello, World” program to prompt the
+#. **Input/output**: Write a new “Hello, World” program to prompt the
    user for their name and greet them by name.
-2. **Numeric types**: Write a program to calculate the area of a
+
+   #. Follow steps 3-5 above to create a new Class inside of your exercises.
+   #. Add an import statement at the the top of the file to include Scanner:
+
+      .. sourcecode:: java
+
+         import java.util.Scanner;
+
+   #. Declare a variable of type ``Scanner`` called ``in``:
+
+      .. sourcecode:: java
+
+         Scanner in = new Scanner(System.in);
+
+   #. Add a question to ask the user:
+
+      .. sourcecode:: java
+      
+         System.out.println("Hello, what is your name:");
+
+   #. Create a variable to store the user's response using the ``Scanner``'s ``.nextLine()`` method
+
+      .. sourcecode:: java
+
+         String name = in.nextLine();
+
+   #. Use concatenation to print the greeting:
+
+      .. sourcecode:: java
+
+         System.out.println("Hello " + name);
+
+         
+#. **Numeric types**: Write a program to calculate the area of a
    rectangle and print the answer to the console. You should prompt the
    user for the dimensions. (What data types should the dimensions be?)
-3. **Numeric types**: Write a program that asks a user for the number of
+#. **Numeric types**: Write a program that asks a user for the number of
    miles they have driven and the amount of gas they’ve consumed (in
    gallons), and print their miles-per-gallon.
-4. **Strings**: The first sentence of *Alice’s Adventures in Wonderland*
+#. **Strings**: The first sentence of *Alice’s Adventures in Wonderland*
    is below. Store this sentence in a string, and then prompt the user
    for a term to search for within this string. Print whether or not the
    search term was found. See if you can make the search
