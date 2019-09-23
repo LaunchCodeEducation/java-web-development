@@ -252,6 +252,15 @@ You will see in other examples that we can create a ``Scanner`` object by
 passing a ``File`` object as a parameter instead of ``System.in``. ``Scanner``
 serves as a kind of “adapter” that makes low level objects easier to use.
 
+The ``Scanner`` class serves as a kind of adapter to gather primitive data
+types as input and convert them into object types (e.g. convert an ``int`` into
+``Integer``). For the temperature conversion program, we collected user input
+from the command line, but there are other options for inputting data into our
+programs.
+
+In future examples, we will create a ``Scanner`` object by passing a ``File``
+object as a parameter instead of ``System.in``.
+
 Check Your Understanding
 -------------------------
 

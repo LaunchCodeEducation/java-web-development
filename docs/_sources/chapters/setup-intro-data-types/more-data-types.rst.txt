@@ -58,12 +58,10 @@ Consider this code:
 
 Visually, we can represent these four variables as shown below.
 
-   TODO: Update diagram to show the two int variables.
-
 .. figure:: figures/references.png
    :alt: Reference Types
 
-   Reference Types
+   Reference Types vs. Primitive Types
 
 Since ``int`` is a primitive type, the variables ``firstCatAge`` and
 ``secondCatAge`` function like separate boxes, each one holding the integer
@@ -239,11 +237,11 @@ we want to call from within ``main``.
          public static String getMessage(String lang) {
 
             if (lang.equals("sp")) {
-               return "Hola Mundo";
+               return "¡Hola, Mundo!";
             } else if (lang.equals("fr")) {
-               return "Bonjour le monde";
+               return "Bonjour, le monde!";
             } else {
-               return "Hello World";
+               return "Hello, World!";
             }
          }
       }
@@ -265,6 +263,12 @@ Since Java is statically typed, creating methods will be similar to writing
 `functions in TypeScript <https://education.launchcode.org/intro-to-professional-web-dev/chapters/typescript/functions.html#functions-in-typescript>`__.
 We must declare the data type for each parameter, AND we must declare the data
 type for the return value.
+
+.. sourcecode:: java
+
+   public static returnedDataType methodName(parameterDataType parameterName) {
+      //code
+   }
 
 One consequence of this is that a method in Java may NOT have ``return``
 statements that send back different types of data. Note that lines 6, 8, and 10
@@ -299,3 +303,13 @@ coming lessons.
 
    It is a rule in Java that a file containing a class marked ``public``
    MUST be named the same as that class.
+
+References
+----------
+
+#. `Arrays (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html>`__
+
+Check Your Understanding
+-------------------------
+
+Lorem ipsum...
