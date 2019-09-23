@@ -205,24 +205,64 @@ to form a ``String`` data type.
 Autoboxing
 ^^^^^^^^^^^
 
+As we saw with the String data type, *object types* have methods which we can
+call using dot notation. Primitive data types do not have methods.
+
+There may be situations when an argument is of a primitive type, but the method
+called expects an object (or vice versa). In these cases, we need to convert
+the primitive type to an object, or convert an object type into a primitive.
+
+.. index:: ! boxing, ! unboxing
+
 In older versions of Java, it was the programmer’s responsibility to convert
-back and forth from a primitive type to an object type whenever necessary. This
-involved converting a value of a primitive type to an object type, or vice
-versa. It looked like this:
+back and forth between primitive types and object types whenever necessary.
+Converting from a primitive type to an object type was called **boxing**, and
+the reverse process (object to primitive) was called **unboxing**.
 
-.. sourcecode:: java
-   :linenos:
+.. admonition:: Examples
 
-   int x = 5;
-   Integer y = Integer.valueOf(x);
-   int z = (int) y;
+   **Boxing:**
 
-This processing of converting a primitive type to an object type was called
-**boxing**. The reverse process is called **unboxing**. Several versions of
-Java ago, the compiler became smart enough to know when to convert back and
-forth. This process is called **autoboxing**. The consequence of autoboxing for
-the Java programmer is that, in many situations, you can use primitive and
-object types interchangeably.
+   .. sourcecode:: java
+      :linenos:
+
+      int someInteger = 5;
+      Integer someIntegerObject = Integer.valueOf(someInteger);
+      ClassName.methodName(someIntegerObject);
+
+   #. Line 1 declares and initializes the variable ``someInteger``.
+   #. Line 2 and converts the primitive ``int`` to the ``Integer`` object type.
+   #. Line 3 calls ``methodName`` and passes ``someIntegerObject`` as the
+      argument. If ``methodName`` expects an object type and we tried sending
+      an ``int`` instead, we would generate an error message.
+
+   **Unboxing:**
+   
+   Let's assume that a method returns a random number of
+   ``Integer`` type, and we want to combine it with a value of ``int`` type.
+
+   .. sourcecode:: java
+      :linenos:
+
+      int ourNumber = 5;
+      Integer randomNumber = ClassName.randomNumberGenerator();
+      int randomInt = (int) randomNumber;
+      int sum = ourNumber + randomInt;
+
+   #. Line 2 declares and initializes ``randomNumber`` as an ``Integer`` type.
+   #. Line 3 and converts ``randomNumber`` to an ``int`` and stores the value in
+      the ``randomInt`` variable.
+
+.. index:: ! autoboxing
+
+Converting between data types in order to pass values between methods quickly
+became tedious and error prone. In the newer versions of Java, the compiler is
+smart enough to know when to convert back and forth, and this is called
+**autoboxing**.
+
+For us, the consequence of autoboxing is that in many situations, we can use
+primitive and object types interchangeably when calling methods or returning
+data from those methods.
 
 .. admonition:: Tip
 
@@ -230,7 +270,13 @@ object types interchangeably.
    exception to this occurs when storing values in collections, which we’ll
    learn about in a future lesson.
 
-.. _references-1:
+Each of the primitive data types has a corresponding object type:
+
+#. ``int`` ---> ``Integer``
+#. ``float`` ---> ``Float``
+#. ``double`` ---> ``Double``
+#. ``char`` ---> ``Char``
+#. ``boolean`` ---> ``Boolean``
 
 References
 ----------
