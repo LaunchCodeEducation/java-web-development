@@ -1,25 +1,22 @@
 Data Types
 ===========
 
-Java handles values and variables differently than JavaScript, but in a similar
-manner to `TypeScript chapter <https://education.launchcode.org/intro-to-professional-web-dev/chapters/typescript/variables.html>`__.
-
 Static vs. Dynamic Typing
 -------------------------
 
 .. index:: ! dynamically typed, ! statically typed
-
-JavaScript is a **dynamically typed** language, which means that a variable or
-parameter can refer to a value of any data type (string, number, object, etc.)
-at any time. When the variable is used, the interpreter figures out what type
-it is and behaves accordingly.
 
 Java is a **statically typed** language. When a variable or parameter is
 declared in a statically typed language, the data type for the value must be
 specified. Once the declaration is made, the variable or parameter cannot refer
 to a value of any other type.
 
-For example, this is legal in JavaScript:
+Statically typed languages differ from **dynamically typed** languages. In dynamically
+typed languages, a variable or parameter can refer to a value of any data type 
+(string, number, object, etc.) at any time. When the variable is used, the interpreter 
+figures out what type it is and behaves accordingly.
+
+For example, this is legal in JavaScript, a dynamically typed language:
 
 .. admonition:: Example
 
@@ -84,95 +81,80 @@ are a few examples of popular languages falling into these two categories:
 #. **Dynamic**: Python, Ruby, Javascript, PHP
 #. **Static**: Java, C, C++, C#, TypeScript
 
-This major difference between JavaScript and Java means that we need to pay
-much more attention to types when writing Java code. Let’s begin by exploring
-the most common data types in this language.
+Because we need to give plenty of attention to types when writing Java code, let’s begin 
+by exploring the most common data types in this language.
 
-String
--------
+Strings and Single Characters
+-----------------------------
 
-Strings in Java and JavaScript are quite similar. Like JavaScript, Java strings
-are immutable. However, unlike JavaScript, there IS a difference between using
-single and double quotes around strings.
+Immutability
+^^^^^^^^^^^^
 
-.. admonition:: Examples
+Strings in Java are immutable. This means a string cannot be changed; A given character 
+inside a string in cannot be changed. 
 
-   The following JavaScript declarations are all valid:
+Single vs. Double Quotation Marks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   #. ``let str = 'LaunchCode'``;
-   #. ``let str = "LaunchCode"``;
-   #. ``let str = 'A'``;
-   #. ``let str = "A"``;
+Java syntax requires double quotation marks when declaring strings. 
 
-   In Java, single quotes are used around the single character data type
-   ``char``. Double quotes enclose String data types:
+Java has another variable type, ``char``, which is used for a single character. ``char`` 
+uses single quotation marks. The single character can be a letter, digit, punctuation, 
+or whitespace like tab (``'\t'``).
 
-   #. ``char charVariable = 'a'``;
-   #. ``String stringVariable = "LaunchCode"``;
+.. sourcecode:: java
+   :linenos:
 
-   The single character can be a letter, digit, punctuation, or whitespace like
-   tab (``'\t'``).
+   String staticVariable = "dog";
+   char charVariable = 'd';
 
-Manipulating strings in Java looks similar to our experience with JavaScript,
-but with a slightly different syntax. The table below summarizes the
-differences between the string methods available for the two languages. For the
-examples shown in the table, we will use the string variable
+
+Manipulation
+^^^^^^^^^^^^
+
+The table below summarizes some of the most common string methods available in Java.
+the two languages. For the examples shown in the table, we use the string variable
 ``String str = "Rutabaga"``.
 
-.. list-table:: String manipulations in JavaScript vs. Java
+.. list-table:: String manipulations in Java
    :header-rows: 1
 
-   * - JavaScript
-     - Java
+   * - Java Syntax
      - Description
-   * - ``str[3]``
-     - ``str.charAt(3)``
+   * - ``str.charAt(3)``
      - Returns the character at index 3, (``'a'``).
-   * - ``str[2:5]``
-     - ``str.substring(2,4)``
+   * - ``str.substring(2,4)``
      - Returns the characters from indexes 2 - 4, (``"tab"``).
-   * - ``str.length``
-     - ``str.length()``
+   * - ``str.length()``
      - Returns the length of the string.
    * - ``str.indexOf('a')``
-     - ``str.indexOf('a')``
      - Returns the index for the first occurrence of 'a', (``3``).
-   * - ``str.split('delimiter')``
-     - ``str.split('delimiter')``
+   * - ``str.split(<delimiter>)``
      - Splits the string into sections at each ``delimiter`` and stores the
        sections as elements in an array.
-   * - ``str.concat(string2, string3, ...)``
-     - ``str.concat(string2).concat(string3)``
+   * - ``str.concat(string2).concat(string3)``
      - In Java, ``concat`` concatenates only two strings. To join multiple
        strings, method chaining is required.
    * - ``str.trim()``
-     - ``str.trim()``
      - Removes any whitespace at the beginning or end of the string.
    * - ``str.toUpperCase(), str.toLowerCase()``
-     - ``str.toUpperCase(), str.toLowerCase()``
      - Changes all alphabetic characters in the string to UPPERCASE or
        lowercase, respectively.
-   * - ``str.includes("text")``
-     - ``str.contains("text")``
+   * - ``str.contains("text")``
      - Searches for the specified text within a string and returns ``true`` or
        ``false``.
-   * - ``str === otherString``
-     - ``str.equals(otherString)``
-     - Compares strings for equality and returns a boolean. Java does NOT have
-       a corresponding operator for the strict equality ``===`` used in JavaScript.
+   * - ``str.equals(otherString)``
+     - Compares strings for equality and returns a boolean. 
+     
+.. Note::
+
+   Java does NOT have an operator for comparing strict equality between two objects.
 
 Primitive Types
 ----------------
 
-In the `More on Types <https://education.launchcode.org/intro-to-professional-web-dev/chapters/more-on-types/index.html>`__
-chapter from unit 1, you learned about 5 primitive data types used by
-JavaScript.
-
-#. Strings
-#. Numbers
-#. Booleans
-#. ``undefined``
-#. ``null``
+A primitive data type is a basic building block. Using primitive data types, we can build 
+more complex data structures or object data types.
 
 Java uses its own a set of primitive data types. The table below shows the most
 common types that beginners are likely to encounter. A more complete list can
@@ -201,8 +183,7 @@ be found on the
      - ``true`` and ``false``
      - Booleans in Java are NOT capitalized.
 
-Java uses 3 primitive data types to express different types of numbers, whereas
-JavaScript captures all of these in the ``number`` type.
+Java uses 3 primitive data types to express different types of numbers.
 
 .. admonition:: Warning
 
@@ -214,16 +195,19 @@ JavaScript captures all of these in the ``number`` type.
    the ``double`` type instead of ``float``.
 
 Primitive data types are *immutable* and can be combined to build larger data
-structures like arrays and objects. One example is combining multiple ``char``
+structures, like arrays and objects. One example is combining multiple ``char``
 to form a ``String`` data type.
+
+.. note::
+
+   Primitive data types in Java are identified as starting with a lower case letter, while
+   object data types in Java begin with a capital letter.
 
 Autoboxing
 ^^^^^^^^^^^
 
-   TODO: This section needs major revision and relocation.
-
-In older versions of Java it was the programmer’s responsibility to
-convert back and forth from a primitive to an object whenever necessary.
+In older versions of Java, it was the programmer’s responsibility to
+convert back and forth from a primitive type to an object type whenever necessary.
 This involved converting a value of a primitive type to an object type,
 or vice versa. It looked like this:
 
@@ -234,13 +218,11 @@ or vice versa. It looked like this:
    Integer y = Integer.valueOf(x);
    int z = (int) y;
 
-This processing of converting a primitive to an object (e.g.
-``Integer y = Integer.valueOf(x)``) was called **boxing**. The reverse
-process (e.g. ``int z = (int) y``) is called **unboxing**. In Java 5,
-the compiler became smart enough to know when to convert back and forth.
-This process is called **autoboxing**. The consequence of autoboxing for
-the Java programmer is that in many situations you can use primitive and
-object types interchangeably.
+This processing of converting a primitive type to an object type was called **boxing**. 
+The reverse process is called **unboxing**. Several versions of Java ago, the compiler 
+became smart enough to know when to convert back and forth. This process is called 
+**autoboxing**. The consequence of autoboxing for the Java programmer is that, in many 
+situations, you can use primitive and object types interchangeably.
 
 .. admonition:: Tip
 
@@ -260,4 +242,20 @@ References
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   Which of the following is not a number data type in Java:
+
+   #. number
+   #. int
+   #. float
+   #. double
+
+.. admonition:: Question
+
+   Name the Java method responsible for checking string equality:
+
+   #. .isEqualTo()
+   #. .sameAs()
+   #. .equals()
+   #. ===
