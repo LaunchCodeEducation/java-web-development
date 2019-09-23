@@ -125,7 +125,9 @@ and then accept all of the default options that are presented.</p>
 </ol>
 <p>With that, you’re ready to go!</p>
 <p>Here’s a video walking through the last 4 steps above:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OPCaYVXRm_c" frameborder="0" allowfullscreen></iframe></div>
+<div class="youtube-wrapper">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/OPCaYVXRm_c" frameborder="0" allowfullscreen></iframe>
+</div></div>
 <div class="section" id="troubleshooting">
 <h2>1.7.2. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="classnotfoundexception">
@@ -246,11 +248,26 @@ user for their name and greet them by name.</p>
 </pre></div>
 </div>
 </li>
+<li><p class="first">Right click the arrow next to your class and run the program.</p>
+</li>
 </ol>
 </li>
 <li><p class="first"><strong>Numeric types</strong>: Write a program to calculate the area of a
 rectangle and print the answer to the console. You should prompt the
 user for the dimensions. (What data types should the dimensions be?)</p>
+<ol class="arabic simple">
+<li>Follow steps 3-5 above to create a new Class inside of your exercises.</li>
+<li>Add an import statement at the top of your file to use <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>.</li>
+<li>Add a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object to handle the user’s input.</li>
+<li>Add a print line to prompt the user for length of the rectangle.</li>
+<li>Define a variable to handle the user’s response. Now is the time to know what type the
+dimension will be.</li>
+<li>Repeat the previous two steps to ask for and store the rectangle width.</li>
+<li>Use the length and width values to calculate the rectangle’s area.</li>
+<li>Print a statement using concatenation to communicate to the user what the area of
+their rectangle is.</li>
+<li>Run the program to verify your code.</li>
+</ol>
 </li>
 <li><p class="first"><strong>Numeric types</strong>: Write a program that asks a user for the number of
 miles they have driven and the amount of gas they’ve consumed (in

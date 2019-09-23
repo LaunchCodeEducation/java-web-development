@@ -40,7 +40,9 @@ Here’s a video walking through the last 4 steps above:
 
 .. raw:: html
 
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/OPCaYVXRm_c" frameborder="0" allowfullscreen></iframe>
+   <div class="youtube-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/OPCaYVXRm_c" frameborder="0" allowfullscreen></iframe>
+   </div>
 
 
 
@@ -176,11 +178,26 @@ Exercises
       .. sourcecode:: java
 
          System.out.println("Hello " + name);
+   
+   #. Right click the arrow next to your class and run the program.
 
-         
+
 #. **Numeric types**: Write a program to calculate the area of a
    rectangle and print the answer to the console. You should prompt the
    user for the dimensions. (What data types should the dimensions be?)
+   
+   #. Follow steps 3-5 above to create a new Class inside of your exercises.
+   #. Add an import statement at the top of your file to use ``Scanner``.
+   #. Add a ``Scanner`` object to handle the user's input.
+   #. Add a print line to prompt the user for length of the rectangle.
+   #. Define a variable to handle the user's response. Now is the time to know what type the 
+      dimension will be.
+   #. Repeat the previous two steps to ask for and store the rectangle width.
+   #. Use the length and width values to calculate the rectangle's area.
+   #. Print a statement using concatenation to communicate to the user what the area of 
+      their rectangle is. 
+   #. Run the program to verify your code.
+
 #. **Numeric types**: Write a program that asks a user for the number of
    miles they have driven and the amount of gas they’ve consumed (in
    gallons), and print their miles-per-gallon.
