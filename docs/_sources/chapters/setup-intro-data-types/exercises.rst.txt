@@ -25,11 +25,10 @@ assignment of this unit.
    Control > Git*
    **TODO: Get screenshots of this process.**
 #. Click the button on the lower left corner of the dialog to configure your Github account.
-#. The first time you use GitHub within IntelliJ, you’ll have to
-   configure IntelliJ to use your GitHub account. We recommend taking
-   the extra step of authenticating using a token. This takes only one
-   brief extra step, and will prevent you from having to update IntelliJ
-   settings if you ever change your GitHub password.
+#. To work with a remote repository in IntelliJ, you need to configure the program to access 
+   your GitHub account. We recommend taking the extra step of authenticating using a token. 
+   This takes only one brief extra step, and will prevent you from having to update IntelliJ
+   settings when you ever change your GitHub password.
 #. From the URL dropdown options, select your fork of ``java-web-dev-exercises``, 
    along with an appropriate source destination directory (i.e. a folder where you’ve stored other projects for this class).
 #. When asked “Would you like to create an IDEA project…” select *Yes*, 
@@ -41,19 +40,9 @@ Here’s a video walking through the last 4 steps above:
 
 .. raw:: html
 
-   <div class="youtube-wrapper">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/OPCaYVXRm_c" frameborder="0" allowfullscreen></iframe>
 
-.. raw:: html
 
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/OPCaYVXRm_c" frameborder="0" allowfullscreen>
-
-.. raw:: html
-
-   </iframe>
-
-.. raw:: html
-
-   </div>
 
 Troubleshooting
 ---------------
@@ -64,10 +53,30 @@ ClassNotFoundException
 If you experience ``java.lang.ClassNotFoundException`` when trying to
 run code after setting up the project, follow these steps: 
 
-#. Select *File > Close Project*.
-#. From the IntelliJ modal window, click the *X* next to ``java-web-dev-exercises`` in the left-hand pane.
+#. Select *File > Close Project*. If you have any other IntelliJ projects open,
+   close them as well.
+
+   .. figure:: figures/closeProject.png
+      :alt: Close Project
+
+      Close Project
+
+#. You should see the IntelliJ startup window, click the *X* next to 
+   ``java-web-dev-exercises`` in the left-hand pane.
+
+   .. figure:: figures/startupWithProject.png
+      :alt: Startup with Project
+
+      Startup with Project
+
 #. From the same modal window, select *Import Project* from the right-hand pane.
-#. Follow the steps that IntelliJ guides you through, accepting all defaults. When prompted to overwrite IntelliJ settings files, you confirm that you want to do so.
+
+   .. figure:: figures/startupWithoutProject.png
+      :alt: Startup without Project
+
+      Startup without Project
+
+#. Follow the steps that IntelliJ guides you through, accepting all defaults. When prompted to overwrite IntelliJ settings files, confirm that you want to do so.
 
 
 Instructions
@@ -98,8 +107,7 @@ create new classes within this package:
 
       Name Package
 
-#. Then click on the newly-created folder ``exercises`` and right click
-   to select *New* and then select *Class*.
+#. Right-click on the newly created exercises folder. Select *New* and then *Java Class*.
 
    .. figure:: figures/newClass.png
       :alt: New Class
