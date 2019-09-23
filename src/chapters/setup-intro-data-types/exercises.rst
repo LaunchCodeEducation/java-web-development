@@ -94,8 +94,8 @@ Creating a Package and Classes
 Here is how to create a new package to store these exercises, and how to
 create new classes within this package:
 
-#. Click on the folder ``src`` in the Project pane, then right click and
-   select *New* and then select *Package*.
+#. Click on the folder ``src`` in the Project pane, then right-click (or control-click for 
+   some Mac users) and select *New* and then select *Package*.
 
    .. figure:: figures/newPackage.png
       :alt: New Package
@@ -109,7 +109,7 @@ create new classes within this package:
 
       Name Package
 
-#. Right-click on the newly created exercises folder. Select *New* and then *Java Class*.
+#. Right-click/Control-click on the newly created exercises folder. Select *New* and then *Java Class*.
 
    .. figure:: figures/newClass.png
       :alt: New Class
@@ -179,7 +179,7 @@ Exercises
 
          System.out.println("Hello " + name);
    
-   #. Right click the arrow next to your class and run the program.
+   #. Right-click/Control-click the arrow next to your class and run the program.
 
 
 #. **Numeric types**: Write a program to calculate the area of a
