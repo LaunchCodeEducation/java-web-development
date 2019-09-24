@@ -23,28 +23,86 @@ assignment of this unit.
 
 #. From the “Welcome to IntelliJ” dialog, select *Check out from Version
    Control > Git*
-   **TODO: Get screenshots of this process.**
-#. Click the button on the lower left corner of the dialog to configure your Github account.
-#. To work with a remote repository in IntelliJ, you need to configure the program to access 
-   your GitHub account. We recommend taking the extra step of authenticating using a token. 
-   This takes only one brief extra step, and will prevent you from having to update IntelliJ
-   settings when you ever change your GitHub password.
+
+   .. figure:: figures/IntelliJVCS.png
+      :alt: IntelliJ VCS
+
+      IntelliJ VCS
+
+#. Click the button on the lower left corner of the dialog to log in to your Github account.
+
+   .. figure:: figures/IntelliJGithub.png
+      :alt: IntelliJ Github
+
+      IntelliJ Github
+
+   .. note::
+
+      To work with a remote repository in IntelliJ, you need to configure the program to access 
+      your GitHub account. We recommend authenticating your account using a token. 
+      This takes only one brief extra step, and will prevent you from having to update IntelliJ
+      settings when you ever change your GitHub password.
+
 #. From the URL dropdown options, select your fork of ``java-web-dev-exercises``, 
-   along with an appropriate source destination directory (i.e. a folder where you’ve stored other projects for this class).
-#. When asked “Would you like to create an IDEA project…” select *Yes*, 
-   and then accept all of the default options that are presented.
+   along with an appropriate source destination directory (i.e. a folder where you’ve stored 
+   other projects for this class).
+
+   .. figure:: figures/IntelliJRepoSelection.png
+      :alt: IntelliJ Repo Selection
+
+      IntelliJ Repo Selection
+
+#. When asked “Would you like to create an IDEA project…” select *Yes*. 
+
+   .. figure:: figures/IntelliJAddFileToGit.png
+      :alt: IntelliJ Add File To Git
+
+      IntelliJ Add File To Git
+
+#. You'll then be presented with several pages that ask you about other settings
+   for your project. Select the *Next* button on all of these pages, accepting the
+   default settings.
+
+#. When your project is ready, you'll see a page that looks like the image below. 
+   Click on the area in the top left labelled *Project*.
+
+   .. figure:: figures/IntelliJNewProject.png
+      :alt: IntelliJ New Project
+
+      IntelliJ New Project
+
+#. Clicking on *Project* opens a side panel, displaying the file structure of the 
+   project you have just set up.
+
+   .. figure:: figures/IntelliJProjectWindow.png
+      :alt: IntelliJ Project Window
+
+      IntelliJ Project Window
+
+#. Double-clicking on the *Hello* file opens the file to the right.
+
+   .. figure:: figures/IntelliJOpenFile.png
+      :alt: IntelliJ Open File
+
+      IntelliJ Open File
+
+#. To run the *Hello* program, click on the green arrow next to the class definition
+   and select *Run 'Hello.main()'* from the dropdown menu.
+
+   .. figure:: figures/IntelliJRunFile.png
+      :alt: IntelliJ Run File
+
+      IntelliJ Run File
+
+   After a few seconds, you should see a new window appear with your program's 
+   output.
+
+   .. figure:: figures/IntelliJFileOutput.png
+      :alt: IntelliJ File Output
+
+      IntelliJ File Output
 
 With that, you’re ready to go!
-
-Here’s a video walking through the last 4 steps above:
-
-.. raw:: html
-
-   <div class="youtube-wrapper">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/OPCaYVXRm_c" frameborder="0" allowfullscreen></iframe>
-   </div>
-
-
 
 Troubleshooting
 ---------------
@@ -71,7 +129,7 @@ run code after setting up the project, follow these steps:
 
       Startup with Project
 
-#. From the same modal window, select *Import Project* from the right-hand pane.
+#. From the same startup window, select *Import Project* from the right-hand pane.
 
    .. figure:: figures/startupWithoutProject.png
       :alt: Startup without Project
@@ -109,7 +167,7 @@ create new classes within this package:
 
       Name Package
 
-#. Right-click/Control-click on the newly created exercises folder. Select *New* and then *Java Class*.
+#. Right-click/Control-click on the newly created ``exercises`` folder. Select *New* and then *Java Class*.
 
    .. figure:: figures/newClass.png
       :alt: New Class
@@ -134,7 +192,7 @@ create new classes within this package:
 
       Add class to Git
 
-#. The new class is now created! You can proceed to write code within
+#. You created the new class! You can proceed to write code within
    it. (Don’t forget to write the ``main`` method!)
 
    .. figure:: figures/newClassCreated.png
@@ -148,18 +206,19 @@ Exercises
 #. **Input/output**: Write a new “Hello, World” program to prompt the
    user for their name and greet them by name.
 
-   #. Follow steps 3-5 above to create a new Class inside of your exercises.
-   #. Add an import statement at the the top of the file to include Scanner:
+   #. Follow steps 3-5 above to create a new ``HelloWorld`` Class inside of 
+      your ``exercises`` folder.
+   #. Add an import statement at the the top of the file to include ``Scanner``:
 
       .. sourcecode:: java
 
          import java.util.Scanner;
 
-   #. Declare a variable of type ``Scanner`` called ``in``:
+   #. Declare a variable of type ``Scanner`` called ``input``:
 
       .. sourcecode:: java
 
-         Scanner in = new Scanner(System.in);
+         Scanner input = new Scanner(System.in);
 
    #. Add a question to ask the user:
 
@@ -171,7 +230,7 @@ Exercises
 
       .. sourcecode:: java
 
-         String name = in.nextLine();
+         String name = input.nextLine();
 
    #. Use concatenation to print the greeting:
 
@@ -189,10 +248,17 @@ Exercises
    #. Follow steps 3-5 above to create a new Class inside of your exercises.
    #. Add an import statement at the top of your file to use ``Scanner``.
    #. Add a ``Scanner`` object to handle the user's input.
-   #. Add a print line to prompt the user for length of the rectangle.
-   #. Define a variable to handle the user's response. Now is the time to know what type the 
-      dimension will be.
-   #. Repeat the previous two steps to ask for and store the rectangle width.
+   #. Add a print line to prompt the user for the length of the rectangle.
+   #. Define a variable to handle the user's response. 
+      Now is the time to know what type the dimension will be.
+
+      .. tip:: 
+      
+         You'll need to use a different ``Scanner`` method than what we used
+         in Exercise 1 above.
+
+
+   #. Repeat the previous two steps to ask for and store the rectangle's width.
    #. Use the length and width values to calculate the rectangle's area.
    #. Print a statement using concatenation to communicate to the user what the area of 
       their rectangle is. 
@@ -204,7 +270,7 @@ Exercises
 #. **Strings**: The first sentence of *Alice’s Adventures in Wonderland*
    is below. Store this sentence in a string, and then prompt the user
    for a term to search for within this string. Print whether or not the
-   search term was found. See if you can make the search
-   case-insensitive, so that searching for “alice”, for example, prints ``true``.
+   search term was found. Make the search case-insensitive, so that searching 
+   for “alice”, for example, prints ``true``.
 
       ``Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, 'and what is the use of a book,' thought Alice 'without pictures or conversation?'``
