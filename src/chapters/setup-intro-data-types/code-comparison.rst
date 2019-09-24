@@ -1,10 +1,10 @@
 A Code Observation
 ==================
 
-Let’s observe a simple temperature conversion program written in Java. We want 
+Let’s observe a simple temperature conversion program written in Java. We want
 our function to convert a Fahrenheit temperature to Celsius.
 
-   TODO: Move instructions about forking the java-web-dev-exercises here so 
+   TODO: Move instructions about forking the java-web-dev-exercises here so
    students can code along
 
    TODO: Make note of the scanner.close() method??
@@ -13,7 +13,7 @@ our function to convert a Fahrenheit temperature to Celsius.
 
 .. sourcecode:: java
    :linenos:
-   
+
    package org.launchcode.java.demos.javawebdevelopment;
 
    import java.util.Scanner;
@@ -47,24 +47,25 @@ at them in the following order:
 ``import``
 -----------
 
-The ``import`` statement in Java allows us to access the class, functions, 
-or data stored in a module that has not been defined in our current file. The 
-Java ``import`` statement tells the compiler that we are going to use a 
-shortened version of the class name. In this example, we are going to use the 
-class ``java.util.Scanner``, but we can refer to it as just ``Scanner``. We 
-could use the ``java.util.Scanner`` class without any problem and without any 
+The ``import`` statement in Java allows us to access the class, functions,
+or data stored in a module that has not been defined in our current file. The
+Java ``import`` statement tells the compiler that we are going to use a
+shortened version of the class name. In this example, we are going to use the
+class ``java.util.Scanner``, but we can refer to it as just ``Scanner``. We
+could use the ``java.util.Scanner`` class without any problem and without any
 import statement, provided that we always referred to it by its full name.
 
-In Java, you can use any class that is available WITHOUT having to import the 
+In Java, you can use any class that is available WITHOUT having to import the
 class, but you must adhere to two very important conditions:
 
-   TODO: Do we talk about javac here if we ask them to run this program in IntelliJ?
-   Or is this a better example in the terminal?
+   TODO: Do we talk about javac here if we ask them to run this program in
+   IntelliJ? Or is this a better example in the terminal?
 
 #. The ``javac`` and ``java`` commands must know that the class exists.
 #. You must use the full name of the class.
 
-   TODO: This try it requires comments in Java, which have not been introduced yet
+   TODO: This try it requires comments in Java, which have not been introduced
+   yet
 
 .. admonition:: Try It
 
@@ -116,10 +117,10 @@ try something like:
 
 .. sourcecode:: java
 
-   fahrenheit = "xyz" 
-   
-The compiler throws an error because ``"xyz"`` is a string and ``fahrenheit`` 
-is supposed to be a double. 
+   fahrenheit = "xyz"
+
+The compiler throws an error because ``"xyz"`` is a string and ``fahrenheit``
+is supposed to be a double.
 
 The variable ``input`` references a ``Scanner`` object.
 
@@ -131,7 +132,7 @@ manually compile our program using ``javac TempConv.java`` on the command line?
 
    #. Edit your ``TempConv.java`` class to omit the line declaring the variable
       ``celcius``.
-   #. Using your terminal, navigate to the parent directory of your 
+   #. Using your terminal, navigate to the parent directory of your
       ``TempConv.java`` class and run ``javac TempConv.java``.
 
 Your terminal will return some errors that resemble these below:
@@ -171,7 +172,7 @@ is enough.
 
 .. admonition:: Note
 
-   As in other languages, in Java you may declare and initialize your variables 
+   As in other languages, in Java you may declare and initialize your variables
    in the same line: ``double celsius = (fahrenheit - 32) * 5.0/9.0;``.
 
 .. _input-output-scanner:
@@ -179,8 +180,8 @@ is enough.
 Input / Output and the ``Scanner`` Class
 -----------------------------------------
 
-For our temperature conversion program, we created a ``Scanner`` object and 
-assigned it to the variable ``input``. In Java, ``Scanner`` objects make 
+For our temperature conversion program, we created a ``Scanner`` object and
+assigned it to the variable ``input``. In Java, ``Scanner`` objects make
 getting input from the user, a file, or even over the network relatively easy.
 
 In this case, we want to prompt the user to enter in a number in the command
@@ -203,7 +204,7 @@ declared to be a ``Scanner`` object earlier. ``System.in`` is similar to
    ``println``, you are not alone. We will talk about the reasons why this is so
    when we dive into Java streams.
 
-After prompting the user, we use the ``Scanner`` object ``input`` to read in a 
+After prompting the user, we use the ``Scanner`` object ``input`` to read in a
 number from the command line:
 
 .. sourcecode:: java
@@ -263,13 +264,13 @@ find them in the next chapter.
 Moving Beyond the Command Line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``Scanner`` class serves as a kind of adapter that gathers primitive data 
-types as input and converts them into object types (e.g. it converts an ``int`` 
-into ``Integer``). We will discuss the purpose of this later, but for now, 
-know that this adaptation makes these low level objects easier to use. 
+The ``Scanner`` class serves as a kind of adapter that gathers primitive data
+types as input and converts them into object types (e.g. it converts an ``int``
+into ``Integer``). We will discuss the purpose of this later, but for now,
+know that this adaptation makes these low level objects easier to use.
 
-For the temperature conversion program, we collected user input from the 
-command line, but there are other options for inputting data into our programs. 
+For the temperature conversion program, we collected user input from the
+command line, but there are other options for inputting data into our programs.
 In future examples, we will create a ``Scanner`` object by passing a ``File``
 object as a parameter instead of ``System.in``.
 
