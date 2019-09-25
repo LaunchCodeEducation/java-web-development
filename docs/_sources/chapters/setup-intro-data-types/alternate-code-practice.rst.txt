@@ -5,84 +5,81 @@ Let’s move beyond our "Hello, World" example and explore a simple temperature
 conversion program. We want our function to convert a Fahrenheit temperature to
 Celsius.
 
-Start a New Project
---------------------
+Temperature Conversion
+-----------------------
 
-Create a new IntelliJ project and title it ``TempConverter``.
+If you need to review the steps for creating a new IntelliJ project, refer
+back to the :ref:`First Java Program <create-new-java-project>` instructions.
 
-   .. figure:: figures/IntelliJWelcome.png
-      :alt: Welcome window for IntelliJ
+#. Create a new project and call it ``TempConverter``.
+#. Right-click (or control-click) on the ``src`` folder. Select *New*, then
+   *Java Class*.
 
-#. On the *New Project* screen, we will use all of the default settings. Just
-   click *Next* in the lower corner of the second and third windows.
-#. On the fourth screen, enter ``TempConverter`` for the name of the project.
-   Click on the "3-dot" button to select a location to save the project.
+   .. figure:: figures/create-new-class.png
+      :alt: Create the TempConverter class.
 
-   .. figure:: figures/IntelliJNewProject.png
-      :alt: New project window for IntelliJ
+#. You should see the following empty class in the editor panel:
 
-#. Click *Finish* to create the project.
+   .. figure:: figures/TempConverter-class.png
+      :alt: New TempConverter class.
 
-   TODO: Make note of the scanner.close() method??
+#. Cut and paste the following code into the editor. We will analyze the
+   different statements in a moment.
 
-.. sourcecode:: java
-   :linenos:
+   .. sourcecode:: java
+      :linenos:
 
-   package org.launchcode.java.demos.javawebdevelopment;
+      import java.util.Scanner;
 
-   import java.util.Scanner;
+      public class TempConverter {
+         public static void main(String[] args) {
+            double fahrenheit;
+            double celsius;
+            Scanner input;
 
-   public class TempConv {
-      public static void main(String[] args) {
-         double fahrenheit;
-         double celsius;
-         Scanner input;
+            input = new Scanner(System.in);
+            System.out.println("Enter the temperature in Fahrenheit: ");
+            fahrenheit = input.nextDouble();
+            input.close();
 
-         input = new Scanner(System.in);
-         System.out.println("Enter the temperature in Fahrenheit: ");
-         fahrenheit = input.nextDouble();
-         input.close();
-
-         celsius = (fahrenheit - 32) * 5.0/9.0;
-         System.out.println("The temperature in Celsius is: " + celsius + " degrees.");
+            celsius = (fahrenheit - 32) * 5/9;
+            System.out.println("The temperature in Celsius is: " + celsius + "°C");
+         }
       }
-   }
+
+#. Build and run the program to verify that it works. Entering a Fahrenheit
+   temperature of ``212`` yields the result, ``The temperature in Celsius is:
+   100.0°C``.
 
 There are several new concepts introduced in this example. We will look
 at them in the following order:
 
-#. Import statement
-#. Variable declaration
-#. Input/output and the Scanner class
+#. The ``import`` statement
+#. Declaring variables
+#. Collecting input with the Scanner class
 
 ``import``
 -----------
 
-The ``import`` statement in Java allows us to access the class, functions,
-or data stored in a module that has not been defined in our current file. The
-Java ``import`` statement tells the compiler that we are going to use a
-shortened version of the class name. In this example, we are going to use the
-class ``java.util.Scanner``, but we can refer to it as just ``Scanner``. We
-could use the ``java.util.Scanner`` class without any problem and without any
-import statement, provided that we always referred to it by its full name.
+The ``import`` statement in Java allows us to access the class, methods, and
+data stored a different file. ``import`` tells the compiler that we are going
+to use a shortened version of the class name. In this example, we are going to
+use the class ``java.util.Scanner``, but we can refer to it as just
+``Scanner``. We could use the ``java.util.Scanner`` class without any problem
+and without any import statement, provided that we always referred to it by its
+full name.
 
 In Java, you can use any class that is available WITHOUT having to import the
 class, but you must adhere to two very important conditions:
 
-   TODO: Do we talk about javac here if we ask them to run this program in
-   IntelliJ? Or is this a better example in the terminal?
-
 #. The ``javac`` and ``java`` commands must know that the class exists.
 #. You must use the full name of the class.
 
-   TODO: This try it requires comments in Java, which have not been introduced
-   yet
-
 .. admonition:: Try It
 
-   In the Java temperature conversion program, comment out the ``import``
-   statement in line 1, and change ``Scanner`` on lines 7 & 9 to
-   ``java.util.Scanner``. The program should still compile and run.
+   In the sample code, remove the ``import`` statement in line 1, and change
+   ``Scanner`` on lines 7 & 9 to ``java.util.Scanner``. The program should
+   still compile and run.
 
 The class naming system in Java is very hierarchical. The *full* name of the
 ``Scanner`` class is really ``java.util.Scanner``. You can think of this name
@@ -112,67 +109,73 @@ exist? We have these rules:
 Declaring Variables
 --------------------
 
-In the example above, these lines contain variable declarations:
+In the example above, lines 5 - 7 contain variable declarations:
 
 .. sourcecode:: java
+   :lineno-start: 5
 
    double fahrenheit;
    double celsius;
    Scanner input;
 
-Specifically we are saying that ``fahrenheit`` and ``celsius`` are going to
-reference objects that are of type ``double``. This means that if we were to
-try something like:
+Since Java is a statically typed language, we must always declare the data type
+for any variable. Lines 5 & 6 establish that ``fahrenheit`` and ``celsius``
+will hold values of type ``double``. In line 7, the variable ``input``
+references a ``Scanner`` object.
+
+If later in the code we try to initialize ``fahrenheit`` with a string:
 
 .. sourcecode:: java
 
    fahrenheit = "xyz"
 
-The compiler throws an error because ``"xyz"`` is a string and ``fahrenheit``
-is supposed to be a double.
-
-The variable ``input`` references a ``Scanner`` object.
+the compiler throws an error because ``fahrenheit`` is supposed to be a double.
 
 The following error is common for new Java programmers. Suppose we forget to
 include the declaration for ``celsius``. What happens if we try to
-manually compile our program using ``javac TempConv.java`` on the command line?
+manually compile our program using ``javac TempConverter.java`` on the command
+line?
 
 .. admonition:: Try It
 
-   #. Edit your ``TempConv.java`` class to omit the line declaring the variable
-      ``celcius``.
+   #. Edit your ``TempConverter`` class by removing line 6, which declares the
+      variable ``celsius``.
    #. Using your terminal, navigate to the parent directory of your
-      ``TempConv.java`` class and run ``javac TempConv.java``.
+      ``TempConverter.java`` class and run ``javac TempConverter.java``.
 
-Your terminal will return some errors that resemble these below:
+Your terminal will return some errors that resemble these:
 
 .. sourcecode:: bash
 
-   Main.java:19: cannot find symbol
-   symbol  : variable celsius
-   location: class Main
-            celsius = (fahrenheit - 32) * 5.0/9.0;
-            ^
-   Main.java:20: cannot find symbol
-   symbol  : variable celsius
-   location: class Main
-            System.out.println("The temperature in °C is: " + celsius);
-                                                             ^
-   2 errors
+   Error:(14, 9) java: cannot find symbol
+   symbol:   variable celsius
+   location: class TempConverter
 
-When you see the first kind of error, where the ``^`` symbol is on the
-left side of the ``=``, it usually means you have not declared the variable.
+   Error:(15, 64) java: cannot find symbol
+   symbol:   variable celsius
+   location: class TempConverter
 
-The second error message occurs when you try to use a variable that you have
-not initialized with a value. These *compiler errors* occur before we ever try
-to run or test our program.
+These two *compiler errors* occur before the program runs. The values in the
+parentheses ``()`` give the line number and text column where the error was
+found. In the first description (line 14, column 9), the ``celsius`` variable
+before the ``=`` is flagged. When this type of error happens, it usually means
+that the variable was not declared before we tried to initialize it with a
+value.
+
+The second error message (line 15, column 64) occurs because we use
+``celsius`` before it has been assigned a value.
 
 .. admonition:: Note
 
    When using an IDE such as IntelliJ, your work is typically checked by the
-   IDEs built-in compiler as you write your code. Thus, errors are often
-   visually indicated by the IDE as you write. This avoids having to explicitly
+   IDEs built-in compiler as you write your code. Errors are often visually
+   indicated by the IDE as you type. This avoids having to explicitly
    compile your code before finding errors. Nice, huh?
+
+   .. figure:: figures/IDE-flagged-errors.png
+      :alt: The ``celsius`` variables are flagged.
+
+      The red coloring of the ``celsius`` variables indicate errors.
 
 The general rule in Java is that you must decide what kind of object your
 variable is going to reference and then declare that variable before you use
@@ -181,22 +184,32 @@ is enough.
 
 .. admonition:: Note
 
-   As in other languages, in Java you may declare and initialize your variables
-   in the same line: ``double celsius = (fahrenheit - 32) * 5.0/9.0;``.
+   As in other languages, Java allows you to declare and initialize your
+   variables in the same line:
 
-Input / Output and the ``Scanner`` Class
+   .. sourcecode:: java
+
+      double celsius = (fahrenheit - 32) * 5/9;
+
+Collect Input with the ``Scanner`` Class
 -----------------------------------------
 
-For our temperature conversion program, we created a ``Scanner`` object and
-assigned it to the variable ``input``. In Java, ``Scanner`` objects make
-getting input from the user, a file, or even over the network relatively easy.
+In Java, ``Scanner`` objects make getting input from the user, a file, or even
+over the network relatively easy. For our temperature conversion program, we
+declared the variable ``input`` to be of type ``Scanner``.
 
-In this case, we want to prompt the user to enter in a number in the command
+.. sourcecode:: java
+   :lineno-start: 7
+
+   Scanner input;
+
+We want our program to prompt the user to enter in a number in the command
 line. We accomplish this by creating a ``Scanner`` instance using the word
 ``new`` and then calling the constructor and passing it the ``System.in``
 object:
 
 .. sourcecode:: java
+   :lineno-start: 9
 
    input = new Scanner(System.in);
 
@@ -211,11 +224,13 @@ declared to be a ``Scanner`` object earlier. ``System.in`` is similar to
    ``println``, you are not alone. We will talk about the reasons why this is so
    when we dive into Java streams.
 
-After prompting the user, we use the ``Scanner`` object ``input`` to read in a
-number from the command line:
+Next, line 10 asks the user to enter a number, and in line 11 we use ``input``
+to read the value from the command line:
 
 .. sourcecode:: java
+   :lineno-start: 10
 
+   System.out.println("Enter the temperature in Fahrenheit: ");
    fahrenheit = input.nextDouble();
 
 Here again we see the implications of Java being a strongly typed language.
@@ -224,9 +239,8 @@ Notice that we must call the method ``nextDouble``, because the variable
 
 Because Java is a statically typed language, we must call the appropriate
 method on the ``Scanner`` object to ensure the entered data is of the correct
-type. In this case, the compiler checks the assignment statements for
-``fahrenheit`` and ``input.nextDouble()`` and throws an error if the two do not
-match.
+type. In this case, the compiler compares the types for ``fahrenheit`` and
+``input.nextDouble()`` and throws an error if the two do not match.
 
 The table below shows some commonly used methods of the ``Scanner`` class.
 There are many others supported by this class, and we will talk about how to
@@ -277,7 +291,7 @@ into ``Integer``). We will discuss the purpose of this later, but for now,
 know that this adaptation makes these low level objects easier to use.
 
 For the temperature conversion program, we collected user input from the
-command line, but there are other options for inputting data into our programs.
+command line, but there are other options for collecting data for our programs.
 In future examples, we will create a ``Scanner`` object by passing a ``File``
 object as a parameter instead of ``System.in``.
 
@@ -286,13 +300,16 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True or False: An ``import`` statement is required to use a Java class defined in another package.
+   An ``import`` statement is required to use a Java class defined in another
+   package.
 
+   #. True
+   #. False
 
 .. admonition:: Question
 
-   Which of the following ``Scanner`` methods should you use to return an expected String input?
-   Check all that apply.
+   Which of the following ``Scanner`` methods should you use to return an
+   expected ``String`` input? Check ALL that apply.
 
    #. ``.hasNext()``
    #. ``.nextLine()``
