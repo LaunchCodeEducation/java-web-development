@@ -237,7 +237,7 @@ the reverse process (object to primitive) was called **unboxing**.
       an ``int`` instead, we would generate an error message.
 
    **Unboxing:**
-   
+
    Let's assume that a method returns a random number of
    ``Integer`` type, and we want to combine it with a value of ``int`` type.
 

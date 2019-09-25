@@ -1,15 +1,29 @@
-A Code Observation
-==================
+Alternate Code Example
+=======================
 
-Let’s explore a simple temperature conversion program written in Java. We want
-our function to convert a Fahrenheit temperature to Celsius.
+Let’s move beyond our "Hello, World" example and explore a simple temperature
+conversion program. We want our function to convert a Fahrenheit temperature to
+Celsius.
 
-   TODO: Move instructions about forking the java-web-dev-exercises here so
-   students can code along
+Start a New Project
+--------------------
+
+Create a new IntelliJ project and title it ``TempConverter``.
+
+   .. figure:: figures/IntelliJWelcome.png
+      :alt: Welcome window for IntelliJ
+
+#. On the *New Project* screen, we will use all of the default settings. Just
+   click *Next* in the lower corner of the second and third windows.
+#. On the fourth screen, enter ``TempConverter`` for the name of the project.
+   Click on the "3-dot" button to select a location to save the project.
+
+   .. figure:: figures/IntelliJNewProject.png
+      :alt: New project window for IntelliJ
+
+#. Click *Finish* to create the project.
 
    TODO: Make note of the scanner.close() method??
-
-.. _temp-conversion:
 
 .. sourcecode:: java
    :linenos:
@@ -37,12 +51,9 @@ our function to convert a Fahrenheit temperature to Celsius.
 There are several new concepts introduced in this example. We will look
 at them in the following order:
 
-#. :ref:`Import statement <import-statement>`
-#. :ref:`Variable declaration <declaring-variables>`
-#. :ref:`Input/output and the Scanner class <input-output-scanner>`
-
-
-.. _import-statement:
+#. Import statement
+#. Variable declaration
+#. Input/output and the Scanner class
 
 ``import``
 -----------
@@ -97,8 +108,6 @@ exist? We have these rules:
 
    a. A *Java archive file*, ``.jar``, that contains Java classes.
    b. Another Unix directory that contains Java class files.
-
-.. _declaring-variables:
 
 Declaring Variables
 --------------------
@@ -174,8 +183,6 @@ is enough.
 
    As in other languages, in Java you may declare and initialize your variables
    in the same line: ``double celsius = (fahrenheit - 32) * 5.0/9.0;``.
-
-.. _input-output-scanner:
 
 Input / Output and the ``Scanner`` Class
 -----------------------------------------

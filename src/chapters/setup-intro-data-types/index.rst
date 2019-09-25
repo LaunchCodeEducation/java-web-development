@@ -8,6 +8,7 @@ Setup, Introduction, and Data Types
    why-java
    data-types
    code-comparison
+   alternate-code-practice
    more-data-types
    exercises
    studio
