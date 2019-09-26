@@ -64,12 +64,10 @@ CLI Java
 
 Let's write a simple "Hello, World" program and watch the JDK in action. 
 
-.. note::
-
-   In the future, we'll be doing most of our Java coding with the IntelliJ IDE. 
-   IntelliJ contains many features to help us write Java properly and easily, 
-   including its own compiler. For now though, we'll use a simpler text editor 
-   so we can demonstrate what we get with the JDK.
+In the future, we'll be doing most of our Java coding with the IntelliJ IDE. 
+IntelliJ contains many features to help us write Java properly and easily, 
+including its own compiler. For now though, we'll use a simpler text editor 
+so we can demonstrate what we get with the JDK.
 
 In the text editor of your choice, create and save a file called 
 ``HelloWorld.java`` and include the code below:
@@ -96,49 +94,84 @@ open a terminal window and navigate to the parent directory of your new file. Ru
 
 You should see your greeting printed! 
 
-.. note::
-
-   Java version 11 introduced the capability to compile single-file Java programs
-   without explicitly running a command to compile. If our ``Hello, World`` program
-   were more complex and contained another file, we would need to first run ``javac HelloWorld.java``,
-   to compile, followed by ``java HelloWorld.java``.
+Java version 11 introduced the capability to compile single-file Java programs
+without explicitly running a command to compile. If our ``Hello, World`` program
+were more complex and contained another file, we would need to first run ``javac HelloWorld.java``,
+to compile, followed by ``java HelloWorld.java``.
 
 
 Install IntelliJ
 -----------------
 
-Installation instructions go here (or a link to installation appendix).
+IntelliJ is an **integrated development environment (IDE)**. An IDE is like a text
+editor on steroids. It's a program to not only write and edit your code, but an IDE
+can also contain many other features to enhance the coding experience. IntelliJ offers
+code completion hints, debugging, and even it's own compiler. We'll be using it throughout
+this course, so it's time to get familiar with some of the basics.
+
+Visit the `IntelliJ download site <https://www.jetbrains.com/idea/download/>`__.
+Select your operating system and the Community version. Follow the installation
+prompts to select your settings. When you reach the window asking for your UI theme,
+you can choose to *Skip Remaining and Set Defaults*. You will finish on an IntelliJ
+window listing the options to *Create New Project*, *Import Project*, *Open*, and 
+*Check out from Version Control*.
+
+.. figure:: figures/IntelliJWelcome.png
+   :scale: 80%
+   :alt: Welcome window for IntelliJ
+
+   IntelliJ welcome window
+
+You've installed IntelliJ and you're ready to start exploring its many features.
 
 .. _create-new-java-project:
 
-Your First Java Program
+Your First Java Project
 ------------------------
 
-By tradition, when you learn any new coding language, the first program you
-write prints "Hello, World!" to the screen. We will follow this trend right
-now.
+Following the "Hello, World" trend, let's create a new IntelliJ project.
 
 #. Create a new folder to hold your Java practice files. Since you will be
-   creating lots of short projects as you move through this course, we
+   creating lots of small projects as you move through this course, we
    suggest that you also add sub-folders with names corresponding to the
    related chapters and projects. Something like
    ``java-practice/chapter-name/project-name``.
-#. Open IntelliJ and select the *Create New Project* option from the welcome
+#. Select the *Create New Project* option from the welcome
    screen.
 
    .. figure:: figures/IntelliJWelcome.png
       :scale: 80%
       :alt: Welcome window for IntelliJ
 
-#. On the *New Project* screen, we will use all of the default settings. Just
-   click *Next* in the lower corner of the second and third windows.
-#. On the fourth window, enter ``HelloWorld`` for the name of the project.
-   Click on the "3-dot" button to select a location to save the project.
+      Create new project
 
-   .. figure:: figures/save-new-project.png
+#. Clicking *New Project* opens a window with a series of project settings to
+   select. For this first setting, make sure your selected project SDK is the JDK
+   you have installed. This allows IntelliJ to compile our Java code in-app. 
+   Click *Next* in the lower right corner of the window to continue selecting settings.
+
+   .. figure:: figures/projectSDK.png
+      :alt: Select project SDK
+
+      Select project SDK
+
+#. In the second window, select *Create project from template*. This gives us
+   some of the Java project scaffolding to save us some time with infrastructure. 
+
+   .. figure:: figures/projectTemplate.png
+      :alt: Select project template
+
+      Select project template
+
+#. On the next window, enter ``HelloWorld`` for the name of the project.
+   Click on the "3-dot" button to select a location to save the project. Here you can
+   choose you Java projects folder you created in step one. Leave the base package as
+   ``com.company``.
+
+   .. figure:: figures/newProjectName.png
       :alt: New project window for IntelliJ
 
-      Create the ``HelloWorld`` project in the ``java-practice/data-types`` folder.
+      Create the ``HelloWorld`` project in you Java projects folder.
 
 #. Click *Finish* to create the project.
 

@@ -131,13 +131,10 @@ ensure Java has been installed.</p>
 <div class="section" id="cli-java">
 <span id="id1"></span><h2>1.2.3. CLI Java<a class="headerlink" href="#cli-java" title="Permalink to this headline">¶</a></h2>
 <p>Let’s write a simple “Hello, World” program and watch the JDK in action.</p>
-<div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">In the future, we’ll be doing most of our Java coding with the IntelliJ IDE.
+<p>In the future, we’ll be doing most of our Java coding with the IntelliJ IDE.
 IntelliJ contains many features to help us write Java properly and easily,
 including its own compiler. For now though, we’ll use a simpler text editor
 so we can demonstrate what we get with the JDK.</p>
-</div>
 <p>In the text editor of your choice, create and save a file called
 <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code> and include the code below:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -164,44 +161,70 @@ open a terminal window and navigate to the parent directory of your new file. Ru
 </pre></div>
 </div>
 <p>You should see your greeting printed!</p>
-<div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Java version 11 introduced the capability to compile single-file Java programs
+<p>Java version 11 introduced the capability to compile single-file Java programs
 without explicitly running a command to compile. If our <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World</span></code> program
 were more complex and contained another file, we would need to first run <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">HelloWorld.java</span></code>,
 to compile, followed by <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">HelloWorld.java</span></code>.</p>
 </div>
-</div>
 <div class="section" id="install-intellij">
 <h2>1.2.4. Install IntelliJ<a class="headerlink" href="#install-intellij" title="Permalink to this headline">¶</a></h2>
-<p>Installation instructions go here (or a link to installation appendix).</p>
+<p>IntelliJ is an <strong>integrated development environment (IDE)</strong>. An IDE is like a text
+editor on steroids. It’s a program to not only write and edit your code, but an IDE
+can also contain many other features to enhance the coding experience. IntelliJ offers
+code completion hints, debugging, and even it’s own compiler. We’ll be using it throughout
+this course, so it’s time to get familiar with some of the basics.</p>
+<p>Visit the <a class="reference external" href="https://www.jetbrains.com/idea/download/" target="_blank">IntelliJ download site<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+Select your operating system and the Community version. Follow the installation
+prompts to select your settings. When you reach the window asking for your UI theme,
+you can choose to <em>Skip Remaining and Set Defaults</em>. You will finish on an IntelliJ
+window listing the options to <em>Create New Project</em>, <em>Import Project</em>, <em>Open</em>, and
+<em>Check out from Version Control</em>.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/IntelliJWelcome.png"><img alt="Welcome window for IntelliJ" src="../../_images/IntelliJWelcome.png" style="width: 528.8000000000001px; height: 382.40000000000003px;" /></a>
+<p class="caption"><span class="caption-text">IntelliJ welcome window</span></p>
 </div>
-<div class="section" id="your-first-java-program">
-<span id="create-new-java-project"></span><h2>1.2.5. Your First Java Program<a class="headerlink" href="#your-first-java-program" title="Permalink to this headline">¶</a></h2>
-<p>By tradition, when you learn any new coding language, the first program you
-write prints “Hello, World!” to the screen. We will follow this trend right
-now.</p>
+<p>You’ve installed IntelliJ and you’re ready to start exploring its many features.</p>
+</div>
+<div class="section" id="your-first-java-project">
+<span id="create-new-java-project"></span><h2>1.2.5. Your First Java Project<a class="headerlink" href="#your-first-java-project" title="Permalink to this headline">¶</a></h2>
+<p>Following the “Hello, World” trend, let’s create a new IntelliJ project.</p>
 <ol class="arabic">
 <li><p class="first">Create a new folder to hold your Java practice files. Since you will be
-creating lots of short projects as you move through this course, we
+creating lots of small projects as you move through this course, we
 suggest that you also add sub-folders with names corresponding to the
 related chapters and projects. Something like
 <code class="docutils literal notranslate"><span class="pre">java-practice/chapter-name/project-name</span></code>.</p>
 </li>
-<li><p class="first">Open IntelliJ and select the <em>Create New Project</em> option from the welcome
+<li><p class="first">Select the <em>Create New Project</em> option from the welcome
 screen.</p>
-<div class="figure">
+<div class="figure" id="id4">
 <a class="reference internal image-reference" href="../../_images/IntelliJWelcome.png"><img alt="Welcome window for IntelliJ" src="../../_images/IntelliJWelcome.png" style="width: 528.8000000000001px; height: 382.40000000000003px;" /></a>
+<p class="caption"><span class="caption-text">Create new project</span></p>
 </div>
 </li>
-<li><p class="first">On the <em>New Project</em> screen, we will use all of the default settings. Just
-click <em>Next</em> in the lower corner of the second and third windows.</p>
+<li><p class="first">Clicking <em>New Project</em> opens a window with a series of project settings to
+select. For this first setting, make sure your selected project SDK is the JDK
+you have installed. This allows IntelliJ to compile our Java code in-app.
+Click <em>Next</em> in the lower right corner of the window to continue selecting settings.</p>
+<div class="figure" id="id5">
+<img alt="Select project SDK" src="../../_images/projectSDK.png" />
+<p class="caption"><span class="caption-text">Select project SDK</span></p>
+</div>
 </li>
-<li><p class="first">On the fourth window, enter <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> for the name of the project.
-Click on the “3-dot” button to select a location to save the project.</p>
-<div class="figure" id="id3">
-<img alt="New project window for IntelliJ" src="../../_images/save-new-project.png" />
-<p class="caption"><span class="caption-text">Create the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> project in the <code class="docutils literal notranslate"><span class="pre">java-practice/data-types</span></code> folder.</span></p>
+<li><p class="first">In the second window, select <em>Create project from template</em>. This gives us
+some of the Java project scaffolding to save us some time with infrastructure.</p>
+<div class="figure" id="id6">
+<img alt="Select project template" src="../../_images/projectTemplate.png" />
+<p class="caption"><span class="caption-text">Select project template</span></p>
+</div>
+</li>
+<li><p class="first">On the next window, enter <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> for the name of the project.
+Click on the “3-dot” button to select a location to save the project. Here you can
+choose you Java projects folder you created in step one. Leave the base package as
+<code class="docutils literal notranslate"><span class="pre">com.company</span></code>.</p>
+<div class="figure" id="id7">
+<img alt="New project window for IntelliJ" src="../../_images/newProjectName.png" />
+<p class="caption"><span class="caption-text">Create the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> project in you Java projects folder.</span></p>
 </div>
 </li>
 <li><p class="first">Click <em>Finish</em> to create the project.</p>

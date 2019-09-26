@@ -25,6 +25,7 @@ assignment of this unit.
    Control > Git*
 
    .. figure:: figures/IntelliJVCS.png
+      :scale: 80%
       :alt: IntelliJ VCS
 
       IntelliJ VCS
@@ -32,6 +33,7 @@ assignment of this unit.
 #. Click the button on the lower left corner of the dialog to log in to your Github account.
 
    .. figure:: figures/IntelliJGithub.png
+      :scale: 80%
       :alt: IntelliJ Github
 
       IntelliJ Github
@@ -48,6 +50,7 @@ assignment of this unit.
    other projects for this class).
 
    .. figure:: figures/IntelliJRepoSelection.png
+      :scale: 80%
       :alt: IntelliJ Repo Selection
 
       IntelliJ Repo Selection
@@ -55,6 +58,7 @@ assignment of this unit.
 #. When asked “Would you like to create an IDEA project…” select *Yes*. 
 
    .. figure:: figures/IntelliJAddFileToGit.png
+      :scale: 80%
       :alt: IntelliJ Add File To Git
 
       IntelliJ Add File To Git
@@ -67,6 +71,7 @@ assignment of this unit.
    Click on the area in the top left labelled *Project*.
 
    .. figure:: figures/IntelliJNewProject.png
+      :scale: 80%
       :alt: IntelliJ New Project
 
       IntelliJ New Project
@@ -75,6 +80,7 @@ assignment of this unit.
    project you have just set up.
 
    .. figure:: figures/IntelliJProjectWindow.png
+      :scale: 80%
       :alt: IntelliJ Project Window
 
       IntelliJ Project Window
@@ -82,6 +88,7 @@ assignment of this unit.
 #. Double-clicking on the *Hello* file opens the file to the right.
 
    .. figure:: figures/IntelliJOpenFile.png
+      :scale: 80%
       :alt: IntelliJ Open File
 
       IntelliJ Open File
@@ -90,6 +97,7 @@ assignment of this unit.
    and select *Run 'Hello.main()'* from the dropdown menu.
 
    .. figure:: figures/IntelliJRunFile.png
+      :scale: 80%
       :alt: IntelliJ Run File
 
       IntelliJ Run File
@@ -98,6 +106,7 @@ assignment of this unit.
    output.
 
    .. figure:: figures/IntelliJFileOutput.png
+      :scale: 80%
       :alt: IntelliJ File Output
 
       IntelliJ File Output
@@ -117,6 +126,7 @@ run code after setting up the project, follow these steps:
    close them as well.
 
    .. figure:: figures/closeProject.png
+      :scale: 80%
       :alt: Close Project
 
       Close Project
@@ -125,6 +135,7 @@ run code after setting up the project, follow these steps:
    ``java-web-dev-exercises`` in the left-hand pane.
 
    .. figure:: figures/startupWithProject.png
+      :scale: 80%
       :alt: Startup with Project
 
       Startup with Project
@@ -132,6 +143,7 @@ run code after setting up the project, follow these steps:
 #. From the same startup window, select *Import Project* from the right-hand pane.
 
    .. figure:: figures/startupWithoutProject.png
+      :scale: 80%
       :alt: Startup without Project
 
       Startup without Project
@@ -156,6 +168,7 @@ create new classes within this package:
    some Mac users) and select *New* and then select *Package*.
 
    .. figure:: figures/newPackage.png
+      :scale: 80%
       :alt: New Package
 
       New Package
@@ -163,6 +176,7 @@ create new classes within this package:
 #. Name the package “exercises”.
 
    .. figure:: figures/namePackage.png
+      :scale: 80%
       :alt: Name Package
 
       Name Package
@@ -170,6 +184,7 @@ create new classes within this package:
 #. Right-click/Control-click on the newly created ``exercises`` folder. Select *New* and then *Java Class*.
 
    .. figure:: figures/newClass.png
+      :scale: 80%
       :alt: New Class
 
       New Class
@@ -178,6 +193,7 @@ create new classes within this package:
    4th exercise below, you might name the class ``Alice``).
 
    .. figure:: figures/nameClass.png
+      :scale: 80%
       :alt: Name Class
 
       Name Class
@@ -188,6 +204,7 @@ create new classes within this package:
       Press the “Yes” button.
    
    .. figure:: figures/addToGit.png
+      :scale: 80%
       :alt: Add class to Git
 
       Add class to Git
@@ -196,6 +213,7 @@ create new classes within this package:
    it. (Don’t forget to write the ``main`` method!)
 
    .. figure:: figures/newClassCreated.png
+      :scale: 80%
       :alt: Ready to start
 
       Ready to start
