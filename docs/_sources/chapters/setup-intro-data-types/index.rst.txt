@@ -9,5 +9,6 @@ Setup, Introduction, and Data Types
    data-types
    code-comparison
    more-data-types
+   naming-conventions
    exercises
    studio
