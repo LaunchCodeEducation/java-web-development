@@ -166,16 +166,53 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 #. On the next window, enter ``HelloWorld`` for the name of the project.
    Click on the "3-dot" button to select a location to save the project. Here you can
    choose you Java projects folder you created in step one. Leave the base package as
-   ``com.company``.
+   ``com.company``. 
 
    .. figure:: figures/newProjectName.png
       :alt: New project window for IntelliJ
 
       Create the ``HelloWorld`` project in you Java projects folder.
 
-#. Click *Finish* to create the project.
+#. Click *Finish* to create the project. Below is the view of your new project:
 
-Hello World
-^^^^^^^^^^^^
+   .. figure:: figures/newProjectView.png
+      :alt: New project view
+
+      Initial IntelliJ project view
+
+   The section on the left is the project's file tree. Clicking the triangle next to 
+   the project name, ``HelloWorld``, displays the ``src`` file, followed by the base package
+   we created, and finally our ``Main.java`` file. ``Main.java`` is also opened on the right
+   in this initial project view.
+
+#. We'll dive into the use of a ``main`` function and ``Main`` class in some time. At this point,
+   let's just get right to printing our greeting. Where the project template tells you to write your
+   code, add the following:
+
+   .. sourcecode:: java
+
+      System.out.println("Hello, world!");
+
+   Ok sure, we haven't gone over this exact syntax yet. But you can take a guess at what this line will do.
+
+#. To run your program in IntelliJ, you have several options.
+
+   .. figure:: figures/runProgram.png
+      :alt: Run code options
+
+      IntelliJ run code options
+
+   You can click on either of the green arrows indicated above, or 
+   choose *Run* from your top menu bar.
+
+#. Once run, IntelliJ will generate a third panel in your view, with your program's output:
+
+   .. figure:: figures/output.png
+      :alt: Run code output
+
+      IntelliJ output
+
+This is just the start of your relationship with IntelliJ. Not that we know the fundamentals,
+let's return to Java basics so we can start writing more code.
 
 
