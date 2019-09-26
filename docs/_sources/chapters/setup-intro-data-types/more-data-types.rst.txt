@@ -278,9 +278,6 @@ restrict the method from being called by another class, we could instead use
 the ``private`` modifier. We will explore access modifiers in more depth in
 coming lessons.
 
-   TODO: Ask about the implications of a repository with the code samples
-   mentioned in this section.
-
 .. admonition:: Warning
 
    As you have been following along with these examples, you may have noticed
@@ -299,4 +296,27 @@ References
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   Which of the following defines a method that takes an integer as a parameter
+   and returns a string value?
+
+   #. ``public static void methodName(String parameterName)``
+   #. ``public static void methodName(int parameterName)``
+   #. ``public static int methodName(String parameterName)``
+   #. ``public static String methodName(int parameterName)``
+
+.. admonition:: Question
+
+   Assume that we declare the following Java array:
+
+   .. sourcecode:: Java
+
+      String[] someWords = new String[5];
+
+   Which of the following shows a correct initialization for the array?
+
+   #. ``someWords = {'hello', 'world', '123', 'LaunchCode ROCKS!'}``
+   #. ``someWords = {"hello", "world", "123", "LaunchCode ROCKS!", "Java"}``
+   #. ``someWords = {"hello", "world", 'a', "LaunchCode ROCKS!", "Java"}``
+   #. ``someWords = {"hello", "world", "avocado", "LaunchCode ROCKS!"}``
