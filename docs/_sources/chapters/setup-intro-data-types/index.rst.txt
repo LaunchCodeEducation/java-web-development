@@ -10,5 +10,6 @@ Setup, Introduction, and Data Types
    code-comparison
    alternate-code-practice
    more-data-types
+   naming-conventions
    exercises
    studio
