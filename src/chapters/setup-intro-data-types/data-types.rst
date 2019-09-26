@@ -217,8 +217,8 @@ Primitive data types are *immutable* and can be combined to build larger data
 structures like arrays and objects. One example is combining multiple ``char``
 to form a ``String`` data type.
 
-Autoboxing (Under discussion for removal)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Autoboxing
+^^^^^^^^^^^
 
 In older versions of Java it was the programmer’s responsibility to
 convert back and forth from a primitive to an object whenever necessary.

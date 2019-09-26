@@ -5,19 +5,21 @@ Let’s compare a simple temperature conversion program written in both
 JavaScript and Java. We want our function to convert a Fahrenheit temperature
 to Celsius.
 
-.. sourcecode:: JavaScript
+.. replit:: JavaScript
+   :slug: NodeFtoCConverter
    :linenos:
 
    const input = require('readline-sync');
 
-   let fahrenheit = input.question("Enter the temperature in F: ");
-   let celsius = (temp - 32) * (5 / 9);
+   let fahrenheit = input.question("Enter the temperature in °F: ");
+   let celsius = (fahrenheit - 32) * (5 / 9);
 
-   console.log(`The temperature in Celsius is: ${celsius} °C`);
+   console.log(`The temperature in Celsius is: ${celsius}°C`);
 
 Next, lets look at the Java equivalent:
 
-.. sourcecode:: java
+.. replit:: java
+   :slug: JavaFtoCConverter
    :linenos:
 
    import java.util.Scanner;
@@ -26,11 +28,11 @@ Next, lets look at the Java equivalent:
       public static void main(String[] args) {
          double fahrenheit;
          double celsius;
-         Scanner in;
+         Scanner input;
 
-         in = new Scanner(System.in);
-         System.out.println("Enter the temperature in F: ");
-         fahrenheit = in.nextDouble();
+         input = new Scanner(System.in);
+         System.out.println("Enter the temperature in °F: ");
+         fahrenheit = input.nextDouble();
 
          celsius = (fahrenheit - 32) * 5/9;
          System.out.println("The temperature in Celsius is: " + celsius + "°C");
@@ -47,50 +49,61 @@ at them in the following order:
 ``import``
 -----------
 
-In Java, you can use any class that is available without having to
-import the class, but you must adhere to two very important conditions:
-
-1. The ``javac`` and ``java`` commands must know that the class exists.
-2. You must use the full name of the class
-
-How do the ``java`` and ``javac`` commands know that certain classes
-exist? We have these rules:
-
-1. Java knows about all the classes that are defined in ``.java`` and
-   ``.class`` files in your current working directory.
-2. Java knows about all the classes that are shipped with java.
-3. Java knows about all the classes that are included in your
-   ``CLASSPATH`` environment variable. Your ``CLASSPATH`` environment
-   variable can name two kinds of structures:
-
-   1. A jar file that contains java classes. (A jar file is a “Java
-      archive”, and ends in ``.jar``. For now, think of it as a zip file
-      that contains a bunch of classes.)
-   2. Another Unix directory that contains Java class files.
-
 You can think of the ``import`` statement in Java as working a little
-bit like the ``from module import xxx`` statement in Python. However,
-behind the scenes the two statements actually do very different things.
+bit like the ``const variableName = require('ModuleName');`` statement in
+JavaScript. The ``require`` command imports the specified module, and assigns
+it to ``variableName``. We can then access the class, functions, or data stored
+in the module by referencing ``variableName``.
 
-The first important difference to understand is that the class naming
-system in Java is very hierarchical. The *full* name of the Scanner
-class is really ``java.util.Scanner``. You can think of this name as
-having two parts: The first part ``java.util`` is called the
-**package**, and the last part is the class. We’ll talk more about the
-class naming system a bit later. The second important difference is that
-it is the Java class loader’s responsibility to load classes into
-memory, not the ``import`` statement’s.
+The Java ``import`` statement tells the compiler that we are going to use a
+shortened version of the class’s name. In this example we are going to use the
+class ``java.util.Scanner``, but we can refer to it as just ``Scanner``. We
+could use the ``java.util.Scanner`` class without any problem and without any
+import statement provided that we always referred to it by its full name.
 
-The ``import`` statement tells the compiler that we are going to use a
-shortened version of the class’s name. In this example we are going to
-use the class ``java.util.Scanner``, but we can refer to it as just
-``Scanner``. We could use the ``java.util.Scanner`` class without any
-problem and without any import statement provided that we always
-referred to it by its full name.
+This brings up an important distinction between Java and JavaScript. In Java,
+you can use any class that is available WITHOUT having to import the class, but
+you must adhere to two very important conditions:
 
-Don’t just trust us, try it yourself! Remove the ``import`` statement
-and change ``Scanner`` to ``java.util.Scanner`` in the rest of the code.
-The program should still compile and run.
+   #. The ``javac`` and ``java`` commands must know that the class exists.
+   #. You must use the full name of the class.
+
+.. admonition:: Try It
+
+   Remove the ``import`` statement and change ``Scanner`` on lines 7 & 9 to
+   ``java.util.Scanner``. The program should still compile and run.
+
+The class naming system in Java is very hierarchical. The *full* name of the
+``Scanner`` class is really ``java.util.Scanner``. You can think of this name
+as having two parts:
+
+#. ``java.util`` is called the **package**,
+#. ``Scanner`` is the class.
+
+We’ll talk more about the class naming system a bit later.
+
+.. admonition:: Note to Ed Team
+
+   Here is some text from the old Python curriculum. It was originally placed
+   at the start of the ``import`` section, but I think it distracts from what
+   the students need to know about USING ``import``.  Thoughts?
+
+   
+
+   How do the ``java`` and ``javac`` commands know that certain classes
+   exist? We have these rules:
+
+   #. Java knows about all the classes that are defined in ``.java`` and
+      ``.class`` files in your current working directory.
+   #. Java knows about all the classes that are shipped with java.
+   #. Java knows about all the classes that are included in your
+      ``CLASSPATH`` environment variable. Your ``CLASSPATH`` environment
+      variable can name two kinds of structures:
+
+      a. A jar file that contains java classes. (A jar file is a “Java
+         archive”, and ends in ``.jar``. For now, think of it as a zip file
+         that contains a bunch of classes.)
+      b. Another Unix directory that contains Java class files.
 
 Declaring Variables
 --------------------
