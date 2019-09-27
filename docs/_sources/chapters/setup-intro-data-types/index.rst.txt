@@ -7,8 +7,7 @@ Setup, Introduction, and Data Types
    setup
    why-java
    data-types
-   code-comparison
-   alternate-code-practice
+   some-java-practice
    more-data-types
    naming-conventions
    exercises

@@ -1,9 +1,11 @@
-Alternate Code Example
-=======================
+Some Java Practice
+===================
 
 Let’s move beyond our "Hello, World" example and explore a simple temperature
 conversion program. We want our function to convert a Fahrenheit temperature to
 Celsius.
+
+.. _temp-conversion:
 
 Temperature Conversion
 -----------------------
@@ -58,6 +60,8 @@ at them in the following order:
 #. Declaring variables
 #. Collecting input with the Scanner class
 
+.. _import-statement:
+
 ``import``
 -----------
 
@@ -99,6 +103,8 @@ exist? We have these rules:
 #. Java knows about all the classes you define in the ``.java`` and ``.class``
    files in your current working directory.
 #. Java knows about all the classes that get shipped with the software.
+
+.. _declaring-variables:
 
 Declaring Variables
 --------------------
@@ -249,6 +255,8 @@ easily reactivate it by removing the ``//`` token from the line.
             // System.out.println("This line will NOT print!");
          }
       }
+
+.. _scanner-input:
 
 Collect Input with the ``Scanner`` Class
 -----------------------------------------
