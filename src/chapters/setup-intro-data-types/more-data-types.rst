@@ -26,7 +26,7 @@ using the ``new`` keyword:
 
 .. index:: ! reference type
 
-Just like variables or parameters can be declared as an ``int`` or ``String``
+Just like variables can be declared as an ``int`` or ``String``
 data type, they can also be declared as a specific *class* type. Variables
 that are class type---as opposed to primitive types like ``double`` or object
 types like ``String``---are said to be of **reference type**. Using this
@@ -141,7 +141,7 @@ will adopt this terminology from now on.
 
 .. admonition:: Warning
 
-   Be prepared for push-back and negative judgement from Java coders if you
+   Be prepared to receive a vocabulary lesson from veteran Java coders if you
    accidentally refer to methods as “functions”.
 
 .. index:: ! static methods
@@ -182,7 +182,7 @@ class to which it belongs.
 
       Cat.makeNoise("roar");
 
-Until we get further into Object Oriented Programming, every method you write
+Until we get further into object oriented programming, every method you write
 should use the ``static`` keyword. Leaving off ``static`` will prevent or
 complicate the process of calling the methods you defined.
 
@@ -235,9 +235,6 @@ within ``main``.
 We won’t explore every new aspect of this example, but instead focus on the two
 methods.
 
-   TODO: Update local references after we decide which code-comparison page
-   to use.
-
 #. The ``main`` method in the ``HelloMethods`` class has the same structure as
    that of our :ref:`temperature conversion example <temp-conversion>`.
 #. Take a look at the ``Message`` class. Note that it does NOT have a ``main``
@@ -272,7 +269,7 @@ To call a static method, we follow a specific syntax. Line 4 in the
 To call a static method we must use the format
 ``ClassName.methodName(arguments)``.
 
-Note that ``getMessage`` is NOT defined within the ``HelloMessage`` class. We
+Note that ``getMessage`` is NOT defined within the ``HelloMessages`` class. We
 can do this because ``getMessage`` is declared as ``public``. If we wanted to
 restrict the method from being called by another class, we could instead use
 the ``private`` modifier. We will explore access modifiers in more depth in
