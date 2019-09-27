@@ -70,14 +70,16 @@ data stored a different file. ``import`` tells the compiler that we are going
 to use a shortened version of the class name. In this example, we are going to
 use the class ``java.util.Scanner``, but we can refer to it as just
 ``Scanner``. We could use the ``java.util.Scanner`` class without any problem
-and without any import statement, provided that we always referred to it by its
+and without any import statement, provided that we always refer to it by its
 full name.
 
-In Java, you can use any class that is available WITHOUT having to import the
-class, but you must adhere to two very important conditions:
+This idea bears repeating. In Java, you can use any available class
+WITHOUT having to import it, but you must use the full name of the class.
+"Available" classes include:
 
-#. The ``javac`` and ``java`` commands must know that the class exists.
-#. You must use the full name of the class.
+#. All the classes you define in the ``.java`` and ``.class`` files in your
+   current working directory.
+#. All the classes that get shipped with the software.
 
 .. admonition:: Try It
 
@@ -93,16 +95,6 @@ as having two parts:
 #. ``Scanner`` is the class name.
 
 We’ll talk more about the class naming system a bit later.
-
-Java Knows Which Classes Exist, Kinda
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-How do the ``java`` and ``javac`` commands know that certain classes
-exist? We have these rules:
-
-#. Java knows about all the classes you define in the ``.java`` and ``.class``
-   files in your current working directory.
-#. Java knows about all the classes that get shipped with the software.
 
 .. _declaring-variables:
 
