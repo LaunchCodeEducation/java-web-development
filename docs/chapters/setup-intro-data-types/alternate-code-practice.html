@@ -279,8 +279,93 @@ variables in the same line:</p>
 </div>
 </div>
 </div>
+<div class="section" id="add-comments-to-your-code">
+<h2>1.5.4. Add Comments to Your Code<a class="headerlink" href="#add-comments-to-your-code" title="Permalink to this headline">¶</a></h2>
+<p>As programs get bigger and more complicated, they get more difficult to read.
+Good programmers try to make their code understandable to others, but it is
+still tricky to look at a large program and figure out what it is doing and
+why.</p>
+<p>Also, there are times when programmers need to isolate or ignore certain
+portions of their code as they are testing it. In the “Try It” box above, you
+were instructed to <em>remove</em> a line of code in order to create compiler errors.
+However, programmers are usually reluctant to delete lines that they might need
+to bring back.</p>
+<p id="index-0">Best practice encourages us to add <strong>comments</strong> to our programs. These are
+notes that clearly explain what the code is doing.</p>
+<p>A comment is text within a program intended only for a human reader—–it is
+completely ignored by the compiler. In Java, the <code class="docutils literal notranslate"><span class="pre">//</span></code> token indicates the
+start of a comment, and the rest of the line gets ignored. For comments that
+stretch over multiple lines, the text falls between the symbols <code class="docutils literal notranslate"><span class="pre">/*</span>&#160;&#160; <span class="pre">*/</span></code>.</p>
+<p>Comments can also be used to temporarily skip a portion of the code when a
+program runs. Instead of removing line 6 in <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code>, we could
+<em>comment out</em> the line. This would create the same compiler errors we wanted to
+witness, but it would preserve the original code and allow us to easily
+reactivate it by removing the <code class="docutils literal notranslate"><span class="pre">//</span></code> token from the line.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="c1">// Here is an example of a comment.</span>
+
+<span class="cm">/* Here is how</span>
+<span class="cm">to have</span>
+<span class="cm">multi-line</span>
+<span class="cm">comments. */</span>
+
+<span class="cm">/*</span>
+<span class="cm">Or</span>
+<span class="cm">like</span>
+<span class="cm">this.</span>
+<span class="cm">*/</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">Scanner</span> <span class="n">input</span><span class="o">;</span> <span class="c1">// Comments do not have to start at the beginning of a line.</span>
+
+      <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter your first name: &quot;</span><span class="o">);</span>
+      <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">next</span><span class="o">();</span> <span class="c1">//Declares the &#39;name&#39; variable and initializes it with text from the command line.</span>
+      <span class="n">input</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">);</span>
+
+      <span class="c1">// System.out.println(&quot;This line will NOT print!&quot;);</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
 <div class="section" id="collect-input-with-the-scanner-class">
-<h2>1.5.4. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class<a class="headerlink" href="#collect-input-with-the-scanner-class" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.5. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class<a class="headerlink" href="#collect-input-with-the-scanner-class" title="Permalink to this headline">¶</a></h2>
 <p>In Java, <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> objects make getting input from the user, a file, or even
 over the network relatively easy. For our temperature conversion program, we
 declared the variable <code class="docutils literal notranslate"><span class="pre">input</span></code> to be of type <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>.</p>
@@ -376,7 +461,7 @@ find them in the next chapter.</p>
 </tbody>
 </table>
 <div class="section" id="moving-beyond-the-command-line">
-<h3>1.5.4.1. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.5.1. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class serves as a kind of adapter that gathers primitive data
 types as input and converts them into object types (e.g. it converts an <code class="docutils literal notranslate"><span class="pre">int</span></code>
 into <code class="docutils literal notranslate"><span class="pre">Integer</span></code>). We will discuss the purpose of this later, but for now,
@@ -388,7 +473,7 @@ object as a parameter instead of <code class="docutils literal notranslate"><spa
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>1.5.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>An <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is required to use a Java class defined in another

@@ -191,6 +191,71 @@ is enough.
 
       double celsius = (fahrenheit - 32) * 5/9;
 
+Add Comments to Your Code
+--------------------------
+
+As programs get bigger and more complicated, they get more difficult to read.
+Good programmers try to make their code understandable to others, but it is
+still tricky to look at a large program and figure out what it is doing and
+why.
+
+Also, there are times when programmers need to isolate or ignore certain
+portions of their code as they are testing it. In the "Try It" box above, you
+were instructed to *remove* a line of code in order to create compiler errors.
+However, programmers are usually reluctant to delete lines that they might need
+to bring back.
+
+.. index:: ! comments
+
+Best practice encourages us to add **comments** to our programs. These are
+notes that clearly explain what the code is doing.
+
+A comment is text within a program intended only for a human reader—--it is
+completely ignored by the compiler. In Java, the ``//`` token indicates the
+start of a comment, and the rest of the line gets ignored. For comments that
+stretch over multiple lines, the text falls between the symbols ``/*   */``.
+
+Comments can also be used to temporarily skip a portion of the code when a
+program runs. Instead of removing line 6 in ``TempConverter``, we could
+*comment out* the line. This would create the same compiler errors we wanted to
+witness, but it would preserve the original code and allow us to easily
+reactivate it by removing the ``//`` token from the line.
+
+.. admonition:: Example
+
+   .. sourcecode:: Java
+      :linenos:
+
+      import java.util.Scanner;
+
+      // Here is an example of a comment.
+
+      /* Here is how
+      to have
+      multi-line
+      comments. */
+
+      /*
+      Or
+      like
+      this.
+      */
+
+      public class HelloWorld {
+         public static void main(String[] args) {
+            Scanner input; // Comments do not have to start at the beginning of a line.
+
+            input = new Scanner(System.in);
+            System.out.println("Please enter your first name: ");
+            String name = input.next(); //Declares the 'name' variable and initializes it with text from the command line.
+            input.close();
+
+            System.out.println("Hello, " + name + "!");
+
+            // System.out.println("This line will NOT print!");
+         }
+      }
+
 Collect Input with the ``Scanner`` Class
 -----------------------------------------
 
