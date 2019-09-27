@@ -99,12 +99,6 @@ exist? We have these rules:
 #. Java knows about all the classes you define in the ``.java`` and ``.class``
    files in your current working directory.
 #. Java knows about all the classes that get shipped with the software.
-#. Java knows about all the classes included in your ``CLASSPATH`` environment
-   variable. Your ``CLASSPATH`` environment variable can name two kinds of
-   structures:
-
-   a. A *Java archive file*, ``.jar``, that contains Java classes.
-   b. Another Unix directory that contains Java class files.
 
 Declaring Variables
 --------------------
@@ -129,19 +123,19 @@ If later in the code we try to initialize ``fahrenheit`` with a string:
 
    fahrenheit = "xyz"
 
-the compiler throws an error because ``fahrenheit`` is supposed to be a double.
+the compiler throws an error because ``fahrenheit`` is declared to be a double.
 
 The following error is common for new Java programmers. Suppose we forget to
-include the declaration for ``celsius``. What happens if we try to
-manually compile our program using ``javac TempConverter.java`` on the command
-line?
+include the declaration for ``celsius``. What happens when we try to
+compile and run our program?
 
 .. admonition:: Try It
 
    #. Edit your ``TempConverter`` class by removing line 6, which declares the
       variable ``celsius``.
-   #. Using your terminal, navigate to the parent directory of your
-      ``TempConverter.java`` class and run ``javac TempConverter.java``.
+   #. Click any of the "Run" options in IntelliJ. Alternatively, use the
+      terminal to navigate to the parent directory of your
+      ``TempConverter.java`` class and run ``java TempConverter.java``.
 
 Your terminal will return some errors that resemble these:
 
@@ -177,10 +171,9 @@ The second error message (line 15, column 64) occurs because we use
 
       The red coloring of the ``celsius`` variables indicate errors.
 
-The general rule in Java is that you must decide what kind of object your
-variable is going to reference and then declare that variable before you use
-it. There is much more to say about the static typing of Java, but for now this
-is enough.
+The general rule in Java is that you must decide on the data type for your
+variable first, and then declare that variable before you use it. There is much
+more to say about the static typing of Java, but for now this is enough.
 
 .. admonition:: Note
 
@@ -211,15 +204,16 @@ Best practice encourages us to add **comments** to our programs. These are
 notes that clearly explain what the code is doing.
 
 A comment is text within a program intended only for a human reader—--it is
-completely ignored by the compiler. In Java, the ``//`` token indicates the
-start of a comment, and the rest of the line gets ignored. For comments that
-stretch over multiple lines, the text falls between the symbols ``/*   */``.
+completely ignored by the compiler or interpreter. In Java, the ``//`` token
+indicates the start of a comment, and the rest of the line gets ignored. For
+comments that stretch over multiple lines, the text falls between the symbols
+``/*   */``.
 
 Comments can also be used to temporarily skip a portion of the code when a
-program runs. Instead of removing line 6 in ``TempConverter``, we could
-*comment out* the line. This would create the same compiler errors we wanted to
-witness, but it would preserve the original code and allow us to easily
-reactivate it by removing the ``//`` token from the line.
+program runs. Instead of removing ``double celsius;`` in ``TempConverter``, we
+could *comment out* the line. This would create the same compiler errors we
+wanted to witness, but it would preserve the original code and allow us to
+easily reactivate it by removing the ``//`` token from the line.
 
 .. admonition:: Example
 
@@ -324,13 +318,13 @@ find them in the next chapter.
      - Returns ``true`` if more data is present.
    * - ``hasNextInt()``
      - ``boolean``
-     - Returns ``true`` if the next item to read is an integer.
+     - Returns ``true`` if the next item to read is an ``int`` data type.
    * - ``hasNextFloat()``
      - ``boolean``
-     - Returns ``true`` if the next item to read is a ``float``.
+     - Returns ``true`` if the next item to read is a ``float`` data type.
    * - ``hasNextDouble()``
      - ``boolean``
-     - Returns ``true`` if the next item to read is a ``double``.
+     - Returns ``true`` if the next item to read is a ``double`` data type.
    * - ``nextInt()``
      - ``Integer``
      - Returns the next item to read as an ``Integer`` data type.
@@ -376,7 +370,7 @@ Moving Beyond the Command Line
 The ``Scanner`` class serves as a kind of adapter that gathers primitive data
 types as input and converts them into object types (e.g. it converts an ``int``
 into ``Integer``). We will discuss the purpose of this later, but for now,
-know that this adaptation makes these low level objects easier to use.
+know that this adaptation makes low-level data types easier to use.
 
 For the temperature conversion program, we collected user input from the
 command line, but there are other options for collecting data for our programs.

@@ -195,13 +195,6 @@ exist? We have these rules:</p>
 <li>Java knows about all the classes you define in the <code class="docutils literal notranslate"><span class="pre">.java</span></code> and <code class="docutils literal notranslate"><span class="pre">.class</span></code>
 files in your current working directory.</li>
 <li>Java knows about all the classes that get shipped with the software.</li>
-<li>Java knows about all the classes included in your <code class="docutils literal notranslate"><span class="pre">CLASSPATH</span></code> environment
-variable. Your <code class="docutils literal notranslate"><span class="pre">CLASSPATH</span></code> environment variable can name two kinds of
-structures:<ol class="loweralpha">
-<li>A <em>Java archive file</em>, <code class="docutils literal notranslate"><span class="pre">.jar</span></code>, that contains Java classes.</li>
-<li>Another Unix directory that contains Java class files.</li>
-</ol>
-</li>
 </ol>
 </div>
 </div>
@@ -223,18 +216,18 @@ references a <code class="docutils literal notranslate"><span class="pre">Scanne
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fahrenheit</span> <span class="o">=</span> <span class="s">&quot;xyz&quot;</span>
 </pre></div>
 </div>
-<p>the compiler throws an error because <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> is supposed to be a double.</p>
+<p>the compiler throws an error because <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> is declared to be a double.</p>
 <p>The following error is common for new Java programmers. Suppose we forget to
-include the declaration for <code class="docutils literal notranslate"><span class="pre">celsius</span></code>. What happens if we try to
-manually compile our program using <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">TempConverter.java</span></code> on the command
-line?</p>
+include the declaration for <code class="docutils literal notranslate"><span class="pre">celsius</span></code>. What happens when we try to
+compile and run our program?</p>
 <div class="admonition-try-it admonition">
 <p class="first admonition-title"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>Try It</p>
 <ol class="last arabic simple">
 <li>Edit your <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code> class by removing line 6, which declares the
 variable <code class="docutils literal notranslate"><span class="pre">celsius</span></code>.</li>
-<li>Using your terminal, navigate to the parent directory of your
-<code class="docutils literal notranslate"><span class="pre">TempConverter.java</span></code> class and run <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">TempConverter.java</span></code>.</li>
+<li>Click any of the “Run” options in IntelliJ. Alternatively, use the
+terminal to navigate to the parent directory of your
+<code class="docutils literal notranslate"><span class="pre">TempConverter.java</span></code> class and run <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">TempConverter.java</span></code>.</li>
 </ol>
 </div>
 <p>Your terminal will return some errors that resemble these:</p>
@@ -266,10 +259,9 @@ compile your code before finding errors. Nice, huh?</p>
 <p class="caption"><span class="caption-text">The red coloring of the <code class="docutils literal notranslate"><span class="pre">celsius</span></code> variables indicate errors.</span></p>
 </div>
 </div>
-<p>The general rule in Java is that you must decide what kind of object your
-variable is going to reference and then declare that variable before you use
-it. There is much more to say about the static typing of Java, but for now this
-is enough.</p>
+<p>The general rule in Java is that you must decide on the data type for your
+variable first, and then declare that variable before you use it. There is much
+more to say about the static typing of Java, but for now this is enough.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>As in other languages, Java allows you to declare and initialize your
@@ -293,14 +285,15 @@ to bring back.</p>
 <p id="index-0">Best practice encourages us to add <strong>comments</strong> to our programs. These are
 notes that clearly explain what the code is doing.</p>
 <p>A comment is text within a program intended only for a human reader—–it is
-completely ignored by the compiler. In Java, the <code class="docutils literal notranslate"><span class="pre">//</span></code> token indicates the
-start of a comment, and the rest of the line gets ignored. For comments that
-stretch over multiple lines, the text falls between the symbols <code class="docutils literal notranslate"><span class="pre">/*</span>&#160;&#160; <span class="pre">*/</span></code>.</p>
+completely ignored by the compiler or interpreter. In Java, the <code class="docutils literal notranslate"><span class="pre">//</span></code> token
+indicates the start of a comment, and the rest of the line gets ignored. For
+comments that stretch over multiple lines, the text falls between the symbols
+<code class="docutils literal notranslate"><span class="pre">/*</span>&#160;&#160; <span class="pre">*/</span></code>.</p>
 <p>Comments can also be used to temporarily skip a portion of the code when a
-program runs. Instead of removing line 6 in <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code>, we could
-<em>comment out</em> the line. This would create the same compiler errors we wanted to
-witness, but it would preserve the original code and allow us to easily
-reactivate it by removing the <code class="docutils literal notranslate"><span class="pre">//</span></code> token from the line.</p>
+program runs. Instead of removing <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">celsius;</span></code> in <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code>, we
+could <em>comment out</em> the line. This would create the same compiler errors we
+wanted to witness, but it would preserve the original code and allow us to
+easily reactivate it by removing the <code class="docutils literal notranslate"><span class="pre">//</span></code> token from the line.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <div class="last highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -428,15 +421,15 @@ find them in the next chapter.</p>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">hasNextInt()</span></code></td>
 <td><code class="docutils literal notranslate"><span class="pre">boolean</span></code></td>
-<td>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item to read is an integer.</td>
+<td>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item to read is an <code class="docutils literal notranslate"><span class="pre">int</span></code> data type.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">hasNextFloat()</span></code></td>
 <td><code class="docutils literal notranslate"><span class="pre">boolean</span></code></td>
-<td>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item to read is a <code class="docutils literal notranslate"><span class="pre">float</span></code>.</td>
+<td>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item to read is a <code class="docutils literal notranslate"><span class="pre">float</span></code> data type.</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">hasNextDouble()</span></code></td>
 <td><code class="docutils literal notranslate"><span class="pre">boolean</span></code></td>
-<td>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item to read is a <code class="docutils literal notranslate"><span class="pre">double</span></code>.</td>
+<td>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item to read is a <code class="docutils literal notranslate"><span class="pre">double</span></code> data type.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">nextInt()</span></code></td>
 <td><code class="docutils literal notranslate"><span class="pre">Integer</span></code></td>
@@ -482,7 +475,7 @@ it finishes its job. Line 12 does this in our <code class="docutils literal notr
 <p>The <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class serves as a kind of adapter that gathers primitive data
 types as input and converts them into object types (e.g. it converts an <code class="docutils literal notranslate"><span class="pre">int</span></code>
 into <code class="docutils literal notranslate"><span class="pre">Integer</span></code>). We will discuss the purpose of this later, but for now,
-know that this adaptation makes these low level objects easier to use.</p>
+know that this adaptation makes low-level data types easier to use.</p>
 <p>For the temperature conversion program, we collected user input from the
 command line, but there are other options for collecting data for our programs.
 In future examples, we will create a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object by passing a <code class="docutils literal notranslate"><span class="pre">File</span></code>
