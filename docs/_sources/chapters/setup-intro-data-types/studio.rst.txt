@@ -8,14 +8,15 @@ Creating your class
 -------------------
 
 Since you’re still new to Java and IntelliJ, we’ll provide some extra
-direction the first few times we go to write code.
+direction the first few coding exercises.
 
-Create a new package named ``org.launchcode.java.studios`` by
-right-clicking (or ctrl-clicking for some Mac users) on the ``src`` directory 
-in ``java-web-dev-exercises`` and selecting *New > Package*. Be sure to enter 
-the full name, or your package won’t be created in the correct location.
+First, make a new folder, or package, to hold your studio exercises. Create a 
+new package named ``org.launchcode.java.studios`` by right-clicking (or 
+ctrl-clicking for some Mac users) on the ``src`` directory in 
+``java-web-dev-exercises`` and selecting *New > Package*. Be sure to enter the 
+full name, or your package won’t be created in the correct location.
 
-Create your program/class in the ``java-web-dev-exercises`` project within the
+Create your class in the ``java-web-dev-exercises`` project within the
 package ``org.launchcode.java.studios`` by right-clicking/ctrl-clicking on the
 ``studios`` package/folder and selecting *New > Java Class*. Enter the
 name ``Area``. Select the option to add the file to Git when the window appears.
@@ -23,14 +24,17 @@ name ``Area``. Select the option to add the file to Git when the window appears.
 Your task
 ---------
 
-Write a program/class ``Area`` that prompts the user for a number, and
-then calculate the area of a circle with that radius and print the
-result.
+Write a class, ``Area``, that prompts the user for the radius of a circle and
+then calculate its area and print the result.
 
 .. admonition:: Tip
    
    Recall that the area of a circle is ``A = pi * r * r`` where ``pi`` is
    3.14 and ``r`` is the radius.
+
+.. note:: 
+   
+   Unlike some other languages, Java does not have an exponent operator.
 
 
 Here’s an example of how your program should work:
@@ -59,8 +63,9 @@ Some questions to ask yourself:
 Bonus Missions
 --------------
 
-1. Add validation to your program. If the user enters a negative number,
-   print an error message and quit. You’ll need to peek ahead to learn
+1. Add validation to your program. If the user enters a negative number? a 
+   non-numeric character? the empty string? Print an error message and quit. 
+   You’ll need to peek ahead to learn
    about `conditional syntax in
    Java <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html>`__.
 2. Extend your program further by using a `while or do-while

@@ -91,25 +91,29 @@ area of a circle based on input from the user.</p>
 <div class="section" id="creating-your-class">
 <h2>1.8.1. Creating your class<a class="headerlink" href="#creating-your-class" title="Permalink to this headline">¶</a></h2>
 <p>Since you’re still new to Java and IntelliJ, we’ll provide some extra
-direction the first few times we go to write code.</p>
-<p>Create a new package named <code class="docutils literal notranslate"><span class="pre">org.launchcode.java.studios</span></code> by
-right-clicking (or ctrl-clicking for some Mac users) on the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory
-in <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> and selecting <em>New &gt; Package</em>. Be sure to enter
-the full name, or your package won’t be created in the correct location.</p>
-<p>Create your program/class in the <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project within the
+direction the first few coding exercises.</p>
+<p>First, make a new folder, or package, to hold your studio exercises. Create a
+new package named <code class="docutils literal notranslate"><span class="pre">org.launchcode.java.studios</span></code> by right-clicking (or
+ctrl-clicking for some Mac users) on the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory in
+<code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> and selecting <em>New &gt; Package</em>. Be sure to enter the
+full name, or your package won’t be created in the correct location.</p>
+<p>Create your class in the <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project within the
 package <code class="docutils literal notranslate"><span class="pre">org.launchcode.java.studios</span></code> by right-clicking/ctrl-clicking on the
 <code class="docutils literal notranslate"><span class="pre">studios</span></code> package/folder and selecting <em>New &gt; Java Class</em>. Enter the
 name <code class="docutils literal notranslate"><span class="pre">Area</span></code>. Select the option to add the file to Git when the window appears.</p>
 </div>
 <div class="section" id="your-task">
 <h2>1.8.2. Your task<a class="headerlink" href="#your-task" title="Permalink to this headline">¶</a></h2>
-<p>Write a program/class <code class="docutils literal notranslate"><span class="pre">Area</span></code> that prompts the user for a number, and
-then calculate the area of a circle with that radius and print the
-result.</p>
+<p>Write a class, <code class="docutils literal notranslate"><span class="pre">Area</span></code>, that prompts the user for the radius of a circle and
+then calculate its area and print the result.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">Recall that the area of a circle is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">pi</span> <span class="pre">*</span> <span class="pre">r</span> <span class="pre">*</span> <span class="pre">r</span></code> where <code class="docutils literal notranslate"><span class="pre">pi</span></code> is
 3.14 and <code class="docutils literal notranslate"><span class="pre">r</span></code> is the radius.</p>
+</div>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Unlike some other languages, Java does not have an exponent operator.</p>
 </div>
 <p>Here’s an example of how your program should work:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">radius</span><span class="o">:</span> <span class="mf">2.5</span>
@@ -134,8 +138,9 @@ signature <em>must</em> be:</p>
 <div class="section" id="bonus-missions">
 <h2>1.8.3. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Add validation to your program. If the user enters a negative number,
-print an error message and quit. You’ll need to peek ahead to learn
+<li>Add validation to your program. If the user enters a negative number? a
+non-numeric character? the empty string? Print an error message and quit.
+You’ll need to peek ahead to learn
 about <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html" target="_blank">conditional syntax in
 Java<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
 <li>Extend your program further by using a <a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html" target="_blank">while or do-while
