@@ -347,6 +347,29 @@ find them in the next chapter.
      - ``String``
      - Returns the next line to read as a ``String`` data type.
 
+Closing ``Scanner``
+^^^^^^^^^^^^^^^^^^^^
+
+To collect data from the command line or other source, create a ``Scanner``
+object. This opens up resources in your machine to manage the input, and these
+resources remain open even after the required data is loaded into your program.
+
+Leaving a ``Scanner`` open is like keeping a window open in your house 24/7.
+Anyone can climb into your home, and you lose $$$ by trying to heat and cool
+your space while it is open to the outside air. Similarly, an open ``Scanner``
+can allow unintended access to your program, and it ties up resources that
+might be needed elsewhere.
+
+Best practice states that if you open a ``Scanner`` object, close it after
+it finishes its job. Line 12 does this in our ``TempConverter`` program:
+
+.. sourcecode:: java
+   :lineno-start: 12
+
+   input.close();
+
+The general syntax is ``scannerObjectName.close()``.
+
 Moving Beyond the Command Line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

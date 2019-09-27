@@ -460,8 +460,25 @@ find them in the next chapter.</p>
 </tr>
 </tbody>
 </table>
+<div class="section" id="closing-scanner">
+<h3>1.5.5.1. Closing <code class="docutils literal notranslate"><span class="pre">Scanner</span></code><a class="headerlink" href="#closing-scanner" title="Permalink to this headline">¶</a></h3>
+<p>To collect data from the command line or other source, create a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>
+object. This opens up resources in your machine to manage the input, and these
+resources remain open even after the required data is loaded into your program.</p>
+<p>Leaving a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> open is like keeping a window open in your house 24/7.
+Anyone can climb into your home, and you lose $$$ by trying to heat and cool
+your space while it is open to the outside air. Similarly, an open <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>
+can allow unintended access to your program, and it ties up resources that
+might be needed elsewhere.</p>
+<p>Best practice states that if you open a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object, close it after
+it finishes its job. Line 12 does this in our <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code> program:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">input</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>The general syntax is <code class="docutils literal notranslate"><span class="pre">scannerObjectName.close()</span></code>.</p>
+</div>
 <div class="section" id="moving-beyond-the-command-line">
-<h3>1.5.5.1. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.5.2. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class serves as a kind of adapter that gathers primitive data
 types as input and converts them into object types (e.g. it converts an <code class="docutils literal notranslate"><span class="pre">int</span></code>
 into <code class="docutils literal notranslate"><span class="pre">Integer</span></code>). We will discuss the purpose of this later, but for now,
