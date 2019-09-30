@@ -115,7 +115,7 @@ The table below summarizes some of the most common string methods available in
 Java. For these examples, we use the string variable
 ``String str = "Rutabaga"``.
 
-.. list-table:: String manipulations in Java
+.. list-table:: String methods in Java
    :header-rows: 1
 
    * - Java Syntax
@@ -155,7 +155,7 @@ Primitive Types
 ----------------
 
 A primitive data type is a basic building block. Using primitive data types, we
-can build more complex data structures or object data types.
+can build more complex data structures called *object* data types.
 
 Java uses its own a set of primitive data types. The table below shows the most
 common types that beginners are likely to encounter. A more complete list can
@@ -193,24 +193,31 @@ be found on the
    Anytime you need to perform calculations with decimal values, consider using
    the ``double`` type instead of ``float``.
 
+Non-primitive Types
+--------------------
+
 Primitive data types are *immutable* and can be combined to build larger data
-structures, like arrays and objects. One example is combining multiple ``char``
-to form a ``String`` data type.
+structures. One example is forming the ``String`` "LaunchCode" from multiple
+``char`` characters ('L', 'a', 'u', etc.).
 
-.. note::
+``String`` is a non-primitive data type, also called an *object type*. As we
+saw in the ``String`` table above, object types have methods which we can call
+using dot notation. Primitive data types do not have methods.
 
-   Primitive data types in Java are identified as starting with a lower case letter, while
-   object data types in Java begin with a capital letter.
+.. admonition:: Note
+
+   Primitive data types in Java begin with a lower case letter, while object
+   data types in Java begin with a capital letter.
+
+Later in this chapter, we will explore the array and class object types.
 
 Autoboxing
-^^^^^^^^^^^
+-----------
 
-As we saw with the String data type, *object types* have methods which we can
-call using dot notation. Primitive data types do not have methods.
-
-There may be situations when an argument is of a primitive type, but the method
-called expects an object (or vice versa). In these cases, we need to convert
-the primitive type to an object, or convert an object type into a primitive.
+There may be situations when we call a method that expects an object as an
+argument, but we pass it a primitive type instead (or vice versa). In these
+cases, we need to convert the primitive type to an object, or convert an object
+type into a primitive.
 
 .. index:: ! boxing, ! unboxing
 

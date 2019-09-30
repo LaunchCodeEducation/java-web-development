@@ -374,8 +374,8 @@ declared to be a <code class="docutils literal notranslate"><span class="pre">Sc
 <code class="docutils literal notranslate"><span class="pre">println</span></code>, you are not alone. We will talk about the reasons why this is so
 when we dive into Java streams.</p>
 </div>
-<p>Next, line 10 asks the user to enter a number, and in line 11 we use <code class="docutils literal notranslate"><span class="pre">input</span></code>
-to read the value from the command line:</p>
+<p>Next, line 10 displays the prompt for the user to enter a number, and in line
+11 we use <code class="docutils literal notranslate"><span class="pre">input</span></code> to read the value from the command line:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter the temperature in Fahrenheit: &quot;</span><span class="o">);</span>
 <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
@@ -389,10 +389,8 @@ method on the <code class="docutils literal notranslate"><span class="pre">Scann
 type. In this case, the compiler compares the types for <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> and
 <code class="docutils literal notranslate"><span class="pre">input.nextDouble()</span></code> and throws an error if the two do not match.</p>
 <p>The table below shows some commonly used methods of the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class.
-There are many others supported by this class, and we will talk about how to
-find them in the next chapter.</p>
-<blockquote>
-<div>TODO: check these descriptions for primitive vs object type usage??</div></blockquote>
+There are many others supported by this class, and the <a class="reference external" href="https://docs.oracle.com/javase/10/docs/api/java/util/Scanner.html" target="_blank">Oracle website<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+provides a complete listing of the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> methods.</p>
 <table border="1" class="docutils" id="id3">
 <caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Scanner</span></code> methods</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -424,16 +422,16 @@ find them in the next chapter.</p>
 <td>Returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the next item to read is a <code class="docutils literal notranslate"><span class="pre">double</span></code> data type.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">nextInt()</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Integer</span></code></td>
-<td>Returns the next item to read as an <code class="docutils literal notranslate"><span class="pre">Integer</span></code> data type.</td>
+<td><code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>Returns the next item to read as an <code class="docutils literal notranslate"><span class="pre">int</span></code> data type.</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">nextFloat()</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Float</span></code></td>
-<td>Returns the next item to read as a <code class="docutils literal notranslate"><span class="pre">Float</span></code> data type.</td>
+<td><code class="docutils literal notranslate"><span class="pre">float</span></code></td>
+<td>Returns the next item to read as a <code class="docutils literal notranslate"><span class="pre">float</span></code> data type.</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">nextDouble()</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Double</span></code></td>
-<td>Returns the next item to read as a <code class="docutils literal notranslate"><span class="pre">Double</span></code> data type.</td>
+<td><code class="docutils literal notranslate"><span class="pre">double</span></code></td>
+<td>Returns the next item to read as a <code class="docutils literal notranslate"><span class="pre">double</span></code> data type.</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">next()</span></code></td>
 <td><code class="docutils literal notranslate"><span class="pre">String</span></code></td>
