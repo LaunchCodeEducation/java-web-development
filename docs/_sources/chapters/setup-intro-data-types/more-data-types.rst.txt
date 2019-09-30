@@ -123,6 +123,8 @@ Aside from using arrays to build some simple loop examples, we will only use
 them in special cases. However, they are a core part of Java, so it’s good to
 know how they work.
 
+.. _static-methods:
+
 Static Methods
 ---------------
 
