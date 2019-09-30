@@ -1,9 +1,10 @@
 Setup For Java
 ===============
 
-For the entirety of this course, we will be coding in Java. We need to not only have
-Java installed on our machines, but also some accompanying technologies to allow
-us to run and edit our Java code.
+For the entirety of this course, we will be coding in Java. Besides installing Java on your machine, you must also add some support technologies to 
+allow you to run and edit Java code.
+
+.. index:: ! Java Development Kit, JDK, javac, Java Virtual Machine, JVM
 
 Java Development Kit
 --------------------
@@ -20,9 +21,13 @@ on our machines.
 
 A step-by-step walk-through of the process:
 
-We write code in Java, the code is passed through the compiler program, which 
-translates Java into **bytecode**, a language readable by the JVM. In the JVM,
-bytecode is translated to machine code, which is then executed by your computer.
+.. index:: ! bytecode
+
+#. We write code in Java, 
+#. The code is passed through the compiler program, 
+#. The compiler translates Java into **bytecode**, a language readable by the JVM. 
+#. In the JVM, bytecode is translated to machine code, 
+#. Your computer then reads and executes the machine code.
 
 The JVM gives Java more flexibility than other compiled programming languages because
 it will translate bytecode into the appropriate machine code, depending on the 
@@ -31,8 +36,6 @@ operating environment.
 
 Install the JDK
 ---------------
-
-In order to learn Java, you need to have the JDK installed on your computer. 
 
 Open a terminal window on your machine and enter the following command:
 
@@ -99,6 +102,7 @@ without explicitly running a command to compile. If our ``Hello, World`` program
 were more complex and contained another file, we would need to first run ``javac HelloWorld.java``,
 to compile, followed by ``java HelloWorld.java``.
 
+.. index:: ! integrated development environment, IDE
 
 Install IntelliJ
 -----------------
