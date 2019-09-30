@@ -13,6 +13,8 @@ one language, learning another becomes much easier. Professional software
 developers often work in environments involving several programming languages so 
 it's wise to start learning new ones early on in your career. 
 
+.. index:: ! object oriented, IntelliJ IDE, Spring Boot, MVC
+
 Beyond the basics of programming in Java, you'll learn some key **object oriented**
 concepts to enhance the capabilities of your programs. You'll also download a 
 program called **IntelliJ IDE** to get familiar with the tools of the Java developer.

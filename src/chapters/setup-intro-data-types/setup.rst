@@ -108,8 +108,8 @@ Install IntelliJ
 -----------------
 
 IntelliJ is an **integrated development environment (IDE)**. An IDE is like a text
-editor on steroids. It's a program to not only write and edit your code, but an IDE
-can also contain many other features to enhance the coding experience. IntelliJ offers
+editor on steroids. It not only allows you to write and edit code, but also contains many 
+features that enhance the coding experience. IntelliJ offers
 code completion hints, debugging, and even it's own compiler. We'll be using it throughout
 this course, so it's time to get familiar with some of the basics.
 
@@ -126,7 +126,7 @@ window listing the options to *Create New Project*, *Import Project*, *Open*, an
 
    IntelliJ welcome window
 
-You've installed IntelliJ and you're ready to start exploring its many features.
+You've installed IntelliJ, and you're ready to start exploring its many features.
 
 .. _create-new-java-project:
 
@@ -169,13 +169,13 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
 #. On the next window, enter ``HelloWorld`` for the name of the project.
    Click on the "3-dot" button to select a location to save the project. Here you can
-   choose you Java projects folder you created in step one. Leave the base package as
+   choose the Java projects folder you created in step one. Leave the base package as
    ``com.company``. 
 
    .. figure:: figures/newProjectName.png
       :alt: New project window for IntelliJ
 
-      Create the ``HelloWorld`` project in you Java projects folder.
+      Create the ``HelloWorld`` project in your Java projects folder.
 
 #. Click *Finish* to create the project. Below is the view of your new project:
 
@@ -189,9 +189,9 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
    we created, and finally our ``Main.java`` file. ``Main.java`` is also opened on the right
    in this initial project view.
 
-#. We'll dive into the use of a ``main`` function and ``Main`` class in some time. At this point,
+#. We'll dive into the use of a ``main`` function and ``Main`` class later. At this point,
    let's just get right to printing our greeting. Where the project template tells you to write your
-   code, add the following:
+   code on line 6, add the following:
 
    .. sourcecode:: java
 
