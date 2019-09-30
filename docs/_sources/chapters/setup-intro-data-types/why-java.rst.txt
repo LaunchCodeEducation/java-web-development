@@ -13,9 +13,11 @@ one language, learning another becomes much easier. Professional software
 developers often work in environments involving several programming languages so 
 it's wise to start learning new ones early on in your career. 
 
-Beyond the basics of programming in Java, you'll learn some key **object oriented**
+.. index:: IntelliJ IDE, Spring Boot
+
+Beyond the basics of programming in Java, you'll learn some key *object oriented*
 concepts to enhance the capabilities of your programs. You'll also download a 
 program called **IntelliJ IDE** to get familiar with the tools of the Java developer.
 In the final lessons of this course, you will use a Java framework called **Spring Boot**.
-This framework gives us the scaffolding necessary to create **MVC** programs, another
+This framework gives us the scaffolding necessary to create *MVC* programs, another
 concept we'll cover, effectively and efficiently.

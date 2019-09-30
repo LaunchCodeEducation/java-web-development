@@ -86,11 +86,10 @@
     
   <div class="section" id="setup-for-java">
 <h1>1.2. Setup For Java<a class="headerlink" href="#setup-for-java" title="Permalink to this headline">¶</a></h1>
-<p>For the entirety of this course, we will be coding in Java. We need to not only have
-Java installed on our machines, but also some accompanying technologies to allow
-us to run and edit our Java code.</p>
+<p>For the entirety of this course, we will be coding in Java. Besides installing Java on your machine, you must also add some support technologies to
+allow you to run and edit Java code.</p>
 <div class="section" id="java-development-kit">
-<h2>1.2.1. Java Development Kit<a class="headerlink" href="#java-development-kit" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>1.2.1. Java Development Kit<a class="headerlink" href="#java-development-kit" title="Permalink to this headline">¶</a></h2>
 <p>Installing Java means downloading a package of software called the <strong>Java Development Kit</strong>,
 or <strong>JDK</strong>, for short. The JDK contains software the tools needed to develop and
 run Java code, namely the the Java compiler, <strong>javac</strong>, and the
@@ -99,37 +98,48 @@ run Java code, namely the the Java compiler, <strong>javac</strong>, and the
 code, the JVM allows us to run that code on any computer. These tools
 together, downloaded as the JDK, give us the means to write, compile, and run Java
 on our machines.</p>
-<p>A step-by-step walk-through of the process:</p>
-<p>We write code in Java, the code is passed through the compiler program, which
-translates Java into <strong>bytecode</strong>, a language readable by the JVM. In the JVM,
-bytecode is translated to machine code, which is then executed by your computer.</p>
+<p id="compiling-java">A step-by-step walk-through of the process:</p>
+<ol class="arabic simple" id="index-1">
+<li>We write code in Java,</li>
+<li>The code is passed through the compiler program,</li>
+<li>The compiler translates Java into <strong>bytecode</strong>, a language readable by the JVM.</li>
+<li>In the JVM, bytecode is translated to machine code,</li>
+<li>Your computer then reads and executes the machine code.</li>
+</ol>
 <p>The JVM gives Java more flexibility than other compiled programming languages because
 it will translate bytecode into the appropriate machine code, depending on the
 operating environment.</p>
 </div>
 <div class="section" id="install-the-jdk">
 <h2>1.2.2. Install the JDK<a class="headerlink" href="#install-the-jdk" title="Permalink to this headline">¶</a></h2>
-<p>In order to learn Java, you need to have the JDK installed on your computer.</p>
 <p>Open a terminal window on your machine and enter the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -version
 </pre></div>
 </div>
 <p>If the response returns a version 13 or higher, you can move on to the section below,
-<a class="reference internal" href="#cli-java"><span class="std std-ref">CLI Java</span></a>.</p>
+<a class="reference internal" href="#terminal-java"><span class="std std-ref">Java in the Terminal</span></a>.</p>
 <p>If you do not have a version of Java at 13 or higher, you can download
 it <a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk13-downloads-5672538.html" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 The relevant install link is on the bottom of the page:</p>
-<div class="figure" id="id2">
+<div class="figure" id="id1">
 <img alt="Install Java" src="../../_images/installJava.png" />
 <p class="caption"><span class="caption-text">Install Java</span></p>
 </div>
 <p>To install, you must first select <em>Accept License Agreement</em>, then select any of
-the file type options for your operating system. Once you have completed the
+the file type options for your operating system.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<ul class="last simple">
+<li>Mac users, we reccommend the <code class="docutils literal notranslate"><span class="pre">.dmg</span></code> option</li>
+<li>Windows users, we reccommend the <code class="docutils literal notranslate"><span class="pre">.exe</span></code> option</li>
+</ul>
+</div>
+<p>Once you have completed the
 installation steps, return to your terminal and enter <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-version</span></code> again to
 ensure Java has been installed.</p>
 </div>
-<div class="section" id="cli-java">
-<span id="id1"></span><h2>1.2.3. CLI Java<a class="headerlink" href="#cli-java" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="java-in-the-terminal">
+<span id="terminal-java"></span><h2>1.2.3. Java in the Terminal<a class="headerlink" href="#java-in-the-terminal" title="Permalink to this headline">¶</a></h2>
 <p>Let’s write a simple “Hello, World” program and watch the JDK in action.</p>
 <p>In the future, we’ll be doing most of our Java coding with the IntelliJ IDE.
 IntelliJ contains many features to help us write Java properly and easily,
@@ -161,16 +171,16 @@ open a terminal window and navigate to the parent directory of your new file. Ru
 </pre></div>
 </div>
 <p>You should see your greeting printed!</p>
-<p>Java version 11 introduced the capability to compile single-file Java programs
-without explicitly running a command to compile. If our <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World</span></code> program
-were more complex and contained another file, we would need to first run <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">HelloWorld.java</span></code>,
-to compile, followed by <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">HelloWorld.java</span></code>.</p>
+<p>Recall from the walk-through <a class="reference internal" href="#compiling-java"><span class="std std-ref">above</span></a>, Java needs to be be compiled before executing. Java version 11 introduced
+the capability to compile single-file Java programs without explicitly running a command to compile. If our
+<code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World</span></code> program were more complex and contained another file, we would need to first run
+<code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">HelloWorld.java</span></code>, to compile, followed by <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">HelloWorld.java</span></code>.</p>
 </div>
 <div class="section" id="install-intellij">
-<h2>1.2.4. Install IntelliJ<a class="headerlink" href="#install-intellij" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>1.2.4. Install IntelliJ<a class="headerlink" href="#install-intellij" title="Permalink to this headline">¶</a></h2>
 <p>IntelliJ is an <strong>integrated development environment (IDE)</strong>. An IDE is like a text
-editor on steroids. It’s a program to not only write and edit your code, but an IDE
-can also contain many other features to enhance the coding experience. IntelliJ offers
+editor on steroids. It not only allows you to write and edit code, but also contains many
+features that enhance the coding experience. IntelliJ offers
 code completion hints, debugging, and even it’s own compiler. We’ll be using it throughout
 this course, so it’s time to get familiar with some of the basics.</p>
 <p>Visit the <a class="reference external" href="https://www.jetbrains.com/idea/download/" target="_blank">IntelliJ download site<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
@@ -179,11 +189,11 @@ prompts to select your settings. When you reach the window asking for your UI th
 you can choose to <em>Skip Remaining and Set Defaults</em>. You will finish on an IntelliJ
 window listing the options to <em>Create New Project</em>, <em>Import Project</em>, <em>Open</em>, and
 <em>Check out from Version Control</em>.</p>
-<div class="figure" id="id3">
+<div class="figure" id="id2">
 <a class="reference internal image-reference" href="../../_images/IntelliJWelcome.png"><img alt="Welcome window for IntelliJ" src="../../_images/IntelliJWelcome.png" style="width: 528.8000000000001px; height: 382.40000000000003px;" /></a>
 <p class="caption"><span class="caption-text">IntelliJ welcome window</span></p>
 </div>
-<p>You’ve installed IntelliJ and you’re ready to start exploring its many features.</p>
+<p>You’ve installed IntelliJ, and you’re ready to start exploring its many features.</p>
 </div>
 <div class="section" id="your-first-java-project">
 <span id="create-new-java-project"></span><h2>1.2.5. Your First Java Project<a class="headerlink" href="#your-first-java-project" title="Permalink to this headline">¶</a></h2>
@@ -197,7 +207,7 @@ related chapters and projects. Something like
 </li>
 <li><p class="first">Select the <em>Create New Project</em> option from the welcome
 screen.</p>
-<div class="figure" id="id4">
+<div class="figure" id="id3">
 <a class="reference internal image-reference" href="../../_images/IntelliJWelcome.png"><img alt="Welcome window for IntelliJ" src="../../_images/IntelliJWelcome.png" style="width: 528.8000000000001px; height: 382.40000000000003px;" /></a>
 <p class="caption"><span class="caption-text">Create new project</span></p>
 </div>
@@ -206,29 +216,29 @@ screen.</p>
 select. For this first setting, make sure your selected project SDK is the JDK
 you have installed. This allows IntelliJ to compile our Java code in-app.
 Click <em>Next</em> in the lower right corner of the window to continue selecting settings.</p>
-<div class="figure" id="id5">
+<div class="figure" id="id4">
 <img alt="Select project SDK" src="../../_images/projectSDK.png" />
 <p class="caption"><span class="caption-text">Select project SDK</span></p>
 </div>
 </li>
 <li><p class="first">In the second window, select <em>Create project from template</em>. This gives us
-some of the Java project scaffolding to save us some time with infrastructure.</p>
-<div class="figure" id="id6">
+some of the Java project scaffolding to save us some time with project infrastructure.</p>
+<div class="figure" id="id5">
 <img alt="Select project template" src="../../_images/projectTemplate.png" />
 <p class="caption"><span class="caption-text">Select project template</span></p>
 </div>
 </li>
 <li><p class="first">On the next window, enter <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> for the name of the project.
 Click on the “3-dot” button to select a location to save the project. Here you can
-choose you Java projects folder you created in step one. Leave the base package as
+choose the Java projects folder you created in step one. Leave the base package as
 <code class="docutils literal notranslate"><span class="pre">com.company</span></code>.</p>
-<div class="figure" id="id7">
+<div class="figure" id="id6">
 <img alt="New project window for IntelliJ" src="../../_images/newProjectName.png" />
-<p class="caption"><span class="caption-text">Create the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> project in you Java projects folder.</span></p>
+<p class="caption"><span class="caption-text">Create the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> project in your Java projects folder.</span></p>
 </div>
 </li>
 <li><p class="first">Click <em>Finish</em> to create the project. Below is the view of your new project:</p>
-<div class="figure" id="id8">
+<div class="figure" id="id7">
 <img alt="New project view" src="../../_images/newProjectView.png" />
 <p class="caption"><span class="caption-text">Initial IntelliJ project view</span></p>
 </div>
@@ -237,16 +247,16 @@ the project name, <code class="docutils literal notranslate"><span class="pre">H
 we created, and finally our <code class="docutils literal notranslate"><span class="pre">Main.java</span></code> file. <code class="docutils literal notranslate"><span class="pre">Main.java</span></code> is also opened on the right
 in this initial project view.</p>
 </li>
-<li><p class="first">We’ll dive into the use of a <code class="docutils literal notranslate"><span class="pre">main</span></code> function and <code class="docutils literal notranslate"><span class="pre">Main</span></code> class in some time. At this point,
+<li><p class="first">We’ll dive into the use of a <code class="docutils literal notranslate"><span class="pre">main</span></code> function and <code class="docutils literal notranslate"><span class="pre">Main</span></code> class later. At this point,
 let’s just get right to printing our greeting. Where the project template tells you to write your
-code, add the following:</p>
+code on line 6, add the following:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
 <p>Ok sure, we haven’t gone over this exact syntax yet. But you can take a guess at what this line will do.</p>
 </li>
 <li><p class="first">To run your program in IntelliJ, you have several options.</p>
-<div class="figure" id="id9">
+<div class="figure" id="id8">
 <img alt="Run code options" src="../../_images/runProgram.png" />
 <p class="caption"><span class="caption-text">IntelliJ run code options</span></p>
 </div>
@@ -254,7 +264,7 @@ code, add the following:</p>
 choose <em>Run</em> from your top menu bar.</p>
 </li>
 <li><p class="first">Once run, IntelliJ will generate a third panel in your view, with your program’s output:</p>
-<div class="figure" id="id10">
+<div class="figure" id="id9">
 <img alt="Run code output" src="../../_images/output.png" />
 <p class="caption"><span class="caption-text">IntelliJ output</span></p>
 </div>
@@ -262,6 +272,39 @@ choose <em>Run</em> from your top menu bar.</p>
 </ol>
 <p>This is just the start of your relationship with IntelliJ. Not that we know the fundamentals,
 let’s return to Java basics so we can start writing more code.</p>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Given the code below, which line is responsible for printing a message?</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, World&quot;</span><span class="o">);</span>
+   <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="last arabic simple">
+<li>line 1</li>
+<li>line 2</li>
+<li>line 4</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>In the sourcecode above, which line is responsible for defining the class?</p>
+<ol class="last arabic simple">
+<li>line 1</li>
+<li>line 2</li>
+<li>line 4</li>
+</ol>
+</div>
 </div>
 </div>
 

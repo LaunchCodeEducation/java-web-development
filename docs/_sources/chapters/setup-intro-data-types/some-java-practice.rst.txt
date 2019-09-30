@@ -273,8 +273,12 @@ object:
    input = new Scanner(System.in);
 
 Notice that this ``Scanner`` object is assigned to the name ``input``, which we
-declared to be a ``Scanner`` object earlier. ``System.in`` is similar to
-``System.out`` except, as the name implies, it is used for input.
+declared to be a ``Scanner`` object earlier. 
+
+And you know those ``System`` statements we've been using? Like ``System.in`` above
+here, and ``System.out.println()`` for print statements. Well, ``System`` itself is 
+a java class. ``System.in`` is similar to ``System.out`` except, as the name 
+implies, it is used for input.
 
 .. admonition:: Note
 

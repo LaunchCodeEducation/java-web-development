@@ -1,9 +1,10 @@
 Setup For Java
 ===============
 
-For the entirety of this course, we will be coding in Java. We need to not only have
-Java installed on our machines, but also some accompanying technologies to allow
-us to run and edit our Java code.
+For the entirety of this course, we will be coding in Java. Besides installing Java on your machine, you must also add some support technologies to 
+allow you to run and edit Java code.
+
+.. index:: ! Java Development Kit, JDK, javac, Java Virtual Machine, JVM
 
 Java Development Kit
 --------------------
@@ -18,11 +19,17 @@ code, the JVM allows us to run that code on any computer. These tools
 together, downloaded as the JDK, give us the means to write, compile, and run Java
 on our machines.
 
+.. _compiling-java:
+
 A step-by-step walk-through of the process:
 
-We write code in Java, the code is passed through the compiler program, which 
-translates Java into **bytecode**, a language readable by the JVM. In the JVM,
-bytecode is translated to machine code, which is then executed by your computer.
+.. index:: ! bytecode
+
+#. We write code in Java, 
+#. The code is passed through the compiler program, 
+#. The compiler translates Java into **bytecode**, a language readable by the JVM. 
+#. In the JVM, bytecode is translated to machine code, 
+#. Your computer then reads and executes the machine code.
 
 The JVM gives Java more flexibility than other compiled programming languages because
 it will translate bytecode into the appropriate machine code, depending on the 
@@ -32,8 +39,6 @@ operating environment.
 Install the JDK
 ---------------
 
-In order to learn Java, you need to have the JDK installed on your computer. 
-
 Open a terminal window on your machine and enter the following command:
 
 .. sourcecode:: bash
@@ -41,7 +46,7 @@ Open a terminal window on your machine and enter the following command:
    java -version
 
 If the response returns a version 13 or higher, you can move on to the section below,
-:ref:`cli-java`.
+:ref:`terminal-java`.
 
 If you do not have a version of Java at 13 or higher, you can download 
 it `here <https://www.oracle.com/technetwork/java/javase/downloads/jdk13-downloads-5672538.html>`__.
@@ -53,14 +58,21 @@ The relevant install link is on the bottom of the page:
    Install Java
 
 To install, you must first select *Accept License Agreement*, then select any of 
-the file type options for your operating system. Once you have completed the 
+the file type options for your operating system. 
+
+.. tip::
+
+   - Mac users, we reccommend the ``.dmg`` option
+   - Windows users, we reccommend the ``.exe`` option
+
+Once you have completed the 
 installation steps, return to your terminal and enter ``java -version`` again to 
 ensure Java has been installed.
 
-.. _cli-java:
+.. _terminal-java:
 
-CLI Java
---------
+Java in the Terminal
+--------------------
 
 Let's write a simple "Hello, World" program and watch the JDK in action. 
 
@@ -94,18 +106,19 @@ open a terminal window and navigate to the parent directory of your new file. Ru
 
 You should see your greeting printed! 
 
-Java version 11 introduced the capability to compile single-file Java programs
-without explicitly running a command to compile. If our ``Hello, World`` program
-were more complex and contained another file, we would need to first run ``javac HelloWorld.java``,
-to compile, followed by ``java HelloWorld.java``.
+Recall from the walk-through :ref:`above <compiling-java>`, Java needs to be be compiled before executing. Java version 11 introduced 
+the capability to compile single-file Java programs without explicitly running a command to compile. If our 
+``Hello, World`` program were more complex and contained another file, we would need to first run 
+``javac HelloWorld.java``, to compile, followed by ``java HelloWorld.java``.
 
+.. index:: ! integrated development environment, IDE
 
 Install IntelliJ
 -----------------
 
 IntelliJ is an **integrated development environment (IDE)**. An IDE is like a text
-editor on steroids. It's a program to not only write and edit your code, but an IDE
-can also contain many other features to enhance the coding experience. IntelliJ offers
+editor on steroids. It not only allows you to write and edit code, but also contains many 
+features that enhance the coding experience. IntelliJ offers
 code completion hints, debugging, and even it's own compiler. We'll be using it throughout
 this course, so it's time to get familiar with some of the basics.
 
@@ -122,7 +135,7 @@ window listing the options to *Create New Project*, *Import Project*, *Open*, an
 
    IntelliJ welcome window
 
-You've installed IntelliJ and you're ready to start exploring its many features.
+You've installed IntelliJ, and you're ready to start exploring its many features.
 
 .. _create-new-java-project:
 
@@ -156,7 +169,7 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
       Select project SDK
 
 #. In the second window, select *Create project from template*. This gives us
-   some of the Java project scaffolding to save us some time with infrastructure. 
+   some of the Java project scaffolding to save us some time with project infrastructure. 
 
    .. figure:: figures/projectTemplate.png
       :alt: Select project template
@@ -165,13 +178,13 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
 #. On the next window, enter ``HelloWorld`` for the name of the project.
    Click on the "3-dot" button to select a location to save the project. Here you can
-   choose you Java projects folder you created in step one. Leave the base package as
+   choose the Java projects folder you created in step one. Leave the base package as
    ``com.company``. 
 
    .. figure:: figures/newProjectName.png
       :alt: New project window for IntelliJ
 
-      Create the ``HelloWorld`` project in you Java projects folder.
+      Create the ``HelloWorld`` project in your Java projects folder.
 
 #. Click *Finish* to create the project. Below is the view of your new project:
 
@@ -185,9 +198,9 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
    we created, and finally our ``Main.java`` file. ``Main.java`` is also opened on the right
    in this initial project view.
 
-#. We'll dive into the use of a ``main`` function and ``Main`` class in some time. At this point,
+#. We'll dive into the use of a ``main`` function and ``Main`` class later. At this point,
    let's just get right to printing our greeting. Where the project template tells you to write your
-   code, add the following:
+   code on line 6, add the following:
 
    .. sourcecode:: java
 
@@ -214,5 +227,32 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
 This is just the start of your relationship with IntelliJ. Not that we know the fundamentals,
 let's return to Java basics so we can start writing more code.
+
+.. admonition:: Question
+
+   Given the code below, which line is responsible for printing a message?
+
+   .. sourcecode:: java
+      :linenos:
+
+      public class HelloWorld {
+
+         public static void main(String[] args) {
+            System.out.println("Hello, World");
+         }
+
+      }
+
+   #. line 1
+   #. line 2
+   #. line 4
+
+.. admonition:: Question
+
+   In the sourcecode above, which line is responsible for defining the class?
+
+   #. line 1
+   #. line 2
+   #. line 4
 
 
