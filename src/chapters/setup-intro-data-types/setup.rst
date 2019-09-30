@@ -183,7 +183,8 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
    The section on the left is the project's file tree. Clicking the triangle next to 
    the project name, ``HelloWorld``, displays the ``src`` file, followed by the base package
    we created, and finally our ``Main.java`` file. ``Main.java`` is also opened on the right
-   in this initial project view.
+   in this initial project view. See line 1, ``package com.company``? Java packages help
+   organize your code, in addition to encapsulating (an object oriented concept we'll address later.)
 
 #. We'll dive into the use of a ``main`` function and ``Main`` class in some time. At this point,
    let's just get right to printing our greeting. Where the project template tells you to write your

@@ -31,6 +31,8 @@ back to the :ref:`First Java Program <create-new-java-project>` instructions.
    .. sourcecode:: java
       :linenos:
 
+      package org.launchcode.java.demos.javawebdevelopment.datatypes;
+
       import java.util.Scanner;
 
       public class TempConverter {
@@ -56,9 +58,29 @@ back to the :ref:`First Java Program <create-new-java-project>` instructions.
 There are several new concepts introduced in this example. We will look
 at them in the following order:
 
+#. Java packages
 #. The ``import`` statement
 #. Declaring variables
 #. Collecting input with the Scanner class
+
+.. _java-packages:
+
+.. index:: ! encapsulation
+
+Java Packages
+-------------
+
+Line 1 of of the program above, ``package org.launchcode.java.demos.javawebdevelopment.datatypes;``
+declares the package in which the file resides. For this simple program, your code 
+could run without this line. However, you want to get used to always declaring the 
+package of your Java classes. 
+
+Packages help to **encapsulate** your code. Encapsulation refers to the practice of 
+shielding your code from outside influences. It's an essential component of good 
+object oriented programming, and package declaration in Java is just one application 
+of this principle. Without declaring a package, a Java class exists within the default 
+package. In larger application, leaving all classes in the default package risks naming
+conflicts and bugs.
 
 .. _import-statement:
 
@@ -83,8 +105,8 @@ WITHOUT having to import it, but you must use the full name of the class.
 
 .. admonition:: Try It
 
-   In the sample code, remove the ``import`` statement in line 1, and change
-   ``Scanner`` on lines 7 & 9 to ``java.util.Scanner``. The program should
+   In the sample code, remove the ``import`` statement in line 3, and change
+   ``Scanner`` on lines 9 & 11 to ``java.util.Scanner``. The program should
    still compile and run.
 
 The class naming system in Java is very hierarchical. The *full* name of the
@@ -101,18 +123,18 @@ We’ll talk more about the class naming system a bit later.
 Declaring Variables
 --------------------
 
-In the example above, lines 5 - 7 contain variable declarations:
+In the example above, lines 7 - 9 contain variable declarations:
 
 .. sourcecode:: java
-   :lineno-start: 5
+   :lineno-start: 7
 
    double fahrenheit;
    double celsius;
    Scanner input;
 
 Since Java is a statically typed language, we must always declare the data type
-for any variable. Lines 5 & 6 establish that ``fahrenheit`` and ``celsius``
-will hold values of type ``double``. In line 7, the variable ``input``
+for any variable. Lines 7 & 8 establish that ``fahrenheit`` and ``celsius``
+will hold values of type ``double``. In line 9, the variable ``input``
 references a ``Scanner`` object.
 
 If later in the code we try to initialize ``fahrenheit`` with a string:
@@ -129,7 +151,7 @@ compile and run our program?
 
 .. admonition:: Try It
 
-   #. Edit your ``TempConverter`` class by removing line 6, which declares the
+   #. Edit your ``TempConverter`` class by removing line 8, which declares the
       variable ``celsius``.
    #. Click any of the "Run" options in IntelliJ. Alternatively, use the
       terminal to navigate to the parent directory of your
@@ -139,22 +161,22 @@ Your terminal will return some errors that resemble these:
 
 .. sourcecode:: bash
 
-   Error:(14, 9) java: cannot find symbol
+   Error:(16, 9) java: cannot find symbol
    symbol:   variable celsius
    location: class TempConverter
 
-   Error:(15, 64) java: cannot find symbol
+   Error:(17, 64) java: cannot find symbol
    symbol:   variable celsius
    location: class TempConverter
 
 These two *compiler errors* occur before the program runs. The values in the
 parentheses ``()`` give the line number and text column where the error was
-found. In the first description (line 14, column 9), the ``celsius`` variable
+found. In the first description (line 16, column 9), the ``celsius`` variable
 before the ``=`` is flagged. When this type of error happens, it usually means
 that the variable was not declared before we tried to initialize it with a
 value.
 
-The second error message (line 15, column 64) occurs because we use
+The second error message (line 17, column 64) occurs because we use
 ``celsius`` before it has been assigned a value.
 
 .. admonition:: Note
@@ -258,7 +280,7 @@ over the network relatively easy. For our temperature conversion program, we
 declared the variable ``input`` to be of type ``Scanner``.
 
 .. sourcecode:: java
-   :lineno-start: 7
+   :lineno-start: 9
 
    Scanner input;
 
@@ -268,7 +290,7 @@ line. We accomplish this by creating a ``Scanner`` instance using the word
 object:
 
 .. sourcecode:: java
-   :lineno-start: 9
+   :lineno-start: 11
 
    input = new Scanner(System.in);
 
@@ -283,11 +305,11 @@ declared to be a ``Scanner`` object earlier. ``System.in`` is similar to
    ``println``, you are not alone. We will talk about the reasons why this is so
    when we dive into Java streams.
 
-Next, line 10 asks the user to enter a number, and in line 11 we use ``input``
+Next, line 12 asks the user to enter a number, and in line 13 we use ``input``
 to read the value from the command line:
 
 .. sourcecode:: java
-   :lineno-start: 10
+   :lineno-start: 12
 
    System.out.println("Enter the temperature in Fahrenheit: ");
    fahrenheit = input.nextDouble();
@@ -355,10 +377,10 @@ can allow unintended access to your program, and it ties up resources that
 might be needed elsewhere.
 
 Best practice states that if you open a ``Scanner`` object, close it after
-it finishes its job. Line 12 does this in our ``TempConverter`` program:
+it finishes its job. Line 14 does this in our ``TempConverter`` program:
 
 .. sourcecode:: java
-   :lineno-start: 12
+   :lineno-start: 14
 
    input.close();
 

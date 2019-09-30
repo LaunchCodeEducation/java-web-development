@@ -125,7 +125,11 @@ different statements in a moment.</p>
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">org.launchcode.java.demos.javawebdevelopment.datatypes</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TempConverter</span> <span class="o">{</span>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
@@ -153,13 +157,27 @@ temperature of <code class="docutils literal notranslate"><span class="pre">212<
 <p>There are several new concepts introduced in this example. We will look
 at them in the following order:</p>
 <ol class="arabic simple">
+<li>Java packages</li>
 <li>The <code class="docutils literal notranslate"><span class="pre">import</span></code> statement</li>
 <li>Declaring variables</li>
 <li>Collecting input with the Scanner class</li>
 </ol>
+<span class="target" id="java-packages"></span></div>
+<div class="section" id="index-0">
+<span id="id1"></span><h2>1.4.2. Java Packages<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
+<p>Line 1 of of the program above, <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">org.launchcode.java.demos.javawebdevelopment.datatypes;</span></code>
+declares the package in which the file resides. For this simple program, your code
+could run without this line. However, you want to get used to always declaring the
+package of your Java classes.</p>
+<p>Packages help to <strong>encapsulate</strong> your code. Encapsulation refers to the practice of
+shielding your code from outside influences. It’s an essential component of good
+object oriented programming, and package declaration in Java is just one application
+of this principle. Without declaring a package, a Java class exists within the default
+package. In larger application, leaving all classes in the default package risks naming
+conflicts and bugs.</p>
 </div>
 <div class="section" id="import">
-<span id="import-statement"></span><h2>1.4.2. <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
+<span id="import-statement"></span><h2>1.4.3. <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in Java allows us to access the class, methods, and
 data stored a different file. <code class="docutils literal notranslate"><span class="pre">import</span></code> tells the compiler that we are going
 to use a shortened version of the class name. In this example, we are going to
@@ -177,8 +195,8 @@ current working directory.</li>
 </ol>
 <div class="admonition-try-it admonition">
 <p class="first admonition-title"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>Try It</p>
-<p class="last">In the sample code, remove the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in line 1, and change
-<code class="docutils literal notranslate"><span class="pre">Scanner</span></code> on lines 7 &amp; 9 to <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code>. The program should
+<p class="last">In the sample code, remove the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in line 3, and change
+<code class="docutils literal notranslate"><span class="pre">Scanner</span></code> on lines 9 &amp; 11 to <code class="docutils literal notranslate"><span class="pre">java.util.Scanner</span></code>. The program should
 still compile and run.</p>
 </div>
 <p>The class naming system in Java is very hierarchical. The <em>full</em> name of the
@@ -191,18 +209,18 @@ as having two parts:</p>
 <p>We’ll talk more about the class naming system a bit later.</p>
 </div>
 <div class="section" id="declaring-variables">
-<span id="id1"></span><h2>1.4.3. Declaring Variables<a class="headerlink" href="#declaring-variables" title="Permalink to this headline">¶</a></h2>
-<p>In the example above, lines 5 - 7 contain variable declarations:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">fahrenheit</span><span class="o">;</span>
+<span id="id2"></span><h2>1.4.4. Declaring Variables<a class="headerlink" href="#declaring-variables" title="Permalink to this headline">¶</a></h2>
+<p>In the example above, lines 7 - 9 contain variable declarations:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="n">fahrenheit</span><span class="o">;</span>
 <span class="kt">double</span> <span class="n">celsius</span><span class="o">;</span>
 <span class="n">Scanner</span> <span class="n">input</span><span class="o">;</span>
 </pre></div>
 </td></tr></table></div>
 <p>Since Java is a statically typed language, we must always declare the data type
-for any variable. Lines 5 &amp; 6 establish that <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> and <code class="docutils literal notranslate"><span class="pre">celsius</span></code>
-will hold values of type <code class="docutils literal notranslate"><span class="pre">double</span></code>. In line 7, the variable <code class="docutils literal notranslate"><span class="pre">input</span></code>
+for any variable. Lines 7 &amp; 8 establish that <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> and <code class="docutils literal notranslate"><span class="pre">celsius</span></code>
+will hold values of type <code class="docutils literal notranslate"><span class="pre">double</span></code>. In line 9, the variable <code class="docutils literal notranslate"><span class="pre">input</span></code>
 references a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object.</p>
 <p>If later in the code we try to initialize <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> with a string:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">fahrenheit</span> <span class="o">=</span> <span class="s">&quot;xyz&quot;</span>
@@ -215,7 +233,7 @@ compile and run our program?</p>
 <div class="admonition-try-it admonition">
 <p class="first admonition-title"><i class="fas fa-puzzle-piece" aria-hidden="true"></i>Try It</p>
 <ol class="last arabic simple">
-<li>Edit your <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code> class by removing line 6, which declares the
+<li>Edit your <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code> class by removing line 8, which declares the
 variable <code class="docutils literal notranslate"><span class="pre">celsius</span></code>.</li>
 <li>Click any of the “Run” options in IntelliJ. Alternatively, use the
 terminal to navigate to the parent directory of your
@@ -223,22 +241,22 @@ terminal to navigate to the parent directory of your
 </ol>
 </div>
 <p>Your terminal will return some errors that resemble these:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Error:<span class="o">(</span><span class="m">14</span>, <span class="m">9</span><span class="o">)</span> java: cannot find symbol
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Error:<span class="o">(</span><span class="m">16</span>, <span class="m">9</span><span class="o">)</span> java: cannot find symbol
 symbol:   variable celsius
 location: class TempConverter
 
-Error:<span class="o">(</span><span class="m">15</span>, <span class="m">64</span><span class="o">)</span> java: cannot find symbol
+Error:<span class="o">(</span><span class="m">17</span>, <span class="m">64</span><span class="o">)</span> java: cannot find symbol
 symbol:   variable celsius
 location: class TempConverter
 </pre></div>
 </div>
 <p>These two <em>compiler errors</em> occur before the program runs. The values in the
 parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> give the line number and text column where the error was
-found. In the first description (line 14, column 9), the <code class="docutils literal notranslate"><span class="pre">celsius</span></code> variable
+found. In the first description (line 16, column 9), the <code class="docutils literal notranslate"><span class="pre">celsius</span></code> variable
 before the <code class="docutils literal notranslate"><span class="pre">=</span></code> is flagged. When this type of error happens, it usually means
 that the variable was not declared before we tried to initialize it with a
 value.</p>
-<p>The second error message (line 15, column 64) occurs because we use
+<p>The second error message (line 17, column 64) occurs because we use
 <code class="docutils literal notranslate"><span class="pre">celsius</span></code> before it has been assigned a value.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
@@ -246,7 +264,7 @@ value.</p>
 IDEs built-in compiler as you write your code. Errors are often visually
 indicated by the IDE as you type. This avoids having to explicitly
 compile your code before finding errors. Nice, huh?</p>
-<div class="last figure" id="id2">
+<div class="last figure" id="id3">
 <img alt="The ``celsius`` variables are flagged." src="../../_images/IDE-flagged-errors.png" />
 <p class="caption"><span class="caption-text">The red coloring of the <code class="docutils literal notranslate"><span class="pre">celsius</span></code> variables indicate errors.</span></p>
 </div>
@@ -264,7 +282,7 @@ variables in the same line:</p>
 </div>
 </div>
 <div class="section" id="add-comments-to-your-code">
-<h2>1.4.4. Add Comments to Your Code<a class="headerlink" href="#add-comments-to-your-code" title="Permalink to this headline">¶</a></h2>
+<h2>1.4.5. Add Comments to Your Code<a class="headerlink" href="#add-comments-to-your-code" title="Permalink to this headline">¶</a></h2>
 <p>As programs get bigger and more complicated, they get more difficult to read.
 Good programmers try to make their code understandable to others, but it is
 still tricky to look at a large program and figure out what it is doing and
@@ -274,7 +292,7 @@ portions of their code as they are testing it. In the “Try It” box above, yo
 were instructed to <em>remove</em> a line of code in order to create compiler errors.
 However, programmers are usually reluctant to delete lines that they might need
 to bring back.</p>
-<p id="index-0">Best practice encourages us to add <strong>comments</strong> to our programs. These are
+<p id="index-1">Best practice encourages us to add <strong>comments</strong> to our programs. These are
 notes that clearly explain what the code is doing.</p>
 <p>A comment is text within a program intended only for a human reader—–it is
 completely ignored by the compiler or interpreter. In Java, the <code class="docutils literal notranslate"><span class="pre">//</span></code> token
@@ -350,18 +368,18 @@ easily reactivate it by removing the <code class="docutils literal notranslate">
 </div>
 </div>
 <div class="section" id="collect-input-with-the-scanner-class">
-<span id="scanner-input"></span><h2>1.4.5. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class<a class="headerlink" href="#collect-input-with-the-scanner-class" title="Permalink to this headline">¶</a></h2>
+<span id="scanner-input"></span><h2>1.4.6. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class<a class="headerlink" href="#collect-input-with-the-scanner-class" title="Permalink to this headline">¶</a></h2>
 <p>In Java, <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> objects make getting input from the user, a file, or even
 over the network relatively easy. For our temperature conversion program, we
 declared the variable <code class="docutils literal notranslate"><span class="pre">input</span></code> to be of type <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>.</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Scanner</span> <span class="n">input</span><span class="o">;</span>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Scanner</span> <span class="n">input</span><span class="o">;</span>
 </pre></div>
 </td></tr></table></div>
 <p>We want our program to prompt the user to enter in a number in the command
 line. We accomplish this by creating a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> instance using the word
 <code class="docutils literal notranslate"><span class="pre">new</span></code> and then calling the constructor and passing it the <code class="docutils literal notranslate"><span class="pre">System.in</span></code>
 object:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>Notice that this <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object is assigned to the name <code class="docutils literal notranslate"><span class="pre">input</span></code>, which we
@@ -374,10 +392,10 @@ declared to be a <code class="docutils literal notranslate"><span class="pre">Sc
 <code class="docutils literal notranslate"><span class="pre">println</span></code>, you are not alone. We will talk about the reasons why this is so
 when we dive into Java streams.</p>
 </div>
-<p>Next, line 10 asks the user to enter a number, and in line 11 we use <code class="docutils literal notranslate"><span class="pre">input</span></code>
+<p>Next, line 12 asks the user to enter a number, and in line 13 we use <code class="docutils literal notranslate"><span class="pre">input</span></code>
 to read the value from the command line:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter the temperature in Fahrenheit: &quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter the temperature in Fahrenheit: &quot;</span><span class="o">);</span>
 <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
 </pre></div>
 </td></tr></table></div>
@@ -393,8 +411,8 @@ There are many others supported by this class, and we will talk about how to
 find them in the next chapter.</p>
 <blockquote>
 <div>TODO: check these descriptions for primitive vs object type usage??</div></blockquote>
-<table border="1" class="docutils" id="id3">
-<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Scanner</span></code> methods</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">Scanner</span></code> methods</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />
 <col width="33%" />
@@ -446,7 +464,7 @@ find them in the next chapter.</p>
 </tbody>
 </table>
 <div class="section" id="closing-scanner">
-<h3>1.4.5.1. Closing <code class="docutils literal notranslate"><span class="pre">Scanner</span></code><a class="headerlink" href="#closing-scanner" title="Permalink to this headline">¶</a></h3>
+<h3>1.4.6.1. Closing <code class="docutils literal notranslate"><span class="pre">Scanner</span></code><a class="headerlink" href="#closing-scanner" title="Permalink to this headline">¶</a></h3>
 <p>To collect data from the command line or other source, create a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>
 object. This opens up resources in your machine to manage the input, and these
 resources remain open even after the required data is loaded into your program.</p>
@@ -456,14 +474,14 @@ your space while it is open to the outside air. Similarly, an open <code class="
 can allow unintended access to your program, and it ties up resources that
 might be needed elsewhere.</p>
 <p>Best practice states that if you open a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object, close it after
-it finishes its job. Line 12 does this in our <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code> program:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">input</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+it finishes its job. Line 14 does this in our <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code> program:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">input</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </pre></div>
 </td></tr></table></div>
 <p>The general syntax is <code class="docutils literal notranslate"><span class="pre">scannerObjectName.close()</span></code>.</p>
 </div>
 <div class="section" id="moving-beyond-the-command-line">
-<h3>1.4.5.2. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
+<h3>1.4.6.2. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class serves as a kind of adapter that gathers primitive data
 types as input and converts them into object types (e.g. it converts an <code class="docutils literal notranslate"><span class="pre">int</span></code>
 into <code class="docutils literal notranslate"><span class="pre">Integer</span></code>). We will discuss the purpose of this later, but for now,
@@ -475,7 +493,7 @@ object as a parameter instead of <code class="docutils literal notranslate"><spa
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>1.4.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>1.4.7. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>An <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is required to use a Java class defined in another
