@@ -142,7 +142,7 @@ will adopt this terminology from now on.
 .. admonition:: Warning
 
    Be prepared to receive a vocabulary lesson from veteran Java coders if you
-   accidentally refer to methods as “functions”.
+   accidentally refer to methods as *functions*.
 
 .. index:: ! static methods
 

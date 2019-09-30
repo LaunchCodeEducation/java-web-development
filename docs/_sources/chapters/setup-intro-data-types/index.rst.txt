@@ -4,8 +4,8 @@ Setup, Introduction, and Data Types
 .. toctree::
    :maxdepth: 3
 
-   setup
    why-java
+   setup
    data-types
    some-java-practice
    more-data-types

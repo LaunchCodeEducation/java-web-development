@@ -52,6 +52,7 @@ assignment of this unit.
    directory (i.e. a folder where you’ve stored other projects for this class).
 
    .. figure:: figures/IntelliJRepoSelection.png
+      :scale: 80%
       :alt: IntelliJ Repo Selection
 
       IntelliJ Repo Selection
@@ -89,6 +90,7 @@ assignment of this unit.
 #. Double-clicking on the *Hello* file opens the file to the right.
 
    .. figure:: figures/IntelliJOpenFile.png
+      :scale: 35%
       :alt: IntelliJ Open File
 
       IntelliJ Open File
@@ -97,6 +99,7 @@ assignment of this unit.
    definition and select *Run 'Hello.main()'* from the dropdown menu.
 
    .. figure:: figures/IntelliJRunFile.png
+      :scale: 35%
       :alt: IntelliJ Run File
 
       IntelliJ Run File
@@ -105,6 +108,7 @@ assignment of this unit.
    output.
 
    .. figure:: figures/IntelliJFileOutput.png
+      :scale: 35%
       :alt: IntelliJ File Output
 
       IntelliJ File Output
