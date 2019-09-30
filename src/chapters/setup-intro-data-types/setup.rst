@@ -19,6 +19,8 @@ code, the JVM allows us to run that code on any computer. These tools
 together, downloaded as the JDK, give us the means to write, compile, and run Java
 on our machines.
 
+.. _compiling-java:
+
 A step-by-step walk-through of the process:
 
 .. index:: ! bytecode
@@ -44,7 +46,7 @@ Open a terminal window on your machine and enter the following command:
    java -version
 
 If the response returns a version 13 or higher, you can move on to the section below,
-:ref:`cli-java`.
+:ref:`terminal-java`.
 
 If you do not have a version of Java at 13 or higher, you can download 
 it `here <https://www.oracle.com/technetwork/java/javase/downloads/jdk13-downloads-5672538.html>`__.
@@ -56,14 +58,21 @@ The relevant install link is on the bottom of the page:
    Install Java
 
 To install, you must first select *Accept License Agreement*, then select any of 
-the file type options for your operating system. Once you have completed the 
+the file type options for your operating system. 
+
+.. tip::
+
+   - Mac users, we reccommend the ``.dmg`` option
+   - Windows users, we reccommend the ``.exe`` option
+
+Once you have completed the 
 installation steps, return to your terminal and enter ``java -version`` again to 
 ensure Java has been installed.
 
-.. _cli-java:
+.. _terminal-java:
 
-CLI Java
---------
+Java in the Terminal
+--------------------
 
 Let's write a simple "Hello, World" program and watch the JDK in action. 
 
@@ -97,10 +106,10 @@ open a terminal window and navigate to the parent directory of your new file. Ru
 
 You should see your greeting printed! 
 
-Java version 11 introduced the capability to compile single-file Java programs
-without explicitly running a command to compile. If our ``Hello, World`` program
-were more complex and contained another file, we would need to first run ``javac HelloWorld.java``,
-to compile, followed by ``java HelloWorld.java``.
+Recall from the walk-through :ref:`above <compiling-java>`, Java needs to be be compiled before executing. Java version 11 introduced 
+the capability to compile single-file Java programs without explicitly running a command to compile. If our 
+``Hello, World`` program were more complex and contained another file, we would need to first run 
+``javac HelloWorld.java``, to compile, followed by ``java HelloWorld.java``.
 
 .. index:: ! integrated development environment, IDE
 
@@ -160,7 +169,7 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
       Select project SDK
 
 #. In the second window, select *Create project from template*. This gives us
-   some of the Java project scaffolding to save us some time with infrastructure. 
+   some of the Java project scaffolding to save us some time with project infrastructure. 
 
    .. figure:: figures/projectTemplate.png
       :alt: Select project template
@@ -218,5 +227,32 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
 This is just the start of your relationship with IntelliJ. Not that we know the fundamentals,
 let's return to Java basics so we can start writing more code.
+
+.. admonition:: Question
+
+   Given the code below, which line is responsible for printing a message?
+
+   .. sourcecode:: java
+      :linenos:
+
+      public class HelloWorld {
+
+         public static void main(String[] args) {
+            System.out.println("Hello, World");
+         }
+
+      }
+
+   #. line 1
+   #. line 2
+   #. line 4
+
+.. admonition:: Question
+
+   In the sourcecode above, which line is responsible for defining the class?
+
+   #. line 1
+   #. line 2
+   #. line 4
 
 
