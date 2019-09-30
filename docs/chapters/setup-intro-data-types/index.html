@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.1. Setup For Java" href="setup.html" />
+    <link rel="next" title="1.1. Why Learn Java?" href="why-java.html" />
     <link rel="prev" title="Chapters" href="../../index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -87,22 +87,42 @@
 <h1>1. Setup, Introduction, and Data Types<a class="headerlink" href="#setup-introduction-and-data-types" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ol>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">1.1. Setup For Java</a></li>
-<li class="toctree-l1"><a class="reference internal" href="why-java.html">1.2. Why Learn Another Language?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why-java.html">1.1. Why Learn Java?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">1.2. Setup For Java</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#java-development-kit">1.2.1. Java Development Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#install-the-jdk">1.2.2. Install the JDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#cli-java">1.2.3. CLI Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#install-intellij">1.2.4. Install IntelliJ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#your-first-java-project">1.2.5. Your First Java Project</a></li>
+</ol>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="data-types.html">1.3. Data Types</a><ol>
 <li class="toctree-l2"><a class="reference internal" href="data-types.html#static-vs-dynamic-typing">1.3.1. Static vs.&nbsp;Dynamic Typing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data-types.html#string">1.3.2. String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#strings-and-single-characters">1.3.2. Strings and Single Characters</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="data-types.html#immutability">1.3.2.1. Immutability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-types.html#single-vs-double-quotation-marks">1.3.2.2. Single vs. Double Quotation Marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-types.html#manipulation">1.3.2.3. Manipulation</a></li>
+</ol>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="data-types.html#primitive-types">1.3.3. Primitive Types</a><ol>
 <li class="toctree-l3"><a class="reference internal" href="data-types.html#autoboxing">1.3.3.1. Autoboxing</a></li>
 </ol>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="data-types.html#references">1.3.4. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#check-your-understanding">1.3.5. Check Your Understanding</a></li>
 </ol>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="code-comparison.html">1.4. A Code Comparison</a><ol>
-<li class="toctree-l2"><a class="reference internal" href="code-comparison.html#import">1.4.1. <code class="docutils literal notranslate"><span class="pre">import</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="code-comparison.html#declaring-variables">1.4.2. Declaring Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="code-comparison.html#input-output-and-the-scanner-class">1.4.3. Input / Output and the Scanner Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="some-java-practice.html">1.4. Some Java Practice</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#temperature-conversion">1.4.1. Temperature Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#import">1.4.2. <code class="docutils literal notranslate"><span class="pre">import</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#declaring-variables">1.4.3. Declaring Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#add-comments-to-your-code">1.4.4. Add Comments to Your Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#collect-input-with-the-scanner-class">1.4.5. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="some-java-practice.html#closing-scanner">1.4.5.1. Closing <code class="docutils literal notranslate"><span class="pre">Scanner</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="some-java-practice.html#moving-beyond-the-command-line">1.4.5.2. Moving Beyond the Command Line</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#check-your-understanding">1.4.6. Check Your Understanding</a></li>
 </ol>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="more-data-types.html">1.5. More Data Types</a><ol>
@@ -111,7 +131,12 @@
 </ol>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="more-data-types.html#arrays">1.5.2. Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#static-methods">1.5.3. Static Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#static-methods">1.5.3. Static Methods</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="more-data-types.html#static-method-examples">1.5.3.1. Static Method Examples</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#id2">1.5.4. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#check-your-understanding">1.5.5. Check Your Understanding</a></li>
 </ol>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="naming-conventions.html">1.6. Java Naming Conventions</a></li>
@@ -148,7 +173,7 @@
         <li class="previous"><a href="../../index.html"><span aria-hidden="true">&larr;</span> Chapters</a></li>
         
         
-        <li class="next"><a href="setup.html">1.1. Setup For Java <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="why-java.html">1.1. Why Learn Java? <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

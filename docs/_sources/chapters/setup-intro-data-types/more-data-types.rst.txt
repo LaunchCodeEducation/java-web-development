@@ -2,260 +2,320 @@ More Data Types
 ================
 
 Class Types
------------
+------------
 
-In addition to the types introduced so far - primitives and their
-objectified counterparts - any class in Java defines a type. Classes and
-objects are conceptually the same as in Python: A class is a template
-for creating objects. We’ll have much more to say about classes and
-objects, but for now you need to be comfortable seeing the basic syntax
-of class types and class creation.
+.. index:: ! class
 
-If I have a class ``Cat`` with a constructor that takes no arguments, I
-can declare and create a new instance of ``Cat`` using its constructor.
-In Python, we did this as follows:
+In Java, a **class** is a template for creating objects. In addition to the
+data types introduced so far, any class in Java also defines a type. We’ll have
+much more to say about classes and objects, but for now you need to recognize
+the basic syntax of class types and class creation.
 
-.. code:: python
+If we have a class ``Cat``, we can declare and create an instance of ``Cat``
+using the ``new`` keyword:
 
-   # Python
-   my_cat = Cat()
-
-And the Java version is:
-
-.. code:: java
+.. sourcecode:: java
 
    Cat myCat = new Cat();
 
-Each of these statements creates a new variable that is initialized to
-hold a new ``Cat`` object. Note that in Java, we must declare the
-variable’s type. Also note that we precede the constructor with the
-``new`` keyword. And, of course, the Java example ends with a
-semi-colon.
+#. ``Cat myCat`` declares the variable ``myCat`` and sets it to be of type
+   ``Cat``.
+#. ``= new Cat()`` initializes the variable with a new ``Cat`` object.
+#. Any arguments that are required to build the new ``Cat`` object must be
+   included within the parentheses.
 
-Variables and parameters that are of the type of a class are said to be
-of **reference type** (in contrast to **primitive type**). In plain
-English, we would say of the Java example: “``myCat`` is a reference
-variable of type ``Cat``.”
+.. index:: ! reference type
+
+Just like variables can be declared as an ``int`` or ``String``
+data type, they can also be declared as a specific *class* type. Variables
+that are class type---as opposed to primitive types like ``double`` or object
+types like ``String``---are said to be of **reference type**. Using this
+terminology, ``myCat`` is a *reference variable* of type ``Cat``.
 
 References
 ^^^^^^^^^^^
 
-Reference types are different from primitive types in an essential way.
-A variable of a reference type (such as ``myCat`` above) does not
-actually store the object in question. Instead, it stores a
-**reference** to the object. A reference is literally a memory address.
-We visualize references as an arrow pointing to the object in memory.
+Reference types are different from primitive types in an essential way. A
+variable of a reference type (such as ``myCat`` above) does not actually store
+the object in question. Instead, it stores a *reference* to the object, which
+is literally a memory address. We visualize references as an arrow pointing to
+the location of the object in memory.
 
 Consider this code:
 
-.. code:: java
+.. sourcecode:: java
+   :linenos:
 
-   int catAge = 11;
+   int firstCatAge = 11;
+   int secondCatAge = firstCatAge;
    Cat myCat = new Cat();
    Cat sameCat = myCat;
 
-Visually, we can represent these three variables as shown below.
+Visually, we can represent these four variables as shown below.
 
 .. figure:: figures/references.png
    :alt: Reference Types
 
-   Reference Types
+   Reference Types vs. Primitive Types
 
-Since ``int`` is a primitive type, the variable ``catAge`` functions as
-a box holding the integer value 11. On the other hand, ``myCat`` is a
-reference variable, since it holds an object. The variable actually
-stores the address of the object, which we visualize as an arrow from
-the variable box to the object.
+Since ``int`` is a primitive type, the variables ``firstCatAge`` and
+``secondCatAge`` function like separate boxes, each one holding the integer
+value ``11``. On the other hand, ``myCat`` is a reference variable, since it
+refers to an object of type ``Cat``. The variable actually stores the *memory
+address* of the object, which we visualize as an arrow pointing from the
+variable box to where the data is stored. Instead of holding the actual ``Cat``
+data, ``myCat`` stores *directions* for finding the data in memory.
 
-When we assign a value to a reference type, as in
-``Cat sameCat = myCat``, we are not creating a second copy of the
-object, but instead are creating a second “arrow” pointing to the same
-object.
+When we assign a value to a reference type, as in ``Cat sameCat = myCat``, we
+do NOT create a second copy of the object or its data. Instead, we make a
+second arrow pointing to the same memory location.
 
-The distinction between references types and primitives is important, if
-difficult, to wrap your brain around at first. We will see that
-reference types are handled differently in essential and important ways
-in a lot of different situations.
+The distinction between reference types and primitives is important, if
+subtle. As you continue learning Java, you will see that reference types are
+handled differently in essential and important ways.
 
 Arrays
-------
+-------
 
-Just as Java has primitive types for things that were objects in Python
-– such as integers and booleans – it also has a type that you might
-consider to be a “primitive list”, arrays.
-
-An array is an ordered, fixed-size collection of elements. Since Java is
-statically-typed, arrays may only store one type of object. We can
-create an array of integers or an array of strings, but we may not
+In Java, an array is an ordered, fixed-size collection of elements. To comply
+with static typing, the items stored in an array must all be the same data
+type. We can create an array of integers or an array of strings, but we may NOT
 create an array that holds both integers and strings.
 
 The syntax for creating an array capable of holding 10 integers is:
 
-.. code:: java
+.. sourcecode:: java
 
    int[] someInts = new int[10];
 
-To create an array of a different size, replace the number 10 in
-brackets with the desired size. To create an array holding a different
-type, replace ``int`` (on both sides of the assignment) with the desired
-type, for instance, ``double``. Unlike lists in Python, arrays in Java
-*may not* change size once created. This turns out to be not very
-practical, so thankfully Java provides more flexible ways to store data,
-which we’ll explore in a later lesson.
+Note the square brackets next to ``int``. This tells Java that we want
+``someInts`` to store a collection of integers instead of a single number.
 
-In addition to the technique above, we can initialize an array using a
-literal expression:
+To create an array of a different size, replace the number ``10`` in the
+brackets with the desired size. To create an array holding a different type,
+replace ``int`` (on both sides of the assignment) with the desired type, like
+``double`` or ``String``.
 
-.. code:: java
+In addition to the example above, we can initialize an array using a literal
+expression:
+
+.. sourcecode:: java
 
    int[] someOtherInts = {1, 1, 2, 3, 5, 8};
 
-Here, the size is implicit in the number of elements in the literal
-expression ``{1, 1, 2, 3, 5, 8}``.
+Here, the size of the array is implied by the number of elements in the literal
+expression ``{1, 1, 2, 3, 5, 8}``. Also note the use of curly braces ``{ }``
+instead of square brackets ``[ ]``.
 
-To access array elements, we use square brackets, as with Python lists.
+To access array elements, we use square brackets and *zero-based indexing*.
 
-.. code:: java
+.. sourcecode:: java
 
-   int anInt = someInts[0];
+   int anInt = someOtherInts[4];
+   // anInt stores the integer 5.
 
-As with Python lists, arrays have *zero-based indexing*.
+Arrays in Java may NOT change size once created. This is limiting and not very
+practical. Thankfully, Java provides more flexible ways to store data, which we
+will explore in a later lesson. These objects will allow us to rearrange, add
+to, or remove data.
 
-Aside from using arrays to build some simple loop examples in the next
-lesson, we’ll only use them in special cases. However, they’re a core
-part of Java, so it’s good to know how they work.
+Aside from using arrays to build some simple loop examples, we will only use
+them in special cases. However, they are a core part of Java, so it’s good to
+know how they work.
 
 .. _static-methods:
 
 Static Methods
---------------
+---------------
 
-In pure object-oriented languages like Java and C#, we don’t have
-functions in the sense you’re used to. For example, functions may not be
-declared outside of a class. Within the context of a class, functions
-are referred to as **methods**. We will adopt this terminology from now
-on, and you are encouraged not to refer to methods as “functions” when
-you are talking about Java code.
+If you are familiar with another programming language, then you most likely
+created chunks of re-usable code called *functions*. These blocks of code make
+writing programs more efficient and flexible. Java embraces the same concept,
+but it approaches the idea in a very specific way.
 
-We’ll dive into learning about classes and objects in Java soon enough,
-but until we do, we’ll frequently need to write methods, so we should
-understand a little bit about them. In particular, we’ll use **static
-methods**, which behave similarly to functions as you knew them in
-Python.
+In Java, functions may NOT be declared outside of a class. Even a simple
+function that checks if an integer is even needs to be defined within a class.
 
-A static method is one with the ``static`` keyword, as our ``main``
-method above has:
+.. index:: ! methods
 
-.. code:: java
+Within the context of a class, functions are referred to as **methods**, and we
+will adopt this terminology from now on.
 
-   public static void main(String[] args)
-   {
-       // some code
+.. admonition:: Warning
+
+   Be prepared to receive a vocabulary lesson from veteran Java coders if you
+   accidentally refer to methods as *functions*.
+
+.. index:: ! static methods
+
+We’ll dive deeper into classes and objects in Java soon enough. For now, we
+will explore how to write methods. In particular, we’ll use **static methods**.
+A static method is one that can be called without creating an instance of the
+class to which it belongs.
+
+.. admonition:: Example
+
+   Define the class ``Cat`` and include the ``static`` keyword before the
+   ``makeNoise`` method name:
+
+   .. sourcecode:: java
+
+      public class Cat {
+         public static void makeNoise(String[] args) {
+            // some code
+         }
+      }
+
+   Since ``makeNoise`` is ``static``, we do NOT need to create a ``Cat`` object to
+   access it.
+
+   Instead of doing this:
+
+   .. sourcecode:: java
+      :linenos:
+
+      Cat myCat = new Cat();     // Create a new Cat object.
+      myCat.makeNoise("purr");   // Call the makeNoise method.
+
+   We can call the method directly:
+
+   .. sourcecode:: java
+      :linenos:
+
+      Cat.makeNoise("roar");
+
+Until we get further into object oriented programming, every method you write
+should use the ``static`` keyword. Leaving off ``static`` will prevent or
+complicate the process of calling the methods you defined.
+
+We will explore exactly what ``static`` does in more detail in later lessons.
+
+Static Method Examples
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Let’s examine two classes in Java to explore defining and using methods. The
+first class is defined in a ``HelloMethods.java`` file, and it will have a
+``main`` method. The second class is defined in a separate ``Message.java``
+file, and it will contain a ``getMessage`` method that we want to call from
+within ``main``.
+
+.. admonition:: Examples
+
+   ``HelloMethods.java``:
+
+   .. sourcecode:: java
+      :linenos:
+
+      public class HelloMethods {
+
+         public static void main(String[] args) {
+            String message = Message.getMessage("fr");
+            System.out.println(message);
+         }
+
+      }
+
+   ``Message.java``:
+
+   .. sourcecode:: java
+      :linenos:
+
+      public class Message {
+
+         public static String getMessage(String lang) {
+
+            if (lang.equals("sp")) {
+               return "¡Hola, Mundo!";
+            } else if (lang.equals("fr")) {
+               return "Bonjour, le monde!";
+            } else {
+               return "Hello, World!";
+            }
+         }
+      }
+
+We won’t explore every new aspect of this example, but instead focus on the two
+methods.
+
+#. The ``main`` method in the ``HelloMethods`` class has the same structure as
+   that of our :ref:`temperature conversion example <temp-conversion>`.
+#. Take a look at the ``Message`` class. Note that it does NOT have a ``main``
+   method, so it can’t be run on it’s own. Code within the ``Message`` class
+   must be called from elsewhere in order to execute.
+#. The ``Message`` class contains the ``getMessage`` method. Like ``main``, it
+   has the ``static`` keyword. Unlike ``main``, ``getMessage`` has a return
+   type of ``String`` instead of ``void``.
+#. ``getMessage`` takes a single ``String`` parameter, ``lang``.
+
+Since Java is statically typed, we must declare the data type for each
+parameter AND the return value.
+
+.. sourcecode:: java
+
+   public static returnedDataType methodName(parameterDataType parameterName) {
+      //code
    }
 
-We’ve already explored each element of this line, however, we haven’t
-really shown you how you might create your own methods in other
-contexts. To do so involves using a different name for our method, and
-adjusting the return type and parameter types accordingly.
+One consequence of this is that a method in Java may NOT have ``return``
+statements that send back different types of data. Note that lines 6, 8, and 10
+in ``Message.java`` each return a string. If we try to replace line 10 with
+``return 42;``, then we would generate a compiler error.
 
-.. raw:: html
+To call a static method, we follow a specific syntax. Line 4 in the
+``HelloMethods.java`` shows this:
 
-   <aside class="aside-warning">
-
-Until we get into Object Oriented Programming, every method we write
-will have the ``static`` keyword. Leaving off ``static`` will prevent
-you from calling methods you define as you would like to.
-
-We will explore exactly what ``static`` does in more detail in later
-lessons.
-
-.. raw:: html
-
-   </aside>
-
-Let’s create two classes in Java to demonstrate this. One will have a
-``main`` method and the other will have a method that we want to call
-from within ``main``.
-
-.. code:: java
-
-   public class HelloMethods {
-
-       public static void main(String[] args) {
-           String message = Message.getMessage("fr");
-           System.out.println(message);
-       }
-
-   }
-
-.. code:: java
-
-   public class Message {
-
-       public static String getMessage(String lang) {
-
-           if (lang.equals("sp")) {
-               return "Hola Mundo";
-           } else if (lang.equals("fr")) {
-               return "Bonjour le monde";
-           } else {
-               return "Hello World";
-           }
-       }
-   }
-
-We won’t explore every new aspect of this example, but rather will focus
-on the two methods.
-
-.. raw:: html
-
-   <aside class="aside-warning">
-
-As you’ve been following along with these examples using the code in
-IntelliJ, you’ve probably noticed that each class file, for example
-``Message.java`` and ``HelloMethods.java``, is named exactly the same as
-the class that file holds, for example ``Message`` and ``HelloMethods``
-respectively.
-
-It is a rule in Java that a file containing a class marked ``public``
-**must** be named the same as that class. So remember to name each Java
-file you create to match the public class that file contains.
-
-.. raw:: html
-
-   </aside>
-
-The ``main`` method in the ``HelloMethods`` class is the same in
-structure as that of our previous examples. Take a look at the
-``Message`` class. Note that it *does not* have a ``main`` method, so it
-can’t be run on it’s own. Code within the ``Message`` class must be
-called from elsewhere in order to execute.
-
-The ``Message`` class has a method of its own: ``getMessage``. Like
-``main``, it has the ``static`` keyword. Unlike ``main``, ``getMessage``
-has a return type of ``String``. It also has a single parameter,
-``String lang``.
-
-Since Java is statically typed, each method must declare its return type
-– that is, the data type of what it will return – along with the type of
-each parameter. One consequence of this that may not be immediately
-obvious is that a method in Java may not have return statements that
-return different types of data. For example, we would not be able to
-replace the last ``return`` statement of ``getMessage`` with something
-like ``return 42;``. This would be flagged as a compiler error.
-
-Finally, let’s note how a static method is called. The first line of
-``main`` in the ``HelloMethods`` class is:
-
-.. code:: java
+.. sourcecode:: java
 
    Message.getMessage("fr");
 
-To call a static method we must use the name of the class in which it is
-defined, followed by ``.``, followed by the name of the method.
+To call a static method we must use the format
+``ClassName.methodName(arguments)``.
 
-We are able to call this method from another class because it is
-declared to be ``public``. If we wanted to restrict the method from
-being called by another class, we could instead use the ``private``
-modifier. We’ll explore access modifiers in more depth in coming
-lessons.
+Note that ``getMessage`` is NOT defined within the ``HelloMessages`` class. We
+can do this because ``getMessage`` is declared as ``public``. If we wanted to
+restrict the method from being called by another class, we could instead use
+the ``private`` modifier. We will explore access modifiers in more depth in
+coming lessons.
+
+.. admonition:: Warning
+
+   As you have been following along with these examples, you may have noticed
+   that each class file, for example ``Message.java`` and
+   ``HelloMethods.java``, is named exactly the same as the class it holds
+   (``Message`` and ``HelloMethods``, respectively).
+
+   It is a rule in Java that a file containing a class marked ``public``
+   MUST be named the same as that class.
+
+References
+----------
+
+#. `Arrays (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html>`__
+
+Check Your Understanding
+-------------------------
+
+.. admonition:: Question
+
+   Which of the following defines a method that takes an integer as a parameter
+   and returns a string value?
+
+   #. ``public static void methodName(String parameterName)``
+   #. ``public static void methodName(int parameterName)``
+   #. ``public static int methodName(String parameterName)``
+   #. ``public static String methodName(int parameterName)``
+
+.. admonition:: Question
+
+   Assume that we declare the following Java array:
+
+   .. sourcecode:: Java
+
+      String[] someWords = new String[5];
+
+   Which of the following shows a correct initialization for the array?
+
+   #. ``someWords = {'hello', 'world', '123', 'LaunchCode ROCKS!'}``
+   #. ``someWords = {"hello", "world", "123", "LaunchCode ROCKS!", "Java"}``
+   #. ``someWords = {"hello", "world", 'a', "LaunchCode ROCKS!", "Java"}``
+   #. ``someWords = {"hello", "world", "avocado", "LaunchCode ROCKS!"}``

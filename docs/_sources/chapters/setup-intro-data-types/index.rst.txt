@@ -4,10 +4,10 @@ Setup, Introduction, and Data Types
 .. toctree::
    :maxdepth: 3
 
-   setup
    why-java
+   setup
    data-types
-   code-comparison
+   some-java-practice
    more-data-types
    naming-conventions
    exercises
