@@ -140,6 +140,8 @@ them in special cases. However, they are a core part of Java, so it’s good to
 know how they work, especially since the term "arrays" in JavaScript refers to
 something with much different behavior.
 
+.. _static-methods:
+
 Static Methods
 ---------------
 
