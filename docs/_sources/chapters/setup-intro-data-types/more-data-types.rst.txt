@@ -193,10 +193,10 @@ Static Method Examples
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Let’s examine two classes in Java to explore defining and using methods. The
-first class is defined in a ``HelloMethods.java`` file, and it will have a
+first class is defined in the ``HelloMethods.java`` file, and it has a
 ``main`` method. The second class is defined in a separate ``Message.java``
-file, and it will contain a ``getMessage`` method that we want to call from
-within ``main``.
+file, and it contains a ``getMessage`` method that we want to call from within
+``main``.
 
 .. admonition:: Examples
 
@@ -258,7 +258,7 @@ parameter AND the return value.
 One consequence of this is that a method in Java may NOT have ``return``
 statements that send back different types of data. Note that lines 6, 8, and 10
 in ``Message.java`` each return a string. If we try to replace line 10 with
-``return 42;``, then we would generate a compiler error.
+``return 42;``, we would generate a compiler error.
 
 To call a static method, we follow a specific syntax. Line 4 in the
 ``HelloMethods.java`` shows this:
