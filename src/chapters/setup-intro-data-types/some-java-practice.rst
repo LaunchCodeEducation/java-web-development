@@ -10,23 +10,10 @@ Celsius.
 Temperature Conversion
 -----------------------
 
-If you need to review the steps for creating a new IntelliJ project, refer
-back to the :ref:`First Java Program <create-new-java-project>` instructions.
+#. Open the ``TempConverter`` file in the ``java-web-dev-exercises`` project in IntelliJ.
 
-#. Create a new project and call it ``TempConverter``.
-#. Right-click (or control-click) on the ``src`` folder. Select *New*, then
-   *Java Class*.
-
-   .. figure:: figures/create-new-class.png
-      :alt: Create the TempConverter class.
-
-#. You should see the following empty class in the editor panel:
-
-   .. figure:: figures/TempConverter-class.png
-      :alt: New TempConverter class.
-
-#. Cut and paste the following code into the editor. We will analyze the
-   different statements in a moment.
+#. Here's what the file should look like. We will analyze the different statements 
+	in a moment.
 
    .. sourcecode:: java
       :linenos:

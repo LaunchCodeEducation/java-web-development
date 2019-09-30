@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1.4. Some Java Practice &#8212; Java Web Development  documentation</title>
+    <title>1.5. Some Java Practice &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.5. More Data Types" href="more-data-types.html" />
-    <link rel="prev" title="1.3. Data Types" href="data-types.html" />
+    <link rel="next" title="1.6. More Data Types" href="more-data-types.html" />
+    <link rel="prev" title="1.4. Java Web Dev Exercises" href="java-web-dev-exercises.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">1. Setup, Introduction, and Data Types</a></li>
-    <li class="active">1.4. Some Java Practice</li>
+    <li class="active">1.5. Some Java Practice</li>
 </ol>
 
 
@@ -85,30 +85,20 @@
 
     
   <div class="section" id="some-java-practice">
-<h1>1.4. Some Java Practice<a class="headerlink" href="#some-java-practice" title="Permalink to this headline">¶</a></h1>
+<h1>1.5. Some Java Practice<a class="headerlink" href="#some-java-practice" title="Permalink to this headline">¶</a></h1>
 <p>Let’s move beyond our “Hello, World” example and explore a simple temperature
 conversion program. We want our function to convert a Fahrenheit temperature to
 Celsius.</p>
 <div class="section" id="temperature-conversion">
-<span id="temp-conversion"></span><h2>1.4.1. Temperature Conversion<a class="headerlink" href="#temperature-conversion" title="Permalink to this headline">¶</a></h2>
-<p>If you need to review the steps for creating a new IntelliJ project, refer
-back to the <a class="reference internal" href="setup.html#create-new-java-project"><span class="std std-ref">First Java Program</span></a> instructions.</p>
+<span id="temp-conversion"></span><h2>1.5.1. Temperature Conversion<a class="headerlink" href="#temperature-conversion" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Create a new project and call it <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code>.</p>
+<li><p class="first">Open the <code class="docutils literal notranslate"><span class="pre">TempConverter</span></code> file in the <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project in IntelliJ.</p>
 </li>
-<li><p class="first">Right-click (or control-click) on the <code class="docutils literal notranslate"><span class="pre">src</span></code> folder. Select <em>New</em>, then
-<em>Java Class</em>.</p>
-<div class="figure">
-<img alt="Create the TempConverter class." src="../../_images/create-new-class.png" />
-</div>
-</li>
-<li><p class="first">You should see the following empty class in the editor panel:</p>
-<div class="figure">
-<img alt="New TempConverter class." src="../../_images/TempConverter-class.png" />
-</div>
-</li>
-<li><p class="first">Cut and paste the following code into the editor. We will analyze the
-different statements in a moment.</p>
+<li><dl class="first docutils">
+<dt>Here’s what the file should look like. We will analyze the different statements</dt>
+<dd><p class="first last">in a moment.</p>
+</dd>
+</dl>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -164,7 +154,7 @@ at them in the following order:</p>
 </ol>
 <span class="target" id="java-packages"></span></div>
 <div class="section" id="index-0">
-<span id="id1"></span><h2>1.4.2. Java Packages<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>1.5.2. Java Packages<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
 <p>Line 1 of of the program above, <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">org.launchcode.java.demos.javawebdevelopment.datatypes;</span></code>
 declares the package in which the file resides. For this simple program, your code
 could run without this line. However, you want to get used to always declaring the
@@ -177,7 +167,7 @@ package. In larger application, leaving all classes in the default package risks
 conflicts and bugs.</p>
 </div>
 <div class="section" id="import">
-<span id="import-statement"></span><h2>1.4.3. <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
+<span id="import-statement"></span><h2>1.5.3. <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">import</span></code> statement in Java allows us to access the class, methods, and
 data stored a different file. <code class="docutils literal notranslate"><span class="pre">import</span></code> tells the compiler that we are going
 to use a shortened version of the class name. In this example, we are going to
@@ -209,7 +199,7 @@ as having two parts:</p>
 <p>We’ll talk more about the class naming system a bit later.</p>
 </div>
 <div class="section" id="declaring-variables">
-<span id="id2"></span><h2>1.4.4. Declaring Variables<a class="headerlink" href="#declaring-variables" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>1.5.4. Declaring Variables<a class="headerlink" href="#declaring-variables" title="Permalink to this headline">¶</a></h2>
 <p>In the example above, lines 7 - 9 contain variable declarations:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7
 8
@@ -282,7 +272,7 @@ variables in the same line:</p>
 </div>
 </div>
 <div class="section" id="add-comments-to-your-code">
-<h2>1.4.5. Add Comments to Your Code<a class="headerlink" href="#add-comments-to-your-code" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.5. Add Comments to Your Code<a class="headerlink" href="#add-comments-to-your-code" title="Permalink to this headline">¶</a></h2>
 <p>As programs get bigger and more complicated, they get more difficult to read.
 Good programmers try to make their code understandable to others, but it is
 still tricky to look at a large program and figure out what it is doing and
@@ -368,7 +358,7 @@ easily reactivate it by removing the <code class="docutils literal notranslate">
 </div>
 </div>
 <div class="section" id="collect-input-with-the-scanner-class">
-<span id="scanner-input"></span><h2>1.4.6. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class<a class="headerlink" href="#collect-input-with-the-scanner-class" title="Permalink to this headline">¶</a></h2>
+<span id="scanner-input"></span><h2>1.5.6. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class<a class="headerlink" href="#collect-input-with-the-scanner-class" title="Permalink to this headline">¶</a></h2>
 <p>In Java, <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> objects make getting input from the user, a file, or even
 over the network relatively easy. For our temperature conversion program, we
 declared the variable <code class="docutils literal notranslate"><span class="pre">input</span></code> to be of type <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>.</p>
@@ -467,7 +457,7 @@ find them in the next chapter.</p>
 </tbody>
 </table>
 <div class="section" id="closing-scanner">
-<h3>1.4.6.1. Closing <code class="docutils literal notranslate"><span class="pre">Scanner</span></code><a class="headerlink" href="#closing-scanner" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.6.1. Closing <code class="docutils literal notranslate"><span class="pre">Scanner</span></code><a class="headerlink" href="#closing-scanner" title="Permalink to this headline">¶</a></h3>
 <p>To collect data from the command line or other source, create a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>
 object. This opens up resources in your machine to manage the input, and these
 resources remain open even after the required data is loaded into your program.</p>
@@ -484,7 +474,7 @@ it finishes its job. Line 14 does this in our <code class="docutils literal notr
 <p>The general syntax is <code class="docutils literal notranslate"><span class="pre">scannerObjectName.close()</span></code>.</p>
 </div>
 <div class="section" id="moving-beyond-the-command-line">
-<h3>1.4.6.2. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
+<h3>1.5.6.2. Moving Beyond the Command Line<a class="headerlink" href="#moving-beyond-the-command-line" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class serves as a kind of adapter that gathers primitive data
 types as input and converts them into object types (e.g. it converts an <code class="docutils literal notranslate"><span class="pre">int</span></code>
 into <code class="docutils literal notranslate"><span class="pre">Integer</span></code>). We will discuss the purpose of this later, but for now,
@@ -496,7 +486,7 @@ object as a parameter instead of <code class="docutils literal notranslate"><spa
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>1.4.7. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>1.5.7. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>An <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is required to use a Java class defined in another
@@ -526,10 +516,10 @@ expected <code class="docutils literal notranslate"><span class="pre">String</sp
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="data-types.html"><span aria-hidden="true">&larr;</span> 1.3. Data Types</a></li>
+        <li class="previous"><a href="java-web-dev-exercises.html"><span aria-hidden="true">&larr;</span> 1.4. Java Web Dev Exercises</a></li>
         
         
-        <li class="next"><a href="more-data-types.html">1.5. More Data Types <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="more-data-types.html">1.6. More Data Types <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
