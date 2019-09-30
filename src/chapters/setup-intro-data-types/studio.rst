@@ -40,7 +40,7 @@ then calculate its area and print the result.
 
 Here’s an example of how your program should work:
 
-.. sourcecode:: java
+::
 
    Enter a radius: 2.5
    The area of a circle of radius 2.5 is: 19.625
