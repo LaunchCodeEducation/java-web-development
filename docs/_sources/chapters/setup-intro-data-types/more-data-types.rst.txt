@@ -50,15 +50,38 @@ Aside from using arrays to build some simple loop examples, we will only use
 them in special cases. However, they are a core part of Java, so it’s good to
 know how they work.
 
+.. index:: ! object
+
+Java Objects
+-------------
+
+In Java, **objects** are structures that have a *state* and a set of
+*behaviors*. The state of an object includes properties/data that the coder can
+define and modify. Behaviors are actions that run when requested, and they can
+be used to evaluate, manipulate, or return data.
+
+An array is one example of an object. It contains *data*, which are the values
+stored as the individual elements. The *behaviors* are methods like ``sort()``
+that perform actions related to the elements in the array.
+
+The ``String`` data type is also an example of an object. For
+``String language = "Java"``, the data would be the characters. The
+:ref:`String manipulation <string-methods>` section gives several of the
+behaviors available to the ``language`` object. For example,
+``language.length()`` returns the value ``4``, which tells us how many
+characters are present in the string.
+
+Every variable in Java refers to either a primitive data type or to an object.
+
 Class Types
 ------------
 
 .. index:: ! class
 
-In Java, a **class** is a template for creating objects. In addition to the
-data types introduced so far, any class in Java also defines a type. We’ll have
-much more to say about classes and objects, but for now you need to recognize
-the basic syntax of class types and class creation.
+A **class** is a template for creating objects. In addition to the object types
+introduced so far, any class in Java also defines a type. We’ll have much more
+to say about classes and objects, but for now you need to recognize the basic
+syntax of class types and class creation.
 
 If we have a class ``Cat``, we can declare and create an instance of ``Cat``
 using the ``new`` keyword:
@@ -73,21 +96,32 @@ using the ``new`` keyword:
 #. Any arguments that are required to build the new ``Cat`` object must be
    included within the parentheses.
 
-.. index:: ! reference type
-
 Just like a variable can be declared as a primitive data type like ``char`` or
 ``double``, it can also be declared as a specific *class* type. Variables
-that hold objects---like ``String`` or ``Cat``---are said to be of
-**reference type**. Using this terminology, ``myCat`` is a *reference variable*
-of type ``Cat``.
+that hold objects---like ``String name = "Blake"`` or ``myCat``---are said
+to be *reference variables*. Using this terminology, ``name`` is a
+reference variable of the ``String`` class, and ``myCat`` is a reference
+variable of type ``Cat``.
+
+.. admonition:: Note
+
+   Java uses two general data types---primitive and object. A *class type* is
+   NOT a new data type. Instead, it is just a specific name applied to the
+   more general object data type.
+
+   ``int`` and ``char`` are both primitive data types, but the values they can
+   store differ. Similarly, ``String`` and ``Cat`` are both object types, but
+   they represent different classes.
+
+.. index:: ! reference variable
 
 Reference Variables
 ^^^^^^^^^^^^^^^^^^^^
 
-Reference types are different from primitive types in an essential way. A
-variable of a reference type (such as ``myCat`` above) does not actually store
-the object in question. Instead, it stores a *reference* to the object, which
-is literally a memory address. We visualize a reference as an arrow pointing to
+**Reference variables** are different from primitive types in an essential way.
+A reference variable (such as ``myCat`` above) does not actually store the
+object in question. Instead, it stores a *reference* to the object, which is
+literally a memory address. We visualize a reference as an arrow pointing to
 the location of the object in memory.
 
 Consider this code:
@@ -103,9 +137,9 @@ Consider this code:
 Visually, we can represent these four variables as shown below.
 
 .. figure:: figures/references.png
-   :alt: Reference Types
+   :alt: Reference Variables
 
-   Reference Types vs. Primitive Types
+   Reference Variables vs. Primitive Variables
 
 Since ``int`` is a primitive type, the variables ``firstCatAge`` and
 ``secondCatAge`` function like separate boxes, each one holding the integer
@@ -115,9 +149,9 @@ address* of the object, which we visualize as an arrow pointing from the
 variable box to where the data is stored. Instead of holding the actual ``Cat``
 data, ``myCat`` stores *directions* for finding the data in memory.
 
-When we try to assign ``myCat`` to another variable, as in
-``Cat sameCat = myCat``, we do NOT create a second copy of the object or its
-data. Instead, we make a second arrow pointing to the same memory location.
+When we to assign ``myCat`` to another variable, as in ``Cat sameCat = myCat``,
+we do NOT create a second copy of the object or its data. Instead, we make a
+second arrow pointing to the same memory location.
 
 The distinction between object types and primitives is important, if
 subtle. As you continue learning Java, you will see that object types are

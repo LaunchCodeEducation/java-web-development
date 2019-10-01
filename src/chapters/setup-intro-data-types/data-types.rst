@@ -108,6 +108,8 @@ digit, punctuation, or whitespace like tab (``'\t'``).
    String staticVariable = "dog";
    char charVariable = 'd';
 
+.. _string-methods:
+
 Manipulation
 ^^^^^^^^^^^^
 
@@ -209,7 +211,7 @@ using dot notation. Primitive data types do not have methods.
    Primitive data types in Java begin with a lower case letter, while object
    data types in Java begin with a capital letter.
 
-Later in this chapter, we will explore the array and class object types.
+Later in this chapter, we will explore the Array and Class object types.
 
 Autoboxing
 -----------
