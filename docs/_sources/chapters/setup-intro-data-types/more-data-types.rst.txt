@@ -270,7 +270,7 @@ To call a static method, we follow a specific syntax. Line 4 in the
 To call a static method we must use the format
 ``ClassName.methodName(arguments)``.
 
-Note that ``getMessage`` is NOT defined within the ``HelloMessages`` class. We
+Note that ``getMessage`` is NOT defined within the ``HelloMethods`` class. We
 can do this because ``getMessage`` is declared as ``public``. If we wanted to
 restrict the method from being called by another class, we could instead use
 the ``private`` modifier. We will explore access modifiers in more depth in
@@ -285,6 +285,19 @@ coming lessons.
 
    It is a rule in Java that a file containing a class marked ``public``
    MUST be named the same as that class.
+
+Try It
+^^^^^^^
+
+Open the ``HelloMethods`` and ``Messages`` files in the
+``java-web-dev-exercises`` project in IntelliJ and experiment with the
+following:
+
+#. Figure out how to alter the ``HelloMethods`` code to change the message
+   returned.
+#. Add another "Hello, World" language option.
+#. Change one ``public`` keyword to ``private`` to see what happens. Repeat for
+   each occurrence of ``public``.
 
 References
 ----------
