@@ -12,8 +12,13 @@ Temperature Conversion
 
 #. Open the ``TempConverter`` file in the ``java-web-dev-exercises`` project in IntelliJ.
 
+   .. figure:: figures/tempConverterTree.png
+      :alt: The ``TempConverter`` file
+
+      The ``TempConverter`` file
+
 #. Here's what the file should look like. We will analyze the different statements 
-	in a moment.
+   in a moment.
 
    .. sourcecode:: java
       :linenos:
@@ -66,7 +71,7 @@ Packages help to **encapsulate** your code. Encapsulation refers to the practice
 shielding your code from outside influences. It's an essential component of good 
 object oriented programming, and package declaration in Java is just one application 
 of this principle. Without declaring a package, a Java class exists within the default 
-package. In larger application, leaving all classes in the default package risks naming
+package. In larger applications, leaving all classes in the default package risks naming
 conflicts and bugs.
 
 .. _import-statement:
