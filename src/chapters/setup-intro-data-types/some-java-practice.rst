@@ -10,10 +10,10 @@ Celsius.
 Temperature Conversion
 -----------------------
 
-#. Open the ``TempConverter`` file in the ``java-web-dev-exercises`` project in IntelliJ.
-
-#. Here's what the file should look like. We will analyze the different statements 
-	in a moment.
+#. Open the ``TempConverter`` file in the ``java-web-dev-exercises`` project in
+   IntelliJ.
+#. Here's what the file should look like. We will analyze the different
+   statements in a moment.
 
    .. sourcecode:: java
       :linenos:
