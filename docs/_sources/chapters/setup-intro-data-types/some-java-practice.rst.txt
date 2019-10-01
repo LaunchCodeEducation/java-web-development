@@ -287,8 +287,8 @@ implies, it is used for input.
    ``println``, you are not alone. We will talk about the reasons why this is so
    when we dive into Java streams.
 
-Next, line 10 asks the user to enter a number, and in line 11 we use ``input``
-to read the value from the command line:
+Next, line 10 displays the prompt for the user to enter a number, and in line
+11 we use ``input`` to read the value from the command line:
 
 .. sourcecode:: java
    :lineno-start: 10
@@ -306,10 +306,8 @@ type. In this case, the compiler compares the types for ``fahrenheit`` and
 ``input.nextDouble()`` and throws an error if the two do not match.
 
 The table below shows some commonly used methods of the ``Scanner`` class.
-There are many others supported by this class, and we will talk about how to
-find them in the next chapter.
-
-   TODO: check these descriptions for primitive vs object type usage??
+There are many others supported by this class, and the `Oracle website <https://docs.oracle.com/javase/10/docs/api/java/util/Scanner.html>`__
+provides a complete listing of the ``Scanner`` methods.
 
 .. list-table:: ``Scanner`` methods
    :header-rows: 1
@@ -330,14 +328,14 @@ find them in the next chapter.
      - ``boolean``
      - Returns ``true`` if the next item to read is a ``double`` data type.
    * - ``nextInt()``
-     - ``Integer``
-     - Returns the next item to read as an ``Integer`` data type.
+     - ``int``
+     - Returns the next item to read as an ``int`` data type.
    * - ``nextFloat()``
-     - ``Float``
-     - Returns the next item to read as a ``Float`` data type.
+     - ``float``
+     - Returns the next item to read as a ``float`` data type.
    * - ``nextDouble()``
-     - ``Double``
-     - Returns the next item to read as a ``Double`` data type.
+     - ``double``
+     - Returns the next item to read as a ``double`` data type.
    * - ``next()``
      - ``String``
      - Returns the next item to read as a ``String`` data type.
