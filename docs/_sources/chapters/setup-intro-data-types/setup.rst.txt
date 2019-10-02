@@ -193,10 +193,15 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
       Initial IntelliJ project view
 
-   The section on the left is the project's file tree. Clicking the triangle next to 
-   the project name, ``HelloWorld``, displays the ``src`` file, followed by the base package
-   we created, and finally our ``Main.java`` file. ``Main.java`` is also opened on the right
-   in this initial project view.
+   The section on the left is the project's file tree. 
+
+   Clicking the triangle next to the project name, ``HelloWorld``, displays the ``src`` file, 
+   followed by the base package we created, and finally our ``Main.java`` file. 
+   
+   ``Main.java`` is also opened on the right in this initial project view. 
+   
+   In line 1, ``package com.company``, establishes a *package*, which Java uses to help
+   organize and encapsulate our code. 
 
 #. We'll dive into the use of a ``main`` function and ``Main`` class later. At this point,
    let's just get right to printing our greeting. Where the project template tells you to write your
@@ -244,7 +249,7 @@ let's return to Java basics so we can start writing more code.
       }
 
    #. line 1
-   #. line 2
+   #. line 3
    #. line 4
 
 .. admonition:: Question
@@ -252,7 +257,7 @@ let's return to Java basics so we can start writing more code.
    In the sourcecode above, which line is responsible for defining the class?
 
    #. line 1
-   #. line 2
+   #. line 3
    #. line 4
 
 

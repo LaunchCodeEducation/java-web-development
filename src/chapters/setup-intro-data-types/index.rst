@@ -7,6 +7,7 @@ Setup, Introduction, and Data Types
    why-java
    setup
    data-types
+   java-web-dev-exercises
    some-java-practice
    more-data-types
    naming-conventions
