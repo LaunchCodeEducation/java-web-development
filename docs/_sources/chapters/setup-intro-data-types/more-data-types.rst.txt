@@ -1,79 +1,6 @@
 More Data Types
 ================
 
-Class Types
-------------
-
-.. index:: ! class
-
-In Java, a **class** is a template for creating objects. In addition to the
-data types introduced so far, any class in Java also defines a type. We’ll have
-much more to say about classes and objects, but for now you need to recognize
-the basic syntax of class types and class creation.
-
-If we have a class ``Cat``, we can declare and create an instance of ``Cat``
-using the ``new`` keyword:
-
-.. sourcecode:: java
-
-   Cat myCat = new Cat();
-
-#. ``Cat myCat`` declares the variable ``myCat`` and sets it to be of type
-   ``Cat``.
-#. ``= new Cat()`` initializes the variable with a new ``Cat`` object.
-#. Any arguments that are required to build the new ``Cat`` object must be
-   included within the parentheses.
-
-.. index:: ! reference type
-
-Just like variables can be declared as an ``int`` or ``String``
-data type, they can also be declared as a specific *class* type. Variables
-that are class type---as opposed to primitive types like ``double`` or object
-types like ``String``---are said to be of **reference type**. Using this
-terminology, ``myCat`` is a *reference variable* of type ``Cat``.
-
-References
-^^^^^^^^^^^
-
-Reference types are different from primitive types in an essential way. A
-variable of a reference type (such as ``myCat`` above) does not actually store
-the object in question. Instead, it stores a *reference* to the object, which
-is literally a memory address. We visualize references as an arrow pointing to
-the location of the object in memory.
-
-Consider this code:
-
-.. sourcecode:: java
-   :linenos:
-
-   int firstCatAge = 11;
-   int secondCatAge = firstCatAge;
-   Cat myCat = new Cat();
-   Cat sameCat = myCat;
-
-Visually, we can represent these four variables as shown below.
-
-.. figure:: figures/references.png
-   :alt: Reference Types
-
-   Reference Types vs. Primitive Types
-
-Since ``int`` is a primitive type, the variables ``firstCatAge`` and
-``secondCatAge`` function like separate boxes, each one holding the integer
-value ``11``. On the other hand, ``myCat`` is a reference variable, since it
-refers to an object of type ``Cat``. The variable actually stores the *memory
-address* of the object, which we visualize as an arrow pointing from the
-variable box to where the data is stored. Instead of holding the actual ``Cat``
-data, ``myCat`` stores *directions* for finding the data in memory.
-
-When we assign a value to a reference type, as in ``Cat sameCat = myCat``, we
-do NOT create a second copy of the object or its data. Instead, we make a
-second arrow pointing to the same memory location.
-
-The distinction between reference types and primitives is important, if
-subtle. As you continue learning Java, you will see that reference types are
-handled differently in essential and important ways.
-
 Arrays
 -------
 
@@ -123,15 +50,121 @@ Aside from using arrays to build some simple loop examples, we will only use
 them in special cases. However, they are a core part of Java, so it’s good to
 know how they work.
 
+.. index:: ! object
+
+Java Objects
+-------------
+
+In Java, **objects** are structures that have a *state* and a set of
+*behaviors*. The state of an object includes properties/data that the coder can
+define and modify. Behaviors are actions that run when requested, and they can
+be used to evaluate, manipulate, or return data.
+
+An array is one example of an object. It contains *data*, which are the values
+stored as the individual elements. The *behaviors* are methods like ``sort()``
+that perform actions related to the elements in the array.
+
+The ``String`` data type is also an example of an object. For
+``String language = "Java"``, the data would be the characters. The
+:ref:`String manipulation <string-methods>` section gives several of the
+behaviors available to the ``language`` object. For example,
+``language.length()`` returns the value ``4``, which tells us how many
+characters are present in the string.
+
+Every variable in Java refers to either a primitive data type or to an object.
+
+Class Types
+------------
+
+.. index:: ! class
+
+A **class** is a template for creating objects. In addition to the object types
+introduced so far, any class in Java also defines a type. We’ll have much more
+to say about classes and objects, but for now you need to recognize the basic
+syntax of class types and class creation.
+
+If we have a class ``Cat``, we can declare and create an instance of ``Cat``
+using the ``new`` keyword:
+
+.. sourcecode:: java
+
+   Cat myCat = new Cat();
+
+#. ``Cat myCat`` declares the variable ``myCat`` and sets it to be of type
+   ``Cat``.
+#. ``= new Cat()`` initializes the variable with a new ``Cat`` object.
+#. Any arguments that are required to build the new ``Cat`` object must be
+   included within the parentheses.
+
+Just like a variable can be declared as a primitive data type like ``char`` or
+``double``, it can also be declared as a specific *class* type. Variables
+that hold objects---like ``String name = "Blake"`` or ``myCat``---are said
+to be *reference variables*. Using this terminology, ``name`` is a
+reference variable of the ``String`` class, and ``myCat`` is a reference
+variable of type ``Cat``.
+
+.. admonition:: Note
+
+   Java uses two general data types---primitive and object. A *class type* is
+   NOT a new data type. Instead, it is just a specific name applied to the
+   more general object data type.
+
+   ``int`` and ``char`` are both primitive data types, but the values they can
+   store differ. Similarly, ``String`` and ``Cat`` are both object types, but
+   they represent different classes.
+
+.. index:: ! reference variable
+
+Reference Variables
+^^^^^^^^^^^^^^^^^^^^
+
+**Reference variables** are different from primitive types in an essential way.
+A reference variable (such as ``myCat`` above) does not actually store the
+object in question. Instead, it stores a *reference* to the object, which is
+literally a memory address. We visualize a reference as an arrow pointing to
+the location of the object in memory.
+
+Consider this code:
+
+.. sourcecode:: java
+   :linenos:
+
+   int firstCatAge = 11;
+   int secondCatAge = firstCatAge;
+   Cat myCat = new Cat();
+   Cat sameCat = myCat;
+
+Visually, we can represent these four variables as shown below.
+
+.. figure:: figures/references.png
+   :alt: Reference Variables
+
+   Reference Variables vs. Primitive Variables
+
+Since ``int`` is a primitive type, the variables ``firstCatAge`` and
+``secondCatAge`` function like separate boxes, each one holding the integer
+value ``11``. On the other hand, ``myCat`` is a reference variable, since it
+refers to an object of type ``Cat``. The variable actually stores the *memory
+address* of the object, which we visualize as an arrow pointing from the
+variable box to where the data is stored. Instead of holding the actual ``Cat``
+data, ``myCat`` stores *directions* for finding the data in memory.
+
+When we to assign ``myCat`` to another variable, as in ``Cat sameCat = myCat``,
+we do NOT create a second copy of the object or its data. Instead, we make a
+second arrow pointing to the same memory location.
+
+The distinction between object types and primitives is important, if
+subtle. As you continue learning Java, you will see that object types are
+handled differently in essential and important ways.
+
 .. _static-methods:
 
 Static Methods
 ---------------
 
 If you are familiar with another programming language, then you most likely
-created chunks of re-usable code called *functions*. These blocks of code make
-writing programs more efficient and flexible. Java embraces the same concept,
-but it approaches the idea in a very specific way.
+defined and called functions. As a pure object-oriented programming language,
+Java also uses functions, but it structures them in a very specific way.
 
 In Java, functions may NOT be declared outside of a class. Even a simple
 function that checks if an integer is even needs to be defined within a class.
@@ -144,7 +177,7 @@ will adopt this terminology from now on.
 .. admonition:: Warning
 
    Be prepared to receive a vocabulary lesson from veteran Java coders if you
-   accidentally refer to methods as *functions*.
+   accidentally refer to *methods* as *functions*.
 
 .. index:: ! static methods
 
@@ -194,10 +227,10 @@ Static Method Examples
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Let’s examine two classes in Java to explore defining and using methods. The
-first class is defined in a ``HelloMethods.java`` file, and it will have a
+first class is defined in the ``HelloMethods.java`` file, and it has a
 ``main`` method. The second class is defined in a separate ``Message.java``
-file, and it will contain a ``getMessage`` method that we want to call from
-within ``main``.
+file, and it contains a ``getMessage`` method that we want to call from within
+``main``.
 
 .. admonition:: Examples
 
@@ -259,7 +292,7 @@ parameter AND the return value.
 One consequence of this is that a method in Java may NOT have ``return``
 statements that send back different types of data. Note that lines 6, 8, and 10
 in ``Message.java`` each return a string. If we try to replace line 10 with
-``return 42;``, then we would generate a compiler error.
+``return 42;``, we would generate a compiler error.
 
 To call a static method, we follow a specific syntax. Line 4 in the
 ``HelloMethods.java`` shows this:
@@ -271,7 +304,7 @@ To call a static method, we follow a specific syntax. Line 4 in the
 To call a static method we must use the format
 ``ClassName.methodName(arguments)``.
 
-Note that ``getMessage`` is NOT defined within the ``HelloMessages`` class. We
+Note that ``getMessage`` is NOT defined within the ``HelloMethods`` class. We
 can do this because ``getMessage`` is declared as ``public``. If we wanted to
 restrict the method from being called by another class, we could instead use
 the ``private`` modifier. We will explore access modifiers in more depth in
@@ -286,6 +319,19 @@ coming lessons.
 
    It is a rule in Java that a file containing a class marked ``public``
    MUST be named the same as that class.
+
+Try It
+^^^^^^^
+
+Open the ``HelloMethods`` and ``Messages`` files in the
+``java-web-dev-exercises`` project in IntelliJ and experiment with the
+following:
+
+#. Figure out how to alter the ``HelloMethods`` code to change the message
+   returned.
+#. Add another "Hello, World" language option.
+#. Change one ``public`` keyword to ``private`` to see what happens. Repeat for
+   each occurrence of ``public``.
 
 References
 ----------
