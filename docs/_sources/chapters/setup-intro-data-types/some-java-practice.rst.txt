@@ -301,13 +301,8 @@ implies, it is used for input.
    ``println``, you are not alone. We will talk about the reasons why this is so
    when we dive into Java streams.
 
-<<<<<<< HEAD
 Next, line 12 asks the user to enter a number, and in line 13 we use ``input``
 to read the value from the command line:
-=======
-Next, line 10 displays the prompt for the user to enter a number, and in line
-11 we use ``input`` to read the value from the command line:
->>>>>>> master
 
 .. sourcecode:: java
    :lineno-start: 12

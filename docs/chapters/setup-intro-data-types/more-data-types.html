@@ -85,18 +85,9 @@
 
     
   <div class="section" id="more-data-types">
-<<<<<<< HEAD
 <h1>1.6. More Data Types<a class="headerlink" href="#more-data-types" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="class-types">
-<h2>1.6.1. Class Types<a class="headerlink" href="#class-types" title="Permalink to this headline">¶</a></h2>
-<p id="index-0">In Java, a <strong>class</strong> is a template for creating objects. In addition to the
-data types introduced so far, any class in Java also defines a type. We’ll have
-much more to say about classes and objects, but for now you need to recognize
-the basic syntax of class types and class creation.</p>
-=======
-<h1>1.5. More Data Types<a class="headerlink" href="#more-data-types" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="arrays">
-<h2>1.5.1. Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.1. Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
 <p>In Java, an array is an ordered, fixed-size collection of elements. To comply
 with static typing, the items stored in an array must all be the same data
 type. We can create an array of integers or an array of strings, but we may NOT
@@ -133,7 +124,7 @@ them in special cases. However, they are a core part of Java, so it’s good to
 know how they work.</p>
 </div>
 <div class="section" id="java-objects">
-<span id="index-0"></span><h2>1.5.2. Java Objects<a class="headerlink" href="#java-objects" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>1.6.2. Java Objects<a class="headerlink" href="#java-objects" title="Permalink to this headline">¶</a></h2>
 <p>In Java, <strong>objects</strong> are structures that have a <em>state</em> and a set of
 <em>behaviors</em>. The state of an object includes properties/data that the coder can
 define and modify. Behaviors are actions that run when requested, and they can
@@ -150,12 +141,11 @@ characters are present in the string.</p>
 <p>Every variable in Java refers to either a primitive data type or to an object.</p>
 </div>
 <div class="section" id="class-types">
-<h2>1.5.3. Class Types<a class="headerlink" href="#class-types" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.3. Class Types<a class="headerlink" href="#class-types" title="Permalink to this headline">¶</a></h2>
 <p id="index-1">A <strong>class</strong> is a template for creating objects. In addition to the object types
 introduced so far, any class in Java also defines a type. We’ll have much more
 to say about classes and objects, but for now you need to recognize the basic
 syntax of class types and class creation.</p>
->>>>>>> master
 <p>If we have a class <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, we can declare and create an instance of <code class="docutils literal notranslate"><span class="pre">Cat</span></code>
 using the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Cat</span> <span class="n">myCat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">();</span>
@@ -168,19 +158,6 @@ using the <code class="docutils literal notranslate"><span class="pre">new</span
 <li>Any arguments that are required to build the new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object must be
 included within the parentheses.</li>
 </ol>
-<<<<<<< HEAD
-<p id="index-1">Just like variables can be declared as an <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code>
-data type, they can also be declared as a specific <em>class</em> type. Variables
-that are class type—as opposed to primitive types like <code class="docutils literal notranslate"><span class="pre">double</span></code> or object
-types like <code class="docutils literal notranslate"><span class="pre">String</span></code>—are said to be of <strong>reference type</strong>. Using this
-terminology, <code class="docutils literal notranslate"><span class="pre">myCat</span></code> is a <em>reference variable</em> of type <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
-<div class="section" id="references">
-<h3>1.6.1.1. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
-<p>Reference types are different from primitive types in an essential way. A
-variable of a reference type (such as <code class="docutils literal notranslate"><span class="pre">myCat</span></code> above) does not actually store
-the object in question. Instead, it stores a <em>reference</em> to the object, which
-is literally a memory address. We visualize references as an arrow pointing to
-=======
 <p>Just like a variable can be declared as a primitive data type like <code class="docutils literal notranslate"><span class="pre">char</span></code> or
 <code class="docutils literal notranslate"><span class="pre">double</span></code>, it can also be declared as a specific <em>class</em> type. Variables
 that hold objects—like <code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;Blake&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">myCat</span></code>—are said
@@ -197,12 +174,11 @@ store differ. Similarly, <code class="docutils literal notranslate"><span class=
 they represent different classes.</p>
 </div>
 <div class="section" id="reference-variables">
-<span id="index-2"></span><h3>1.5.3.1. Reference Variables<a class="headerlink" href="#reference-variables" title="Permalink to this headline">¶</a></h3>
+<span id="index-2"></span><h3>1.6.3.1. Reference Variables<a class="headerlink" href="#reference-variables" title="Permalink to this headline">¶</a></h3>
 <p><strong>Reference variables</strong> are different from primitive types in an essential way.
 A reference variable (such as <code class="docutils literal notranslate"><span class="pre">myCat</span></code> above) does not actually store the
 object in question. Instead, it stores a <em>reference</em> to the object, which is
 literally a memory address. We visualize a reference as an arrow pointing to
->>>>>>> master
 the location of the object in memory.</p>
 <p>Consider this code:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -234,50 +210,8 @@ subtle. As you continue learning Java, you will see that object types are
 handled differently in essential and important ways.</p>
 </div>
 </div>
-<<<<<<< HEAD
-<div class="section" id="arrays">
-<h2>1.6.2. Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
-<p>In Java, an array is an ordered, fixed-size collection of elements. To comply
-with static typing, the items stored in an array must all be the same data
-type. We can create an array of integers or an array of strings, but we may NOT
-create an array that holds both integers and strings.</p>
-<p>The syntax for creating an array capable of holding 10 integers is:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[]</span> <span class="n">someInts</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
-</pre></div>
-</div>
-<p>Note the square brackets next to <code class="docutils literal notranslate"><span class="pre">int</span></code>. This tells Java that we want
-<code class="docutils literal notranslate"><span class="pre">someInts</span></code> to store a collection of integers instead of a single number.</p>
-<p>To create an array of a different size, replace the number <code class="docutils literal notranslate"><span class="pre">10</span></code> in the
-brackets with the desired size. To create an array holding a different type,
-replace <code class="docutils literal notranslate"><span class="pre">int</span></code> (on both sides of the assignment) with the desired type, like
-<code class="docutils literal notranslate"><span class="pre">double</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p>
-<p>In addition to the example above, we can initialize an array using a literal
-expression:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[]</span> <span class="n">someOtherInts</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">};</span>
-</pre></div>
-</div>
-<p>Here, the size of the array is implied by the number of elements in the literal
-expression <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">8}</span></code>. Also note the use of curly braces <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>
-instead of square brackets <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>.</p>
-<p>To access array elements, we use square brackets and <em>zero-based indexing</em>.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">anInt</span> <span class="o">=</span> <span class="n">someOtherInts</span><span class="o">[</span><span class="mi">4</span><span class="o">];</span>
-<span class="c1">// anInt stores the integer 5.</span>
-</pre></div>
-</div>
-<p>Arrays in Java may NOT change size once created. This is limiting and not very
-practical. Thankfully, Java provides more flexible ways to store data, which we
-will explore in a later lesson. These objects will allow us to rearrange, add
-to, or remove data.</p>
-<p>Aside from using arrays to build some simple loop examples, we will only use
-them in special cases. However, they are a core part of Java, so it’s good to
-know how they work.</p>
-</div>
 <div class="section" id="static-methods">
-<span id="id1"></span><h2>1.6.3. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
-=======
-<div class="section" id="static-methods">
-<span id="id1"></span><h2>1.5.4. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
->>>>>>> master
+<span id="id1"></span><h2>1.6.4. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
 <p>If you are familiar with another programming language, then you most likely
 defined and called functions. As a pure object-oriented programming language,
 Java also uses functions, but it structures them in a very specific way.</p>
@@ -323,11 +257,7 @@ should use the <code class="docutils literal notranslate"><span class="pre">stat
 complicate the process of calling the methods you defined.</p>
 <p>We will explore exactly what <code class="docutils literal notranslate"><span class="pre">static</span></code> does in more detail in later lessons.</p>
 <div class="section" id="static-method-examples">
-<<<<<<< HEAD
-<h3>1.6.3.1. Static Method Examples<a class="headerlink" href="#static-method-examples" title="Permalink to this headline">¶</a></h3>
-=======
-<h3>1.5.4.1. Static Method Examples<a class="headerlink" href="#static-method-examples" title="Permalink to this headline">¶</a></h3>
->>>>>>> master
+<h3>1.6.4.1. Static Method Examples<a class="headerlink" href="#static-method-examples" title="Permalink to this headline">¶</a></h3>
 <p>Let’s examine two classes in Java to explore defining and using methods. The
 first class is defined in the <code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code> file, and it has a
 <code class="docutils literal notranslate"><span class="pre">main</span></code> method. The second class is defined in a separate <code class="docutils literal notranslate"><span class="pre">Message.java</span></code>
@@ -429,7 +359,7 @@ MUST be named the same as that class.</p>
 </div>
 </div>
 <div class="section" id="try-it">
-<h3>1.5.4.2. Try It<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h3>
+<h3>1.6.4.2. Try It<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h3>
 <p>Open the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> and <code class="docutils literal notranslate"><span class="pre">Messages</span></code> files in the
 <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project in IntelliJ and experiment with the
 following:</p>
@@ -441,24 +371,15 @@ returned.</li>
 each occurrence of <code class="docutils literal notranslate"><span class="pre">public</span></code>.</li>
 </ol>
 </div>
-<<<<<<< HEAD
-<div class="section" id="id2">
-<h2>1.6.4. References<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-=======
 </div>
 <div class="section" id="references">
-<h2>1.5.5. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
->>>>>>> master
+<h2>1.6.5. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank">Arrays (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 </ol>
 </div>
 <div class="section" id="check-your-understanding">
-<<<<<<< HEAD
-<h2>1.6.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-=======
-<h2>1.5.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
->>>>>>> master
+<h2>1.6.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which of the following defines a method that takes an integer as a parameter
