@@ -25,7 +25,7 @@ create new classes within this package:
 
       New Package
 
-#. Name the package “exercises”.
+#. Name the package "exercises".
 
    .. figure:: figures/namePackage.png
       :scale: 35%
@@ -55,7 +55,7 @@ create new classes within this package:
    .. note::
 
       You will be asked whether you want to add this file to Git.
-      Press the “Yes” button.
+      Press the "Yes" button.
 
    .. figure:: figures/addToGit.png
       :scale: 70%
@@ -75,7 +75,7 @@ create new classes within this package:
 Exercises
 ---------
 
-#. **Input/output**: Write a new “Hello, World” program to prompt the
+#. **Input/output**: Write a new "Hello, World" program to prompt the
    user for their name and greet them by name.
 
    #. Follow steps 3-5 above to create a new ``HelloWorld`` Class inside of
@@ -144,7 +144,7 @@ Exercises
    is below. Store this sentence in a string, and then prompt the user
    for a term to search for within this string. Print whether or not the
    search term was found. Make the search case-insensitive, so that searching
-   for “alice”, for example, prints ``true``.
+   for "alice", for example, prints ``true``.
 
       ``Alice was beginning to get very tired of sitting by her sister on the
       bank, and of having nothing to do: once or twice she had peeped into the

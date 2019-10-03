@@ -6,6 +6,8 @@ Chapters
    :name: chapterstoc
 
    chapters/setup-intro-data-types/index
+	chapters/control-flow/index
+
 
 .. toctree::
 
@@ -19,6 +21,7 @@ Studios
    :name: studiostoc
 
    chapters/setup-intro-data-types/studio
+	chapters/control-flow/studio
 
 Assignments
 -----------
@@ -38,4 +41,5 @@ Appendices
    :hidden:
 
    todos
+	glossary
 

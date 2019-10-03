@@ -21,7 +21,7 @@ assignment of this unit.
       Settings > Appearance & Behavior > System Settings*.) Close and
       Reopen IntelliJ.
 
-#. From the “Welcome to IntelliJ” dialog, select *Check out from Version
+#. From the "Welcome to IntelliJ" dialog, select *Check out from Version
    Control > Git*
 
    .. figure:: figures/IntelliJVCS.png
@@ -57,7 +57,7 @@ assignment of this unit.
 
       IntelliJ Repo Selection
 
-#. When asked “Would you like to create an IDEA project…” select *Yes*.
+#. When asked "Would you like to create an IDEA project…" select *Yes*.
 
    .. figure:: figures/IntelliJAddFileToGit.png
       :scale: 40%
