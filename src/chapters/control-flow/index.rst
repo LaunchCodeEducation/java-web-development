@@ -5,5 +5,7 @@ Control Flow
    :maxdepth: 3
 
    introduction
+   conditionals
+   loops
    exercises
    studio

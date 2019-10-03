@@ -1,0 +1,232 @@
+Iteration
+=========
+
+For Loops
+---------
+
+In Java we write a definite loop (aka a ``for`` loop) as:
+
+.. sourcecode:: java
+   :linenos:
+
+   for (int i = 0; i < 10; i++ ) {
+      System.out.println(i);
+   }
+
+.. note:: 
+
+   You may not be familiar with the expression ``i++`` since it is not
+   found in all languages. The ``++`` is an increment operator that has the same
+   effect as ``i += 1``. In this example, since the ``++`` comes after
+   ``i``, we call it a postfix increment operator. There is also a ``--``
+   decrement operator in Java. For more information, see 
+   `Increment and Decrement Operators <http://www.javawithus.com/tutorial/increment-and-decrement-operators>`__.
+
+
+The Java ``for`` loop gives you explicit control over the starting, stopping, and stepping 
+of the loop variable inside the parentheses. You can think of it this way:
+
+.. sourcecode:: java
+   :linenos:
+
+   for (start clause; stop clause; step clause) {
+      statement1
+      statement2
+      ...
+   }
+
+If you want to start at 100, stop at 0 and count backward by 5, the loop is written as:
+
+.. sourcecode:: java
+   :linenos:
+
+   for (int i = 100; i >= 0; i -= 5) {
+      System.out.println(i);
+   }
+
+Java also provides a syntax to iterate over any sequence such as an Array: 
+
+.. sourcecode:: java
+   :linenos:
+
+   int k[] = {1, 1, 2, 3, 5, 8, 13, 21};
+
+   for (int i : k) {
+      System.out.println(i);
+   }
+
+Here, the loop variable moves through the items in the Array of integers, ``k[]``. The syntax
+here uses a colon symbol, ``:``. 
+
+.. tip::
+
+   When considering this structure, it can be helpful to read the code sample above to yourself
+   as "For integer ``i`` *in* ``Array k``...".
+
+This loop version also works with a String, where we
+can convert the String to an Array of characters:
+
+.. sourcecode:: java
+   :linenos:
+
+   String msg = "Hello World";
+
+   for (char c : msg.toCharArray()) {
+      System.out.println(c);
+   }
+
+As you see, to iterate through a String in this way, Java requires an extra String method,
+``.toCharArray()``, to convert the String to an Array of characters.
+
+While Loops
+-----------
+
+Java also supports the ``while`` loop, or indefinite loop.
+Recall that in Python the ``while`` loop is written as:
+
+A ``while`` loop in Java:
+
+.. sourcecode:: java
+   :linenos:
+
+   while (condition) {
+      statement1
+      statement2
+      ...
+   }
+
+.. index:: ! do-while loop
+
+Do-While Loops
+--------------
+
+Java adds an additional, if seldom used, variation of the ``while`` loop
+called the **``do-while`` loop**. The ``do-while`` loop is very similar to
+``while`` except that the condition is evaluated at the end of the loop
+rather than the beginning. This ensures that a loop *will be executed at
+least one time*. Some programmers prefer this loop in some situations
+because it avoids an additional assignment prior to the loop. 
+
+For example:
+
+.. sourcecode:: java
+   :linenos:
+
+   do {
+      statement1
+      statement2
+      ...
+   } while (condition);
+
+Break Statements in Loops
+-------------------------
+
+There are instances where you may want to terminate a loop if a given
+condition is met. In these instances, the ``break`` statement comes in
+handy. For example, if you want to loop through an array of integers
+searching for a given integer and you want to quit the loop once that
+number is found, you can do the following:
+
+.. sourcecode:: java
+   :linenos:
+
+   public class testBreak {
+
+      public static void main(String [] args) {
+         int[] someInts = {1, 10, 2, 3, 5, 8, 10};
+         int searchTerm = 10;
+         for (int oneInt : someInts) {
+            if (oneInt == searchTerm) {
+               System.out.println("Found it!");
+               break;
+            }
+         }
+      }
+   }
+
+In the code above, instead of the ``for`` loop iterating through all the
+integers in the array, it will stop after it finds the first matching
+instance. So once it finds the first ``10`` in the array, it prints "Found
+it!" and then terminates the loop. If the ``break`` statement weren’t
+there, the loop would continue and when it found the second ``10``, it
+would print "Found it!" a second time.
+
+Note that the ``break`` statement terminates the innermost loop that it
+is contained within. So if you have nested loops and use a ``break``
+statement within the innermost loop, then it will only terminate that
+loop and not the outer one.
+
+.. index:: ! continue
+
+Continue Statements in Loops
+----------------------------
+
+The **continue** statement is similar to, but importantly different
+from, the ``break`` statement. Like ``break``, it interrupts the normal
+flow of control of the loop. But unlike ``break``, the ``continue``
+statement only terminates the *current iteration* of the loop. So the
+loop will continue to run from the top (as long as the boolean
+expression that controls the loop is still true) after a ``continue``
+statement. Here is an example:
+
+.. sourcecode:: java
+   :linenos:
+
+   public class testContinue {
+
+      public static void main(String [] args) {
+         int[] someInts = {1, 10, 2, 3, 5, 8, 10};
+         int searchTerm = 10;
+         for (int oneInt : someInts) {
+            if (oneInt == searchTerm) {
+               System.out.println("Found it!");
+               continue;
+            }
+            System.out.println("Not here");
+         }
+      }
+   }
+
+The above program will print "Not here" on every iteration of the
+``for`` loop *except* where the number has been found. So the output
+looks like this:
+
+.. sourcecode:: bash
+
+   Not here
+   Found it!
+   Not here
+   Not here
+   Not here
+   Not here
+   Found it!
+
+Because of the ``continue`` statement, the final print statement in the
+for loop is skipped. If the ``continue`` statement weren’t there, the
+output would look like this instead (notice the extra "Not here"
+printouts):
+
+.. sourcecode:: bash
+
+   Not here
+   Found it!
+   Not here
+   Not here
+   Not here
+   Not here
+   Not here
+   Found it!
+   Not here
+
+References
+----------
+
+-  `The for statement
+   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html>`__
+-  `The while and do-while Statements
+   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html>`__
+-  `Break and Continue Statements
+   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html>`__
+-  `Summary of Control Flow Statements
+   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flowsummary.html>`__
+

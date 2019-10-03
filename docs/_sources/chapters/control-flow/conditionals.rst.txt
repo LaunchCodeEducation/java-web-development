@@ -1,0 +1,237 @@
+Conditionals
+============
+
+Conditional statements in Java are very straightforward. 
+
+
+Simple if
+---------
+
+Let’s consider an ``if`` statement with no ``else`` clause. 
+
+In Java this pattern is simply written as:
+
+.. sourcecode:: java
+	:linenos:
+
+   if (condition) {
+      statement1
+      statement2
+      ...
+   }
+
+You can see that in Java the curly braces define a block. 
+Parentheses around the condition are required.
+
+if else
+-------
+
+Adding an ``else`` clause, we have:
+
+.. sourcecode:: java
+	:linenos:
+
+   if (condition) {
+      statement1
+      statement2
+      ...
+   } else {
+      statement1
+      statement2
+      ...
+   }
+
+else if
+-------
+
+.. sourcecode:: java
+	:linenos:
+
+   import java.util.Scanner;
+
+   public class ElseIf {
+      public static void main(String args[]) {
+         Scanner in = new Scanner(System.in);
+         System.out.println('enter a grade');
+         int grade = in.nextInt();
+         if (grade < 60) {
+            System.out.println('F');
+         } else if (grade < 70) {
+            System.out.println('D');
+         } else if (grade < 80) {
+            System.out.println('C');
+         } else if (grade < 90) {
+            System.out.println('B');
+         } else {
+            System.out.println('A');
+         }
+      }
+   }
+
+switch
+------
+
+Java also supports a ``switch`` statement that acts something like an ``else if``
+statement under certain conditions. The ``switch`` statement is not used very often, 
+and we generally recommend you avoid using it. It is not as powerful as the ``else if`` 
+model because the ``switch`` variable can only be compared for equality with a very small
+class of types.
+
+Here is a quick example of a ``switch`` statement:
+
+.. sourcecode:: java
+	:linenos:
+
+   import java.util.Scanner;
+
+   public class DayPrinter {
+       public static void main(String[] args) {
+           Scanner in = new Scanner(System.in);
+           System.out.println("Enter an integer: ");
+           int dayNum = in.nextInt();
+
+           String day;
+           switch (dayNum) {
+               case 0:
+                   day = "Sunday";
+                   break;
+               case 1:
+                   day = "Monday";
+                   break;
+               case 2:
+                   day = "Tuesday";
+                   break;
+               case 3:
+                   day = "Wednesday";
+                   break;
+               case 4:
+                   day = "Thursday";
+                   break;
+               case 5:
+                   day = "Friday";
+                   break;
+               case 6:
+                   day = "Saturday";
+                   break;
+               default:
+                   // in this example, this block runs if none of the above blocks match
+                   day = "Int does not correspond to a day of the week";
+           }
+           System.out.println(day);
+       }
+   }
+
+In the example above, if the user entered the number ``4``, "Thursday" would be printed. 
+If the user entered the number ``10``, "Int does
+not correspond to a day of the week" would be printed.
+
+.. index:: ! fallthrough
+
+Additionally, if ``break`` statements are omitted from the individual
+cases on accident, a behavior known as
+`fallthrough <https://en.wikipedia.org/wiki/Switch_statement#Fallthrough>`__
+is carried out. **Fallthrough** can be quite unintuitive, and is only
+desirable in very specific circumstances. We will discuss ``break``
+statements in more detail in the loop section below. For now, just
+know that when used in a ``switch`` block, they terminate the ``switch``
+statement they are in, so the flow of control in your program moves to
+the next statement after the switch block.
+
+Here’s a quick example of how fallthrough works:
+
+.. sourcecode:: java
+	:linenos:
+
+   import java.util.Scanner;
+
+   public class DayPrinter {
+      public static void main(String[] args) {
+
+         System.out.println("Enter an integer: ");
+         Scanner in = new Scanner(System.in);
+         int dayNum = in.nextInt();
+
+         String day;
+         switch (dayNum) {
+            case 0:
+               day = "Sunday";
+            case 1:
+               day = "Monday";
+            case 2:
+               day = "Tuesday";
+            case 3:
+               day = "Wednesday";
+            case 4:
+               day = "Thursday";
+            case 5:
+               day = "Friday";
+            case 6:
+               day = "Saturday";
+            default:
+               // in this example, this block runs even if one of the above blocks match
+               day = "Int does not correspond to a day of the week";
+         }
+         System.out.println(day);
+      }
+   }
+
+This time, without the ``break`` statements in each ``case``, if the
+user enters ``4``, the default case: "Int does not correspond to a day of the week" would
+still be printed. This is because after the ``switch`` statement matches the
+``case`` for ``4`` and assigns the value "Thursday" to the variable
+``day``, it proceeds to execute every statement in every case that
+follows, all the way through the ``default`` case. So the ``String``
+that ends up being printed will reflect the last executed statement in
+the ``switch`` block.
+
+Along similar lines, consider this variation on the code block above:
+
+.. sourcecode:: java
+	:linenos:
+
+   import java.util.Scanner;
+
+   public class DayPrinter {
+      public static void main(String[] args) {
+
+         System.out.println("Enter an integer: ");
+         Scanner in = new Scanner(System.in);
+         int dayNum = in.nextInt();
+
+         String day;
+         switch (dayNum) {
+            case 0:
+               day = "Sunday";
+            case 1:
+               day = "Monday";
+            case 2:
+               day = "Tuesday";
+            case 3:
+               day = "Wednesday";
+            case 4:
+               day = "Thursday";
+            case 5:
+               day = "Friday";
+            case 6:
+               day = "Saturday";
+               break;
+            default:
+               day = "Int does not correspond to a day of the week";
+         }
+         System.out.println(day);
+      }
+   }
+
+
+Here, we have a ``break``statement in ``case 6`` after ``day = "Saturday";``. 
+If the user enters ``4``, the execution will fallthrough until it reaches that
+``break`` statement and "Saturday" is printed instead of "Thursday".
+
+References
+----------
+
+-  `The if-then and if-then-else Statements
+   (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html>`__
+-  `The switch Statement
+   (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html>`__
+
