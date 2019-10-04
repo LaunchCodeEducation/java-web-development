@@ -7,6 +7,5 @@ Data Types
    data-types
    some-java-practice
    more-data-types
-   naming-conventions
    exercises
    studio

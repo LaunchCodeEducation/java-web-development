@@ -1,18 +1,19 @@
 Conditionals
 ============
 
-Conditional statements in Java are very straightforward. 
+Control flow statements in Java - conditionals and loops - are very straightforward. 
 
+.. index:: ! if statement
 
-Simple if
----------
+``if`` Statements
+-----------------
 
-Let’s consider an ``if`` statement with no ``else`` clause. 
+Let’s consider an **if statement** with no ``else`` clause. 
 
 In Java this pattern is simply written as:
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    if (condition) {
       statement1
@@ -23,13 +24,15 @@ In Java this pattern is simply written as:
 You can see that in Java the curly braces define a block. 
 Parentheses around the condition are required.
 
-if else
--------
+.. index:: ! else clause
 
-Adding an ``else`` clause, we have:
+``if else``
+-----------
+
+Adding an **else clause**, we have:
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    if (condition) {
       statement1
@@ -41,11 +44,13 @@ Adding an ``else`` clause, we have:
       ...
    }
 
-else if
--------
+.. index:: ! else if
+
+``else if``
+-----------
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    import java.util.Scanner;
 
@@ -68,11 +73,14 @@ else if
       }
    }
 
-switch
-------
 
-Java also supports a ``switch`` statement that acts something like an ``else if``
-statement under certain conditions. The ``switch`` statement is not used very often, 
+.. index:: ! switch, ! case, ! break
+
+``switch`` Statements
+---------------------
+
+Java also supports a **switch** statement that acts something like an ``else if``
+statement under certain conditions, called **cases**. The ``switch`` statement is not used very often, 
 and we generally recommend you avoid using it. It is not as powerful as the ``else if`` 
 model because the ``switch`` variable can only be compared for equality with a very small
 class of types.
@@ -80,45 +88,45 @@ class of types.
 Here is a quick example of a ``switch`` statement:
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    import java.util.Scanner;
 
    public class DayPrinter {
-       public static void main(String[] args) {
-           Scanner in = new Scanner(System.in);
-           System.out.println("Enter an integer: ");
-           int dayNum = in.nextInt();
+      public static void main(String[] args) {
+         Scanner in = new Scanner(System.in);
+         System.out.println("Enter an integer: ");
+         int dayNum = in.nextInt();
 
-           String day;
-           switch (dayNum) {
-               case 0:
-                   day = "Sunday";
-                   break;
-               case 1:
-                   day = "Monday";
-                   break;
-               case 2:
-                   day = "Tuesday";
-                   break;
-               case 3:
-                   day = "Wednesday";
-                   break;
-               case 4:
-                   day = "Thursday";
-                   break;
-               case 5:
-                   day = "Friday";
-                   break;
-               case 6:
-                   day = "Saturday";
-                   break;
-               default:
-                   // in this example, this block runs if none of the above blocks match
-                   day = "Int does not correspond to a day of the week";
-           }
-           System.out.println(day);
-       }
+         String day;
+         switch (dayNum) {
+            case 0:
+               day = "Sunday";
+               break;
+            case 1:
+               day = "Monday";
+               break;
+            case 2:
+               day = "Tuesday";
+               break;
+            case 3:
+               day = "Wednesday";
+               break;
+            case 4:
+               day = "Thursday";
+               break;
+            case 5:
+               day = "Friday";
+               break;
+            case 6:
+               day = "Saturday";
+               break;
+            default:
+               // in this example, this block runs if none of the above blocks match
+               day = "Int does not correspond to a day of the week";
+         }
+         System.out.println(day);
+      }
    }
 
 In the example above, if the user entered the number ``4``, "Thursday" would be printed. 
@@ -127,7 +135,7 @@ not correspond to a day of the week" would be printed.
 
 .. index:: ! fallthrough
 
-Additionally, if ``break`` statements are omitted from the individual
+Additionally, if **break statements** are omitted from the individual
 cases on accident, a behavior known as
 `fallthrough <https://en.wikipedia.org/wiki/Switch_statement#Fallthrough>`__
 is carried out. **Fallthrough** can be quite unintuitive, and is only
@@ -140,7 +148,7 @@ the next statement after the switch block.
 Here’s a quick example of how fallthrough works:
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    import java.util.Scanner;
 
@@ -187,7 +195,7 @@ the ``switch`` block.
 Along similar lines, consider this variation on the code block above:
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    import java.util.Scanner;
 
@@ -234,4 +242,50 @@ References
    (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html>`__
 -  `The switch Statement
    (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html>`__
+
+Check Your Understanding
+-------------------------
+
+.. admonition:: Question
+
+   When does fallthrough occur in Java?
+
+   #. Omitting an ``else`` clause from a conditional.
+   #. Omitting an ``else`` clause from switch statement.
+   #. Omitting a ``default`` case from a ``switch`` statement.
+   #. Omitting a ``break`` line from a ``switch`` statement.
+
+.. admonition:: Question
+
+   .. sourcecode:: java
+      :linenos:
+
+      import java.util.Scanner;
+
+      public class QuizQuestion {
+         public static void main(String[] args) {
+
+            System.out.println("Are you a space cadet? yes or no");
+            Scanner in = new Scanner(System.in);
+            String response = in.next();
+
+            switch (response) {
+               case "yes":
+                  System.out.println("Greetings cadet.");
+               case "no":
+                  System.out.println("Greetings normie.");
+               default:
+                  System.out.println("Are you an alien?");
+            }
+         }
+      }
+
+   Given the code above, what prints if the user enters "no" after the prompt?
+
+   #. "Greetings cadet."
+   #. "Greetings normie."
+   #. "Greetings normie."
+      "Are you an alien?"
+   #. "Greetings cadet."
+      "Greetings normie."
 
