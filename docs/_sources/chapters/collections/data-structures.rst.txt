@@ -18,72 +18,16 @@ Ordered Data: Lists and Arrays
 ------------------------------
 
 We’ll explore collections in Java by looking at different versions of
-the same program. The program will function as a gradebook, allowing a
+the same program. The program functions as a gradebook, allowing a
 user (a professor or teacher) to enter the class roster for a course,
 along with each student’s grade. It then prints the class roster along
 with the average grade. In each variation of this program, the grading
 system could be anything numeric, such as a 0.0-4.0 point scale, or a
 0-100 percentage scale.
 
-We’ll look at lists first, and as before, we’ll compare Python to Java
-explicitly through example. Python provided one basic *ordered* data
-structure: the list. Here’s our gradebook program in Python using only
-lists.
+A test run of the program might yield the following:
 
-.. raw:: html
-
-   <aside class="aside-note">
-
-The built-in function ``enumerate`` is used in the Python example below.
-In case you aren’t familiar with this function, read up about it
-`here <https://docs.python.org/3/library/functions.html#enumerate>`__.
-
-.. raw:: html
-
-   </aside>
-
-Gradebook (Python List Version)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: python
-
-   def main():
-
-       students = []
-
-       # Use a space to allow for the while check below
-       newStudent = " "
-
-       print("Enter your students (or ENTER to finish):")
-
-       # Get student names
-       while (newStudent != ""):
-
-           newStudent = input()
-
-           if newStudent != "":
-               students.append(newStudent)
-
-       # Get student grades
-       grades = [0]*len(students)
-       for idx,student in enumerate(students):
-           newGrade = float(input("Grade for " + student + ": "))
-           grades[idx] = newGrade
-
-       # Print class roster
-       print("\nClass roster:")
-       for idx,student in enumerate(students):
-           print(student + " (" + str(grades[idx]) + ")")
-
-       avg = sum(grades) / len(grades)
-       print("\nAverage grade: " + str(avg))
-
-   if __name__ == '__main__':
-       main()
-
-A test run of this program might yield the following:
-
-.. code:: nohighlight
+.. sourcecode:: bash
 
    Enter your students (or ENTER to finish):
    Chris
@@ -101,20 +45,18 @@ A test run of this program might yield the following:
 
    Average grade: 3.5
 
-Once you feel like you understand this program, proceed to the next
-section, where we study the Java version.
+We’ll look at the gradebook using an ``Arraylist`` first. 
 
 Gradebook (Java ArrayList Version)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To write the Java version of this program we will have to introduce
-several new Java concepts. We will see the Java equivalent of a list,
-provided by the class ``ArrayList``. We will also review different kinds
-of for loops used in Java.
+To write this program, we will have to introduce
+several new Java concepts, including the class ``ArrayList``. We will also review different 
+kinds of for loops used in Java.
 
-.. code:: java
+.. sourcecode:: java
 
-   package org.launchcode.java.demos.java4python;
+   package org.launchcode.java.demos.collections;
 
    import java.util.ArrayList;
    import java.util.Scanner;
@@ -162,72 +104,64 @@ of for loops used in Java.
 
    }
 
-Before going any further, I suggest you run the above program in
-IntelliJ.
+Before going any further, we suggest you run the above program in
+IntelliJ. You can view this program in ``java-web-dev-exercises``.
 
 Once you’ve done that, let’s look at what is happening in the Java
 source code.
 
-.. code:: java
+.. sourcecode:: java
 
    ArrayList<String> students = new ArrayList<>();
    ArrayList<Double> grades = new ArrayList<>();
    Scanner in = new Scanner(System.in);
    String newStudent;
 
+.. index:: ! ArrayList
+
 Here we declare and initialize two objects, ``students`` and ``grades``,
-which appears to be of type ``ArrayList<String>`` and
-``ArrayList<Double>``, respectively. An ``ArrayList`` in Java is very
-similar to a list in Python, with one important difference. Unlike
-Python, where lists can contain any type of value, in Java we must let
-the compiler know what kind of objects our list is going to contain. In
-the case of ``students``, the ``ArrayList`` will contain values of type
+which appear to be of type ``ArrayList<String>`` and
+``ArrayList<Double>``, respectively. An **ArrayList** in Java is very
+similar to an :ref:`Array <array>`. Like an ``Array``, we must let
+the compiler know what kind of objects our ``ArrayList`` is going to 
+contain. In the case of ``students``, the ``ArrayList`` will contain 
+values of type
 ``String`` (representing the names of the students), so we use the
 ``ArrayList<String>`` syntax to inform the compiler that we intend to
-fill our list with strings. Similarly, ``grades`` will hold exclusively
+fill our list with Strings. Similarly, ``grades`` will hold exclusively
 values of type ``Double`` and is declared to be of type
 ``ArrayList<Double>``.
 
-.. raw:: html
+.. warning:: 
 
-   <aside class="aside-warning">
+   Notice that we declared ``grades`` to be of type ArrayList<Double>,
+   using the wrapper class ``Double`` rather than the primitive type
+   ``double``. All values stored in Java collections must be objects, so
+   we’ll have to use object types in those situations. 
 
-Notice that we declared ``grades`` to be of type ArrayList<Double>,
-using the wrapper class ``Double`` rather than the primitive type
-``double``. All values stored in Java collections must be objects, so
-we’ll have to use wrapper classes in those situations. This is the one
-major exception to our rule-of-thumb that primitives are preferred over
-wrapper types.
-
-.. raw:: html
-
-   </aside>
 
 We then initialize each list by creating a new, empty list. Note that
 when we call the ``ArrayList`` constructor, as in ``new ArrayList<>()``,
 we don’t need to specify type (it’s implicit in the left-hand side of
 the assignment).
 
-.. raw:: html
+.. index:: ! generic class, generic type
 
-   <aside class="aside-note">
+.. note:: 
 
-You will sometimes see the ``ArrayList`` class written as ArrayList<E>,
-where ``E`` represents a placeholder for the type that a programmer will
-declare a given list to hold. This is especially true in documentation.
-You can think of ``E`` as representing an arbitrary type.
+   You will sometimes see the ``ArrayList`` class written as ArrayList<E>,
+   where ``E`` represents a placeholder for the type that a programmer will
+   declare a given list to hold. This is especially true in documentation.
+   You can think of ``E`` as representing an arbitrary type.
 
-Classes like ArrayList<E> that take another type or class as a parameter
-are referred to as **generic classes** or **generic types**.
+   Classes like ArrayList<E> that take another type or class as a parameter
+   are referred to as **generic classes** or **generic types**.
 
-.. raw:: html
 
-   </aside>
-
-We then use a do-while loop to collect the names of each of the students
+We then use a ``do-while`` loop to collect the names of each of the students
 in the class.
 
-.. code:: java
+.. sourcecode:: java
 
    // Get student names
    do {

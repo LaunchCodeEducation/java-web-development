@@ -98,164 +98,136 @@ our basic needs while we get going with Java.</p>
 <div class="section" id="ordered-data-lists-and-arrays">
 <h2>2.1.1. Ordered Data: Lists and Arrays<a class="headerlink" href="#ordered-data-lists-and-arrays" title="Permalink to this headline">¶</a></h2>
 <p>We’ll explore collections in Java by looking at different versions of
-the same program. The program will function as a gradebook, allowing a
+the same program. The program functions as a gradebook, allowing a
 user (a professor or teacher) to enter the class roster for a course,
 along with each student’s grade. It then prints the class roster along
 with the average grade. In each variation of this program, the grading
 system could be anything numeric, such as a 0.0-4.0 point scale, or a
 0-100 percentage scale.</p>
-<p>We’ll look at lists first, and as before, we’ll compare Python to Java
-explicitly through example. Python provided one basic <em>ordered</em> data
-structure: the list. Here’s our gradebook program in Python using only
-lists.</p>
-<aside class="aside-note"><p>The built-in function <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> is used in the Python example below.
-In case you aren’t familiar with this function, read up about it
-<a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-</aside><div class="section" id="gradebook-python-list-version">
-<h3>2.1.1.1. Gradebook (Python List Version)<a class="headerlink" href="#gradebook-python-list-version" title="Permalink to this headline">¶</a></h3>
-<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>def main():
+<p>A test run of the program might yield the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your students <span class="o">(</span>or ENTER to finish<span class="o">)</span>:
+Chris
+Jesse
+Sally
 
-    students = []
+Grade <span class="k">for</span> Chris: <span class="m">3</span>.0
+Grade <span class="k">for</span> Jesse: <span class="m">4</span>.0
+Grade <span class="k">for</span> Sally: <span class="m">3</span>.5
 
-    # Use a space to allow for the while check below
-    newStudent = &quot; &quot;
+Class roster:
+Chris <span class="o">(</span><span class="m">3</span>.0<span class="o">)</span>
+Jesse <span class="o">(</span><span class="m">4</span>.0<span class="o">)</span>
+Sally <span class="o">(</span><span class="m">3</span>.5<span class="o">)</span>
 
-    print(&quot;Enter your students (or ENTER to finish):&quot;)
-
-    # Get student names
-    while (newStudent != &quot;&quot;):
-
-        newStudent = input()
-
-        if newStudent != &quot;&quot;:
-            students.append(newStudent)
-
-    # Get student grades
-    grades = [0]*len(students)
-    for idx,student in enumerate(students):
-        newGrade = float(input(&quot;Grade for &quot; + student + &quot;: &quot;))
-        grades[idx] = newGrade
-
-    # Print class roster
-    print(&quot;\nClass roster:&quot;)
-    for idx,student in enumerate(students):
-        print(student + &quot; (&quot; + str(grades[idx]) + &quot;)&quot;)
-
-    avg = sum(grades) / len(grades)
-    print(&quot;\nAverage grade: &quot; + str(avg))
-
-if __name__ == &#39;__main__&#39;:
-    main()
+Average grade: <span class="m">3</span>.5
 </pre></div>
 </div>
-<p>A test run of this program might yield the following:</p>
-<p>Once you feel like you understand this program, proceed to the next
-section, where we study the Java version.</p>
-</div>
+<p>We’ll look at the gradebook using an <code class="docutils literal notranslate"><span class="pre">Arraylist</span></code> first.</p>
 <div class="section" id="gradebook-java-arraylist-version">
-<h3>2.1.1.2. Gradebook (Java ArrayList Version)<a class="headerlink" href="#gradebook-java-arraylist-version" title="Permalink to this headline">¶</a></h3>
-<p>To write the Java version of this program we will have to introduce
-several new Java concepts. We will see the Java equivalent of a list,
-provided by the class <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. We will also review different kinds
-of for loops used in Java.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>package org.launchcode.java.demos.java4python;
+<h3>2.1.1.1. Gradebook (Java ArrayList Version)<a class="headerlink" href="#gradebook-java-arraylist-version" title="Permalink to this headline">¶</a></h3>
+<p>To write this program, we will have to introduce
+several new Java concepts, including the class <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. We will also review different
+kinds of for loops used in Java.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">org.launchcode.java.demos.collections</span><span class="o">;</span>
 
-import java.util.ArrayList;
-import java.util.Scanner;
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
-public class Gradebook {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Gradebook</span> <span class="o">{</span>
 
-    public static void main(String[] args) {
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 
-        ArrayList&lt;String&gt; students = new ArrayList&lt;&gt;();
-        ArrayList&lt;Double&gt; grades = new ArrayList&lt;&gt;();
-        Scanner in = new Scanner(System.in);
-        String newStudent;
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
 
-        System.out.println(&quot;Enter your students (or ENTER to finish):&quot;);
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter your students (or ENTER to finish):&quot;</span><span class="o">);</span>
 
-        // Get student names
-        do {
-            newStudent = in.nextLine();
+        <span class="c1">// Get student names</span>
+        <span class="k">do</span> <span class="o">{</span>
+            <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
 
-            if (!newStudent.equals(&quot;&quot;)) {
-                students.add(newStudent);
-            }
+            <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
+                <span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newStudent</span><span class="o">);</span>
+            <span class="o">}</span>
 
-        } while(!newStudent.equals(&quot;&quot;));
+        <span class="o">}</span> <span class="k">while</span><span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
 
-        // Get student grades
-        for (String student : students) {
-            System.out.print(&quot;Grade for &quot; + student + &quot;: &quot;);
-            Double grade = in.nextDouble();
-            grades.add(grade);
-        }
+        <span class="c1">// Get student grades</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">student</span> <span class="o">:</span> <span class="n">students</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Grade for &quot;</span> <span class="o">+</span> <span class="n">student</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="o">);</span>
+            <span class="n">Double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+            <span class="n">grades</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">grade</span><span class="o">);</span>
+        <span class="o">}</span>
 
-        // Print class roster
-        System.out.println(&quot;\nClass roster:&quot;);
-        double sum = 0.0;
+        <span class="c1">// Print class roster</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\nClass roster:&quot;</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
 
-        for (int i = 0; i &lt; students.size(); i++) {
-            System.out.println(students.get(i) + &quot; (&quot; + grades.get(i) + &quot;)&quot;);
-            sum += grades.get(i);
-        }
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">students</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">students</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> <span class="n">grades</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">);</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">grades</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
 
-        double avg = sum / students.size();
-        System.out.println(&quot;Average grade: &quot; + avg);
-    }
+        <span class="kt">double</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">students</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Average grade: &quot;</span> <span class="o">+</span> <span class="n">avg</span><span class="o">);</span>
+    <span class="o">}</span>
 
-}
+<span class="o">}</span>
 </pre></div>
 </div>
-<p>Before going any further, I suggest you run the above program in
-IntelliJ.</p>
+<p>Before going any further, we suggest you run the above program in
+IntelliJ. You can view this program in <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>.</p>
 <p>Once you’ve done that, let’s look at what is happening in the Java
 source code.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>ArrayList&lt;String&gt; students = new ArrayList&lt;&gt;();
-ArrayList&lt;Double&gt; grades = new ArrayList&lt;&gt;();
-Scanner in = new Scanner(System.in);
-String newStudent;
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
 </pre></div>
 </div>
-<p>Here we declare and initialize two objects, <code class="docutils literal notranslate"><span class="pre">students</span></code> and <code class="docutils literal notranslate"><span class="pre">grades</span></code>,
-which appears to be of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code> and
-<code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Double&gt;</span></code>, respectively. An <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> in Java is very
-similar to a list in Python, with one important difference. Unlike
-Python, where lists can contain any type of value, in Java we must let
-the compiler know what kind of objects our list is going to contain. In
-the case of <code class="docutils literal notranslate"><span class="pre">students</span></code>, the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> will contain values of type
+<p id="index-1">Here we declare and initialize two objects, <code class="docutils literal notranslate"><span class="pre">students</span></code> and <code class="docutils literal notranslate"><span class="pre">grades</span></code>,
+which appear to be of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Double&gt;</span></code>, respectively. An <strong>ArrayList</strong> in Java is very
+similar to an <a class="reference internal" href="../setup-intro-data-types/more-data-types.html#array"><span class="std std-ref">Array</span></a>. Like an <code class="docutils literal notranslate"><span class="pre">Array</span></code>, we must let
+the compiler know what kind of objects our <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> is going to
+contain. In the case of <code class="docutils literal notranslate"><span class="pre">students</span></code>, the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> will contain
+values of type
 <code class="docutils literal notranslate"><span class="pre">String</span></code> (representing the names of the students), so we use the
 <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code> syntax to inform the compiler that we intend to
-fill our list with strings. Similarly, <code class="docutils literal notranslate"><span class="pre">grades</span></code> will hold exclusively
+fill our list with Strings. Similarly, <code class="docutils literal notranslate"><span class="pre">grades</span></code> will hold exclusively
 values of type <code class="docutils literal notranslate"><span class="pre">Double</span></code> and is declared to be of type
 <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Double&gt;</span></code>.</p>
-<aside class="aside-warning"><p>Notice that we declared <code class="docutils literal notranslate"><span class="pre">grades</span></code> to be of type ArrayList&lt;Double&gt;,
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">Notice that we declared <code class="docutils literal notranslate"><span class="pre">grades</span></code> to be of type ArrayList&lt;Double&gt;,
 using the wrapper class <code class="docutils literal notranslate"><span class="pre">Double</span></code> rather than the primitive type
 <code class="docutils literal notranslate"><span class="pre">double</span></code>. All values stored in Java collections must be objects, so
-we’ll have to use wrapper classes in those situations. This is the one
-major exception to our rule-of-thumb that primitives are preferred over
-wrapper types.</p>
-</aside><p>We then initialize each list by creating a new, empty list. Note that
+we’ll have to use object types in those situations.</p>
+</div>
+<p>We then initialize each list by creating a new, empty list. Note that
 when we call the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> constructor, as in <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">ArrayList&lt;&gt;()</span></code>,
 we don’t need to specify type (it’s implicit in the left-hand side of
 the assignment).</p>
-<aside class="aside-note"><p>You will sometimes see the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> class written as ArrayList&lt;E&gt;,
+<div class="admonition" id="index-2">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">You will sometimes see the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> class written as ArrayList&lt;E&gt;,
 where <code class="docutils literal notranslate"><span class="pre">E</span></code> represents a placeholder for the type that a programmer will
 declare a given list to hold. This is especially true in documentation.
 You can think of <code class="docutils literal notranslate"><span class="pre">E</span></code> as representing an arbitrary type.</p>
-<p>Classes like ArrayList&lt;E&gt; that take another type or class as a parameter
-are referred to as <strong>generic classes</strong> or <strong>generic types</strong>.</p>
-</aside><p>We then use a do-while loop to collect the names of each of the students
+</div>
+<p>We then use a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop to collect the names of each of the students
 in the class.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>// Get student names
-do {
-    newStudent = in.nextLine();
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Get student names</span>
+<span class="k">do</span> <span class="o">{</span>
+    <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
 
-    if (!newStudent.equals(&quot;&quot;)) {
-        students.add(newStudent);
-    }
+    <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newStudent</span><span class="o">);</span>
+    <span class="o">}</span>
 
-} while(!newStudent.equals(&quot;&quot;));
+<span class="o">}</span> <span class="k">while</span><span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
 </pre></div>
 </div>
 <p>Recall that a do-while loop is very similar to a while loop, but it has
@@ -316,9 +288,8 @@ students:</p>
 System.out.println(&quot;Average grade: &quot; + avg);
 </pre></div>
 </div>
-</div>
 <div class="section" id="arraylist-methods-and-properties">
-<h3>2.1.1.3. ArrayList Methods and Properties<a class="headerlink" href="#arraylist-methods-and-properties" title="Permalink to this headline">¶</a></h3>
+<h4>2.1.1.1.1. ArrayList Methods and Properties<a class="headerlink" href="#arraylist-methods-and-properties" title="Permalink to this headline">¶</a></h4>
 <p>Let’s gather up a few of the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> methods and properties that
 we’ve encountered so far, along a few new ones. While these will be the
 most common methods and properties that you use with this class, they by
@@ -382,7 +353,7 @@ elements of the list</td>
 </table>
 </div>
 <div class="section" id="gradebook-java-array-version">
-<h3>2.1.1.4. Gradebook (Java Array Version)<a class="headerlink" href="#gradebook-java-array-version" title="Permalink to this headline">¶</a></h3>
+<h4>2.1.1.1.2. Gradebook (Java Array Version)<a class="headerlink" href="#gradebook-java-array-version" title="Permalink to this headline">¶</a></h4>
 <p>We were introduced to arrays in Java in a previous lesson, so let’s
 spend a moment comparing them to lists. As we noted at that beginning of
 this section, we are going to use the Java <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> type to store
@@ -477,6 +448,7 @@ end of our program, we could do the following:</p>
 rely on lists to store collections of values, or ordered data.</p>
 </div>
 </div>
+</div>
 <div class="section" id="key-value-data-hashmaps">
 <h2>2.1.2. Key/Value Data: HashMaps<a class="headerlink" href="#key-value-data-hashmaps" title="Permalink to this headline">¶</a></h2>
 <p>Just as Python provides the dictionary structure to allow us to store
@@ -487,8 +459,6 @@ provided by the <code class="docutils literal notranslate"><span class="pre">Has
 map, and storing students’ grades along with their names in the same
 data structure. The names will be the keys, and the grades will be the
 values.</p>
-<div class="section" id="gradebook-python-dictionary-version">
-<h3>2.1.2.1. Gradebook (Python Dictionary Version)<a class="headerlink" href="#gradebook-python-dictionary-version" title="Permalink to this headline">¶</a></h3>
 <p>Were we to write our gradebook program above using dictionaries, we’d
 come up with something like this:</p>
 <div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>def main():
@@ -519,9 +489,6 @@ if __name__ == &#39;__main__&#39;:
     main()
 </pre></div>
 </div>
-</div>
-<div class="section" id="gradebook-java-hashmap-version">
-<h3>2.1.2.2. Gradebook (Java HashMap Version)<a class="headerlink" href="#gradebook-java-hashmap-version" title="Permalink to this headline">¶</a></h3>
 <p>Let’s now turn to the Java version, using instances of the <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>
 class. As with lists, in Java we must specify the types of the objects
 we’ll be storing when we declare a variable or parameter to be a map.
@@ -620,9 +587,6 @@ construct a simpler loop:</p>
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="hashmap-methods">
-<h3>2.1.2.3. HashMap Methods<a class="headerlink" href="#hashmap-methods" title="Permalink to this headline">¶</a></h3>
 <p>Let’s collect some <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> properties and methods. As we said about
 lists, this is by no means a comprehensive list. For full details on all
 properties and methods available, see the <cite>official documentation on the
@@ -691,7 +655,6 @@ leave it to you to refer to the official documentation linked below for
 more details. You’ll certainly be using lists and maps in more ways than
 those covered in this lesson, but with the knowledge you have now, you
 should be able to use Java collections and learn new uses as you go.</p>
-</div>
 </div>
 <div class="section" id="references">
 <h2>2.1.3. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
