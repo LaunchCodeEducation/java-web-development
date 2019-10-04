@@ -284,8 +284,9 @@ Check Your Understanding
 
    #. "Greetings cadet."
    #. "Greetings normie."
-   #. "Greetings normie."
-      "Are you an alien?"
-   #. "Greetings cadet."
-      "Greetings normie."
+   #. | "Greetings normie."
+      | "Are you an alien?"
+   #. | "Greetings cadet."
+      | "Greetings normie."
+
 
