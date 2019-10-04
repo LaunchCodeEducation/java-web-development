@@ -1,10 +1,12 @@
-Iteration
-=========
+Loops
+=====
 
-For Loops
----------
+.. index:: ! for loop
 
-In Java we write a definite loop (aka a ``for`` loop) as:
+``for`` Loop
+------------
+
+In Java we write a definite loop (aka a **for loop**) as:
 
 .. sourcecode:: java
    :linenos:
@@ -44,7 +46,12 @@ If you want to start at 100, stop at 0 and count backward by 5, the loop is writ
       System.out.println(i);
    }
 
-Java also provides a syntax to iterate over any sequence such as an Array: 
+.. index:: ! for-each loop
+
+``for-each`` Loop
+-------------
+
+Java also provides a syntax to iterate over any sequence or collection, such as an Array: 
 
 .. sourcecode:: java
    :linenos:
@@ -56,12 +63,12 @@ Java also provides a syntax to iterate over any sequence such as an Array:
    }
 
 Here, the loop variable moves through the items in the Array of integers, ``k[]``. The syntax
-here uses a colon symbol, ``:``. 
+here uses a colon symbol, ``:``. This type of loop is known as a **for-each loop**.
 
 .. tip::
 
    When considering this structure, it can be helpful to read the code sample above to yourself
-   as "For integer ``i`` *in* ``Array k``...".
+   as "For each integer in ``Array k``...".
 
 This loop version also works with a String, where we
 can convert the String to an Array of characters:
@@ -78,10 +85,12 @@ can convert the String to an Array of characters:
 As you see, to iterate through a String in this way, Java requires an extra String method,
 ``.toCharArray()``, to convert the String to an Array of characters.
 
-While Loops
------------
+.. index:: ! while loop
 
-Java also supports the ``while`` loop, or indefinite loop.
+``while`` Loop
+--------------
+
+Java also supports the **while loop**, or indefinite loop.
 Recall that in Python the ``while`` loop is written as:
 
 A ``while`` loop in Java:
@@ -97,11 +106,11 @@ A ``while`` loop in Java:
 
 .. index:: ! do-while loop
 
-Do-While Loops
---------------
+``do-while`` Loop
+-----------------
 
 Java adds an additional, if seldom used, variation of the ``while`` loop
-called the **``do-while`` loop**. The ``do-while`` loop is very similar to
+called the **do-while loop**. The ``do-while`` loop is very similar to
 ``while`` except that the condition is evaluated at the end of the loop
 rather than the beginning. This ensures that a loop *will be executed at
 least one time*. Some programmers prefer this loop in some situations
@@ -229,4 +238,41 @@ References
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html>`__
 -  `Summary of Control Flow Statements
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flowsummary.html>`__
+
+Check Your Understanding
+-------------------------
+
+.. admonition:: Question
+
+   .. sourcecode:: java
+      :linenos:
+
+      char chars[] = {'p', 'l', 'r', 's', 't'};
+
+      for (<conditional>) {
+         System.out.println(i);
+      }
+
+   What does the missing <conditional> statement need to be to print each item in ``chars``?
+
+   #. char i : chars
+   #. char i : chars[]
+   #. char i in chars
+   #. char i in chars[]
+
+.. admonition:: Question
+
+   .. sourcecode:: java
+      :linenos:
+
+      do {
+         System.out.println("Hello world!");
+      } while (3 < 2);
+
+   How many times does the message print and why?
+
+   #. 0 - The ``while`` condition is never true.
+   #. 1 - The print statement is evaluated before the conditional.
+   #. infinite times - ``do-while`` loops always run forever.
+   #. 1 - 3 is less than 2.
 
