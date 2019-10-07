@@ -88,37 +88,21 @@
 <h1>2.2. Studio: Control Flow to Count Characters<a class="headerlink" href="#studio-control-flow-to-count-characters" title="Permalink to this headline">¶</a></h1>
 <p>In this studio, you will write a program to count the number of times each
 character occurs in a string and then print the results to the console.</p>
-<p>You could prompt the user for a string, but for the sake of simplicity, you can
-start by hard-coding the string and storing it in a variable. Here’s a test
-string, for your convenience:</p>
+<p>Feel free to prompt the user for a string. However, for the sake of simplicity,
+you might want to start by hard-coding some text and storing it in a variable.
+Here is a test string, for your convenience:</p>
 <blockquote>
-<div><p>TODO: Decide which of these to use.</p>
+<div><p>TODO: Replace with a long, non-gibberish phrase.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan sem
 ut ligula scelerisque sollicitudin. Ut at sagittis augue. Praesent quis
 rhoncus justo. Aliquam erat volutpat. Donec sit amet suscipit metus, non
 lobortis massa. Vestibulum augue ex, dapibus ac suscipit vel, volutpat eget
 massa. Donec nec velit non ligula efficitur luctus.</p>
-<p>Twas brillig, and the slithy toves
-Did gyre and gimble in the wabe:
-All mimsy were the borogoves,
-And the mome raths outgrabe.
-Beware the Jabberwock, my son!
-The jaws that bite, the claws that catch!
-Beware the Jubjub bird, and shun
-The frumious Bandersnatch!</p>
 </div></blockquote>
-<p>There are multiple ways to approach this task, but one way involves the
-following steps:</p>
-<ol class="arabic simple">
-<li>Loop through the string one character at a time,</li>
-<li>Store and/or update the count for a given character using an appropriate
-data structure.</li>
-<li>Loop through the data structure to print the results (one character and its
-count per line).</li>
-</ol>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p>You can turn a <code class="docutils literal notranslate"><span class="pre">String</span></code> object into an array of characters using:</p>
+<p>Remember, you can turn a <code class="docutils literal notranslate"><span class="pre">String</span></code> object into an array of characters
+using:</p>
 <div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">charactersInString</span> <span class="o">=</span> <span class="n">myString</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
 </pre></div>
 </div>
@@ -126,14 +110,23 @@ count per line).</li>
 <div class="section" id="some-items-to-ponder-before-starting">
 <h2>2.2.1. Some Items to Ponder Before Starting<a class="headerlink" href="#some-items-to-ponder-before-starting" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
+<li>There are multiple ways to approach this task, but one way involves the
+following steps:<ol class="loweralpha">
+<li>Loop through the string one character at a time,</li>
+<li>Store and/or update the count for a given character using an appropriate
+data structure.</li>
+<li>Loop through the data structure to print the results (one character and its
+count per line).</li>
+</ol>
+</li>
 <li>Which type of data structure (<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>, <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>, or <code class="docutils literal notranslate"><span class="pre">Array</span></code>)
 should you use to store character counts? Any can be made to work, but there
 is a BEST choice.</li>
-<li>You’ll need to “initialize” the counts for the characters in some fashion.
-It’s probably better to do this as you go through the string, as opposed to
-doing so before you loop through the string. (<em>WHY?</em>)</li>
+<li>You’ll need to <em>initialize</em> the counts for the characters in some fashion.
+It’s probably better to do this as you go through the string instead of
+doing so before you loop through it. (<em>WHY?</em>)</li>
 <li>If you need to review how to create a new class, revisit the instructions in
-<a class="reference external" href="../area/" target="_blank">Studio: Area of a Circle<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
+<a class="reference internal" href="../setup-intro-data-types/studio.html#area-of-a-circle-studio"><span class="std std-ref">Studio: Area of a Circle</span></a>.</li>
 <li>Don’t forget to check out the <em>Bonus Missions</em> below.</li>
 </ol>
 </div>
@@ -177,7 +170,7 @@ x: <span class="m">1</span>
 </div>
 <div class="section" id="bonus-missions">
 <h2>2.2.3. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
-<p>Here are few ways you might modify your solution:</p>
+<p>Try these modifications on your code:</p>
 <ol class="arabic simple">
 <li>Prompt the user to enter the string in the command line.</li>
 <li>Make the character counts case-insensitive.</li>
@@ -186,8 +179,11 @@ x: <span class="m">1</span>
 <div class="section" id="super-bonus">
 <h3>2.2.3.1. Super Bonus<a class="headerlink" href="#super-bonus" title="Permalink to this headline">¶</a></h3>
 <p>Read the string in from a file.</p>
-<p><em>Note:</em> This is a hard one. We won’t talk about reading from files in Java in
-this course, so be ready for a tough challenge if you accept this mission.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">This is a hard one. We won’t talk about reading from files in Java in this
+course, so be ready for a tough challenge if you accept this mission.</p>
+</div>
 </div>
 </div>
 </div>

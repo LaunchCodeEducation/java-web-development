@@ -6,8 +6,8 @@ creating a new class for each item. You may call these classes whatever you
 like, but remember to use the proper
 :ref:`Java naming conventions <naming-conventions>`.
 
-``Array`` Practice
--------------------
+Array Practice
+---------------
 
 #. Create and initialize an array with the following values in a single line:
    ``1, 1, 2, 3, 5, 8``.
@@ -22,12 +22,12 @@ like, but remember to use the proper
 #. Repeat step 3, but change the delimiter to split the string into separate
    sentences.
 
-``ArrayList`` Practice
------------------------
+ArrayList Practice
+-------------------
 
-#. Write a static method to find the sum of all the even numbers in a list.
-   Within ``main``, create a list with at least 10 integers and call your
-   method on the list.
+#. Write a static method to find the sum of all the even numbers in an
+   ArrayList. Within ``main``, create a list with at least 10 integers and call
+   your method on the list.
 #. Write a static method to print out each word in a list that has exactly 5
    letters.
 #. Modify your code to prompt the user to enter the word length for the search.
@@ -36,8 +36,8 @@ like, but remember to use the proper
    ArrayList" online to see how to split a string into the more flexible
    ``ArrayList`` collection.
 
-``HashMap`` Practice
-----------------------
+HashMap Practice
+-----------------
 
 Make a program similar to ``GradebookHashMap`` that does the following:
 
