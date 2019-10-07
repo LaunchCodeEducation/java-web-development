@@ -152,8 +152,8 @@ Exercises
       it, 'and what is the use of a book,' thought Alice 'without pictures or
       conversation?'``
 
-#. **Strings**: Extend the previous exercise. If the user enters a word that is
-   in the sentence, print out its index within the string and its length. Next,
+#. **Strings**: Extend the previous exercise. Assume the user enters a word that is
+   in the sentence. Print out its index within the string and its length. Next,
    remove the word from the string and print the sentence again to confirm your
    code. Remember that strings are *immutable*, so you will need to reassign
    the old sentence variable or create a new one to store the updated phrase.
