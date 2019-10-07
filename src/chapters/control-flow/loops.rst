@@ -302,6 +302,5 @@ Check Your Understanding
 
    #. 0 --- The ``while`` condition is never true.
    #. 1 --- The print statement is evaluated before the conditional.
-   #. infinite times --- ``do-while`` loops always run forever.
-   #. 1 --- 3 is less than 2.
+   #. infinite times --- 3 is less than 2, and the condition is never changed in the loop.
 
