@@ -28,7 +28,7 @@ system could be anything numeric, such as a 0.0-4.0 point scale, or a
 A test run of the program might yield the following:
 
 .. sourcecode:: bash
-	:linenos:
+   :linenos:
 
    Enter your students (or ENTER to finish):
    Chris
@@ -56,7 +56,7 @@ several new Java concepts, including the class ``ArrayList``. We will also revie
 kinds of for loops used in Java.
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    package org.launchcode.java.demos.collections;
 
@@ -113,7 +113,7 @@ Once you’ve done that, let’s look at what is happening in the Java
 source code.
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    ArrayList<String> students = new ArrayList<>();
    ArrayList<Double> grades = new ArrayList<>();
@@ -165,7 +165,7 @@ We then use a ``do-while`` loop to collect the names of each of the students
 in the class.
 
 .. sourcecode:: java
-	:linenos:
+   :linenos:
 
    // Get student names
    do {
@@ -178,109 +178,117 @@ in the class.
    } while(!newStudent.equals(""));
 
 Recall that a ``do-while`` loop is very similar to a ``while`` loop, but 
-the executions condition is checked at the end of the loop block. This has 
+the execution condition is checked at the end of the loop block. This has 
 the net effect that the code block will always run at least once. In this example, 
-we prompt the user for a name, which Java processes via ``in.nextLine()`` when they hit
-the enter key. To finish entering names, the user enters a blank line.
+we prompt the user for a name, which Java processes via ``in.nextLine()`` when the 
+user hits the enter key. To finish entering names, the user enters a blank line.
+
+.. index:: ! ArrayList.add()
 
 For each student that is entered (that is, each non-empty line), we add
 the new String to the end of our list with ``students.add(newStudent)``.
-The ``.add()`` method is a method provided by the `ArrayList
+The ``.add()`` method is provided by the `ArrayList
 Class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__.
-There are lots of other list methods.
+There are lots of other ArrayList methods to get familiar with as you find necessary.
 
-Below the do-while loop are two different for loops that demonstrate the
-two ways you can loop through a list in Java. Here’s the first, which
+Below the ``do-while`` loop are two different loops that demonstrate two ways you 
+can loop through a list in Java. Here’s the first, which
 collects the numeric grade for each student:
 
-.. code:: java
+.. sourcecode:: java
+   :linenos:
 
    // Get student grades
    for (String student : students) {
-       System.out.print("Grade for " + student + ": ");
-       Double grade = in.nextDouble();
-       grades.add(grade);
+      System.out.print("Grade for " + student + ": ");
+      Double grade = in.nextDouble();
+      grades.add(grade);
    }
 
-This for loop syntax is very similar to that of Python, where the
-analogous loop would begin: ``for student in students:``. As you might
+This, you may recall, is Java's ``for-each`` loop syntax. You may read this 
+in your head, or even aloud, as: ``for each student in students``. As you might
 expect at this point, we must declare the iterator variable ``student``
-in Java, which was not explicitly done in Python.
+with its data type.
 
-The other for loop on display prints out each student’s name and grade:
+The next loop on display prints out each student’s name and grade:
 
-.. code:: java
+.. sourcecode:: java
+   :linenos:
 
    // Print class roster
    System.out.println("\nClass roster:");
    double sum = 0.0;
 
    for (int i = 0; i < students.size(); i++) {
-       System.out.println(students.get(i) + " (" + grades.get(i) + ")");
-       sum += grades.get(i);
+      System.out.println(students.get(i) + " (" + grades.get(i) + ")");
+      sum += grades.get(i);
    }
 
-In this loop, we use a *loop index*, a different style of for loop. We
-also introduce the syntax ``students.size()`` which utilizes the
-``ArrayList``\ ’s ``size()`` method to return the integer representing
-the number of items in the list.
+.. index:: ! ArrayList.size()
 
-The syntax of this for loop may look strange to you, but in fact it is
-not too different from what happens in Python using ``range``. The
-syntax ``for (int i = 0; i < students.size(); i++)`` is exactly
-equivalent to the Python ``for i in range(len(students))``. The first
-statement inside the parenthesis declares and initializes a loop index
-variable ``i``. The second statement is a Boolean expression that is our
-exit condition. In other words, we will keep looping as long as this
-expression evaluates to true. The third statement is used to increment
-the value of the loop index variable at the end of iteration through the
-loop. The syntax ``i++`` is Java shorthand for ``i = i + 1``. Java also
-supports the shorthand ``i--`` to decrement the value of ``i``. Like
-Python, you can also write ``i += 2`` as shorthand for ``i = i + 2``.
+Here, we introduce the syntax ``students.size()`` which utilizes the
+``ArrayList``\ ’s ``size()`` method to return the integer representing
+the number of items in the list. This is similar to String's ``.length()`` 
+:ref:`method <string-methods>`.
+
+In this ``for`` loop, we use a *loop index* to define the starting point, ending point, 
+and increment for iteration. It may be helpful for you to consider this kind of 
+construction as something like,  ``for integer i in the range of the number of items 
+in students...``. The first statement inside the parenthesis declares and 
+initializes a loop index variable ``i``. The second statement is a Boolean 
+expression that is our exit condition. In other words, we will keep looping as 
+long as this expression evaluates to ``True``. The third statement is used to 
+increment the value of the loop index variable at the end of iteration through the
+loop. 
+
+Again, the syntax ``i++`` is Java shorthand for ``i = i + 1``. Java also
+supports the shorthand ``i--`` to decrement the value of ``i``. 
+We can also write ``i += 2`` as shorthand for ``i = i + 2``.
 
 In the final lines of the program, we compute the average grade for all
 students:
 
-.. code:: java
+.. sourcecode:: java
+   :linenos:
 
    double avg = sum / students.size();
    System.out.println("Average grade: " + avg);
 
 ArrayList Methods and Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let’s gather up a few of the ``ArrayList`` methods and properties that
-we’ve encountered so far, along a few new ones. While these will be the
+we’ve encountered so far, along with a few new ones. While these will be the
 most common methods and properties that you use with this class, they by
 no means represent a complete list. Refer to the `official documentation
-on the ``ArrayList``
+on the ArrayList
 class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__
 for such a list, and for more details.
 
-+------------+---------------------------------+-----------------------+
-| Name       | Description                     | Example               |
-+============+=================================+=======================+
-| ``size``   | Represents the number of items  | ``students.size()``   |
-|            | in the list, as an ``int``      |                       |
-+------------+---------------------------------+-----------------------+
-| ``add``    | Adds an item to the list        | ``students.add("Sally |
-|            |                                 | ")``                  |
-+------------+---------------------------------+-----------------------+
-| ``contains | Checks to see if the list       | ``students.contains(" |
-| ``         | contains a given item,          | Haley")``             |
-|            | returning a boolean             |                       |
-+------------+---------------------------------+-----------------------+
-| ``indexOf` | Looks for an item in a list,    | ``students.indexOf("Z |
-| `          | returns the index of the first  | ach")``               |
-|            | occurrence of the item if it    |                       |
-|            | exists, returns -1 otherwise    |                       |
-+------------+---------------------------------+-----------------------+
-| ``sort``   | Sorts a list, using the         | ``students.sort()``   |
-|            | “default” sort comparison       |                       |
-+------------+---------------------------------+-----------------------+
-| ``toArray` | Returns an array containing the | ``students.toArray()` |
-| `          | elements of the list            | `                     |
-+------------+---------------------------------+-----------------------+
+.. list-table:: ArrayList methods in Java
+   :header-rows: 1
+
+   * - Java Syntax
+     - Description
+     - Example
+   * - ``size()``
+     - Represents the number of items in the list, as an ``int``
+     - ``students.size()`` 
+   * - ``add()``
+     - Adds an item to the list
+     - ``students.add("Sally")``
+   * - ``contains()``
+     - Checks to see if the list contains a given item, returning a boolean
+     - ``students.contains("Haley")``
+   * - ``indexOf()``
+     - Looks for an item in a list, returns the index of the first occurrence of the item if it exists, returns -1 otherwise 
+     - ``students.indexOf("Zach")``
+   * - ``sort()``
+     - Sorts a list, using the default sort comparison
+     - ``students.sort()`` 
+   * - ``toArray()``
+     - Returns an array containing the elements of the list 
+     - ```students.toArray()`` 
 
 Gradebook (Java Array Version)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
