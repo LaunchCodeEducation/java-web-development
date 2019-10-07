@@ -28,6 +28,7 @@ system could be anything numeric, such as a 0.0-4.0 point scale, or a
 A test run of the program might yield the following:
 
 .. sourcecode:: bash
+	:linenos:
 
    Enter your students (or ENTER to finish):
    Chris
@@ -55,6 +56,7 @@ several new Java concepts, including the class ``ArrayList``. We will also revie
 kinds of for loops used in Java.
 
 .. sourcecode:: java
+	:linenos:
 
    package org.launchcode.java.demos.collections;
 
@@ -111,6 +113,7 @@ Once you’ve done that, let’s look at what is happening in the Java
 source code.
 
 .. sourcecode:: java
+	:linenos:
 
    ArrayList<String> students = new ArrayList<>();
    ArrayList<Double> grades = new ArrayList<>();
@@ -162,25 +165,26 @@ We then use a ``do-while`` loop to collect the names of each of the students
 in the class.
 
 .. sourcecode:: java
+	:linenos:
 
    // Get student names
    do {
-       newStudent = in.nextLine();
+      newStudent = in.nextLine();
 
-       if (!newStudent.equals("")) {
-           students.add(newStudent);
-       }
+      if (!newStudent.equals("")) {
+         students.add(newStudent);
+      }
 
    } while(!newStudent.equals(""));
 
-Recall that a do-while loop is very similar to a while loop, but it has
-its check at the end of the loop block. This has the net effect that
-we’ll always run the block at least once. In this example, we prompt the
-user for a name, which we read in via ``in.nextLine()`` when they hit
-the enter key. To finish entering names, they enter a blank line.
+Recall that a ``do-while`` loop is very similar to a ``while`` loop, but 
+the executions condition is checked at the end of the loop block. This has 
+the net effect that the code block will always run at least once. In this example, 
+we prompt the user for a name, which Java processes via ``in.nextLine()`` when they hit
+the enter key. To finish entering names, the user enters a blank line.
 
 For each student that is entered (that is, each non-empty line), we add
-the new string to the end of our list with ``students.add(newStudent)``.
+the new String to the end of our list with ``students.add(newStudent)``.
 The ``.add()`` method is a method provided by the `ArrayList
 Class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__.
 There are lots of other list methods.

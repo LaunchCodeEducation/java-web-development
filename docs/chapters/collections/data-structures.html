@@ -105,88 +105,16 @@ with the average grade. In each variation of this program, the grading
 system could be anything numeric, such as a 0.0-4.0 point scale, or a
 0-100 percentage scale.</p>
 <p>A test run of the program might yield the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your students <span class="o">(</span>or ENTER to finish<span class="o">)</span>:
-Chris
-Jesse
-Sally
-
-Grade <span class="k">for</span> Chris: <span class="m">3</span>.0
-Grade <span class="k">for</span> Jesse: <span class="m">4</span>.0
-Grade <span class="k">for</span> Sally: <span class="m">3</span>.5
-
-Class roster:
-Chris <span class="o">(</span><span class="m">3</span>.0<span class="o">)</span>
-Jesse <span class="o">(</span><span class="m">4</span>.0<span class="o">)</span>
-Sally <span class="o">(</span><span class="m">3</span>.5<span class="o">)</span>
-
-Average grade: <span class="m">3</span>.5
-</pre></div>
-</div>
 <p>We’ll look at the gradebook using an <code class="docutils literal notranslate"><span class="pre">Arraylist</span></code> first.</p>
 <div class="section" id="gradebook-java-arraylist-version">
 <h3>2.1.1.1. Gradebook (Java ArrayList Version)<a class="headerlink" href="#gradebook-java-arraylist-version" title="Permalink to this headline">¶</a></h3>
 <p>To write this program, we will have to introduce
 several new Java concepts, including the class <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. We will also review different
 kinds of for loops used in Java.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">org.launchcode.java.demos.collections</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Gradebook</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-        <span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter your students (or ENTER to finish):&quot;</span><span class="o">);</span>
-
-        <span class="c1">// Get student names</span>
-        <span class="k">do</span> <span class="o">{</span>
-            <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
-
-            <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newStudent</span><span class="o">);</span>
-            <span class="o">}</span>
-
-        <span class="o">}</span> <span class="k">while</span><span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
-
-        <span class="c1">// Get student grades</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">student</span> <span class="o">:</span> <span class="n">students</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Grade for &quot;</span> <span class="o">+</span> <span class="n">student</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="o">);</span>
-            <span class="n">Double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
-            <span class="n">grades</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">grade</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="c1">// Print class roster</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\nClass roster:&quot;</span><span class="o">);</span>
-        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
-
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">students</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">students</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> <span class="n">grades</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">);</span>
-            <span class="n">sum</span> <span class="o">+=</span> <span class="n">grades</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-        <span class="o">}</span>
-
-        <span class="kt">double</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">students</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Average grade: &quot;</span> <span class="o">+</span> <span class="n">avg</span><span class="o">);</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-</pre></div>
-</div>
 <p>Before going any further, we suggest you run the above program in
 IntelliJ. You can view this program in <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>.</p>
 <p>Once you’ve done that, let’s look at what is happening in the Java
 source code.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-<span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
-</pre></div>
-</div>
 <p id="index-1">Here we declare and initialize two objects, <code class="docutils literal notranslate"><span class="pre">students</span></code> and <code class="docutils literal notranslate"><span class="pre">grades</span></code>,
 which appear to be of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code> and
 <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Double&gt;</span></code>, respectively. An <strong>ArrayList</strong> in Java is very
@@ -219,24 +147,13 @@ You can think of <code class="docutils literal notranslate"><span class="pre">E<
 </div>
 <p>We then use a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop to collect the names of each of the students
 in the class.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Get student names</span>
-<span class="k">do</span> <span class="o">{</span>
-    <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
-
-    <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
-        <span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newStudent</span><span class="o">);</span>
-    <span class="o">}</span>
-
-<span class="o">}</span> <span class="k">while</span><span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
-</pre></div>
-</div>
-<p>Recall that a do-while loop is very similar to a while loop, but it has
-its check at the end of the loop block. This has the net effect that
-we’ll always run the block at least once. In this example, we prompt the
-user for a name, which we read in via <code class="docutils literal notranslate"><span class="pre">in.nextLine()</span></code> when they hit
-the enter key. To finish entering names, they enter a blank line.</p>
+<p>Recall that a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop is very similar to a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but
+the executions condition is checked at the end of the loop block. This has
+the net effect that the code block will always run at least once. In this example,
+we prompt the user for a name, which Java processes via <code class="docutils literal notranslate"><span class="pre">in.nextLine()</span></code> when they hit
+the enter key. To finish entering names, the user enters a blank line.</p>
 <p>For each student that is entered (that is, each non-empty line), we add
-the new string to the end of our list with <code class="docutils literal notranslate"><span class="pre">students.add(newStudent)</span></code>.
+the new String to the end of our list with <code class="docutils literal notranslate"><span class="pre">students.add(newStudent)</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method is a method provided by the <a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html" target="_blank">ArrayList
 Class<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 There are lots of other list methods.</p>
