@@ -189,7 +189,11 @@ For each student that is entered (that is, each non-empty line), we add
 the new String to the end of our list with ``students.add(newStudent)``.
 The ``.add()`` method is provided by the `ArrayList
 Class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__.
-There are lots of other ArrayList methods to get familiar with as you find necessary.
+There are lots of other ArrayList methods to get familiar with, some of which we will discuss
+in more detail below.
+
+Note that our program imports ``java.util.ArrayList`` to take advantage of this Java
+provided class.
 
 Below the ``do-while`` loop are two different loops that demonstrate two ways you 
 can loop through a list in Java. Here’s the first, which
@@ -265,6 +269,37 @@ on the ArrayList
 class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__
 for such a list, and for more details.
 
+To demonstrate the use of these methods, we'll create a new ``ArrayList`` 
+called ``planets``.
+
+.. sourcecode:: java  
+   :linenos:
+
+   ArrayList<String> planets = new ArrayList<>();
+
+Ok, we've got an empty ArrayList. We need to use the class's ``.add()`` method to 
+populate this collection with items.
+
+.. note::
+
+   There are other means to declare and initialize an ArrayList in fewer lines. 
+   These require knowledge of other collections types, so we'll stick with ``.add()``
+   for the time being.
+
+Using ``.add()`` to populate ``planets``:
+
+.. sourcecode:: java
+   :linenos:
+   
+   planets.add("Mercury");
+   planets.add("Venus");
+   planets.add("Earth");
+   planets.add("Mars");
+   planets.add("Jupiter");
+   planets.add("Saturn");
+   planets.add("Uranus");
+   planets.add("Neptune");
+
 .. list-table:: ArrayList methods in Java
    :header-rows: 1
 
@@ -272,10 +307,10 @@ for such a list, and for more details.
      - Description
      - Example
    * - ``size()``
-     - Represents the number of items in the list, as an ``int``
+     - Returns the number of items in an ArrayList, as an ``int``
      - ``students.size()`` 
    * - ``add()``
-     - Adds an item to the list
+     - Adds an item to the ArrayList
      - ``students.add("Sally")``
    * - ``contains()``
      - Checks to see if the list contains a given item, returning a boolean

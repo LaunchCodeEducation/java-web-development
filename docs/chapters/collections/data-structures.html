@@ -310,7 +310,10 @@ user hits the enter key. To finish entering names, the user enters a blank line.
 the new String to the end of our list with <code class="docutils literal notranslate"><span class="pre">students.add(newStudent)</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method is provided by the <a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html" target="_blank">ArrayList
 Class<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
-There are lots of other ArrayList methods to get familiar with as you find necessary.</p>
+There are lots of other ArrayList methods to get familiar with, some of which we will discuss
+in more detail below.</p>
+<p>Note that our program imports <code class="docutils literal notranslate"><span class="pre">java.util.ArrayList</span></code> to take advantage of this Java
+provided class.</p>
 <p>Below the <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop are two different loops that demonstrate two ways you
 can loop through a list in Java. Here’s the first, which
 collects the numeric grade for each student:</p>
@@ -382,6 +385,37 @@ no means represent a complete list. Refer to the <a class="reference external" h
 on the ArrayList
 class<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 for such a list, and for more details.</p>
+<p>To demonstrate the use of these methods, we’ll create a new <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>
+called <code class="docutils literal notranslate"><span class="pre">planets</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">planets</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</pre></div>
+</td></tr></table></div>
+<p>Ok, we’ve got an empty ArrayList. We need to use the class’s <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method to
+populate this collection with items.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">There are other means to declare and initialize an ArrayList in fewer lines.
+These require knowledge of other collections types, so we’ll stick with <code class="docutils literal notranslate"><span class="pre">.add()</span></code>
+for the time being.</p>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">.add()</span></code> to populate <code class="docutils literal notranslate"><span class="pre">planets</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Mercury&quot;</span><span class="o">);</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Venus&quot;</span><span class="o">);</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Earth&quot;</span><span class="o">);</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Mars&quot;</span><span class="o">);</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Jupiter&quot;</span><span class="o">);</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Saturn&quot;</span><span class="o">);</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Uranus&quot;</span><span class="o">);</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Neptune&quot;</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
 <table border="1" class="docutils" id="id1">
 <caption><span class="caption-text">ArrayList methods in Java</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -397,11 +431,11 @@ for such a list, and for more details.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">size()</span></code></td>
-<td>Represents the number of items in the list, as an <code class="docutils literal notranslate"><span class="pre">int</span></code></td>
+<td>Returns the number of items in an ArrayList, as an <code class="docutils literal notranslate"><span class="pre">int</span></code></td>
 <td><code class="docutils literal notranslate"><span class="pre">students.size()</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">add()</span></code></td>
-<td>Adds an item to the list</td>
+<td>Adds an item to the ArrayList</td>
 <td><code class="docutils literal notranslate"><span class="pre">students.add(&quot;Sally&quot;)</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">contains()</span></code></td>
