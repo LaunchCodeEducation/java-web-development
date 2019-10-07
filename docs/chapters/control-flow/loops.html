@@ -96,6 +96,19 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
+<p><strong>Output:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>
+<span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+<span class="m">4</span>
+<span class="m">5</span>
+<span class="m">6</span>
+<span class="m">7</span>
+<span class="m">8</span>
+<span class="m">9</span>
+</pre></div>
+</div>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">You may not be familiar with the expression <code class="docutils literal notranslate"><span class="pre">i++</span></code> since it is not
@@ -126,6 +139,13 @@ of the loop variable inside the parentheses. You can think of it this way:</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
+<p><strong>Output:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">100</span>
+<span class="m">95</span>
+<span class="m">90</span>
+...
+</pre></div>
+</div>
 </div>
 <div class="section" id="for-each-loop">
 <span id="index-1"></span><h2>3.2.2. <code class="docutils literal notranslate"><span class="pre">for-each</span></code> Loop<a class="headerlink" href="#for-each-loop" title="Permalink to this headline">¶</a></h2>
@@ -134,19 +154,19 @@ of the loop variable inside the parentheses. You can think of it this way:</p>
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">k</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">21</span><span class="o">};</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">nums</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">21</span><span class="o">};</span>
 
-<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Here, the loop variable moves through the items in the Array of integers, <code class="docutils literal notranslate"><span class="pre">k[]</span></code>. The syntax
+<p>Here, the loop variable moves through the items in the Array of integers, <code class="docutils literal notranslate"><span class="pre">nums[]</span></code>. The syntax
 here uses a colon symbol, <code class="docutils literal notranslate"><span class="pre">:</span></code>. This type of loop is known as a <strong>for-each loop</strong>.</p>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">When considering this structure, it can be helpful to read the code sample above to yourself
-as “For each integer in <code class="docutils literal notranslate"><span class="pre">Array</span> <span class="pre">k</span></code>…”.</p>
+as “For each integer in <code class="docutils literal notranslate"><span class="pre">Array</span> <span class="pre">nums</span></code>…”.</p>
 </div>
 <p>This loop version also works with a String, where we
 can convert the String to an Array of characters:</p>
@@ -167,16 +187,13 @@ can convert the String to an Array of characters:</p>
 <div class="section" id="while-loop">
 <span id="index-2"></span><h2>3.2.3. <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop<a class="headerlink" href="#while-loop" title="Permalink to this headline">¶</a></h2>
 <p>Java also supports the <strong>while loop</strong>, or indefinite loop.
-Recall that in Python the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is written as:</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">while</span></code> loop in Java:</p>
+A <code class="docutils literal notranslate"><span class="pre">while</span></code> loop in Java:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
-   <span class="n">statement1</span>
-   <span class="n">statement2</span>
-   <span class="o">...</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">i</span><span class="o">++;</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
@@ -192,23 +209,24 @@ because it avoids an additional assignment prior to the loop.</p>
 <p>For example:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">do</span> <span class="o">{</span>
-   <span class="n">statement1</span>
-   <span class="n">statement2</span>
-   <span class="o">...</span>
-<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">condition</span><span class="o">);</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">do</span> <span class="o">{</span>
+   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, World&quot;</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="kc">false</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
+<p><strong>Output:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Hello, World
+</pre></div>
+</div>
+<p>Above, the message prints despite the condition never being met.</p>
 </div>
 <div class="section" id="break-statements-in-loops">
 <h2>3.2.5. Break Statements in Loops<a class="headerlink" href="#break-statements-in-loops" title="Permalink to this headline">¶</a></h2>
 <p>There are instances where you may want to terminate a loop if a given
 condition is met. In these instances, the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement comes in
-handy. For example, if you want to loop through an array of integers
-searching for a given integer and you want to quit the loop once that
-number is found, you can do the following:</p>
+handy. For example, say you want to loop through an Array of integers
+to search for a given value. Once that number is found, you want to quit
+the loop. You can do the following:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -245,7 +263,9 @@ would print “Found it!” a second time.</p>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement terminates the innermost loop that it
 is contained within. So if you have nested loops and use a <code class="docutils literal notranslate"><span class="pre">break</span></code>
 statement within the innermost loop, then it will only terminate that
-loop and not the outer one.</p>
+loop and not the outer one. If a <code class="docutils literal notranslate"><span class="pre">break</span></code> is present in the outer loop,
+it — and any other block nested within it — is terminated when the
+<code class="docutils literal notranslate"><span class="pre">break</span></code> runs.</p>
 </div>
 <div class="section" id="continue-statements-in-loops">
 <span id="index-4"></span><h2>3.2.6. Continue Statements in Loops<a class="headerlink" href="#continue-statements-in-loops" title="Permalink to this headline">¶</a></h2>
@@ -336,17 +356,17 @@ Not here
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="n">chars</span><span class="o">[]</span> <span class="o">=</span> <span class="o">{</span><span class="sc">&#39;p&#39;</span><span class="o">,</span> <span class="sc">&#39;l&#39;</span><span class="o">,</span> <span class="sc">&#39;r&#39;</span><span class="o">,</span> <span class="sc">&#39;s&#39;</span><span class="o">,</span> <span class="sc">&#39;t&#39;</span><span class="o">};</span>
 
-<span class="k">for</span> <span class="o">(&lt;</span><span class="n">conditional</span><span class="o">&gt;)</span> <span class="o">{</span>
+<span class="k">for</span> <span class="o">(&lt;</span><span class="n">loop</span><span class="o">-</span><span class="n">statement</span><span class="o">&gt;)</span> <span class="o">{</span>
    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>What does the missing &lt;conditional&gt; statement need to be to print each item in <code class="docutils literal notranslate"><span class="pre">chars</span></code>?</p>
+<p>What does the missing &lt;loop-statement&gt; need to be to print each item in <code class="docutils literal notranslate"><span class="pre">chars</span></code>?</p>
 <ol class="last arabic simple">
-<li>char i : chars</li>
-<li>char i : chars[]</li>
-<li>char i in chars</li>
-<li>char i in chars[]</li>
+<li><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">i</span> <span class="pre">:</span> <span class="pre">chars</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">i</span> <span class="pre">:</span> <span class="pre">chars[]</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">chars</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">chars[]</span></code></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
@@ -360,10 +380,10 @@ Not here
 </td></tr></table></div>
 <p>How many times does the message print and why?</p>
 <ol class="last arabic simple">
-<li>0 - The <code class="docutils literal notranslate"><span class="pre">while</span></code> condition is never true.</li>
-<li>1 - The print statement is evaluated before the conditional.</li>
-<li>infinite times - <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loops always run forever.</li>
-<li>1 - 3 is less than 2.</li>
+<li>0 — The <code class="docutils literal notranslate"><span class="pre">while</span></code> condition is never true.</li>
+<li>1 — The print statement is evaluated before the conditional.</li>
+<li>infinite times — <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loops always run forever.</li>
+<li>1 — 3 is less than 2.</li>
 </ol>
 </div>
 </div>

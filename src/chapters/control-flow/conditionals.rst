@@ -1,7 +1,7 @@
 Conditionals
 ============
 
-Control flow statements in Java - conditionals and loops - are very straightforward. 
+Control flow statements in Java --- conditionals and loops --- are very straightforward. 
 
 .. index:: ! if statement
 
@@ -49,6 +49,8 @@ Adding an **else clause**, we have:
 ``else if``
 -----------
 
+An **else if** construction in Java:
+
 .. sourcecode:: java
    :linenos:
 
@@ -80,10 +82,10 @@ Adding an **else clause**, we have:
 ---------------------
 
 Java also supports a **switch** statement that acts something like an ``else if``
-statement under certain conditions, called **cases**. The ``switch`` statement is not used very often, 
-and we generally recommend you avoid using it. It is not as powerful as the ``else if`` 
-model because the ``switch`` variable can only be compared for equality with a very small
-class of types.
+statement under certain conditions, called **cases**. The ``switch`` statement is 
+not used very often, and we generally recommend you avoid using it. It is not as 
+powerful as the ``else if`` model because the ``switch`` variable can only be compared 
+for equality with a very small class of types.
 
 Here is a quick example of a ``switch`` statement:
 
@@ -129,11 +131,60 @@ Here is a quick example of a ``switch`` statement:
       }
    }
 
-In the example above, if the user entered the number ``4``, "Thursday" would be printed. 
-If the user entered the number ``10``, "Int does
-not correspond to a day of the week" would be printed.
+In the example above, here's the output if a user enters the number ``4``.
+
+.. sourcecode:: bash
+
+   Enter an integer: 4
+   Thursday
+
+And the output if that user enters ``10``? Below:
+
+.. sourcecode:: java
+
+   Enter an integer: 10
+   Int does not correspond to a day of the week
+
+
+Here's how the above example looks using the ``else if`` construction:
+
+.. sourcecode:: java
+   :linenos:
+
+   import java.util.Scanner;
+
+   public class DayPrinter {
+      public static void main(String[] args) {
+         Scanner in = new Scanner(System.in);
+         System.out.println("Enter an integer: ");
+         int dayNum = in.nextInt();
+
+         String day;
+         if (dayNum == 0) {
+           day = "Sunday";
+         } else if (dayNum == 1){
+           day = "Monday";
+         } else if (dayNum == 2){
+           day = "Tuesday";
+         } else if (dayNum == 3){
+           day = "Wednesday";
+         } else if (dayNum == 4){
+           day = "Thursday";
+         } else if (dayNum == 5){
+           day = "Friday";
+         } else if (dayNum == 6){
+          day = "Saturday";
+         } else {
+          day = "Int does not correspond to a day of the week";
+         }
+         System.out.println(day);
+      }
+   }
 
 .. index:: ! fallthrough
+
+Fallthrough
+^^^^^^^^^^^
 
 Additionally, if **break statements** are omitted from the individual
 cases on accident, a behavior known as
@@ -184,9 +235,16 @@ Here’s a quick example of how fallthrough works:
    }
 
 This time, without the ``break`` statements in each ``case``, if the
-user enters ``4``, the default case: "Int does not correspond to a day of the week" would
-still be printed. This is because after the ``switch`` statement matches the
-``case`` for ``4`` and assigns the value "Thursday" to the variable
+user enters ``4``, they will see the default output:
+
+.. sourcecode:: bash
+
+   Enter an integer: 4
+   Int does not correspond to a day of the week
+
+
+This is because after the ``switch`` statement matches the
+``case`` for ``4`` and assigns the value ``Thursday`` to the variable
 ``day``, it proceeds to execute every statement in every case that
 follows, all the way through the ``default`` case. So the ``String``
 that ends up being printed will reflect the last executed statement in
@@ -231,9 +289,17 @@ Along similar lines, consider this variation on the code block above:
    }
 
 
-Here, we have a ``break``statement in ``case 6`` after ``day = "Saturday";``. 
+Here, we have a ``break`` statement in ``case 6`` after ``day = "Saturday";``. 
 If the user enters ``4``, the execution will fallthrough until it reaches that
-``break`` statement and "Saturday" is printed instead of "Thursday".
+``break`` statement and ``Saturday`` is printed instead of ``Thursday``. 
+The output:
+
+.. sourcecode:: bash
+
+   Enter an integer: 4
+   Saturday
+
+
 
 References
 ----------
@@ -280,7 +346,7 @@ Check Your Understanding
          }
       }
 
-   Given the code above, what prints if the user enters "no" after the prompt?
+   Given the code above, what prints if the user enters ``no`` after the prompt?
 
    #. "Greetings cadet."
    #. "Greetings normie."

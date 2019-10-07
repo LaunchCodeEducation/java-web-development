@@ -15,6 +15,21 @@ In Java we write a definite loop (aka a **for loop**) as:
       System.out.println(i);
    }
 
+**Output:**
+
+.. sourcecode:: bash
+
+   0
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   
 .. note:: 
 
    You may not be familiar with the expression ``i++`` since it is not
@@ -46,6 +61,15 @@ If you want to start at 100, stop at 0 and count backward by 5, the loop is writ
       System.out.println(i);
    }
 
+**Output:**
+
+.. sourcecode:: bash
+
+   100
+   95
+   90
+   ...
+
 .. index:: ! for-each loop
 
 ``for-each`` Loop
@@ -56,19 +80,19 @@ Java also provides a syntax to iterate over any sequence or collection, such as 
 .. sourcecode:: java
    :linenos:
 
-   int k[] = {1, 1, 2, 3, 5, 8, 13, 21};
+   int nums[] = {1, 1, 2, 3, 5, 8, 13, 21};
 
-   for (int i : k) {
+   for (int i : nums) {
       System.out.println(i);
    }
 
-Here, the loop variable moves through the items in the Array of integers, ``k[]``. The syntax
+Here, the loop variable moves through the items in the Array of integers, ``nums[]``. The syntax
 here uses a colon symbol, ``:``. This type of loop is known as a **for-each loop**.
 
 .. tip::
 
    When considering this structure, it can be helpful to read the code sample above to yourself
-   as "For each integer in ``Array k``...".
+   as "For each integer in ``Array nums``...".
 
 This loop version also works with a String, where we
 can convert the String to an Array of characters:
@@ -91,17 +115,14 @@ As you see, to iterate through a String in this way, Java requires an extra Stri
 --------------
 
 Java also supports the **while loop**, or indefinite loop.
-Recall that in Python the ``while`` loop is written as:
-
 A ``while`` loop in Java:
 
 .. sourcecode:: java
    :linenos:
 
-   while (condition) {
-      statement1
-      statement2
-      ...
+   int i = 0;
+   while (i < 3) {
+      i++;
    }
 
 .. index:: ! do-while loop
@@ -122,19 +143,25 @@ For example:
    :linenos:
 
    do {
-      statement1
-      statement2
-      ...
-   } while (condition);
+      System.out.println("Hello, World");
+   } while (false);
+
+**Output:**
+
+.. sourcecode:: bash
+
+   Hello, World
+
+Above, the message prints despite the condition never being met. 
 
 Break Statements in Loops
 -------------------------
 
 There are instances where you may want to terminate a loop if a given
 condition is met. In these instances, the ``break`` statement comes in
-handy. For example, if you want to loop through an array of integers
-searching for a given integer and you want to quit the loop once that
-number is found, you can do the following:
+handy. For example, say you want to loop through an Array of integers
+to search for a given value. Once that number is found, you want to quit 
+the loop. You can do the following:
 
 .. sourcecode:: java
    :linenos:
@@ -163,7 +190,9 @@ would print "Found it!" a second time.
 Note that the ``break`` statement terminates the innermost loop that it
 is contained within. So if you have nested loops and use a ``break``
 statement within the innermost loop, then it will only terminate that
-loop and not the outer one.
+loop and not the outer one. If a ``break`` is present in the outer loop, 
+it --- and any other block nested within it --- is terminated when the 
+``break`` runs.
 
 .. index:: ! continue
 
@@ -249,16 +278,16 @@ Check Your Understanding
 
       char chars[] = {'p', 'l', 'r', 's', 't'};
 
-      for (<conditional>) {
+      for (<loop-statement>) {
          System.out.println(i);
       }
 
-   What does the missing <conditional> statement need to be to print each item in ``chars``?
+   What does the missing <loop-statement> need to be to print each item in ``chars``?
 
-   #. char i : chars
-   #. char i : chars[]
-   #. char i in chars
-   #. char i in chars[]
+   #. ``char i : chars``
+   #. ``char i : chars[]``
+   #. ``char i in chars``
+   #. ``char i in chars[]``
 
 .. admonition:: Question
 
@@ -271,8 +300,8 @@ Check Your Understanding
 
    How many times does the message print and why?
 
-   #. 0 - The ``while`` condition is never true.
-   #. 1 - The print statement is evaluated before the conditional.
-   #. infinite times - ``do-while`` loops always run forever.
-   #. 1 - 3 is less than 2.
+   #. 0 --- The ``while`` condition is never true.
+   #. 1 --- The print statement is evaluated before the conditional.
+   #. infinite times --- ``do-while`` loops always run forever.
+   #. 1 --- 3 is less than 2.
 
