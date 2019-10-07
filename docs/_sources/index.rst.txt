@@ -6,7 +6,9 @@ Chapters
    :maxdepth: 1
    :name: chapterstoc
 
-   chapters/setup-intro-data-types/index
+   chapters/introduction-and-setup/index
+   chapters/data-types/index
+   chapters/control-flow/index
 
 .. toctree::
 
@@ -19,7 +21,8 @@ Studios
    :maxdepth: 1
    :name: studiostoc
 
-   chapters/setup-intro-data-types/studio
+   chapters/data-types/studio
+   chapters/control-flow/studio
 
 Assignments
 ------------
@@ -40,3 +43,4 @@ Appendices
 
    todos
    index-full
+   glossary
