@@ -1,20 +1,18 @@
-Studio: Control Flow to Count Characters
-=========================================
+Studio: Control Flow and Collections
+=====================================
 
 In this studio, you will write a program to count the number of times each
 character occurs in a string and then print the results to the console.
 
 Feel free to prompt the user for a string. However, for the sake of simplicity,
 you might want to start by hard-coding some text and storing it in a variable.
-Here is a test string, for your convenience:
+For your convenience, here is a quote from the movie *Hidden Figures*:
 
-   TODO: Replace with a long, non-gibberish phrase.
-
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc accumsan sem
-   ut ligula scelerisque sollicitudin. Ut at sagittis augue. Praesent quis
-   rhoncus justo. Aliquam erat volutpat. Donec sit amet suscipit metus, non
-   lobortis massa. Vestibulum augue ex, dapibus ac suscipit vel, volutpat eget
-   massa. Donec nec velit non ligula efficitur luctus.
+   If the product of two terms is zero then common sense says at least one of
+   the two terms has to be zero to start with. So if you move all the terms
+   over to one side, you can put the quadratics into a form that can be
+   factored allowing that side of the equation to equal zero. Once you’ve done
+   that, it’s pretty straightforward from there.
 
 .. admonition:: Tip
 
@@ -51,6 +49,8 @@ Sample Output
 --------------
 
 For the example string above, your output should look something like:
+
+    TODO: Update letter counts based on new quote.
 
 .. sourcecode:: bash
 

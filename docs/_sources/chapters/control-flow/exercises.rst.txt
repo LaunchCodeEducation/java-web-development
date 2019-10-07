@@ -1,5 +1,5 @@
-Exercises: Control Flow
-=========================
+Exercises: Control Flow and Collections
+========================================
 
 Work on these exercises in the IntelliJ ``java-web-dev-exercises`` project,
 creating a new class for each item. You may call these classes whatever you
@@ -18,9 +18,23 @@ Array Practice
    eat them with a mouse.`` Use the ``split`` method to divide the string at
    each space and store the individual words in an array. If you need to review
    the method syntax, look back at the :ref:`String methods <string-methods>`
-   table. Print the array of words to verify that your code works.
-#. Repeat step 3, but change the delimiter to split the string into separate
-   sentences.
+   table.
+#. Print the array of words to verify that your code works. The syntax is:
+
+   .. sourcecode:: Java
+
+      System.out.println(Arrays.toString(arrayName));
+
+#. Repeat steps 3 and 4, but change the delimiter to split the string into
+   separate sentences.
+
+.. admonition:: Note
+
+   Some characters, like a period ``"."``, have special meanings when used with
+   the ``split`` method. They cannot be used as-is for the deliminator.
+
+   To use these characters as the deliminator, we must *escape* their special
+   meanings. Instead of ``.split(".")``, we need to use ``.split("\\.")``.
 
 ArrayList Practice
 -------------------
