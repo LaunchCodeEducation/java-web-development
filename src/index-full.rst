@@ -6,6 +6,7 @@ Chapters
    :name: chapterstoc
 
    chapters/setup-intro-data-types/index
+   chapters/classes/index
 
 .. toctree::
 
