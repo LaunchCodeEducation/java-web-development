@@ -8,8 +8,7 @@ Chapters
 
    chapters/introduction-and-setup/index
    chapters/data-types/index
-   chapters/control-flow/index
-   chapters/collections/index
+   chapters/control-flow-and-collections/index
 
 .. toctree::
 
@@ -23,8 +22,7 @@ Studios
    :name: studiostoc
 
    chapters/data-types/studio
-   chapters/control-flow/studio
-   chapters/collections/studio
+   chapters/control-flow-and-collections/studio
 
 Assignments
 ------------

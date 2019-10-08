@@ -1,5 +1,5 @@
-Exercises: Collections
-=======================
+Exercises: Control Flow and Collections
+========================================
 
 Work on these exercises in the IntelliJ ``java-web-dev-exercises`` project,
 creating a new class for each item. You may call these classes whatever you
