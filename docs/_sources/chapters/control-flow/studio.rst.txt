@@ -1,2 +1,0 @@
-Studio: Counting Characters
-===========================

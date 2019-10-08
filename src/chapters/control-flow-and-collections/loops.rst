@@ -4,7 +4,7 @@ Loops
 .. index:: ! for loop
 
 ``for`` Loop
-------------
+-------------
 
 In Java we write a definite loop (aka a **for loop**) as:
 
@@ -29,19 +29,20 @@ In Java we write a definite loop (aka a **for loop**) as:
    7
    8
    9
-   
-.. note:: 
+
+.. note::
 
    You may not be familiar with the expression ``i++`` since it is not
    found in all languages. The ``++`` is an increment operator that has the same
    effect as ``i += 1``. In this example, since the ``++`` comes after
    ``i``, we call it a postfix increment operator. There is also a ``--``
-   decrement operator in Java. For more information, see 
+   decrement operator in Java. For more information, see
    `Increment and Decrement Operators <http://www.javawithus.com/tutorial/increment-and-decrement-operators>`__.
 
 
-The Java ``for`` loop gives you explicit control over the starting, stopping, and stepping 
-of the loop variable inside the parentheses. You can think of it this way:
+The Java ``for`` loop gives you explicit control over the starting, stopping,
+and stepping of the loop variable inside the parentheses. You can think of it
+this way:
 
 .. sourcecode:: java
    :linenos:
@@ -73,7 +74,7 @@ If you want to start at 100, stop at 0 and count backward by 5, the loop is writ
 .. index:: ! for-each loop
 
 ``for-each`` Loop
--------------
+------------------
 
 Java also provides a syntax to iterate over any sequence or collection, such as an Array: 
 
@@ -152,7 +153,7 @@ For example:
 
    Hello, World
 
-Above, the message prints despite the condition never being met. 
+Above, the message prints despite the condition never being met.
 
 Break Statements in Loops
 -------------------------
@@ -160,7 +161,7 @@ Break Statements in Loops
 There are instances where you may want to terminate a loop if a given
 condition is met. In these instances, the ``break`` statement comes in
 handy. For example, say you want to loop through an Array of integers
-to search for a given value. Once that number is found, you want to quit 
+to search for a given value. Once that number is found, you want to quit
 the loop. You can do the following:
 
 .. sourcecode:: java
@@ -190,8 +191,8 @@ would print "Found it!" a second time.
 Note that the ``break`` statement terminates the innermost loop that it
 is contained within. So if you have nested loops and use a ``break``
 statement within the innermost loop, then it will only terminate that
-loop and not the outer one. If a ``break`` is present in the outer loop, 
-it --- and any other block nested within it --- is terminated when the 
+loop and not the outer one. If a ``break`` is present in the outer loop,
+it --- and any other block nested within it --- is terminated when the
 ``break`` runs.
 
 .. index:: ! continue

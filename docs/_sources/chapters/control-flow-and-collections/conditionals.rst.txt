@@ -1,14 +1,15 @@
 Conditionals
 ============
 
-Control flow statements in Java --- conditionals and loops --- are very straightforward. 
+Control flow statements in Java --- conditionals and loops --- are very
+straightforward.
 
 .. index:: ! if statement
 
 ``if`` Statements
 -----------------
 
-Let’s consider an **if statement** with no ``else`` clause. 
+Let’s consider an **if statement** with no ``else`` clause.
 
 In Java this pattern is simply written as:
 
@@ -21,7 +22,7 @@ In Java this pattern is simply written as:
       ...
    }
 
-You can see that in Java the curly braces define a block. 
+You can see that in Java the curly braces define a block.
 Parentheses around the condition are required.
 
 .. index:: ! else clause
@@ -54,26 +55,26 @@ An **else if** construction in Java:
 .. sourcecode:: java
    :linenos:
 
-   import java.util.Scanner;
+    import java.util.Scanner;
 
-   public class ElseIf {
-      public static void main(String args[]) {
-         Scanner in = new Scanner(System.in);
-         System.out.println('enter a grade');
-         int grade = in.nextInt();
-         if (grade < 60) {
-            System.out.println('F');
-         } else if (grade < 70) {
-            System.out.println('D');
-         } else if (grade < 80) {
-            System.out.println('C');
-         } else if (grade < 90) {
-            System.out.println('B');
-         } else {
-            System.out.println('A');
-         }
-      }
-   }
+    public class ElseIf {
+        public static void main(String args[]) {
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter a grade: ");
+            int grade = in.nextInt();
+            if (grade < 60) {
+                System.out.println('F');
+            } else if (grade < 70) {
+                System.out.println('D');
+            } else if (grade < 80) {
+                System.out.println('C');
+            } else if (grade < 90) {
+                System.out.println('B');
+            } else {
+                System.out.println('A');
+            }
+        }
+    }
 
 
 .. index:: ! switch, ! case, ! break
@@ -81,11 +82,12 @@ An **else if** construction in Java:
 ``switch`` Statements
 ---------------------
 
-Java also supports a **switch** statement that acts something like an ``else if``
-statement under certain conditions, called **cases**. The ``switch`` statement is 
-not used very often, and we generally recommend you avoid using it. It is not as 
-powerful as the ``else if`` model because the ``switch`` variable can only be compared 
-for equality with a very small class of types.
+Java also supports a **switch** statement that acts something like an
+``else if`` statement under certain conditions, called **cases**. The
+``switch`` statement is  not used very often, and we generally recommend you
+avoid using it. It is not as powerful as the ``else if`` model because the
+``switch`` variable can only be compared for equality with a very small class
+of types.
 
 Here is a quick example of a ``switch`` statement:
 
@@ -289,9 +291,9 @@ Along similar lines, consider this variation on the code block above:
    }
 
 
-Here, we have a ``break`` statement in ``case 6`` after ``day = "Saturday";``. 
+Here, we have a ``break`` statement in ``case 6`` after ``day = "Saturday";``.
 If the user enters ``4``, the execution will fallthrough until it reaches that
-``break`` statement and ``Saturday`` is printed instead of ``Thursday``. 
+``break`` statement and ``Saturday`` is printed instead of ``Thursday``.
 The output:
 
 .. sourcecode:: bash
