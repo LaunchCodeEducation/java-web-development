@@ -290,7 +290,7 @@ Using ``.add()`` to populate ``planets``:
 
 .. sourcecode:: java
    :linenos:
-   
+
    planets.add("Mercury");
    planets.add("Venus");
    planets.add("Earth");
@@ -300,18 +300,20 @@ Using ``.add()`` to populate ``planets``:
    planets.add("Uranus");
    planets.add("Neptune");
 
+Thus, the first item in this table.
+
 .. list-table:: ArrayList methods in Java
    :header-rows: 1
 
    * - Java Syntax
      - Description
      - Example
+   * - ``planets.add("Pluto")``
+     - Adds an item to the ArrayList
+     - ``planets.add("Pluto")`` adds ``Pluto`` to ``planets``
    * - ``size()``
      - Returns the number of items in an ArrayList, as an ``int``
-     - ``students.size()`` 
-   * - ``add()``
-     - Adds an item to the ArrayList
-     - ``students.add("Sally")``
+     - ``students.size()`` returns 9 
    * - ``contains()``
      - Checks to see if the list contains a given item, returning a boolean
      - ``students.contains("Haley")``
