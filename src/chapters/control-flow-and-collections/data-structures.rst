@@ -300,7 +300,7 @@ Using ``.add()`` to populate ``planets``:
    planets.add("Uranus");
    planets.add("Neptune");
 
-Thus, the first item in this table.
+Thus, the first item in this table:
 
 .. list-table:: ArrayList methods in Java
    :header-rows: 1
@@ -308,24 +308,41 @@ Thus, the first item in this table.
    * - Java Syntax
      - Description
      - Example
-   * - ``planets.add("Pluto")``
+   * - ``add()``
      - Adds an item to the ArrayList
      - ``planets.add("Pluto")`` adds ``Pluto`` to ``planets``
    * - ``size()``
      - Returns the number of items in an ArrayList, as an ``int``
-     - ``students.size()`` returns 9 
+     - ``planets.size()`` returns ``9``
    * - ``contains()``
-     - Checks to see if the list contains a given item, returning a boolean
-     - ``students.contains("Haley")``
+     - Checks to see if the ArrayList contains a given item, returning a Boolean
+     - ``planets.contains("Earth")`` returns ``True``
    * - ``indexOf()``
-     - Looks for an item in a list, returns the index of the first occurrence of the item if it exists, returns -1 otherwise 
-     - ``students.indexOf("Zach")``
-   * - ``sort()``
-     - Sorts a list, using the default sort comparison
-     - ``students.sort()`` 
+     - Looks for an item in n ArrayList, returns the index of the first occurrence of the item if it exists, returns -1 otherwise 
+     - ``planets.indexOf("Jupiter")`` returns ``4``
+
+Here's a couple more methods that require slightly longer descriptions:
+
+.. list-table:: Collections.sort()
+   :header-rows: 1
+
+   * - Java Syntax
+     - Description
+     - Example
+   * - ``Collections.sort()``
+     - Sorts a Collection in ascending order, returns the sorted Collection
+     - ``Collections.sort(planets)`` returns ``["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"]``
    * - ``toArray()``
-     - Returns an array containing the elements of the list 
-     - ```students.toArray()`` 
+     - Returns an Array containing the elements of the ArrayList 
+     - ``planets.toArray(planetsArray)`` returns the String Array 
+       ``planetsArray[] = {"Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"}``
+
+
+.. note::
+
+   ``sort()``: This method is technically used on Java's ``Collections`` class and 
+   thus requires a different ``import`` statement: ``import java.util.Collections``.
+   We include it here because it is helpful to know in the context of the ``ArrayList`` class. 
 
 Gradebook (Java Array Version)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

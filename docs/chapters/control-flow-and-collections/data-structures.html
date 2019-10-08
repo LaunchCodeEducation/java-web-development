@@ -73,7 +73,7 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">3. Control Flow</a></li>
+    <li><a href="index.html">3. Control Flow and Collections</a></li>
     <li class="active">3.3. Data Structures</li>
 </ol>
 
@@ -416,7 +416,7 @@ for the time being.</p>
 <span class="n">planets</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Neptune&quot;</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
-<p>Thus, the first item in this table.</p>
+<p>Thus, the first item in this table:</p>
 <table border="1" class="docutils" id="id1">
 <caption><span class="caption-text">ArrayList methods in Java</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -431,32 +431,56 @@ for the time being.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">planets.add(&quot;Pluto&quot;)</span></code></td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">add()</span></code></td>
 <td>Adds an item to the ArrayList</td>
 <td><code class="docutils literal notranslate"><span class="pre">planets.add(&quot;Pluto&quot;)</span></code> adds <code class="docutils literal notranslate"><span class="pre">Pluto</span></code> to <code class="docutils literal notranslate"><span class="pre">planets</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">size()</span></code></td>
 <td>Returns the number of items in an ArrayList, as an <code class="docutils literal notranslate"><span class="pre">int</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">students.size()</span></code> returns 9</td>
+<td><code class="docutils literal notranslate"><span class="pre">planets.size()</span></code> returns <code class="docutils literal notranslate"><span class="pre">9</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">contains()</span></code></td>
-<td>Checks to see if the list contains a given item, returning a boolean</td>
-<td><code class="docutils literal notranslate"><span class="pre">students.contains(&quot;Haley&quot;)</span></code></td>
+<td>Checks to see if the ArrayList contains a given item, returning a Boolean</td>
+<td><code class="docutils literal notranslate"><span class="pre">planets.contains(&quot;Earth&quot;)</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">indexOf()</span></code></td>
-<td>Looks for an item in a list, returns the index of the first occurrence of the item if it exists, returns -1 otherwise</td>
-<td><code class="docutils literal notranslate"><span class="pre">students.indexOf(&quot;Zach&quot;)</span></code></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">sort()</span></code></td>
-<td>Sorts a list, using the default sort comparison</td>
-<td><code class="docutils literal notranslate"><span class="pre">students.sort()</span></code></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">toArray()</span></code></td>
-<td>Returns an array containing the elements of the list</td>
-<td><code class="docutils literal notranslate"><span class="pre">`students.toArray()</span></code></td>
+<td>Looks for an item in n ArrayList, returns the index of the first occurrence of the item if it exists, returns -1 otherwise</td>
+<td><code class="docutils literal notranslate"><span class="pre">planets.indexOf(&quot;Jupiter&quot;)</span></code> returns <code class="docutils literal notranslate"><span class="pre">4</span></code></td>
 </tr>
 </tbody>
 </table>
+<p>Here’s a couple more methods that require slightly longer descriptions:</p>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Collections.sort()</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Java Syntax</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">Collections.sort()</span></code></td>
+<td>Sorts a Collection in ascending order, returns the sorted Collection</td>
+<td><code class="docutils literal notranslate"><span class="pre">Collections.sort(planets)</span></code> returns <code class="docutils literal notranslate"><span class="pre">[&quot;Earth&quot;,</span> <span class="pre">&quot;Jupiter&quot;,</span> <span class="pre">&quot;Mars&quot;,</span> <span class="pre">&quot;Mercury&quot;,</span> <span class="pre">&quot;Neptune&quot;,</span> <span class="pre">&quot;Pluto&quot;,</span> <span class="pre">&quot;Saturn&quot;,</span> <span class="pre">&quot;Uranus&quot;,</span> <span class="pre">&quot;Venus&quot;]</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">toArray()</span></code></td>
+<td>Returns an Array containing the elements of the ArrayList</td>
+<td><code class="docutils literal notranslate"><span class="pre">planets.toArray(planetsArray)</span></code> returns the String Array
+<code class="docutils literal notranslate"><span class="pre">planetsArray[]</span> <span class="pre">=</span> <span class="pre">{&quot;Earth&quot;,</span> <span class="pre">&quot;Jupiter&quot;,</span> <span class="pre">&quot;Mars&quot;,</span> <span class="pre">&quot;Mercury&quot;,</span> <span class="pre">&quot;Neptune&quot;,</span> <span class="pre">&quot;Pluto&quot;,</span> <span class="pre">&quot;Saturn&quot;,</span> <span class="pre">&quot;Uranus&quot;,</span> <span class="pre">&quot;Venus&quot;}</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">sort()</span></code>: This method is technically used on Java’s <code class="docutils literal notranslate"><span class="pre">Collections</span></code> class and
+thus requires a different <code class="docutils literal notranslate"><span class="pre">import</span></code> statement: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">java.util.Collections</span></code>.
+We include it here because it is helpful to know in the context of the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> class.</p>
+</div>
 <div class="section" id="gradebook-java-array-version">
 <h4>3.3.1.2.1. Gradebook (Java Array Version)<a class="headerlink" href="#gradebook-java-array-version" title="Permalink to this headline">¶</a></h4>
 <p>We were introduced to arrays in Java in a previous lesson, so let’s
