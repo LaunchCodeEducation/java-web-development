@@ -1,5 +1,5 @@
-Studio: Control Flow and Collections
-=====================================
+Studio: Counting Characters
+===========================
 
 In this studio, you will write a program to count the number of times each
 character occurs in a string and then print the results to the console.
