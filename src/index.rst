@@ -9,6 +9,7 @@ Chapters
    chapters/introduction-and-setup/index
    chapters/data-types/index
    chapters/control-flow/index
+   chapters/collections/index
 
 .. toctree::
 
@@ -23,6 +24,7 @@ Studios
 
    chapters/data-types/studio
    chapters/control-flow/studio
+   chapters/collections/studio
 
 Assignments
 ------------
