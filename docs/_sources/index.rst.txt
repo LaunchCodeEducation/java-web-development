@@ -31,6 +31,8 @@ Assignments
    :maxdepth: 1
    :name: assignmentstoc
 
+   assignments/tech-jobs-console
+
 Appendices
 -----------
 
