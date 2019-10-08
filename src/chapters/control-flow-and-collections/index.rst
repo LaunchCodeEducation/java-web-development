@@ -7,5 +7,8 @@ Control Flow and Collections
    conditionals
    loops
    data-structures
+   arraylist
+   array
+   hashmap
    exercises
    studio
