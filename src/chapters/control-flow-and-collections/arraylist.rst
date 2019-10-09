@@ -208,10 +208,10 @@ students:
    double avg = sum / students.size();
    System.out.println("Average grade: " + avg);
 
-ArrayList Methods and Properties
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ArrayList Methods
+-----------------
 
-Let’s gather up a few of the ``ArrayList`` methods and properties that
+Let’s gather up a few of the ``ArrayList`` methods that
 we’ve encountered so far, along with a few new ones. While these will be the
 most common methods and properties that you use with this class, they by
 no means represent a complete list. Refer to the `official documentation
