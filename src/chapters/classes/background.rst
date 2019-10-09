@@ -119,3 +119,30 @@ this case, in order to refer to the field, we *must* use ``this``.
    local variable **shadows** the field. Errors caused by shadowing can be
    tricky to spot, so it’s best to avoid doing this in your code.
 
+.. note:: 
+
+   If you want to learn more about `using the this keyword <https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html>`_.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   The following code block contains several bugs. Mark all of the lines that contain a bug in the code.
+
+   .. sourcecode:: java
+      :linenos:
+
+      public class Greeting {
+
+         String name = "Jess"
+
+         public void sayHello() {
+            System.out.println("Hello " + here.name+"!");
+         
+      }
+
+   a. line 7
+   b. line 3
+   c. line 6
+   d. line 1

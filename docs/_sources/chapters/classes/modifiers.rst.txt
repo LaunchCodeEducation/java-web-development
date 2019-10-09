@@ -39,9 +39,9 @@ Another common access modifier is ``private``, which restricts access to fields 
 Two additional access modifiers are available in Java, though they are used much less often than
 ``public`` and ``private``.
 
-The table below details when different access modifiers are most appropriate. While we are introducing this concept now, later we’ll point out
-specifically where different access modifiers might be useful when we encounter such scenarios.
-
+The table below details whether or not information can be accessed at different levels based on the access modifier.
+For example, a field with the ``private`` access modifier can be accessed within the class, but cannot be accessed outside the class at the world-level.
+While we will discuss later how to decide which access modifier to use for different scenarios, you should save this table now as reference for those conversations.
 
 .. list-table:: Access Modifiers
    :widths: auto
@@ -111,8 +111,26 @@ Since we want ``sayHello`` to be usable by anybody else, we declare it to be ``p
    such members. The fewer public members, the more you can change your
    code without breaking stuff elsewhere.
 
+.. note::
 
--  `Controlling Access to Members of a Class
-   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html>`__
--  `Using the this Keyword
-   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html>`__
+   If you want to learn more about `controlling access to members of a class <https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html>`_.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   For this question, refer to the code block below.
+
+   .. sourcecode:: java
+
+      public class Greeting {
+
+         String name = "Jess";
+
+         public void sayHello() {
+            System.out.println("Hello " + this.name+"!");
+         }
+      }
+
+   What access modifier would you give ``name``? Why?

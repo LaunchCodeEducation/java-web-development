@@ -87,59 +87,67 @@
   <div class="section" id="constructors">
 <h1>2.4. Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h1>
 <p>We’ll often want to initialize, or set the initial value of, some of our
-fields when creating a new object from a class. <strong>Constructors</strong> allow
-for such initialization behavior to occur. We have been using
-constructor syntax in our lessons, but we haven’t yet seen how to create
-constructors for our own classes. For example, we created new
-<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> objects using the <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword along with the
-<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> constructor:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>ArrayList&lt;String&gt; myList = new ArrayList&lt;&gt;();
-</pre></div>
-</div>
+fields when creating a new object from a class. <strong>Constructors</strong> allow us to do so.</p>
 <p>In Java, constructors have the same name as the class and are most often
 declared public (though they can have any other valid access modifier).
-They are declared <strong>without a return type</strong>. Any function that is named
+They are declared <em>without a return type</em>. Any function that is named
 the same as the class and has no return type is a constructor.</p>
 <p>Here is an example of a constructor definition within the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>
 class:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class HelloWorld {
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
 
-    private String message = &quot;Hello World&quot;;
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
 
-    public HelloWorld(String message) {
-        this.message = message;
-    }
+    <span class="kd">public</span> <span class="nf">HelloWorld</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public String getMessage() {
-        return message;
-    }
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public void setMessage(String aMessage) {
-        message = aMessage;
-    }
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">aMessage</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">aMessage</span><span class="o">;</span>
+    <span class="o">}</span>
 
-}
+<span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>This constructor allows us to create <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> objects with custom
 messages. The assignment <code class="docutils literal notranslate"><span class="pre">this.message</span> <span class="pre">=</span> <span class="pre">message</span></code> assigns the value
 passed into the constructor to the field <code class="docutils literal notranslate"><span class="pre">message</span></code>. Here’s how we
 might use it:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>HelloWorld goodbye = new HelloWorld(&quot;Goodbye World&quot;);
-System.out.println(goodbye.getMessage()); // prints &quot;Goodbye World&quot;
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">HelloWorld</span> <span class="n">goodbye</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloWorld</span><span class="o">(</span><span class="s">&quot;Goodbye World&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">goodbye</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span> <span class="c1">// prints &quot;Goodbye World&quot;</span>
 </pre></div>
 </div>
-<aside class="aside-warning"><p>It’s not required that every class have a constructor. If you don’t
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>It’s not required that every class have a constructor. If you don’t
 provide one, the Java compiler will generate an “empty” constructor for
 you, known as a <strong>default constructor</strong>. For example, when we left out a
 constructor in our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class above, the compiler created the
 following constructor for us:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public HelloWorld() {}
-</pre></div>
-</div>
-<p>While this can be convenient, you almost always want to provide a
+<p class="last">While this can be convenient, you almost always want to provide a
 constructor to properly initialize your objects.</p>
-</aside><div class="section" id="overloading-constructors">
+</div>
+<div class="section" id="overloading-constructors">
 <h2>2.4.1. Overloading Constructors<a class="headerlink" href="#overloading-constructors" title="Permalink to this headline">¶</a></h2>
 <p>We can provide multiple constructors for a given class in order to allow
 for different initialization scenarios. This is known as <strong>constructor
@@ -147,33 +155,59 @@ overloading</strong>. When providing multiple constructors, we must ensure that
 each has a different collection of arguments, as determined by the
 number, order, and type of the constructor arguments.</p>
 <p>Let’s expand upon our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Student {
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
 
-    private String name;
-    private final int studentId;
-    private int numberOfCredits;
-    private double gpa;
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">;</span>
 
-    public Student(String name, int studentId,
-            int numberOfCredits, double gpa) {
-        this.name = name;
-        this.studentId = studentId;
-        this.numberOfCredits = numberOfCredits;
-        this.gpa = gpa;
-    }
+   <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">,</span>
+            <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">,</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">studentId</span> <span class="o">=</span> <span class="n">studentId</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">=</span> <span class="n">numberOfCredits</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">gpa</span> <span class="o">=</span> <span class="n">gpa</span><span class="o">;</span>
+   <span class="o">}</span>
 
-    public Student(String name, int studentId) {
-        this.name = name;
-        this.studentId = studentId;
-        this.numberOfCredits = 0;
-        this.gpa = 0.0;
-    }
+   <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">studentId</span> <span class="o">=</span> <span class="n">studentId</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">gpa</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+   <span class="o">}</span>
 
-    /* getters and setters omitted */
+   <span class="cm">/* getters and setters omitted */</span>
 
-}
+<span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>The first constructor allows for the creation of <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects
 where the code creating the object provides initial values for each of
 the fields. The second allows for the creation of <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects
@@ -182,31 +216,52 @@ most useful for creating a transfer student, where credits and a GPA
 might already be non-zero. However, for all new students, it would be
 safe to initialize <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code> to be 0.</p>
 <p>A better way to write the above constructors would be this:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Student {
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
 
-    private String name;
-    private final int studentId;
-    private int numberOfCredits;
-    private double gpa;
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">;</span>
 
-    public Student(String name, int studentId,
-            int numberOfCredits, double gpa) {
-        this.name = name;
-        this.studentId = studentId;
-        this.numberOfCredits = numberOfCredits;
-        this.gpa = gpa;
-    }
+   <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">,</span>
+            <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">,</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">studentId</span> <span class="o">=</span> <span class="n">studentId</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">=</span> <span class="n">numberOfCredits</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">gpa</span> <span class="o">=</span> <span class="n">gpa</span><span class="o">;</span>
+   <span class="o">}</span>
 
-    public Student(String name, int studentId) {
-        this(name, studentId, 0, 0);
-    }
+   <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">studentId</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+   <span class="o">}</span>
 
-    /* getters and setters omitted */
+   <span class="cm">/* getters and setters omitted */</span>
 
-}
+<span class="o">}</span>
 </pre></div>
-</div>
-<p>Here, we use <code class="docutils literal notranslate"><span class="pre">this()</span></code> to invoke another constructor within the same
+</td></tr></table></div>
+<p class="last">Here, we use <code class="docutils literal notranslate"><span class="pre">this()</span></code> to invoke another constructor within the same
 class. In this case, the second constructor calls the first with the
 “default” values for <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code>. If you use this
 syntax, the call to <code class="docutils literal notranslate"><span class="pre">this()</span></code> must be the first line in the
@@ -216,220 +271,14 @@ be carried out beyond just initializing variables to be contained in a
 smaller number of constructors. In other words, constructors can “share”
 initialization code. Notice from this example that a constructor doesn’t
 need to require an initial value for each field as an argument.</p>
-<aside class="aside-pro-tip"><p>When defining constructors, think about: 1. Which fields must be
+</div>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">When defining constructors, think about: 1. Which fields must be
 initialized for your class to work properly? Be sure you initialize
 every such field. 1. Which fields should be initialized by the user
 creating an object, and which should be initialized by the class itself?
 1. What are the use-cases for your class that you should provide for?</p>
-</aside><div class="section" id="customizing-fields">
-<h3>2.4.1.1. Customizing Fields<a class="headerlink" href="#customizing-fields" title="Permalink to this headline">¶</a></h3>
-<p>There are several ways that we can configure fields based on their
-intended use. We’ll explore some of these now.</p>
-</div>
-</div>
-<div class="section" id="final-fields">
-<h2>2.4.2. Final Fields<a class="headerlink" href="#final-fields" title="Permalink to this headline">¶</a></h2>
-<p>A <strong>final field</strong> is one that can not be changed once it is initialized.
-This means slightly different things for primitive and class types. We
-create final fields by declaring them with the <code class="docutils literal notranslate"><span class="pre">final</span></code> keyword.</p>
-<p><strong>Final primitive fields</strong> can not change their value once they are
-initialized.</p>
-<p><strong>Final object fields</strong> may not change the object that they hold once
-they are initialized. However, that object itself my change.</p>
-<p>Here are some examples to illustrate. Each class would be in its own
-file, but we present them side-by-side for convenience. Additionally, we
-declare each field public to more clearly demonstrate where compiler
-errors would occur, and minimize example code.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class FortyTwo {
-
-    public int intValue = 42;
-
-}
-
-public class FinalFields {
-
-    public final int intValue = 42;
-    public final double doubleValue;
-    public final FortyTwo objectValue = new FortyTwo();
-
-    public static void main(String[] args) {
-
-        FinalFields demo = new FinalFields();
-
-        // This would result in a compiler error
-        demo.intValue = 6;
-
-        // This is allowed since we haven&#39;t initialized doubleValue yet
-        demo.doubleValue = 42.0;
-
-        // However, this would result in a compiler error
-        demo.doubleValue = 6.0;
-
-        // This would result in a compiler error, since we&#39;re trying to
-        // give objectValue a different object value
-        demo.objectValue = new FortyTwo();
-
-        // However, this is allowed since we&#39;re changing a field
-        // inside the final object, and not changing which object
-        // objectValue refers to
-        demo.objectValue.intValue = 6;
-    }
-}
-</pre></div>
-</div>
-<p>Final fields can be confusing at first. If you’ve encountered
-references, or pointers, in your programming journey, then final fields
-might make more sense if you know that an object field actually holds a
-pointer to an object, and not the object itself.</p>
-<p>Note that a final field <em>may not</em> have a setter.</p>
-</div>
-<div class="section" id="static-fields">
-<h2>2.4.3. Static Fields<a class="headerlink" href="#static-fields" title="Permalink to this headline">¶</a></h2>
-<p>A <strong>static field</strong> is a field that is declared with the <code class="docutils literal notranslate"><span class="pre">static</span></code>
-keyword. We have encountered the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword used with both
-fields and methods, but since this discussion is focused on data, let’s
-only discuss static fields for now.</p>
-<p>A static field is <em>shared by all instances of the class</em>. For example,
-in our <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> class there is not a good reason that each
-<code class="docutils literal notranslate"><span class="pre">Temperature</span></code> object needs its own double <code class="docutils literal notranslate"><span class="pre">absoluteZeroFahrenheit</span></code>,
-since that value will not vary from class to class. Let’s make it a
-static field.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Temperature {
-
-    private double fahrenheit;
-
-    private static double absoluteZeroFahrenheit = -459.67;
-
-    public double getFahrenheit() {
-        return fahrenheit;
-    }
-
-    public void setFahrenheit(double aFahrenheit) {
-
-        if (aFahrenheit &lt; absoluteZeroFahrenheit) {
-            throw new IllegalArgumentException(&quot;Value is below absolute zero&quot;);
-        }
-
-        fahrenheit = aFahrenheit;
-    }
-
-    /* rest of the class... */
-
-}
-</pre></div>
-</div>
-<p>There are multiple ways to refer to a static field.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>// Within the class, use it the same as a normal, non-static field
-System.out.println(&quot;Absolute zero in F is: &quot; + absoluteZeroFahrenheit);
-
-// Also within the class, we can be more explicit
-System.out.println(&quot;Absolute zero in F is: &quot; + this.absoluteZeroFahrenheit);
-</pre></div>
-</div>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>// Outside the class, if the field is public, we can do this
-System.out.println(&quot;Absolute zero in F is: &quot; + Temperature.absoluteZeroFahrenheit);
-
-// Or if we have an object named temp of type Temperature
-System.out.println(&quot;Absolute zero in F is: &quot; + temp.absoluteZeroFahrenheit);
-</pre></div>
-</div>
-<p>In the second code snippet, it is much more preferable to use the first
-technique, to make it explicit that the field you’re using is static
-(this isn’t clear in the bottom case).</p>
-</aside><p>As another example, we might also provide a third constructor for our
-<code class="docutils literal notranslate"><span class="pre">Student</span></code> class above that only requires the student’s name, since
-theoretically the <code class="docutils literal notranslate"><span class="pre">studentId</span></code> would (or could) be generated by the
-class itself.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Student {
-
-    private static int nextStudentId = 1;
-    private String name;
-    private final int studentId;
-    private int numberOfCredits;
-    private double gpa;
-
-    public Student(String name, int studentId,
-            int numberOfCredits, double gpa) {
-        this.name = name;
-        this.studentId = studentId;
-        this.numberOfCredits = numberOfCredits;
-        this.gpa = gpa;
-    }
-
-    public Student(String name, int studentId) {
-        this(name, studentId, 0, 0);
-    }
-
-    public Student(String name) {
-        this(name, nextStudentId);
-        nextStudentId++;
-    }
-
-    /* getters and setters omitted */
-
-}
-</pre></div>
-</div>
-<p>Here, we add a static integer field that will keep track of the next
-student ID available to be assigned to a student. Then, our new
-constructor takes only a name, and assigns the student the next
-available value. This works because static fields are shared across all
-objects created from the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class, so it functions as a counter
-of sorts for the number of <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects created.</p>
-<p>If this use of a unique integer ID seems familiar, then you’re paying
-attention! It should remind you of our use of unique integer fields to
-mirror the role of a primary key for persistent objects, as seen in Unit
-2. We’ll use this approach–using a static counter to set a unique ID in
-the constructor–to generate such IDs for the time being. When we learn
-about working with object-relational mapping in Java, this will then
-become the responsibility of the database and ORM library.</p>
-</div>
-<div class="section" id="constants">
-<h2>2.4.4. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
-<p>Unlike some other languages, Java doesn’t have a special keyword to
-declare a constant (that is, unchangeable) variable. However, we can
-achieve the same net result using a combination of <code class="docutils literal notranslate"><span class="pre">static</span></code> and
-<code class="docutils literal notranslate"><span class="pre">final</span></code>.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Constants {
-    public static final double PI = 3.14159;
-    public static final String FIRST_PRESIDENT = &quot;George Washington&quot;;
-}
-</pre></div>
-</div>
-<p>Throughout the rest of this course, when we say “constant” we will mean
-“a static final variable”.</p>
-<p>There are a couple of notable things in this example: - We use a
-different naming convention for constants than for other variables.
-Constants should be in all-caps, with an underscore to separate words. -
-There is no strong reason to make constants private, as long as we
-initialize them where they are declared (so that somebody else doesn’t
-give them a value first!). We’ll generally make our constants public.</p>
-<p>A good use of a constant can be seen in our <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> class. Since
-absolute zero will never change, we can ensure that nobody ever changes
-it (perhaps by mistake, even) by adding <code class="docutils literal notranslate"><span class="pre">final</span></code> to make it a constant.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Temperature {
-
-    private double fahrenheit;
-
-    public static final double ABSOLUTE_ZERO_FAHRENHEIT = -459.67;
-
-    /* rest of the class... */
-
-}
-</pre></div>
-</div>
-<div class="section" id="references">
-<h3>2.4.4.1. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Encapsulation
-(wikipedia.org)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html" target="_blank">Declaring Member Variables
-(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/javaOO/initial.html" target="_blank">Initializing Fields
-(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html" target="_blank">Constructors
-(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-</ul>
 </div>
 </div>
 </div>

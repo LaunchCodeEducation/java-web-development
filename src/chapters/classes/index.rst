@@ -8,3 +8,4 @@ Classes in Java
    encapsulation.rst
    constructors.rst
    methods.rst
+   srp.rst

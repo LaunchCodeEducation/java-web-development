@@ -74,8 +74,8 @@ Getters and Setters
 
 As declared, our four fields are package-private, which means that they
 can be read or changed by any code within the same package. As a
-rule-of-thumb, **fields should always be private unless you have a very,
-very, very good reason to not make them so.** So, let’s make our
+rule-of-thumb, *fields should always be private unless you have a very,
+very, very good reason to not make them so.* So, let’s make our
 fields private.
 
 .. sourcecode:: java
@@ -222,3 +222,17 @@ calculation when getting or setting the celsius property.
 
    Our definition here relies on the more general definition given by
    Oracle.
+
+Using properties, getters/setters, and fields, we can *encapsulate* the information we need in our student class.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   What is a method that is used to give a private field a value?
+
+   a. getter
+   b. method
+   c. property
+   d. setter
