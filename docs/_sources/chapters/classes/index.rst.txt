@@ -3,7 +3,8 @@ Classes in Java
 
 .. toctree::
 
-   classes.rst
+   background.rst
    modifiers.rst
+   encapsulation.rst
    constructors.rst
    methods.rst
