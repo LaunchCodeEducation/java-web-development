@@ -66,27 +66,29 @@ or more of the :ref:`bonus missions <tech-jobs-console-bonus-missions>`.
 Getting Started
 ----------------
 
-Set up a local copy of the project: - Visit the repository
-page (*TODO: Add new repo link*).
-for this project and fork the repository to create a copy under your own
-GitHub account. - Open IntelliJ (if IntelliJ is currently open, save
-your work, close it, and reopen it.) - If the app opens up to an
-existing project, select *IntelliJ > Preferences > Appearance & Behavior
-> System Settings* and uncheck *Reopen last project on startup*. Close
-and Reopen IntelliJ - From the “Welcome to IntelliJ” dialog box, select
-*Check out from Version Control > GitHub* - Choose your fork from the
-repository dropdown, select the parent directory where you’d like to
-store your project, and hit *Clone*. - When asked “Would you like to
-create an IDEA project…” select *Yes*, and then accept all of the
-default options that are presented. - In the screens that follow, be
-sure to choose *Create Project From Existing Sources* on the first pane,
-and select the default values of all following panes.
+#. Set up a local copy of the project: Visit the `repository page <https://github.com/LaunchCodeEducation/techjobs-console-java>`__
+   for this project and fork the repository to create a copy under your own
+   GitHub account.
+#. Open IntelliJ. If IntelliJ is currently open, save your work, close the
+   program, and then reopen it.
+#. If the app opens up to an existing project, select *IntelliJ > Preferences >
+   Appearance & Behavior > System Settings* and uncheck *Reopen last project on
+   startup*. Close and reopen IntelliJ.
+#. From the *Welcome to IntelliJ* dialog box, select *Check out from Version
+   Control > GitHub*.
+#. Choose your fork from the repository dropdown, select the parent directory
+   where you’d like to store your project, and hit *Clone*.
+#. When asked *Would you like to create an IDEA project…* select *Yes*, and
+   then accept all of the default options presented.
+#. In the screens that follow, be sure to choose *Create Project From Existing
+   Sources* on the first pane, and select the default values of all following
+   panes.
 
-Before diving in and starting to code, make sure you understand what the
-code you’ve been given does. Since you’re starting with a functioning -
-albeit unfinished - program, go ahead and run it to get an idea of how
-it works. To do this, right-click on the ``main`` method in the
-``TechJobs`` class and select *Run TechJobs.main()*.
+Before diving in and starting to code, make sure you understand what the code
+you’ve been given does. Since you’re starting with a functioning---albeit
+unfinished---program, go ahead and run it to get an idea of how it works. To do
+this, right-click on the ``main`` method in the ``TechJobs`` class and select
+*Run TechJobs.main()*.
 
 .. admonition:: Warning
 
@@ -94,11 +96,11 @@ it works. To do this, right-click on the ``main`` method in the
    after time. To kill it, press the red “stop” icon in the Run pane. We’ll
    learn precisely how the program manages to work this way below.
 
-Let’s explore the code by starting with the source of the data our
-program is providing access to.
+Let’s explore the code by starting with the source of the data our program is
+providing access to.
 
-The Data File: jobs_data.csv
------------------------------
+The Data File: ``jobs_data.csv``
+---------------------------------
 
 Our simple app doesn’t connect to a database. If the prototype proves
 useful and we continue development, we’ll add that functionality later.
@@ -204,6 +206,7 @@ What is this ``HashMap`` named ``actionChoices``? If we look a few lines
 above, we see:
 
 .. sourcecode:: java
+   :lineno-start: 24
 
    // Top-level menu options
    HashMap<String, String> actionChoices = new HashMap<>();
@@ -211,7 +214,7 @@ above, we see:
    actionChoices.put("list", "List");
 
 If you recall how the program worked when you ran it, the first menu
-that you chose had two options, Search and List, which seem to
+that you chose had two options, *Search* and *List*, which seem to
 correspond to the entries in ``actionChoices``. This is, in fact, the
 case. This is the data that is used to generate the first menu we see
 when running the program.
@@ -219,6 +222,7 @@ when running the program.
 The second usage of ``getUserSelection`` is a few lines below:
 
 .. sourcecode:: java
+   :lineno-start: 38
 
    String columnChoice = getUserSelection("List", columnChoices);
 
@@ -233,15 +237,14 @@ correspond to searching within a given column, or searching all columns
 at once.
 
 The keys in ``actionChoices`` and ``columnChoices`` represent the
-“internal” String we’ll use to refer to these options – for example,
-when representing the user’s menu choice, or querying data – and the
-values in the map represent the “external” way that these are
-represented to the user.
+“internal” String we’ll use to refer to these options (e.g. when representing
+the user’s menu choice, or querying data). The values in the map represent the
+“external” way that these are represented to the user.
 
 Within ``getUserSelection`` itself, most of the code is within a
 ``do-while loop``. A `do-while
 loop <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html>`__
-is similar to a ``while loop``, but the conditional check is at the
+is similar to a ``while`` loop, but the conditional check is at the
 *end* of the loop’s code block. This has the net consequence that the
 loop’s code block *always runs at least once*. At the end of the block’s
 execution, we check a condition to determine if we should run the block
@@ -279,16 +282,16 @@ private property ``allJobs`` which is of type
    can call ``JobData.findAll()`` from the ``TechJob`` class.
 
    If you want to create a new method in ``JobData``, or add a property, be
-   sure to declare it ``static``.
+   sure to declare it as ``static``.
 
 Let’s look more closely at the data type of ``allJobs``. It purports to
 be an ``ArrayList`` that stores ``HashMap`` objects which have
 ``String`` keys and ``String`` values. If we were to represent some of
 this data visually, using ``[]`` for an ``ArrayList`` and ``{}`` with
-key/value pairs (as in Python lists and dictionaries), it would look
-like this:
+key/value pairs, it would look like this:
 
 .. sourcecode:: java
+   :linenos:
 
    [
        {
@@ -308,11 +311,13 @@ like this:
        ...
    ]
 
-If you look at ``loadData`` you’ll see a lot of unfamiliar code. Blake
-wrote this essential piece of code for you, and while you won’t have to
+If you look at the ``loadData`` method you’ll see a lot of unfamiliar code.
+Blake wrote this essential piece of code for you, and while you won’t have to
 modify it, it will be useful to have an idea of how it works. Read
 through the code until you feel like you can describe its functionality
 at a basic level.
+
+.. index:: ! overloading
 
 There are three more methods in ``JobData``, each of which is public
 (and ``static``, per our earlier note): ``findAll()``,
@@ -323,14 +328,15 @@ multiple methods have the same name, but they each have different input
 parameters (also called argument lists). Read more about
 `overloading <http://beginnersbook.com/2013/05/method-overloading/>`__.
 
-Here are a few questions to ask yourself while reading this code: - What
-is the data type of a “job” record? - Why does ``findAll(String)``
-return something of type ``ArrayList<String>`` while
-``findByColumnAndValue(String, String)`` and ``findAll()`` return
-something of type ``ArrayList<HashMap<String, String>>``? - Why is
-``loadData()`` called at the top of each of these four methods? Does
-this mean that we load the data from the CSV file each time one of them
-is called?
+Here are some questions to ask yourself while reading this code:
+
+#. What is the data type of a “job” record? - Why does ``findAll(String)``
+   return something of type ``ArrayList<String>`` while
+   ``findByColumnAndValue(String, String)`` and ``findAll()`` return
+   something of type ``ArrayList<HashMap<String, String>>``?
+#. Why is ``loadData()`` called at the top of each of these four methods? Does
+   this mean that we load the data from the CSV file each time one of them
+   is called?
 
 Your Tasks
 -----------
@@ -346,7 +352,7 @@ hopefully noticed that there’s some work to do in the ``printJobs``
 method. As it stands, it currently just prints a message:
 ``"printJobs is not implemented yet"``.
 
-Implement this method. It should print out something like this:
+Complete this method. It should print out something like this:
 
 .. sourcecode:: bash
 
@@ -364,20 +370,22 @@ If there are no results, it should print an appropriate message.
 
    To do this, you’ll need to iterate over an ``ArrayList`` of jobs. Each
    job is itself a ``HashMap``. While you can get each of the items out of
-   the ``HashMap`` using the known keys (“employer”, “location”, etc),
+   the ``HashMap`` using the known keys (``employer``, ``location``, etc.),
    think instead about creating a nested loop to loop over each
    ``HashMap``. If a new field is added to the job records, this approach
    will print out the new field without any updates to ``printJobs``.
 
-Test this method before moving on to your next step: 1. Save your
-changes 2. Select *Run* from the Run menu and choose to run the
-``TechJobs`` class (or if you have recently run it, just select the
-green arrow in the top right corner of the screen) 3. Select “1” to list
-the jobs, and then “0” to list them all 4. Make sure the printout
-matches the styling above 5. Test that it prints a descriptive message
-if no jobs are found by selecting “0” to search and then “3” to search
-for a location. Then enter a location that is not in the data (e.g.,
-“Cancun”). Your message should be displayed
+Test this method before moving on to your next step:
+
+#. Save your changes.
+#. Select *Run* from the Run menu and choose to run the ``TechJobs`` class (or
+   if you have recently run it, just select the green arrow in the top right
+   corner of the screen).
+#. Select “1” to list the jobs, and then “0” to list them all.
+#. Make sure the printout matches the styling above.
+#. Test that it prints a descriptive message if no jobs are found by selecting
+   “0” to search and then “3” to search for a location. Then enter a location
+   that is not in the data (e.g. “Cancun”). Your message should be displayed.
 
 Create Method ``findByValue``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -387,7 +395,7 @@ column* of the data for a given String. Your next task is to enable a
 search that looks for the search term in *all* of the columns.
 
 In the ``JobData`` class, create a new (``public static``) method that
-will search for a String within each of the columns. Name it
+will search for a string within each of the columns. Name it
 ``findByValue``. Here are a few observations:
 
 #. The method that you write should not contain duplicate jobs. So, for
@@ -414,25 +422,29 @@ again to test your code.
 Make Search Methods Case-Insensitive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You’ve completed your first two tasks! Then you demoed the updated
-application or the Company Team and they noticed a feature that could be
-improved. When searching for jobs with the skill “JavaScript” some
-results were missing (e.g. the Watchtower Security job on line 31 of the
-CSV file). The search methods turn out to be case-sensitive, so they
-treat “JavaScript” and “Javascript” as different Strings.
+You’ve completed your first two tasks!
+
+Let's assume you demonstrated the updated application or the Company Team, and
+they noticed a feature that could be improved. When searching for jobs with
+the skill ``JavaScript`` some results were missing (e.g. the Watchtower
+Security job on line 31 of the CSV file). The search methods turn out to be
+case-sensitive, so they treat ``JavaScript`` and ``Javascript`` as different
+strings.
 
 The Company Team has *demanded* (ahem, *strongly requested*, they
 politely clarify) that this needs to be fixed. And you’ve told them that
 you’re up to the task.
 
-Here are some questions to ask yourself as you get started: - Which
-methods are called when searching? - How is the user’s search String
-compared against the values of fields of the job ``HashMap`` objects? -
-How can you make this comparison in a way that effectively ignores the
-case of the Strings? - How can you do this *without* altering the
-capitalization of the items in ``allJobs``, that is, so that you don’t
-change the data, and consequently it is printed out the same way that it
-appears in ``job_data.csv``?
+Here are some questions to ask yourself as you get started:
+
+#. Which methods are called when searching?
+#. How is the user’s search string compared against the values of fields of the
+   job ``HashMap`` objects?
+#. How can you make this comparison in a way that effectively ignores the case
+   of the strings?
+#. How can you do this *without* altering the capitalization of the items in
+   ``allJobs`` so that the data gets printed out the same way that it appears
+   in ``job_data.csv``?
 
 You might find it useful to review the String methods listed in the
 chapter on :ref:`Data Types <data-types>`.
@@ -447,7 +459,7 @@ Before submitting, make sure that your application:
 #. Prints each field of a job when using search functionality, and when
    listing all columns. If there are no search results, a descriptive
    message is displayed.
-#. Allows the user to search for a String across all columns.
+#. Allows the user to search for a string across all columns.
 #. Returns case-insensitive results.
 
 Solution Demo
@@ -487,13 +499,13 @@ additional problems you can try to solve. We’re not providing you much
 guidance here, but we have confidence that you can figure these problems
 out!
 
--  **Sorting list results**: When a user asks for a list of employers,
-   locations, position types, etc it would be nice if results were
+#. **Sorting list results**: When a user asks for a list of employers,
+   locations, position types, etc., it would be nice if results were
    sorted alphabetically. Make this happen.
--  **Returning a copy of allJobs**: Look at ``JobData.findAll()``.
+#. **Returning a copy of allJobs**: Look at ``JobData.findAll()``.
    Notice that it’s returning the ``allJobs`` property, which is a
    static property of the ``JobData`` class. In general, this is not a
    great thing to do, since the person calling our ``findAll`` method
    could then mess with the data that ``allJobs`` contains. Fix this by
-   creating a copy of ``allJobs``. (*Hint:* Look at the constructors in
-   the Oracle ``ArrayList`` documentation.)
+   creating a copy of ``allJobs``. *Hint:* Look at the constructors in
+   the Oracle ``ArrayList`` documentation.
