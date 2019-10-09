@@ -1,18 +1,35 @@
 .. index:: ! data structure
 
+Collections
+===========
+
 Data Structures
-===============
+---------------
 
 A **data structure** is a programming construct to
 aggregate lots of values into one value. More simply, a data structure
 lets us hold on to lots of data in a single place. Many types of data
 structures exist in various languages. A few examples are lists, dictionaries, 
-arrays, tuples, etc.
+arrays, tuples, etc. 
+
+In this section of this book, we'll discuss a structure called
+``ArrayList`` and compare it to the ``Array`` class. We'll then introduce the ``HashMap``
+class in Java. These types will be sufficient for our basic needs while we get going with Java. 
+For more, refer to the official Java documentation on `collections <http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html>`__.
+
+.. index:: ! collections, ! Java Collections Framework
+
+Java Collections Framework
+---------------------------
 
 Java provides powerful and flexible structures to store data, known as
-`collections <http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html>`__.
-We’ll introduce only a few here, but they will be sufficient for all of
-our basic needs while we get going with Java.
+**collections**. The **Java collections framework** refers to the various interfaces
+the language provides for implementing collection types. 
+
+Here, we'll discuss a collection called ``ArrayList`` and compare it to the 
+``Array`` class. We'll then introduce a third collection type called ``HashMap``. 
+These will be sufficient for our basic needs while we get going with Java. 
+For more, refer to the official Java documentation on `collections <http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html>`__.
 
 Gradebook, Three Ways
 ---------------------

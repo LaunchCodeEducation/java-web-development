@@ -151,6 +151,14 @@ Exercises
       book her sister was reading, but it had no pictures or conversations in
       it, 'and what is the use of a book,' thought Alice 'without pictures or
       conversation?'``
+   
+   .. note::
+
+      You may want to write the string above on more than one line in
+      your solution. Java 13 and IntelliJ gives you a few options to do so.
+      The easiest, thanks to your IDE, is to press *Enter* as you type the string.
+      IntelliJ will close the string and concatenate it with the next line to create
+      one longer string.
 
 #. **Strings**: Extend the previous exercise. Assume the user enters a word that is
    in the sentence. Print out its index within the string and its length. Next,

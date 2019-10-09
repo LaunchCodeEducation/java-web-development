@@ -47,7 +47,12 @@ expect to see when reading your code.
 .. note::
 
    Constants in Java are variables created using both ``static`` and
-   ``final`` modifiers. For example: ``static final Double PI = 3.14159;``
+   ``final`` modifiers. For example: ``static final Double PI = 3.14159``
+
+.. tip::
+
+   If you're not sure about all of these identifier types yet, that's ok. Keep
+   this page in mind for future reference as you read through this book.
 
 Oracle, the company that develops the Java language, provides some `more
 detailed naming

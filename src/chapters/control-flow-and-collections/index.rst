@@ -6,7 +6,7 @@ Control Flow and Collections
 
    conditionals
    loops
-   data-structures
+   collections
    arraylist
    array
    hashmap

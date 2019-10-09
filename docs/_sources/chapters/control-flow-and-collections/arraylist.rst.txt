@@ -1,7 +1,7 @@
 ArrayList
 =========
 
-To write tan ArrayList verison of the program, we will have to introduce
+To write an **ArrayList** verison of the program, we will have to introduce
 several new Java concepts, including the class ``ArrayList``. We will also review different 
 kinds of for loops used in Java.
 
@@ -15,45 +15,44 @@ kinds of for loops used in Java.
 
    public class ArrayListGradebook {
 
-       public static void main(String[] args) {
+      public static void main(String[] args) {
 
-           ArrayList<String> students = new ArrayList<>();
-           ArrayList<Double> grades = new ArrayList<>();
-           Scanner in = new Scanner(System.in);
-           String newStudent;
+         ArrayList<String> students = new ArrayList<>();
+         ArrayList<Double> grades = new ArrayList<>();
+         Scanner in = new Scanner(System.in);
+         String newStudent;
 
-           System.out.println("Enter your students (or ENTER to finish):");
+         System.out.println("Enter your students (or ENTER to finish):");
 
-           // Get student names
-           do {
-               newStudent = in.nextLine();
+         // Get student names
+         do {
+            newStudent = in.nextLine();
 
-               if (!newStudent.equals("")) {
-                   students.add(newStudent);
-               }
+            if (!newStudent.equals("")) {
+               students.add(newStudent);
+            }
 
-           } while(!newStudent.equals(""));
+         } while(!newStudent.equals(""));
 
-           // Get student grades
-           for (String student : students) {
-               System.out.print("Grade for " + student + ": ");
-               Double grade = in.nextDouble();
-               grades.add(grade);
-           }
+         // Get student grades
+         for (String student : students) {
+            System.out.print("Grade for " + student + ": ");
+            Double grade = in.nextDouble();
+            grades.add(grade);
+         }
 
-           // Print class roster
-           System.out.println("\nClass roster:");
-           double sum = 0.0;
+         // Print class roster
+         System.out.println("\nClass roster:");
+         double sum = 0.0;
 
-           for (int i = 0; i < students.size(); i++) {
-               System.out.println(students.get(i) + " (" + grades.get(i) + ")");
-               sum += grades.get(i);
-           }
+         for (int i = 0; i < students.size(); i++) {
+            System.out.println(students.get(i) + " (" + grades.get(i) + ")");
+            sum += grades.get(i);
+         }
 
-           double avg = sum / students.size();
-           System.out.println("Average grade: " + avg);
-       }
-
+         double avg = sum / students.size();
+         System.out.println("Average grade: " + avg);
+      }
    }
 
 Before going any further, we suggest you run the above program in
@@ -63,7 +62,7 @@ Once you’ve done that, let’s look at what is happening in the Java
 source code.
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 10
 
    ArrayList<String> students = new ArrayList<>();
    ArrayList<Double> grades = new ArrayList<>();
@@ -74,7 +73,7 @@ source code.
 
 Here we declare and initialize two objects, ``students`` and ``grades``,
 which appear to be of type ``ArrayList<String>`` and
-``ArrayList<Double>``, respectively. An **ArrayList** in Java is very
+``ArrayList<Double>``, respectively. An ``ArrayList`` in Java is very
 similar to an :ref:`Array <array>`. Like an ``Array``, we must let
 the compiler know what kind of objects our ``ArrayList`` is going to 
 contain. In the case of ``students``, the ``ArrayList`` will contain 
@@ -87,7 +86,7 @@ values of type ``Double`` and is declared to be of type
 
 .. warning:: 
 
-   Notice that we declared ``grades`` to be of type ArrayList<Double>,
+   Notice that we declared ``grades`` to be of type ``ArrayList<Double>``,
    using the wrapper class ``Double`` rather than the primitive type
    ``double``. All values stored in Java collections must be objects, so
    we’ll have to use object types in those situations. 
@@ -115,7 +114,7 @@ We then use a ``do-while`` loop to collect the names of each of the students
 in the class.
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 18
 
    // Get student names
    do {
@@ -150,7 +149,7 @@ can loop through a list in Java. Here’s the first, which
 collects the numeric grade for each student:
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 27
 
    // Get student grades
    for (String student : students) {
@@ -167,7 +166,7 @@ with its data type.
 The next loop on display prints out each student’s name and grade:
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 34
 
    // Print class roster
    System.out.println("\nClass roster:");
@@ -191,7 +190,7 @@ construction as something like,  ``for integer i in the range of the number of i
 in students...``. The first statement inside the parenthesis declares and 
 initializes a loop index variable ``i``. The second statement is a Boolean 
 expression that is our exit condition. In other words, we will keep looping as 
-long as this expression evaluates to ``True``. The third statement is used to 
+long as this expression evaluates to ``true``. The third statement is used to 
 increment the value of the loop index variable at the end of iteration through the
 loop. 
 
@@ -203,7 +202,7 @@ In the final lines of the program, we compute the average grade for all
 students:
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 43
 
    double avg = sum / students.size();
    System.out.println("Average grade: " + avg);
@@ -251,6 +250,8 @@ Using ``.add()`` to populate ``planets``:
 
 Thus, the first item in this table:
 
+.. _arraylist-methods:
+
 .. list-table:: ArrayList methods in Java
    :header-rows: 1
 
@@ -265,7 +266,7 @@ Thus, the first item in this table:
      - ``planets.size()`` returns ``9``
    * - ``contains()``
      - Checks to see if the ArrayList contains a given item, returning a Boolean
-     - ``planets.contains("Earth")`` returns ``True``
+     - ``planets.contains("Earth")`` returns ``true``
    * - ``indexOf()``
      - Looks for an item in n ArrayList, returns the index of the first occurrence of the item if it exists, returns -1 otherwise 
      - ``planets.indexOf("Jupiter")`` returns ``4``
@@ -289,7 +290,8 @@ thus requires a different ``import`` statement:
 
    import java.util.Collections;
 
-We include this method here because, should you be in the market for a sorting method,
+``Collections`` is itself a member of the collections framework but not all members of the framework
+are instances of this class. We include this method here because, should you be in the market for a sorting method,
 this is a helpful one to know. 
    
 .. list-table:: toArray()
@@ -321,3 +323,49 @@ References
    (docs.oracle.com) <http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html>`__
 -  `ArrayList Class
    (docs.oracle.com) <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__
+
+Check Your Understanding
+-------------------------
+
+.. admonition:: Question
+
+   The number of entries in an ``ArrayList`` may not be modified. 
+
+   #. True
+   #. False
+
+.. admonition:: Question
+
+   Create an ``ArrayList`` called ``charStars`` containing ``a``, ``b``, and ``c``.
+
+   #. 
+      .. sourcecode:: java
+         :linenos:
+      
+         ArrayList<String> charStars = new ArrayList<>();
+         chars.add('a');
+         chars.add('b');
+         chars.add('c');
+
+   #. 
+      .. sourcecode:: java
+         :linenos:
+      
+         ArrayList<Char> charStars = new ArrayList<>();
+         chars.add('a');
+         chars.add('b');
+         chars.add('c');
+
+   #. 
+      .. sourcecode:: java
+      
+         ArrayList<char> charStars = new ArrayList<char>('a', 'b', 'c');
+
+   #. 
+      .. sourcecode:: java
+         :linenos:
+      
+         ArrayList<String> charStars = new ArrayList<>();
+         chars.add("a");
+         chars.add("b");
+         chars.add("c");

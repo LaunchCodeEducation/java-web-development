@@ -350,11 +350,26 @@ Check Your Understanding
 
    Given the code above, what prints if the user enters ``no`` after the prompt?
 
-   #. "Greetings cadet."
-   #. "Greetings normie."
-   #. | "Greetings normie."
-      | "Are you an alien?"
-   #. | "Greetings cadet."
-      | "Greetings normie."
+   #. 
+   
+      .. sourcecode:: bash
+      
+         Greetings cadet.
+   #. 
+   
+      .. sourcecode:: bash
+      
+         Greetings normie.
+
+   #. .. sourcecode:: bash
+   
+         Greetings normie.
+         Are you an alien?
+   #. 
+   
+      .. sourcecode:: bash
+      
+         Greetings cadet.
+         Greetings normie.
 
 

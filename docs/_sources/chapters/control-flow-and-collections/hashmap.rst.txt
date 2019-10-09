@@ -25,7 +25,6 @@ to be different types for a given map.
    import java.util.HashMap;
    import java.util.Map;
    import java.util.Scanner;
-
    
    public class HashMapGradebook {
 
@@ -72,6 +71,7 @@ We can add a new item with a ``.put()`` method, specifying both key and
 value: 
 
 .. sourcecode:: java
+	:lineno-start: 26
 
    students.put(newStudent, newGrade);
 
@@ -96,7 +96,7 @@ Looping through a map is slightly more complex than it is for ordered lists.
 Let’s look at the ``for-each`` loop from this example:
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 38
 
    for (Map.Entry<String, Double> student : students.entrySet()) {
       System.out.println(student.getKey() + " (" + student.getValue() + ")");
@@ -195,3 +195,34 @@ References
 -  `HashMap Class
    (docs.oracle.com) <https://docs.oracle./comjavase/8/docs/api/java/util/HashMap.html>`__
 
+Check Your Understanding
+-------------------------
+
+.. admonition:: Question
+
+   Given our ``HashMap``, 
+   ``moons = {"Mercury" = 0, "Venus" = 0, "Earth" = 1, "Mars" = 2, "Jupiter" = 79, "Saturn" = 82, "Uranus" = 27, "Neptune" = 14}``.
+   What is the method to return the key names?
+
+   #. ``Map.keys(moons)``
+   #. ``moons.keys()``
+   #. ``moons.keySet(moons)``
+   #. ``moons.keySet()``
+
+.. ans - ``moons.keySet()``
+
+.. admonition:: Question
+
+   Given our ``HashMap``, 
+   ``moons = {"Mercury" = 0, "Venus" = 0, "Earth" = 1, "Mars" = 2, "Jupiter" = 79, "Saturn" = 82, "Uranus" = 27, "Neptune" = 14}``.
+   What will ``moons.get("Mars")`` return?
+
+   #. ``3``
+   
+   #. ``{Mars: 3}``
+
+   #. ``3.0``
+
+   #. ``"Mars"``
+
+.. ans - ``3``

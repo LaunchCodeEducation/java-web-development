@@ -70,7 +70,7 @@ from the printing task.
 
 #. Add a new class in your ``studios.areaofacircle`` package called ``Circle``.
 #. Create a method called ``getArea`` inside of ``Circle`` that takes a Double
-   ``radius`` as its only parameter and returns another Double, the result of
+   ``radius`` as its only parameter and returns another ``Double``, the result of
    the area calculation.
 
    .. sourcecode:: java

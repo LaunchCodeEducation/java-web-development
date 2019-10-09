@@ -17,14 +17,13 @@ In this section of this book, we'll discuss a structure called
 class in Java. These types will be sufficient for our basic needs while we get going with Java. 
 For more, refer to the official Java documentation on `collections <http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html>`__.
 
-
 .. index:: ! collections, ! Java Collections Framework
 
 Java Collections Framework
 ---------------------------
 
 Java provides powerful and flexible structures to store data, known as
-**collections**. The **Java Collections Framework** refers to the various interfaces
+**collections**. The **Java collections framework** refers to the various interfaces
 the language provides for implementing collection types. 
 
 Here, we'll discuss a collection called ``ArrayList`` and compare it to the 

@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3.6. Key/Value Data: HashMaps" href="hashmap.html" />
+    <link rel="next" title="3.6. HashMap" href="hashmap.html" />
     <link rel="prev" title="3.4. ArrayList" href="arraylist.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -86,21 +86,21 @@
     
   <div class="section" id="array">
 <h1>3.5. Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h1>
-<p>We’ve been introduced to Arrays in Java in <a class="reference internal" href="../data-types/more-data-types.html#array"><span class="std std-ref">a previous lesson</span></a>,
-so let’s spend a moment comparing them to ArrayLists. As we noted at that beginning
-of this section, we are going to use the Java ArrayList type to store
+<p>We’ve been introduced to arrays in Java in <a class="reference internal" href="../data-types/more-data-types.html#array"><span class="std std-ref">a previous lesson</span></a>,
+so let’s spend a moment comparing them to <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>. As we noted at that beginning
+of this section, we are going to use the Java <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> type to store
 simple sets of data. They are generally easier to use.</p>
-<p>Why does Java have both Arrays and ArrayLists? The answer is
+<p>Why does Java have both <code class="docutils literal notranslate"><span class="pre">Arrays</span></code> and <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>? The answer is
 historical, at least in part. Java is a C-style language, and arrays are
-the most basic data structure in C. Using an Array over an
-ArrayList might be preferred in some circumstances, primarily for
-performance reasons (Array operations are generally faster than ArrayList
+the most basic data structure in C. Using an <code class="docutils literal notranslate"><span class="pre">Array</span></code> over an
+<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> might be preferred in some circumstances, primarily for
+performance reasons (array operations are generally faster than <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>
 operations). Also note that <em>Arrays are of fixed size</em>. You cannot
-expand or contract an Array after it is created, so you must know
+expand or contract an <code class="docutils literal notranslate"><span class="pre">Array</span></code> after it is created, so you must know
 exactly how many elements it will need to hold when you create it. This
-fact is reason enough to use ArrayLists in most scenarios.</p>
-<p>To illustrate Array usage, here is a version of the Gradebook program
-using Arrays instead of ArrayLists:</p>
+fact is reason enough to use <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code> in most scenarios.</p>
+<p>To illustrate <code class="docutils literal notranslate"><span class="pre">Array</span></code> usage, here is a version of the Gradebook program
+using <code class="docutils literal notranslate"><span class="pre">Arrays</span></code> instead of <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -206,13 +206,18 @@ using Arrays instead of ArrayLists:</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Note that we have to decide up front how large our Arrays <code class="docutils literal notranslate"><span class="pre">students</span></code>
-and <code class="docutils literal notranslate"><span class="pre">grades</span></code> are going to be. Thus, it is advisable to make the Arrays
-potentially larger than they need to be. Like ArrayLists, we can index into
-Arrays with integers (<code class="docutils literal notranslate"><span class="pre">students[i]</span></code> for example). Unlike ArrayLists,
-however, there is no analog of <code class="docutils literal notranslate"><span class="pre">.add()</span></code>, which adds an item to the
-end of a ArrayList. We must always access and assign Array elements using an
-explicit index. This makes for code that can seem littered with Array
+<p id="index-0">Note that we have to decide up front how large our <code class="docutils literal notranslate"><span class="pre">Arrays</span></code> <code class="docutils literal notranslate"><span class="pre">students</span></code>
+and <code class="docutils literal notranslate"><span class="pre">grades</span></code> are going to be. Thus, this program sets an arbitrary maximum amount
+of students, likely larger than any user will enter. It may seem obvious, then,
+that <code class="docutils literal notranslate"><span class="pre">Array</span></code> has no equivalent <a class="reference internal" href="arraylist.html#id1"><span class="std std-ref">add() method</span></a>. The only
+way to access and alter an element in an <code class="docutils literal notranslate"><span class="pre">Array</span></code> is with <strong>bracket notation</strong>,
+using an explicit index. For example, gradebook defines a counter variable, <code class="docutils literal notranslate"><span class="pre">numStudents</span></code>.
+When the first student is entered by the user, the value is stored in <code class="docutils literal notranslate"><span class="pre">newStudent</span></code>.
+If the value is not the empty string, then the item in <code class="docutils literal notranslate"><span class="pre">students</span></code> at position 0,
+the initial value of <code class="docutils literal notranslate"><span class="pre">numStudents</span></code> is assigned to the <code class="docutils literal notranslate"><span class="pre">newStudent</span></code> value.
+The next time the <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop executes, the value of <code class="docutils literal notranslate"><span class="pre">students</span></code> at position 1
+will be assigned. And so on… Because we must always access and assign <code class="docutils literal notranslate"><span class="pre">Array</span></code> elements using an
+explicit index, our code can seem littered with <code class="docutils literal notranslate"><span class="pre">Array</span></code>
 counter variables (like our friends <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code>) and is more difficult to
 read (not to mention more error-prone).</p>
 <p>Like <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>, however, we can loop through an <code class="docutils literal notranslate"><span class="pre">Array</span></code> using a <code class="docutils literal notranslate"><span class="pre">for-each</span></code>
@@ -221,14 +226,12 @@ we only wanted to print each student’s name, and not their grade, at the
 end of our program, we could do the following:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">student</span> <span class="o">:</span> <span class="n">students</span><span class="o">)</span>
-<span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">student</span> <span class="o">:</span> <span class="n">students</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">student</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>We’ll use arrays in Java from time-to-time, but for the most part you should
+<p>We’ll use <code class="docutils literal notranslate"><span class="pre">Arrays</span></code> in Java from time-to-time, but for the most part you should
 rely on <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code> to store collections of values, or ordered data.</p>
 <div class="section" id="references">
 <h2>3.5.1. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -236,6 +239,30 @@ rely on <code class="docutils literal notranslate"><span class="pre">ArrayLists<
 <li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank">Arrays Tutorial
 (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 </ul>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>3.5.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p><code class="docutils literal notranslate"><span class="pre">Array</span></code> size and element values cannot be changed once defined.</p>
+<ol class="last arabic simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Given the <code class="docutils literal notranslate"><span class="pre">Array</span></code> below, which of the following options is a valid action?</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[]</span> <span class="n">randomNumbers</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">];</span>
+</pre></div>
+</div>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">randomNumbers.add(3);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">randomNumbers.add(&quot;one&quot;);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">randomNumbers[0]</span> <span class="pre">=</span> <span class="pre">&quot;three&quot;;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">randomNumbers[0]</span> <span class="pre">=</span> <span class="pre">1;</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -248,7 +275,7 @@ rely on <code class="docutils literal notranslate"><span class="pre">ArrayLists<
         <li class="previous"><a href="arraylist.html"><span aria-hidden="true">&larr;</span> 3.4. ArrayList</a></li>
         
         
-        <li class="next"><a href="hashmap.html">3.6. Key/Value Data: HashMaps <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="hashmap.html">3.6. HashMap <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
