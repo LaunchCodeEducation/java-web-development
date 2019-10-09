@@ -1,3 +1,5 @@
+.. _tech-jobs-console:
+
 Assignment #1: Tech Jobs (Console Edition)
 ===========================================
 
@@ -306,7 +308,7 @@ like this:
        ...
    ]
 
-If you look at ``loadData`` you’ll see a lot of unfamiliar code. Kathy
+If you look at ``loadData`` you’ll see a lot of unfamiliar code. Blake
 wrote this essential piece of code for you, and while you won’t have to
 modify it, it will be useful to have an idea of how it works. Read
 through the code until you feel like you can describe its functionality
@@ -472,10 +474,8 @@ Watch a demo of a working solution.
 How to Submit
 --------------
 
-   TODO: Add working reference link to submission instructions.
-
-To turn in your assignment and get credit, follow the submission
-instructions.
+To turn in your assignment and get credit, follow the
+:ref:`submission instructions <how-to-submit-work>`.
 
 .. _tech-jobs-console-bonus-missions:
 
