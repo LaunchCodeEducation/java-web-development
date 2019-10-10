@@ -323,6 +323,8 @@ Check Your Understanding
    #. Omitting a ``default`` case from a ``switch`` statement.
    #. Omitting a ``break`` line from a ``switch`` statement.
 
+.. ans: Omitting a break line from a switch statement.
+
 .. admonition:: Question
 
    .. sourcecode:: java
@@ -372,4 +374,6 @@ Check Your Understanding
          Greetings cadet.
          Greetings normie.
 
+.. ans:  Greetings normie.
+         Are you an alien?
 
