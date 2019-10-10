@@ -290,6 +290,8 @@ Check Your Understanding
    #. ``char i in chars``
    #. ``char i in chars[]``
 
+.. ans: ``char i : chars``
+
 .. admonition:: Question
 
    .. sourcecode:: java
@@ -305,3 +307,4 @@ Check Your Understanding
    #. 1 --- The print statement is evaluated before the conditional.
    #. infinite times --- 3 is less than 2, and the condition is never changed in the loop.
 
+.. ans: 1 --- The print statement is evaluated before the conditional.

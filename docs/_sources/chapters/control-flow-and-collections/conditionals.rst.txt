@@ -323,6 +323,8 @@ Check Your Understanding
    #. Omitting a ``default`` case from a ``switch`` statement.
    #. Omitting a ``break`` line from a ``switch`` statement.
 
+.. ans: Omitting a break line from a switch statement.
+
 .. admonition:: Question
 
    .. sourcecode:: java
@@ -350,11 +352,28 @@ Check Your Understanding
 
    Given the code above, what prints if the user enters ``no`` after the prompt?
 
-   #. "Greetings cadet."
-   #. "Greetings normie."
-   #. | "Greetings normie."
-      | "Are you an alien?"
-   #. | "Greetings cadet."
-      | "Greetings normie."
+   #. 
+      .. sourcecode:: java
+      
+         Greetings cadet.
+   #. 
+   
+      .. sourcecode:: java
+      
+         Greetings normie.
+   #. 
+      .. sourcecode:: java
+      
+         Greetings normie.
+         Are you an alien?
+   #. 
+      .. sourcecode:: java
+      
+         Greetings cadet.
+         Greetings normie.
+         
+.. ans:  Greetings normie.
+         Are you an alien?
+         
 
 
