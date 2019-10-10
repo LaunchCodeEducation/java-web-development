@@ -57,8 +57,8 @@ code allows users to search job listings by one of several fields. It can also
 display lists of all of the values of a given field in the system (e.g. all
 employers, or all locations).
 
-Blake has handed now handed the task off to you. You must add a couple of
-features and then get feedback from the Company Team.
+Blake has now handed the task off to you. You must add a couple of features and
+then get feedback from the Company Team.
 
 After you work through the tasks Blake has laid out for you, tackle one
 or more of the :ref:`bonus missions <tech-jobs-console-bonus-missions>`.
@@ -128,11 +128,13 @@ rows in the CSV file should have 5 fields. In this file format, a “row”
 corresponds to a new line. So each line below the first will constitute
 a row of data, or a record.
 
-Have a look a the data below line 1, and ask yourself the following
-questions: - Which fields match up with which column names above? - Why
-do some lines/rows (e.g. line 10) have more commas than others, if
-commas are supposed to separate columns? - What role do the
-double-quotes play?
+Have a look at the data below line 1, and ask yourself the following
+questions:
+
+#. Which fields match up with which column names above?
+#. Why do some lines/rows (e.g. line 10) have more commas than others, if
+   commas are supposed to separate columns?
+#. What role do the double-quotes play?
 
 The TechJobs Class
 -------------------
@@ -159,31 +161,30 @@ It begins by declaring two local variables: ``columnChoices`` and
 ``actionChoices``. These contain information relating to the menus that
 we’ll display, and we’ll look at them in more detail later.
 
-Next, we notice a ``while loop`` that starts ``while (true)``. This may
-seem odd, but actually, it makes a lot of sense after a short
-explanation. We want our application to continually run until the user
-has decided they want to quit. The simplest way to do this is to loop
-forever. When the user wants to quit, they can kill our program by
-pressing ctrl-C (a widely-known command to kill a console application).
-As you saw above, however, IntelliJ’s Run pane works slightly
-differently and you’ll need to rely on the red “stop” icon to stop the
-program.
+Next, we notice a ``while loop`` that starts ``while (true)``. While we usually
+want to avoid creating infinite loops, we have a good reason for doing so in
+this case! We want our application to continually run until the user decides
+they want to quit. The simplest way to do this is to loop forever. When the
+user wants to quit, they can kill our program by pressing ctrl-C (a
+widely-known command to kill a console application). As you saw above, however,
+IntelliJ’s Run pane works slightly differently and you’ll need to rely on the
+red “stop” icon to stop the program.
 
 The ``main`` method can be summarized as follows:
 
 #. Present the user with choices on how to view data: list or search.
-#. Based on that choice, prompt them with the column that they would
-   like to apply the choice to. In the case of a search, we also ask for
-   a search term.
-#. Carry out the “query” to the ``JobData`` class via one of its public
+#. Based on that choice, prompt them for the column to apply the choice to. In
+   the case of a search, we also ask for a search term.
+#. Carry out the request to the ``JobData`` class via one of its public
    methods.
-#. Display the results of the “query.”
+#. Display the results of the request.
 #. Repeat.
 
-The word “query” is in quotes here because we’re not really carrying out
-a database query, but the net effect is the same as if we were. We ask a
-method for data that originates from a non-Java source, it parses and
-filters that data, and gives it back to us.
+``main`` simulates a *query* to an external source:
+
+#. We ask the method for data that originates from a non-Java source.
+#. The method parses and filters that data.
+#. The method presents the data in a useful manner.
 
 The ``getUserSelection`` Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -251,9 +252,9 @@ execution, we check a condition to determine if we should run the block
 again. This nicely mimics the behavior of simple menu-driven
 applications.
 
-Within this loop, menu options are printed to the screen and user input
-is collected. If the input is valid, it returns the choice as a String
-to the caller. This String corresponds to the chosen key (from
+Within this loop, menu options are printed to the screen, and user input
+is collected. If the input is valid, it returns the choice as a ``String``
+to the caller. This ``String`` corresponds to the chosen key (from
 ``choices``, which will be either ``actionChoices`` or
 ``columnChoices``) of the item the user selected. If invalid, it
 re-prompts the user.
@@ -317,7 +318,7 @@ modify it, it will be useful to have an idea of how it works. Read
 through the code until you feel like you can describe its functionality
 at a basic level.
 
-.. index:: ! overloading
+.. index:: overloading
 
 There are three more methods in ``JobData``, each of which is public
 (and ``static``, per our earlier note): ``findAll()``,
@@ -431,9 +432,8 @@ Security job on line 31 of the CSV file). The search methods turn out to be
 case-sensitive, so they treat ``JavaScript`` and ``Javascript`` as different
 strings.
 
-The Company Team has *demanded* (ahem, *strongly requested*, they
-politely clarify) that this needs to be fixed. And you’ve told them that
-you’re up to the task.
+The Company Team strongly requested that this needs to be fixed, and of course
+you told them that you are up to the task.
 
 Here are some questions to ask yourself as you get started:
 
