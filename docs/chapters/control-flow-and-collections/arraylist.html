@@ -86,9 +86,13 @@
     
   <div class="section" id="arraylist">
 <h1>3.4. ArrayList<a class="headerlink" href="#arraylist" title="Permalink to this headline">¶</a></h1>
-<p>To write an <strong>ArrayList</strong> verison of the program, we will have to introduce
+<p>To write an <strong>ArrayList</strong> version of the program, we will have to introduce
 several new Java concepts, including the class <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. We will also review different
-kinds of for loops used in Java.</p>
+kinds of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops used in Java.</p>
+<p>Before going any further, we suggest you run the <code class="docutils literal notranslate"><span class="pre">ArrayListGradebook</span></code>
+program in IntelliJ. You can view this program in <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>.
+Once you’ve done that, let’s look at what is happening in the Java
+source code.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -145,14 +149,14 @@ kinds of for loops used in Java.</p>
 
       <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
       <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-      <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+      <span class="n">Scanner</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
       <span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
 
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter your students (or ENTER to finish):&quot;</span><span class="o">);</span>
 
       <span class="c1">// Get student names</span>
       <span class="k">do</span> <span class="o">{</span>
-         <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+         <span class="n">newStudent</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
 
          <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
             <span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newStudent</span><span class="o">);</span>
@@ -163,7 +167,7 @@ kinds of for loops used in Java.</p>
       <span class="c1">// Get student grades</span>
       <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">student</span> <span class="o">:</span> <span class="n">students</span><span class="o">)</span> <span class="o">{</span>
          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Grade for &quot;</span> <span class="o">+</span> <span class="n">student</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="o">);</span>
-         <span class="n">Double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+         <span class="n">Double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
          <span class="n">grades</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">grade</span><span class="o">);</span>
       <span class="o">}</span>
 
@@ -180,19 +184,6 @@ kinds of for loops used in Java.</p>
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Average grade: &quot;</span> <span class="o">+</span> <span class="n">avg</span><span class="o">);</span>
    <span class="o">}</span>
 <span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>Before going any further, we suggest you run the above program in
-IntelliJ. You can view this program in <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>.</p>
-<p>Once you’ve done that, let’s look at what is happening in the Java
-source code.</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-<span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
 </pre></div>
 </td></tr></table></div>
 <p id="index-0">Here we declare and initialize two objects, <code class="docutils literal notranslate"><span class="pre">students</span></code> and <code class="docutils literal notranslate"><span class="pre">grades</span></code>,
@@ -214,10 +205,10 @@ using the wrapper class <code class="docutils literal notranslate"><span class="
 <code class="docutils literal notranslate"><span class="pre">double</span></code>. All values stored in Java collections must be objects, so
 we’ll have to use object types in those situations.</p>
 </div>
-<p>We then initialize each list by creating a new, empty list. Note that
-when we call the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> constructor, as in <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">ArrayList&lt;&gt;()</span></code>,
-we don’t need to specify type (it’s implicit in the left-hand side of
-the assignment).</p>
+<p>In lines 10 and 11, we also initialize each list by creating a new, empty
+list. Note that when we call the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> constructor, as in
+<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">ArrayList&lt;&gt;()</span></code>, we don’t need to specify type (it’s implicit in the
+left-hand side of the assignment).</p>
 <div class="admonition" id="index-1">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">You will sometimes see the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> class written as ArrayList&lt;E&gt;,
@@ -225,6 +216,10 @@ where <code class="docutils literal notranslate"><span class="pre">E</span></cod
 declare a given list to hold. This is especially true in documentation.
 You can think of <code class="docutils literal notranslate"><span class="pre">E</span></code> as representing an arbitrary type.</p>
 </div>
+<div class="section" id="arraylist-iteration">
+<h2>3.4.1. <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> Iteration<a class="headerlink" href="#arraylist-iteration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="do-while">
+<h3>3.4.1.1. <code class="docutils literal notranslate"><span class="pre">do-while</span></code><a class="headerlink" href="#do-while" title="Permalink to this headline">¶</a></h3>
 <p>We then use a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop to collect the names of each of the students
 in the class.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
@@ -237,7 +232,7 @@ in the class.</p>
 25
 26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Get student names</span>
 <span class="k">do</span> <span class="o">{</span>
-   <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+   <span class="n">newStudent</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
 
    <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
       <span class="n">students</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newStudent</span><span class="o">);</span>
@@ -249,16 +244,19 @@ in the class.</p>
 <p>Recall that a <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop is very similar to a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, but
 the execution condition is checked at the end of the loop block. This has
 the net effect that the code block will always run at least once. In this example,
-we prompt the user for a name, which Java processes via <code class="docutils literal notranslate"><span class="pre">in.nextLine()</span></code> when the
+we prompt the user for a name, which Java processes via <code class="docutils literal notranslate"><span class="pre">input.nextLine()</span></code> when the
 user hits the enter key. To finish entering names, the user enters a blank line.</p>
 <p id="index-2">For each student that is entered (that is, each non-empty line), we add
-the new String to the end of our list with <code class="docutils literal notranslate"><span class="pre">students.add(newStudent)</span></code>.
+the new <code class="docutils literal notranslate"><span class="pre">String</span></code> to the end of our list with <code class="docutils literal notranslate"><span class="pre">students.add(newStudent)</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method is provided by the <a class="reference external" href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html" target="_blank">ArrayList
 Class<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 There are lots of other ArrayList methods to get familiar with, some of which we will discuss
 in more detail below.</p>
 <p>Note that our program imports <code class="docutils literal notranslate"><span class="pre">java.util.ArrayList</span></code> to take advantage of this Java
 provided class.</p>
+</div>
+<div class="section" id="for-each">
+<h3>3.4.1.2. <code class="docutils literal notranslate"><span class="pre">for-each</span></code><a class="headerlink" href="#for-each" title="Permalink to this headline">¶</a></h3>
 <p>Below the <code class="docutils literal notranslate"><span class="pre">do-while</span></code> loop are two different loops that demonstrate two ways you
 can loop through a list in Java. Here’s the first, which
 collects the numeric grade for each student:</p>
@@ -270,7 +268,7 @@ collects the numeric grade for each student:</p>
 32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Get student grades</span>
 <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">student</span> <span class="o">:</span> <span class="n">students</span><span class="o">)</span> <span class="o">{</span>
    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Grade for &quot;</span> <span class="o">+</span> <span class="n">student</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="o">);</span>
-   <span class="n">Double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+   <span class="n">Double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
    <span class="n">grades</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">grade</span><span class="o">);</span>
 <span class="o">}</span>
 </pre></div>
@@ -279,6 +277,9 @@ collects the numeric grade for each student:</p>
 in your head, or even aloud, as: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">each</span> <span class="pre">student</span> <span class="pre">in</span> <span class="pre">students</span></code>. As you might
 expect at this point, we must declare the iterator variable <code class="docutils literal notranslate"><span class="pre">student</span></code>
 with its data type.</p>
+</div>
+<div class="section" id="for">
+<h3>3.4.1.3. <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h3>
 <p>The next loop on display prints out each student’s name and grade:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>34
 35
@@ -320,8 +321,10 @@ students:</p>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Average grade: &quot;</span> <span class="o">+</span> <span class="n">avg</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
+</div>
+</div>
 <div class="section" id="arraylist-methods">
-<h2>3.4.1. ArrayList Methods<a class="headerlink" href="#arraylist-methods" title="Permalink to this headline">¶</a></h2>
+<h2>3.4.2. ArrayList Methods<a class="headerlink" href="#arraylist-methods" title="Permalink to this headline">¶</a></h2>
 <p>Let’s gather up a few of the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> methods that
 we’ve encountered so far, along with a few new ones. While these will be the
 most common methods and properties that you use with this class, they by
@@ -453,7 +456,7 @@ create it. So we’ll need to first define the new Array before we can use <code
 <p>Speaking of Arrays, let’s see the Array version of Gradebook next.</p>
 </div>
 <div class="section" id="references">
-<h2>3.4.2. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>3.4.3. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Collections.html" target="_blank">Java Collections
 (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
@@ -462,7 +465,7 @@ create it. So we’ll need to first define the new Array before we can use <code
 </ul>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>3.4.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>3.4.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>The number of entries in an <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> may not be modified.</p>

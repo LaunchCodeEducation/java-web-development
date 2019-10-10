@@ -1,9 +1,14 @@
 ArrayList
 =========
 
-To write an **ArrayList** verison of the program, we will have to introduce
+To write an **ArrayList** version of the program, we will have to introduce
 several new Java concepts, including the class ``ArrayList``. We will also review different 
-kinds of for loops used in Java.
+kinds of ``for`` loops used in Java.
+
+Before going any further, we suggest you run the ``ArrayListGradebook`` 
+program in IntelliJ. You can view this program in ``java-web-dev-exercises``.
+Once you’ve done that, let’s look at what is happening in the Java
+source code.
 
 .. sourcecode:: java
    :linenos:
@@ -19,14 +24,14 @@ kinds of for loops used in Java.
 
          ArrayList<String> students = new ArrayList<>();
          ArrayList<Double> grades = new ArrayList<>();
-         Scanner in = new Scanner(System.in);
+         Scanner input = new Scanner(System.in);
          String newStudent;
 
          System.out.println("Enter your students (or ENTER to finish):");
 
          // Get student names
          do {
-            newStudent = in.nextLine();
+            newStudent = input.nextLine();
 
             if (!newStudent.equals("")) {
                students.add(newStudent);
@@ -37,7 +42,7 @@ kinds of for loops used in Java.
          // Get student grades
          for (String student : students) {
             System.out.print("Grade for " + student + ": ");
-            Double grade = in.nextDouble();
+            Double grade = input.nextDouble();
             grades.add(grade);
          }
 
@@ -55,19 +60,6 @@ kinds of for loops used in Java.
       }
    }
 
-Before going any further, we suggest you run the above program in
-IntelliJ. You can view this program in ``java-web-dev-exercises``.
-
-Once you’ve done that, let’s look at what is happening in the Java
-source code.
-
-.. sourcecode:: java
-   :lineno-start: 10
-
-   ArrayList<String> students = new ArrayList<>();
-   ArrayList<Double> grades = new ArrayList<>();
-   Scanner in = new Scanner(System.in);
-   String newStudent;
 
 .. index:: ! ArrayList
 
@@ -92,10 +84,10 @@ values of type ``Double`` and is declared to be of type
    we’ll have to use object types in those situations. 
 
 
-We then initialize each list by creating a new, empty list. Note that
-when we call the ``ArrayList`` constructor, as in ``new ArrayList<>()``,
-we don’t need to specify type (it’s implicit in the left-hand side of
-the assignment).
+In lines 10 and 11, we also initialize each list by creating a new, empty 
+list. Note that when we call the ``ArrayList`` constructor, as in 
+``new ArrayList<>()``, we don’t need to specify type (it’s implicit in the 
+left-hand side of the assignment).
 
 .. index:: ! generic class, generic type
 
@@ -109,6 +101,11 @@ the assignment).
    Classes like ArrayList<E> that take another type or class as a parameter
    are referred to as **generic classes** or **generic types**.
 
+``ArrayList`` Iteration
+-----------------------
+
+``do-while``
+^^^^^^^^^^^^
 
 We then use a ``do-while`` loop to collect the names of each of the students
 in the class.
@@ -118,7 +115,7 @@ in the class.
 
    // Get student names
    do {
-      newStudent = in.nextLine();
+      newStudent = input.nextLine();
 
       if (!newStudent.equals("")) {
          students.add(newStudent);
@@ -129,13 +126,13 @@ in the class.
 Recall that a ``do-while`` loop is very similar to a ``while`` loop, but 
 the execution condition is checked at the end of the loop block. This has 
 the net effect that the code block will always run at least once. In this example, 
-we prompt the user for a name, which Java processes via ``in.nextLine()`` when the 
+we prompt the user for a name, which Java processes via ``input.nextLine()`` when the 
 user hits the enter key. To finish entering names, the user enters a blank line.
 
 .. index:: ! ArrayList.add()
 
 For each student that is entered (that is, each non-empty line), we add
-the new String to the end of our list with ``students.add(newStudent)``.
+the new ``String`` to the end of our list with ``students.add(newStudent)``.
 The ``.add()`` method is provided by the `ArrayList
 Class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__.
 There are lots of other ArrayList methods to get familiar with, some of which we will discuss
@@ -143,6 +140,9 @@ in more detail below.
 
 Note that our program imports ``java.util.ArrayList`` to take advantage of this Java
 provided class.
+
+``for-each``
+^^^^^^^^^^^^
 
 Below the ``do-while`` loop are two different loops that demonstrate two ways you 
 can loop through a list in Java. Here’s the first, which
@@ -154,7 +154,7 @@ collects the numeric grade for each student:
    // Get student grades
    for (String student : students) {
       System.out.print("Grade for " + student + ": ");
-      Double grade = in.nextDouble();
+      Double grade = input.nextDouble();
       grades.add(grade);
    }
 
@@ -163,6 +163,8 @@ in your head, or even aloud, as: ``for each student in students``. As you might
 expect at this point, we must declare the iterator variable ``student``
 with its data type.
 
+``for``
+^^^^^^^
 The next loop on display prints out each student’s name and grade:
 
 .. sourcecode:: java

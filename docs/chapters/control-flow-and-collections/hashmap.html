@@ -153,7 +153,7 @@ to be different types for a given map.</p>
    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 
       <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Double</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-      <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+      <span class="n">Scanner</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
       <span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
 
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter your students (or ENTER to finish):&quot;</span><span class="o">);</span>
@@ -162,15 +162,15 @@ to be different types for a given map.</p>
       <span class="k">do</span> <span class="o">{</span>
 
          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Student: &quot;</span><span class="o">);</span>
-         <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+         <span class="n">newStudent</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
 
          <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Grade: &quot;</span><span class="o">);</span>
-            <span class="n">Double</span> <span class="n">newGrade</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+            <span class="n">Double</span> <span class="n">newGrade</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
             <span class="n">students</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">newStudent</span><span class="o">,</span> <span class="n">newGrade</span><span class="o">);</span>
 
             <span class="c1">// Read in the newline before looping back</span>
-            <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+            <span class="n">input</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
          <span class="o">}</span>
 
       <span class="o">}</span> <span class="k">while</span><span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
@@ -192,6 +192,9 @@ to be different types for a given map.</p>
 </td></tr></table></div>
 <p>We can add a new item with a <code class="docutils literal notranslate"><span class="pre">.put()</span></code> method, specifying both key and
 value:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">newStudent</span><span class="o">,</span> <span class="n">newGrade</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
 <p>And while we don’t do so in this example, we may also access <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>
 elements using the <code class="docutils literal notranslate"><span class="pre">get</span></code> method. If we had a key/value pair of
 <code class="docutils literal notranslate"><span class="pre">&quot;jesse&quot;/4.0</span></code> in the <code class="docutils literal notranslate"><span class="pre">students</span></code> map, we could access the grade with:</p>

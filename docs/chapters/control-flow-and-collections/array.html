@@ -86,10 +86,9 @@
     
   <div class="section" id="array">
 <h1>3.5. Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h1>
-<p>We’ve been introduced to arrays in Java in <a class="reference internal" href="../data-types/more-data-types.html#array"><span class="std std-ref">a previous lesson</span></a>,
-so let’s spend a moment comparing them to <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>. As we noted at that beginning
-of this section, we are going to use the Java <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> type to store
-simple sets of data. They are generally easier to use.</p>
+<p>We learned about arrays in Java in <a class="reference internal" href="../data-types/more-data-types.html#array"><span class="std std-ref">a previous lesson</span></a>,
+so let’s spend a moment comparing them to <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>. <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>
+are generally easier to use that Java’s <code class="docutils literal notranslate"><span class="pre">Array</span></code>. Let’s see why this is.</p>
 <p>Why does Java have both <code class="docutils literal notranslate"><span class="pre">Arrays</span></code> and <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>? The answer is
 historical, at least in part. Java is a C-style language, and arrays are
 the most basic data structure in C. Using an <code class="docutils literal notranslate"><span class="pre">Array</span></code> over an
@@ -158,50 +157,50 @@ using <code class="docutils literal notranslate"><span class="pre">Arrays</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayGradebook</span> <span class="o">{</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
 
-        <span class="c1">// Allow for at most 30 students</span>
-        <span class="kt">int</span> <span class="n">maxStudents</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+      <span class="c1">// Allow for at most 30 students</span>
+      <span class="kt">int</span> <span class="n">maxStudents</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
 
-        <span class="n">String</span><span class="o">[]</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">maxStudents</span><span class="o">];</span>
-        <span class="kt">double</span><span class="o">[]</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">maxStudents</span><span class="o">];</span>
-        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+      <span class="n">String</span><span class="o">[]</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">maxStudents</span><span class="o">];</span>
+      <span class="kt">double</span><span class="o">[]</span> <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">double</span><span class="o">[</span><span class="n">maxStudents</span><span class="o">];</span>
+      <span class="n">Scanner</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
 
-        <span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
-        <span class="kt">int</span> <span class="n">numStudents</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+      <span class="n">String</span> <span class="n">newStudent</span><span class="o">;</span>
+      <span class="kt">int</span> <span class="n">numStudents</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter your students (or ENTER to finish):&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Enter your students (or ENTER to finish):&quot;</span><span class="o">);</span>
 
-        <span class="c1">// Get student names</span>
-        <span class="k">do</span> <span class="o">{</span>
-            <span class="n">newStudent</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+      <span class="c1">// Get student names</span>
+      <span class="k">do</span> <span class="o">{</span>
+         <span class="n">newStudent</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
 
-            <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
-                <span class="n">students</span><span class="o">[</span><span class="n">numStudents</span><span class="o">]</span> <span class="o">=</span> <span class="n">newStudent</span><span class="o">;</span>
-                <span class="n">numStudents</span><span class="o">++;</span>
-            <span class="o">}</span>
+         <span class="k">if</span> <span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">students</span><span class="o">[</span><span class="n">numStudents</span><span class="o">]</span> <span class="o">=</span> <span class="n">newStudent</span><span class="o">;</span>
+            <span class="n">numStudents</span><span class="o">++;</span>
+         <span class="o">}</span>
 
-        <span class="o">}</span> <span class="k">while</span><span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
+      <span class="o">}</span> <span class="k">while</span><span class="o">(!</span><span class="n">newStudent</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
 
-        <span class="c1">// Get student grades</span>
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numStudents</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Grade for &quot;</span> <span class="o">+</span> <span class="n">students</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="o">);</span>
-            <span class="kt">double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
-            <span class="n">grades</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">grade</span><span class="o">;</span>
-        <span class="o">}</span>
+      <span class="c1">// Get student grades</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numStudents</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Grade for &quot;</span> <span class="o">+</span> <span class="n">students</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span><span class="o">);</span>
+         <span class="kt">double</span> <span class="n">grade</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">();</span>
+         <span class="n">grades</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">grade</span><span class="o">;</span>
+      <span class="o">}</span>
 
-        <span class="c1">// Print class roster</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\nClass roster:&quot;</span><span class="o">);</span>
-        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+      <span class="c1">// Print class roster</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\nClass roster:&quot;</span><span class="o">);</span>
+      <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
 
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numStudents</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">students</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> <span class="n">grades</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">);</span>
-            <span class="n">sum</span> <span class="o">+=</span> <span class="n">grades</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-        <span class="o">}</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numStudents</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">students</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> <span class="n">grades</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">);</span>
+         <span class="n">sum</span> <span class="o">+=</span> <span class="n">grades</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+      <span class="o">}</span>
 
-        <span class="kt">double</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">numStudents</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Average grade: &quot;</span> <span class="o">+</span> <span class="n">avg</span><span class="o">);</span>
-    <span class="o">}</span>
+      <span class="kt">double</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">numStudents</span><span class="o">;</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Average grade: &quot;</span> <span class="o">+</span> <span class="n">avg</span><span class="o">);</span>
+   <span class="o">}</span>
 
 <span class="o">}</span>
 </pre></div>

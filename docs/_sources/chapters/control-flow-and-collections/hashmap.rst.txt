@@ -25,13 +25,13 @@ to be different types for a given map.
    import java.util.HashMap;
    import java.util.Map;
    import java.util.Scanner;
-   
+
    public class HashMapGradebook {
 
       public static void main(String[] args) {
 
          HashMap<String, Double> students = new HashMap<>();
-         Scanner in = new Scanner(System.in);
+         Scanner input = new Scanner(System.in);
          String newStudent;
 
          System.out.println("Enter your students (or ENTER to finish):");
@@ -40,15 +40,15 @@ to be different types for a given map.
          do {
 
             System.out.print("Student: ");
-            newStudent = in.nextLine();
+            newStudent = input.nextLine();
 
             if (!newStudent.equals("")) {
                System.out.print("Grade: ");
-               Double newGrade = in.nextDouble();
+               Double newGrade = input.nextDouble();
                students.put(newStudent, newGrade);
 
                // Read in the newline before looping back
-               in.nextLine();
+               input.nextLine();
             }
 
          } while(!newStudent.equals(""));
@@ -64,14 +64,15 @@ to be different types for a given map.
 
          double avg = sum / students.size();
          System.out.println("Average grade: " + avg);
-      }    
+      }
    }
+
 
 We can add a new item with a ``.put()`` method, specifying both key and
 value: 
 
 .. sourcecode:: java
-	:lineno-start: 26
+   :lineno-start: 26
 
    students.put(newStudent, newGrade);
 
