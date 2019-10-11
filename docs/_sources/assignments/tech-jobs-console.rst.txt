@@ -172,7 +172,7 @@ red “stop” icon to stop the program.
 
 The ``main`` method can be summarized as follows:
 
-#. Present the user with choices on how to view data: list or search.
+#. Present the user with choices on how to view data: *list* or *search*.
 #. Based on that choice, prompt them for the column to apply the choice to. In
    the case of a search, we also ask for a search term.
 #. Carry out the request to the ``JobData`` class via one of its public
@@ -425,7 +425,7 @@ Make Search Methods Case-Insensitive
 
 You’ve completed your first two tasks!
 
-Let's assume you demonstrated the updated application or the Company Team, and
+Let's assume you demonstrated the updated application for the Company Team, and
 they noticed a feature that could be improved. When searching for jobs with
 the skill ``JavaScript`` some results were missing (e.g. the Watchtower
 Security job on line 31 of the CSV file). The search methods turn out to be
