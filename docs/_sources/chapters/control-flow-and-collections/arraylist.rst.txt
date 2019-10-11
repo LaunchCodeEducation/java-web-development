@@ -182,7 +182,7 @@ The next loop on display prints out each student’s name and grade:
 .. index:: ! ArrayList.size()
 
 Here, we introduce the syntax ``students.size()`` which utilizes the
-``ArrayList``\ ’s ``size()`` method to return the integer representing
+``size()`` method of ``ArrayList``. This method returns the integer representing
 the number of items in the list. This is similar to String's ``.length()`` 
 :ref:`method <string-methods>`.
 

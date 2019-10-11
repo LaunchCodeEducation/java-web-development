@@ -190,6 +190,14 @@ to be different types for a given map.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
+<p>Notice how a <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> called <code class="docutils literal notranslate"><span class="pre">students</span></code> is declared on line 11:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Double</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">&lt;String,</span> <span class="pre">Double&gt;</span></code> defines the data types for this map’s
+<code class="docutils literal notranslate"><span class="pre">&lt;key,</span> <span class="pre">value&gt;</span></code> pairs. Like the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>, when we call the <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>
+constructor on the right side of the assignment, we don’t need to specify
+type.</p>
 <p>We can add a new item with a <code class="docutils literal notranslate"><span class="pre">.put()</span></code> method, specifying both key and
 value:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">newStudent</span><span class="o">,</span> <span class="n">newGrade</span><span class="o">);</span>

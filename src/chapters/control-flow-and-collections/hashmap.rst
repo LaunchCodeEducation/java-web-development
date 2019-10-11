@@ -68,6 +68,18 @@ to be different types for a given map.
    }
 
 
+Notice how a ``HashMap`` called ``students`` is declared on line 11:
+
+.. sourcecode:: java
+   :lineno-start: 11
+
+   HashMap<String, Double> students = new HashMap<>();
+
+Here, ``<String, Double>`` defines the data types for this map's 
+``<key, value>`` pairs. Like the ``ArrayList``, when we call the ``HashMap``
+constructor on the right side of the assignment, we don’t need to specify 
+type.
+	
 We can add a new item with a ``.put()`` method, specifying both key and
 value: 
 
