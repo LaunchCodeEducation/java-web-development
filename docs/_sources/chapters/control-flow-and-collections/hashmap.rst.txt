@@ -79,7 +79,7 @@ Here, ``<String, Double>`` defines the data types for this map's
 ``<key, value>`` pairs. Like the ``ArrayList``, when we call the ``HashMap``
 constructor on the right side of the assignment, we don’t need to specify 
 type.
-	
+   
 We can add a new item with a ``.put()`` method, specifying both key and
 value: 
 
@@ -213,22 +213,50 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Given our ``HashMap``, 
-   ``moons = {"Mercury" = 0, "Venus" = 0, "Earth" = 1, "Mars" = 2, "Jupiter" = 79, "Saturn" = 82, "Uranus" = 27, "Neptune" = 14}``.
+   Given our ``HashMap``,
+
+   .. sourcecode:: java
+      :linenos:
+
+      moons = {
+         "Mercury" = 0, 
+         "Venus" = 0, 
+         "Earth" = 1, 
+         "Mars" = 2, 
+         "Jupiter" = 79, 
+         "Saturn" = 82, 
+         "Uranus" = 27, 
+         "Neptune" = 14
+      }
+      
    What is the method to return the key names?
 
-   #. ``Map.keys(moons)``
-   #. ``moons.keys()``
-   #. ``moons.keySet(moons)``
-   #. ``moons.keySet()``
+   #. ``Map.keys(moons);``
+   #. ``moons.keys();``
+   #. ``moons.keySet(moons);``
+   #. ``moons.keySet();``
 
-.. ans - ``moons.keySet()``
+.. ans - ``moons.keySet();``
 
 .. admonition:: Question
 
-   Given our ``HashMap``, 
-   ``moons = {"Mercury" = 0, "Venus" = 0, "Earth" = 1, "Mars" = 2, "Jupiter" = 79, "Saturn" = 82, "Uranus" = 27, "Neptune" = 14}``.
-   What will ``moons.get("Mars")`` return?
+   Given our ``HashMap``,
+
+   .. sourcecode:: java
+      :linenos:
+
+      moons = {
+         "Mercury" = 0, 
+         "Venus" = 0, 
+         "Earth" = 1, 
+         "Mars" = 2, 
+         "Jupiter" = 79, 
+         "Saturn" = 82, 
+         "Uranus" = 27, 
+         "Neptune" = 14
+      }
+   
+   What will ``moons.get("Mars");`` return?
 
    #. ``3``
    

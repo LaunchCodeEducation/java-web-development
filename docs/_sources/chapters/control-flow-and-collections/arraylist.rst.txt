@@ -336,6 +336,8 @@ Check Your Understanding
    #. True
    #. False
 
+.. ans: False
+
 .. admonition:: Question
 
    Create an ``ArrayList`` called ``charStars`` containing ``a``, ``b``, and ``c``.
@@ -368,6 +370,11 @@ Check Your Understanding
          :linenos:
       
          ArrayList<String> charStars = new ArrayList<>();
+         chars.add("a");
+         chars.add("b");
+         chars.add("c");
+
+.. ans: ArrayList<String> charStars = new ArrayList<>();
          chars.add("a");
          chars.add("b");
          chars.add("c");

@@ -336,21 +336,61 @@ should be able to use Java collections and learn new uses as you go.</p>
 <h2>3.6.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Given our <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>,
-<code class="docutils literal notranslate"><span class="pre">moons</span> <span class="pre">=</span> <span class="pre">{&quot;Mercury&quot;</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">&quot;Venus&quot;</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">&quot;Earth&quot;</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">&quot;Mars&quot;</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">&quot;Jupiter&quot;</span> <span class="pre">=</span> <span class="pre">79,</span> <span class="pre">&quot;Saturn&quot;</span> <span class="pre">=</span> <span class="pre">82,</span> <span class="pre">&quot;Uranus&quot;</span> <span class="pre">=</span> <span class="pre">27,</span> <span class="pre">&quot;Neptune&quot;</span> <span class="pre">=</span> <span class="pre">14}</span></code>.
-What is the method to return the key names?</p>
+<p>Given our <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>,</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">moons</span> <span class="o">=</span> <span class="o">{</span>
+   <span class="s">&quot;Mercury&quot;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
+   <span class="s">&quot;Venus&quot;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
+   <span class="s">&quot;Earth&quot;</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span>
+   <span class="s">&quot;Mars&quot;</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span>
+   <span class="s">&quot;Jupiter&quot;</span> <span class="o">=</span> <span class="mi">79</span><span class="o">,</span>
+   <span class="s">&quot;Saturn&quot;</span> <span class="o">=</span> <span class="mi">82</span><span class="o">,</span>
+   <span class="s">&quot;Uranus&quot;</span> <span class="o">=</span> <span class="mi">27</span><span class="o">,</span>
+   <span class="s">&quot;Neptune&quot;</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>What is the method to return the key names?</p>
 <ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">Map.keys(moons)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">moons.keys()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">moons.keySet(moons)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">moons.keySet()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Map.keys(moons);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">moons.keys();</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">moons.keySet(moons);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">moons.keySet();</span></code></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Given our <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>,
-<code class="docutils literal notranslate"><span class="pre">moons</span> <span class="pre">=</span> <span class="pre">{&quot;Mercury&quot;</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">&quot;Venus&quot;</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">&quot;Earth&quot;</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">&quot;Mars&quot;</span> <span class="pre">=</span> <span class="pre">2,</span> <span class="pre">&quot;Jupiter&quot;</span> <span class="pre">=</span> <span class="pre">79,</span> <span class="pre">&quot;Saturn&quot;</span> <span class="pre">=</span> <span class="pre">82,</span> <span class="pre">&quot;Uranus&quot;</span> <span class="pre">=</span> <span class="pre">27,</span> <span class="pre">&quot;Neptune&quot;</span> <span class="pre">=</span> <span class="pre">14}</span></code>.
-What will <code class="docutils literal notranslate"><span class="pre">moons.get(&quot;Mars&quot;)</span></code> return?</p>
+<p>Given our <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>,</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">moons</span> <span class="o">=</span> <span class="o">{</span>
+   <span class="s">&quot;Mercury&quot;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
+   <span class="s">&quot;Venus&quot;</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
+   <span class="s">&quot;Earth&quot;</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span>
+   <span class="s">&quot;Mars&quot;</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span>
+   <span class="s">&quot;Jupiter&quot;</span> <span class="o">=</span> <span class="mi">79</span><span class="o">,</span>
+   <span class="s">&quot;Saturn&quot;</span> <span class="o">=</span> <span class="mi">82</span><span class="o">,</span>
+   <span class="s">&quot;Uranus&quot;</span> <span class="o">=</span> <span class="mi">27</span><span class="o">,</span>
+   <span class="s">&quot;Neptune&quot;</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>What will <code class="docutils literal notranslate"><span class="pre">moons.get(&quot;Mars&quot;);</span></code> return?</p>
 <ol class="last arabic simple">
 <li><code class="docutils literal notranslate"><span class="pre">3</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">{Mars:</span> <span class="pre">3}</span></code></li>
