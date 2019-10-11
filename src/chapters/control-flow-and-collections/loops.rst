@@ -136,7 +136,7 @@ called the **do-while loop**. The ``do-while`` loop is very similar to
 ``while`` except that the condition is evaluated at the end of the loop
 rather than the beginning. This ensures that a loop *will be executed at
 least one time*. Some programmers prefer this loop in some situations
-because it avoids an additional assignment prior to the loop. 
+because it avoids an additional assignment prior to the loop.
 
 For example:
 
