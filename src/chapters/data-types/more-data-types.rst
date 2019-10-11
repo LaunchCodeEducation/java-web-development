@@ -1,6 +1,8 @@
 More Data Types
 ================
 
+.. _array:
+
 Arrays
 -------
 

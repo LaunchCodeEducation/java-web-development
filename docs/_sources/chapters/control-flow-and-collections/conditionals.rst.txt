@@ -353,27 +353,27 @@ Check Your Understanding
    Given the code above, what prints if the user enters ``no`` after the prompt?
 
    #. 
-      .. sourcecode:: java
+   
+      .. sourcecode:: bash
       
          Greetings cadet.
    #. 
    
-      .. sourcecode:: java
+      .. sourcecode:: bash
       
          Greetings normie.
-   #. 
-      .. sourcecode:: java
-      
+
+   #. .. sourcecode:: bash
+   
          Greetings normie.
          Are you an alien?
    #. 
-      .. sourcecode:: java
+   
+      .. sourcecode:: bash
       
          Greetings cadet.
          Greetings normie.
-         
+
 .. ans:  Greetings normie.
          Are you an alien?
-         
-
 

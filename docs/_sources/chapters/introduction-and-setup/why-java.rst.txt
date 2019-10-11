@@ -1,7 +1,9 @@
 Why Learn Java?
 ===============
 
-This course is an introduction to Java and the Spring Boot framework. Java is a
+.. index:: ! Java
+
+This course is an introduction to **Java** and the Spring Boot framework. Java is a
 powerful programming language and one of the most widely used across the globe. 
 This course is designed for learners who are already familiar with at least one
 programming language. Thus, we'll move quickly through the syntax rules and
