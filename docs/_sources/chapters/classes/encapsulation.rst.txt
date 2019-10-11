@@ -4,11 +4,13 @@ Encapsulation
 Our discussion of classes and objects is integral to us using **object-oriented programming**.
 Object-oriented programming stands on four pillars: abstraction, encapsulation, inheritance, and polymorphism.
 
+.. index:: ! encapsulation
+
 Encapsulation
 -------------
 
 **Encapsulation** is the bundling of related data and behaviors that operate on that data, usually with restricted access to internal, non-public data and behaviors.
-In object-oriented programming, classes and objects allow us to encapsulate, or isolate, data and behavior to only the parts of our program to which they arerelevant.
+In object-oriented programming, classes and objects allow us to encapsulate, or isolate, data and behavior to only the parts of our program to which they are relevant.
 Restricting access allows us to expose only that data and behavior that we want others to be able to use.
 
 Let's take a look at this by developing a new class called ``Student``.
@@ -85,8 +87,8 @@ fields private.
 
        private String name;
        private int studentId;
-       private int numberOfCredits;
-       private double gpa;
+       private int numberOfCredits = 0;
+       private double gpa = 0.0;
 
    }
 
@@ -142,9 +144,8 @@ setters to control access. Here are just a few:
 As an example of reason 2, let’s take a short detour to look at a
 ``Temperature`` class. A valid temperature can only be so low (“absolute
 zero”), so we wouldn’t want to allow somebody to set an invalid value.
-In ``setFahrenheit`` we throw an exception if an invalid value is
-provided (we’ll cover exceptions in detail later, but for now note that
-they are ways of signaling errors).
+In ``setFahrenheit`` we print out if an invalid value is
+provided.
 
 .. sourcecode:: java
    :linenos:
@@ -162,7 +163,7 @@ they are ways of signaling errors).
            double absoluteZeroFahrenheit = -459.67;
 
            if (aFahrenheit < absoluteZeroFahrenheit) {
-               throw new IllegalArgumentException("Value is below absolute zero");
+               System.out.println("Value is below absolute zero");
            }
 
            fahrenheit = aFahrenheit;
@@ -208,15 +209,15 @@ do it as follows:
        setFahrenheit(fahrenheit);
    }
 
-Since there’s a link between Fahrenheit and celsius, we want to make
+Since there’s a link between ``fahrenheit`` and ``celsius``, we want to make
 sure that when one is updated, so is the other. In this case, we only
 store one field value (``fahrenheit``) and make the appropriate
-calculation when getting or setting the celsius property.
+calculation when getting or setting the ``celsius`` property.
 
 .. note::
 
    There are slight variations among Java developers when it comes to
-   colloquial usage of the term “property”. People will sometimes define
+   colloquial usage of the term *property*. People will sometimes define
    the term in a slightly more specific or narrow way, to mean a private
    field with public getters and setters.
 
@@ -236,3 +237,5 @@ Check Your Understanding
    b. method
    c. property
    d. setter
+
+.. ans: A setter is a method that gives a private field a value.

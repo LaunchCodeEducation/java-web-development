@@ -137,16 +137,16 @@ might use it:</p>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">goodbye</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span> <span class="c1">// prints &quot;Goodbye World&quot;</span>
 </pre></div>
 </div>
-<div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p>It’s not required that every class have a constructor. If you don’t
-provide one, the Java compiler will generate an “empty” constructor for
+<p id="index-0">It’s not required that every class have a constructor. If you don’t
+provide one, the Java compiler will generate an empty constructor for
 you, known as a <strong>default constructor</strong>. For example, when we left out a
 constructor in our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class above, the compiler created the
 following constructor for us:</p>
-<p class="last">While this can be convenient, you almost always want to provide a
-constructor to properly initialize your objects.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">HelloWorld</span><span class="o">()</span> <span class="o">{}</span>
+</pre></div>
 </div>
+<p>While this can be convenient, you almost always want to provide a
+constructor to properly initialize your objects.</p>
 <div class="section" id="overloading-constructors">
 <h2>2.4.1. Overloading Constructors<a class="headerlink" href="#overloading-constructors" title="Permalink to this headline">¶</a></h2>
 <p>We can provide multiple constructors for a given class in order to allow
@@ -263,22 +263,60 @@ safe to initialize <code class="docutils literal notranslate"><span class="pre">
 </td></tr></table></div>
 <p class="last">Here, we use <code class="docutils literal notranslate"><span class="pre">this()</span></code> to invoke another constructor within the same
 class. In this case, the second constructor calls the first with the
-“default” values for <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code>. If you use this
+default values for <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code>. If you use this
 syntax, the call to <code class="docutils literal notranslate"><span class="pre">this()</span></code> must be the first line in the
 constructor. This is a good practice not only because it makes your code
 shorter, but also because it allows any initialization behavior that may
 be carried out beyond just initializing variables to be contained in a
-smaller number of constructors. In other words, constructors can “share”
+smaller number of constructors. In other words, constructors can share
 initialization code. Notice from this example that a constructor doesn’t
 need to require an initial value for each field as an argument.</p>
 </div>
-<div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">When defining constructors, think about: 1. Which fields must be
-initialized for your class to work properly? Be sure you initialize
-every such field. 1. Which fields should be initialized by the user
-creating an object, and which should be initialized by the class itself?
-1. What are the use-cases for your class that you should provide for?</p>
+<p>When defining constructors, think about:</p>
+<ol class="arabic simple">
+<li>Which fields must be initialized for your class to work properly? Be sure you initialize every such field.</li>
+<li>Which fields should be initialized by the user creating an object, and which should be initialized by the class itself?</li>
+<li>What are the use-cases for your class that you should provide for?</li>
+</ol>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>2.4.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>A constructor is required for every class.</p>
+<ol class="last upperalpha simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Let’s take a look at a class called <code class="docutils literal notranslate"><span class="pre">Dog</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="o">{</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">breed</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Dog</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">breed</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">breed</span> <span class="o">=</span> <span class="n">breed</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>What line of code would be appropriate for us to declare an instance of the <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class called <code class="docutils literal notranslate"><span class="pre">myDog</span></code> and give it the name, “Bernie”, and the breed, “Beagle”?</p>
+<ol class="last upperalpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">Dog</span> <span class="pre">myDog</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Dog(Bernie,beagle);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Dog</span> <span class="pre">myDog</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Dog(&quot;Bernie&quot;,&quot;beagle&quot;);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Dog</span> <span class="pre">Bernie</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">Dog(&quot;Bernie&quot;,&quot;beagle&quot;);</span></code></li>
+</ol>
 </div>
 </div>
 </div>

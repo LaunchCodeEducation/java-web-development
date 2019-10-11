@@ -88,10 +88,10 @@
 <h1>2.3. Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">¶</a></h1>
 <p>Our discussion of classes and objects is integral to us using <strong>object-oriented programming</strong>.
 Object-oriented programming stands on four pillars: abstraction, encapsulation, inheritance, and polymorphism.</p>
-<div class="section" id="id1">
-<h2>2.3.1. Encapsulation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="index-0">
+<span id="id1"></span><h2>2.3.1. Encapsulation<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
 <p><strong>Encapsulation</strong> is the bundling of related data and behaviors that operate on that data, usually with restricted access to internal, non-public data and behaviors.
-In object-oriented programming, classes and objects allow us to encapsulate, or isolate, data and behavior to only the parts of our program to which they arerelevant.
+In object-oriented programming, classes and objects allow us to encapsulate, or isolate, data and behavior to only the parts of our program to which they are relevant.
 Restricting access allows us to expose only that data and behavior that we want others to be able to use.</p>
 <p>Let’s take a look at this by developing a new class called <code class="docutils literal notranslate"><span class="pre">Student</span></code>.</p>
 </div>
@@ -169,8 +169,8 @@ fields private.</p>
 
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">numberOfCredits</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">gpa</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
 
 <span class="o">}</span>
 </pre></div>
@@ -229,9 +229,8 @@ or package-private to everyone.</li>
 <p>As an example of reason 2, let’s take a short detour to look at a
 <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> class. A valid temperature can only be so low (“absolute
 zero”), so we wouldn’t want to allow somebody to set an invalid value.
-In <code class="docutils literal notranslate"><span class="pre">setFahrenheit</span></code> we throw an exception if an invalid value is
-provided (we’ll cover exceptions in detail later, but for now note that
-they are ways of signaling errors).</p>
+In <code class="docutils literal notranslate"><span class="pre">setFahrenheit</span></code> we print out if an invalid value is
+provided.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -263,7 +262,7 @@ they are ways of signaling errors).</p>
         <span class="kt">double</span> <span class="n">absoluteZeroFahrenheit</span> <span class="o">=</span> <span class="o">-</span><span class="mf">459.67</span><span class="o">;</span>
 
         <span class="k">if</span> <span class="o">(</span><span class="n">aFahrenheit</span> <span class="o">&lt;</span> <span class="n">absoluteZeroFahrenheit</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;Value is below absolute zero&quot;</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Value is below absolute zero&quot;</span><span class="o">);</span>
         <span class="o">}</span>
 
         <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">aFahrenheit</span><span class="o">;</span>
@@ -308,14 +307,14 @@ do it as follows:</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Since there’s a link between Fahrenheit and celsius, we want to make
+<p>Since there’s a link between <code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code> and <code class="docutils literal notranslate"><span class="pre">celsius</span></code>, we want to make
 sure that when one is updated, so is the other. In this case, we only
 store one field value (<code class="docutils literal notranslate"><span class="pre">fahrenheit</span></code>) and make the appropriate
-calculation when getting or setting the celsius property.</p>
+calculation when getting or setting the <code class="docutils literal notranslate"><span class="pre">celsius</span></code> property.</p>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">There are slight variations among Java developers when it comes to
-colloquial usage of the term “property”. People will sometimes define
+colloquial usage of the term <em>property</em>. People will sometimes define
 the term in a slightly more specific or narrow way, to mean a private
 field with public getters and setters.</p>
 </div>

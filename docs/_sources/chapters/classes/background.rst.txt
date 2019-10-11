@@ -1,14 +1,18 @@
 Classes for Java
 ================
 
+.. index:: ! classes, ! class, ! object, ! objects
+
 In previous programming studies, we have come across **classes** and **objects**. 
 Classes and objects in Java are similar to classes and objects in other languages.
 
 A Minimal Class and Object
 --------------------------
 
+.. index:: ! fields, ! methods, ! members
+
 Classes may contain **fields** and **methods**.
-Fields contain our data for the class and methods contain actions.
+Fields contain our data for the class and methods define actions a class can take.
 We say that fields and methods are **members** of a class.
 
 .. admonition:: Example
@@ -32,9 +36,14 @@ We say that fields and methods are **members** of a class.
 
 The only field in the ``HelloWorld`` class is the string ``message``, while the only
 method is ``sayHello``, which prints the value of the ``message`` field
-and doesn’t return anything. Note that there is no ``main`` method, so
-there is no way to run the code in this class directly. Running the code
-will require some additional work.
+and doesn’t return anything. 
+
+.. note::
+
+   There is no ``main`` method, which is required to run a Java program.
+   Without it, we have to do some additional work to get our program to run!
+
+.. index:: ! instance
 
 To execute ``sayHello``, we’ll need to create an **instance** of the
 class ``HelloWorld``. We refer to an object created from a particular class as an instance of that class.
@@ -54,11 +63,11 @@ Here’s how this might look with our ``HelloWorld`` class:
          }
       }
 
-   In order to call the ``sayHello`` method of ``HelloWorld``, we must
-   first have an instance of ``HelloWorld``, which we create using the
-   syntax ``new HelloWorld()``. As with built-in classes, classes that we
-   create define their own types. So the object ``hello`` is a variable of
-   type ``HelloWorld``.
+In order to call the ``sayHello`` method of ``HelloWorld``, we must
+first have an instance of ``HelloWorld``, which we create using the
+syntax ``new HelloWorld()``. As with built-in classes, classes that we
+create define their own types. So the object ``hello`` is a variable of
+type ``HelloWorld``.
 
 We introduced this ``HelloWorld`` class as a means of illustrating the simplest
 representation of some basic concepts in Java. The goal of the next few
@@ -68,6 +77,8 @@ elegantly solve difficult problems.
 
 The ``this`` Keyword
 --------------------
+
+.. index:: ! this keyword
 
 In ``HelloWorld`` above, we could have written ``sayHello`` this way,
 with the same net effect:
@@ -113,7 +124,9 @@ this case, in order to refer to the field, we *must* use ``this``.
          }
       }
 
-.. note::
+.. index:: ! shadowing
+
+.. warning::
 
    When a local variable has the same name as a field, we say that the
    local variable **shadows** the field. Errors caused by shadowing can be
@@ -121,7 +134,7 @@ this case, in order to refer to the field, we *must* use ``this``.
 
 .. note:: 
 
-   If you want to learn more about `using the this keyword <https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html>`_.
+   If you want to learn more about this subject, check out the Oracle Documentation on `using the this keyword <https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html>`_.
 
 Check Your Understanding
 ------------------------
@@ -146,3 +159,5 @@ Check Your Understanding
    b. line 3
    c. line 6
    d. line 1
+
+.. ans: lines 3, 6, and 7 all have bugs.

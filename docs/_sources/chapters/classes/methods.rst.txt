@@ -4,7 +4,9 @@ Methods
 Calling Methods on Objects
 --------------------------
 
-A **method** is a procedure that belongs to a class. In Java, all
+.. index:: method
+
+A **method** is a function that belongs to a class. In Java, all
 procedures must be part of a class. Let’s revisit our ``HelloWorld`` class.
 
 .. sourcecode:: java
@@ -56,7 +58,7 @@ field available to print.
 Instance Methods
 ----------------
 
-So far we’ve only looked at examples of methods that are relatively
+So far, we’ve only looked at examples of methods that are relatively
 specialized: constructors, getters, and setters. Every class you create
 will have these methods. What will make your classes different from each
 other, and thus fulfill the purpose of creating each class, are the
@@ -124,4 +126,11 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   What is are the differences between an instance method, a getter, a setter, and a constructor?
+   Fill in the blanks with the appropriate terms.
+
+   A _____________ gives a class property a field.
+   A _____________ gives a programmer access to the value of a private class property.
+   A _____________ creates a new instance of a class with values for the fields.
+   A _____________ is a method that belongs to each instance of a class.
+
+.. ans: setter, getter, constructor, instance
