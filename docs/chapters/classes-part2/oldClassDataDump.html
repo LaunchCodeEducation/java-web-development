@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4.2. Old Java Curriculum: Encapsulating Behavior &#8212; Java Web Development  documentation</title>
+    <title>5.2. Old Java Curriculum: Encapsulating Behavior &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.3. Customizing Fields" href="customize-fields.html" />
-    <link rel="prev" title="4.1. Java Lesson 4 Objectives" href="class-4-objectives.html" />
+    <link rel="next" title="5.3. Customizing Fields" href="customize-fields.html" />
+    <link rel="prev" title="5.1. Java Lesson 4 Objectives" href="class-4-objectives.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">4. Objects and Classes, Part 2</a></li>
-    <li class="active">4.2. Old Java Curriculum: Encapsulating Behavior</li>
+    <li><a href="index.html">5. Objects and Classes, Part 2</a></li>
+    <li class="active">5.2. Old Java Curriculum: Encapsulating Behavior</li>
 </ol>
 
 
@@ -85,11 +85,11 @@
 
     
   <div class="section" id="old-java-curriculum-encapsulating-behavior">
-<h1>4.2. Old Java Curriculum: Encapsulating Behavior<a class="headerlink" href="#old-java-curriculum-encapsulating-behavior" title="Permalink to this headline">¶</a></h1>
+<h1>5.2. Old Java Curriculum: Encapsulating Behavior<a class="headerlink" href="#old-java-curriculum-encapsulating-behavior" title="Permalink to this headline">¶</a></h1>
 <p>Having explored configuring data within classes (via fields and
 properties), let’s turn our attention to behavior (methods).</p>
 <div class="section" id="calling-methods-on-objects">
-<h2>4.2.1. Calling Methods on Objects<a class="headerlink" href="#calling-methods-on-objects" title="Permalink to this headline">¶</a></h2>
+<h2>5.2.1. Calling Methods on Objects<a class="headerlink" href="#calling-methods-on-objects" title="Permalink to this headline">¶</a></h2>
 <p>A <strong>method</strong> is a procedure that belongs to a class. In Java, all
 procedures must be part of a class, a significant difference from
 Python, where functions may stand on their own. Let’s revisit our
@@ -132,7 +132,7 @@ to use them, and when you are committed to maintaining those methods for
 other calling programs that may use them.</p>
 </aside></div>
 <div class="section" id="instance-methods">
-<h2>4.2.2. Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
+<h2>5.2.2. Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
 <p>So far we’ve only looked at examples of methods that are relatively
 specialized: constructors, getters, and setters. Every class you create
 will have these methods. What will make your classes different from each
@@ -191,7 +191,7 @@ an exercise.</p>
 make available, as well as the access level of those methods.</p>
 </div>
 <div class="section" id="static-methods">
-<h2>4.2.3. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
+<h2>5.2.3. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
 <p>Static methods are not new to us. We’ve used them quite a bit, all the
 way back to our first Java method:
 <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">main(String[]</span> <span class="pre">args)</span></code>. Now let’s present them in
@@ -243,13 +243,13 @@ These methods tend to be utility-like, carrying out a calculation, or
 using or fetching some external resource.</p>
 </div>
 <div class="section" id="special-methods">
-<h2>4.2.4. Special Methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
+<h2>5.2.4. Special Methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
 <p>Every class has a few special methods that belong to it, regardless of
 whether or not we define them. Exactly <em>how</em> every class obtains these
 methods will be explored in a future lesson. For now, let’s look at the
 most important of these methods.</p>
 <div class="section" id="tostring">
-<h3>4.2.4.1. toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<h3>5.2.4.1. toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">toString</span></code> method returns a string representation of a class.
 Calling <code class="docutils literal notranslate"><span class="pre">toString</span></code> on a class that you’ve written will result in
 something like this:</p>
@@ -278,7 +278,7 @@ System.out.println(john);
 </div>
 </div>
 <div class="section" id="equals">
-<h3>4.2.4.2. equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
+<h3>5.2.4.2. equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we had two objects of type <code class="docutils literal notranslate"><span class="pre">Student</span></code>, say <code class="docutils literal notranslate"><span class="pre">student1</span></code> and
 <code class="docutils literal notranslate"><span class="pre">student2</span></code>, and we wanted to determine if they were equal. We might
 try to compare them using <code class="docutils literal notranslate"><span class="pre">==</span></code>, but since these are
@@ -345,14 +345,14 @@ converted student’s ID to that of the current student.</p>
 <p>Here’s a visualization of the concepts of equality and identity:</p>
 <p><strong>Equality</strong></p>
 <div class="figure" id="id1">
-<img alt="Equality" src="chapters/classes-part2/equality.png" />
+<img alt="Equality" src="../../_images/equality.png" />
 <p class="caption"><span class="caption-text">Equality</span></p>
 </div>
 <p>When you are testing for equality, you will be looking at two different
 objects and comparing some aspect of them to each other.</p>
 <p><strong>Identity</strong></p>
 <div class="figure" id="id2">
-<img alt="Identity" src="chapters/classes-part2/identity.png" />
+<img alt="Identity" src="../../_images/identity.png" />
 <p class="caption"><span class="caption-text">Identity</span></p>
 </div>
 <p>When you are testing for identity, you will look at two variables to see
@@ -431,7 +431,7 @@ save a few checks.</p>
 </pre></div>
 </div>
 <div class="section" id="components-of-equals">
-<h4>4.2.4.2.1. Components of equals<a class="headerlink" href="#components-of-equals" title="Permalink to this headline">¶</a></h4>
+<h4>5.2.4.2.1. Components of equals<a class="headerlink" href="#components-of-equals" title="Permalink to this headline">¶</a></h4>
 <p>Almost every equals method that you write will look similar to this one,
 and will contain the following segments, in order:</p>
 <ol class="arabic simple">
@@ -448,7 +448,7 @@ comparison of properties or fields.</li>
 </ol>
 </div>
 <div class="section" id="characteristics-of-equals">
-<h4>4.2.4.2.2. Characteristics of equals<a class="headerlink" href="#characteristics-of-equals" title="Permalink to this headline">¶</a></h4>
+<h4>5.2.4.2.2. Characteristics of equals<a class="headerlink" href="#characteristics-of-equals" title="Permalink to this headline">¶</a></h4>
 <p>Now that we know how to write an <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method, let’s look at some
 characteristics that every such method should have. If you follow the
 general outline above, ensuring that your <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method has these
@@ -497,7 +497,7 @@ see if two variables refer to the same literal object.</p>
 </div>
 </div>
 <div class="section" id="single-responsibility-principle">
-<h2>4.2.5. Single Responsibility Principle<a class="headerlink" href="#single-responsibility-principle" title="Permalink to this headline">¶</a></h2>
+<h2>5.2.5. Single Responsibility Principle<a class="headerlink" href="#single-responsibility-principle" title="Permalink to this headline">¶</a></h2>
 <p>As we wrap up our whirlwind tour of encapsulation, we want you think a
 bit about how to go about building good classes. Doing so is more of an
 art than a science, and it will take you lots of practice and time.
@@ -523,7 +523,7 @@ time. The best way to improve is to write lots of code, ask lots of
 questions, and continue learning!</p>
 </div>
 <div class="section" id="references">
-<h2>4.2.6. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>5.2.6. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank">Defining Methods
 (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
@@ -545,10 +545,10 @@ Principle<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="class-4-objectives.html"><span aria-hidden="true">&larr;</span> 4.1. Java Lesson 4 Objectives</a></li>
+        <li class="previous"><a href="class-4-objectives.html"><span aria-hidden="true">&larr;</span> 5.1. Java Lesson 4 Objectives</a></li>
         
         
-        <li class="next"><a href="customize-fields.html">4.3. Customizing Fields <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="customize-fields.html">5.3. Customizing Fields <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

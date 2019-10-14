@@ -320,7 +320,7 @@ Here’s a visualization of the concepts of equality and identity:
 
 **Equality**
 
-.. figure:: equality.png
+.. figure:: ./figures/equality.png
    :alt: Equality
 
    Equality
@@ -330,7 +330,7 @@ objects and comparing some aspect of them to each other.
 
 **Identity**
 
-.. figure:: identity.png
+.. figure:: ./figures/identity.png
    :alt: Identity
 
    Identity
