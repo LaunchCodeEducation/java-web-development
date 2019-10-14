@@ -9,6 +9,7 @@ Chapters
    chapters/introduction-and-setup/index
    chapters/data-types/index
    chapters/control-flow-and-collections/index
+   chapters/classes/index
 
 .. toctree::
 
