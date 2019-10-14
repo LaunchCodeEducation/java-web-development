@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2. Data Types &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.1. Data Types" href="data-types.html" />
+    <link rel="prev" title="1.4. Java Naming Conventions" href="../introduction-and-setup/naming-conventions.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li class="active">2. Data Types</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="data-types">
+<span id="id1"></span><h1>2. Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ol>
+<li class="toctree-l1"><a class="reference internal" href="data-types.html">2.1. Data Types</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#static-vs-dynamic-typing">2.1.1. Static vs.&nbsp;Dynamic Typing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#strings-and-single-characters">2.1.2. Strings and Single Characters</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="data-types.html#immutability">2.1.2.1. Immutability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-types.html#single-vs-double-quotation-marks">2.1.2.2. Single vs. Double Quotation Marks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="data-types.html#manipulation">2.1.2.3. Manipulation</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#primitive-types">2.1.3. Primitive Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#non-primitive-types">2.1.4. Non-primitive Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#autoboxing">2.1.5. Autoboxing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#references">2.1.6. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-types.html#check-your-understanding">2.1.7. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="some-java-practice.html">2.2. Some Java Practice</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#temperature-conversion">2.2.1. Temperature Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#index-0">2.2.2. Java Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#import">2.2.3. <code class="docutils literal notranslate"><span class="pre">import</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#declaring-variables">2.2.4. Declaring Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#add-comments-to-your-code">2.2.5. Add Comments to Your Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#collect-input-with-the-scanner-class">2.2.6. Collect Input with the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> Class</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="some-java-practice.html#closing-scanner">2.2.6.1. Closing <code class="docutils literal notranslate"><span class="pre">Scanner</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="some-java-practice.html#moving-beyond-the-command-line">2.2.6.2. Moving Beyond the Command Line</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="some-java-practice.html#check-your-understanding">2.2.7. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="more-data-types.html">2.3. More Data Types</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#arrays">2.3.1. Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#java-objects">2.3.2. Java Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#class-types">2.3.3. Class Types</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="more-data-types.html#reference-variables">2.3.3.1. Reference Variables</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#static-methods">2.3.4. Static Methods</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="more-data-types.html#static-method-examples">2.3.4.1. Static Method Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="more-data-types.html#try-it">2.3.4.2. Try It</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#references">2.3.5. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="more-data-types.html#check-your-understanding">2.3.6. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">2.4. Exercises: Data Types</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#instructions">2.4.1. Instructions</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html#creating-a-package-and-classes">2.4.1.1. Creating a Package and Classes</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#exercises">2.4.2. Exercises</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="studio.html">2.5. Studio: Area of a Circle</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#creating-your-class">2.5.1. Creating your class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#your-first-task">2.5.2. Your first task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#your-next-task">2.5.3. Your next task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#bonus-missions">2.5.4. Bonus Missions</a></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="../introduction-and-setup/naming-conventions.html"><span aria-hidden="true">&larr;</span> 1.4. Java Naming Conventions</a></li>
+        
+        
+        <li class="next"><a href="data-types.html">2.1. Data Types <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/data-types/index.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

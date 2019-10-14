@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.4. Constructors &#8212; Java Web Development  documentation</title>
+    <title>4.4. Constructors &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.5. Methods" href="methods.html" />
-    <link rel="prev" title="2.3. Encapsulation" href="encapsulation.html" />
+    <link rel="next" title="4.5. Methods" href="methods.html" />
+    <link rel="prev" title="4.3. Encapsulation" href="encapsulation.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">2. Classes in Java</a></li>
-    <li class="active">2.4. Constructors</li>
+    <li><a href="index.html">4. Classes in Java</a></li>
+    <li class="active">4.4. Constructors</li>
 </ol>
 
 
@@ -85,7 +85,7 @@
 
     
   <div class="section" id="constructors">
-<h1>2.4. Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h1>
+<h1>4.4. Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h1>
 <p>We’ll often want to initialize, or set the initial value of, some of our
 fields when creating a new object from a class. <strong>Constructors</strong> allow us to do so.</p>
 <p>In Java, constructors have the same name as the class and are most often
@@ -148,7 +148,7 @@ following constructor for us:</p>
 <p>While this can be convenient, you almost always want to provide a
 constructor to properly initialize your objects.</p>
 <div class="section" id="overloading-constructors">
-<h2>2.4.1. Overloading Constructors<a class="headerlink" href="#overloading-constructors" title="Permalink to this headline">¶</a></h2>
+<h2>4.4.1. Overloading Constructors<a class="headerlink" href="#overloading-constructors" title="Permalink to this headline">¶</a></h2>
 <p>We can provide multiple constructors for a given class in order to allow
 for different initialization scenarios. This is known as <strong>constructor
 overloading</strong>. When providing multiple constructors, we must ensure that
@@ -157,7 +157,7 @@ number, order, and type of the constructor arguments.</p>
 <p>Let’s expand upon our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -208,6 +208,7 @@ number, order, and type of the constructor arguments.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
+</div>
 <p>The first constructor allows for the creation of <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects
 where the code creating the object provides initial values for each of
 the fields. The second allows for the creation of <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects
@@ -216,7 +217,9 @@ most useful for creating a transfer student, where credits and a GPA
 might already be non-zero. However, for all new students, it would be
 safe to initialize <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code> to be 0.</p>
 <p>A better way to write the above constructors would be this:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -261,7 +264,8 @@ safe to initialize <code class="docutils literal notranslate"><span class="pre">
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">Here, we use <code class="docutils literal notranslate"><span class="pre">this()</span></code> to invoke another constructor within the same
+</div>
+<p>In the example above on line 15, we use <code class="docutils literal notranslate"><span class="pre">this()</span></code> to invoke another constructor within the same
 class. In this case, the second constructor calls the first with the
 default values for <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code>. If you use this
 syntax, the call to <code class="docutils literal notranslate"><span class="pre">this()</span></code> must be the first line in the
@@ -271,7 +275,6 @@ be carried out beyond just initializing variables to be contained in a
 smaller number of constructors. In other words, constructors can share
 initialization code. Notice from this example that a constructor doesn’t
 need to require an initial value for each field as an argument.</p>
-</div>
 <p>When defining constructors, think about:</p>
 <ol class="arabic simple">
 <li>Which fields must be initialized for your class to work properly? Be sure you initialize every such field.</li>
@@ -280,7 +283,7 @@ need to require an initial value for each field as an argument.</p>
 </ol>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>2.4.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>4.4.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>A constructor is required for every class.</p>
@@ -327,10 +330,10 @@ need to require an initial value for each field as an argument.</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="encapsulation.html"><span aria-hidden="true">&larr;</span> 2.3. Encapsulation</a></li>
+        <li class="previous"><a href="encapsulation.html"><span aria-hidden="true">&larr;</span> 4.3. Encapsulation</a></li>
         
         
-        <li class="next"><a href="methods.html">2.5. Methods <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="methods.html">4.5. Methods <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

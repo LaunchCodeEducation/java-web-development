@@ -6,7 +6,9 @@ Chapters
    :maxdepth: 1
    :name: chapterstoc
 
-   chapters/setup-intro-data-types/index
+   chapters/introduction-and-setup/index
+   chapters/data-types/index
+   chapters/control-flow-and-collections/index
    chapters/classes/index
 
 .. toctree::
@@ -20,7 +22,8 @@ Studios
    :maxdepth: 1
    :name: studiostoc
 
-   chapters/setup-intro-data-types/studio
+   chapters/data-types/studio
+   chapters/control-flow-and-collections/studio
 
 Assignments
 ------------
@@ -28,6 +31,11 @@ Assignments
 .. toctree::
    :maxdepth: 1
    :name: assignmentstoc
+
+   assignments/how-to-submit
+   assignments/tech-jobs-console
+   assignments/tech-jobs-mvc
+   assignments/tech-jobs-oo
 
 Appendices
 -----------
@@ -41,3 +49,4 @@ Appendices
 
    todos
    index-full
+   glossary

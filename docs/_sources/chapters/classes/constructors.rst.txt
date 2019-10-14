@@ -101,15 +101,17 @@ Let’s expand upon our ``Student`` class.
 
       }
 
-   The first constructor allows for the creation of ``Student`` objects
-   where the code creating the object provides initial values for each of
-   the fields. The second allows for the creation of ``Student`` objects
-   with only ``name`` and ``studentId``. The first constructor would be
-   most useful for creating a transfer student, where credits and a GPA
-   might already be non-zero. However, for all new students, it would be
-   safe to initialize ``numberOfCredits`` and ``gpa`` to be 0.
+The first constructor allows for the creation of ``Student`` objects
+where the code creating the object provides initial values for each of
+the fields. The second allows for the creation of ``Student`` objects
+with only ``name`` and ``studentId``. The first constructor would be
+most useful for creating a transfer student, where credits and a GPA
+might already be non-zero. However, for all new students, it would be
+safe to initialize ``numberOfCredits`` and ``gpa`` to be 0.
 
-   A better way to write the above constructors would be this:
+A better way to write the above constructors would be this:
+
+.. admonition:: Example
 
    .. sourcecode:: java
       :linenos:
@@ -137,16 +139,16 @@ Let’s expand upon our ``Student`` class.
 
       }
 
-   Here, we use ``this()`` to invoke another constructor within the same
-   class. In this case, the second constructor calls the first with the
-   default values for ``numberOfCredits`` and ``gpa``. If you use this
-   syntax, the call to ``this()`` must be the first line in the
-   constructor. This is a good practice not only because it makes your code
-   shorter, but also because it allows any initialization behavior that may
-   be carried out beyond just initializing variables to be contained in a
-   smaller number of constructors. In other words, constructors can share
-   initialization code. Notice from this example that a constructor doesn’t
-   need to require an initial value for each field as an argument.
+In the example above on line 15, we use ``this()`` to invoke another constructor within the same
+class. In this case, the second constructor calls the first with the
+default values for ``numberOfCredits`` and ``gpa``. If you use this
+syntax, the call to ``this()`` must be the first line in the
+constructor. This is a good practice not only because it makes your code
+shorter, but also because it allows any initialization behavior that may
+be carried out beyond just initializing variables to be contained in a
+smaller number of constructors. In other words, constructors can share
+initialization code. Notice from this example that a constructor doesn’t
+need to require an initial value for each field as an argument.
 
 When defining constructors, think about:
 
