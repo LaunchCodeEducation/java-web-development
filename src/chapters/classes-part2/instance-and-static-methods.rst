@@ -81,116 +81,130 @@ makes sense that when a student takes a class and earns a grade, their data
 should be updated accordingly. Additionally, it would be nice to easily
 identify the grade level of a student – freshman, sophomore, junior, or senior.
 
-Our last look at the ``Student`` class stubs out these methods below,
-without providing the implementation. That job is left to you to do as
-an exercise.
+The framework for these new methods is shown in the ``Student`` class below,
+but each method is missing some code. Filling in that code is left for you to
+do as one of the chapter exercises.
 
-.. code:: java
+   TODO: Make sure the chapter exercises ask for this!
+
+.. sourcecode:: java
+   :linenos:
 
    public class Student {
 
-       private static int nextStudentId = 1;
-       private String name;
-       private int studentId;
-       private int numberOfCredits;
-       private double gpa;
+      private static int nextStudentId = 1;
+      private String name;
+      private int studentId;
+      private int numberOfCredits;
+      private double gpa;
 
-       public Student(String name, int studentId,
-               int numberOfCredits, double gpa) {
-           this.name = name;
-           this.studentId = studentId;
-           this.numberOfCredits = numberOfCredits;
-           this.gpa = gpa;
-       }
+      public Student(String name, int studentId,
+            int numberOfCredits, double gpa) {
+         this.name = name;
+         this.studentId = studentId;
+         this.numberOfCredits = numberOfCredits;
+         this.gpa = gpa;
+      }
 
-       public Student(String name, int studentId) {
-           this(name, studentId, 0, 0);
-       }
+      public Student(String name, int studentId) {
+         this(name, studentId, 0, 0);
+      }
 
-       public Student(String name) {
-           this(name, nextStudentId);
-           nextStudentId++;
-       }
+      public Student(String name) {
+         this(name, nextStudentId);
+         nextStudentId++;
+      }
 
-       public void addGrade(int courseCredits, double grade) {
-           // Update the appropriate fields: numberOfCredits, gpa
-       }
+      public void addGrade(int courseCredits, double grade) {
+         // Update the appropriate fields: numberOfCredits, gpa
+      }
 
-       public String getGradeLevel() {
-           // Determine the grade level of the student based on numberOfCredits
-       }
+      public String getGradeLevel() {
+         // Determine the grade level of the student based on numberOfCredits
+      }
 
-       /* getters and setters omitted */
+      /* getters and setters omitted */
 
    }
 
-When creating your classes, think about the behaviors that you want to
-make available, as well as the access level of those methods.
+.. admonition:: Note
+
+   When creating your classes, think about the behaviors that you want to
+   make available, as well as the access level of those methods.
 
 Static Methods
 --------------
 
-Static methods are not new to us. We’ve used them quite a bit, all the
-way back to our first Java method:
-``public static void main(String[] args)``. Now let’s present them in
-the context of the rest of what we’ve recently learned about classes.
+Static methods are NOT new to us. We’ve used them quite a bit, all the way back
+to our first Java method:
 
-Analogous to static fields, **static methods** belong to the class as a
-whole, and not to any of the specific instances of the class. Thus, they
-are sometimes also called **class methods**. A static method can be
-thought of as the opposite of an instance method, since the two cases
-are mutually exclusive. Instance methods rely on each object’s specific
-data whereas static methods must *not* rely on data from a specific
-object.
+.. sourcecode:: Java
+
+   public static void main(String[] args) {}
+
+Now let’s examine them in the context of what we’ve recently learned about
+classes.
+
+.. index:: static methods, ! class methods
+
+Just like static fields, **static methods** belong to the class as a whole, and
+not to any of the specific instances of the class. Thus, they are sometimes
+also called **class methods**. A static method is essentially the opposite of
+an instance method, since the two cases are mutually exclusive.
+*Instance methods* rely on each object’s specific data, while *static methods*
+must NOT rely on data from a specific object.
 
 A static method may be called by preceding it with the class name and
-using dot-notation. Here’s an example that we looked at previously.
+using dot-notation. Here’s an example that we looked at
+:ref:`previously <more-data-types-static-method-example>`.
 
-.. code:: java
+.. admonition:: Examples
 
-   public class HelloMethods {
+   ``HelloMethods.java``
 
-       public static void main(String[] args) {
-           String message = Message.getMessage("fr");
-           System.out.println(message);
-       }
+   .. sourcecode:: java
+      :linenos:
 
-   }
+      public class HelloMethods {
 
-.. code:: java
+         public static void main(String[] args) {
+            String message = Message.getMessage("fr");
+            System.out.println(message);
+         }
 
-   public class Message {
+      }
 
-       public static String getMessage(String lang) {
+   ``Message.java``
 
-           if (lang.equals("sp")) {
-               return "Hola Mundo";
-           } else if (lang.equals("fr")) {
-               return "Bonjour le monde";
-           } else {
-               return "Hello World";
-           }
-       }
-   }
+   .. sourcecode:: java
+      :linenos:
 
-The call in question is: ``Message.getMessage("fr")``. We call the
-static method ``getMessage`` without needing an instance of the
-``Message`` class, using the name of the class itself.
+      public class Message {
 
-.. raw:: html
+         public static String getMessage(String lang) {
 
-   <aside class="aside-warning">
+            if (lang.equals("sp")) {
+                  return "Hola Mundo";
+            } else if (lang.equals("fr")) {
+                  return "Bonjour le monde";
+            } else {
+                  return "Hello World";
+            }
+         }
+      }
 
-It is technically allowed to call a static method using an instance of a
-class: ``myObject.someStaticMethod()``. However, this should be avoided
-in favor of using the class name to call the method so that it is clear
-you are using a static method.
+The call occurs in line 4: ``Message.getMessage("fr")``. We call the static
+``getMessage`` without needing an instance of the ``Message`` class. Instead,
+we use the name of the class itself.
 
-.. raw:: html
+.. admonition:: Warning
 
-   </aside>
+   It is technically allowed to call a static method using an instance of a
+   class: ``myObject.someStaticMethod()``. However, best practice recommends
+   using the class name instead: ``ClassName.someStaticMethod()``. This makes
+   it clear to other coders that you are calling a static method.
 
-A method should be static when it does not refer to any instance fields
-of the containing class (it *may* refer to static fields, however).
-These methods tend to be utility-like, carrying out a calculation, or
-using or fetching some external resource.
+A method should be static when it does not refer to any instance fields of the
+containing class (it *may* refer to static fields, however). These methods tend
+to be utility-like (e.g. carrying out a calculation, or using or fetching some
+external resource).

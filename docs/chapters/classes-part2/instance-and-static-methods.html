@@ -155,101 +155,171 @@ and they use the data of each such object.</p>
 makes sense that when a student takes a class and earns a grade, their data
 should be updated accordingly. Additionally, it would be nice to easily
 identify the grade level of a student – freshman, sophomore, junior, or senior.</p>
-<p>Our last look at the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class stubs out these methods below,
-without providing the implementation. That job is left to you to do as
-an exercise.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Student {
+<p>The framework for these new methods is shown in the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class below,
+but each method is missing some code. Filling in that code is left for you to
+do as one of the chapter exercises.</p>
+<blockquote>
+<div>TODO: Make sure the chapter exercises ask for this!</div></blockquote>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
 
-    private static int nextStudentId = 1;
-    private String name;
-    private int studentId;
-    private int numberOfCredits;
-    private double gpa;
+   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nextStudentId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">;</span>
 
-    public Student(String name, int studentId,
-            int numberOfCredits, double gpa) {
-        this.name = name;
-        this.studentId = studentId;
-        this.numberOfCredits = numberOfCredits;
-        this.gpa = gpa;
-    }
+   <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">,</span>
+         <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">,</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">studentId</span> <span class="o">=</span> <span class="n">studentId</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">=</span> <span class="n">numberOfCredits</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">gpa</span> <span class="o">=</span> <span class="n">gpa</span><span class="o">;</span>
+   <span class="o">}</span>
 
-    public Student(String name, int studentId) {
-        this(name, studentId, 0, 0);
-    }
+   <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">studentId</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+   <span class="o">}</span>
 
-    public Student(String name) {
-        this(name, nextStudentId);
-        nextStudentId++;
-    }
+   <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">nextStudentId</span><span class="o">);</span>
+      <span class="n">nextStudentId</span><span class="o">++;</span>
+   <span class="o">}</span>
 
-    public void addGrade(int courseCredits, double grade) {
-        // Update the appropriate fields: numberOfCredits, gpa
-    }
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addGrade</span><span class="o">(</span><span class="kt">int</span> <span class="n">courseCredits</span><span class="o">,</span> <span class="kt">double</span> <span class="n">grade</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Update the appropriate fields: numberOfCredits, gpa</span>
+   <span class="o">}</span>
 
-    public String getGradeLevel() {
-        // Determine the grade level of the student based on numberOfCredits
-    }
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getGradeLevel</span><span class="o">()</span> <span class="o">{</span>
+      <span class="c1">// Determine the grade level of the student based on numberOfCredits</span>
+   <span class="o">}</span>
 
-    /* getters and setters omitted */
+   <span class="cm">/* getters and setters omitted */</span>
 
-}
+<span class="o">}</span>
 </pre></div>
-</div>
-<p>When creating your classes, think about the behaviors that you want to
+</td></tr></table></div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">When creating your classes, think about the behaviors that you want to
 make available, as well as the access level of those methods.</p>
+</div>
 </div>
 <div class="section" id="static-methods">
 <h2>5.3.3. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
-<p>Static methods are not new to us. We’ve used them quite a bit, all the
-way back to our first Java method:
-<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">main(String[]</span> <span class="pre">args)</span></code>. Now let’s present them in
-the context of the rest of what we’ve recently learned about classes.</p>
-<p>Analogous to static fields, <strong>static methods</strong> belong to the class as a
-whole, and not to any of the specific instances of the class. Thus, they
-are sometimes also called <strong>class methods</strong>. A static method can be
-thought of as the opposite of an instance method, since the two cases
-are mutually exclusive. Instance methods rely on each object’s specific
-data whereas static methods must <em>not</em> rely on data from a specific
-object.</p>
+<p>Static methods are NOT new to us. We’ve used them quite a bit, all the way back
+to our first Java method:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{}</span>
+</pre></div>
+</div>
+<p>Now let’s examine them in the context of what we’ve recently learned about
+classes.</p>
+<p id="index-2">Just like static fields, <strong>static methods</strong> belong to the class as a whole, and
+not to any of the specific instances of the class. Thus, they are sometimes
+also called <strong>class methods</strong>. A static method is essentially the opposite of
+an instance method, since the two cases are mutually exclusive.
+<em>Instance methods</em> rely on each object’s specific data, while <em>static methods</em>
+must NOT rely on data from a specific object.</p>
 <p>A static method may be called by preceding it with the class name and
-using dot-notation. Here’s an example that we looked at previously.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class HelloMethods {
+using dot-notation. Here’s an example that we looked at
+<a class="reference internal" href="../data-types/more-data-types.html#more-data-types-static-method-example"><span class="std std-ref">previously</span></a>.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p><code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code></p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloMethods</span> <span class="o">{</span>
 
-    public static void main(String[] args) {
-        String message = Message.getMessage(&quot;fr&quot;);
-        System.out.println(message);
-    }
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">Message</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="s">&quot;fr&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+   <span class="o">}</span>
 
-}
+<span class="o">}</span>
 </pre></div>
-</div>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Message {
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">Message.java</span></code></p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span> <span class="o">{</span>
 
-    public static String getMessage(String lang) {
+   <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getMessage</span><span class="o">(</span><span class="n">String</span> <span class="n">lang</span><span class="o">)</span> <span class="o">{</span>
 
-        if (lang.equals(&quot;sp&quot;)) {
-            return &quot;Hola Mundo&quot;;
-        } else if (lang.equals(&quot;fr&quot;)) {
-            return &quot;Bonjour le monde&quot;;
-        } else {
-            return &quot;Hello World&quot;;
-        }
-    }
-}
+      <span class="k">if</span> <span class="o">(</span><span class="n">lang</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;sp&quot;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">&quot;Hola Mundo&quot;</span><span class="o">;</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">lang</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;fr&quot;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">&quot;Bonjour le monde&quot;</span><span class="o">;</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
+</td></tr></table></div>
 </div>
-<p>The call in question is: <code class="docutils literal notranslate"><span class="pre">Message.getMessage(&quot;fr&quot;)</span></code>. We call the
-static method <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> without needing an instance of the
-<code class="docutils literal notranslate"><span class="pre">Message</span></code> class, using the name of the class itself.</p>
-<aside class="aside-warning"><p>It is technically allowed to call a static method using an instance of a
-class: <code class="docutils literal notranslate"><span class="pre">myObject.someStaticMethod()</span></code>. However, this should be avoided
-in favor of using the class name to call the method so that it is clear
-you are using a static method.</p>
-</aside><p>A method should be static when it does not refer to any instance fields
-of the containing class (it <em>may</em> refer to static fields, however).
-These methods tend to be utility-like, carrying out a calculation, or
-using or fetching some external resource.</p>
+<p>The call occurs in line 4: <code class="docutils literal notranslate"><span class="pre">Message.getMessage(&quot;fr&quot;)</span></code>. We call the static
+<code class="docutils literal notranslate"><span class="pre">getMessage</span></code> without needing an instance of the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class. Instead,
+we use the name of the class itself.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">It is technically allowed to call a static method using an instance of a
+class: <code class="docutils literal notranslate"><span class="pre">myObject.someStaticMethod()</span></code>. However, best practice recommends
+using the class name instead: <code class="docutils literal notranslate"><span class="pre">ClassName.someStaticMethod()</span></code>. This makes
+it clear to other coders that you are calling a static method.</p>
+</div>
+<p>A method should be static when it does not refer to any instance fields of the
+containing class (it <em>may</em> refer to static fields, however). These methods tend
+to be utility-like (e.g. carrying out a calculation, or using or fetching some
+external resource).</p>
 </div>
 </div>
 

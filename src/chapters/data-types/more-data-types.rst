@@ -225,6 +225,8 @@ complicate the process of calling the methods you defined.
 
 We will explore exactly what ``static`` does in more detail in later lessons.
 
+.. _more-data-types-static-method-example:
+
 Static Method Examples
 ^^^^^^^^^^^^^^^^^^^^^^^
 
