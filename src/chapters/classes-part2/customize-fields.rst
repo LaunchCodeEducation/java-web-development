@@ -7,6 +7,8 @@ explored how to access and modify the values of those fields.
 Now, we will explore several ways to configure fields based on their intended
 use.
 
+.. index:: ! final field
+
 Final Fields
 -------------
 
@@ -72,19 +74,21 @@ the object itself.
 
 Note that a final field *may not* have a setter.
 
+.. index:: ! static field
+
 Static Fields
 --------------
 
-A **static field** is a field that is declared with the ``static`` keyword. A
-static field is *shared by all instances of the class*. For example, in our
-``Temperature`` class there is no reason for each ``Temperature`` object to
-hold its own copy of the double ``absoluteZeroFahrenheit``. That value remains
-constant from class to class and object to object. Because of this, we make it
-a static field.
+A **static field** is one that *shared by all instances of the class*, and it
+is declared with the ``static`` keyword.
+
+For example, in our ``Temperature`` class there is no reason for each
+``Temperature`` object to hold its own copy of the double
+``absoluteZeroFahrenheit``. That value remains constant from class to class and
+object to object. Because of this, we make it a ``static`` field.
 
 Previous examples used the ``static`` keyword with both fields and methods, but
-since this discussion is focused on data, let’s only discuss static fields for
-now.
+since this discussion is focused on data, let’s focus on static fields for now.
 
 .. sourcecode:: java
    :linenos:
@@ -134,6 +138,8 @@ In the second code snippet, it is much more preferable to use the first
 technique, to make it explicit that the field you’re using is static
 (this isn’t clear in the bottom case).
 
+   TODO: Fix the phrasing in the previous paragraph.
+
 .. admonition:: Example
 
    As another example, we might also provide a third constructor for our
@@ -174,9 +180,9 @@ technique, to make it explicit that the field you’re using is static
 
 In line 3, we add a static integer field that will keep track of the next
 student ID to be assigned to a student. Then, our new constructor (line 21)
-takes only a name, and assigns the student the next available ID. This works
-because static fields are shared across all objects created from the
-``Student`` class, so it functions as a counter of sorts for the number of
+takes only a name as a parameter and assigns the student the next available ID.
+This works because static fields are shared across all objects created from
+the ``Student`` class, so it functions as a counter of sorts for the number of
 ``Student`` objects created.
 
 Constants
@@ -187,22 +193,25 @@ constant, or unchanging, variable. However, we can achieve the same result
 using a combination of ``static`` and ``final``.
 
 .. sourcecode:: java
+   :linenos:
 
    public class Constants {
       public static final double PI = 3.14159;
       public static final String FIRST_PRESIDENT = "George Washington";
    }
 
-Throughout the rest of this course, when we say “constant” we will mean
-“a ``static final`` variable”.
+Throughout the rest of this course, when we say *constant* we will mean a
+``static final`` variable.
 
-Two things to note from this example:
+Three things to note from this example:
 
 #. We use a different naming convention for constants than for other variables.
    Constants should be in ALL CAPS, with an underscore to separate words.
-#. There is no strong reason to make constants ``private``, as long as we
-   initialize them where they are declared (so that somebody else doesn’t
-   give them a value first!). We’ll generally make our constants ``public``.
+#. There is no strong reason to make constants ``private``, since restricting
+   access would force us to re-declare the same values in different classes.
+   We’ll generally make our constants ``public``.
+#. Declare and initialize constants at the same time. Otherwise, you run the
+   risk of somebody else assigning them a value first!
 
 A good use of a constant can be seen in our ``Temperature`` class. Since
 absolute zero will never change, we can ensure that nobody ever alters it

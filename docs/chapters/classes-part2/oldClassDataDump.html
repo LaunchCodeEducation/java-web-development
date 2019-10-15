@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>5.2. Old Java Curriculum: Encapsulating Behavior &#8212; Java Web Development  documentation</title>
+    <title>5.5. Old Java Curriculum: Encapsulating Behavior &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.3. Customizing Fields" href="customize-fields.html" />
-    <link rel="prev" title="5.1. Java Lesson 4 Objectives" href="class-4-objectives.html" />
+    <link rel="next" title="5.6. Exercises: Objects and Classes, Part 2" href="exercises.html" />
+    <link rel="prev" title="5.4. Special Methods" href="special-methods.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">5. Objects and Classes, Part 2</a></li>
-    <li class="active">5.2. Old Java Curriculum: Encapsulating Behavior</li>
+    <li class="active">5.5. Old Java Curriculum: Encapsulating Behavior</li>
 </ol>
 
 
@@ -85,419 +85,9 @@
 
     
   <div class="section" id="old-java-curriculum-encapsulating-behavior">
-<h1>5.2. Old Java Curriculum: Encapsulating Behavior<a class="headerlink" href="#old-java-curriculum-encapsulating-behavior" title="Permalink to this headline">¶</a></h1>
-<p>Having explored configuring data within classes (via fields and
-properties), let’s turn our attention to behavior (methods).</p>
-<div class="section" id="calling-methods-on-objects">
-<h2>5.2.1. Calling Methods on Objects<a class="headerlink" href="#calling-methods-on-objects" title="Permalink to this headline">¶</a></h2>
-<p>A <strong>method</strong> is a procedure that belongs to a class. In Java, all
-procedures must be part of a class, a significant difference from
-Python, where functions may stand on their own. Let’s revisit our
-minimal class example.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class HelloWorld {
-
-    private String message = &quot;Hello World&quot;;
-
-    void sayHello() {
-        System.out.println(message);
-    }
-
-}
-</pre></div>
-</div>
-<p>There is one method in this class, <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>. In order to call this
-method, we must have an object created from the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class
-template. In other words, we must have an instance of <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>.</p>
-<p>Here’s how you call methods on an object.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>HelloWorld hello = new HelloWorld();
-hello.sayHello();
-</pre></div>
-</div>
-<p>It is not possible to call <code class="docutils literal notranslate"><span class="pre">sayHello</span></code> without having a <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>
-object. This begins to make more sense when you note that the
-<code class="docutils literal notranslate"><span class="pre">message</span></code> field is used within <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>, and unless we are calling
-<code class="docutils literal notranslate"><span class="pre">sayHello</span></code> on an instantiated object, there will be no <code class="docutils literal notranslate"><span class="pre">message</span></code>
-field available to print.</p>
-<aside class="aside-pro-tip"><p>As mentioned before, class members should have the most restrictive
-level of access possible. This goes for methods as well as fields. For
-example, if you create a utility method that should only be used within
-your class, then it should be <code class="docutils literal notranslate"><span class="pre">private</span></code>. You can think of <code class="docutils literal notranslate"><span class="pre">private</span></code>
-methods as those that are not useful <em>outside</em> of the class, but that
-can contribute internally to helping the class behave as desired or
-expected.</p>
-<p>On the contrary, <code class="docutils literal notranslate"><span class="pre">public</span></code> methods are code that other classes will
-want to use when they implement the class containing those <code class="docutils literal notranslate"><span class="pre">public</span></code>
-methods. So only make methods <code class="docutils literal notranslate"><span class="pre">public</span></code> when you expect other classes
-to use them, and when you are committed to maintaining those methods for
-other calling programs that may use them.</p>
-</aside></div>
-<div class="section" id="instance-methods">
-<h2>5.2.2. Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
-<p>So far we’ve only looked at examples of methods that are relatively
-specialized: constructors, getters, and setters. Every class you create
-will have these methods. What will make your classes different from each
-other, and thus fulfill the purpose of creating each class, are the
-specific behaviors that are unique to your classes.</p>
-<p>Let’s add a couple of such methods to our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class. These
-methods will be <strong>instance methods</strong> since they will belong to each
-<code class="docutils literal notranslate"><span class="pre">Student</span></code> object created, and will use the data of each such object.</p>
-<p>What are the behaviors that our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class should have? To start,
-it would make sense for a student to take a class and get a grade, and
-for their data to be updated accordingly. Additionally, it would be nice
-to be able to easily tell the grade level of a student – freshman,
-sophomore, junior, or senior.</p>
-<p>Our last look at the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class stubs out these methods below,
-without providing the implementation. That job is left to you to do as
-an exercise.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Student {
-
-    private static int nextStudentId = 1;
-    private String name;
-    private int studentId;
-    private int numberOfCredits;
-    private double gpa;
-
-    public Student(String name, int studentId,
-            int numberOfCredits, double gpa) {
-        this.name = name;
-        this.studentId = studentId;
-        this.numberOfCredits = numberOfCredits;
-        this.gpa = gpa;
-    }
-
-    public Student(String name, int studentId) {
-        this(name, studentId, 0, 0);
-    }
-
-    public Student(String name) {
-        this(name, nextStudentId);
-        nextStudentId++;
-    }
-
-    public void addGrade(int courseCredits, double grade) {
-        // Update the appropriate fields: numberOfCredits, gpa
-    }
-
-    public String getGradeLevel() {
-        // Determine the grade level of the student based on numberOfCredits
-    }
-
-    /* getters and setters omitted */
-
-}
-</pre></div>
-</div>
-<p>When creating your classes, think about the behaviors that you want to
-make available, as well as the access level of those methods.</p>
-</div>
-<div class="section" id="static-methods">
-<h2>5.2.3. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
-<p>Static methods are not new to us. We’ve used them quite a bit, all the
-way back to our first Java method:
-<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">main(String[]</span> <span class="pre">args)</span></code>. Now let’s present them in
-the context of the rest of what we’ve recently learned about classes.</p>
-<p>Analogous to static fields, <strong>static methods</strong> belong to the class as a
-whole, and not to any of the specific instances of the class. Thus, they
-are sometimes also called <strong>class methods</strong>. A static method can be
-thought of as the opposite of an instance method, since the two cases
-are mutually exclusive. Instance methods rely on each object’s specific
-data whereas static methods must <em>not</em> rely on data from a specific
-object.</p>
-<p>A static method may be called by preceding it with the class name and
-using dot-notation. Here’s an example that we looked at previously.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class HelloMethods {
-
-    public static void main(String[] args) {
-        String message = Message.getMessage(&quot;fr&quot;);
-        System.out.println(message);
-    }
-
-}
-</pre></div>
-</div>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Message {
-
-    public static String getMessage(String lang) {
-
-        if (lang.equals(&quot;sp&quot;)) {
-            return &quot;Hola Mundo&quot;;
-        } else if (lang.equals(&quot;fr&quot;)) {
-            return &quot;Bonjour le monde&quot;;
-        } else {
-            return &quot;Hello World&quot;;
-        }
-    }
-}
-</pre></div>
-</div>
-<p>The call in question is: <code class="docutils literal notranslate"><span class="pre">Message.getMessage(&quot;fr&quot;)</span></code>. We call the
-static method <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> without needing an instance of the
-<code class="docutils literal notranslate"><span class="pre">Message</span></code> class, using the name of the class itself.</p>
-<aside class="aside-warning"><p>It is technically allowed to call a static method using an instance of a
-class: <code class="docutils literal notranslate"><span class="pre">myObject.someStaticMethod()</span></code>. However, this should be avoided
-in favor of using the class name to call the method so that it is clear
-you are using a static method.</p>
-</aside><p>A method should be static when it does not refer to any instance fields
-of the containing class (it <em>may</em> refer to static fields, however).
-These methods tend to be utility-like, carrying out a calculation, or
-using or fetching some external resource.</p>
-</div>
-<div class="section" id="special-methods">
-<h2>5.2.4. Special Methods<a class="headerlink" href="#special-methods" title="Permalink to this headline">¶</a></h2>
-<p>Every class has a few special methods that belong to it, regardless of
-whether or not we define them. Exactly <em>how</em> every class obtains these
-methods will be explored in a future lesson. For now, let’s look at the
-most important of these methods.</p>
-<div class="section" id="tostring">
-<h3>5.2.4.1. toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">toString</span></code> method returns a string representation of a class.
-Calling <code class="docutils literal notranslate"><span class="pre">toString</span></code> on a class that you’ve written will result in
-something like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>org.launchcode.java.demos.java4python.school.Student@61bbe9ba
-</pre></div>
-</div>
-<p>Here, we called <code class="docutils literal notranslate"><span class="pre">toString</span></code> on a <code class="docutils literal notranslate"><span class="pre">Student</span></code> object. Generally, the
-default <code class="docutils literal notranslate"><span class="pre">toString</span></code> implementation is not very useful, and you’ll want
-to override it. You can write your own <code class="docutils literal notranslate"><span class="pre">toString</span></code>. Here’s how we might
-do it for <code class="docutils literal notranslate"><span class="pre">Student</span></code>:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public String toString() {
-    return name + &quot; (Credits: &quot; + numberOfCredits + &quot;, GPA: &quot; + gpa + &quot;)&quot;;
-}
-</pre></div>
-</div>
-<p>This would result in a much more friendly message:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>John <span class="o">(</span>Credits: <span class="m">0</span>, GPA: <span class="m">0</span>.0<span class="o">)</span>
-</pre></div>
-</div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">toString</span></code> is often implicitly called for you. For example,
-the output above could have been generated by the following code, which
-calls <code class="docutils literal notranslate"><span class="pre">toString</span></code> on <code class="docutils literal notranslate"><span class="pre">john</span></code> within <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code>.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Student john = new Student(&quot;John&quot;);
-System.out.println(john);
-</pre></div>
-</div>
-</div>
-<div class="section" id="equals">
-<h3>5.2.4.2. equals<a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h3>
-<p>Suppose we had two objects of type <code class="docutils literal notranslate"><span class="pre">Student</span></code>, say <code class="docutils literal notranslate"><span class="pre">student1</span></code> and
-<code class="docutils literal notranslate"><span class="pre">student2</span></code>, and we wanted to determine if they were equal. We might
-try to compare them using <code class="docutils literal notranslate"><span class="pre">==</span></code>, but since these are
-<a class="reference external" href="../data-types#references" target="_blank">references<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> - that is, the variables hold
-a reference to, or the <em>address</em> of, the actual <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects -
-they will evaluate as equal only when they have the same address. In
-other words, they will be equal only when they refer to, or point at,
-the exact same object. This is not usually what we want to check for.
-For example, we might want to consider two student objects equal if they
-have the same name, email, or student ID.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method can be used to determine if one object is equal
-to another in this sense. We introduced this method when discussing
-strings, but it also applies to all other classes. Below is code showing
-how you might use it to compare two students. Note that they have
-different names, but the same student ID, indicating they are actually
-referring to the same person.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Student bono1 = new Student(&quot;Paul David Hewson&quot;, 4);
-Student bono2 = new Student(&quot;Bono&quot;, 4);
-
-if (bono1.equals(bono2)) {
-    System.out.println(bono1.getName() +
-        &quot; is the same as &quot; + bono2.getName());
-}
-</pre></div>
-</div>
-<p>If we don’t provide our own <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method, then the one provided
-for us will only consider two objects equal if they are the <em>exact same
-object</em>. In other words, they will only be considered equal if the
-variables referring to the given objects both point to the same object.
-This is the same behavior that we would see when using the <code class="docutils literal notranslate"><span class="pre">==</span></code>
-operator: <code class="docutils literal notranslate"><span class="pre">bono1</span> <span class="pre">==</span> <span class="pre">bono2</span></code>. This expression will evaluate to true only
-if the variables actually refer to the same object. So in the example
-above, since we have created two different <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects, the
-expression will evaluate to false.</p>
-<p>This kind of comparison is often not what we want. The difference
-between the comparison carried out by the default <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method
-(and by the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator), and how we would like our classes to
-behave, is the difference between <em>identity</em> and <em>equality</em>. Two things
-can be considered <em>equal</em> even if they are not the exact same item -
-that is, if they are not identical. So the default <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method
-and the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator test for identity, whereas we want to test for
-equality instead. We can do so by <strong>overriding</strong> the <code class="docutils literal notranslate"><span class="pre">equals()</span></code>
-method. We will discuss overriding in more detail later, but for now
-just know that it entails creating different behavior for an existing
-method.</p>
-<p>For example, in the case of the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class, we might specify that
-two <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects are equal if they have the same ID. We would
-then write a new method definition for <code class="docutils literal notranslate"><span class="pre">equals()</span></code> as follows:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public boolean equals(Object o) {
-    Student theStudent = (Student) o;
-    return theStudent.getStudentId() == getStudentId();
-}
-</pre></div>
-</div>
-<p>Now if we evaluate <code class="docutils literal notranslate"><span class="pre">bono1.equals(bono2)</span></code> we will get a result of true,
-since the student IDs match.</p>
-<p>One catch of working with <code class="docutils literal notranslate"><span class="pre">equals()</span></code> is that its input parameter must
-be of type <code class="docutils literal notranslate"><span class="pre">Object</span></code>, even if we’re working in a class like
-<code class="docutils literal notranslate"><span class="pre">Student</span></code>. The reason why will become more clear in the next lesson,
-when we introduce the <code class="docutils literal notranslate"><span class="pre">Object</span></code> class. For now, the practical
-implication is that we must convert, or <strong>cast</strong>, the input <code class="docutils literal notranslate"><span class="pre">o</span></code> to be
-of type <code class="docutils literal notranslate"><span class="pre">Student</span></code> with the syntax <code class="docutils literal notranslate"><span class="pre">(Student)</span> <span class="pre">o</span></code>. Then we compare the
-converted student’s ID to that of the current student.</p>
-<p>Here’s a visualization of the concepts of equality and identity:</p>
-<p><strong>Equality</strong></p>
-<div class="figure" id="id1">
-<img alt="Equality" src="../../_images/equality.png" />
-<p class="caption"><span class="caption-text">Equality</span></p>
-</div>
-<p>When you are testing for equality, you will be looking at two different
-objects and comparing some aspect of them to each other.</p>
-<p><strong>Identity</strong></p>
-<div class="figure" id="id2">
-<img alt="Identity" src="../../_images/identity.png" />
-<p class="caption"><span class="caption-text">Identity</span></p>
-</div>
-<p>When you are testing for identity, you will look at two variables to see
-if they reference the exact same object.</p>
-<p>You’ll often want to implement <code class="docutils literal notranslate"><span class="pre">equals()</span></code> yourself. However, if you do
-so, be sure to understand best practices around how the method should
-behave, which are <a class="reference external" href="https://www.sitepoint.com/implement-javas-equals-method-correctly/" target="_blank">not so
-simple<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
-In fact, the <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method we have here isn’t very good by most
-Java programmers’ standards. Let’s improve on it.</p>
-<p><strong>Problem #1</strong>: The method argument can not be converted to a
-<code class="docutils literal notranslate"><span class="pre">Student</span></code> instance.</p>
-<p>When we attempt to cast the argument <code class="docutils literal notranslate"><span class="pre">o</span></code> to type <code class="docutils literal notranslate"><span class="pre">Student</span></code>, we’ll
-get an exception if <code class="docutils literal notranslate"><span class="pre">o</span></code> can’t be properly converted. This would happen
-if somebody passes something other than a <code class="docutils literal notranslate"><span class="pre">Student</span></code> object into
-<code class="docutils literal notranslate"><span class="pre">equals()</span></code>. To prevent this from happening, we’ll return <code class="docutils literal notranslate"><span class="pre">false</span></code> if
-<code class="docutils literal notranslate"><span class="pre">o</span></code> was not created from the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class, as determined by using
-the <code class="docutils literal notranslate"><span class="pre">getClass</span></code> method, which is available to every object (similarly
-to <code class="docutils literal notranslate"><span class="pre">toString</span></code>).</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public boolean equals(Object o) {
-
-    if (o.getClass() != getClass()) {
-        return false;
-    }
-
-    Student theStudent = (Student) o;
-    return theStudent.getStudentId() == getStudentId();
-}
-</pre></div>
-</div>
-<p>This check ensures that the two objects that we want to compare were
-created from the same class.</p>
-<p><strong>Problem #2:</strong> <code class="docutils literal notranslate"><span class="pre">o</span></code> might be <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">o</span></code> is <code class="docutils literal notranslate"><span class="pre">null</span></code> then <code class="docutils literal notranslate"><span class="pre">o.getClass()</span></code> will result in an exception.
-This is an easy issue to fix, since comparing a non-null object to
-<code class="docutils literal notranslate"><span class="pre">null</span></code> will evaluate to <code class="docutils literal notranslate"><span class="pre">false</span></code>. Therefore, if this comparison
-evaluates to true then we know that the object is null and <code class="docutils literal notranslate"><span class="pre">equals()</span></code>
-should return false.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public boolean equals(Object o) {
-
-    if (o == null) {
-        return false;
-    }
-
-    if (o.getClass() != getClass()) {
-        return false;
-    }
-
-    Student theStudent = (Student) o;
-    return theStudent.getStudentId() == getStudentId();
-}
-</pre></div>
-</div>
-<p><strong>Problem #3:</strong> The two objects to compare are <em>the same</em> object.</p>
-<p>This is less of a problem per se and more of a way we can improve our
-<code class="docutils literal notranslate"><span class="pre">equals()</span></code> method. If <code class="docutils literal notranslate"><span class="pre">o</span></code> is the same literal object that we are
-attempting to compare it to, then we can make a quick determination and
-save a few checks.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public boolean equals(Object o) {
-
-    if (o == this) {
-        return true;
-    }
-
-    if (o == null) {
-        return false;
-    }
-
-    if (o.getClass() != getClass()) {
-        return false;
-    }
-
-    Student theStudent = (Student) o;
-    return theStudent.getStudentId() == getStudentId();
-}
-</pre></div>
-</div>
-<div class="section" id="components-of-equals">
-<h4>5.2.4.2.1. Components of equals<a class="headerlink" href="#components-of-equals" title="Permalink to this headline">¶</a></h4>
-<p>Almost every equals method that you write will look similar to this one,
-and will contain the following segments, in order:</p>
-<ol class="arabic simple">
-<li><strong>Reference check:</strong> If the two objects are the same, return <code class="docutils literal notranslate"><span class="pre">true</span></code>
-right away.</li>
-<li><strong>Null check:</strong> If the argument is <code class="docutils literal notranslate"><span class="pre">null</span></code>, return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
-<li><strong>Class check:</strong> Compare the classes of the two objects to ensure a
-safe cast.</li>
-<li><strong>Cast:</strong> Convert the argument to the type of our class, so getters
-and other methods can be called.</li>
-<li><strong>Custom comparison:</strong> Use custom logic to determine whether or not
-the two objects should be considered equal. This will usually be a
-comparison of properties or fields.</li>
-</ol>
-</div>
-<div class="section" id="characteristics-of-equals">
-<h4>5.2.4.2.2. Characteristics of equals<a class="headerlink" href="#characteristics-of-equals" title="Permalink to this headline">¶</a></h4>
-<p>Now that we know how to write an <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method, let’s look at some
-characteristics that every such method should have. If you follow the
-general outline above, ensuring that your <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method has these
-characteristics should be straightforward.</p>
-<ol class="arabic simple">
-<li><strong>Reflexivity:</strong> For any non-null reference value <code class="docutils literal notranslate"><span class="pre">x</span></code>,
-<code class="docutils literal notranslate"><span class="pre">x.equals(x)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
-<li><strong>Symmetry:</strong> For any non-null reference values <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>,
-<code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code> if and only if <code class="docutils literal notranslate"><span class="pre">y.equals(x)</span></code>
-returns true.</li>
-<li><strong>Transitivity:</strong> For any non-null reference values <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">z</span></code>, if <code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">y.equals(z)</span></code>
-returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, then <code class="docutils literal notranslate"><span class="pre">x.equals(z)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
-<li><strong>Consistency:</strong> As long as <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> do not change
-<code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code> should always return the same result.</li>
-<li><strong>Non-null:</strong> For any non-null reference value <code class="docutils literal notranslate"><span class="pre">x</span></code>,
-<code class="docutils literal notranslate"><span class="pre">x.equals(null)</span></code> should return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
-</ol>
-<p>If you think about your innate sense of the concept of equality, say,
-from a math class, then these concepts make sense. While using the
-general approach outlined above for implementing <code class="docutils literal notranslate"><span class="pre">equals()</span></code> will
-generally make these relatively simple to guarantee, not doing so can be
-disastrous for your Java applications.</p>
-<aside class="aside-pro-tip"><p>Seasoned Java developers will tell you that every time you implement
-your own version of <code class="docutils literal notranslate"><span class="pre">equals()</span></code> you should also implement your own
-version of <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code>. <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code> is another special method that
-every class has. Understanding <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code> would take us a bit far
-afield at this point, but we would be remiss to not mention it. If you
-want to read more, <a class="reference external" href="https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/" target="_blank">check out this
-article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-and <a class="reference external" href="https://stackoverflow.com/questions/2265503/why-do-i-need-to-override-the-equals-and-hashcode-methods-in-java" target="_blank">this stack
-overflow<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<p>To ensure that you create a well-structured <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code> method
-whenever providing your own <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method, you can use IntelliJ’s
-code generation tool. To do so, right-click within your class file and
-select <em>Generate &gt; equals and hashCode</em> and follow the prompts.</p>
-</aside><p>While you may not need to write your own <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method for each
-class you create, the more immediate implication for you as a new Java
-programmer is that you should <em>always use</em> <code class="docutils literal notranslate"><span class="pre">equals()</span></code> yourself when
-comparing objects. This is especially true when working with objects of
-types provided by Java, such as <code class="docutils literal notranslate"><span class="pre">String</span></code>. A class that is part of Java
-or a third-party library will have implemented <code class="docutils literal notranslate"><span class="pre">equals()</span></code> in a way
-appropriate for the particular class, whereas <code class="docutils literal notranslate"><span class="pre">==</span></code> will only check to
-see if two variables refer to the same literal object.</p>
-</div>
-</div>
-</div>
+<h1>5.5. Old Java Curriculum: Encapsulating Behavior<a class="headerlink" href="#old-java-curriculum-encapsulating-behavior" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="single-responsibility-principle">
-<h2>5.2.5. Single Responsibility Principle<a class="headerlink" href="#single-responsibility-principle" title="Permalink to this headline">¶</a></h2>
+<h2>5.5.1. Single Responsibility Principle<a class="headerlink" href="#single-responsibility-principle" title="Permalink to this headline">¶</a></h2>
 <p>As we wrap up our whirlwind tour of encapsulation, we want you think a
 bit about how to go about building good classes. Doing so is more of an
 art than a science, and it will take you lots of practice and time.
@@ -523,7 +113,7 @@ time. The best way to improve is to write lots of code, ask lots of
 questions, and continue learning!</p>
 </div>
 <div class="section" id="references">
-<h2>5.2.6. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>5.5.2. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank">Defining Methods
 (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
@@ -545,10 +135,10 @@ Principle<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="class-4-objectives.html"><span aria-hidden="true">&larr;</span> 5.1. Java Lesson 4 Objectives</a></li>
+        <li class="previous"><a href="special-methods.html"><span aria-hidden="true">&larr;</span> 5.4. Special Methods</a></li>
         
         
-        <li class="next"><a href="customize-fields.html">5.3. Customizing Fields <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="exercises.html">5.6. Exercises: Objects and Classes, Part 2 <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

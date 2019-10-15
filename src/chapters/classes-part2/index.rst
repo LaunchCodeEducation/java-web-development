@@ -6,6 +6,8 @@ Objects and Classes, Part 2
 
    class-4-objectives
    customize-fields
+   instance-and-static-methods
+   special-methods
    oldClassDataDump
    exercises
    studio
