@@ -1,0 +1,69 @@
+Studio: Classes and Objects
+===========================
+
+Let’s practice designing classes using the following scenario. You’ve
+been hired to create a web application for a local restaurant. They want
+to not only be able to display their current menu, but also edit it
+through an admin panel.
+
+You’re not going to build an actual application in this studio. Instead,
+you will focus on the *design* of a portion of this application.
+Object-oriented programming in Java requires more intentional, up-front
+planning than most programming you’ve done to-date.
+
+Design
+------
+
+You know you’ll need to create classes within the web application to
+facilitate this behavior and represent the various components of the
+menu. After talking to the owner, you have these details:
+
+-  The menu consists of several menu items
+-  Each menu item has a price, description, and category (appetizer,
+   main course, or dessert)
+-  It should be possible to display whether a menu item is new or not
+-  The app should know when the menu was last updated, so visitors can
+   see that the restaurant is constantly changing and adding exciting
+   new items
+
+Starting with pen and paper (or your favorite notes application on your
+laptop), begin to sketch out the design for two classes, ``Menu`` and
+``MenuItem``. List the fields that each should have, along with the data
+type and access level of each. Also consider what constructors your
+class might need, and whether any field should be static or final.
+
+.. note::
+
+    For this studio, we are focusing on class design for these two classes.
+    You do not need to be concerned with how the classes would be used in an application. 
+    At this stage, don’t think about how the application will work or behave; you should focus on the way that data will be represented within these classes, and how they should relate to each other.
+
+You may find it useful to use one or more of the classes provided by
+Java, such as
+`Date <http://docs.oracle.com/javase/8/docs/api/java/util/Date.html>`__.
+
+Presenting Your Design
+----------------------
+
+Once you have sketched out your fields and properties, find a classmate
+to describe your design to. Class design can be subjective, so it’s
+important to properly think and talk through your choices before coding.
+
+While a classmate is presenting their design to you, ask questions about
+why they made the decisions that they did, and think about use cases
+that that might come up, to see if their design fits with those.
+
+Implementation
+--------------
+
+In IntelliJ, create a new project, "Restaurant Menu".
+Within the project, create a new package named
+``restaurant``. Add classes ``Menu`` and ``MenuItem`` and code the
+design that you created above. Be sure to add getters and setters as
+appropriate.
+
+Submitting Your Work
+--------------------
+
+Create a repository on your Github account and push up your project.
+Submit the link to your repository on Canvas.
