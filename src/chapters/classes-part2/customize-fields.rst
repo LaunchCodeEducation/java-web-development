@@ -75,16 +75,16 @@ Note that a final field *may not* have a setter.
 Static Fields
 --------------
 
-A **static field** is a field that is declared with the ``static`` keyword. We
-have encountered the ``static`` keyword used with both fields and methods, but
-since this discussion is focused on data, let’s only discuss static fields for
-now.
-
-A static field is *shared by all instances of the class*. For example, in our
+A **static field** is a field that is declared with the ``static`` keyword. A
+static field is *shared by all instances of the class*. For example, in our
 ``Temperature`` class there is no reason for each ``Temperature`` object to
 hold its own copy of the double ``absoluteZeroFahrenheit``. That value remains
 constant from class to class and object to object. Because of this, we make it
 a static field.
+
+Previous examples used the ``static`` keyword with both fields and methods, but
+since this discussion is focused on data, let’s only discuss static fields for
+now.
 
 .. sourcecode:: java
    :linenos:
