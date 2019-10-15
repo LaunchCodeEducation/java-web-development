@@ -117,6 +117,8 @@ variable of type ``Cat``.
 
 .. index:: ! reference variable
 
+.. _reference-variable:
+
 Reference Variables
 ^^^^^^^^^^^^^^^^^^^^
 

@@ -95,57 +95,113 @@ most important of these methods.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">toString</span></code> method returns a string representation of a class.
 Calling <code class="docutils literal notranslate"><span class="pre">toString</span></code> on a class that you’ve written will result in
 something like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>org.launchcode.java.demos.java4python.school.Student@61bbe9ba
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Student</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;Violet&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>Console Output</strong></p>
+<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>org.launchcode.java.demos.java4python.school.Student@61bbe9ba
 </pre></div>
 </div>
-<p>Here, we called <code class="docutils literal notranslate"><span class="pre">toString</span></code> on a <code class="docutils literal notranslate"><span class="pre">Student</span></code> object. Generally, the
-default <code class="docutils literal notranslate"><span class="pre">toString</span></code> implementation is not very useful, and you’ll want
-to override it. You can write your own <code class="docutils literal notranslate"><span class="pre">toString</span></code>. Here’s how we might
-do it for <code class="docutils literal notranslate"><span class="pre">Student</span></code>:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public String toString() {
-    return name + &quot; (Credits: &quot; + numberOfCredits + &quot;, GPA: &quot; + gpa + &quot;)&quot;;
-}
+</div>
+<p>Here, we called <code class="docutils literal notranslate"><span class="pre">toString</span></code> on a <code class="docutils literal notranslate"><span class="pre">Student</span></code> object. The default <code class="docutils literal notranslate"><span class="pre">toString</span></code>
+implementation is generally not very useful. Most of the time, you’ll want to
+write your own <code class="docutils literal notranslate"><span class="pre">toString</span></code> method to <em>override</em> the default and produce
+better results.</p>
+<p>Here’s how we might do it for <code class="docutils literal notranslate"><span class="pre">Student</span></code> to produce a much more friendly
+message:</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot; (Credits: &quot;</span> <span class="o">+</span> <span class="n">numberOfCredits</span> <span class="o">+</span> <span class="s">&quot;, GPA: &quot;</span> <span class="o">+</span> <span class="n">gpa</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="n">Student</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;Violet&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>Console Output</strong></p>
+<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>Violet <span class="o">(</span>Credits: <span class="m">0</span>, GPA: <span class="m">0</span>.0<span class="o">)</span>
 </pre></div>
 </div>
-<p>This would result in a much more friendly message:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>John <span class="o">(</span>Credits: <span class="m">0</span>, GPA: <span class="m">0</span>.0<span class="o">)</span>
-</pre></div>
 </div>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">toString</span></code> is often implicitly called for you. For example,
-the output above could have been generated by the following code, which
-calls <code class="docutils literal notranslate"><span class="pre">toString</span></code> on <code class="docutils literal notranslate"><span class="pre">john</span></code> within <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code>.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Student john = new Student(&quot;John&quot;);
-System.out.println(john);
+<p>Note that <code class="docutils literal notranslate"><span class="pre">toString</span></code> is often implicitly called for you. For example, the
+output above could have been generated by the following code, which calls
+<code class="docutils literal notranslate"><span class="pre">toString</span></code> on <code class="docutils literal notranslate"><span class="pre">john</span></code> within <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Student</span> <span class="n">john</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;John&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">john</span><span class="o">);</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 </div>
 <div class="section" id="equals">
 <h2>5.4.2. <code class="docutils literal notranslate"><span class="pre">equals</span></code><a class="headerlink" href="#equals" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we had two objects of type <code class="docutils literal notranslate"><span class="pre">Student</span></code>, say <code class="docutils literal notranslate"><span class="pre">student1</span></code> and
-<code class="docutils literal notranslate"><span class="pre">student2</span></code>, and we wanted to determine if they were equal. We might
-try to compare them using <code class="docutils literal notranslate"><span class="pre">==</span></code>, but since these are
-<a class="reference external" href="../data-types#references" target="_blank">references<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> - that is, the variables hold
-a reference to, or the <em>address</em> of, the actual <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects -
-they will evaluate as equal only when they have the same address. In
-other words, they will be equal only when they refer to, or point at,
-the exact same object. This is not usually what we want to check for.
-For example, we might want to consider two student objects equal if they
-have the same name, email, or student ID.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method can be used to determine if one object is equal
-to another in this sense. We introduced this method when discussing
-strings, but it also applies to all other classes. Below is code showing
-how you might use it to compare two students. Note that they have
-different names, but the same student ID, indicating they are actually
-referring to the same person.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Student bono1 = new Student(&quot;Paul David Hewson&quot;, 4);
-Student bono2 = new Student(&quot;Bono&quot;, 4);
+<code class="docutils literal notranslate"><span class="pre">student2</span></code>, and we wanted to determine if they were equal. We might try to
+compare them using <code class="docutils literal notranslate"><span class="pre">==</span></code>, but since these are
+<a class="reference internal" href="../data-types/more-data-types.html#reference-variable"><span class="std std-ref">references</span></a>. The variables hold a reference to, or
+the <em>address</em> of, the actual <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects—they will evaluate as equal
+only when they have the same memory address.</p>
+<p>To state that again: <code class="docutils literal notranslate"><span class="pre">student1</span></code> and <code class="docutils literal notranslate"><span class="pre">student2</span></code> will be equal (<code class="docutils literal notranslate"><span class="pre">==</span></code>) only
+when they refer to, or point at, the exact same object. Consider the example
+below, which creates two <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects:</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Student</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;Maria&quot;</span><span class="o">);</span>
+<span class="n">Student</span> <span class="n">otherPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;Maria&quot;</span><span class="o">);</span>
 
-if (bono1.equals(bono2)) {
-    System.out.println(bono1.getName() +
-        &quot; is the same as &quot; + bono2.getName());
-}
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">person</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">otherPerson</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">otherPerson</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">person</span> <span class="o">==</span> <span class="n">otherPerson</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>Console Output</strong></p>
+<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>Maria: org.launchcode.java.demos.classes1.Student@3e3abc88
+Maria: org.launchcode.java.demos.classes1.Student@6ce253f1
+<span class="nb">false</span>
 </pre></div>
 </div>
+</div>
+<p>Even though the objects have the exact same properties and values, <code class="docutils literal notranslate"><span class="pre">person</span></code>
+and <code class="docutils literal notranslate"><span class="pre">otherPerson</span></code> point to different memory locations. Therefore, the <code class="docutils literal notranslate"><span class="pre">==</span></code>
+check returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>This is not usually what we want to check for. For example, we might want to
+consider two <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects equal if they have the same name, email, or
+student ID.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method determines if one object is equal to another in this
+sense. We introduced the method when discussing strings, but it also applies to
+all other classes.</p>
+<p>Below is code showing how you might use <code class="docutils literal notranslate"><span class="pre">equals()</span></code> to compare two students.
+Note that they have different names, but the same student ID, indicating they
+are actually referring to the same person.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Student</span> <span class="n">bono1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;Paul David Hewson&quot;</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+<span class="n">Student</span> <span class="n">bono2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="o">(</span><span class="s">&quot;Bono&quot;</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">bono1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">bono2</span><span class="o">))</span> <span class="o">{</span>
+   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">bono1</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">+</span>
+      <span class="s">&quot; is the same as &quot;</span> <span class="o">+</span> <span class="n">bono2</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
 <p>If we don’t provide our own <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method, then the one provided
 for us will only consider two objects equal if they are the <em>exact same
 object</em>. In other words, they will only be considered equal if the
@@ -158,23 +214,26 @@ expression will evaluate to false.</p>
 <p>This kind of comparison is often not what we want. The difference
 between the comparison carried out by the default <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method
 (and by the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator), and how we would like our classes to
-behave, is the difference between <em>identity</em> and <em>equality</em>. Two things
-can be considered <em>equal</em> even if they are not the exact same item -
-that is, if they are not identical. So the default <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method
-and the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator test for identity, whereas we want to test for
-equality instead. We can do so by <strong>overriding</strong> the <code class="docutils literal notranslate"><span class="pre">equals()</span></code>
-method. We will discuss overriding in more detail later, but for now
-just know that it entails creating different behavior for an existing
+behave, is the difference between <em>identity</em> and <em>equality</em>. Two things can be
+considered <em>equal</em> even if they are NOT the exact same item or are not
+completely identical.</p>
+<p id="index-0">The default <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method and the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator test for <em>identity</em>,
+whereas we want to test for <em>equality</em> instead. We can do so by <strong>overriding</strong>
+the <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method. We will discuss overriding in more detail later, but
+for now just know that it entails creating different behavior for an existing
 method.</p>
 <p>For example, in the case of the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class, we might specify that
 two <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects are equal if they have the same ID. We would
 then write a new method definition for <code class="docutils literal notranslate"><span class="pre">equals()</span></code> as follows:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public boolean equals(Object o) {
-    Student theStudent = (Student) o;
-    return theStudent.getStudentId() == getStudentId();
-}
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">Student</span> <span class="n">theStudent</span> <span class="o">=</span> <span class="o">(</span><span class="n">Student</span><span class="o">)</span> <span class="n">o</span><span class="o">;</span>
+   <span class="k">return</span> <span class="n">theStudent</span><span class="o">.</span><span class="na">getStudentId</span><span class="o">()</span> <span class="o">==</span> <span class="n">getStudentId</span><span class="o">();</span>
+<span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>Now if we evaluate <code class="docutils literal notranslate"><span class="pre">bono1.equals(bono2)</span></code> we will get a result of true,
 since the student IDs match.</p>
 <p>One catch of working with <code class="docutils literal notranslate"><span class="pre">equals()</span></code> is that its input parameter must
