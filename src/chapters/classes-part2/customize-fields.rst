@@ -65,14 +65,9 @@ demonstrate where compiler errors would occur.
       }
    }
 
-Final fields can be confusing at first. If you’ve encountered references, or
-pointers, in your programming journey, then final fields might make more sense
-if you know that an object field actually holds a pointer to an object, and not
-the object itself.
-
-   TODO: Fix the phrasing in the previous paragraph.
-
-Note that a final field *may not* have a setter.
+Final fields help to prevent accidentally (or intentionally) changing the
+value of a field after it is initialized. As such, final fields may NOT
+have setters.
 
 .. index:: ! static field
 
@@ -118,27 +113,33 @@ since this discussion is focused on data, let’s focus on static fields for now
 
 There are multiple ways to refer to a static field.
 
-.. sourcecode:: java
+.. admonition:: Examples
 
-   // Within the class, use it the same as a normal, non-static field
-   System.out.println("Absolute zero in F is: " + absoluteZeroFahrenheit);
+   Within a class:
 
-   // Also within the class, we can be more explicit
-   System.out.println("Absolute zero in F is: " + this.absoluteZeroFahrenheit);
+   .. sourcecode:: java
+      :linenos:
 
-.. sourcecode:: java
+      // Use a static field the same way as a normal, non-static field
+      System.out.println("Absolute zero in F is: " + absoluteZeroFahrenheit);
 
-   // Outside the class, if the field is public, we can do this
-   System.out.println("Absolute zero in F is: " + Temperature.absoluteZeroFahrenheit);
+      // We can also be more explicit
+      System.out.println("Absolute zero in F is: " + this.absoluteZeroFahrenheit);
 
-   // Or if we have an object named "temp" of type Temperature
-   System.out.println("Absolute zero in F is: " + temp.absoluteZeroFahrenheit);
+   Outside of a class:
 
-In the second code snippet, it is much more preferable to use the first
-technique, to make it explicit that the field you’re using is static
-(this isn’t clear in the bottom case).
+   .. sourcecode:: java
+      :linenos:
 
-   TODO: Fix the phrasing in the previous paragraph.
+      // If the static field is public, we can do this
+      System.out.println("Absolute zero in F is: " + Temperature.absoluteZeroFahrenheit);
+
+      // Or if we have an object named "temp" of type Temperature
+      System.out.println("Absolute zero in F is: " + temp.absoluteZeroFahrenheit);
+
+When accessing a field from outside of its class, line 2 shows the preferred
+technique. The syntax makes it explicit that the field  is ``static``. Line 5
+does not make this point clear.
 
 .. admonition:: Example
 
@@ -233,8 +234,6 @@ absolute zero will never change, we can ensure that nobody ever alters it
 References
 ----------
 
-#. `Encapsulation
-   (wikipedia.org) <https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>`__
 #. `Declaring Member Variables
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html>`__
 #. `Initializing Fields
@@ -245,4 +244,40 @@ References
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   Assume that we define a ``Pet`` class that uses the fields ``name``,
+   ``age``, ``mass``, and ``species``.
+
+   Assuming you do not give your pet away, which of these fields should be
+   declared ``final``? (There may be more than one).
+
+   #. ``name``
+   #. ``age``
+   #. ``mass``
+   #. ``species``
+
+   Should any of the fields be declared ``static``?
+
+   #. Yes
+   #. No
+
+.. admonition:: Question
+
+   Assume we define several fields in a ``Circle`` class. Which of
+   the following is the BEST choice to be declared ``static``?
+
+   #. ``radius``
+   #. ``area``
+   #. ``pi``
+   #. ``circumference``
+
+.. admonition:: Question
+
+   Which of the following is the BEST syntax for defining a variable to hold
+   the (constant) speed of light in a vacuum?
+
+   #. ``public static final SPEED_OF_LIGHT = 299792458;``
+   #. ``private static final SPEED_OF_LIGHT = 299792458;``
+   #. ``public static final SPEED_OF_LIGHT;``
+   #. ``private static final SPEED_OF_LIGHT;``

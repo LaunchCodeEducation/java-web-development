@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="5.3. Instance and Static Methods" href="instance-and-static-methods.html" />
-    <link rel="prev" title="5.1. Java Lesson 4 Objectives" href="class-4-objectives.html" />
+    <link rel="prev" title="5.1. Java Lesson 4" href="class-4-objectives.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -173,13 +173,9 @@ demonstrate where compiler errors would occur.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Final fields can be confusing at first. If you’ve encountered references, or
-pointers, in your programming journey, then final fields might make more sense
-if you know that an object field actually holds a pointer to an object, and not
-the object itself.</p>
-<blockquote>
-<div>TODO: Fix the phrasing in the previous paragraph.</div></blockquote>
-<p>Note that a final field <em>may not</em> have a setter.</p>
+<p>Final fields help to prevent accidentally (or intentionally) changing the
+value of a field after it is initialized. As such, final fields may NOT
+have setters.</p>
 </div>
 <div class="section" id="static-fields">
 <span id="index-1"></span><h2>5.2.2. Static Fields<a class="headerlink" href="#static-fields" title="Permalink to this headline">¶</a></h2>
@@ -237,25 +233,36 @@ since this discussion is focused on data, let’s focus on static fields for now
 </pre></div>
 </td></tr></table></div>
 <p>There are multiple ways to refer to a static field.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Within the class, use it the same as a normal, non-static field</span>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>Within a class:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Use a static field the same way as a normal, non-static field</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Absolute zero in F is: &quot;</span> <span class="o">+</span> <span class="n">absoluteZeroFahrenheit</span><span class="o">);</span>
 
-<span class="c1">// Also within the class, we can be more explicit</span>
+<span class="c1">// We can also be more explicit</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Absolute zero in F is: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">absoluteZeroFahrenheit</span><span class="o">);</span>
 </pre></div>
-</div>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Outside the class, if the field is public, we can do this</span>
+</td></tr></table></div>
+<p>Outside of a class:</p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// If the static field is public, we can do this</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Absolute zero in F is: &quot;</span> <span class="o">+</span> <span class="n">Temperature</span><span class="o">.</span><span class="na">absoluteZeroFahrenheit</span><span class="o">);</span>
 
 <span class="c1">// Or if we have an object named &quot;temp&quot; of type Temperature</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Absolute zero in F is: &quot;</span> <span class="o">+</span> <span class="n">temp</span><span class="o">.</span><span class="na">absoluteZeroFahrenheit</span><span class="o">);</span>
 </pre></div>
+</td></tr></table></div>
 </div>
-<p>In the second code snippet, it is much more preferable to use the first
-technique, to make it explicit that the field you’re using is static
-(this isn’t clear in the bottom case).</p>
-<blockquote>
-<div>TODO: Fix the phrasing in the previous paragraph.</div></blockquote>
+<p>When accessing a field from outside of its class, line 2 shows the preferred
+technique. The syntax makes it explicit that the field  is <code class="docutils literal notranslate"><span class="pre">static</span></code>. Line 5
+does not make this point clear.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>As another example, we might also provide a third constructor for our
@@ -378,8 +385,6 @@ absolute zero will never change, we can ensure that nobody ever alters it
 <div class="section" id="references">
 <h2>5.2.4. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Encapsulation
-(wikipedia.org)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 <li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html" target="_blank">Declaring Member Variables
 (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 <li><a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/javaOO/initial.html" target="_blank">Initializing Fields
@@ -390,7 +395,46 @@ absolute zero will never change, we can ensure that nobody ever alters it
 </div>
 <div class="section" id="check-your-understanding">
 <h2>5.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Assume that we define a <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class that uses the fields <code class="docutils literal notranslate"><span class="pre">name</span></code>,
+<code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">mass</span></code>, and <code class="docutils literal notranslate"><span class="pre">species</span></code>.</p>
+<p>Assuming you do not give your pet away, which of these fields should be
+declared <code class="docutils literal notranslate"><span class="pre">final</span></code>? (There may be more than one).</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">age</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">mass</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">species</span></code></li>
+</ol>
+<p>Should any of the fields be declared <code class="docutils literal notranslate"><span class="pre">static</span></code>?</p>
+<ol class="last arabic simple">
+<li>Yes</li>
+<li>No</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Assume we define several fields in a <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class. Which of
+the following is the BEST choice to be declared <code class="docutils literal notranslate"><span class="pre">static</span></code>?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">radius</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">area</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">pi</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">circumference</span></code></li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which of the following is the BEST syntax for defining a variable to hold
+the (constant) speed of light in a vacuum?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT</span> <span class="pre">=</span> <span class="pre">299792458;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT</span> <span class="pre">=</span> <span class="pre">299792458;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT;</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -400,7 +444,7 @@ absolute zero will never change, we can ensure that nobody ever alters it
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="class-4-objectives.html"><span aria-hidden="true">&larr;</span> 5.1. Java Lesson 4 Objectives</a></li>
+        <li class="previous"><a href="class-4-objectives.html"><span aria-hidden="true">&larr;</span> 5.1. Java Lesson 4</a></li>
         
         
         <li class="next"><a href="instance-and-static-methods.html">5.3. Instance and Static Methods <span aria-hidden="true">&rarr;</span></a></li>

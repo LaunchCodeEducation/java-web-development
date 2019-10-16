@@ -209,6 +209,16 @@ containing class (it *may* refer to static fields, however). These methods tend
 to be utility-like (e.g. carrying out a calculation, or using or fetching some
 external resource).
 
+References
+-----------
+
+#. `Encapsulation
+   (wikipedia.org) <https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>`__
+#. `Defining Methods
+   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html>`__
+#. `Passing Data to a Method or Constructor
+   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html>`__
+
 Check Your Understanding
 -------------------------
 

@@ -25,7 +25,7 @@ something like this:
 
    .. sourcecode:: bash
 
-      org.launchcode.java.demos.java4python.school.Student@61bbe9ba
+      org.launchcode.java.demos.classes2.Student@61bbe9ba
 
 Here, we called ``toString`` on a ``Student`` object. The default ``toString``
 implementation is generally not very useful. Most of the time, you’ll want to
@@ -54,7 +54,7 @@ message:
       Violet (Credits: 0, GPA: 0.0)
 
 In the example, we define the ``toString`` method to return a string that
-reports the class properties ``name``, ``numberOfCredits``, and ``gpa`` in a
+reports the class fields ``name``, ``numberOfCredits``, and ``gpa`` in a
 clear manner.
 
 Note that ``toString`` is often implicitly called for you. For example, the
@@ -382,6 +382,14 @@ such as ``String``. A class that is part of Java or a third-party library will
 have implemented ``equals()`` in a way appropriate for the particular class,
 whereas ``==`` will only check to see if two variables refer to the same
 literal object.
+
+References
+-----------
+
+#. `How to Implement Java’s equals Method
+   Correctly <https://www.sitepoint.com/implement-javas-equals-method-correctly/>`__
+#. `How to Implement Java’s hashCode
+   Correctly <https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/>`__
 
 Check Your Understanding
 -------------------------
