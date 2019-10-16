@@ -233,11 +233,16 @@ absolute zero will never change, we can ensure that nobody ever alters it
 References
 ----------
 
--  `Encapsulation
+#. `Encapsulation
    (wikipedia.org) <https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>`__
--  `Declaring Member Variables
+#. `Declaring Member Variables
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/javaOO/variables.html>`__
--  `Initializing Fields
+#. `Initializing Fields
    (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/javaOO/initial.html>`__
--  `Constructors
+#. `Constructors
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html>`__
+
+Check Your Understanding
+-------------------------
+
+Lorem ipsum...

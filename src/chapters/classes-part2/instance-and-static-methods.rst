@@ -208,3 +208,8 @@ A method should be static when it does not refer to any instance fields of the
 containing class (it *may* refer to static fields, however). These methods tend
 to be utility-like (e.g. carrying out a calculation, or using or fetching some
 external resource).
+
+Check Your Understanding
+-------------------------
+
+Lorem ipsum...
