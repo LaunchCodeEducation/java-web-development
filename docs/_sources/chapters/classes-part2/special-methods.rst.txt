@@ -397,12 +397,12 @@ Check Your Understanding
 .. admonition:: Question
 
    Given the code:
-   
+
    .. sourcecode:: Java
       :linenos:
 
       public Pet {
-      
+
          private String name;
 
          Pet(name) {
@@ -425,7 +425,7 @@ Check Your Understanding
 .. admonition:: Question
 
    We add the following code inside the ``Pet`` class:
-   
+
    .. sourcecode:: Java
       :linenos:
 
