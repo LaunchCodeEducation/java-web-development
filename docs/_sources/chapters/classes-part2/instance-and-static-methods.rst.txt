@@ -184,11 +184,11 @@ using dot-notation. Here’s an example that we looked at
          public static String getMessage(String lang) {
 
             if (lang.equals("sp")) {
-                  return "Hola Mundo";
+                  return "¡Hola, Mundo!";
             } else if (lang.equals("fr")) {
-                  return "Bonjour le monde";
+                  return "Bonjour, le monde!";
             } else {
-                  return "Hello World";
+                  return "Hello, World!";
             }
          }
       }
@@ -222,4 +222,14 @@ References
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   Assume that add two methods to a ``Pet`` class---``public makeNoise()`` and
+   ``public static increaseAge()``. Which of the following statements is true?
+
+   #. The ``makeNoise()`` method can be accessed outside of the ``Pet`` class,
+      while the ``increaseAge()`` method cannot.
+   #. Each ``Pet`` object carries a copy of the ``makeNoise()`` method but NOT
+      a copy of the ``increaseAge()`` method.
+   #. Some other option here.
+   #. Some final option here.

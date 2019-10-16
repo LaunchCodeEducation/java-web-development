@@ -472,7 +472,91 @@ Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>5.4.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Given the code:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Pet</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+   <span class="n">Pet</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">String</span> <span class="n">firstPet</span> <span class="o">=</span> <span class="s">&quot;Fluffy&quot;</span><span class="o">;</span>
+<span class="n">Pet</span> <span class="n">secondPet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pet</span><span class="o">(</span><span class="s">&quot;Fluffy&quot;</span><span class="o">);</span>
+<span class="n">Pet</span> <span class="n">thirdPet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pet</span><span class="o">(</span><span class="s">&quot;Fluffy&quot;</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Which of the following statements evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.name</span> <span class="pre">==</span> <span class="pre">firstPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>We add the following code inside the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">petToCheck</span><span class="o">)</span> <span class="o">{</span>
+
+   <span class="k">if</span> <span class="o">(</span><span class="n">petToCheck</span> <span class="o">==</span> <span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="k">if</span> <span class="o">(</span><span class="n">petToCheck</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="k">if</span> <span class="o">(</span><span class="n">petToCheck</span><span class="o">.</span><span class="na">getClass</span><span class="o">()</span> <span class="o">!=</span> <span class="n">getClass</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="n">Pet</span> <span class="n">thePet</span> <span class="o">=</span> <span class="o">(</span><span class="n">Pet</span><span class="o">)</span> <span class="n">petToCheck</span><span class="o">;</span>
+   <span class="k">return</span> <span class="n">thePet</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">==</span> <span class="n">getName</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Which of the following statements evaluated to <code class="docutils literal notranslate"><span class="pre">false</span></code> before, but now
+evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.name</span> <span class="pre">==</span> <span class="pre">firstPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 

@@ -394,4 +394,64 @@ References
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   Given the code:
+   
+   .. sourcecode:: Java
+      :linenos:
+
+      public Pet {
+      
+         private String name;
+
+         Pet(name) {
+            this.name = name;
+         }
+      }
+
+      String firstPet = "Fluffy";
+      Pet secondPet = new Pet("Fluffy");
+      Pet thirdPet = new Pet("Fluffy");
+
+   Which of the following statements evaluates to ``true``?
+
+   #. ``firstPet == secondPet;``
+   #. ``secondPet == thirdPet;``
+   #. ``thirdPet.equals(secondPet);``
+   #. ``thirdPet.name == firstPet;``
+   #. ``thirdPet.equals(firstPet);``
+
+.. admonition:: Question
+
+   We add the following code inside the ``Pet`` class:
+   
+   .. sourcecode:: Java
+      :linenos:
+
+      public boolean equals(Object petToCheck) {
+
+         if (petToCheck == this) {
+            return true;
+         }
+
+         if (petToCheck == null) {
+            return false;
+         }
+
+         if (petToCheck.getClass() != getClass()) {
+            return false;
+         }
+
+         Pet thePet = (Pet) petToCheck;
+         return thePet.getName() == getName();
+      }
+
+   Which of the following statements evaluated to ``false`` before, but now
+   evaluates to ``true``?
+
+   #. ``firstPet == secondPet;``
+   #. ``secondPet == thirdPet;``
+   #. ``thirdPet.equals(secondPet);``
+   #. ``thirdPet.name == firstPet;``
+   #. ``thirdPet.equals(firstPet);``
