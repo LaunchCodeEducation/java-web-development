@@ -2,14 +2,13 @@ Studio: Classes and Objects
 ===========================
 
 Let’s practice designing classes using the following scenario. You’ve
-been hired to create a web application for a local restaurant. They want
-to not only be able to display their current menu, but also edit it
-through an admin panel.
+been hired to create a web application for a local restaurant. 
+They want to both display their current menu and edit it through an admin panel.
 
 You’re not going to build an actual application in this studio. Instead,
 you will focus on the *design* of a portion of this application.
-Object-oriented programming in Java requires more intentional, up-front
-planning than most programming you’ve done to-date.
+Object-oriented programming in Java requires intentional, up-front planning.
+While this may seem tedious, outlining your ideas before you code helps reduce the errors you need to fix later.
 
 Design
 ------
@@ -18,19 +17,15 @@ You know you’ll need to create classes within the web application to
 facilitate this behavior and represent the various components of the
 menu. After talking to the owner, you have these details:
 
--  The menu consists of several menu items
--  Each menu item has a price, description, and category (appetizer,
-   main course, or dessert)
--  It should be possible to display whether a menu item is new or not
--  The app should know when the menu was last updated, so visitors can
-   see that the restaurant is constantly changing and adding exciting
-   new items
+1.  The menu consists of several menu items
+2.  Each menu item has a price, description, and category (appetizer, main course, or dessert)
+3.  It should be possible to display whether a menu item is new or not
+4.  The app should know when the menu was last updated, so visitors can see that the restaurant is constantly changing and adding exciting new items
 
 Starting with pen and paper (or your favorite notes application on your
-laptop), begin to sketch out the design for two classes, ``Menu`` and
+laptop), sketch out the design for two classes, ``Menu`` and
 ``MenuItem``. List the fields that each should have, along with the data
-type and access level of each. Also consider what constructors your
-class might need, and whether any field should be static or final.
+type and access level for each. Also consider what constructors the classes might need.
 
 .. note::
 
@@ -40,25 +35,23 @@ class might need, and whether any field should be static or final.
 
 You may find it useful to use one or more of the classes provided by
 Java, such as
-`Date <http://docs.oracle.com/javase/8/docs/api/java/util/Date.html>`__.
+`Date <https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Date.html>`__.
 
 Presenting Your Design
 ----------------------
 
-Once you have sketched out your fields and properties, find a classmate
-to describe your design to. Class design can be subjective, so it’s
-important to properly think and talk through your choices before coding.
+Once you have sketched out your fields and properties, pair with a classmate and take turns presenting your designs.
+Class design can be subjective, so it’s important to properly think and talk through your choices before coding.
 
-While a classmate is presenting their design to you, ask questions about
-why they made the decisions that they did, and think about use cases
-that that might come up, to see if their design fits with those.
+While your partner is presenting their design, ask questions about why they made the decisions they did.
+Consider other use cases that might come up, and see if their design fits with those.
 
 Implementation
 --------------
 
-In IntelliJ, create a new project, "Restaurant Menu".
+In IntelliJ, create a new project, ``Restaurant Menu``.
 Within the project, create a new package named
-``restaurant``. Add classes ``Menu`` and ``MenuItem`` and code the
+``restaurant``. Add the ``Menu`` and ``MenuItem`` classes and code the
 design that you created above. Be sure to add getters and setters as
 appropriate.
 
