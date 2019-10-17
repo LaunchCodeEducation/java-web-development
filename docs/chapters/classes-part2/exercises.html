@@ -86,6 +86,58 @@
     
   <div class="section" id="exercises-objects-and-classes-part-2">
 <h1>5.5. Exercises: Objects and Classes, Part 2<a class="headerlink" href="#exercises-objects-and-classes-part-2" title="Permalink to this headline">¶</a></h1>
+<p>Work on these exercises in the IntelliJ <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project.
+You will update your <code class="docutils literal notranslate"><span class="pre">Student.java</span></code> file by implementing the <code class="docutils literal notranslate"><span class="pre">addGrade</span></code> and
+<code class="docutils literal notranslate"><span class="pre">getGradeLevel</span></code> methods that were sketched out in the
+<a class="reference internal" href="instance-and-static-methods.html#instance-methods"><span class="std std-ref">Instance Methods</span></a> section.</p>
+<div class="section" id="the-getgradelevel-method">
+<h2>5.5.1. The <code class="docutils literal notranslate"><span class="pre">getGradeLevel</span></code> Method<a class="headerlink" href="#the-getgradelevel-method" title="Permalink to this headline">¶</a></h2>
+<p>This method returns the student’s level based on the number of credits they
+have earned: Freshman (0-29 credits), Sophomore (30-59 credits), Junior (60-89
+credits), or Senior (90+ credits).</p>
+</div>
+<div class="section" id="the-addgrade-method">
+<h2>5.5.2. The <code class="docutils literal notranslate"><span class="pre">addGrade</span></code> Method<a class="headerlink" href="#the-addgrade-method" title="Permalink to this headline">¶</a></h2>
+<p>This method accepts two parameters—a number of course credits and a
+numerical grade (0.0-4.0). With this data, you need to update the student’s
+GPA.</p>
+<div class="section" id="gpa-information">
+<h3>5.5.2.1. GPA Information<a class="headerlink" href="#gpa-information" title="Permalink to this headline">¶</a></h3>
+<p>GPA is computed via the formula:</p>
+<blockquote>
+<div>gpa = (total quality score) / (total number of credits)</div></blockquote>
+<ol class="arabic simple">
+<li>The <em>quality score</em> for a class is found by multiplying the letter grade
+score (0.0-4.0) by the number of credits.</li>
+<li>The <em>total quality score</em> is the sum of the quality scores for all classes.</li>
+</ol>
+<p>For example, if a student received an “A” (worth 4 points) in a 3-credit course
+and a “B” (worth 3 points) in a 4-credit course, their total quality score
+would be: 4.0 * 3 + 3.0 * 4 = 24. Their GPA would then be 24 / 7 = 3.43.</p>
+</div>
+<div class="section" id="determine-the-new-gpa">
+<h3>5.5.2.2. Determine the New GPA<a class="headerlink" href="#determine-the-new-gpa" title="Permalink to this headline">¶</a></h3>
+<p>To update the student’s GPA:</p>
+<ol class="arabic simple">
+<li>Calculate their <em>current</em> total quality score by using the formula
+<code class="docutils literal notranslate"><span class="pre">gpa</span> <span class="pre">*</span> <span class="pre">numberOfCredits</span></code>.</li>
+<li>Use the new course grade and course credits to update their total quality
+score.</li>
+<li>Update the student’s total <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code>.</li>
+<li>Compute their new GPA.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="tostring-and-equals">
+<h2>5.5.3. <code class="docutils literal notranslate"><span class="pre">toString</span></code> and <code class="docutils literal notranslate"><span class="pre">equals</span></code><a class="headerlink" href="#tostring-and-equals" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Add custom <code class="docutils literal notranslate"><span class="pre">equals()</span></code> and <code class="docutils literal notranslate"><span class="pre">toString()</span></code> methods to the <code class="docutils literal notranslate"><span class="pre">Student</span></code>
+class.</li>
+<li>Add custom <code class="docutils literal notranslate"><span class="pre">equals()</span></code> and <code class="docutils literal notranslate"><span class="pre">toString()</span></code> methods to the <code class="docutils literal notranslate"><span class="pre">Course</span></code>
+class which you started in the exercises for the previous chapter.
+(<em>TODO: Add internal link to the previous exercises</em>).</li>
+</ol>
+</div>
 </div>
 
 

@@ -61,6 +61,8 @@ field available to print.
 
 .. index:: ! instance method
 
+.. _instance-methods:
+
 Instance Methods
 ----------------
 
