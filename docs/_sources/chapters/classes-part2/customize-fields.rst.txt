@@ -16,54 +16,58 @@ A **final field** is one that cannot be changed once it is initialized. This
 means slightly different things for primitive and class types. We create final
 fields by declaring them with the ``final`` keyword.
 
-**Final primitive fields** cannot change their value once they are initialized.
+We cannot change the value of a **final primitive field** (``final int``,
+``final double``, etc.) after it is initialized.
 
-**Final object fields** may not change the object that they hold once they are
-initialized. However, that object itself my change.
+Similarly, we cannot assign a new object to a **final object field**
+(``final String``, ``final Double``, ``final ClassName``, etc.) after
+initialization. However, we can change the values within the object itself.
 
 Here are some examples to illustrate. Each class would normally be in its own
 file, but we present them side-by-side for convenience. Additionally, we
 declare each field ``public`` to minimize the example code and more clearly
 demonstrate where compiler errors would occur.
 
-.. sourcecode:: java
-   :linenos:
+.. admonition:: Examples
 
-   public class FortyTwo {
+   .. sourcecode:: java
+      :linenos:
 
-      public int intValue = 42;
+      public class FortyTwo {
 
-   }
+         public int intValue = 42;
 
-   public class FinalFields {
-
-      public final int intValue = 42;
-      public final double doubleValue;
-      public final FortyTwo objectValue = new FortyTwo();
-
-      public static void main(String[] args) {
-
-         FinalFields demo = new FinalFields();
-
-         // This would result in a compiler error
-         demo.intValue = 6;
-
-         // This is allowed since we haven't initialized doubleValue yet
-         demo.doubleValue = 42.0;
-
-         // However, this would result in a compiler error
-         demo.doubleValue = 6.0;
-
-         // This would result in a compiler error, since we're trying to
-         // give objectValue a different object value
-         demo.objectValue = new FortyTwo();
-
-         // However, this is allowed since we're changing a field
-         // inside the final object, and not changing which object
-         // objectValue refers to
-         demo.objectValue.intValue = 6;
       }
-   }
+
+      public class FinalFields {
+
+         public final int intValue = 42;
+         public final double doubleValue;
+         public final FortyTwo objectValue = new FortyTwo();
+
+         public static void main(String[] args) {
+
+            FinalFields demo = new FinalFields();
+
+            // This would result in a compiler error
+            demo.intValue = 6;
+
+            // This is allowed since we haven't initialized doubleValue yet
+            demo.doubleValue = 42.0;
+
+            // However, this would result in a compiler error
+            demo.doubleValue = 6.0;
+
+            // This would result in a compiler error, since we're trying to
+            // give objectValue a different object value
+            demo.objectValue = new FortyTwo();
+
+            // However, this is allowed since we're changing a field
+            // inside the final object, and not changing which object
+            // objectValue refers to
+            demo.objectValue.intValue = 6;
+         }
+      }
 
 Final fields help to prevent accidentally (or intentionally) changing the
 value of a field after it is initialized. As such, final fields may NOT
@@ -74,8 +78,8 @@ have setters.
 Static Fields
 --------------
 
-A **static field** is one that *shared by all instances of the class*, and it
-is declared with the ``static`` keyword.
+A **static field** is one that is *shared by all instances of the class*, and
+it is declared with the ``static`` keyword.
 
 For example, in our ``Temperature`` class there is no reason for each
 ``Temperature`` object to hold its own copy of the double
@@ -129,7 +133,7 @@ There are multiple ways to refer to a static field.
    Outside of a class:
 
    .. sourcecode:: java
-      :linenos:
+      :lineno-start: 6
 
       // If the static field is public, we can do this
       System.out.println("Absolute zero in F is: " + Temperature.absoluteZeroFahrenheit);
@@ -137,8 +141,8 @@ There are multiple ways to refer to a static field.
       // Or if we have an object named "temp" of type Temperature
       System.out.println("Absolute zero in F is: " + temp.absoluteZeroFahrenheit);
 
-When accessing a field from outside of its class, line 2 shows the preferred
-technique. The syntax makes it explicit that the field  is ``static``. Line 5
+When accessing a field from outside of its class, line 7 shows the preferred
+technique. The syntax makes it explicit that the field  is ``static``. Line 10
 does not make this point clear.
 
 .. admonition:: Example
@@ -262,6 +266,8 @@ Check Your Understanding
    #. Yes
    #. No
 
+.. The correct answers are "name", "species", and "No".
+
 .. admonition:: Question
 
    Assume we define several fields in a ``Circle`` class. Which of
@@ -272,12 +278,16 @@ Check Your Understanding
    #. ``pi``
    #. ``circumference``
 
+.. The correct answer is "pi".
+
 .. admonition:: Question
 
    Which of the following is the BEST syntax for defining a variable to hold
    the (constant) speed of light in a vacuum?
 
-   #. ``public static final SPEED_OF_LIGHT = 299792458;``
-   #. ``private static final SPEED_OF_LIGHT = 299792458;``
-   #. ``public static final SPEED_OF_LIGHT;``
-   #. ``private static final SPEED_OF_LIGHT;``
+   #. ``public static final int SPEED_OF_LIGHT = 299792458;``
+   #. ``private static final int SPEED_OF_LIGHT = 299792458;``
+   #. ``public static final int SPEED_OF_LIGHT;``
+   #. ``private static final int SPEED_OF_LIGHT;``
+
+.. The correct answer is "public static final int SPEED_OF_LIGHT = 299792458;".

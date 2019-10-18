@@ -226,8 +226,9 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Assume that add two methods to a ``Pet`` class---``public makeNoise()`` and
-   ``public static increaseAge()``. Which of the following statements is true?
+   Assume that we add two methods to a ``Pet`` class---``public makeNoise()``
+   and ``public static increaseAge()``. Which of the following statements is
+   true?
 
    #. The ``makeNoise()`` method can be accessed outside of the ``Pet`` class,
       while the ``increaseAge()`` method cannot.

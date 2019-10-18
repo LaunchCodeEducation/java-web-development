@@ -95,14 +95,18 @@ use.</p>
 <p>A <strong>final field</strong> is one that cannot be changed once it is initialized. This
 means slightly different things for primitive and class types. We create final
 fields by declaring them with the <code class="docutils literal notranslate"><span class="pre">final</span></code> keyword.</p>
-<p><strong>Final primitive fields</strong> cannot change their value once they are initialized.</p>
-<p><strong>Final object fields</strong> may not change the object that they hold once they are
-initialized. However, that object itself my change.</p>
+<p>We cannot change the value of a <strong>final primitive field</strong> (<code class="docutils literal notranslate"><span class="pre">final</span> <span class="pre">int</span></code>,
+<code class="docutils literal notranslate"><span class="pre">final</span> <span class="pre">double</span></code>, etc.) after it is initialized.</p>
+<p>Similarly, we cannot assign a new object to a <strong>final object field</strong>
+(<code class="docutils literal notranslate"><span class="pre">final</span> <span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">final</span> <span class="pre">Double</span></code>, <code class="docutils literal notranslate"><span class="pre">final</span> <span class="pre">ClassName</span></code>, etc.) after
+initialization. However, we can change the values within the object itself.</p>
 <p>Here are some examples to illustrate. Each class would normally be in its own
 file, but we present them side-by-side for convenience. Additionally, we
 declare each field <code class="docutils literal notranslate"><span class="pre">public</span></code> to minimize the example code and more clearly
 demonstrate where compiler errors would occur.</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -173,14 +177,15 @@ demonstrate where compiler errors would occur.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
+</div>
 <p>Final fields help to prevent accidentally (or intentionally) changing the
 value of a field after it is initialized. As such, final fields may NOT
 have setters.</p>
 </div>
 <div class="section" id="static-fields">
 <span id="index-1"></span><h2>5.2.2. Static Fields<a class="headerlink" href="#static-fields" title="Permalink to this headline">¶</a></h2>
-<p>A <strong>static field</strong> is one that <em>shared by all instances of the class</em>, and it
-is declared with the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword.</p>
+<p>A <strong>static field</strong> is one that is <em>shared by all instances of the class</em>, and
+it is declared with the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword.</p>
 <p>For example, in our <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> class there is no reason for each
 <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> object to hold its own copy of the double
 <code class="docutils literal notranslate"><span class="pre">absoluteZeroFahrenheit</span></code>. That value remains constant from class to class and
@@ -248,11 +253,11 @@ since this discussion is focused on data, let’s focus on static fields for now
 </pre></div>
 </td></tr></table></div>
 <p>Outside of a class:</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// If the static field is public, we can do this</span>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// If the static field is public, we can do this</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Absolute zero in F is: &quot;</span> <span class="o">+</span> <span class="n">Temperature</span><span class="o">.</span><span class="na">absoluteZeroFahrenheit</span><span class="o">);</span>
 
 <span class="c1">// Or if we have an object named &quot;temp&quot; of type Temperature</span>
@@ -260,8 +265,8 @@ since this discussion is focused on data, let’s focus on static fields for now
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>When accessing a field from outside of its class, line 2 shows the preferred
-technique. The syntax makes it explicit that the field  is <code class="docutils literal notranslate"><span class="pre">static</span></code>. Line 5
+<p>When accessing a field from outside of its class, line 7 shows the preferred
+technique. The syntax makes it explicit that the field  is <code class="docutils literal notranslate"><span class="pre">static</span></code>. Line 10
 does not make this point clear.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
@@ -429,10 +434,10 @@ the following is the BEST choice to be declared <code class="docutils literal no
 <p>Which of the following is the BEST syntax for defining a variable to hold
 the (constant) speed of light in a vacuum?</p>
 <ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT</span> <span class="pre">=</span> <span class="pre">299792458;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT</span> <span class="pre">=</span> <span class="pre">299792458;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">SPEED_OF_LIGHT;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">int</span> <span class="pre">SPEED_OF_LIGHT</span> <span class="pre">=</span> <span class="pre">299792458;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">int</span> <span class="pre">SPEED_OF_LIGHT</span> <span class="pre">=</span> <span class="pre">299792458;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">int</span> <span class="pre">SPEED_OF_LIGHT;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">static</span> <span class="pre">final</span> <span class="pre">int</span> <span class="pre">SPEED_OF_LIGHT;</span></code></li>
 </ol>
 </div>
 </div>

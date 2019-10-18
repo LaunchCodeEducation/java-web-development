@@ -3,8 +3,8 @@ Special Methods
 
 Every class has a few special methods that belong to it, regardless of
 whether or not we define them. Exactly *how* every class obtains these
-methods will be explored in a future lesson. For now, let’s look at the
-most important of these methods.
+methods will be explored in a future lesson. For now, let’s look at two
+important examples of these methods.
 
 ``toString``
 -------------
@@ -208,8 +208,9 @@ Coding a New ``equals`` Method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You’ll often want to implement ``equals()`` yourself. When you do, be sure you
-understand the best practices around how the method should behave.
-Unfortunately, these are `not so simple <https://www.sitepoint.com/implement-javas-equals-method-correctly/>`__.
+understand the best practices around how the method should behave. These are
+`a little more involved <https://www.sitepoint.com/implement-javas-equals-method-correctly/>`__
+compared to coding a new ``toString`` method.
 
 In fact, the ``equals()`` method we defined above isn’t very good by most
 Java programmers’ standards. Let’s improve it.
@@ -422,6 +423,8 @@ Check Your Understanding
    #. ``thirdPet.name == firstPet;``
    #. ``thirdPet.equals(firstPet);``
 
+.. The correct answer is "thirdPet.name == firstPet;".
+
 .. admonition:: Question
 
    We add the following code inside the ``Pet`` class:
@@ -455,3 +458,5 @@ Check Your Understanding
    #. ``thirdPet.equals(secondPet);``
    #. ``thirdPet.name == firstPet;``
    #. ``thirdPet.equals(firstPet);``
+
+.. The correct answer is "thirdPet.equals(secondPet);".
