@@ -361,8 +361,9 @@ Constants should be in ALL CAPS, with an underscore to separate words.</li>
 <li>There is no strong reason to make constants <code class="docutils literal notranslate"><span class="pre">private</span></code>, since restricting
 access would force us to re-declare the same values in different classes.
 We’ll generally make our constants <code class="docutils literal notranslate"><span class="pre">public</span></code>.</li>
-<li>Declare and initialize constants at the same time. Otherwise, you run the
-risk of somebody else assigning them a value first!</li>
+<li>We must declare and initialize a constant at the same time. If we do not
+declare and initialize the constant in the same statement, we cannot assign
+it a value later. The constant’s value remains empty.</li>
 </ol>
 <p>A good use of a constant can be seen in our <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> class. Since
 absolute zero will never change, we can ensure that nobody ever alters it

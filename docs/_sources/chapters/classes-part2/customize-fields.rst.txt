@@ -215,8 +215,9 @@ Three things to note from this example:
 #. There is no strong reason to make constants ``private``, since restricting
    access would force us to re-declare the same values in different classes.
    We’ll generally make our constants ``public``.
-#. Declare and initialize constants at the same time. Otherwise, you run the
-   risk of somebody else assigning them a value first!
+#. We must declare and initialize a constant at the same time. If we do not
+   declare and initialize the constant in the same statement, we cannot assign
+   it a value later. The constant's value remains empty.
 
 A good use of a constant can be seen in our ``Temperature`` class. Since
 absolute zero will never change, we can ensure that nobody ever alters it
