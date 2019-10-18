@@ -487,12 +487,20 @@ Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Pet</span> <span class="o">{</span>
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pet</span> <span class="o">{</span>
 
    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 
-   <span class="n">Pet</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">Pet</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
       <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
    <span class="o">}</span>
 <span class="o">}</span>
 
@@ -506,7 +514,7 @@ Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 <li><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.name</span> <span class="pre">==</span> <span class="pre">firstPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.getName()</span> <span class="pre">==</span> <span class="pre">firstPet;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></li>
 </ol>
 </div>
@@ -554,7 +562,7 @@ evaluates to <code class="docutils literal notranslate"><span class="pre">true</
 <li><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.name</span> <span class="pre">==</span> <span class="pre">firstPet;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">thirdPet.getName()</span> <span class="pre">==</span> <span class="pre">firstPet;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></li>
 </ol>
 </div>

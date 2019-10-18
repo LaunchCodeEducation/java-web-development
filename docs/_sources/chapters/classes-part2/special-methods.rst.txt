@@ -402,12 +402,16 @@ Check Your Understanding
    .. sourcecode:: Java
       :linenos:
 
-      public Pet {
+      public class Pet {
 
          private String name;
 
-         Pet(name) {
+         Pet(String name) {
             this.name = name;
+         }
+
+         public String getName() {
+            return name;
          }
       }
 
@@ -420,10 +424,10 @@ Check Your Understanding
    #. ``firstPet == secondPet;``
    #. ``secondPet == thirdPet;``
    #. ``thirdPet.equals(secondPet);``
-   #. ``thirdPet.name == firstPet;``
+   #. ``thirdPet.getName() == firstPet;``
    #. ``thirdPet.equals(firstPet);``
 
-.. The correct answer is "thirdPet.name == firstPet;".
+.. The correct answer is "thirdPet.getName() == firstPet;".
 
 .. admonition:: Question
 
@@ -456,7 +460,7 @@ Check Your Understanding
    #. ``firstPet == secondPet;``
    #. ``secondPet == thirdPet;``
    #. ``thirdPet.equals(secondPet);``
-   #. ``thirdPet.name == firstPet;``
+   #. ``thirdPet.getName() == firstPet;``
    #. ``thirdPet.equals(firstPet);``
 
 .. The correct answer is "thirdPet.equals(secondPet);".
