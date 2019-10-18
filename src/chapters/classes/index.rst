@@ -9,4 +9,5 @@ Classes in Java
    constructors
    methods
    srp
+   exercises
    studio
