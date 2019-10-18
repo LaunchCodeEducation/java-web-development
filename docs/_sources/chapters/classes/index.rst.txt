@@ -9,4 +9,8 @@ Classes in Java
    constructors
    methods
    srp
+<<<<<<< HEAD
    exercises
+=======
+   studio
+>>>>>>> master

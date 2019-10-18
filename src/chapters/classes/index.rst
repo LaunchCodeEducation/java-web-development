@@ -10,3 +10,4 @@ Classes in Java
    methods
    srp
    exercises
+   studio
