@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Assignment #3: Tech Jobs (Object-Oriented Edition) &#8212; Java Web Development  documentation</title>
+    <title>Assignment #2: Tech Jobs (Object-Oriented Edition) &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="TODOs" href="../todos.html" />
-    <link rel="prev" title="Assignment #2: Tech Jobs (MVC Edition)" href="tech-jobs-mvc.html" />
+    <link rel="next" title="Assignment #3: Tech Jobs (MVC Edition)" href="tech-jobs-mvc.html" />
+    <link rel="prev" title="Assignment #1: Tech Jobs (Console Edition)" href="tech-jobs-console.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,7 +73,7 @@
 
 <ol class="breadcrumb container">
     <li><a href="../index.html">Contents</a></li>
-    <li class="active">Assignment #3: Tech Jobs (Object-Oriented Edition)</li>
+    <li class="active">Assignment #2: Tech Jobs (Object-Oriented Edition)</li>
 </ol>
 
 
@@ -83,9 +83,469 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="assignment-3-tech-jobs-object-oriented-edition">
-<span id="tech-jobs-oo"></span><h1>Assignment #3: Tech Jobs (Object-Oriented Edition)<a class="headerlink" href="#assignment-3-tech-jobs-object-oriented-edition" title="Permalink to this headline">¶</a></h1>
-<p>Noting here yet!  Check back soon.</p>
+  <div class="section" id="assignment-2-tech-jobs-object-oriented-edition">
+<span id="tech-jobs-oo"></span><h1>Assignment #2: Tech Jobs (Object-Oriented Edition)<a class="headerlink" href="#assignment-2-tech-jobs-object-oriented-edition" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Your apprenticeship at LaunchCode is going well! Only a few weeks in and you’re
+regularly making contributions to code that will eventually be used by all
+LaunchCode staff.</p>
+<p>Your last task was to get the prototype Tech Jobs app in good shape. Now it’s
+time to advance the underlying structure of the program.</p>
+<p>Your mentor on this project is Sally, one of the developers at LaunchCode. She
+regularly mentors developers who are just getting started with their careers.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/LC-Sally.png"><img alt="Sally's LaunchCode avatar." src="../_images/LC-Sally.png" style="width: 217.0px; height: 488.0px;" /></a>
+</div>
+<p>She’s done some initial work on the project and left you some TODOs. After
+seeing your strong work with your last project, Blake reported that you
+performed well and learned quickly. Because of your success, he and Sally feel
+comfortable assigning you to a set of tasks that are a notch up in difficulty.</p>
+</div>
+<div class="section" id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
+<p>In this project, you’ll show that you can:</p>
+<ol class="arabic simple">
+<li>Read and understand code written by others.</li>
+<li>Work with <em>objects</em> to encapsulate data and methods.</li>
+<li>Work with model classes via a data access layer (in this case,
+<code class="docutils literal notranslate"><span class="pre">JobData</span></code>).</li>
+</ol>
+</div>
+<div class="section" id="techjobs-object-oriented-edition">
+<h2>TechJobs (Object-Oriented Edition)<a class="headerlink" href="#techjobs-object-oriented-edition" title="Permalink to this headline">¶</a></h2>
+<p>Sally has gotten the ball rolling by adding a <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, along with classes
+to represent the individual properties of a job: <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>.</p>
+<p>She has also refactored the View and Controller
+layers to use these new classes. Finally, she has modified the
+<code class="docutils literal notranslate"><span class="pre">JobData</span></code> class to properly create <code class="docutils literal notranslate"><span class="pre">Job</span></code> and related objects when
+importing data from <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code>.</p>
+<p>As the team gets closer to hooking the app up to a database - and
+abandoning the test data they’ve been using - they’ll want an easy way
+to add new jobs via the user interface.</p>
+</div>
+<div class="section" id="your-assignment">
+<h2>Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
+<p>You’ve been tasked with completing a feature that allows new <code class="docutils literal notranslate"><span class="pre">Job</span></code>
+objects to be created and added to the system. You’ll touch all layers
+of the application, but you’ll be primarily working with model classes
+to complete this feature.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Set up a local copy of the project: Visit the <a class="reference external" href="https://github.com/LaunchCodeEducation/techjobs-oo" target="_blank">repository
+page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for this
+project and fork the repository to create a copy under your own GitHub
+account.</li>
+<li>Open IntelliJ (if IntelliJ is currently open, save your work, close it, and
+reopen it).</li>
+<li>If the app opens up to an existing project, select <em>IntelliJ &gt; Preferences &gt;
+Appearance &amp; Behavior &gt; System Settings</em> and uncheck <em>Reopen last project on
+startup</em>. Close and Reopen IntelliJ.</li>
+<li>From the “Welcome to IntelliJ” dialog box, select <em>Check out from Version
+Control &gt; GitHub</em>.</li>
+<li>Choose your fork from the repository dropdown, select the parent directory
+where you’d like to store your project, and hit <em>Clone</em>.</li>
+<li>In the screens that follow:<ol class="loweralpha">
+<li>Choose <em>Create Project From Existing Sources</em> on the first pane.</li>
+<li>Select <em>Auto Import</em> in the Gradle configuration pane.</li>
+<li>Select defaults on all other panes</li>
+</ol>
+</li>
+</ol>
+<p>Go ahead and start up the application (via the Gradle pane, <em>Tasks &gt;
+Application &gt; bootRun</em>), so you can refer to both the code as well as
+the running app while we look at what’s in place already.</p>
+</div>
+<div class="section" id="the-model">
+<h2>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h2>
+<p>The largest amount of new code is in the model. Open up the
+<code class="docutils literal notranslate"><span class="pre">org.launchcode.models</span></code> package and you’ll see several classes, some
+of which you’ll work with directly, and some of which you won’t.</p>
+</div>
+<div class="section" id="the-job-class">
+<h2>The Job Class<a class="headerlink" href="#the-job-class" title="Permalink to this headline">¶</a></h2>
+<p>Working with data stored as strings in HashMaps and ArrayLists isn’t a
+good long-term solution, for various reasons that we will discuss
+momentarily. The <code class="docutils literal notranslate"><span class="pre">Job</span></code> class introduces an object-oriented design to
+the application.</p>
+<p>It contains all of the fields that you’ve grown used to while working on
+TechJobs: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">positionType</span></code>. There’s also an <code class="docutils literal notranslate"><span class="pre">id</span></code> field which will be used to
+uniquely identify <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects.</p>
+<p>The main difference between the object representation of a job and the
+string-based representation is that the values of <code class="docutils literal notranslate"><span class="pre">employer</span></code>,
+<code class="docutils literal notranslate"><span class="pre">location</span></code>, and the other non-ID fields are no longer strings, but
+instead are classes of their own.</p>
+<div class="section" id="job-fields">
+<h3>Job Fields<a class="headerlink" href="#job-fields" title="Permalink to this headline">¶</a></h3>
+<p>If you don’t have it open already, open the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class. You’ll see
+the following fields (among others):</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+<span class="kd">private</span> <span class="n">Employer</span> <span class="n">employer</span><span class="o">;</span>
+<span class="kd">private</span> <span class="n">Location</span> <span class="n">location</span><span class="o">;</span>
+<span class="kd">private</span> <span class="n">PositionType</span> <span class="n">positionType</span><span class="o">;</span>
+<span class="kd">private</span> <span class="n">CoreCompetency</span> <span class="n">coreCompetency</span><span class="o">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Of these, only <code class="docutils literal notranslate"><span class="pre">name</span></code> is a string. Sally has created classes to
+represent each of the other properties. Each of these classes –
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> – have
+<code class="docutils literal notranslate"><span class="pre">value</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> fields.</p>
+<p>If you look at the guts of any of these job property classes, you’ll see
+that they each extend <code class="docutils literal notranslate"><span class="pre">JobField</span></code>, and don’t have any additional
+properties of their own. We’ll customize and add to these classes in a
+future assignment, but for now we only need to work with their inherited
+<code class="docutils literal notranslate"><span class="pre">value</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> properties.</p>
+<p>So, for example, if you had a <code class="docutils literal notranslate"><span class="pre">Job</span></code> instance, you could get the name
+of the employer this way:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// job is an instance of Job</span>
+<span class="n">String</span> <span class="n">employerName</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="na">getEmployer</span><span class="o">().</span><span class="na">getValue</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Additionally, the <code class="docutils literal notranslate"><span class="pre">toString()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">JobField</span></code> class (which
+these other classes inherit) is set up to return the <code class="docutils literal notranslate"><span class="pre">value</span></code> field.
+Thus, using one of these objects in a template, or in another string
+context like <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code>, will print the <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// prints the name of the employer</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">getEmployer</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Why do we go to all of this trouble, when we could store this
+job-related data as strings? There are a couple of reasons.</p>
+<div class="section" id="eliminate-duplication-of-data">
+<h4>Eliminate Duplication of Data<a class="headerlink" href="#eliminate-duplication-of-data" title="Permalink to this headline">¶</a></h4>
+<p>In our application we’ll have multiple jobs that have the same value in
+a given field. For example, there are multiple jobs with position type
+“Web - Full Stack”, and for several employers, there are several jobs
+with that employer. Were we to store the values of these fields as
+strings directly within the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, these strings would be
+repeated in several places across the application.</p>
+<p>By using objects, we can have a single <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> object with
+value “Web - Full Stack”, and then have each job that wants to use that
+position type hold onto a reference to the given object. Similarly, we
+can have one <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object for each employer.</p>
+<p>Aside from reducing the amount of raw data / memory that the application
+uses, this will allow data to be updated more easily and properly. If we
+need to change the name of an employer (e.g.&nbsp;due to a typo, or a name
+change at a company), we can change it in one place: the single
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code> object that represents that employer.</p>
+</div>
+<div class="section" id="enable-extension">
+<h4>Enable Extension<a class="headerlink" href="#enable-extension" title="Permalink to this headline">¶</a></h4>
+<p>While the four <code class="docutils literal notranslate"><span class="pre">Job</span></code> properties represented by objects will primarily
+be used for their string values, it’s not hard to imagine that we would
+want to add additional properties to them.</p>
+<p>For example, it would be useful for an <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object to have an
+address, a primary contact, and a list of jobs available at that
+employer.</p>
+<p>For a <code class="docutils literal notranslate"><span class="pre">Location</span></code> object, it would be useful to have a list of zip
+codes associated with that location, in order to determine which
+location an employer or job is located in.</p>
+<p>If we were to store these properties as strings, extending and modifying
+this behavior would be much more complicated and difficult in the
+future.</p>
+<p>There’s one more class in <code class="docutils literal notranslate"><span class="pre">models</span></code> that we need to introduce.</p>
+</div>
+</div>
+<div class="section" id="jobfieldtype">
+<h3>JobFieldType<a class="headerlink" href="#jobfieldtype" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">JobFieldType</span></code> class is an enum that enables the view and
+controller layers to easily ask for data related to a specific job
+field, or to all fields.</p>
+<p>The enum has the values <code class="docutils literal notranslate"><span class="pre">EMPLOYER</span></code>, <code class="docutils literal notranslate"><span class="pre">LOCATION</span></code>, <code class="docutils literal notranslate"><span class="pre">POSITION_TYPE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CORE_COMPETENCY</span></code>, and <code class="docutils literal notranslate"><span class="pre">ALL</span></code>. These take the place of the “magic
+strings” that we were using all across our code in the first two
+iterations of TechJobs. Previously, we would find all employers this
+way:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">employers</span> <span class="o">=</span> <span class="n">JobData</span><span class="o">.</span><span class="na">findByColumnAndValue</span><span class="o">(</span><span class="s">&quot;employer&quot;</span><span class="o">,</span> <span class="s">&quot;LaunchCode&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Now, however, we can do this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">JobField</span><span class="o">&gt;</span> <span class="n">employers</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findByColumnAndValue</span><span class="o">(</span><span class="n">JobFieldType</span><span class="o">.</span><span class="na">EMPLOYER</span><span class="o">,</span> <span class="s">&quot;LaunchCode&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>By using enum values instead of strings, we eliminate the possibility of
+runtime errors. In other words, the compiler will force us to use a
+valid <code class="docutils literal notranslate"><span class="pre">JobFieldType</span></code>, whereas if we had misspelled “employer” in the
+first example, we wouldn’t have found out until running our code.</p>
+<p>Many of the methods in <code class="docutils literal notranslate"><span class="pre">JobData</span></code> now work by taking in a
+<code class="docutils literal notranslate"><span class="pre">JobFieldType</span></code> parameter rather than a string.</p>
+<p>We also use the <code class="docutils literal notranslate"><span class="pre">JobFieldType</span></code> values to render search and list
+options in the view, and to collect these options in the controller
+layer.</p>
+</div>
+</div>
+<div class="section" id="the-data-layer">
+<h2>The Data Layer<a class="headerlink" href="#the-data-layer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jobdata-and-jobdataimporter">
+<h3>JobData and JobDataImporter<a class="headerlink" href="#jobdata-and-jobdataimporter" title="Permalink to this headline">¶</a></h3>
+<p>In this updated version, the data access functionality has been moved
+into its own package, <code class="docutils literal notranslate"><span class="pre">org.launchcode.models.data</span></code>. This is partly to
+better organize our code as the application grows, and also to
+anticipate the move to a database in the near future. Additionally,
+we’ve moved the logic to import data from the CSV file into
+<code class="docutils literal notranslate"><span class="pre">JobDataImporter</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class has been refactored to work with <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects,
+and the objects that a <code class="docutils literal notranslate"><span class="pre">Job</span></code> has references to (<code class="docutils literal notranslate"><span class="pre">Employer</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Location</span></code>, etc), rather than strings. You won’t need to understand
+the internals of how this works. Instead, you’ll need to understand how
+to use the class.</p>
+<p>Rather than having a collection of static methods, <code class="docutils literal notranslate"><span class="pre">JobData</span></code> now has
+several instance methods, with usage outlined below. Each controller
+already has a <code class="docutils literal notranslate"><span class="pre">JobData</span></code> object set up for you, named <code class="docutils literal notranslate"><span class="pre">jobData</span></code>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="31%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Method</th>
+<th class="head">Return Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">findById(int</span>
+<span class="pre">)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">Job</span></code></td>
+<td>Find a job by its ID</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">findByColumn</span>
+<span class="pre">AndValue(JobFi</span>
+<span class="pre">eldType,</span> <span class="pre">Strin</span>
+<span class="pre">g)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Job&gt;</span></code></td>
+<td>Find all jobs matching the
+given string in the given
+column/property</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">findByValue(</span>
+<span class="pre">String)</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Job&gt;</span></code></td>
+<td>Find all jobs matching the
+given string in any fields</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Find the job with id 42</span>
+<span class="n">Job</span> <span class="n">someJob</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>
+
+<span class="c1">// Find all jobs at LaunchCode</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">jobsAtLaunchcode</span> <span class="o">=</span>
+    <span class="n">jobData</span><span class="o">.</span><span class="na">findByColumnAndValue</span><span class="o">(</span><span class="n">JobFieldType</span><span class="o">.</span><span class="na">EMPLOYER</span><span class="o">,</span> <span class="s">&quot;LaunchCode&quot;</span><span class="o">);</span>
+
+<span class="c1">// Find all jobs involving Ruby</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">jobsInvolvingRuby</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findByValue</span><span class="o">(</span><span class="s">&quot;ruby&quot;</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>To work with the list of <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects itself, you can do the
+following:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Get the full list of jobs</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">allOfTheJobs</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+
+<span class="c1">// add a new Job object to the list</span>
+<span class="n">jobData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newJob</span><span class="o">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Additionally, collections of classes that make up the individual
+properties of a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object – <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> – are available as properties of
+<code class="docutils literal notranslate"><span class="pre">JobData</span></code>. For example, all employers are contained in a property
+called <code class="docutils literal notranslate"><span class="pre">Employers</span></code>.</p>
+<p>There are two methods that you might want to use here. Here they are:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Find the employer with id=7</span>
+<span class="n">Employer</span> <span class="n">anEmployer</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">getEmployers</span><span class="o">().</span><span class="na">findById</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
+
+<span class="c1">// Get all employers</span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Employer</span><span class="o">&gt;</span> <span class="n">allEmployers</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">getEmployers</span><span class="o">().</span><span class="na">findAll</span><span class="o">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>Examples for locations, position types, and core competencies are
+similar.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>You should not try to create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with <code class="docutils literal notranslate"><span class="pre">Employer</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Location</span></code>, etc. properties that don’t already exist. Our non-database
+system isn’t as robust as it will be shortly, and doing something like
+this might break it.</p>
+<p class="last">When you create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object for this assignment, you’ll always
+be doing so using existing employers, locations, etc.</p>
+</div>
+<div class="section" id="the-models-forms-package">
+<h4>The models.forms package<a class="headerlink" href="#the-models-forms-package" title="Permalink to this headline">¶</a></h4>
+<p>There are two model classes within the <code class="docutils literal notranslate"><span class="pre">org.launchcode.models.forms</span></code>
+package. Open up <code class="docutils literal notranslate"><span class="pre">SearchForm</span></code> and you’ll see three fields near the
+top:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// The search options</span>
+<span class="kd">private</span> <span class="n">JobFieldType</span><span class="o">[]</span> <span class="n">fields</span> <span class="o">=</span> <span class="n">JobFieldType</span><span class="o">.</span><span class="na">values</span><span class="o">();</span>
+
+<span class="c1">// The selected search options</span>
+<span class="kd">private</span> <span class="n">JobFieldType</span> <span class="n">searchField</span> <span class="o">=</span> <span class="n">JobFieldType</span><span class="o">.</span><span class="na">ALL</span><span class="o">;</span>
+
+<span class="c1">// The search string</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">keyword</span><span class="o">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>These fields represent the data associated with the search form. In
+other words, each is necessary to display and process the form. If you
+look within <code class="docutils literal notranslate"><span class="pre">SearchController</span></code>, you’ll see that we use model binding
+with a <code class="docutils literal notranslate"><span class="pre">SearchForm</span></code> object to process the form, and we pass a
+<code class="docutils literal notranslate"><span class="pre">SearchForm</span></code> object into the view to display the form.</p>
+<p>We do this because there isn’t a natural model object to use with the
+search form, but we’d like to have the benefits of model binding and
+validation.</p>
+<p>Similarly, <code class="docutils literal notranslate"><span class="pre">JobForm</span></code> contains (some of) the data needed to display and
+process a form to create a new job. More info on this class is below.</p>
+</div>
+<div class="section" id="controllers">
+<h4>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h4>
+<p>You won’t be working on search and list functionality in this
+assignment, but you should know that Sally has refactored all of the
+code in <code class="docutils literal notranslate"><span class="pre">ListController</span></code> and <code class="docutils literal notranslate"><span class="pre">SearchController</span></code> to use model
+classes. While you won’t be working in these classes, you’ll likely
+learn something new by reading that code, so we encourage you to dive
+into those files.</p>
+<p>There’s one new controller, <code class="docutils literal notranslate"><span class="pre">JobController</span></code>, that you will work in to
+enable full creation of a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, including all necessary
+fields.</p>
+</div>
+<div class="section" id="the-view">
+<h4>The View<a class="headerlink" href="#the-view" title="Permalink to this headline">¶</a></h4>
+<p>Previously-existing view templates are still in place, though they’ve
+been refactored to use the new model structure.</p>
+<p>There are two new view templates in <code class="docutils literal notranslate"><span class="pre">resources/templates/</span></code>:
+<code class="docutils literal notranslate"><span class="pre">job-detail.html</span></code> and <code class="docutils literal notranslate"><span class="pre">new-job.html</span></code>. You’ll be adding code to each
+of these. The first will be used to display data associated with a
+single job, while the second will display the form used to create a new
+job.</p>
+</div>
+</div>
+</div>
+<div class="section" id="your-tasks">
+<h2>Your Tasks<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h2>
+<p>Once you understand the controllers and views that are already in place,
+you’re ready to begin your work. In IntelliJ, select <em>View &gt; Tool
+Windows &gt; TODO</em> to pop open a small pane at the bottom of the window.
+This list is populated by any code comments that start with <code class="docutils literal notranslate"><span class="pre">TODO</span></code>. In
+particular, you’ll see your 6 tasks listed.</p>
+<div class="figure" id="id1">
+<img alt="Task List" src="assignments/../images/task-list-oo.png" />
+<p class="caption"><span class="caption-text">Task List</span></p>
+</div>
+<p>As you work on your tasks, refer to the <a class="reference external" href="https://techjobs-oo.cfapps.io/" target="_blank">demo
+app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to see how your application
+should behave.</p>
+<div class="section" id="display-a-single-job">
+<h3>Display A Single Job<a class="headerlink" href="#display-a-single-job" title="Permalink to this headline">¶</a></h3>
+<p>Your first two tasks involve displaying data associated with a single
+job. When you’re done, visiting the URL <code class="docutils literal notranslate"><span class="pre">/job?id=X</span></code> will display the
+details of the job with an <code class="docutils literal notranslate"><span class="pre">id</span></code> equal to X.</p>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">index</span></code> handler method of <code class="docutils literal notranslate"><span class="pre">JobController</span></code>, you should
+retrieve the job with the given ID, and then pass it into the view.</p>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">job-detail.html</span></code> template you need to display the
+properties of the job in a table.</p>
+</div>
+<div class="section" id="create-new-jobs">
+<h3>Create New Jobs<a class="headerlink" href="#create-new-jobs" title="Permalink to this headline">¶</a></h3>
+<p>Our <code class="docutils literal notranslate"><span class="pre">JobController</span></code> class and the <code class="docutils literal notranslate"><span class="pre">new-job.html</span></code> template is set up
+to allow a user to create new jobs through the interface, but it isn’t
+complete. Getting this to work comprises your next set of tasks.</p>
+<p>First, you’ll need to work within <code class="docutils literal notranslate"><span class="pre">JobForm</span></code> to set up the properties
+to allow for both form display and form submission. Sally has put in
+place the code to display and process the <code class="docutils literal notranslate"><span class="pre">name</span></code> and the data
+associated with an employer.</p>
+<p>Notice that rather having a field for <code class="docutils literal notranslate"><span class="pre">employer</span></code>, we have a field for
+<code class="docutils literal notranslate"><span class="pre">employerId</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotNull</span>
+<span class="kd">private</span> <span class="kt">int</span> <span class="n">employerId</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>In the user interface (that is, on the web page) we’ll only need to
+display the name of each employer, and when processing the form, we’ll
+use the ID to retrieve the employer from the data layer. Using the ID of
+an employer is the only way to uniquely identify which employer has been
+selected in the form, outside the cozy confines of our Java application.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">JobForm</span></code> constructor, we initialize the list of <code class="docutils literal notranslate"><span class="pre">Employer</span></code>
+objects. Initializing the other lists is up to you.</p>
+<p>For tasks #3-5, you’ll need to mimic the code that’s in place for
+<code class="docutils literal notranslate"><span class="pre">employerId</span></code> and the <code class="docutils literal notranslate"><span class="pre">employers</span></code> list for the other job field types.</p>
+<p>Once you have that stuff in place, you’ll be ready to process the form
+in task #6. Validate the form in the <code class="docutils literal notranslate"><span class="pre">add</span></code> handler of
+<code class="docutils literal notranslate"><span class="pre">JobController</span></code>, and if it’s valid, create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and
+add it to the data layer by calling <code class="docutils literal notranslate"><span class="pre">jobData.add(newJob)</span></code>.</p>
+<p>To create the new job, you’ll need to find the pre-existing objects for
+all fields other than <code class="docutils literal notranslate"><span class="pre">name</span></code> (<code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, etc). Do
+this using the methods discussed above. Refer to the constructor in
+<code class="docutils literal notranslate"><span class="pre">Job</span></code> to make sure you list the objects in the correct order when
+calling it.</p>
+<p>Once you’ve created the new job, redirect to the single job display page
+that you created above. If the <code class="docutils literal notranslate"><span class="pre">jobForm</span></code> model object fails
+validation, display the form again.</p>
+<p>Once you’ve knocked that out, you’ll be able to create new jobs in the
+system via the application interface! Note that these job objects won’t
+survive an application restart, because they live only within our
+in-progress application’s temporary data storage system. (This is one
+difference between how your app will behave compared with our demo app.
+If you add a new job to our demo app, it will persist.)</p>
+</div>
+</div>
+<div class="section" id="sanity-check">
+<h2>Sanity Check<a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h2>
+<p>Before submitting, make sure that the following are true of your
+application:</p>
+<ol class="arabic simple">
+<li>You can create a new job from <code class="docutils literal notranslate"><span class="pre">/job/add</span></code> by entering the name of a
+job, and selecting employer, location, skill, and position type
+values from dropdown selects.</li>
+<li>If you leave off the name of a job, you are presented with the form
+again, and a message describing the error is presented on the page.</li>
+<li>Upon creating a new job, you are sent to a screen displaying the data
+for only the new job. The URL for this new job is of the form
+<code class="docutils literal notranslate"><span class="pre">/job?id=X</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is the numeric ID of the new job.</li>
+<li>When searching and listing data, your new job shows up when
+appropriate. For example, you can see the job when searching for it
+by employer, or by its location, skill, or position type.</li>
+</ol>
+<p>Refer to the <a class="reference external" href="https://techjobs-oo.cfapps.io/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> if you’re not
+sure how thing are supposed to work.</p>
+</div>
+<div class="section" id="how-to-submit">
+<h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
+<p>To turn in your assignment and get credit, follow the
+<a class="reference internal" href="how-to-submit.html#how-to-submit-work"><span class="std std-ref">submission instructions</span></a>.</p>
+</div>
 </div>
 
 
@@ -94,10 +554,10 @@
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="tech-jobs-mvc.html"><span aria-hidden="true">&larr;</span> Assignment #2: Tech Jobs (MVC Edition)</a></li>
+        <li class="previous"><a href="tech-jobs-console.html"><span aria-hidden="true">&larr;</span> Assignment #1: Tech Jobs (Console Edition)</a></li>
         
         
-        <li class="next"><a href="../todos.html">TODOs <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="tech-jobs-mvc.html">Assignment #3: Tech Jobs (MVC Edition) <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
