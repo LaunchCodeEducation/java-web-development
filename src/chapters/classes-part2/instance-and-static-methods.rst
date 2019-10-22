@@ -209,6 +209,39 @@ containing class (it *may* refer to static fields, however). These methods tend
 to be utility-like (e.g. carrying out a calculation, or using or fetching some
 external resource).
 
+Accessing Static vs. Instance Fields
+-------------------------------------
+
+One common error new Java coders encounter reads something like *non-static
+variable cannot be referenced from a static context*. This occurs when a
+*static method* tries to call an *instance variable*.
+
+Why can't we do this? Static methods can be called from anywhere (depending on
+their access modifier), and they do NOT require us to create an object for a
+particular class. However, these methods must be independent of any values
+unique to a particular object.
+
+For example, if we have a ``Circle`` class, then we can define and call a
+static ``area`` method without creating a new object:
+``Circle.area(radius)``. Since the area of a circle is just,
+``PI*radius*radius``, we can pass in the argument when we call the method. The
+method does not depend on any value stored within a specific ``Circle`` object.
+
+Now let's assume we define a ``Car`` class with an instance variable for
+``color``. The value of this field will NOT be the same for every ``Car``
+object we create. Thus, trying to call a static method like
+``Car.printColor()`` results in an error. Since there is no single value for
+``color`` that applies to every object, trying to access it from outside of the
+class does not work. To print the color of a ``Car`` object, we must call the
+method on that specific object: ``myCar.printColor()``.
+
+Instance fields can only be called by instance methods.
+
+.. admonition:: Note
+
+   While static methods cannot access instance variables, the reverse is NOT
+   true. An instance method CAN access a static variable.
+
 References
 -----------
 
@@ -236,3 +269,14 @@ Check Your Understanding
       while the ``makeNoise()`` method cannot.
    #. Each ``Pet`` object carries a copy of the ``increaseAge()`` method but
       NOT a copy of the ``makeNoise()`` method.
+
+.. The correct answer is "b".
+
+.. admonition:: Question
+
+   Explain why it IS possible for an instance method to access a static field.
+
+.. There is no problem with this because static variables belong to a class and
+   can be called from anywhere (depending on the access modifier). Thus, any
+   instance method can access them from outside of the class where they are
+   defined.
