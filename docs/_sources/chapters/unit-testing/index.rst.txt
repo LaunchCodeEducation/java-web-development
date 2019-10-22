@@ -6,6 +6,6 @@ Unit Testing
 .. toctree::
    :maxdepth: 3
 
-   JUnit
+   testing-in-java
    exercises
    studio
