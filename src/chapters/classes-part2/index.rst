@@ -8,5 +8,6 @@ Objects and Classes, Part 2
    customize-fields
    instance-and-static-methods
    special-methods
+   equals-shortcut
    exercises
    studio

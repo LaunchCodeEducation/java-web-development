@@ -307,6 +307,8 @@ then we can make a quick determination and save a few checks.
 Line 3 checks for identity. If ``true``, then the remaining checks become
 unnecessary.
 
+.. _components-of-equals:
+
 Components of ``equals``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -364,11 +366,6 @@ applications.
    article <https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/>`__
    and `this stack
    overflow <https://stackoverflow.com/questions/2265503/why-do-i-need-to-override-the-equals-and-hashcode-methods-in-java>`__.
-
-   To ensure that you create a well-structured ``hashCode()`` method
-   whenever providing your own ``equals()`` method, you can use IntelliJ’s
-   code generation tool! Just right-click within your class file and select
-   *Generate > equals and hashCode* and follow the prompts.
 
 Take Away
 ^^^^^^^^^^
