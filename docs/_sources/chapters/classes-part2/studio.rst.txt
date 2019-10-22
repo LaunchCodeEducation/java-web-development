@@ -45,8 +45,8 @@ see if their design fits with those.
 Implementation
 ---------------
 
-#. In IntelliJ, open your ``Restaurant Menu`` project. Within the
-   ``restaurant`` package, add the methods you designed to your ``Menu`` and
+#. In IntelliJ, open your ``Restaurant Menu`` project. Open the terminal in IntelliJ and create a branch in your repository for your Lesson 4 Studio solution. For the studio, make sure all of your work is in that branch.
+#. Within the ``restaurant`` package, add the methods you designed to your ``Menu`` and
    ``MenuItem`` classes.
 #. Create a class called ``Restaurant``, and add a
    ``public static void main(String[] args)`` method.
