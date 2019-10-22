@@ -64,3 +64,17 @@ Below are some best practices to keep in mind when writing unit tests, in any la
    #. Act on the methods your test requires
    #. Assert the anticipated comparison of the expected and the actual value
 
+#. Deterministic
+
+   Every, single, solitary time a test is run, it should produce the same outcome. 
+   A test that passes only most of the time is a worthless test.
+
+#. Relevant
+
+   Tests, as they are written, should be grouped by related class and function.
+
+#. Meaningful
+
+   There is not a need to test trivial code. Unless they contain additional functionality, 
+   for example, there is no need to write tests for getters and setters. Your IntelliJ IDE
+   offers code completion for these anyway.
