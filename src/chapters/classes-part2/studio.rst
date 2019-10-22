@@ -1,9 +1,9 @@
 Studio: Restaurant Menu Continued
 ==================================
 
-We began designing and implementing our ``Menu`` and ``MenuItem``
-classes in the last studio (*TODO: Add internal link to lesson 3 studio*).
-Let’s continue working on these classes by adding some methods.
+We began designing and implementing our ``Menu`` and ``MenuItem`` classes in
+the :ref:`last studio <classes-studio-part1>`. Let’s continue working on these
+classes by adding some methods.
 
 Design
 -------

@@ -87,8 +87,6 @@ The framework for these new methods is shown in the ``Student`` class below,
 but each method is missing some code. Filling in that code is left for you to
 do as one of the chapter exercises.
 
-   TODO: Make sure the chapter exercises ask for this!
-
 .. sourcecode:: java
    :linenos:
 
@@ -234,5 +232,7 @@ Check Your Understanding
       while the ``increaseAge()`` method cannot.
    #. Each ``Pet`` object carries a copy of the ``makeNoise()`` method but NOT
       a copy of the ``increaseAge()`` method.
-   #. Some other option here.
-   #. Some final option here.
+   #. The ``increaseAge()`` method can be accessed outside of the ``Pet`` class,
+      while the ``makeNoise()`` method cannot.
+   #. Each ``Pet`` object carries a copy of the ``increaseAge()`` method but
+      NOT a copy of the ``makeNoise()`` method.

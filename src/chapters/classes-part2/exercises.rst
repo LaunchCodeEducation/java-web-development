@@ -53,5 +53,5 @@ To update the student's GPA:
 #. Add custom ``equals()`` and ``toString()`` methods to the ``Student``
    class.
 #. Add custom ``equals()`` and ``toString()`` methods to the ``Course``
-   class which you started in the exercises for the previous chapter.
-   (*TODO: Add internal link to the previous exercises*).
+   class which you started in the exercises for the
+   :ref:`previous chapter <classes-exercises-part1>`.
