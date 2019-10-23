@@ -87,77 +87,50 @@
   <div class="section" id="instance-and-static-methods">
 <h1>5.2. Instance and Static Methods<a class="headerlink" href="#instance-and-static-methods" title="Permalink to this headline">¶</a></h1>
 <p>We explored configuring <em>data</em> within classes with fields and properties. Now
-let’s turn our attention to <em>behavior</em> (methods).</p>
-<div class="section" id="calling-methods-on-objects">
-<span id="index-0"></span><h2>5.2.1. Calling Methods on Objects<a class="headerlink" href="#calling-methods-on-objects" title="Permalink to this headline">¶</a></h2>
-<p>A <em>method</em> is a procedure that belongs to a class. In Java, all procedures must
-be part of a class—they cannot stand on their own. Let’s revisit our minimal
-class example.</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
-
-   <span class="kd">private</span> <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
-
-   <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
-   <span class="o">}</span>
-
-<span class="o">}</span>
+let’s turn our attention back to class <em>behavior</em> (methods).</p>
+<div class="section" id="quick-method-review">
+<h2>5.2.1. Quick Method Review<a class="headerlink" href="#quick-method-review" title="Permalink to this headline">¶</a></h2>
+<p>In the <a class="reference internal" href="../classes/index.html#classes-part1"><span class="std std-ref">last chapter</span></a>, we learned that:</p>
+<ol class="arabic">
+<li><p class="first">A <em>method</em> belongs to a class and performs an action.</p>
+</li>
+<li><p class="first">Methods cannot stand on their own—they must be part of a class.</p>
+</li>
+<li><p class="first">To call a method on an object, use dot notation:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">objectName</span><span class="o">.</span><span class="na">methodName</span><span class="o">(</span><span class="n">arguments</span><span class="o">);</span>
 </pre></div>
-</td></tr></table></div>
-<p>There is one method in this class, <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>. In order to call this method,
-we must create an object from the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class template. In other
-words, we must have an instance of <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>.</p>
-<p>Here’s how you call methods on an object.</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HelloWorld</span> <span class="n">hello</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HelloWorld</span><span class="o">();</span>
-<span class="n">hello</span><span class="o">.</span><span class="na">sayHello</span><span class="o">();</span>
-</pre></div>
-</td></tr></table></div>
-<p>It is not possible to call <code class="docutils literal notranslate"><span class="pre">sayHello</span></code> without having a <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>
-object. This begins to make more sense when you note that the
-<code class="docutils literal notranslate"><span class="pre">message</span></code> field is used within <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>, and unless we are calling
-<code class="docutils literal notranslate"><span class="pre">sayHello</span></code> on an instantiated object, there will be no <code class="docutils literal notranslate"><span class="pre">message</span></code>
-field available to print.</p>
-<div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p>As mentioned before, class members should have the most restrictive level
-of access possible. This goes for methods as well as fields.</p>
-<p>For example, if you create a method that should <em>only</em> be used within
-your class, then you should declare it <code class="docutils literal notranslate"><span class="pre">private</span></code>. Think of <code class="docutils literal notranslate"><span class="pre">private</span></code>
-methods as those that are NOT useful outside of the class but contribute
-internally to helping the class behave as desired or expected.</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">public</span></code> methods contain code that other classes need to use when they
-implement the class containing those methods. Make methods <code class="docutils literal notranslate"><span class="pre">public</span></code> only
-when you expect other classes to use them, and when you are committed to
-maintaining those methods for other programs that might need them.</p>
 </div>
+</li>
+<li><p class="first">Access modifiers apply to methods:</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">private</span></code> methods as those that are NOT useful outside of the class but
+contribute internally to helping the class behave as desired or expected.</li>
+<li><code class="docutils literal notranslate"><span class="pre">public</span></code> methods contain code that other classes need to use when they
+implement the class containing those methods. Make methods <code class="docutils literal notranslate"><span class="pre">public</span></code>
+only when you expect other classes to use them, and when you are
+committed to maintaining those methods for other programs.</li>
+</ol>
+</li>
+</ol>
+<p>Let’s take a closer look at two different types of methods—both of which we
+have used in earlier examples.</p>
 </div>
 <div class="section" id="instance-methods">
-<span id="index-1"></span><span id="id1"></span><h2>5.2.2. Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
-<p>So far we’ve only looked at examples of methods that are relatively
-specialized: constructors, getters, and setters. Every class you create
-will have these methods.</p>
-<p>What makes your classes different from each other, and thus fulfills the
-purpose of creating them, are the behaviors that are <em>unique</em> or
-<em>specialized</em> to each class.</p>
-<p>Let’s add a couple of such methods to our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class. These methods will
-be <strong>instance methods</strong>, since they belong to each <code class="docutils literal notranslate"><span class="pre">Student</span></code> object created,
-and they use the data of each such object.</p>
+<span id="index-0"></span><span id="id1"></span><h2>5.2.2. Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
+<p><em>Instance methods</em> define the behaviors that are <em>unique</em> or <em>specialized</em> to
+each class. Every object created from a class will carry a copy of these
+methods.</p>
+<p>Instance methods depend on the data stored in an individual object. If two
+objects call the same method, the results will vary when the objects contain
+different data.</p>
+<p>Let’s add a couple of new instance methods to our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class.</p>
 <p>What are the behaviors that our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class should have? To start, it
 makes sense that when a student takes a class and earns a grade, their data
 should be updated accordingly. Additionally, it would be nice to easily
-identify the grade level of a student – freshman, sophomore, junior, or senior.</p>
+identify the grade level of a student—freshman, sophomore, junior, or senior.</p>
 <p>The framework for these new methods is shown in the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class below,
 but each method is missing some code. Filling in that code is left for you to
-do as one of the chapter exercises.</p>
+do in the chapter exercises.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -231,29 +204,29 @@ do as one of the chapter exercises.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">When creating your classes, think about the behaviors that you want to
 make available, as well as the access level of those methods.</p>
 </div>
 </div>
 <div class="section" id="static-methods">
 <h2>5.2.3. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h2>
-<p>Static methods are NOT new to us. We’ve used them quite a bit, all the way back
+<p>We’ve already used static methods quite a bit in this course, all the way back
 to our first Java method:</p>
 <div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{}</span>
 </pre></div>
 </div>
 <p>Now let’s examine them in the context of what we’ve recently learned about
 classes.</p>
-<p id="index-2">Just like static fields, <strong>static methods</strong> belong to the class as a whole, and
+<p id="index-1">Just like static fields, <strong>static methods</strong> belong to the class as a whole, and
 not to any of the specific instances of the class. Thus, they are sometimes
 also called <strong>class methods</strong>. A static method is essentially the opposite of
 an instance method, since the two cases are mutually exclusive.
 <em>Instance methods</em> rely on each object’s specific data, while <em>static methods</em>
 must NOT rely on data from a specific object.</p>
-<p>A static method may be called by preceding it with the class name and
-using dot-notation. Here’s an example that we looked at
+<p>We call a static method by preceding it with the class name and using
+dot-notation. Here’s an example that we looked at
 <a class="reference internal" href="../data-types/more-data-types.html#more-data-types-static-method-example"><span class="std std-ref">previously</span></a>.</p>
 <div class="admonition-examples admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
@@ -314,7 +287,7 @@ class: <code class="docutils literal notranslate"><span class="pre">myObject.som
 using the class name instead: <code class="docutils literal notranslate"><span class="pre">ClassName.someStaticMethod()</span></code>. This makes
 it clear to other coders that you are calling a static method.</p>
 </div>
-<p>A method should be static when it does not refer to any instance fields of the
+<p>A method should be static when it does NOT refer to any instance fields of the
 containing class (it <em>may</em> refer to static fields, however). These methods tend
 to be utility-like (e.g. carrying out a calculation, or using or fetching some
 external resource).</p>
@@ -343,8 +316,8 @@ method on that specific object: <code class="docutils literal notranslate"><span
 <p>Instance fields can only be called by instance methods.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">While static methods cannot access instance variables, the reverse is NOT
-true. An instance method CAN access a static variable.</p>
+<p class="last">While static methods cannot access instance variables, an instance method
+CAN access a static variable. Why?</p>
 </div>
 </div>
 <div class="section" id="references">
@@ -362,8 +335,8 @@ true. An instance method CAN access a static variable.</p>
 <h2>5.2.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Assume that we add two methods to a <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class—<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">makeNoise()</span></code>
-and <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">increaseAge()</span></code>. Which of the following statements is
+<p>Assume that we add two methods to a <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class—<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">String</span> <span class="pre">makeNoise()</span></code>
+and <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">increaseAge()</span></code>. Which of the following statements is
 true?</p>
 <ol class="last arabic simple">
 <li>The <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method can be accessed outside of the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class,

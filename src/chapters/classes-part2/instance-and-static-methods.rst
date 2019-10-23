@@ -2,90 +2,58 @@ Instance and Static Methods
 ============================
 
 We explored configuring *data* within classes with fields and properties. Now
-let’s turn our attention to *behavior* (methods).
+let’s turn our attention back to class *behavior* (methods).
 
-.. index:: method
+Quick Method Review
+--------------------
 
-Calling Methods on Objects
---------------------------
+In the :ref:`last chapter <classes-part1>`, we learned that:
 
-A *method* is a procedure that belongs to a class. In Java, all procedures must
-be part of a class---they cannot stand on their own. Let’s revisit our minimal
-class example.
+#. A *method* belongs to a class and performs an action.
+#. Methods cannot stand on their own---they must be part of a class.
+#. To call a method on an object, use dot notation:
 
-.. sourcecode:: java
-   :linenos:
+   .. sourcecode:: java
 
-   public class HelloWorld {
+      objectName.methodName(arguments);
 
-      private String message = "Hello World";
+#. Access modifiers apply to methods:
 
-      void sayHello() {
-         System.out.println(message);
-      }
+   a. ``private`` methods as those that are NOT useful outside of the class but
+      contribute internally to helping the class behave as desired or expected.
+   b. ``public`` methods contain code that other classes need to use when they
+      implement the class containing those methods. Make methods ``public``
+      only when you expect other classes to use them, and when you are
+      committed to maintaining those methods for other programs.
 
-   }
+Let's take a closer look at two different types of methods---both of which we
+have used in earlier examples.
 
-There is one method in this class, ``sayHello``. In order to call this method,
-we must create an object from the ``HelloWorld`` class template. In other
-words, we must have an instance of ``HelloWorld``.
-
-Here’s how you call methods on an object.
-
-.. sourcecode:: java
-   :linenos:
-
-   HelloWorld hello = new HelloWorld();
-   hello.sayHello();
-
-It is not possible to call ``sayHello`` without having a ``HelloWorld``
-object. This begins to make more sense when you note that the
-``message`` field is used within ``sayHello``, and unless we are calling
-``sayHello`` on an instantiated object, there will be no ``message``
-field available to print.
-
-.. admonition:: Tip
-
-   As mentioned before, class members should have the most restrictive level
-   of access possible. This goes for methods as well as fields.
-
-   For example, if you create a method that should *only* be used within
-   your class, then you should declare it ``private``. Think of ``private``
-   methods as those that are NOT useful outside of the class but contribute
-   internally to helping the class behave as desired or expected.
-
-   ``public`` methods contain code that other classes need to use when they
-   implement the class containing those methods. Make methods ``public`` only
-   when you expect other classes to use them, and when you are committed to
-   maintaining those methods for other programs that might need them.
-
-.. index:: ! instance method
+.. index:: instance method
 
 .. _instance-methods:
 
 Instance Methods
 ----------------
 
-So far we’ve only looked at examples of methods that are relatively
-specialized: constructors, getters, and setters. Every class you create
-will have these methods.
+*Instance methods* define the behaviors that are *unique* or *specialized* to
+each class. Every object created from a class will carry a copy of these
+methods.
 
-What makes your classes different from each other, and thus fulfills the
-purpose of creating them, are the behaviors that are *unique* or
-*specialized* to each class.
+Instance methods depend on the data stored in an individual object. If two
+objects call the same method, the results will vary when the objects contain
+different data.
 
-Let’s add a couple of such methods to our ``Student`` class. These methods will
-be **instance methods**, since they belong to each ``Student`` object created,
-and they use the data of each such object.
+Let’s add a couple of new instance methods to our ``Student`` class.
 
 What are the behaviors that our ``Student`` class should have? To start, it
 makes sense that when a student takes a class and earns a grade, their data
 should be updated accordingly. Additionally, it would be nice to easily
-identify the grade level of a student – freshman, sophomore, junior, or senior.
+identify the grade level of a student---freshman, sophomore, junior, or senior.
 
 The framework for these new methods is shown in the ``Student`` class below,
 but each method is missing some code. Filling in that code is left for you to
-do as one of the chapter exercises.
+do in the chapter exercises.
 
 .. sourcecode:: java
    :linenos:
@@ -127,7 +95,7 @@ do as one of the chapter exercises.
 
    }
 
-.. admonition:: Note
+.. admonition:: Tip
 
    When creating your classes, think about the behaviors that you want to
    make available, as well as the access level of those methods.
@@ -135,7 +103,7 @@ do as one of the chapter exercises.
 Static Methods
 --------------
 
-Static methods are NOT new to us. We’ve used them quite a bit, all the way back
+We’ve already used static methods quite a bit in this course, all the way back
 to our first Java method:
 
 .. sourcecode:: Java
@@ -154,8 +122,8 @@ an instance method, since the two cases are mutually exclusive.
 *Instance methods* rely on each object’s specific data, while *static methods*
 must NOT rely on data from a specific object.
 
-A static method may be called by preceding it with the class name and
-using dot-notation. Here’s an example that we looked at
+We call a static method by preceding it with the class name and using
+dot-notation. Here’s an example that we looked at
 :ref:`previously <more-data-types-static-method-example>`.
 
 .. admonition:: Examples
@@ -204,7 +172,7 @@ we use the name of the class itself.
    using the class name instead: ``ClassName.someStaticMethod()``. This makes
    it clear to other coders that you are calling a static method.
 
-A method should be static when it does not refer to any instance fields of the
+A method should be static when it does NOT refer to any instance fields of the
 containing class (it *may* refer to static fields, however). These methods tend
 to be utility-like (e.g. carrying out a calculation, or using or fetching some
 external resource).
@@ -239,8 +207,8 @@ Instance fields can only be called by instance methods.
 
 .. admonition:: Note
 
-   While static methods cannot access instance variables, the reverse is NOT
-   true. An instance method CAN access a static variable.
+   While static methods cannot access instance variables, an instance method
+   CAN access a static variable. Why?
 
 References
 -----------
@@ -257,8 +225,8 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Assume that we add two methods to a ``Pet`` class---``public makeNoise()``
-   and ``public static increaseAge()``. Which of the following statements is
+   Assume that we add two methods to a ``Pet`` class---``public String makeNoise()``
+   and ``public static void increaseAge()``. Which of the following statements is
    true?
 
    #. The ``makeNoise()`` method can be accessed outside of the ``Pet`` class,
