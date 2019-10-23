@@ -21,8 +21,6 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment #3: Tech Jobs (MVC Edition)" href="tech-jobs-mvc.html" />
-    <link rel="prev" title="Assignment #1: Tech Jobs (Console Edition)" href="tech-jobs-console.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -84,7 +82,7 @@
 
     
   <div class="section" id="assignment-2-tech-jobs-object-oriented-edition">
-<span id="tech-jobs-oo"></span><h1>Assignment #2: Tech Jobs (Object-Oriented Edition)<a class="headerlink" href="#assignment-2-tech-jobs-object-oriented-edition" title="Permalink to this headline">¶</a></h1>
+<h1>Assignment #2: Tech Jobs (Object-Oriented Edition)<a class="headerlink" href="#assignment-2-tech-jobs-object-oriented-edition" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Your apprenticeship at LaunchCode is going well! Only a few weeks in and you’re
@@ -230,7 +228,6 @@ behavior would be much more complicated and difficult moving forward.</p>
 <h2>Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
 <p>You’ve been tasked with completing the following tasks:</p>
 <ol class="arabic simple">
-<li>Review the existing code to get an idea of how it works.</li>
 <li>Add getters, setters, and <code class="docutils literal notranslate"><span class="pre">toString</span></code> methods as needed to the new classes.</li>
 <li>Add custom <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> methods to the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</li>
 <li>Code a feature that allows new <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects to be added to the system.</li>
@@ -238,183 +235,23 @@ behavior would be much more complicated and difficult moving forward.</p>
 <li>Use Test-Driven-Development (TDD) to design and code a <code class="docutils literal notranslate"><span class="pre">removeJob</span></code> method.</li>
 </ol>
 </div>
-<div class="section" id="a-review-jobdata">
-<h2>A) Review <code class="docutils literal notranslate"><span class="pre">JobData</span></code><a class="headerlink" href="#a-review-jobdata" title="Permalink to this headline">¶</a></h2>
-<p>You won’t be working on search and list functionality in this assignment, but
-you should know that Sally has refactored that code to work with the new
-classes.</p>
-<p>In this updated version, the data access functionality has been moved into its
-own package, <code class="docutils literal notranslate"><span class="pre">org.launchcode.models.data</span></code> to better organize our code as the
-application grows. Additionally, we’ve moved the logic to import data from the
-CSV file into <code class="docutils literal notranslate"><span class="pre">JobDataImporter</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class has been refactored to work with <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects, and the
-objects that a <code class="docutils literal notranslate"><span class="pre">Job</span></code> has references to (<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, etc.)
-rather than strings. You won’t need to understand the internals of how this
-works. Instead, you’ll need to understand how to use the class.</p>
-<p>Rather than having a collection of static methods, <code class="docutils literal notranslate"><span class="pre">JobData</span></code> now has several
-instance methods, with usage outlined below. Each controller already has a
-<code class="docutils literal notranslate"><span class="pre">JobData</span></code> object set up for you, named <code class="docutils literal notranslate"><span class="pre">jobData</span></code>.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Method</th>
-<th class="head">Return Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">findById(int)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Job</span></code></td>
-<td>Find a job by its ID</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">findByValue(String)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Job&gt;</span></code></td>
-<td>Find all jobs matching the given string in any of the fields.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Find the job with id 42</span>
-<span class="n">Job</span> <span class="n">someJob</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>
-
-<span class="c1">// Find all jobs involving LaunchCode</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">jobsAtLaunchCode</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findByValue</span><span class="o">(</span><span class="s">&quot;launchcode&quot;</span><span class="o">);</span>
-</pre></div>
-</td></tr></table></div>
-<p>To work with the list of <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects itself, you can do the
-following:</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Get the full list of jobs</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">allOfTheJobs</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
-
-<span class="c1">// add a new Job object to the list</span>
-<span class="n">jobData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newJob</span><span class="o">);</span>
-</pre></div>
-</td></tr></table></div>
+<div class="section" id="a-complete-new-classes">
+<h2>A) Complete New Classes<a class="headerlink" href="#a-complete-new-classes" title="Permalink to this headline">¶</a></h2>
 </div>
-<p>Additionally, collections of classes that make up the individual properties of
-a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object—<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>,
-<code class="docutils literal notranslate"><span class="pre">PositionType</span></code>—are available as properties of <code class="docutils literal notranslate"><span class="pre">JobData</span></code>. For example, all
-employers are contained in a property called <code class="docutils literal notranslate"><span class="pre">Employers</span></code>.</p>
-<p>There are two methods that you might find useful:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Find the employer with id=7</span>
-<span class="n">Employer</span> <span class="n">anEmployer</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">getEmployers</span><span class="o">().</span><span class="na">findById</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-
-<span class="c1">// Get all employers</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Employer</span><span class="o">&gt;</span> <span class="n">allEmployers</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">getEmployers</span><span class="o">().</span><span class="na">findAll</span><span class="o">();</span>
-</pre></div>
-</td></tr></table></div>
-<p>Examples for locations, position types, and core competencies are similar.</p>
-<div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p>You should not try to create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with <code class="docutils literal notranslate"><span class="pre">Employer</span></code>,
-<code class="docutils literal notranslate"><span class="pre">Location</span></code>, etc. properties that don’t already exist. Our non-database
-system isn’t as robust as it will be shortly, and doing something like
-this might break it.</p>
-<p class="last">When you create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object for this assignment, you’ll always
-be doing so using existing employers, locations, etc.</p>
+<div class="section" id="b-code-addjob-method">
+<h2>B) Code <code class="docutils literal notranslate"><span class="pre">addJob</span></code> Method<a class="headerlink" href="#b-code-addjob-method" title="Permalink to this headline">¶</a></h2>
 </div>
+<div class="section" id="c-test-addjob-method">
+<h2>C) Test <code class="docutils literal notranslate"><span class="pre">addJob</span></code> Method<a class="headerlink" href="#c-test-addjob-method" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="your-tasks">
-<h2>Your Tasks<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h2>
-<p>In IntelliJ, select <em>View &gt; Tool
-Windows &gt; TODO</em> to pop open a small pane at the bottom of the window.
-This list is populated by any code comments that start with <code class="docutils literal notranslate"><span class="pre">TODO</span></code>. In
-particular, you’ll see your 6 tasks listed.</p>
-<blockquote>
-<div>TODO: Task List screenshot</div></blockquote>
-<p>As you work on your tasks, refer to the <a class="reference external" href="https://techjobs-oo.cfapps.io/" target="_blank">demo
-app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to see how your application
-should behave.</p>
-<div class="section" id="display-a-single-job">
-<h3>Display A Single Job<a class="headerlink" href="#display-a-single-job" title="Permalink to this headline">¶</a></h3>
-<p>Your first two tasks involve displaying data associated with a single
-job. When you’re done, visiting the URL <code class="docutils literal notranslate"><span class="pre">/job?id=X</span></code> will display the
-details of the job with an <code class="docutils literal notranslate"><span class="pre">id</span></code> equal to X.</p>
-<p>Within the <code class="docutils literal notranslate"><span class="pre">index</span></code> handler method of <code class="docutils literal notranslate"><span class="pre">JobController</span></code>, you should
-retrieve the job with the given ID, and then pass it into the view.</p>
-<p>Within the <code class="docutils literal notranslate"><span class="pre">job-detail.html</span></code> template you need to display the
-properties of the job in a table.</p>
+<div class="section" id="d-design-removejob-tdd">
+<h2>D) Design <code class="docutils literal notranslate"><span class="pre">removeJob</span></code> (TDD)<a class="headerlink" href="#d-design-removejob-tdd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="code-tests-for-removejob">
+<h3>Code Tests for <code class="docutils literal notranslate"><span class="pre">removeJob</span></code><a class="headerlink" href="#code-tests-for-removejob" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="create-new-jobs">
-<h3>Create New Jobs<a class="headerlink" href="#create-new-jobs" title="Permalink to this headline">¶</a></h3>
-<p>Our <code class="docutils literal notranslate"><span class="pre">JobController</span></code> class and the <code class="docutils literal notranslate"><span class="pre">new-job.html</span></code> template is set up
-to allow a user to create new jobs through the interface, but it isn’t
-complete. Getting this to work comprises your next set of tasks.</p>
-<p>First, you’ll need to work within <code class="docutils literal notranslate"><span class="pre">JobForm</span></code> to set up the properties
-to allow for both form display and form submission. Sally has put in
-place the code to display and process the <code class="docutils literal notranslate"><span class="pre">name</span></code> and the data
-associated with an employer.</p>
-<p>Notice that rather having a field for <code class="docutils literal notranslate"><span class="pre">employer</span></code>, we have a field for
-<code class="docutils literal notranslate"><span class="pre">employerId</span></code>.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotNull</span>
-<span class="kd">private</span> <span class="kt">int</span> <span class="n">employerId</span><span class="o">;</span>
-</pre></div>
+<div class="section" id="code-removejob-to-pass">
+<h3>Code <code class="docutils literal notranslate"><span class="pre">removeJob</span></code> to Pass<a class="headerlink" href="#code-removejob-to-pass" title="Permalink to this headline">¶</a></h3>
 </div>
-<p>In the user interface (that is, on the web page) we’ll only need to
-display the name of each employer, and when processing the form, we’ll
-use the ID to retrieve the employer from the data layer. Using the ID of
-an employer is the only way to uniquely identify which employer has been
-selected in the form, outside the cozy confines of our Java application.</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">JobForm</span></code> constructor, we initialize the list of <code class="docutils literal notranslate"><span class="pre">Employer</span></code>
-objects. Initializing the other lists is up to you.</p>
-<p>For tasks #3-5, you’ll need to mimic the code that’s in place for
-<code class="docutils literal notranslate"><span class="pre">employerId</span></code> and the <code class="docutils literal notranslate"><span class="pre">employers</span></code> list for the other job field types.</p>
-<p>Once you have that stuff in place, you’ll be ready to process the form
-in task #6. Validate the form in the <code class="docutils literal notranslate"><span class="pre">add</span></code> handler of
-<code class="docutils literal notranslate"><span class="pre">JobController</span></code>, and if it’s valid, create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and
-add it to the data layer by calling <code class="docutils literal notranslate"><span class="pre">jobData.add(newJob)</span></code>.</p>
-<p>To create the new job, you’ll need to find the pre-existing objects for
-all fields other than <code class="docutils literal notranslate"><span class="pre">name</span></code> (<code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, etc). Do
-this using the methods discussed above. Refer to the constructor in
-<code class="docutils literal notranslate"><span class="pre">Job</span></code> to make sure you list the objects in the correct order when
-calling it.</p>
-<p>Once you’ve created the new job, redirect to the single job display page
-that you created above. If the <code class="docutils literal notranslate"><span class="pre">jobForm</span></code> model object fails
-validation, display the form again.</p>
-<p>Once you’ve knocked that out, you’ll be able to create new jobs in the
-system via the application interface! Note that these job objects won’t
-survive an application restart, because they live only within our
-in-progress application’s temporary data storage system. (This is one
-difference between how your app will behave compared with our demo app.
-If you add a new job to our demo app, it will persist.)</p>
-</div>
-</div>
-<div class="section" id="sanity-check">
-<h2>Sanity Check<a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h2>
-<p>Before submitting, make sure that the following are true of your
-application:</p>
-<ol class="arabic simple">
-<li>You can create a new job from <code class="docutils literal notranslate"><span class="pre">/job/add</span></code> by entering the name of a
-job, and selecting employer, location, skill, and position type
-values from dropdown selects.</li>
-<li>If you leave off the name of a job, you are presented with the form
-again, and a message describing the error is presented on the page.</li>
-<li>Upon creating a new job, you are sent to a screen displaying the data
-for only the new job. The URL for this new job is of the form
-<code class="docutils literal notranslate"><span class="pre">/job?id=X</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is the numeric ID of the new job.</li>
-<li>When searching and listing data, your new job shows up when
-appropriate. For example, you can see the job when searching for it
-by employer, or by its location, skill, or position type.</li>
-</ol>
-<p>Refer to the <a class="reference external" href="https://techjobs-oo.cfapps.io/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> if you’re not
-sure how thing are supposed to work.</p>
 </div>
 <div class="section" id="how-to-submit">
 <h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
@@ -429,10 +266,6 @@ sure how thing are supposed to work.</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="tech-jobs-console.html"><span aria-hidden="true">&larr;</span> Assignment #1: Tech Jobs (Console Edition)</a></li>
-        
-        
-        <li class="next"><a href="tech-jobs-mvc.html">Assignment #3: Tech Jobs (MVC Edition) <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
@@ -449,7 +282,7 @@ sure how thing are supposed to work.</p>
         <br/>
         
 <div id="sourcelink">
-  <a href="../_sources/assignments/tech-jobs-oo.rst.txt"
+  <a href="../_sources/assignments/new-techjobs-oo.rst.txt"
      rel="nofollow">Page Source</a>
 </div>
       

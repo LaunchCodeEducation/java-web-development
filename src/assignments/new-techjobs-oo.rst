@@ -1,5 +1,3 @@
-.. _tech-jobs-oo:
-
 Assignment #2: Tech Jobs (Object-Oriented Edition)
 ===================================================
 
@@ -172,199 +170,29 @@ Your Assignment
 
 You’ve been tasked with completing the following tasks:
 
-#. Review the existing code to get an idea of how it works.
 #. Add getters, setters, and ``toString`` methods as needed to the new classes.
 #. Add custom ``equals`` and ``hashCode`` methods to the ``Job`` class.
 #. Code a feature that allows new ``Job`` objects to be added to the system.
 #. Use unit testing to verify the add job method.
 #. Use Test-Driven-Development (TDD) to design and code a ``removeJob`` method.
 
-A) Review ``JobData``
-----------------------
+A) Complete New Classes
+------------------------
 
-You won’t be working on search and list functionality in this assignment, but
-you should know that Sally has refactored that code to work with the new
-classes.
+B) Code ``addJob`` Method
+--------------------------
 
-In this updated version, the data access functionality has been moved into its
-own package, ``org.launchcode.models.data`` to better organize our code as the
-application grows. Additionally, we’ve moved the logic to import data from the
-CSV file into ``JobDataImporter``.
+C) Test ``addJob`` Method
+--------------------------
 
-The ``JobData`` class has been refactored to work with ``Job`` objects, and the
-objects that a ``Job`` has references to (``Employer``, ``Location``, etc.)
-rather than strings. You won’t need to understand the internals of how this
-works. Instead, you’ll need to understand how to use the class.
+D) Design ``removeJob`` (TDD)
+------------------------------
 
-Rather than having a collection of static methods, ``JobData`` now has several
-instance methods, with usage outlined below. Each controller already has a
-``JobData`` object set up for you, named ``jobData``.
+Code Tests for ``removeJob``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. list-table::
-   :header-rows: 1
-
-   * - Method
-     - Return Type
-     - Description
-   * - ``findById(int)``
-     - ``Job``
-     - Find a job by its ID
-   * - ``findByValue(String)``
-     - ``ArrayList<Job>``
-     - Find all jobs matching the given string in any of the fields.
-
-.. admonition:: Examples
-
-   .. sourcecode:: java
-      :linenos:
-
-      // Find the job with id 42
-      Job someJob = jobData.findById(42);
-
-      // Find all jobs involving LaunchCode
-      ArrayList<Job> jobsAtLaunchCode = jobData.findByValue("launchcode");
-
-   To work with the list of ``Job`` objects itself, you can do the
-   following:
-
-   .. sourcecode:: java
-      :linenos:
-
-      // Get the full list of jobs
-      ArrayList<Job> allOfTheJobs = jobData.findAll();
-
-      // add a new Job object to the list
-      jobData.add(newJob);
-
-Additionally, collections of classes that make up the individual properties of
-a ``Job`` object---``Employer``, ``Location``, ``CoreCompetency``,
-``PositionType``---are available as properties of ``JobData``. For example, all
-employers are contained in a property called ``Employers``.
-
-There are two methods that you might find useful:
-
-.. sourcecode:: java
-   :linenos:
-
-   // Find the employer with id=7
-   Employer anEmployer = jobData.getEmployers().findById(7);
-
-   // Get all employers
-   ArrayList<Employer> allEmployers = jobData.getEmployers().findAll();
-
-Examples for locations, position types, and core competencies are similar.
-
-.. admonition:: Warning
-
-   You should not try to create a new ``Job`` object with ``Employer``,
-   ``Location``, etc. properties that don’t already exist. Our non-database
-   system isn’t as robust as it will be shortly, and doing something like
-   this might break it.
-
-   When you create a new ``Job`` object for this assignment, you’ll always
-   be doing so using existing employers, locations, etc.
-
-Your Tasks
------------
-
-In IntelliJ, select *View > Tool
-Windows > TODO* to pop open a small pane at the bottom of the window.
-This list is populated by any code comments that start with ``TODO``. In
-particular, you’ll see your 6 tasks listed.
-
-   TODO: Task List screenshot
-
-As you work on your tasks, refer to the `demo
-app <https://techjobs-oo.cfapps.io/>`__ to see how your application
-should behave.
-
-Display A Single Job
-^^^^^^^^^^^^^^^^^^^^
-
-Your first two tasks involve displaying data associated with a single
-job. When you’re done, visiting the URL ``/job?id=X`` will display the
-details of the job with an ``id`` equal to X.
-
-Within the ``index`` handler method of ``JobController``, you should
-retrieve the job with the given ID, and then pass it into the view.
-
-Within the ``job-detail.html`` template you need to display the
-properties of the job in a table.
-
-Create New Jobs
-^^^^^^^^^^^^^^^
-
-Our ``JobController`` class and the ``new-job.html`` template is set up
-to allow a user to create new jobs through the interface, but it isn’t
-complete. Getting this to work comprises your next set of tasks.
-
-First, you’ll need to work within ``JobForm`` to set up the properties
-to allow for both form display and form submission. Sally has put in
-place the code to display and process the ``name`` and the data
-associated with an employer.
-
-Notice that rather having a field for ``employer``, we have a field for
-``employerId``.
-
-.. sourcecode:: java
-
-   @NotNull
-   private int employerId;
-
-In the user interface (that is, on the web page) we’ll only need to
-display the name of each employer, and when processing the form, we’ll
-use the ID to retrieve the employer from the data layer. Using the ID of
-an employer is the only way to uniquely identify which employer has been
-selected in the form, outside the cozy confines of our Java application.
-
-In the ``JobForm`` constructor, we initialize the list of ``Employer``
-objects. Initializing the other lists is up to you.
-
-For tasks #3-5, you’ll need to mimic the code that’s in place for
-``employerId`` and the ``employers`` list for the other job field types.
-
-Once you have that stuff in place, you’ll be ready to process the form
-in task #6. Validate the form in the ``add`` handler of
-``JobController``, and if it’s valid, create a new ``Job`` object and
-add it to the data layer by calling ``jobData.add(newJob)``.
-
-To create the new job, you’ll need to find the pre-existing objects for
-all fields other than ``name`` (``employer``, ``location``, etc). Do
-this using the methods discussed above. Refer to the constructor in
-``Job`` to make sure you list the objects in the correct order when
-calling it.
-
-Once you’ve created the new job, redirect to the single job display page
-that you created above. If the ``jobForm`` model object fails
-validation, display the form again.
-
-Once you’ve knocked that out, you’ll be able to create new jobs in the
-system via the application interface! Note that these job objects won’t
-survive an application restart, because they live only within our
-in-progress application’s temporary data storage system. (This is one
-difference between how your app will behave compared with our demo app.
-If you add a new job to our demo app, it will persist.)
-
-Sanity Check
--------------
-
-Before submitting, make sure that the following are true of your
-application:
-
-#. You can create a new job from ``/job/add`` by entering the name of a
-   job, and selecting employer, location, skill, and position type
-   values from dropdown selects.
-#. If you leave off the name of a job, you are presented with the form
-   again, and a message describing the error is presented on the page.
-#. Upon creating a new job, you are sent to a screen displaying the data
-   for only the new job. The URL for this new job is of the form
-   ``/job?id=X`` where ``X`` is the numeric ID of the new job.
-#. When searching and listing data, your new job shows up when
-   appropriate. For example, you can see the job when searching for it
-   by employer, or by its location, skill, or position type.
-
-Refer to the `demo app <https://techjobs-oo.cfapps.io/>`__ if you’re not
-sure how thing are supposed to work.
+Code ``removeJob`` to Pass
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 How to Submit
 --------------

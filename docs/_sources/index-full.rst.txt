@@ -36,6 +36,7 @@ Assignments
    assignments/how-to-submit
    assignments/tech-jobs-console
    assignments/tech-jobs-oo
+   assignments/new-techjobs-oo
    assignments/tech-jobs-mvc
 
 Appendices
