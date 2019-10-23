@@ -18,7 +18,7 @@ To review, here are the details you have from the restaurant owner:
    see that the restaurant is constantly changing and adding exciting
    new items.
 
-Based on these details, you need to include some methods:
+Based on these details, you need to include some *instance* methods:
 
 #. A way to add and remove menu items from the menu.
 #. A way to tell if a menu item is new.
