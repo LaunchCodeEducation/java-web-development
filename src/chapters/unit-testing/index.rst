@@ -7,5 +7,7 @@ Unit Testing
    :maxdepth: 3
 
    testing-in-java
+   junit
    exercises
    studio
+   

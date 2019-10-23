@@ -49,9 +49,10 @@ your code, you may not always be also updating the documentation and
 the comments. However, with unit testing, you have a more obvious reminder
 that a change has been made if a test fails after a code change.
 
+.. _testing-best-practices:
 
-How to Write Tests
-^^^^^^^^^^^^^^^^^^
+Testing Best Practices
+^^^^^^^^^^^^^^^^^^^^^^
 
 Below are some best practices to keep in mind when writing unit tests, in any language.
 
