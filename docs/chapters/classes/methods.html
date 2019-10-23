@@ -173,18 +173,7 @@ This method is an <strong>instance method</strong> since it will belong to each
 28
 29
 30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nextStudentId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
@@ -208,19 +197,8 @@ This method is an <strong>instance method</strong> since it will belong to each
         <span class="n">nextStudentId</span><span class="o">++;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getGradeLevel</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">(</span><span class="s">&quot;freshman&quot;</span><span class="o">);</span>
-         <span class="o">}</span>
-         <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">&gt;=</span> <span class="mi">11</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">(</span><span class="s">&quot;sophomore&quot;</span><span class="o">);</span>
-         <span class="o">}</span>
-         <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">&gt;=</span> <span class="mi">21</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">&lt;</span> <span class="mi">31</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">(</span><span class="s">&quot;junior&quot;</span><span class="o">);</span>
-         <span class="o">}</span>
-         <span class="k">else</span> <span class="o">{</span>
-            <span class="k">return</span><span class="o">(</span><span class="s">&quot;senior&quot;</span><span class="o">);</span>
-         <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">studentInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&quot; has a GPA of: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">gpa</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="cm">/* getters and setters omitted */</span>

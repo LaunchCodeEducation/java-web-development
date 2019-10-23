@@ -97,19 +97,8 @@ This method is an **instance method** since it will belong to each
            nextStudentId++;
        }
 
-       public String getGradeLevel() {
-           if (this.numberOfCredits >= 0 && this.numberOfCredits < 11) {
-               return("freshman");
-            }
-            else if (this.numberOfCredits >= 11 && this.numberOfCredits < 21) {
-               return("sophomore");
-            }
-            else if (this.numberOfCredits >= 21 && this.numberOfCredits < 31) {
-               return("junior");
-            }
-            else {
-               return("senior");
-            }
+       public String studentInfo() {
+           return (this.name + " has a GPA of: " + this.gpa);
        }
 
        /* getters and setters omitted */
