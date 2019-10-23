@@ -134,23 +134,15 @@ expected.</p>
 </div>
 </div>
 <div class="section" id="instance-methods">
-<h2>4.5.2. Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>4.5.2. Instance Methods<a class="headerlink" href="#instance-methods" title="Permalink to this headline">¶</a></h2>
 <p>So far, we’ve only looked at examples of methods that are relatively
 specialized: constructors, getters, and setters. Every class you create
 will have these methods. What will make your classes different from each
 other, and thus fulfill the purpose of creating each class, are the
 specific behaviors that are unique to your classes.</p>
-<p>Let’s add a couple of such methods to our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class. These
-methods will be <strong>instance methods</strong> since they will belong to each
+<p>Let’s say we want to add a method to get the grade level of a student to our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class.
+This method is an <strong>instance method</strong> since it will belong to each
 <code class="docutils literal notranslate"><span class="pre">Student</span></code> object created, and will use the data of each such object.</p>
-<p>What are the behaviors that our <code class="docutils literal notranslate"><span class="pre">Student</span></code> class should have? To start,
-it would make sense for a student to take a class and get a grade, and
-for their data to be updated accordingly. Additionally, it would be nice
-to be able to easily tell the grade level of a student – freshman,
-sophomore, junior, or senior.</p>
-<p>Our last look at the <code class="docutils literal notranslate"><span class="pre">Student</span></code> class stubs out these methods below,
-without providing the implementation. That job is left to you to do as
-an exercise.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -181,12 +173,7 @@ an exercise.</p>
 28
 29
 30
-31
-32
-33
-34
-35
-36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Student</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nextStudentId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
@@ -194,8 +181,7 @@ an exercise.</p>
     <span class="kd">private</span> <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">,</span>
-            <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">,</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">Student</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">studentId</span><span class="o">,</span> <span class="kt">int</span> <span class="n">numberOfCredits</span><span class="o">,</span> <span class="kt">double</span> <span class="n">gpa</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">studentId</span> <span class="o">=</span> <span class="n">studentId</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">numberOfCredits</span> <span class="o">=</span> <span class="n">numberOfCredits</span><span class="o">;</span>
@@ -211,12 +197,8 @@ an exercise.</p>
         <span class="n">nextStudentId</span><span class="o">++;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addGrade</span><span class="o">(</span><span class="kt">int</span> <span class="n">courseCredits</span><span class="o">,</span> <span class="kt">double</span> <span class="n">grade</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// Update the appropriate fields: numberOfCredits, gpa</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getGradeLevel</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// Determine the grade level of the student based on numberOfCredits</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">studentInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&quot; has a GPA of: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">gpa</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="cm">/* getters and setters omitted */</span>
@@ -224,8 +206,9 @@ an exercise.</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>When creating your classes, think about the behaviors that you want to
-make available, as well as the access level of those methods.</p>
+<p>We will make use of instance methods more in the next chapter, however, we wanted to share more about them now in our first conversation about classes.
+Sometimes when we create a class, we will need that class to have more behaviors than using only constructors, setters, and getters can provide.
+When we do want to add additional behaviors to our classes, we can use instance methods!</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>4.5.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>

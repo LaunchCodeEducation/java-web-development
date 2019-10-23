@@ -387,9 +387,9 @@ parameters (also called argument lists). Read more about
 <a class="reference external" href="http://beginnersbook.com/2013/05/method-overloading/" target="_blank">overloading<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <p>Here are some questions to ask yourself while reading this code:</p>
 <ol class="arabic simple">
-<li>What is the data type of a “job” record? - Why does <code class="docutils literal notranslate"><span class="pre">findAll(String)</span></code>
-return something of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code> while
-<code class="docutils literal notranslate"><span class="pre">findByColumnAndValue(String,</span> <span class="pre">String)</span></code> and <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> return
+<li>What is the data type of a “job” record?</li>
+<li>Why does <code class="docutils literal notranslate"><span class="pre">findAll(String)</span></code> return something of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code>
+while <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue(String,</span> <span class="pre">String)</span></code> and <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> return
 something of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;HashMap&lt;String,</span> <span class="pre">String&gt;&gt;</span></code>?</li>
 <li>Why is <code class="docutils literal notranslate"><span class="pre">loadData()</span></code> called at the top of each of these four methods? Does
 this mean that we load the data from the CSV file each time one of them
@@ -455,7 +455,7 @@ listing twice.</li>
 <li>As with <code class="docutils literal notranslate"><span class="pre">printJobs</span></code>, you should write your code in a way that if a
 new column is added to the data, your code will automatically search
 the new column as well.</li>
-<li>You <em>should not</em> write code that calls <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue</span></code> once
+<li>You should NOT write code that calls <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue</span></code> once
 for each column. Rather, utilize loops and collection methods as you
 did above.</li>
 <li>You <em>should</em>, on the other hand, read and understand

@@ -1,3 +1,5 @@
+.. _classes-exercises-part1:
+
 Exercises: Classes and Objects
 ==============================
 
