@@ -36,15 +36,15 @@ have used in earlier examples.
 Instance Methods
 ----------------
 
-*Instance methods* define the behaviors that are *unique* or *specialized* to
-each class. Every object created from a class will carry a copy of these
-methods.
+As we learned in the last chapter, *instance methods* define the behaviors that
+are *unique* or *specialized* to each class. Every object created from a class
+will carry a copy of these methods.
 
 Instance methods depend on the data stored in an individual object. If two
 objects call the same method, the results will vary when the objects contain
 different data.
 
-Let’s add a couple of new instance methods to our ``Student`` class.
+Let’s add a couple more instance methods to our ``Student`` class.
 
 What are the behaviors that our ``Student`` class should have? To start, it
 makes sense that when a student takes a class and earns a grade, their data
@@ -81,6 +81,10 @@ do in the chapter exercises.
       public Student(String name) {
          this(name, nextStudentId);
          nextStudentId++;
+      }
+
+      public String studentInfo() {
+         return (this.name + " has a GPA of: " + this.gpa);
       }
 
       public void addGrade(int courseCredits, double grade) {
