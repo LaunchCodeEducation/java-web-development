@@ -331,9 +331,9 @@ parameters (also called argument lists). Read more about
 
 Here are some questions to ask yourself while reading this code:
 
-#. What is the data type of a “job” record? - Why does ``findAll(String)``
-   return something of type ``ArrayList<String>`` while
-   ``findByColumnAndValue(String, String)`` and ``findAll()`` return
+#. What is the data type of a “job” record?
+#. Why does ``findAll(String)`` return something of type ``ArrayList<String>``
+   while ``findByColumnAndValue(String, String)`` and ``findAll()`` return
    something of type ``ArrayList<HashMap<String, String>>``?
 #. Why is ``loadData()`` called at the top of each of these four methods? Does
    this mean that we load the data from the CSV file each time one of them
@@ -406,7 +406,7 @@ will search for a string within each of the columns. Name it
 #. As with ``printJobs``, you should write your code in a way that if a
    new column is added to the data, your code will automatically search
    the new column as well.
-#. You *should not* write code that calls ``findByColumnAndValue`` once
+#. You should NOT write code that calls ``findByColumnAndValue`` once
    for each column. Rather, utilize loops and collection methods as you
    did above.
 #. You *should*, on the other hand, read and understand

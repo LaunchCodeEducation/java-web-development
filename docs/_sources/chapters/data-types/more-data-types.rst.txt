@@ -117,6 +117,8 @@ variable of type ``Cat``.
 
 .. index:: ! reference variable
 
+.. _reference-variable:
+
 Reference Variables
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -224,6 +226,8 @@ should use the ``static`` keyword. Leaving off ``static`` will prevent or
 complicate the process of calling the methods you defined.
 
 We will explore exactly what ``static`` does in more detail in later lessons.
+
+.. _more-data-types-static-method-example:
 
 Static Method Examples
 ^^^^^^^^^^^^^^^^^^^^^^^
