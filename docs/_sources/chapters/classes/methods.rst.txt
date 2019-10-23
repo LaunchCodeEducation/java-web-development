@@ -55,6 +55,8 @@ field available to print.
    to use them, and when you are committed to maintaining those methods for
    other calling programs that may use them.
 
+.. index:: ! instance method
+
 Instance Methods
 ----------------
 
@@ -64,19 +66,9 @@ will have these methods. What will make your classes different from each
 other, and thus fulfill the purpose of creating each class, are the
 specific behaviors that are unique to your classes.
 
-Let’s add a couple of such methods to our ``Student`` class. These
-methods will be **instance methods** since they will belong to each
+Let’s say we want to add a method to get the grade level of a student to our ``Student`` class.
+This method is an **instance method** since it will belong to each
 ``Student`` object created, and will use the data of each such object.
-
-What are the behaviors that our ``Student`` class should have? To start,
-it would make sense for a student to take a class and get a grade, and
-for their data to be updated accordingly. Additionally, it would be nice
-to be able to easily tell the grade level of a student – freshman,
-sophomore, junior, or senior.
-
-Our last look at the ``Student`` class stubs out these methods below,
-without providing the implementation. That job is left to you to do as
-an exercise.
 
 .. sourcecode:: java
    :linenos:
@@ -89,8 +81,7 @@ an exercise.
        private int numberOfCredits;
        private double gpa;
 
-       public Student(String name, int studentId,
-               int numberOfCredits, double gpa) {
+       public Student(String name, int studentId, int numberOfCredits, double gpa) {
            this.name = name;
            this.studentId = studentId;
            this.numberOfCredits = numberOfCredits;
@@ -106,20 +97,28 @@ an exercise.
            nextStudentId++;
        }
 
-       public void addGrade(int courseCredits, double grade) {
-           // Update the appropriate fields: numberOfCredits, gpa
-       }
-
        public String getGradeLevel() {
-           // Determine the grade level of the student based on numberOfCredits
+           if (this.numberOfCredits >= 0 && this.numberOfCredits < 11) {
+               return("freshman");
+            }
+            else if (this.numberOfCredits >= 11 && this.numberOfCredits < 21) {
+               return("sophomore");
+            }
+            else if (this.numberOfCredits >= 21 && this.numberOfCredits < 31) {
+               return("junior");
+            }
+            else {
+               return("senior");
+            }
        }
 
        /* getters and setters omitted */
 
    }
 
-When creating your classes, think about the behaviors that you want to
-make available, as well as the access level of those methods.
+We will make use of instance methods more in the next chapter, however, we wanted to share more about them now in our first conversation about classes.
+Sometimes when we create a class, we will need that class to have more behaviors than using only constructors, setters, and getters can provide.
+When we do want to add additional behaviors to our classes, we can use instance methods!
 
 Check Your Understanding
 ------------------------
