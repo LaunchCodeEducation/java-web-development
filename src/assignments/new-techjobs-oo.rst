@@ -1,5 +1,5 @@
-Assignment #2: Tech Jobs (Object-Oriented Edition)
-===================================================
+Assignment #2: Revised Tech Jobs (Object-Oriented Edition)
+===========================================================
 
 Introduction
 ------------
@@ -179,6 +179,19 @@ You’ve been tasked with completing the following tasks:
 A) Complete New Classes
 ------------------------
 
+Open the ``Employer`` file in IntelliJ and examine the code. In addition to the
+two fields---``id`` and ``value``---the class includes getters and setters.
+
+Now open the ``Job`` file. OOF! There are a lot of fields, and coding a getter
+and setter for each one would be tedious. Fortunately, IntelliJ tools help:
+
+#. Right-click in the editor pane and select *Generate*.
+#. Select the *Getter and Setter* option.
+#. Hold the shift key and select the ``name``, ``employer``, ``location``,
+   ``coreCompetency``, and ``positionType`` options. Click "OK".
+
+PRESTO! Getters and setters appear.
+
 B) Code ``addJob`` Method
 --------------------------
 
@@ -188,8 +201,8 @@ C) Test ``addJob`` Method
 D) Design ``removeJob`` (TDD)
 ------------------------------
 
-Code Tests for ``removeJob``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create Tests for ``removeJob``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Code ``removeJob`` to Pass
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

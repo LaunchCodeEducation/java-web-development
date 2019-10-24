@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Assignment #2: Tech Jobs (Object-Oriented Edition) &#8212; Java Web Development  documentation</title>
+    <title>Assignment #2: Revised Tech Jobs (Object-Oriented Edition) &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/fa/css/all.css" />
@@ -73,7 +73,7 @@
 
 <ol class="breadcrumb container">
     <li><a href="../index.html">Contents</a></li>
-    <li class="active">Assignment #2: Tech Jobs (Object-Oriented Edition)</li>
+    <li class="active">Assignment #2: Revised Tech Jobs (Object-Oriented Edition)</li>
 </ol>
 
 
@@ -83,8 +83,8 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="assignment-2-tech-jobs-object-oriented-edition">
-<h1>Assignment #2: Tech Jobs (Object-Oriented Edition)<a class="headerlink" href="#assignment-2-tech-jobs-object-oriented-edition" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="assignment-2-revised-tech-jobs-object-oriented-edition">
+<h1>Assignment #2: Revised Tech Jobs (Object-Oriented Edition)<a class="headerlink" href="#assignment-2-revised-tech-jobs-object-oriented-edition" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Your apprenticeship at LaunchCode is going well! Only a few weeks in and you’re
@@ -239,6 +239,17 @@ behavior would be much more complicated and difficult moving forward.</p>
 </div>
 <div class="section" id="a-complete-new-classes">
 <h2>A) Complete New Classes<a class="headerlink" href="#a-complete-new-classes" title="Permalink to this headline">¶</a></h2>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> file in IntelliJ and examine the code. In addition to the
+two fields—<code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>—the class includes getters and setters.</p>
+<p>Now open the <code class="docutils literal notranslate"><span class="pre">Job</span></code> file. OOF! There are a lot of fields, and coding a getter
+and setter for each one would be tedious. Fortunately, IntelliJ tools help:</p>
+<ol class="arabic simple">
+<li>Right-click in the editor pane and select <em>Generate</em>.</li>
+<li>Select the <em>Getter and Setter</em> option.</li>
+<li>Hold the shift key and select the <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>,
+<code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">positionType</span></code> options. Click “OK”.</li>
+</ol>
+<p>PRESTO! Getters and setters appear.</p>
 </div>
 <div class="section" id="b-code-addjob-method">
 <h2>B) Code <code class="docutils literal notranslate"><span class="pre">addJob</span></code> Method<a class="headerlink" href="#b-code-addjob-method" title="Permalink to this headline">¶</a></h2>
@@ -248,8 +259,8 @@ behavior would be much more complicated and difficult moving forward.</p>
 </div>
 <div class="section" id="d-design-removejob-tdd">
 <h2>D) Design <code class="docutils literal notranslate"><span class="pre">removeJob</span></code> (TDD)<a class="headerlink" href="#d-design-removejob-tdd" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="code-tests-for-removejob">
-<h3>Code Tests for <code class="docutils literal notranslate"><span class="pre">removeJob</span></code><a class="headerlink" href="#code-tests-for-removejob" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="create-tests-for-removejob">
+<h3>Create Tests for <code class="docutils literal notranslate"><span class="pre">removeJob</span></code><a class="headerlink" href="#create-tests-for-removejob" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="code-removejob-to-pass">
 <h3>Code <code class="docutils literal notranslate"><span class="pre">removeJob</span></code> to Pass<a class="headerlink" href="#code-removejob-to-pass" title="Permalink to this headline">¶</a></h3>
