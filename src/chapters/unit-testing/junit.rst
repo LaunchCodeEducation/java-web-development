@@ -97,8 +97,8 @@ Under your second TODO, write a test to verify that the constructor sets the
    //TODO: constructor sets gasTankLevel properly
    @Test
    public void testInitialGasTank() {
-      Car test_car = new Car("Ford", "Mustang", 10, 25);
-      assertEquals(test_car.getGasTankLevel(), 10, .001);
+      Car test_car = new Car("Toyota", "Prius", 10, 50);
+      assertEquals(10, test_car.getGasTankLevel(), .001);
    }
 
 Here, we give the test a descriptive name, ``testInitialGasTank()``, initialized a new 
@@ -115,13 +115,71 @@ Run ``CarTest`` to see that both tests pass.
 
    If you want to run only one test, click the green arrow next to the test method's name.
 
+``@Before``
+^^^^^^^^^^^
+
+``@Before`` is another annotation we can use to help in test cases. The ``@Before``
+annotation can be used to set up some data or a condition that you want to have for 
+every test in a given class. In the case of ``CarTest``, it would be nice to not need to
+create a new ``Car`` instance for each test we write. 
+
+In your ``testInitialGasTank()`` method, remove the line initiating ``test_car``. 
+Above your first test, add the following ``@Before`` method:
+
+.. sourcecode:: java
+   :linenos:
+
+   Car test_car;
+
+   @Before
+   public void createCarObject() {
+      test_car = new Car("Toyota", "Prius", 10, 50);
+   }
+
+Did IntelliJ prompt you to import ``@Before``? Did it import the annotation as you were 
+writing the method? We'll assume you know to check what you need to add to your classpath
+from now on. 
+
+Now, run the test file and ensure your test still passes.
+
+``@After``
+^^^^^^^^^^
+
+``@After``, conversely, defines a set of conditions to be met after each test in a 
+suite is run.
+
+Common Assertion Methods
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In addition to the very commonly used ``assertEquals()`` method
+you see above, here are a few other methods you should have in 
+your unit testing playbook.
+
+.. list-table:: JUnit4 Assertion Methods
+   :header-rows: 1
+
+   + - Assertion
+     - Description
+   + - ``assertEquals(expected, actual, delta)``
+     - Asserts that two values, expected and actual, are equal to each other within a given delta range
+   + - ``assertFalse(condition)``
+     - Asserts that a given condition is false
+   + - ``assertTrue(condition)``
+     - Asserts that a given condition is true
+   + - ``assertNotNull(object)``
+     - Asserts that a given object is not null
+
+
+
+
 .. Place tests in the correct location within a Java project
 .. Add JUnit 4 to the project classpath
 
 Group related tests together within the same class
 .. Use the @Test annotation to mark a test method
 
-Use @Before to generate test data to be used by each test within a class
+.. Use @Before to generate test data to be used by each test within a class
+
 Understand the behavior of @After
 .. Run JUnit tests as a group, or individually, within IntelliJ
 
