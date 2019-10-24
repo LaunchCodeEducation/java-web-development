@@ -1,3 +1,5 @@
+.. _classes-studio-part1:
+
 Studio: Classes and Objects
 ===========================
 

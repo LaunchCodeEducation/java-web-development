@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>5.2. JUnit &#8212; Java Web Development  documentation</title>
+    <title>6.2. JUnit &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.3. Exercises: Unit Testing" href="exercises.html" />
-    <link rel="prev" title="5.1. Testing in Java" href="testing-in-java.html" />
+    <link rel="next" title="6.3. Exercises: Unit Testing" href="exercises.html" />
+    <link rel="prev" title="6.1. Testing in Java" href="testing-in-java.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">5. Unit Testing</a></li>
-    <li class="active">5.2. JUnit</li>
+    <li><a href="index.html">6. Unit Testing</a></li>
+    <li class="active">6.2. JUnit</li>
 </ol>
 
 
@@ -85,13 +85,13 @@
 
     
   <div class="section" id="junit">
-<h1>5.2. JUnit<a class="headerlink" href="#junit" title="Permalink to this headline">¶</a></h1>
+<h1>6.2. JUnit<a class="headerlink" href="#junit" title="Permalink to this headline">¶</a></h1>
 <p>JUnit is a library that provides the classes, methods, and assertions
 for writing and executing unit tests in Java. In this course,
 we use JUnit4. Although there are newer versions now available,
 JUnit4 is still popular and widely used.</p>
 <div class="section" id="java-annotations">
-<h2>5.2.1. Java Annotations<a class="headerlink" href="#java-annotations" title="Permalink to this headline">¶</a></h2>
+<h2>6.2.1. Java Annotations<a class="headerlink" href="#java-annotations" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">On the topic of unit testing, the annotation <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> is used to
 indicate that a public void method should be treated as a test case.</p>
 <p>In Java, <strong>annotations</strong> are formalized bits of information about a program. They operate
@@ -101,14 +101,14 @@ Annotations are indicated with an <code class="docutils literal notranslate"><sp
 walkthrough below.</p>
 </div>
 <div class="section" id="testing-walkthrough">
-<h2>5.2.2. Testing Walkthrough<a class="headerlink" href="#testing-walkthrough" title="Permalink to this headline">¶</a></h2>
+<h2>6.2.2. Testing Walkthrough<a class="headerlink" href="#testing-walkthrough" title="Permalink to this headline">¶</a></h2>
 <p>In your <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> repo, we’ve included two <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files for the JUnit
 library. These are located in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> folder. In the future, as you build your own
 Java projects, you will likely include these dependencies in a different fashion. Many Java
 projects use a build automation tool to help manage dependencies, but since this project
 doesn’t use one of these tools, we’ve included the <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files.</p>
 <div class="section" id="main-car-and-test-cartest">
-<h3>5.2.2.1. <code class="docutils literal notranslate"><span class="pre">main/Car</span></code> and <code class="docutils literal notranslate"><span class="pre">test/CarTest</span></code><a class="headerlink" href="#main-car-and-test-cartest" title="Permalink to this headline">¶</a></h3>
+<h3>6.2.2.1. <code class="docutils literal notranslate"><span class="pre">main/Car</span></code> and <code class="docutils literal notranslate"><span class="pre">test/CarTest</span></code><a class="headerlink" href="#main-car-and-test-cartest" title="Permalink to this headline">¶</a></h3>
 <p>Within <code class="docutils literal notranslate"><span class="pre">org.launchcode.java.demos</span></code>, open the <code class="docutils literal notranslate"><span class="pre">testing</span></code> directory. Inside <code class="docutils literal notranslate"><span class="pre">testing</span></code>, you’ll
 see a <code class="docutils literal notranslate"><span class="pre">main</span></code> directory and and <code class="docutils literal notranslate"><span class="pre">test</span></code> directory. Open the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class within <code class="docutils literal notranslate"><span class="pre">main</span></code> and
 look around. Here, we provide a class <code class="docutils literal notranslate"><span class="pre">Car</span></code> with basic information about a make, model,
@@ -121,7 +121,7 @@ add JUnit to our classpath, and that the test can be run.</p>
 </div>
 </div>
 <div class="section" id="test">
-<h2>5.2.3. <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code><a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
+<h2>6.2.3. <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code><a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
 <p>Create the following empty test underneath the first TODO. As usual,
 be sure write this code rather than copy/paste it:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -189,7 +189,7 @@ By now, you’ve probably already imported the <code class="docutils literal not
 </div>
 </div>
 <div class="section" id="before">
-<h2>5.2.4. <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code><a class="headerlink" href="#before" title="Permalink to this headline">¶</a></h2>
+<h2>6.2.4. <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code><a class="headerlink" href="#before" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code> is another annotation we can use to help in test cases. The <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code>
 annotation can be used to set up some data or a condition that you want to have for
 every test in a given class. In the case of <code class="docutils literal notranslate"><span class="pre">CarTest</span></code>, it would be nice to not need to
@@ -215,12 +215,12 @@ from now on.</p>
 <p>Now, run the test file and ensure your test still passes.</p>
 </div>
 <div class="section" id="after">
-<h2>5.2.5. <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code><a class="headerlink" href="#after" title="Permalink to this headline">¶</a></h2>
+<h2>6.2.5. <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code><a class="headerlink" href="#after" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;After</span></code>, conversely, defines a set of conditions to be met after each test in a
 suite is run.</p>
 </div>
 <div class="section" id="common-assertion-methods">
-<h2>5.2.6. Common Assertion Methods<a class="headerlink" href="#common-assertion-methods" title="Permalink to this headline">¶</a></h2>
+<h2>6.2.6. Common Assertion Methods<a class="headerlink" href="#common-assertion-methods" title="Permalink to this headline">¶</a></h2>
 <p>In addition to the very commonly used <code class="docutils literal notranslate"><span class="pre">assertEquals()</span></code> method
 you see above, here are a few other methods you should have in
 your unit testing playbook.</p>
@@ -259,10 +259,10 @@ your unit testing playbook.</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="testing-in-java.html"><span aria-hidden="true">&larr;</span> 5.1. Testing in Java</a></li>
+        <li class="previous"><a href="testing-in-java.html"><span aria-hidden="true">&larr;</span> 6.1. Testing in Java</a></li>
         
         
-        <li class="next"><a href="exercises.html">5.3. Exercises: Unit Testing <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="exercises.html">6.3. Exercises: Unit Testing <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

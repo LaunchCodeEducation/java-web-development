@@ -1,3 +1,5 @@
+.. _classes-part1:
+
 Classes in Java
 ===============
 
