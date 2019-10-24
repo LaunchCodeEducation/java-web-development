@@ -170,18 +170,3 @@ your unit testing playbook.
      - Asserts that a given object is not null
 
 
-
-
-.. Place tests in the correct location within a Java project
-.. Add JUnit 4 to the project classpath
-
-Group related tests together within the same class
-.. Use the @Test annotation to mark a test method
-
-.. Use @Before to generate test data to be used by each test within a class
-
-Understand the behavior of @After
-.. Run JUnit tests as a group, or individually, within IntelliJ
-
-Use common assertion methods: assertEquals, assertFalse, assertTrue, assertNotNull
-
