@@ -7,31 +7,46 @@ we use JUnit4. Although there are newer versions now available,
 JUnit4 is still popular and widely used.
 
 Java Annotations
-^^^^^^^^^^^^^^^^
+----------------
 
 .. index:: ! annotations
 
 On the topic of unit testing, the annotation ``@Test`` is used to 
-indicate that a public void method should be treated as a test case.
+indicate that a ``public void`` method should be treated as a test case.
 
 In Java, **annotations** are formalized bits of information about a program. They operate
 somewhere between actual code syntax and a comment on the code. Annotations do not 
-directly affect the code they annotate, but they can supply information to the compiler.
+directly affect the code they annotate, but they do supply information to the compiler.
 Annotations are indicated with an ``@`` symbol. We will provide an example in the 
 walkthrough below.
 
 
-Testing Walkthrough
-^^^^^^^^^^^^^^^^^^^
+``.jar`` and Testing Setup
+--------------------------
+
+.. index:: ! jar, java archive, dependency
 
 In your ``java-web-dev-exercises`` repo, we've included two ``.jar`` files for the JUnit 
-library. These are located in the ``lib`` folder. In the future, as you build your own
-Java projects, you will likely include these dependencies in a different fashion. Many Java
-projects use a build automation tool to help manage dependencies, but since this project 
-doesn't use one of these tools, we've included the ``.jar`` files.
+library. These are located in the ``lib`` folder. **JAR** stands for **Java ARchive** and is a 
+common Java file format used for bundling many classes and files together. The JUnit library
+code is bundled and packaged in both the ``junit-4.13-beta-3.jar`` and 
+``hamcrest-core-1.3.jar`` ``.jar`` files.
+
+.. note::
+
+   The versions of these packages may change before this text.
+
+In this project, we call these external libraries **dependencies**. A dependency is a 
+separately developed program or piece of code that another program or piece of code 
+uses to carry it out its function. Our Java tests will *depend* on JUnit code. In 
+the future, as you build your own Java projects, you will likely include these 
+dependencies in a different fashion other than ``.jar`` files. Many Java projects 
+use a build automation tool to help manage dependencies. We'll begin using this kind
+of tool later in this course. Since we're not quite there yet, we've included the 
+``.jar`` files.
 
 ``main/Car`` and ``test/CarTest``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Within ``org.launchcode.java.demos``, open the ``testing`` directory. Inside ``testing``, you'll
 see a ``main`` directory and and ``test`` directory. Open the ``Car`` class within ``main`` and 
@@ -40,12 +55,12 @@ gas level, and mileage as well as getters, setters, and a few other methods.
 
 In the same directory, you'll find a ``Main`` class with a main method that prints the
 ``make`` and ``model`` of a given ``Car`` object. Run this class to verify it works.
-Now, open ``test/CarTest``. It's empty, save for a few TODOs. First, let's tackle the
-first TODO to make a new emptty test. Starting with an empty test lets us validate that we can 
+Now, open ``test/CarTest``. It's empty, save for a few TODOs. Let's tackle the
+first TODO to make a new empty test. Starting with an empty test lets us validate that we can 
 add JUnit to our classpath, and that the test can be run.
 
 ``@Test``
-^^^^^^^^^
+---------
 
 Create the following empty test underneath the first TODO. As usual,
 be sure write this code rather than copy/paste it:
@@ -116,7 +131,7 @@ Run ``CarTest`` to see that both tests pass.
    If you want to run only one test, click the green arrow next to the test method's name.
 
 ``@Before``
-^^^^^^^^^^^
+-----------
 
 ``@Before`` is another annotation we can use to help in test cases. The ``@Before``
 annotation can be used to set up some data or a condition that you want to have for 
@@ -143,13 +158,13 @@ from now on.
 Now, run the test file and ensure your test still passes.
 
 ``@After``
-^^^^^^^^^^
+----------
 
 ``@After``, conversely, defines a set of conditions to be met after each test in a 
 suite is run.
 
 Common Assertion Methods
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 In addition to the very commonly used ``assertEquals()`` method
 you see above, here are a few other methods you should have in 

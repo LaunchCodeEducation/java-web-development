@@ -93,20 +93,32 @@ JUnit4 is still popular and widely used.</p>
 <div class="section" id="java-annotations">
 <h2>6.2.1. Java Annotations<a class="headerlink" href="#java-annotations" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">On the topic of unit testing, the annotation <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> is used to
-indicate that a public void method should be treated as a test case.</p>
+indicate that a <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span></code> method should be treated as a test case.</p>
 <p>In Java, <strong>annotations</strong> are formalized bits of information about a program. They operate
 somewhere between actual code syntax and a comment on the code. Annotations do not
-directly affect the code they annotate, but they can supply information to the compiler.
+directly affect the code they annotate, but they do supply information to the compiler.
 Annotations are indicated with an <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol. We will provide an example in the
 walkthrough below.</p>
 </div>
-<div class="section" id="testing-walkthrough">
-<h2>6.2.2. Testing Walkthrough<a class="headerlink" href="#testing-walkthrough" title="Permalink to this headline">¶</a></h2>
-<p>In your <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> repo, we’ve included two <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files for the JUnit
-library. These are located in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> folder. In the future, as you build your own
-Java projects, you will likely include these dependencies in a different fashion. Many Java
-projects use a build automation tool to help manage dependencies, but since this project
-doesn’t use one of these tools, we’ve included the <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files.</p>
+<div class="section" id="jar-and-testing-setup">
+<h2>6.2.2. <code class="docutils literal notranslate"><span class="pre">.jar</span></code> and Testing Setup<a class="headerlink" href="#jar-and-testing-setup" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">In your <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> repo, we’ve included two <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files for the JUnit
+library. These are located in the <code class="docutils literal notranslate"><span class="pre">lib</span></code> folder. <strong>JAR</strong> stands for <strong>Java ARchive</strong> and is a
+common Java file format used for bundling many classes and files together. The JUnit library
+code is bundled and packaged in both the <code class="docutils literal notranslate"><span class="pre">junit-4.13-beta-3.jar</span></code> and
+<code class="docutils literal notranslate"><span class="pre">hamcrest-core-1.3.jar</span></code> <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The versions of these packages may change before this text.</p>
+</div>
+<p>In this project, we call these external libraries <strong>dependencies</strong>. A dependency is a
+separately developed program or piece of code that another program or piece of code
+uses to carry it out its function. Our Java tests will <em>depend</em> on JUnit code. In
+the future, as you build your own Java projects, you will likely include these
+dependencies in a different fashion other than <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files. Many Java projects
+use a build automation tool to help manage dependencies. We’ll begin using this kind
+of tool later in this course. Since we’re not quite there yet, we’ve included the
+<code class="docutils literal notranslate"><span class="pre">.jar</span></code> files.</p>
 <div class="section" id="main-car-and-test-cartest">
 <h3>6.2.2.1. <code class="docutils literal notranslate"><span class="pre">main/Car</span></code> and <code class="docutils literal notranslate"><span class="pre">test/CarTest</span></code><a class="headerlink" href="#main-car-and-test-cartest" title="Permalink to this headline">¶</a></h3>
 <p>Within <code class="docutils literal notranslate"><span class="pre">org.launchcode.java.demos</span></code>, open the <code class="docutils literal notranslate"><span class="pre">testing</span></code> directory. Inside <code class="docutils literal notranslate"><span class="pre">testing</span></code>, you’ll
@@ -115,8 +127,8 @@ look around. Here, we provide a class <code class="docutils literal notranslate"
 gas level, and mileage as well as getters, setters, and a few other methods.</p>
 <p>In the same directory, you’ll find a <code class="docutils literal notranslate"><span class="pre">Main</span></code> class with a main method that prints the
 <code class="docutils literal notranslate"><span class="pre">make</span></code> and <code class="docutils literal notranslate"><span class="pre">model</span></code> of a given <code class="docutils literal notranslate"><span class="pre">Car</span></code> object. Run this class to verify it works.
-Now, open <code class="docutils literal notranslate"><span class="pre">test/CarTest</span></code>. It’s empty, save for a few TODOs. First, let’s tackle the
-first TODO to make a new emptty test. Starting with an empty test lets us validate that we can
+Now, open <code class="docutils literal notranslate"><span class="pre">test/CarTest</span></code>. It’s empty, save for a few TODOs. Let’s tackle the
+first TODO to make a new empty test. Starting with an empty test lets us validate that we can
 add JUnit to our classpath, and that the test can be run.</p>
 </div>
 </div>
