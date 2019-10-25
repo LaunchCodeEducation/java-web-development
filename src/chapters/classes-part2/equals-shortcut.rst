@@ -1,3 +1,5 @@
+.. _equals-shortcut:
+
 IntelliJ Generator Shortcut
 ============================
 
