@@ -321,6 +321,44 @@ classes correctly.
 5) Use Unit Testing to Verify Parts of the ``Job`` Class
 ---------------------------------------------------------
 
+Instead of manually creating sample ``Job`` objects to verify that your class
+works correctly, you will use unit tests instead.
+
+Create a new class inside the ``TechJobsOO`` folder called ``JobTest``. This
+file will hold all of the tests for the ``Job`` class.
+
+Test the Empty Constructor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each ``Job`` object should contain a unique ID number, and these should also be
+sequential.
+
+#. In ``JobTest``, define a test called ``testSettingJobId``. Do not forget to
+   annotate it with ``@Test``.
+#. Create two ``Job`` objects using the empty constructor.
+#. Use ``assertEquals``, ``assertTrue``, or ``assertFalse`` to test that the
+   ID values for the two objects are NOT the same and differ by 1.
+
+.. admonition:: Note
+
+   Instead of creating the ``Job`` objects inside the test method, you could
+   declare and initialize them using ``@Before``.
+
+Test the ``equals`` Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Two ``Job`` objects are considered equal if they have the same ``id`` value,
+even if one or more of the other fields differ. Similarly, the two objects
+are NOT equal if their ``id`` values differ, even if all the other fields are
+identical.
+
+#. In ``JobTest``, define a test called ``testJobsForEquality``.
+#. Generate two ``Job`` objects that have identical field values EXCEPT for
+   ``id``. Test that ``equals`` returns ``false``.
+#. Generate a third ``Job`` object and reassign its ``id`` value to be the same
+   as one of the objects in the previous step. Test that ``equals`` returns
+   ``true`` even if the other field values differ.
+
 6) Use TDD to Build The ``toString`` Method
 ---------------------------------------------
 
@@ -350,8 +388,13 @@ To turn in your assignment and get credit, follow the
 
 
 Fill in small fields.
+
 Fill out Job class.
+
 Refactoring JobData class.
+
 Testing... ID generator, .equals.
+
 TDD to build toString method.
+
 Refactor classes to use inheritance.
