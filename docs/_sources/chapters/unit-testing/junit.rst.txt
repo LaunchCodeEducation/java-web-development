@@ -57,7 +57,7 @@ In the same directory, you'll find a ``Main`` class with a main method that prin
 ``make`` and ``model`` of a given ``Car`` object. Run this class to verify it works.
 Now, open ``test/CarTest``. It's empty, save for a few TODOs. Let's tackle the
 first TODO to make a new empty test. Starting with an empty test lets us validate that we can 
-add JUnit to our classpath, and that the test can be run.
+use JUnit in our current environment.
 
 ``@Test``
 ---------
@@ -74,14 +74,7 @@ be sure write this code rather than copy/paste it:
       assertEquals(10,10,.001);
    }
 
-Once written, you likely have one of two states in your IntelliJ environment now. 
-Either IntelliJ sensed which testing library you want to use and added the necessary 
-import statements at the top of your class file. Or, IntelliJ flagged the ``@Test``
-and ``assertEquals`` lines with red underlines, signalling to you the programmer to 
-to add the necessary import statements.
-Aren't :ref:`IDEs <install-intellij>` wonderful? 
-If IntelliJ has added the import statements for you, make sure they
-are the correct paths. Your import statements should look like:
+Once written, you likely need to add these import statements at the top of your file:
 
 .. sourcecode:: java
    :linenos:
@@ -89,19 +82,25 @@ are the correct paths. Your import statements should look like:
    import org.junit.Test;
    import static org.junit.Assert.assertEquals;
 
-If these have not already been added to your file, add them now. As we mention above,
-``@Test`` annotates the method to signal it as a test case. We need to add the appropriate
-classpath in order to take advantage of this annotation. Our empty test is aptly named
-``emptyTest()``, a description of its role. This test does not follow the AAA rule from 
-our :ref:`testing-best-practices`, as it jumps straight to asserting. Nor is it relevant,
-for that matter. Again, the IDE comes in handy, inserting the names of each of our parameters,
-"expected:", "actual:", and "delta:". This empty test is simply asserting an expected 
-value of ``10`` to equal an actual value of ``10``, with an accepted ``.001`` variance.
-Of course, ``10`` equals ``10``. But let's run it so we know our test runner works. Click
-the green arrow to the left of ``public class CarTest`` to run the test. Once run, you'll
-see a new output panel with a green check mark indicating the test passed and a message 
-stating the test passed. We know now how the test runner behaves when a test passes and 
-begin the real work of unit testing the ``Car`` class.
+.. note::
+
+   In some cases, IntelliJ may sense which testing library and method you want to 
+   use and add the import statements as you type. If this is the case, just make sure they
+   are the correct paths. Aren't :ref:`IDEs <install-intellij>` wonderful?
+
+As we mention above, ``@Test`` annotates the method to signal it as a test case. We need 
+to add the appropriate import statement in order to take advantage of this annotation. 
+Our empty test is aptly named ``emptyTest()``, a description of its role. This test does 
+not follow the AAA rule from our :ref:`testing-best-practices`, as it jumps straight to 
+asserting. Nor is it relevant, for that matter. Again, the IDE comes in handy, inserting 
+the names of each of our parameters, "expected:", "actual:", and "delta:". This empty 
+test is simply asserting an expected value of ``10`` to equal an actual value of ``10``, 
+with an accepted ``.001`` variance. Of course, ``10`` equals ``10``. But let's run it so 
+we know our test runner works. Click the green arrow to the left of 
+``public class CarTest`` to run the test. Once run, you'll see a new output panel with a 
+green check mark indicating the test passed and a message stating the test passed. We 
+know now how the test runner behaves when a test passes and begin the real work of unit 
+testing the ``Car`` class.
 
 Under your second TODO, write a test to verify that the constructor sets the 
 ``gasTankLevel`` property.
@@ -152,8 +151,11 @@ Above your first test, add the following ``@Before`` method:
    }
 
 Did IntelliJ prompt you to import ``@Before``? Did it import the annotation as you were 
-writing the method? We'll assume you know to check what you need to add to your classpath
-from now on. 
+writing the method? If not, add it:
+
+.. sourcecode:: java
+
+   import org.junit.Before;
 
 Now, run the test file and ensure your test still passes.
 
@@ -161,7 +163,13 @@ Now, run the test file and ensure your test still passes.
 ----------
 
 ``@After``, conversely, defines a set of conditions to be met after each test in a 
-suite is run.
+suite is run. 
+
+.. note::
+
+   A good or frequent use case for ``@After`` would be if you needed to test
+   some code that requires access to a database. Here, you could open the database 
+   connection with a ``@Before`` method and close the connection in an ``@After`` method.
 
 Common Assertion Methods
 ------------------------
@@ -183,5 +191,20 @@ your unit testing playbook.
      - Asserts that a given condition is true
    + - ``assertNotNull(object)``
      - Asserts that a given object is not null
+
+Check Your Understanding
+-------------------------
+
+.. admonition:: Question
+
+   Write another version of ``testInitialGasTank()`` using ``assertFalse()``, comparing the value to ``0``.
+
+.. ans: assertFalse(test_car.getGasTankLevel() == 0);
+
+.. admonition:: Question
+
+   Write another version of ``testInitialGasTank()`` using ``assertTrue()``.
+
+..  ans: assertTrue(test_car.getGasTankLevel() == 10);
 
 

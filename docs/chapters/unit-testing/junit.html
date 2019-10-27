@@ -129,7 +129,7 @@ gas level, and mileage as well as getters, setters, and a few other methods.</p>
 <code class="docutils literal notranslate"><span class="pre">make</span></code> and <code class="docutils literal notranslate"><span class="pre">model</span></code> of a given <code class="docutils literal notranslate"><span class="pre">Car</span></code> object. Run this class to verify it works.
 Now, open <code class="docutils literal notranslate"><span class="pre">test/CarTest</span></code>. It’s empty, save for a few TODOs. Let’s tackle the
 first TODO to make a new empty test. Starting with an empty test lets us validate that we can
-add JUnit to our classpath, and that the test can be run.</p>
+use JUnit in our current environment.</p>
 </div>
 </div>
 <div class="section" id="test">
@@ -147,32 +147,31 @@ be sure write this code rather than copy/paste it:</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Once written, you likely have one of two states in your IntelliJ environment now.
-Either IntelliJ sensed which testing library you want to use and added the necessary
-import statements at the top of your class file. Or, IntelliJ flagged the <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code>
-and <code class="docutils literal notranslate"><span class="pre">assertEquals</span></code> lines with red underlines, signalling to you the programmer to
-to add the necessary import statements.
-Aren’t <a class="reference internal" href="../introduction-and-setup/setup.html#install-intellij"><span class="std std-ref">IDEs</span></a> wonderful?
-If IntelliJ has added the import statements for you, make sure they
-are the correct paths. Your import statements should look like:</p>
+<p>Once written, you likely need to add these import statements at the top of your file:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
 <span class="kn">import static</span> <span class="nn">org.junit.Assert.assertEquals</span><span class="o">;</span>
 </pre></div>
 </td></tr></table></div>
-<p>If these have not already been added to your file, add them now. As we mention above,
-<code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> annotates the method to signal it as a test case. We need to add the appropriate
-classpath in order to take advantage of this annotation. Our empty test is aptly named
-<code class="docutils literal notranslate"><span class="pre">emptyTest()</span></code>, a description of its role. This test does not follow the AAA rule from
-our <a class="reference internal" href="testing-in-java.html#testing-best-practices"><span class="std std-ref">Testing Best Practices</span></a>, as it jumps straight to asserting. Nor is it relevant,
-for that matter. Again, the IDE comes in handy, inserting the names of each of our parameters,
-“expected:”, “actual:”, and “delta:”. This empty test is simply asserting an expected
-value of <code class="docutils literal notranslate"><span class="pre">10</span></code> to equal an actual value of <code class="docutils literal notranslate"><span class="pre">10</span></code>, with an accepted <code class="docutils literal notranslate"><span class="pre">.001</span></code> variance.
-Of course, <code class="docutils literal notranslate"><span class="pre">10</span></code> equals <code class="docutils literal notranslate"><span class="pre">10</span></code>. But let’s run it so we know our test runner works. Click
-the green arrow to the left of <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">class</span> <span class="pre">CarTest</span></code> to run the test. Once run, you’ll
-see a new output panel with a green check mark indicating the test passed and a message
-stating the test passed. We know now how the test runner behaves when a test passes and
-begin the real work of unit testing the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">In some cases, IntelliJ may sense which testing library and method you want to
+use and add the import statements as you type. If this is the case, just make sure they
+are the correct paths. Aren’t <a class="reference internal" href="../introduction-and-setup/setup.html#install-intellij"><span class="std std-ref">IDEs</span></a> wonderful?</p>
+</div>
+<p>As we mention above, <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> annotates the method to signal it as a test case. We need
+to add the appropriate import statement in order to take advantage of this annotation.
+Our empty test is aptly named <code class="docutils literal notranslate"><span class="pre">emptyTest()</span></code>, a description of its role. This test does
+not follow the AAA rule from our <a class="reference internal" href="testing-in-java.html#testing-best-practices"><span class="std std-ref">Testing Best Practices</span></a>, as it jumps straight to
+asserting. Nor is it relevant, for that matter. Again, the IDE comes in handy, inserting
+the names of each of our parameters, “expected:”, “actual:”, and “delta:”. This empty
+test is simply asserting an expected value of <code class="docutils literal notranslate"><span class="pre">10</span></code> to equal an actual value of <code class="docutils literal notranslate"><span class="pre">10</span></code>,
+with an accepted <code class="docutils literal notranslate"><span class="pre">.001</span></code> variance. Of course, <code class="docutils literal notranslate"><span class="pre">10</span></code> equals <code class="docutils literal notranslate"><span class="pre">10</span></code>. But let’s run it so
+we know our test runner works. Click the green arrow to the left of
+<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">class</span> <span class="pre">CarTest</span></code> to run the test. Once run, you’ll see a new output panel with a
+green check mark indicating the test passed and a message stating the test passed. We
+know now how the test runner behaves when a test passes and begin the real work of unit
+testing the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class.</p>
 <p>Under your second TODO, write a test to verify that the constructor sets the
 <code class="docutils literal notranslate"><span class="pre">gasTankLevel</span></code> property.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -222,14 +221,22 @@ Above your first test, add the following <code class="docutils literal notransla
 </pre></div>
 </td></tr></table></div>
 <p>Did IntelliJ prompt you to import <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code>? Did it import the annotation as you were
-writing the method? We’ll assume you know to check what you need to add to your classpath
-from now on.</p>
+writing the method? If not, add it:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">org.junit.Before</span><span class="o">;</span>
+</pre></div>
+</div>
 <p>Now, run the test file and ensure your test still passes.</p>
 </div>
 <div class="section" id="after">
 <h2>6.2.5. <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code><a class="headerlink" href="#after" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;After</span></code>, conversely, defines a set of conditions to be met after each test in a
 suite is run.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">A good or frequent use case for <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code> would be if you needed to test
+some code that requires access to a database. Here, you could open the database
+connection with a <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code> method and close the connection in an <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code> method.</p>
+</div>
 </div>
 <div class="section" id="common-assertion-methods">
 <h2>6.2.6. Common Assertion Methods<a class="headerlink" href="#common-assertion-methods" title="Permalink to this headline">¶</a></h2>
@@ -262,6 +269,17 @@ your unit testing playbook.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>6.2.7. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">Write another version of <code class="docutils literal notranslate"><span class="pre">testInitialGasTank()</span></code> using <code class="docutils literal notranslate"><span class="pre">assertFalse()</span></code>, comparing the value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">Write another version of <code class="docutils literal notranslate"><span class="pre">testInitialGasTank()</span></code> using <code class="docutils literal notranslate"><span class="pre">assertTrue()</span></code>.</p>
+</div>
 </div>
 </div>
 
