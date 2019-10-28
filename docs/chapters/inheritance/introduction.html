@@ -97,51 +97,45 @@ properties and behaviors.</p>
 </div>
 <div class="section" id="inheritance-in-java">
 <h2>7.1.1. Inheritance in Java<a class="headerlink" href="#inheritance-in-java" title="Permalink to this headline">¶</a></h2>
-<p>Inheritance in Java is very similar to the same concept in Python. We
-<strong>extend</strong> another class to inherit its data and behaviors (that is,
-fields, properties, and methods). Recall that in Python the syntax for
-inheritance was the following:</p>
-<div class="code python highlight-none notranslate"><div class="highlight"><pre><span></span>class Cat:
-    # ...code for the Cat class...
+<p>Let’s examine an inheritance relationship between two classes, <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>.
+<code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> is a class that inherits from <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. When defined, <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> thus
+receives the data and behaviors of <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. These inherited traits are things like
+fields, properties, and methods. Any fields and non-constructor methods in <code class="docutils literal notranslate"><span class="pre">Cat</span></code>
+are be available to each instance of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>.</p>
+<p id="index-1">When we speak about an inheritance relationship, we say that a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> <em>is a</em>
+<code class="docutils literal notranslate"><span class="pre">Cat</span></code>, or <em>extends</em> <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. Indeed, in order to define a class that inherits from
+another, we use the <code class="docutils literal notranslate"><span class="pre">extends</span></code> keyword.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>
+    <span class="c1">// ...code for the Cat class...</span>
+<span class="o">}</span>
 
-class HouseCat(Cat):
-    # ...code for the HouseCat class...
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HouseCat</span> <span class="kd">extends</span> <span class="n">Cat</span> <span class="o">{</span>
+    <span class="c1">// ...code for the HouseCat class...</span>
+<span class="o">}</span>
 </pre></div>
 </div>
-<p>Any fields and non-constructor methods in <code class="docutils literal notranslate"><span class="pre">Cat</span></code> would be available to
-each instance of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>. We express the inheritance relationship
-in plain English by saying that a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> <em>extends</em> <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, or
-that a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
-<p>In Java, the syntax for extending a class requires the <code class="docutils literal notranslate"><span class="pre">extends</span></code>
-keyword.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Cat {
-    // ...code for the Cat class...
-}
-
-public class HouseCat extends Cat {
-    // ...code for the HouseCat class...
-}
-</pre></div>
-</div>
-<p>We say that <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> is a <strong>subclass</strong>, <strong>derived class</strong>, or
+<p id="index-2">We say that <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> is a <strong>subclass</strong>, <strong>derived class</strong>, or
 <strong>child class</strong> of <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, and we say that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> is the
-<strong>superclass</strong>, <strong>base class</strong>, or <strong>parent class</strong> of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>. In
-Java, a class may extend only one class, but classes may extend each
-other in turn, creating hierarchies of classes. We often visualize these
+<strong>superclass</strong>, <strong>base class</strong>, or <strong>parent class</strong> of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>.</p>
+<p>In Java, a class may extend only one class. Classes may extend each
+other in turn, however. This creates hierarchies of classes. We often visualize these
 by drawing each class as a box, with an arrow pointing from the subclass
 to the base class.</p>
-<div style="text-align:center;"></div><p>The shaded portion of these boxes can include additional information
-about each class. We’ll learn about what we might put here in the next
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/inheritance-basic.png"><img alt="Basic inheritance diagram." src="../../_images/inheritance-basic.png" style="width: 464.5px; height: 571.0px;" /></a>
+<p class="caption"><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">B</span></code> extends <code class="docutils literal notranslate"><span class="pre">A</span></code>.</span></p>
+</div>
+<p>The shaded portion of these boxes can include additional information
+about each class. We’ll learn about what we might put here in a future
 lesson.</p>
-<p>Inheritance is a useful mechanism for sharing data and behavior between
-related classes, and it effectively creates hierarchies of classes that
-have more and more specialized behavior as you go from base class to
-subclass.</p>
+<p>Inheritance is an essential mechanism for sharing data and behavior between
+related classes. Using it effectively creates organized code with groups of classes
+that have increasingly specialized behavior.</p>
 <p>When this happens, we can visualize the inheritance structure with a
 slightly more complex diagram.</p>
-<div class="figure" id="id1">
-<img alt="Inheritance Tree" src="chapters/inheritance/inheritance-tree.png" />
-<p class="caption"><span class="caption-text">Inheritance Tree</span></p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/inheritance-tree.png"><img alt="Multi-node inheritance tree." src="../../_images/inheritance-tree.png" style="width: 994.5px; height: 679.0px;" /></a>
+<p class="caption"><span class="caption-text">Inheritance tree with many nodes.</span></p>
 </div>
 <p>You can see that classes <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code>, and <code class="docutils literal notranslate"><span class="pre">D</span></code> all extend class <code class="docutils literal notranslate"><span class="pre">A</span></code>.
 And class <code class="docutils literal notranslate"><span class="pre">E</span></code> extends class <code class="docutils literal notranslate"><span class="pre">D</span></code> which itself extends class <code class="docutils literal notranslate"><span class="pre">A</span></code>. So

@@ -18,28 +18,19 @@ properties and behaviors.
 Inheritance in Java
 -------------------
 
-Inheritance in Java is very similar to the same concept in Python. We
-**extend** another class to inherit its data and behaviors (that is,
-fields, properties, and methods). Recall that in Python the syntax for
-inheritance was the following:
+Let's examine an inheritance relationship between two classes, ``Cat`` and ``HouseCat``.
+``HouseCat`` is a class that inherits from ``Cat``. When defined, ``HouseCat`` thus 
+receives the data and behaviors of ``Cat``. These inherited traits are things like 
+fields, properties, and methods. Any fields and non-constructor methods in ``Cat`` 
+are be available to each instance of ``HouseCat``. 
 
-.. code:: python
+.. index:: ! extends
 
-   class Cat:
-       # ...code for the Cat class...
+When we speak about an inheritance relationship, we say that a ``HouseCat`` *is a* 
+``Cat``, or *extends* ``Cat``. Indeed, in order to define a class that inherits from
+another, we use the ``extends`` keyword.
 
-   class HouseCat(Cat):
-       # ...code for the HouseCat class...
-
-Any fields and non-constructor methods in ``Cat`` would be available to
-each instance of ``HouseCat``. We express the inheritance relationship
-in plain English by saying that a ``HouseCat`` *extends* ``Cat``, or
-that a ``HouseCat`` *is a* ``Cat``.
-
-In Java, the syntax for extending a class requires the ``extends``
-keyword.
-
-.. code:: java
+.. sourcecode:: java
 
    public class Cat {
        // ...code for the Cat class...
@@ -49,38 +40,39 @@ keyword.
        // ...code for the HouseCat class...
    }
 
+.. index:: ! subclass, ! derived class, ! child class, ! superclass, ! base class, ! parent class
+
 We say that ``HouseCat`` is a **subclass**, **derived class**, or
 **child class** of ``Cat``, and we say that ``Cat`` is the
-**superclass**, **base class**, or **parent class** of ``HouseCat``. In
-Java, a class may extend only one class, but classes may extend each
-other in turn, creating hierarchies of classes. We often visualize these
+**superclass**, **base class**, or **parent class** of ``HouseCat``. 
+
+In Java, a class may extend only one class. Classes may extend each
+other in turn, however. This creates hierarchies of classes. We often visualize these
 by drawing each class as a box, with an arrow pointing from the subclass
 to the base class.
 
-.. raw:: html
+.. figure:: figures/inheritance-basic.png
+   :scale: 50%
+   :alt: Basic inheritance diagram.
 
-   <div style="text-align:center;">
-
-.. raw:: html
-
-   </div>
+   ``B`` extends ``A``.
 
 The shaded portion of these boxes can include additional information
-about each class. We’ll learn about what we might put here in the next
+about each class. We’ll learn about what we might put here in a future
 lesson.
 
-Inheritance is a useful mechanism for sharing data and behavior between
-related classes, and it effectively creates hierarchies of classes that
-have more and more specialized behavior as you go from base class to
-subclass.
+Inheritance is an essential mechanism for sharing data and behavior between
+related classes. Using it effectively creates organized code with groups of classes
+that have increasingly specialized behavior.
 
 When this happens, we can visualize the inheritance structure with a
 slightly more complex diagram.
 
-.. figure:: inheritance-tree.png
-   :alt: Inheritance Tree
+.. figure:: figures/inheritance-tree.png
+   :scale: 50%
+   :alt: Multi-node inheritance tree.
 
-   Inheritance Tree
+   Inheritance tree with many nodes.
 
 You can see that classes ``B``, ``C``, and ``D`` all extend class ``A``.
 And class ``E`` extends class ``D`` which itself extends class ``A``. So
