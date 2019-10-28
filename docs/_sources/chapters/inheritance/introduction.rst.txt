@@ -31,6 +31,7 @@ When we speak about an inheritance relationship, we say that a ``HouseCat`` *is 
 another, we use the ``extends`` keyword.
 
 .. sourcecode:: java
+   :linenos:
 
    public class Cat {
        // ...code for the Cat class...
@@ -79,141 +80,53 @@ And class ``E`` extends class ``D`` which itself extends class ``A``. So
 class ``E`` involves an even greater specialization of behavior than
 class ``D``.
 
-As with Python, fields and non-constructor methods are directly
+Fields and non-constructor methods are directly
 available to instances of the subclass, subject to any access modifiers.
-In general, this means that ``private`` and default/package-private
+In general, this means that ``private`` and package-private
 members of a base class are not accessible to a subclass. The exception
 to this is that package-private members are accessible to subclasses
 *within the same package*.
 
-.. raw:: html
+.. note::
 
-   <aside class="aside-note">
+   If anything in the last paragraph was fuzzy, this is a good time to review 
+   :ref:`access modifiers in Java <access-modifiers>`.
 
-This is a good time to review `access modifiers in
-Java <../introduction-to-classes-and-objects/#access-modifiers>`__ if
-anything in the last paragraph was fuzzy.
 
-.. raw:: html
+Let’s revisit our ``Cat`` and ``HouseCat`` friends. In ``java-web-dev-exercises``,
+open ``src/org/launchcode/java/demos/inheritance`` and examine the two classes inside.
 
-   </aside>
+Notice that ``Cat`` has a ``private`` string field ``family``, representing
+the biological family of all cats. 
 
-For example, let’s revisit our ``Cat`` and ``HouseCat`` implementations
-from `Unit
-1 <https://runestone.launchcode.org/runestone/static/thinkcspy/ClassesDiggingDeeper/Inheritance.html>`__,
-modified to illustrate some Java-specific concepts.
+.. sourcecode:: java
+   :lineno-start: 10
 
-.. code:: java
+   private String family = "Felidae";
 
-   public class Cat {
+This field is not directly accessible by ``HouseCat`` since it is ``private``. 
+However, it may be read via the public getter ``getFamily``. 
 
-       private boolean tired = false;
-       private boolean hungry = false;
-       private double weight;
+.. sourcecode:: java
+   :lineno-start: 42
 
-       // The biological Family for all cat species
-       private String family = "Felidae";
-
-       public Cat (double aWeight) {
-           weight = aWeight;
-       }
-
-       /**** Getters and Setters ****/
-
-       public boolean isTired() {
-           return tired;
-       }
-
-       public void setTired(boolean aTired) {
-           tired = aTired;
-       }
-
-       public boolean isHungry() {
-           return hungry;
-       }
-
-       public void setHungry(boolean aHungry) {
-           hungry = aHungry;
-       }
-
-       public double getWeight() {
-           return weight;
-       }
-
-       public void setWeight(double aWeight) {
-           weight = aWeight;
-       }
-
-       public String getFamily() {
-           return family;
-       }
-
-       /**** Instance Methods ****/
-
-       // A cat is rested and hungry after it sleeps
-       public void sleep() {
-           tired = false;
-           hungry = true;
-       }
-
-       // Eating makes a cat not hungry
-       public void eat() {
-
-           // eating when not hungry makes a cat sleepy
-           if (!hungry) {
-               tired = true;
-           }
-
-           hungry = false;
-       }
-
-       public String noise () {
-           return "Meeeeeeooooowww!";
-       }
+   public String getFamily() {
+      return family;
    }
 
-.. code:: java
-
-   public class HouseCat extends Cat
-   {
-       private String name;
-       private String species = "Felis catus";
-
-       public HouseCat(String aName, double aWeight) {
-           super(aWeight);
-           name = aName;
-       }
-
-       public boolean isSatisfied() {
-           return !isHungry() && !isTired();
-       }
-
-       @Override
-       public String noise() {
-           return "Hello, my name is " + name + "!";
-       }
-
-       public String purr() {
-           return "I'm a HouseCat";
-       }
-   }
-
-The class ``HouseCat`` extends ``Cat``, using several different
-inheritance features that we will explore in turn.
-
-Notice that ``Cat`` has a private string field ``family``, representing
-the biological family of all cats. This field is not directly accessible
-by ``HouseCat`` since it is private, however it may be read via the
-public getter ``getFamily``. There is no setter for ``family``, however,
-so it may only be set within ``Cat``. It makes sense that the another
-class should not be able to change the biological family of a cat, since
+There is no setter for ``family``, however,
+so it may only be set within ``Cat``. It makes sense that a
+subclass should not be able to change the biological family of a cat, since
 this field should rarely, if ever, change.
 
 Methods of the base class ``Cat`` may be called on instances of the
 subclass ``HouseCat`` as if they were defined as part of the
 ``HouseCat``.
 
-.. code:: java
+Try it out. In your inheritance folder, create a ``Main`` class. Within that class,
+write an instance of ``HouseCat`` and call some of the methods it inherits from ``Cat``.
+
+.. sourcecode:: java
 
    HouseCat garfield = new HouseCat("Garfield", 12);
    garfield.eat();

@@ -105,7 +105,13 @@ are be available to each instance of <code class="docutils literal notranslate">
 <p id="index-1">When we speak about an inheritance relationship, we say that a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> <em>is a</em>
 <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, or <em>extends</em> <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. Indeed, in order to define a class that inherits from
 another, we use the <code class="docutils literal notranslate"><span class="pre">extends</span></code> keyword.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="o">{</span>
     <span class="c1">// ...code for the Cat class...</span>
 <span class="o">}</span>
 
@@ -113,7 +119,7 @@ another, we use the <code class="docutils literal notranslate"><span class="pre"
     <span class="c1">// ...code for the HouseCat class...</span>
 <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p id="index-2">We say that <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> is a <strong>subclass</strong>, <strong>derived class</strong>, or
 <strong>child class</strong> of <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, and we say that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> is the
 <strong>superclass</strong>, <strong>base class</strong>, or <strong>parent class</strong> of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>.</p>
@@ -141,126 +147,44 @@ slightly more complex diagram.</p>
 And class <code class="docutils literal notranslate"><span class="pre">E</span></code> extends class <code class="docutils literal notranslate"><span class="pre">D</span></code> which itself extends class <code class="docutils literal notranslate"><span class="pre">A</span></code>. So
 class <code class="docutils literal notranslate"><span class="pre">E</span></code> involves an even greater specialization of behavior than
 class <code class="docutils literal notranslate"><span class="pre">D</span></code>.</p>
-<p>As with Python, fields and non-constructor methods are directly
+<p>Fields and non-constructor methods are directly
 available to instances of the subclass, subject to any access modifiers.
-In general, this means that <code class="docutils literal notranslate"><span class="pre">private</span></code> and default/package-private
+In general, this means that <code class="docutils literal notranslate"><span class="pre">private</span></code> and package-private
 members of a base class are not accessible to a subclass. The exception
 to this is that package-private members are accessible to subclasses
 <em>within the same package</em>.</p>
-<aside class="aside-note"><p>This is a good time to review <a class="reference external" href="../introduction-to-classes-and-objects/#access-modifiers" target="_blank">access modifiers in
-Java<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> if
-anything in the last paragraph was fuzzy.</p>
-</aside><p>For example, let’s revisit our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> implementations
-from <a class="reference external" href="https://runestone.launchcode.org/runestone/static/thinkcspy/ClassesDiggingDeeper/Inheritance.html" target="_blank">Unit
-1<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,
-modified to illustrate some Java-specific concepts.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Cat {
-
-    private boolean tired = false;
-    private boolean hungry = false;
-    private double weight;
-
-    // The biological Family for all cat species
-    private String family = &quot;Felidae&quot;;
-
-    public Cat (double aWeight) {
-        weight = aWeight;
-    }
-
-    /**** Getters and Setters ****/
-
-    public boolean isTired() {
-        return tired;
-    }
-
-    public void setTired(boolean aTired) {
-        tired = aTired;
-    }
-
-    public boolean isHungry() {
-        return hungry;
-    }
-
-    public void setHungry(boolean aHungry) {
-        hungry = aHungry;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double aWeight) {
-        weight = aWeight;
-    }
-
-    public String getFamily() {
-        return family;
-    }
-
-    /**** Instance Methods ****/
-
-    // A cat is rested and hungry after it sleeps
-    public void sleep() {
-        tired = false;
-        hungry = true;
-    }
-
-    // Eating makes a cat not hungry
-    public void eat() {
-
-        // eating when not hungry makes a cat sleepy
-        if (!hungry) {
-            tired = true;
-        }
-
-        hungry = false;
-    }
-
-    public String noise () {
-        return &quot;Meeeeeeooooowww!&quot;;
-    }
-}
-</pre></div>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">If anything in the last paragraph was fuzzy, this is a good time to review
+<a class="reference internal" href="../classes/modifiers.html#access-modifiers"><span class="std std-ref">access modifiers in Java</span></a>.</p>
 </div>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class HouseCat extends Cat
-{
-    private String name;
-    private String species = &quot;Felis catus&quot;;
-
-    public HouseCat(String aName, double aWeight) {
-        super(aWeight);
-        name = aName;
-    }
-
-    public boolean isSatisfied() {
-        return !isHungry() &amp;&amp; !isTired();
-    }
-
-    @Override
-    public String noise() {
-        return &quot;Hello, my name is &quot; + name + &quot;!&quot;;
-    }
-
-    public String purr() {
-        return &quot;I&#39;m a HouseCat&quot;;
-    }
-}
+<p>Let’s revisit our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> friends. In <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>,
+open <code class="docutils literal notranslate"><span class="pre">src/org/launchcode/java/demos/inheritance</span></code> and examine the two classes inside.</p>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> has a <code class="docutils literal notranslate"><span class="pre">private</span></code> string field <code class="docutils literal notranslate"><span class="pre">family</span></code>, representing
+the biological family of all cats.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">String</span> <span class="n">family</span> <span class="o">=</span> <span class="s">&quot;Felidae&quot;</span><span class="o">;</span>
 </pre></div>
-</div>
-<p>The class <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> extends <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, using several different
-inheritance features that we will explore in turn.</p>
-<p>Notice that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> has a private string field <code class="docutils literal notranslate"><span class="pre">family</span></code>, representing
-the biological family of all cats. This field is not directly accessible
-by <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> since it is private, however it may be read via the
-public getter <code class="docutils literal notranslate"><span class="pre">getFamily</span></code>. There is no setter for <code class="docutils literal notranslate"><span class="pre">family</span></code>, however,
-so it may only be set within <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. It makes sense that the another
-class should not be able to change the biological family of a cat, since
+</td></tr></table></div>
+<p>This field is not directly accessible by <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> since it is <code class="docutils literal notranslate"><span class="pre">private</span></code>.
+However, it may be read via the public getter <code class="docutils literal notranslate"><span class="pre">getFamily</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">getFamily</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="n">family</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>There is no setter for <code class="docutils literal notranslate"><span class="pre">family</span></code>, however,
+so it may only be set within <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. It makes sense that a
+subclass should not be able to change the biological family of a cat, since
 this field should rarely, if ever, change.</p>
 <p>Methods of the base class <code class="docutils literal notranslate"><span class="pre">Cat</span></code> may be called on instances of the
 subclass <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> as if they were defined as part of the
 <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>HouseCat garfield = new HouseCat(&quot;Garfield&quot;, 12);
-garfield.eat();
+<p>Try it out. In your inheritance folder, create a <code class="docutils literal notranslate"><span class="pre">Main</span></code> class. Within that class,
+write an instance of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> and call some of the methods it inherits from <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">HouseCat</span> <span class="n">garfield</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Garfield&quot;</span><span class="o">,</span> <span class="mi">12</span><span class="o">);</span>
+<span class="n">garfield</span><span class="o">.</span><span class="na">eat</span><span class="o">();</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">eat</span></code> method was defined in <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, but may be called on all
