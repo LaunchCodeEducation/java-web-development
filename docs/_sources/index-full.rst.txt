@@ -11,6 +11,7 @@ Chapters
    chapters/classes/index
    chapters/classes-part2/index
    chapters/unit-testing/index
+   chapters/inheritance/index
 
 
 .. toctree::
@@ -29,6 +30,7 @@ Studios
    chapters/classes/studio
    chapters/classes-part2/studio
    chapters/unit-testing/studio
+   chapters/inheritance/studio
 
 Assignments
 -----------
