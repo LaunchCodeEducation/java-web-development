@@ -86,6 +86,92 @@
     
   <div class="section" id="exercises-unit-testing">
 <h1>6.3. Exercises: Unit Testing<a class="headerlink" href="#exercises-unit-testing" title="Permalink to this headline">¶</a></h1>
+<p>Work on these exercises in the IntelliJ <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>
+project. You will update your <code class="docutils literal notranslate"><span class="pre">CarTest.java</span></code> file by adding
+more test cases.</p>
+<div class="section" id="testgastankafterdriving">
+<h2>6.3.1. <code class="docutils literal notranslate"><span class="pre">testGasTankAfterDriving()</span></code><a class="headerlink" href="#testgastankafterdriving" title="Permalink to this headline">¶</a></h2>
+<p>Add a test for the third TODO, “gasTankLevel is accurate after driving within tank range”.</p>
+<ol class="arabic">
+<li><p class="first">Your test must use the <code class="docutils literal notranslate"><span class="pre">Car</span></code> method <code class="docutils literal notranslate"><span class="pre">drive()</span></code></p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">test_car</span><span class="o">.</span><span class="na">drive</span><span class="o">(</span><span class="mi">50</span><span class="o">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">With a value of <code class="docutils literal notranslate"><span class="pre">50</span></code> miles passed into <code class="docutils literal notranslate"><span class="pre">drive()</span></code>, we expect
+<code class="docutils literal notranslate"><span class="pre">test_car</span></code> to have a <code class="docutils literal notranslate"><span class="pre">gasTankLevel</span></code> of <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">assertEquals</span><span class="o">(</span><span class="mi">9</span><span class="o">,</span> <span class="n">test_car</span><span class="o">.</span><span class="na">getGasTankLevel</span><span class="o">(),</span> <span class="mf">.001</span><span class="o">);</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="testgastankafterexceedingtankrange">
+<h2>6.3.2. <code class="docutils literal notranslate"><span class="pre">testGasTankAfterExceedingTankRange()</span></code><a class="headerlink" href="#testgastankafterexceedingtankrange" title="Permalink to this headline">¶</a></h2>
+<p>Add a test for the fourth TODO, “gasTankLevel is accurate after attempting to drive past tank range”.</p>
+<ol class="arabic simple">
+<li>You’re on your own for this one. You’ll need to simulate the <code class="docutils literal notranslate"><span class="pre">Car</span></code>
+travelling farther than it’s <code class="docutils literal notranslate"><span class="pre">gasTankLevel</span></code> allows.</li>
+</ol>
+</div>
+<div class="section" id="testgasoverfillexception">
+<h2>6.3.3. <code class="docutils literal notranslate"><span class="pre">testGasOverfillException()</span></code><a class="headerlink" href="#testgasoverfillexception" title="Permalink to this headline">¶</a></h2>
+<p>The test for our last TODO is a little different. We are going to
+perform an action on our car object, and we are expecting the object
+to throw an error. In this case, we are going to attempt to add gas
+to our car that exceeds the gas tank size.</p>
+<ol class="arabic">
+<li><p class="first">First, we’ll add some test to our <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> annotation to tell JUnit
+to expect an exception.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">//TODO: can&#39;t have more gas than tank size, expect an exception</span>
+<span class="nd">@Test</span><span class="o">(</span><span class="n">expected</span> <span class="o">=</span> <span class="n">IllegalArgumentException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGasOverfillException</span><span class="o">()</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This lets JUnit know that this test should pass if an
+<code class="docutils literal notranslate"><span class="pre">IllegalArgumentException</span></code> is thrown at any point during this test.</p>
+</li>
+<li><p class="first">Update the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class to include an <code class="docutils literal notranslate"><span class="pre">addGas()</span></code> method.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">addGas</span><span class="o">(</span><span class="kt">double</span> <span class="n">gas</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">setGasTankLevel</span><span class="o">(</span><span class="n">gas</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">getGasTankLevel</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Back in <code class="docutils literal notranslate"><span class="pre">CarTest</span></code>, implement the new <code class="docutils literal notranslate"><span class="pre">addGas()</span></code> method and a
+<code class="docutils literal notranslate"><span class="pre">fail()</span></code> scenario.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">test_car</span><span class="o">.</span><span class="na">addGas</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+<span class="n">fail</span><span class="o">(</span><span class="s">&quot;Shouldn&#39;t get here, car cannot have more gas in tank than the size of the tank&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">fail()</span></code> message will be displayed if the test fails.
+We have to import <code class="docutils literal notranslate"><span class="pre">fail</span></code> into this class to use it.</p>
+</li>
+<li><p class="first">Run the test. It should fail! In the output is an unexpected
+exception. This test was expecting an <code class="docutils literal notranslate"><span class="pre">IllegalArgumentException</span></code>,
+but it got an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> exception. This caused the test
+to fail. Further down in the output log, we can see that our
+<code class="docutils literal notranslate"><span class="pre">fail()</span></code> statement printed out the statement about not being
+able to add more gas than is possible.</p>
+</li>
+<li><p class="first">We need to refactor <code class="docutils literal notranslate"><span class="pre">Car</span></code> to throw an exception when too much
+gas is added to the tank. Find the <code class="docutils literal notranslate"><span class="pre">setGasTankLevel</span></code> method and
+modify it:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setGasTankLevel</span><span class="o">(</span><span class="kt">double</span> <span class="n">gasTankLevel</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">if</span> <span class="o">(</span><span class="n">gasTankLevel</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">getGasTankSize</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;Can&#39;t exceed tank size&quot;</span><span class="o">);</span>
+   <span class="o">}</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">gasTankLevel</span> <span class="o">=</span> <span class="n">gasTankLevel</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now, run the test - it should pass!</p>
+</li>
+</ol>
+</div>
 </div>
 
 

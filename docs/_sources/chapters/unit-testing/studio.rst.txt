@@ -13,6 +13,10 @@ Getting Started
 #. In IntelliJ, check out your forked repository from Version Control.
 #. Write unit tests to find the errors in ``BalancedBrackets``.
 
+.. note::
+
+   ``BalancedBrackets`` is essentially a wrapper class for a method.
+   
 .. tip::
 
    Discuss with your fellow students and TA how the  
