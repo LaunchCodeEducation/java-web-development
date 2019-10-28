@@ -183,8 +183,8 @@ your unit testing playbook.
 
    + - Assertion
      - Description
-   + - ``assertEquals(expected, actual, delta)``
-     - Asserts that two values, expected and actual, are equal to each other within a given delta range
+   + - ``assertEquals(expected, actual, optional_delta)``
+     - Asserts that two values, expected and actual, are equal to each other (optionally, within a given delta range)
    + - ``assertFalse(condition)``
      - Asserts that a given condition is false
    + - ``assertTrue(condition)``
