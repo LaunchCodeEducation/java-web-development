@@ -6,5 +6,7 @@ Inheritance
 .. toctree::
    :maxdepth: 3
 
-   introduction
+   cat-classes
+   class-diagrams
+   
    

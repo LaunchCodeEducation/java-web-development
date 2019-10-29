@@ -505,7 +505,21 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   For this question, refer to the code blocks below.
+   Which of the following is NOT a term for one class that extends another:
+ 
+   a. subclass
+      
+   b. derived class
+
+   c. extension class
+
+   d. child class
+
+.. ans: c, extension class
+
+.. admonition:: Question
+
+   For this question, refer to the code block below.
 
    .. sourcecode:: java
 
@@ -564,4 +578,3 @@ Check Your Understanding
 .. ans: b, public Greeting(String aLanguage, String aText) {
             super(aLanguage, aText);
            }
-           
