@@ -48,7 +48,7 @@ should be able to:
 Implementation
 --------------
 
-Code the classes that you designed above. If you like, get some feedback
+Code the classes that you designed above in a new IntelliJ project. If you like, get some feedback
 on your design by talking through it with a classmate.
 
 Putting it all together
@@ -58,6 +58,11 @@ Create a class named ``QuizRunner`` with only a ``main`` method. The program sho
 create several questions, present them to the user, accept the user’s
 responses, and then tell them whether their answers were correct or
 incorrect.
+
+How to Submit
+-------------
+
+Push up your work to a new Github repository. Submit the link to your repository in the Lesson 6 Studio assignment in Canvas.
 
 Bonus Missions
 --------------
