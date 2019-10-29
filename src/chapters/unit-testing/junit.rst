@@ -6,6 +6,8 @@ for writing and executing unit tests in Java. In this course,
 we use JUnit4. Although there are newer versions now available, 
 JUnit4 is still popular and widely used.
 
+.. _java-annotations:
+
 Java Annotations
 ----------------
 

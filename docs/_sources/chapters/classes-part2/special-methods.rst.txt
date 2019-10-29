@@ -1,5 +1,8 @@
+
+.. _special-methods:
+
 Special Methods
-================
+===============
 
 Every class has a few special methods that belong to it, regardless of
 whether or not we define them. Exactly *how* every class obtains these
