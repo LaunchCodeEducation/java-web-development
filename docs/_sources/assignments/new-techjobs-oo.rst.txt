@@ -302,8 +302,7 @@ else.
    ``name``, ``employer``, ``location``, ``positionType``, and
    ``coreCompetency``. Also, this constructor should call the first in order to
    initialize the ``id`` field.
-#. Generate getters and setters for each field EXCEPT ``id`` and ``nextID``.
-   For the ``id`` field, just generate a getter.
+#. Generate getters and setters for each field EXCEPT ``nextID``.
 #. Generate the ``equals`` and ``hashCode`` methods. Consider two ``Job``
    objects equal when their id fields match.
 
@@ -321,6 +320,63 @@ classes correctly.
 5) Use Unit Testing to Verify Parts of the ``Job`` Class
 ---------------------------------------------------------
 
+Instead of manually creating sample ``Job`` objects to verify that your class
+works correctly, you will use unit tests instead.
+
+Create a new class inside the ``TechJobsOO`` folder called ``JobTest``. This
+file will hold all of the tests for the ``Job`` class.
+
+Test the Empty Constructor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each ``Job`` object should contain a unique ID number, and these should also be
+sequential.
+
+#. In ``JobTest``, define a test called ``testSettingJobId``. Do not forget to
+   annotate it with ``@Test``.
+#. Create two ``Job`` objects using the empty constructor.
+
+   .. admonition:: Note
+
+      Instead of creating the ``Job`` objects inside the test method, you could
+      declare and initialize them using ``@Before``.
+
+#. Use ``assertEquals``, ``assertTrue``, or ``assertFalse`` to test that the
+   ID values for the two objects are NOT the same and differ by 1.
+#. Run the test to verify that your ``Job()`` constructor correctly assigns
+   ID numbers. If the test doesn't pass, what should be your first thought?
+
+   a. "Drat! I need to fix the unit test."
+   b. "Drat! I need to fix my ``Job()`` constructor code."
+
+   .. admonition:: Warning
+
+      The answer is NOT "a".
+
+      Your test code *might* be incorrect, but that should not be your FIRST
+      thought. TDD begins with writing tests for desired behaviors. If the
+      tests fail, that indicates errors in the methods trying to produce the
+      behavior rather than in the tests that define that behavior.
+
+Test the ``equals`` Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Two ``Job`` objects are considered equal if they have the same ``id`` value,
+even if one or more of the other fields differ. Similarly, the two objects
+are NOT equal if their ``id`` values differ, even if all the other fields are
+identical.
+
+#. In ``JobTest``, define a test called ``testJobsForEquality``.
+#. Generate two ``Job`` objects that have identical field values EXCEPT for
+   ``id``. Test that ``equals`` returns ``false``.
+#. Generate a third ``Job`` object and reassign its ``id`` value to be the same
+   as one of the objects in the previous step. Test that ``equals`` returns
+   ``true`` even if the other field values differ.
+
+.. admonition:: Tip
+
+   Time to save, commit, and push your work to GitHub again.
+
 6) Use TDD to Build The ``toString`` Method
 ---------------------------------------------
 
@@ -333,8 +389,36 @@ Code ``toString`` to Pass
 7) Refactor to DRY the Support Classes
 ---------------------------------------
 
+Review the code in ``Employer``, ``Location``, ``CoreCompetency``, and
+``PositionType``. What similarities do you see?
+
+There is a fair amount of repetition between the classes. As good coders,
+anytime we find ourselves adding identical code in multiple locations we should
+ask ourselves how to streamline the process.
+
+   DRY - Don't Repeat Yourself.
+
 Create a Base ``JobFields`` Class
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's move all of the repeated code into a separate class. We will then have
+``Employer``, ``Location``, ``CoreCompetency``, and ``PositionType`` *inherit*
+this common code.
+
+#. Create a new class called ``JobFields``.
+#. Consider the following questions to help you decide what code to put in the
+   ``JobFields`` class:
+
+   a. What fields do ALL FOUR of the classes have in common?
+   b. Which constructors are the same in ALL FOUR classes?
+   c. What getters and setters do ALL of the classes share?
+   d. Which custom methods are identical in ALL of the classes?
+
+#. In ``JobFields``, declare each of the common fields (use the same
+   variable names).
+#. Code the constructors.
+#. Use *Generate* to create the appropriate getters and setters.
+#. Add in the custom methods.
 
 Extend ``JobFields`` into Classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

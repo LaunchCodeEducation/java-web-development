@@ -369,8 +369,7 @@ constructor should take no parameters.</li>
 <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">positionType</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>. Also, this constructor should call the first in order to
 initialize the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
-<li>Generate getters and setters for each field EXCEPT <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">nextID</span></code>.
-For the <code class="docutils literal notranslate"><span class="pre">id</span></code> field, just generate a getter.</li>
+<li>Generate getters and setters for each field EXCEPT <code class="docutils literal notranslate"><span class="pre">nextID</span></code>.</li>
 <li>Generate the <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> methods. Consider two <code class="docutils literal notranslate"><span class="pre">Job</span></code>
 objects equal when their id fields match.</li>
 </ol>
@@ -387,6 +386,64 @@ classes correctly.</p>
 </div>
 <div class="section" id="use-unit-testing-to-verify-parts-of-the-job-class">
 <h2>5) Use Unit Testing to Verify Parts of the <code class="docutils literal notranslate"><span class="pre">Job</span></code> Class<a class="headerlink" href="#use-unit-testing-to-verify-parts-of-the-job-class" title="Permalink to this headline">¶</a></h2>
+<p>Instead of manually creating sample <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects to verify that your class
+works correctly, you will use unit tests instead.</p>
+<p>Create a new class inside the <code class="docutils literal notranslate"><span class="pre">TechJobsOO</span></code> folder called <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>. This
+file will hold all of the tests for the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</p>
+<div class="section" id="test-the-empty-constructor">
+<h3>Test the Empty Constructor<a class="headerlink" href="#test-the-empty-constructor" title="Permalink to this headline">¶</a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object should contain a unique ID number, and these should also be
+sequential.</p>
+<ol class="arabic">
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobId</span></code>. Do not forget to
+annotate it with <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code>.</p>
+</li>
+<li><p class="first">Create two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects using the empty constructor.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Instead of creating the <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects inside the test method, you could
+declare and initialize them using <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code>.</p>
+</div>
+</li>
+<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">assertEquals</span></code>, <code class="docutils literal notranslate"><span class="pre">assertTrue</span></code>, or <code class="docutils literal notranslate"><span class="pre">assertFalse</span></code> to test that the
+ID values for the two objects are NOT the same and differ by 1.</p>
+</li>
+<li><p class="first">Run the test to verify that your <code class="docutils literal notranslate"><span class="pre">Job()</span></code> constructor correctly assigns
+ID numbers. If the test doesn’t pass, what should be your first thought?</p>
+<ol class="loweralpha simple">
+<li>“Drat! I need to fix the unit test.”</li>
+<li>“Drat! I need to fix my <code class="docutils literal notranslate"><span class="pre">Job()</span></code> constructor code.”</li>
+</ol>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>The answer is NOT “a”.</p>
+<p class="last">Your test code <em>might</em> be incorrect, but that should not be your FIRST
+thought. TDD begins with writing tests for desired behaviors. If the
+tests fail, that indicates errors in the methods trying to produce the
+behavior rather than in the tests that define that behavior.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="test-the-equals-method">
+<h3>Test the <code class="docutils literal notranslate"><span class="pre">equals</span></code> Method<a class="headerlink" href="#test-the-equals-method" title="Permalink to this headline">¶</a></h3>
+<p>Two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects are considered equal if they have the same <code class="docutils literal notranslate"><span class="pre">id</span></code> value,
+even if one or more of the other fields differ. Similarly, the two objects
+are NOT equal if their <code class="docutils literal notranslate"><span class="pre">id</span></code> values differ, even if all the other fields are
+identical.</p>
+<ol class="arabic simple">
+<li>In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testJobsForEquality</span></code>.</li>
+<li>Generate two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that have identical field values EXCEPT for
+<code class="docutils literal notranslate"><span class="pre">id</span></code>. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
+<li>Generate a third <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and reassign its <code class="docutils literal notranslate"><span class="pre">id</span></code> value to be the same
+as one of the objects in the previous step. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns
+<code class="docutils literal notranslate"><span class="pre">true</span></code> even if the other field values differ.</li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Time to save, commit, and push your work to GitHub again.</p>
+</div>
+</div>
 </div>
 <div class="section" id="use-tdd-to-build-the-tostring-method">
 <h2>6) Use TDD to Build The <code class="docutils literal notranslate"><span class="pre">toString</span></code> Method<a class="headerlink" href="#use-tdd-to-build-the-tostring-method" title="Permalink to this headline">¶</a></h2>
@@ -399,8 +456,34 @@ classes correctly.</p>
 </div>
 <div class="section" id="refactor-to-dry-the-support-classes">
 <h2>7) Refactor to DRY the Support Classes<a class="headerlink" href="#refactor-to-dry-the-support-classes" title="Permalink to this headline">¶</a></h2>
+<p>Review the code in <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code>. What similarities do you see?</p>
+<p>There is a fair amount of repetition between the classes. As good coders,
+anytime we find ourselves adding identical code in multiple locations we should
+ask ourselves how to streamline the process.</p>
+<blockquote>
+<div>DRY - Don’t Repeat Yourself.</div></blockquote>
 <div class="section" id="create-a-base-jobfields-class">
 <h3>Create a Base <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> Class<a class="headerlink" href="#create-a-base-jobfields-class" title="Permalink to this headline">¶</a></h3>
+<p>Let’s move all of the repeated code into a separate class. We will then have
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> <em>inherit</em>
+this common code.</p>
+<ol class="arabic simple">
+<li>Create a new class called <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>.</li>
+<li>Consider the following questions to help you decide what code to put in the
+<code class="docutils literal notranslate"><span class="pre">JobFields</span></code> class:<ol class="loweralpha">
+<li>What fields do ALL FOUR of the classes have in common?</li>
+<li>Which constructors are the same in ALL FOUR classes?</li>
+<li>What getters and setters do ALL of the classes share?</li>
+<li>Which custom methods are identical in ALL of the classes?</li>
+</ol>
+</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>, declare each of the common fields (use the same
+variable names).</li>
+<li>Code the constructors.</li>
+<li>Use <em>Generate</em> to create the appropriate getters and setters.</li>
+<li>Add in the custom methods.</li>
+</ol>
 </div>
 <div class="section" id="extend-jobfields-into-classes">
 <h3>Extend <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> into Classes<a class="headerlink" href="#extend-jobfields-into-classes" title="Permalink to this headline">¶</a></h3>
