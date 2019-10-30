@@ -113,6 +113,8 @@ the capability to compile single-file Java programs without explicitly running a
 
 .. index:: ! integrated development environment, IDE
 
+.. _install-intellij:
+
 Install IntelliJ
 -----------------
 
