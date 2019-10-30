@@ -531,8 +531,4 @@ oriented configuration.
 To turn in your assignment and get credit, follow the
 :ref:`submission instructions <how-to-submit-work>`.
 
-Refactoring JobData class.
-
-Testing... ID generator, .equals.
-
-TDD to build toString method.
+.. TODO: Refactoring JobData class?
