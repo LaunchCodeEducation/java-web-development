@@ -39,7 +39,7 @@ perform an action on our car object, and we are expecting the object
 to throw an error. In this case, we are going to attempt to add gas 
 to our car that exceeds the gas tank size.
 
-#. First, we'll add some test to our ``@Test`` annotation to tell JUnit
+#. First, we'll add some text to our ``@Test`` annotation to tell JUnit
    to expect an exception. 
 
    .. sourcecode:: java

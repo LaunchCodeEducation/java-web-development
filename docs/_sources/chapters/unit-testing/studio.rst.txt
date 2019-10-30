@@ -18,6 +18,20 @@ Getting Started
       When your tests fail, correct the class to pass your tests.
    b. The content of your tests is up to you, but you should write at least 12 tests.
 
+      .. admonition:: Tip
+
+         Here's a first test to help get you started: 
+         
+         Assert that brackets in the correct order, ``"[]"``, return true.
+
+         .. sourcecode:: java
+
+            @Test
+            public void onlyBracketsReturnsTrue() {
+               BalancedBrackets test_Class = new BalancedBrackets();
+               assertTrue(test_Class.hasBalancedBrackets("[]"));
+            }
+
 .. note::
 
    ``BalancedBrackets`` is essentially a wrapper class for a method.

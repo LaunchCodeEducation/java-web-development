@@ -160,13 +160,29 @@ use and add the import statements as you type. If this is the case, just make su
 are the correct paths. Aren’t <a class="reference internal" href="../introduction-and-setup/setup.html#install-intellij"><span class="std std-ref">IDEs</span></a> wonderful?</p>
 </div>
 <p>As we mention above, <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> annotates the method to signal it as a test case. We need
-to add the appropriate import statement in order to take advantage of this annotation.
-Our empty test is aptly named <code class="docutils literal notranslate"><span class="pre">emptyTest()</span></code>, a description of its role. This test does
+to add the appropriate import statement in order to take advantage of this annotation.</p>
+<p>Our empty test is aptly named <code class="docutils literal notranslate"><span class="pre">emptyTest()</span></code>, a description of its role. This test does
 not follow the AAA rule from our <a class="reference internal" href="testing-in-java.html#testing-best-practices"><span class="std std-ref">Testing Best Practices</span></a>, as it jumps straight to
-asserting. Nor is it relevant, for that matter. Again, the IDE comes in handy, inserting
-the names of each of our parameters, “expected:”, “actual:”, and “delta:”. This empty
-test is simply asserting an expected value of <code class="docutils literal notranslate"><span class="pre">10</span></code> to equal an actual value of <code class="docutils literal notranslate"><span class="pre">10</span></code>,
-with an accepted <code class="docutils literal notranslate"><span class="pre">.001</span></code> variance. Of course, <code class="docutils literal notranslate"><span class="pre">10</span></code> equals <code class="docutils literal notranslate"><span class="pre">10</span></code>. But let’s run it so
+asserting. Nor is it relevant, for that matter.</p>
+<p>Again, the IDE comes in handy, inserting the names of each of our parameters,
+“expected:”, “actual:”, and “delta:”. This empty test is simply asserting an
+expected value of <code class="docutils literal notranslate"><span class="pre">10</span></code> to equal an actual value of <code class="docutils literal notranslate"><span class="pre">10</span></code>,
+with an accepted <code class="docutils literal notranslate"><span class="pre">.001</span></code> variance.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The third argument, called <code class="docutils literal notranslate"><span class="pre">delta</span></code>, is the amount of allowed difference between the
+expected and actual values. If the difference between the two values is within
+that range, then the test still passes.
+This argument is optional for some comparisons and required for others. One
+scenario in which it is required is when comparing doubles.</p>
+<p class="last">Why is it required? Well, that’s kind of a long story. Some number types are
+<a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic" target="_blank">floating-point numbers<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+Due to the nature of their storage, these types carry with them a certain
+degree of
+<a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems" target="_blank">inaccuracy<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+In brief, the <code class="docutils literal notranslate"><span class="pre">delta</span></code> argument ensures we can still reasonably compare two doubles.</p>
+</div>
+<p>Of course, <code class="docutils literal notranslate"><span class="pre">10</span></code> equals <code class="docutils literal notranslate"><span class="pre">10</span></code>. But let’s run it so
 we know our test runner works. Click the green arrow to the left of
 <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">class</span> <span class="pre">CarTest</span></code> to run the test. Once run, you’ll see a new output panel with a
 green check mark indicating the test passed and a message stating the test passed. We
@@ -256,7 +272,7 @@ your unit testing playbook.</p>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">assertEquals(expected,</span> <span class="pre">actual,</span> <span class="pre">optional_delta)</span></code></td>
-<td>Asserts that two values, expected and actual, are equal to each other (optionally, within a given delta range)</td>
+<td>Asserts that two values, expected and actual, are equal to each other (optionally, within a given range of difference)</td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">assertFalse(condition)</span></code></td>
 <td>Asserts that a given condition is false</td>
