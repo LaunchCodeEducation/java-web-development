@@ -291,7 +291,7 @@ ID number.</p>
       <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">aValue</span><span class="o">;</span>
    <span class="o">}</span>
 
-   <span class="c1">// Getters and Setters omitted from this view.</span>
+   <span class="c1">// Getters and setters omitted from this view.</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
@@ -463,8 +463,8 @@ anytime we find ourselves adding identical code in multiple locations we should
 ask ourselves how to streamline the process.</p>
 <blockquote>
 <div>DRY - Don’t Repeat Yourself.</div></blockquote>
-<div class="section" id="create-a-base-jobfields-class">
-<h3>Create a Base <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> Class<a class="headerlink" href="#create-a-base-jobfields-class" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="create-a-base-class">
+<h3>Create a Base Class<a class="headerlink" href="#create-a-base-class" title="Permalink to this headline">¶</a></h3>
 <p>Let’s move all of the repeated code into a separate class. We will then have
 <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> <em>inherit</em>
 this common code.</p>
@@ -485,23 +485,62 @@ variable names).</li>
 <li>Add in the custom methods.</li>
 </ol>
 </div>
-<div class="section" id="extend-jobfields-into-classes">
-<h3>Extend <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> into Classes<a class="headerlink" href="#extend-jobfields-into-classes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="extend-jobfields-into-employer">
+<h3>Extend <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> into <code class="docutils literal notranslate"><span class="pre">Employer</span></code><a class="headerlink" href="#extend-jobfields-into-employer" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have the common code located in the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> file, we can
+modify the other support classes to reference this shared code. Let’s begin
+with the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class.</p>
+<ol class="arabic">
+<li><p class="first">Modify line 5 to <em>extend</em> the <code class="docutils literal notranslate"><span class="pre">JobField</span></code> class into <code class="docutils literal notranslate"><span class="pre">Employer</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Employer</span> <span class="kd">extends</span> <span class="n">JobFields</span> <span class="o">{</span>
+
+   <span class="c1">//Code not displayed.</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Next, remove any code in <code class="docutils literal notranslate"><span class="pre">Employer</span></code> that matches code from <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>
+(e.g. the <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">nextId</span></code> fields are shared).</p>
+</li>
+<li><p class="first">Remove any of the getters and setters that are the same.</p>
+</li>
+<li><p class="first">Remove any of the custom methods that are identical.</p>
+</li>
+<li><p class="first">The empty constructor is shared, but not the second. Replace the two
+constructors with the following:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Employer</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">extends</span></code> and <code class="docutils literal notranslate"><span class="pre">super</span></code> keywords link the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> and <code class="docutils literal notranslate"><span class="pre">Employer</span></code>
+classes.</p>
 </div>
 <div class="section" id="remove-extraneous-code">
 <h3>Remove Extraneous Code<a class="headerlink" href="#remove-extraneous-code" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Repeat the process above for the <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code> classes.</li>
+<li>Rerun your unit tests to verify that your classes and methods still work.</li>
+</ol>
 </div>
 </div>
 <div class="section" id="how-to-submit">
 <h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
 <p>To turn in your assignment and get credit, follow the
 <a class="reference internal" href="how-to-submit.html#how-to-submit-work"><span class="std std-ref">submission instructions</span></a>.</p>
-<p>Fill in small fields.</p>
-<p>Fill out Job class.</p>
 <p>Refactoring JobData class.</p>
 <p>Testing… ID generator, .equals.</p>
 <p>TDD to build toString method.</p>
-<p>Refactor classes to use inheritance.</p>
 </div>
 </div>
 

@@ -224,7 +224,7 @@ ID number.
             this.value = aValue;
          }
 
-         // Getters and Setters omitted from this view.
+         // Getters and setters omitted from this view.
       }
 
 #. Line 3 declares the variable ``nextId``. Since it is ``static``, its
@@ -398,8 +398,8 @@ ask ourselves how to streamline the process.
 
    DRY - Don't Repeat Yourself.
 
-Create a Base ``JobFields`` Class
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create a Base Class
+^^^^^^^^^^^^^^^^^^^^
 
 Let's move all of the repeated code into a separate class. We will then have
 ``Employer``, ``Location``, ``CoreCompetency``, and ``PositionType`` *inherit*
@@ -420,11 +420,47 @@ this common code.
 #. Use *Generate* to create the appropriate getters and setters.
 #. Add in the custom methods.
 
-Extend ``JobFields`` into Classes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Extend ``JobFields`` into ``Employer``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that you have the common code located in the ``JobFields`` file, we can
+modify the other support classes to reference this shared code. Let's begin
+with the ``Employer`` class.
+
+#. Modify line 5 to *extend* the ``JobField`` class into ``Employer``.
+
+   .. sourcecode:: java
+      :lineno-start: 5
+
+      public class Employer extends JobFields {
+
+         //Code not displayed.
+
+      }
+
+#. Next, remove any code in ``Employer`` that matches code from ``JobFields``
+   (e.g. the ``id``, ``value``, and ``nextId`` fields are shared).
+#. Remove any of the getters and setters that are the same.
+#. Remove any of the custom methods that are identical.
+#. The empty constructor is shared, but not the second. Replace the two
+   constructors with the following:
+
+   .. sourcecode:: java
+      :lineno-start: 7
+
+      public Employer(String value) {
+        super(value);
+      }
+
+The ``extends`` and ``super`` keywords link the ``JobFields`` and ``Employer``
+classes.
 
 Remove Extraneous Code
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Repeat the process above for the ``Location``, ``CoreCompetency``, and
+   ``PositionType`` classes.
+#. Rerun your unit tests to verify that your classes and methods still work.
 
 How to Submit
 --------------
@@ -432,15 +468,8 @@ How to Submit
 To turn in your assignment and get credit, follow the
 :ref:`submission instructions <how-to-submit-work>`.
 
-
-Fill in small fields.
-
-Fill out Job class.
-
 Refactoring JobData class.
 
 Testing... ID generator, .equals.
 
 TDD to build toString method.
-
-Refactor classes to use inheritance.
