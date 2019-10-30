@@ -3,10 +3,10 @@ A Tale of Two Cats
 
 .. index:: ! inheritance, ! subtyping
 
-**Inheritance** is the second of the **Three Pillars of Object-Oriented
+**Inheritance** is the second of the **Four Pillars of Object-Oriented
 Programming** that we will encounter.
 
-Here’s a definition: Inheritance is a mechanism within object-oriented programming that
+Here’s a definition: inheritance is a mechanism within object-oriented programming that
 allows one class to be based on another class, thus receiving its
 properties and behaviors. 
 
@@ -483,8 +483,8 @@ very sure that it’s safe to do so.
 
 Storing objects of one type (e.g. ``HouseCat``) in a variable or field
 of another “compatible” type (e.g. ``Cat``) is an example of
-**polymorphism**. We’ll have more to say about polymorphism in a future
-lesson.
+**polymorphism**. Polymorphism is another one of the pillars of OOP and we’ll 
+have more to say about it in a future lesson.
 
 References
 ----------
