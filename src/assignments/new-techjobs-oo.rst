@@ -40,12 +40,10 @@ In this project, you’ll show that you can:
 Get the Starter Code
 ---------------------
 
-   TODO: Add link to new starter code for TechJobs-OO.
-
-.. TODO: Add link to new starter code for TechJobs OO
-
-#. Set up a local copy of the project. Visit the repository page for this
-   project and fork the repo to create a copy in your own GitHub account.
+#. Set up a local copy of the project. Visit the
+   `repository page <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-oo.git>`__
+   for this project and fork the repo to create a copy in your own GitHub
+   account.
 #. Open IntelliJ (if IntelliJ is currently open, save your work, close it, and
    reopen it).
 #. If the app opens up to an existing project, select *IntelliJ > Preferences >
@@ -317,23 +315,27 @@ classes correctly.
 4) Refactor ``printJobs``
 --------------------------
 
+   TODO: Evaluate whether this is redundant based on ``toString`` tests.
+
+.. TODO: Evaluate whether this is redundant based on ``toString`` tests.
+
 5) Use Unit Testing to Verify Parts of the ``Job`` Class
 ---------------------------------------------------------
 
 Instead of manually creating sample ``Job`` objects to verify that your class
 works correctly, you will use unit tests instead.
 
-Create a new class inside the ``TechJobsOO`` folder called ``JobTest``. This
-file will hold all of the tests for the ``Job`` class.
+Create a new class inside the ``TechJobsOO`` folder called ``JobClassTests``.
+This file will hold all of the tests for the ``Job`` class.
 
 Test the Empty Constructor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Each ``Job`` object should contain a unique ID number, and these should also be
-sequential.
+sequential integers.
 
-#. In ``JobTest``, define a test called ``testSettingJobId``. Do not forget to
-   annotate it with ``@Test``.
+#. In ``JobClassTests``, define a test called ``testSettingJobId``. Do not
+   forget to annotate it with ``@Test``.
 #. Create two ``Job`` objects using the empty constructor.
 
    .. admonition:: Note
@@ -366,7 +368,7 @@ even if one or more of the other fields differ. Similarly, the two objects
 are NOT equal if their ``id`` values differ, even if all the other fields are
 identical.
 
-#. In ``JobTest``, define a test called ``testJobsForEquality``.
+#. In ``JobClassTests``, define a test called ``testJobsForEquality``.
 #. Generate two ``Job`` objects that have identical field values EXCEPT for
    ``id``. Test that ``equals`` returns ``false``.
 #. Generate a third ``Job`` object and reassign its ``id`` value to be the same
@@ -378,13 +380,64 @@ identical.
    Time to save, commit, and push your work to GitHub again.
 
 6) Use TDD to Build The ``toString`` Method
----------------------------------------------
+--------------------------------------------
 
-Create Tests for ``toString``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To display the data for a particular ``Job`` object, you need to implement a
+custom ``toString`` method. Rather than creating this method and then testing
+it, you will flip that process using TDD.
 
-Code ``toString`` to Pass
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create First Test for ``toString``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before writing your first test, consider how we want the method to behave:
+
+#. When passed a ``Job`` object, it should return a string that contains a
+   blank line before and after the job information.
+#. The string should contain a label for each field, followed by the data
+   stored in that field. Each field should be on its own line.
+
+   .. sourcecode:: bash
+
+      ID:  _______
+      Name: _______
+      Employer: _______
+      Location: _______
+      Position Type: _______
+      Core Competency: _______
+
+#. If a field is empty, the method should add, "Data not available" after
+   that label.
+#. (Bonus) If a ``Job`` object ONLY contains data for the ``id`` field, the
+   method should return, "OOPS! This job does not seem to exist."
+
+In ``JobClassTests``, add a new test to check the first item, then run that
+test (it should fail).
+
+Woo hoo! Failure is what we want here! Now you get to fix that.
+
+Code ``toString`` to Pass the First Test
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the ``Job`` class, create a ``toString`` method that passes the first test.
+Since the test only checks if the returned string starts and ends with a blank
+line, make that happen.
+
+.. admonition:: Warning
+
+   Do NOT add anything beyond what is needed to make the test pass. You will
+   add the remaining behaviors for ``toString`` after coding each new test.
+
+Finish the TDD for ``toString``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Code a new test for the next required behavior, then run the tests to make
+   sure the new one fails.
+#. Modify ``toString`` to make the new test pass. Also, make sure that your
+   updates still pass all of the old tests.
+#. Continue this test-refactor cycle until all of the behaviors we want for
+   ``toString`` work. Remember to add only ONE new test at a time.
+
+Cool! Your ``Job`` class is now complete and operates as desired.
 
 7) Refactor to DRY the Support Classes
 ---------------------------------------
@@ -392,11 +445,11 @@ Code ``toString`` to Pass
 Review the code in ``Employer``, ``Location``, ``CoreCompetency``, and
 ``PositionType``. What similarities do you see?
 
-There is a fair amount of repetition between the classes. As good coders,
-anytime we find ourselves adding identical code in multiple locations we should
-ask ourselves how to streamline the process.
+There is a fair amount of repetition between the classes. As a good coder,
+anytime you find yourself adding identical code in multiple locations you
+should consider how to streamline the process.
 
-   DRY - Don't Repeat Yourself.
+   DRY = "Don't Repeat Yourself".
 
 Create a Base Class
 ^^^^^^^^^^^^^^^^^^^^
@@ -462,8 +515,18 @@ Remove Extraneous Code
    ``PositionType`` classes.
 #. Rerun your unit tests to verify that your classes and methods still work.
 
+Sanity Check
+-------------
+
+    TODO: Add screenshots, gifs, or video showing successful app operation.
+
+.. TODO: Add screenshots, gifs, or video showing successful app operation.
+
 How to Submit
 --------------
+
+Nice! You successfully shifted the old console app into a more useful object
+oriented configuration.
 
 To turn in your assignment and get credit, follow the
 :ref:`submission instructions <how-to-submit-work>`.

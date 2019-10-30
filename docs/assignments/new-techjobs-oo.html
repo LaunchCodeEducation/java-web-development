@@ -117,11 +117,11 @@ idea—Don’t Repeat Yourself).</li>
 </div>
 <div class="section" id="get-the-starter-code">
 <h2>Get the Starter Code<a class="headerlink" href="#get-the-starter-code" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>TODO: Add link to new starter code for TechJobs-OO.</div></blockquote>
 <ol class="arabic simple">
-<li>Set up a local copy of the project. Visit the repository page for this
-project and fork the repo to create a copy in your own GitHub account.</li>
+<li>Set up a local copy of the project. Visit the
+<a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-techjobs-oo.git" target="_blank">repository page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+for this project and fork the repo to create a copy in your own GitHub
+account.</li>
 <li>Open IntelliJ (if IntelliJ is currently open, save your work, close it, and
 reopen it).</li>
 <li>If the app opens up to an existing project, select <em>IntelliJ &gt; Preferences &gt;
@@ -383,20 +383,22 @@ classes correctly.</p>
 </div>
 <div class="section" id="refactor-printjobs">
 <h2>4) Refactor <code class="docutils literal notranslate"><span class="pre">printJobs</span></code><a class="headerlink" href="#refactor-printjobs" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>TODO: Evaluate whether this is redundant based on <code class="docutils literal notranslate"><span class="pre">toString</span></code> tests.</div></blockquote>
 </div>
 <div class="section" id="use-unit-testing-to-verify-parts-of-the-job-class">
 <h2>5) Use Unit Testing to Verify Parts of the <code class="docutils literal notranslate"><span class="pre">Job</span></code> Class<a class="headerlink" href="#use-unit-testing-to-verify-parts-of-the-job-class" title="Permalink to this headline">¶</a></h2>
 <p>Instead of manually creating sample <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects to verify that your class
 works correctly, you will use unit tests instead.</p>
-<p>Create a new class inside the <code class="docutils literal notranslate"><span class="pre">TechJobsOO</span></code> folder called <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>. This
-file will hold all of the tests for the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</p>
+<p>Create a new class inside the <code class="docutils literal notranslate"><span class="pre">TechJobsOO</span></code> folder called <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>.
+This file will hold all of the tests for the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</p>
 <div class="section" id="test-the-empty-constructor">
 <h3>Test the Empty Constructor<a class="headerlink" href="#test-the-empty-constructor" title="Permalink to this headline">¶</a></h3>
 <p>Each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object should contain a unique ID number, and these should also be
-sequential.</p>
+sequential integers.</p>
 <ol class="arabic">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobId</span></code>. Do not forget to
-annotate it with <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code>.</p>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobId</span></code>. Do not
+forget to annotate it with <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code>.</p>
 </li>
 <li><p class="first">Create two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects using the empty constructor.</p>
 <div class="admonition-note admonition">
@@ -432,7 +434,7 @@ even if one or more of the other fields differ. Similarly, the two objects
 are NOT equal if their <code class="docutils literal notranslate"><span class="pre">id</span></code> values differ, even if all the other fields are
 identical.</p>
 <ol class="arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testJobsForEquality</span></code>.</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testJobsForEquality</span></code>.</li>
 <li>Generate two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that have identical field values EXCEPT for
 <code class="docutils literal notranslate"><span class="pre">id</span></code>. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
 <li>Generate a third <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and reassign its <code class="docutils literal notranslate"><span class="pre">id</span></code> value to be the same
@@ -447,22 +449,71 @@ as one of the objects in the previous step. Test that <code class="docutils lite
 </div>
 <div class="section" id="use-tdd-to-build-the-tostring-method">
 <h2>6) Use TDD to Build The <code class="docutils literal notranslate"><span class="pre">toString</span></code> Method<a class="headerlink" href="#use-tdd-to-build-the-tostring-method" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="create-tests-for-tostring">
-<h3>Create Tests for <code class="docutils literal notranslate"><span class="pre">toString</span></code><a class="headerlink" href="#create-tests-for-tostring" title="Permalink to this headline">¶</a></h3>
+<p>To display the data for a particular <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, you need to implement a
+custom <code class="docutils literal notranslate"><span class="pre">toString</span></code> method. Rather than creating this method and then testing
+it, you will flip that process using TDD.</p>
+<div class="section" id="create-first-test-for-tostring">
+<h3>Create First Test for <code class="docutils literal notranslate"><span class="pre">toString</span></code><a class="headerlink" href="#create-first-test-for-tostring" title="Permalink to this headline">¶</a></h3>
+<p>Before writing your first test, consider how we want the method to behave:</p>
+<ol class="arabic">
+<li><p class="first">When passed a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, it should return a string that contains a
+blank line before and after the job information.</p>
+</li>
+<li><p class="first">The string should contain a label for each field, followed by the data
+stored in that field. Each field should be on its own line.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ID:  _______
+Name: _______
+Employer: _______
+Location: _______
+Position Type: _______
+Core Competency: _______
+</pre></div>
 </div>
-<div class="section" id="code-tostring-to-pass">
-<h3>Code <code class="docutils literal notranslate"><span class="pre">toString</span></code> to Pass<a class="headerlink" href="#code-tostring-to-pass" title="Permalink to this headline">¶</a></h3>
+</li>
+<li><p class="first">If a field is empty, the method should add, “Data not available” after
+that label.</p>
+</li>
+<li><p class="first">(Bonus) If a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object ONLY contains data for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field, the
+method should return, “OOPS! This job does not seem to exist.”</p>
+</li>
+</ol>
+<p>In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, add a new test to check the first item, then run that
+test (it should fail).</p>
+<p>Woo hoo! Failure is what we want here! Now you get to fix that.</p>
+</div>
+<div class="section" id="code-tostring-to-pass-the-first-test">
+<h3>Code <code class="docutils literal notranslate"><span class="pre">toString</span></code> to Pass the First Test<a class="headerlink" href="#code-tostring-to-pass-the-first-test" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, create a <code class="docutils literal notranslate"><span class="pre">toString</span></code> method that passes the first test.
+Since the test only checks if the returned string starts and ends with a blank
+line, make that happen.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">Do NOT add anything beyond what is needed to make the test pass. You will
+add the remaining behaviors for <code class="docutils literal notranslate"><span class="pre">toString</span></code> after coding each new test.</p>
+</div>
+</div>
+<div class="section" id="finish-the-tdd-for-tostring">
+<h3>Finish the TDD for <code class="docutils literal notranslate"><span class="pre">toString</span></code><a class="headerlink" href="#finish-the-tdd-for-tostring" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Code a new test for the next required behavior, then run the tests to make
+sure the new one fails.</li>
+<li>Modify <code class="docutils literal notranslate"><span class="pre">toString</span></code> to make the new test pass. Also, make sure that your
+updates still pass all of the old tests.</li>
+<li>Continue this test-refactor cycle until all of the behaviors we want for
+<code class="docutils literal notranslate"><span class="pre">toString</span></code> work. Remember to add only ONE new test at a time.</li>
+</ol>
+<p>Cool! Your <code class="docutils literal notranslate"><span class="pre">Job</span></code> class is now complete and operates as desired.</p>
 </div>
 </div>
 <div class="section" id="refactor-to-dry-the-support-classes">
 <h2>7) Refactor to DRY the Support Classes<a class="headerlink" href="#refactor-to-dry-the-support-classes" title="Permalink to this headline">¶</a></h2>
 <p>Review the code in <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>. What similarities do you see?</p>
-<p>There is a fair amount of repetition between the classes. As good coders,
-anytime we find ourselves adding identical code in multiple locations we should
-ask ourselves how to streamline the process.</p>
+<p>There is a fair amount of repetition between the classes. As a good coder,
+anytime you find yourself adding identical code in multiple locations you
+should consider how to streamline the process.</p>
 <blockquote>
-<div>DRY - Don’t Repeat Yourself.</div></blockquote>
+<div>DRY = “Don’t Repeat Yourself”.</div></blockquote>
 <div class="section" id="create-a-base-class">
 <h3>Create a Base Class<a class="headerlink" href="#create-a-base-class" title="Permalink to this headline">¶</a></h3>
 <p>Let’s move all of the repeated code into a separate class. We will then have
@@ -534,8 +585,15 @@ classes.</p>
 </ol>
 </div>
 </div>
+<div class="section" id="sanity-check">
+<h2>Sanity Check<a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>TODO: Add screenshots, gifs, or video showing successful app operation.</div></blockquote>
+</div>
 <div class="section" id="how-to-submit">
 <h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
+<p>Nice! You successfully shifted the old console app into a more useful object
+oriented configuration.</p>
 <p>To turn in your assignment and get credit, follow the
 <a class="reference internal" href="how-to-submit.html#how-to-submit-work"><span class="std std-ref">submission instructions</span></a>.</p>
 <p>Refactoring JobData class.</p>
