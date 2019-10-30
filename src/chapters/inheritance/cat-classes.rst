@@ -1,100 +1,11 @@
-A Tale of Two Cats
+A Tale of Two Cats 
 ==================
-
-.. index:: ! inheritance, ! subtyping
-
-**Inheritance** is the second of the **Four Pillars of Object-Oriented
-Programming** that we will encounter.
-
-Here’s a definition: inheritance is a mechanism within object-oriented programming that
-allows one class to be based on another class, thus receiving its
-properties and behaviors. 
-
-.. note::
-
-   Inheritance is also sometimes referred to as **subtyping**.
-
-
-Inheritance in Java
--------------------
-
-Let's examine an inheritance relationship between two classes, ``Cat`` and ``HouseCat``.
-``HouseCat`` is a class that inherits from ``Cat``. When defined, ``HouseCat`` thus 
-receives the data and behaviors of ``Cat``. These inherited traits are things like 
-fields, properties, and methods. Any fields and non-constructor methods in ``Cat`` 
-are be available to each instance of ``HouseCat``. 
-
-.. index:: ! extends
-
-When we speak about an inheritance relationship, we say that a ``HouseCat`` *is a* 
-``Cat``, or *extends* ``Cat``. Indeed, in order to define a class that inherits from
-another, we use the ``extends`` keyword.
-
-.. sourcecode:: java
-   :linenos:
-
-   public class Cat {
-       // ...code for the Cat class...
-   }
-
-   public class HouseCat extends Cat {
-       // ...code for the HouseCat class...
-   }
-
-.. index:: ! subclass, ! derived class, ! child class, ! superclass, ! base class, ! parent class
-
-We say that ``HouseCat`` is a **subclass**, **derived class**, or
-**child class** of ``Cat``, and we say that ``Cat`` is the
-**superclass**, **base class**, or **parent class** of ``HouseCat``. 
-
-In Java, a class may extend only one class. Classes may extend each
-other in turn, however. This creates hierarchies of classes. We often visualize these
-by drawing each class as a box, with an arrow pointing from the subclass
-to the base class.
-
-.. figure:: figures/inheritance-basic.png
-   :scale: 50%
-   :alt: Basic inheritance diagram.
-
-   ``B`` extends ``A``.
-
-The shaded portion of these boxes can include additional information
-about each class. We’ll learn about what we might put here in a future
-lesson.
-
-Inheritance is an essential mechanism for sharing data and behavior between
-related classes. Using it effectively creates organized code with groups of classes
-that have increasingly specialized behavior.
-
-When this happens, we can visualize the inheritance structure with a
-slightly more complex diagram.
-
-.. figure:: figures/inheritance-tree.png
-   :scale: 50%
-   :alt: Multi-node inheritance tree.
-
-   Inheritance tree with many nodes.
-
-You can see that classes ``B``, ``C``, and ``D`` all extend class ``A``.
-And class ``E`` extends class ``D`` which itself extends class ``A``. So
-class ``E`` involves an even greater specialization of behavior than
-class ``D``.
-
-Fields and non-constructor methods are directly
-available to instances of the subclass, subject to any access modifiers.
-In general, this means that ``private`` and package-private
-members of a base class are not accessible to a subclass. The exception
-to this is that package-private members are accessible to subclasses
-*within the same package*.
-
-.. note::
-
-   If anything in the last paragraph was fuzzy, this is a good time to review 
-   :ref:`access modifiers in Java <access-modifiers>`.
-
 
 Let’s revisit our ``Cat`` and ``HouseCat`` friends. In ``java-web-dev-exercises``,
 open ``src/org/launchcode/java/demos/inheritance`` and examine the two classes inside.
+
+Inheriting Fields and Properties 
+--------------------------------
 
 Notice that ``Cat`` has a ``private`` string field ``family``, representing
 the biological family of all cats. 
@@ -324,7 +235,7 @@ This calls the overridden method in the base class via
 ``super.noise()``, carrying out the original behavior if the given
 conditional branch is reached.
 
-.. index:: ! Object Class
+.. index:: ! Object class
 
 ``Object`` Class
 ----------------
@@ -343,179 +254,62 @@ are made available to us via inheritance.
 Note that we should use the ``@Override`` annotation when we provide new
 implementations of these methods as well.
 
-.. index:: ! abstract classes
-
-``abstract`` Classes
---------------------
-
-We noted in the introduction to this section that inheritance is a way
-to share behaviors among classes. You’ll sometimes find yourself
-creating a base class as a way to share behaviors among related classes.
-However, in such situations it is not always desirable for instances of
-the base class to be created.
-
-For example, suppose we began coding two classes, ``HouseCat`` and
-``Tiger``. Upon writing the code, we realized that there was some common
-data and behaviors. For example, they both make a noise, come from the
-same biological family, and get hungry. In order to reduce code
-repetition, we combined those in ``Cat`` (as above).
-
-.. sourcecode:: java
-   :linenos:
-
-   public class Cat {
-      // Cat class definition
-   }
-
-   public class HouseCat extends Cat {
-      // HouseCat class definition
-   }
-
-   public class Tiger extends Cat {
-      // Tiger class definition
-   }
-
-In reality, though, we might not want objects of type ``Cat`` to be
-created, since such a cat couldn’t actually exist (a real cat would have
-a specific genus and species, for example). We could prevent objects of
-type ``Cat`` from being created, while still enabling sharing of
-behavior among its subclasses, by making ``Cat`` an **abstract class**.
-
-Change the signature on ``Cat``:
-
-.. sourcecode:: java
-   :linenos-start: 3
-
-   public abstract class Cat
-   {
-      // Cat class definition
-   }
-
-Now, in ``Main``, if you try creating a new ``Cat`` object, 
-
-.. sourcecode:: java
-
-   Cat salem = new Cat(8);
-
-IntelliJ has your back with a handy error message that an abstract class cannot be 
-instantiated.
-
-In order to use the behavior of an abstract class, *we
-must extend it*.
-
-.. index:: ! abstract methods
-
-``abstract`` Methods
---------------------
-
-We have another tool that we may use here, which is an **abstract
-method**. An abstract method is a method in an abstract class that does
-not have a body. In other words, it does not have any associated code,
-only a signature. It must also be marked ``abstract``.
-
-In our abstract ``Cat`` class, it would make sense to make an abstract
-``noise`` method since all types of cats make noise. By creating this
-abstract method, we force any class that extends ``Cat`` to provide its
-own implementation of that behavior.
-
-.. sourcecode:: java
-
-   public abstract String noise();
-
-
-Now, classes such as ``HouseCat`` and ``Tiger``, which both extend
-``Cat``, *must* provide their own version of ``noise()``, with the exact
-same method signature.
-
-.. index:: ! casting, ! polymorphism, ! runtime exception
-
-Casting
--------
-
-When one class extends another, as ``HouseCat`` extends ``Cat``, a field
-or local variable of the type of the base class may hold an object
-that is of the type of the child class.
-
-In other words, this is allowed:
-
-.. sourcecode:: java
-
-   Cat suki = new HouseCat("Suki", 8);
-
-This is acceptable because a ``HouseCat`` *is a* ``Cat``. Furthermore,
-when we call methods on such an object, the compiler is smart enough to
-determine which method it should call. For example, the following call
-to ``noise()`` will call the version defined in ``HouseCat``:
-
-.. sourcecode:: java
-
-   // Calls HouseCat's noise() method
-   suki.noise(); // Hello, my name is Suki!
-
-This only works for methods that are declared in the base class,
-however. If we have a ``HouseCat`` object stored in a ``Cat`` variable
-or field, then it is *not* allowed to call methods that are only part
-``HouseCat``.
-
-.. sourcecode:: java
-
-   // Results in a compiler error, since Cat
-   // doesn't have such a method
-   suki.isSatisfied();
-
-Here, ``isSatistfied()`` is defined in ``HouseCat``, and there is not a
-corresponding overridden method in ``Cat``. If we were *really, really*
-sure that we had a ``Cat`` that was actually a ``HouseCat``, we could
-call such a method by first casting:
-
-.. sourcecode:: java
-
-   // As long as suki really is a HouseCat, this works
-   ((HouseCat) suki).isSatisfied();
-
-The danger here is that if ``suki`` is in fact not a ``HouseCat`` (it
-was declared only as a ``Cat``, after all) then we’ll experience a
-runtime exception. A **runtime exception** is an error that occurs upon
-running the program, and is not found by the compiler beforehand. These
-are dangerous, and situations where they might come up should be
-avoided. So you should only cast an object to another type when you are
-very sure that it’s safe to do so.
-
-Storing objects of one type (e.g. ``HouseCat``) in a variable or field
-of another “compatible” type (e.g. ``Cat``) is an example of
-**polymorphism**. Polymorphism is another one of the pillars of OOP and we’ll 
-have more to say about it in a future lesson.
-
 References
 ----------
 
--  `Inheritance in Java
-   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html>`__
 -  `The @Override annotation
    (docs.oracle.com)] <https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html>`__
 -  `The Object Class
    (docs.oracle.com) <https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html>`__
--  `Abstract Classes and Methods
-   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html>`__
--  `Polymorphism
-   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html>`__
 
 Check Your Understanding
 ------------------------
 
 .. admonition:: Question
 
-   Which of the following is NOT a term for one class that extends another:
- 
-   a. subclass
-      
-   b. derived class
+   For this question, refer to the code block below.
 
-   c. extension class
+   .. sourcecode:: java
 
-   d. child class
+      public class Message {
+         private boolean friendly = true;
+         private String language;
+         private String text;
 
-.. ans: c, extension class
+         public Message(String aLanguage, String aText) {
+            language = aLanguage;
+            text = aText;
+         }
+
+         public boolean getFriendly() {
+            return friendly;
+         }
+
+         public String getLanguage() {
+            return language;
+         }
+
+         public String getText() {
+            return text;
+         }
+      }
+
+   A class called ``Greeting`` extends ``Message``. ``Greeting`` and 
+   ``Message`` are both defined within a package called ``Speech``. 
+   Select all of the fields and methods that are inherited by 
+   ``Greeting``.
+
+   a. ``friendly``
+   b. ``language`` 
+   c. ``text``
+   d. ``Message``
+   e. ``getFriendly``
+   f. ``getLanguage``
+   g. ``getText``
+   
+
+.. ans: ``getFriendly``, ``getLanguage``, ``getText``(e, f, and g)
+
 
 .. admonition:: Question
 
