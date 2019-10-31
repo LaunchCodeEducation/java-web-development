@@ -65,7 +65,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   What assitional assert method can we add to this test to properly verify that ``HouseCat``
+   What additional assert method can we add to this test to properly verify that ``HouseCat``
    inherits ``eat()``?
 
    .. sourcecode:: java
