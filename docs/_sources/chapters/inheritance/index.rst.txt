@@ -11,5 +11,6 @@ Inheritance
    cat-classes
    abstract-inheritance
    casting
+   testing-inheritance
    class-diagrams
    

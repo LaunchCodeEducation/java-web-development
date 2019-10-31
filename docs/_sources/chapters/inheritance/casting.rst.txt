@@ -148,4 +148,4 @@ Check Your Understanding
 
    d. Shapeshifters - The practice of storing an object of one type in a variable of another type
 
-.. ans: c, 
+.. ans: c, The practice of storing an object of one type in a variable of another type
