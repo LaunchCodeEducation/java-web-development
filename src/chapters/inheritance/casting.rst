@@ -63,3 +63,89 @@ References
 -  `Polymorphism
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html>`__
 
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   For this question, refer to the code block below.
+
+   .. sourcecode:: java
+
+      public class Message {
+         private boolean friendly = true;
+         private String language;
+         private String text;
+
+         public Message(String aLanguage, String aText) {
+            language = aLanguage;
+            text = aText;
+         }
+
+         public boolean getFriendly() {
+            return friendly;
+         }
+
+         public String getLanguage() {
+            return language;
+         }
+
+         public String getText() {
+            return text;
+         }
+      }
+
+      public class Greeting extends Message {
+         private boolean waving;
+         
+         public Greeting(String aLanguage, String aText) {
+            super(aLanguage, aText);
+         }
+
+         public void wave() {
+            waving = true;
+         }
+      }
+      
+   Which of the following instantiations does not contain an error:
+ 
+   a. 
+      .. sourcecode:: java
+
+         Message hello = new Greeting("English", "Hello Coder!");
+         ((Greeting) hello).wave();
+
+   b. 
+      .. sourcecode:: java
+
+         Message hello = new Greeting("English", "Hello Coder!");
+         hello.wave();
+
+   c. 
+      .. sourcecode:: java
+
+         Greeting hello = new Message("English", "Hello Coder!");
+         hello.wave();
+
+   c. 
+      .. sourcecode:: java
+
+         Greeting hello = new Greeting("English", "Hello Coder!");
+         ((Mess) hello).wave();
+
+.. ans: a, Message hello = new Greeting("English", "Hello Coder!");
+         ((Greeting) hello).wave();
+
+.. admonition:: Question
+
+   Polymorphism refers to:
+
+   a. One object inheriting another
+      
+   b. An abstract class with many classes extending from it
+
+   c. The practice of storing an object of one type in a variable of another type
+
+   d. Shapeshifters - The practice of storing an object of one type in a variable of another type
+
+.. ans: c, 

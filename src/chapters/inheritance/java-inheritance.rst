@@ -91,3 +91,18 @@ Check Your Understanding
 
 .. ans: c, extension class
 
+.. admonition:: Question
+
+   A class, ``Greeting``, extends another class, ``Message``. By convention, how would we represent the
+   relationship between these classes in a diagram?
+ 
+   a. two boxes with an arrow pointing from ``Greeting`` to ``Message``
+      
+   b. two boxes with an arrow pointing from ``Message`` to ``Greeting``
+
+   c. two boxes with ``Greeting`` positioned inside of ``Message``
+
+   d. two boxes with ``Greeting`` positioned directly beneath ``Message``
+
+.. ans: a, two boxes with an arrow pointing from ``Greeting`` to ``Message``
+

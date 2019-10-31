@@ -127,6 +127,15 @@ a specific genus and species, for example). We could prevent objects of
 type <code class="docutils literal notranslate"><span class="pre">Cat</span></code> from being created, while still enabling sharing of
 behavior among its subclasses, by making <code class="docutils literal notranslate"><span class="pre">Cat</span></code> an <strong>abstract class</strong>.</p>
 <p>Change the signature on <code class="docutils literal notranslate"><span class="pre">Cat</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Cat</span>
+<span class="o">{</span>
+   <span class="c1">// Cat class definition</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
 <p>Now, in <code class="docutils literal notranslate"><span class="pre">Main</span></code>, if you try creating a new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object,</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Cat</span> <span class="n">salem</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
 </pre></div>
@@ -159,6 +168,27 @@ same method signature.</p>
 <li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank">Abstract Classes and Methods
 (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 </ul>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>7.4.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>A class derived from an abstract class must implement all of the abstract methods it inherits.</p>
+<ol class="last loweralpha simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>When might a programmer want to make a class abstract?</p>
+<ol class="last loweralpha simple">
+<li>When a class has no real data or behavior</li>
+<li>When expressionism just won’t cut it</li>
+<li>When that class needs to be instantiated in more than one package</li>
+<li>When shared behavior is desired among a group of non-abstract classes</li>
+</ol>
+</div>
 </div>
 </div>
 

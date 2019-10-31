@@ -42,7 +42,7 @@ behavior among its subclasses, by making ``Cat`` an **abstract class**.
 Change the signature on ``Cat``:
 
 .. sourcecode:: java
-   :linenos-start: 3
+   :lineno-start: 3
 
    public abstract class Cat
    {
@@ -90,3 +90,30 @@ References
 
 -  `Abstract Classes and Methods
    (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html>`__
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   A class derived from an abstract class must implement all of the abstract methods it inherits.
+ 
+   a. True
+
+   b. False
+
+.. ans: a, True
+
+.. admonition:: Question
+
+   When might a programmer want to make a class abstract?
+
+   a. When a class has no real data or behavior
+      
+   b. When expressionism just won't cut it
+
+   c. When that class needs to be instantiated in more than one package
+
+   d. When shared behavior is desired among a group of non-abstract classes
+
+.. ans: d, When shared behavior is desired among a group of non-abstract classes
