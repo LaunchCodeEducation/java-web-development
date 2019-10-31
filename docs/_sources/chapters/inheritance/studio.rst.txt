@@ -48,8 +48,8 @@ should be able to:
 Implementation
 --------------
 
-Code the classes that you designed above in a new IntelliJ project. If you like, get some feedback
-on your design by talking through it with a classmate.
+Create a new IntelliJ project. Using test-driven development and JUnit, implement the design that you created.
+If you are unsure about your design, get some feedback by talking through it with a classmate before you start coding.
 
 Putting it all together
 -----------------------
