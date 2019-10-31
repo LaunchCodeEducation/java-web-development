@@ -86,6 +86,60 @@
     
   <div class="section" id="studio-unit-testing">
 <span id="unit-testing-studio"></span><h1>6.4. Studio: Unit Testing<a class="headerlink" href="#studio-unit-testing" title="Permalink to this headline">¶</a></h1>
+<p>For this studio, you will be writing unit tests to help you find
+errors in provided code.</p>
+<div class="section" id="getting-started">
+<h2>6.4.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Fork the <a class="reference external" href="https://github.com/LaunchCodeEducation/junit-studio-lc101" target="_blank">studio repository<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</li>
+<li><p class="first">In IntelliJ, check out your forked repository from Version Control.</p>
+</li>
+<li><p class="first">Write unit tests to find the errors in <code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code>.</p>
+<ol class="loweralpha">
+<li><p class="first">The tests you write should guide how you revise the sourcecode. Use TDD to
+first write tests that will work for the desired behavior of <code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code>.
+When your tests fail, correct the class to pass your tests.</p>
+</li>
+<li><p class="first">The content of your tests is up to you, but you should write at least 12 tests.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Here’s a first test to help get you started:</p>
+<p>Assert that brackets in the correct order, <code class="docutils literal notranslate"><span class="pre">&quot;[]&quot;</span></code>, return true.</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyBracketsReturnsTrue</span><span class="o">()</span> <span class="o">{</span>
+   <span class="n">BalancedBrackets</span> <span class="n">test_Class</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BalancedBrackets</span><span class="o">();</span>
+   <span class="n">assertTrue</span><span class="o">(</span><span class="n">test_Class</span><span class="o">.</span><span class="na">hasBalancedBrackets</span><span class="o">(</span><span class="s">&quot;[]&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code> is essentially a wrapper class for a method.</p>
+</div>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Discuss with your fellow students and TA how the
+class should behave. What are some examples of input, and
+what would the desired output be for each input?</p>
+</div>
+</div>
+<div class="section" id="uploading-your-work">
+<h2>6.4.2. Uploading Your Work<a class="headerlink" href="#uploading-your-work" title="Permalink to this headline">¶</a></h2>
+<p>Push your work to save your solution in your remote repository.</p>
+</div>
+<div class="section" id="bonus-mission">
+<h2>6.4.3. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
+<p>The repository contains an additional branch called <code class="docutils literal notranslate"><span class="pre">bonus_mission</span></code>
+with a new class called <code class="docutils literal notranslate"><span class="pre">BonusBinarySearch</span></code>. Create a new test file
+and write tests that pass the written description of how this class
+should behave. There will be errors in the class that need to be corrected.</p>
+</div>
 </div>
 
 
