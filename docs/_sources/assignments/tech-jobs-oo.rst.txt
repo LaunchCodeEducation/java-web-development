@@ -1,7 +1,7 @@
 .. _tech-jobs-oo:
 
 Assignment #2: Tech Jobs (Object-Oriented Edition)
-===================================================
+===========================================================
 
 Introduction
 ------------
@@ -14,16 +14,17 @@ Your last task was to get the prototype Tech Jobs app in good shape. Now it’s
 time to advance the underlying structure of the program.
 
 Your mentor on this project is Sally, one of the developers at LaunchCode. She
-regularly supports developers who are just getting started with their careers.
+regularly supports coders who are just getting started with their careers.
 
 .. figure:: figures/LC-Sally.png
    :scale: 50%
    :alt: Sally's LaunchCode avatar.
 
-She’s done some initial work on the project and left you some TODOs. After
-seeing your strong work with your last project, Blake reported that you
+After seeing your strong work with your last project, Blake reported that you
 performed well and learned quickly. Because of your success, he and Sally feel
 comfortable assigning you to a set of tasks that are a notch up in difficulty.
+
+Sally completed some initial work on the project and left you some TODOs.
 
 Learning Objectives
 --------------------
@@ -33,45 +34,48 @@ In this project, you’ll show that you can:
 #. Read and understand code written by others.
 #. Work with *objects* to encapsulate data and methods.
 #. Use the generator in IntelliJ to automate routine tasks.
-#. Use unit testing and TDD to create new methods.
+#. Use unit testing and Test-Driven-Development (TDD) to verify and create new
+   methods.
+#. Apply the concept of inheritance to streamline your classes (the DRY
+   idea---Don't Repeat Yourself).
 
 Get the Starter Code
 ---------------------
 
-.. TODO: Add link to new starter code for TechJobs OO
-
-#. Set up a local copy of the project: Visit the repository page *(TODO: Add
-   link)* for this project and fork the repository to create a copy in your
-   own GitHub account.
+#. Set up a local copy of the project. Visit the
+   `repository page <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-oo.git>`__
+   for this project and fork the repo to create a copy in your own GitHub
+   account.
 #. Open IntelliJ (if IntelliJ is currently open, save your work, close it, and
    reopen it).
 #. If the app opens up to an existing project, select *IntelliJ > Preferences >
    Appearance & Behavior > System Settings* and uncheck *Reopen last project on
    startup*. Close and Reopen IntelliJ.
 #. From the “Welcome to IntelliJ” dialog box, select *Check out from Version
-   Control > GitHub*.
+   Control > Git*.
 #. Choose your fork from the repository dropdown, select the parent directory
    where you’d like to store your project, and hit *Clone*.
 #. In the screens that follow:
 
    a. Choose *Create Project From Existing Sources* on the first pane.
-   b. Select *Auto Import* in the Gradle configuration pane.
-   c. Select defaults on all other panes
+   b. Select the defaults in all the other panes.
 
 TechJobs (Object-Oriented Edition)
 -----------------------------------
 
 Sally has gotten the ball rolling by adding a ``Job`` class, along with classes
 to represent the individual properties of a job: ``Employer``, ``Location``,
-``PositionType``, and ``CoreCompetency``.
+``PositionType``, and ``CoreCompetency``. She completed the ``Employer`` class,
+and she left you the task of filling in the others.
 
-She also refactored the display methods to use these new classes. Finally, she
-modified the ``JobData`` class to properly create ``Job`` and related objects
-when importing data from ``job_data.csv``.
+Sally also refactored the display methods to use these new classes. Finally,
+she modified the ``JobData`` class to properly create ``Job`` and related
+objects when importing data from ``job_data.csv``.
 
 As the team gets closer to deploying the app---and abandoning the test data
 they’ve been using---they’ll want an easy way to add and remove jobs via a
-user interface.
+user interface. Before that, however, you need to finish shifting the project
+to an object-oriented design.
 
 Why Change to Object-Oriented?
 -------------------------------
@@ -93,8 +97,8 @@ their own.
 Job Fields
 ^^^^^^^^^^^
 
-If you don’t have it open already, open the ``Job`` class. You’ll see
-the following fields (among others):
+If you don’t have it open already, open the ``Job`` class. You’ll see the
+following fields (among others):
 
 .. sourcecode:: java
    :linenos:
@@ -105,10 +109,9 @@ the following fields (among others):
    private PositionType positionType;
    private CoreCompetency coreCompetency;
 
-Of these, only ``name`` is a string. Sally has created classes to represent
-each of the other properties. Each of these classes---``Employer``,
-``Location``, ``CoreCompetency``, ``PositionType``---have ``value`` and ``id``
-fields.
+Of these, only ``name`` is a string. Sally created classes to represent each of
+the other properties. Each of these classes---``Employer``, ``Location``,
+``CoreCompetency``, ``PositionType``---have ``value`` and ``id`` fields.
 
 So, for example, if you had a ``Job`` instance, you could get the name of the
 employer this way:
@@ -148,7 +151,7 @@ Aside from reducing the amount of raw data / memory that the application uses,
 this will allow data to be updated more easily and properly. If we need to
 change the name of an employer (e.g. due to a typo or a name change at the
 company), we can change it in one place---the single ``Employer`` object that
-represents that employer.
+represents that company.
 
 Enable Extension
 ~~~~~~~~~~~~~~~~~
@@ -170,204 +173,392 @@ behavior would be much more complicated and difficult moving forward.
 Your Assignment
 ---------------
 
-You’ve been tasked with completing the following tasks:
+You’ve been assigned the following tasks:
 
-#. Review the existing code to get an idea of how it works.
-#. Add getters, setters, and ``toString`` methods as needed to the new classes.
-#. Add custom ``equals`` and ``hashCode`` methods to the ``Job`` class.
-#. Code a feature that allows new ``Job`` objects to be added to the system.
-#. Use unit testing to verify the add job method.
-#. Use Test-Driven-Development (TDD) to design and code a ``removeJob`` method.
+#. Review Sally's code in the ``Employer`` class to learn how to assign a
+   unique ID.
+#. Add getters, setters, and custom methods as needed to the ``Location``,
+   ``CoreCompetency``, and ``PositionType`` classes.
+#. Complete the ``Job`` class using what you learned in steps 1 and 2.
+#. Refactor the ``printJobs`` method to use ``Job`` objects.
+#. Use unit testing to verify the ID generator and ``equals`` methods.
+#. Use TDD to design and code a custom ``toString`` method.
+#. Use inheritance to DRY the code within ``Employer``, ``Location``,
+   ``CoreCompetency``, and ``PositionType``.
 
-A) Review ``JobData``
-----------------------
+1) Explore the ``Employer`` Class
+----------------------------------
 
-You won’t be working on search and list functionality in this assignment, but
-you should know that Sally has refactored that code to work with the new
-classes.
+Open the ``Employer`` file in IntelliJ and examine the code. In addition to the
+two fields---``id`` and ``value``---the class includes the standard getters and
+setters as well as some custom methods like ``toString`` and ``equals``.
 
-In this updated version, the data access functionality has been moved into its
-own package, ``org.launchcode.models.data`` to better organize our code as the
-application grows. Additionally, we’ve moved the logic to import data from the
-CSV file into ``JobDataImporter``.
+You can refer to these examples as you fill in the missing pieces in the other
+classes, but for now let's take a closer look at the constructors.
 
-The ``JobData`` class has been refactored to work with ``Job`` objects, and the
-objects that a ``Job`` has references to (``Employer``, ``Location``, etc.)
-rather than strings. You won’t need to understand the internals of how this
-works. Instead, you’ll need to understand how to use the class.
+Assign a Unique ID
+^^^^^^^^^^^^^^^^^^^
 
-Rather than having a collection of static methods, ``JobData`` now has several
-instance methods, with usage outlined below. Each controller already has a
-``JobData`` object set up for you, named ``jobData``.
+One neat trick we can use is to automatically assign each new object a unique
+ID number.
 
-.. list-table::
-   :header-rows: 1
+.. admonition:: Example
 
-   * - Method
-     - Return Type
-     - Description
-   * - ``findById(int)``
-     - ``Job``
-     - Find a job by its ID
-   * - ``findByValue(String)``
-     - ``ArrayList<Job>``
-     - Find all jobs matching the given string in any of the fields.
-
-.. admonition:: Examples
+   Examine the two constructors in ``Employer.java``:
 
    .. sourcecode:: java
       :linenos:
 
-      // Find the job with id 42
-      Job someJob = jobData.findById(42);
+      public class Employer {
+         private int id;
+         private static int nextId = 1;
+         private String value;
 
-      // Find all jobs involving LaunchCode
-      ArrayList<Job> jobsAtLaunchCode = jobData.findByValue("launchcode");
+         public Employer() {
+            id = nextId;
+            nextId++;
+         }
 
-   To work with the list of ``Job`` objects itself, you can do the
-   following:
+         public Employer(String aValue) {
+            this();
+            this.value = aValue;
+         }
+
+         // Getters and setters omitted from this view.
+      }
+
+#. Line 3 declares the variable ``nextId``. Since it is ``static``, its
+   changing value is NOT stored within any ``Employer`` object.
+#. The first constructor (lines 6 - 9) accepts no arguments and assigns the
+   value of ``nextId`` to the ``id`` field. It then increments ``nextId``.
+   Thus, every new ``Employer`` object will get a different ID number.
+#. The second constructor (lines 11 - 14) assigns ``aValue`` to the ``value``
+   field. However, it ALSO initializes ``id`` for the object by calling the
+   first constructor with the ``this();`` statement. Including ``this();`` in
+   any ``Employer`` constructor makes initializing ``id`` a default behavior.
+
+2) Complete the Support Classes
+--------------------------------
+
+Sally needs you to build up the remaining classes. In each case, you can refer
+to the ``Employer`` class for hints on how to structure your code.
+
+The ``Location`` Class
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Open the ``Location.java`` file. Note that the getters, setters, and custom
+methods for this class are done, as is the constructor for initializing the
+``id`` field.
+
+Sally left you a ``TODO`` comment with instructions for coding a second
+constructor:
+
+#. It should call the first constructor to initialize the ``id`` field.
+#. It must also initialize the ``value`` field for a new ``Location`` object.
+
+The ``CoreCompetency`` Class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open the class file. In this case, the constructors and custom methods are
+ready. Sally needs you to complete the somewhat tedious task of writing the
+getters and setters for the ``id`` and ``value`` fields, but NOT for
+``nextID``.
+
+Fortunately, IntelliJ has a tool to help with this:
+
+#. Right-click in the editor pane and select *Generate*.
+#. Select the *Getter and Setter* option.
+#. Select the ``id`` and ``value`` options, then click *OK*.
+
+PRESTO! Getters and setters appear.
+
+The ``PositionType`` Class
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open the class file. This time the constructors, getters, and setters are done.
+Sally's comments direct you to where you need to add the custom methods.
+
+#. Code a ``toString`` method that just returns the value of a ``PositionType``
+   object.
+#. Use the *Generate* option again to add the ``equals`` and ``hashCode``
+   methods. Refer to the :ref:`previous section <equals-shortcut>` of this
+   chapter if you need a quick review.
+#. Assume that two ``PositionType`` objects are equal when their ``id`` fields
+   match.
+
+.. admonition:: Tip
+
+   Now would be a good time to save, commit, and push your work up to GitHub.
+
+3) Complete the ``Job`` Class
+------------------------------
+
+Now open the ``Job`` file. OOF! There are a lot of fields declared and not much
+else.
+
+#. Code a constructor to initialize the ``id`` field with a unique value. This
+   constructor should take no parameters.
+#. Code a second constructor that takes 5 parameters and assigns values to
+   ``name``, ``employer``, ``location``, ``positionType``, and
+   ``coreCompetency``. Also, this constructor should call the first in order to
+   initialize the ``id`` field.
+#. Generate getters and setters for each field EXCEPT ``nextID``.
+#. Generate the ``equals`` and ``hashCode`` methods. Consider two ``Job``
+   objects equal when their id fields match.
+
+.. admonition:: Tip
+
+   Save, commit, and push your work to GitHub.
+
+4) Refactor ``printJobs``
+--------------------------
+
+   TODO: Evaluate whether this is redundant based on ``toString`` tests.
+
+.. TODO: Evaluate whether this is redundant based on ``toString`` tests.
+
+5) Use Unit Testing to Verify Parts of the ``Job`` Class
+---------------------------------------------------------
+
+Instead of manually creating sample ``Job`` objects to verify that your class
+works correctly, you will use unit tests instead.
+
+Create a new class inside the ``TechJobsOO`` folder called ``JobClassTests``.
+This file will hold all of the tests for the ``Job`` class.
+
+Test the Empty Constructor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each ``Job`` object should contain a unique ID number, and these should also be
+sequential integers.
+
+#. In ``JobClassTests``, define a test called ``testSettingJobId``. Do not
+   forget to annotate it with ``@Test``.
+#. Create two ``Job`` objects using the empty constructor.
+
+   .. admonition:: Note
+
+      Instead of creating the ``Job`` objects inside the test method, you could
+      declare and initialize them using ``@Before``.
+
+#. Use ``assertEquals``, ``assertTrue``, or ``assertFalse`` to test that the
+   ID values for the two objects are NOT the same and differ by 1.
+#. Run the test to verify that your ``Job()`` constructor correctly assigns
+   ID numbers. If the test doesn't pass, what should be your first thought?
+
+   a. "Drat! I need to fix the unit test."
+   b. "Drat! I need to fix my ``Job()`` constructor code."
+
+   .. admonition:: Warning
+
+      The answer is NOT "a".
+
+      Your test code *might* be incorrect, but that should not be your FIRST
+      thought. TDD begins with writing tests for desired behaviors. If the
+      tests fail, that indicates errors in the methods trying to produce the
+      behavior rather than in the tests that define that behavior.
+
+Test the Full Constructor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each ``Job`` object should contain six fields---``id``, ``name``, ``employer``,
+``location``, ``positionType``, and ``coreCompetency``. The data types for
+these fields are ``int``, ``String``, ``Employer``, ``Location``,
+``PositionType``, and ``CoreCompetency``, respectively.
+
+#. In ``JobClassTests``, define a test called ``testSettingJobFields``.
+#. Declare and initialize a new ``Job`` object with the following data:
 
    .. sourcecode:: java
-      :linenos:
 
-      // Get the full list of jobs
-      ArrayList<Job> allOfTheJobs = jobData.findAll();
+      new Job("Product tester", "ACME", "Desert", "Quality control", "Persistence");
 
-      // add a new Job object to the list
-      jobData.add(newJob);
+#. Use ``assert`` statements to test that the constructor correctly assigns the
+   class and value of each field.
 
-Additionally, collections of classes that make up the individual properties of
-a ``Job`` object---``Employer``, ``Location``, ``CoreCompetency``,
-``PositionType``---are available as properties of ``JobData``. For example, all
-employers are contained in a property called ``Employers``.
+   .. admonition:: Tip
 
-There are two methods that you might find useful:
+      The ``instanceof`` keyword can be used to check the class of an object.
+      The result of the comparison is a boolean.
 
-.. sourcecode:: java
-   :linenos:
+      .. sourcecode:: java
 
-   // Find the employer with id=7
-   Employer anEmployer = jobData.getEmployers().findById(7);
+         objectName instanceof ClassName
 
-   // Get all employers
-   ArrayList<Employer> allEmployers = jobData.getEmployers().findAll();
+Test the ``equals`` Method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Examples for locations, position types, and core competencies are similar.
+Two ``Job`` objects are considered equal if they have the same ``id`` value,
+even if one or more of the other fields differ. Similarly, the two objects
+are NOT equal if their ``id`` values differ, even if all the other fields are
+identical.
+
+#. In ``JobClassTests``, define a test called ``testJobsForEquality``.
+#. Generate two ``Job`` objects that have identical field values EXCEPT for
+   ``id``. Test that ``equals`` returns ``false``.
+#. Generate a third ``Job`` object and reassign its ``id`` value to be the same
+   as one of the objects in the previous step. Test that ``equals`` returns
+   ``true`` even when the other field values differ.
+
+.. admonition:: Tip
+
+   Time to save, commit, and push your work to GitHub again.
+
+6) Use TDD to Build The ``toString`` Method
+--------------------------------------------
+
+To display the data for a particular ``Job`` object, you need to implement a
+custom ``toString`` method. Rather than creating this method and then testing
+it, you will flip that process using TDD.
+
+Create First Test for ``toString``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before writing your first test, consider how we want the method to behave:
+
+#. When passed a ``Job`` object, it should return a string that contains a
+   blank line before and after the job information.
+#. The string should contain a label for each field, followed by the data
+   stored in that field. Each field should be on its own line.
+
+   .. sourcecode:: bash
+
+      ID:  _______
+      Name: _______
+      Employer: _______
+      Location: _______
+      Position Type: _______
+      Core Competency: _______
+
+#. If a field is empty, the method should add, "Data not available" after
+   the label.
+#. (Bonus) If a ``Job`` object ONLY contains data for the ``id`` field, the
+   method should return, "OOPS! This job does not seem to exist."
+
+In ``JobClassTests``, add a new test to check the first requirement, then run
+that test (it should fail).
+
+Woo hoo! Failure is what we want here! Now you get to fix that.
+
+Code ``toString`` to Pass the First Test
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the ``Job`` class, create a ``toString`` method that passes the first test.
+Since the test only checks if the returned string starts and ends with a blank
+line, make that happen.
 
 .. admonition:: Warning
 
-   You should not try to create a new ``Job`` object with ``Employer``,
-   ``Location``, etc. properties that don’t already exist. Our non-database
-   system isn’t as robust as it will be shortly, and doing something like
-   this might break it.
+   Do NOT add anything beyond what is needed to make the test pass. You will
+   add the remaining behaviors for ``toString`` as you code each new test.
 
-   When you create a new ``Job`` object for this assignment, you’ll always
-   be doing so using existing employers, locations, etc.
+Finish the TDD for ``toString``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Your Tasks
------------
+#. Code a new test for the second required behavior, then run the tests to make
+   sure the new one fails.
+#. Modify ``toString`` to make the new test pass. Also, make sure that your
+   updates still pass all of the old tests.
+#. Continue this test-refactor cycle until all of the behaviors we want for
+   ``toString`` work. Remember to add only ONE new test at a time.
 
-In IntelliJ, select *View > Tool
-Windows > TODO* to pop open a small pane at the bottom of the window.
-This list is populated by any code comments that start with ``TODO``. In
-particular, you’ll see your 6 tasks listed.
+Cool! Your ``Job`` class is now complete and operates as desired.
 
-   TODO: Task List screenshot
+7) Refactor to DRY the Support Classes
+---------------------------------------
 
-As you work on your tasks, refer to the `demo
-app <https://techjobs-oo.cfapps.io/>`__ to see how your application
-should behave.
+Review the code in the ``Employer``, ``Location``, ``CoreCompetency``, and
+``PositionType`` classes. What similarities do you see?
 
-Display A Single Job
+There is a fair amount of repetition between the classes. As a good coder,
+anytime you find yourself adding identical code in multiple locations you
+should consider how to streamline the process.
+
+   DRY = "Don't Repeat Yourself".
+
+Create a Base Class
 ^^^^^^^^^^^^^^^^^^^^
 
-Your first two tasks involve displaying data associated with a single
-job. When you’re done, visiting the URL ``/job?id=X`` will display the
-details of the job with an ``id`` equal to X.
+Let's move all of the repeated code into a separate class. We will then have
+``Employer``, ``Location``, ``CoreCompetency``, and ``PositionType`` *inherit*
+this common code.
 
-Within the ``index`` handler method of ``JobController``, you should
-retrieve the job with the given ID, and then pass it into the view.
+#. Create a new class called ``JobFields``.
+#. Consider the following questions to help you decide what code to put in the
+   ``JobFields`` class:
 
-Within the ``job-detail.html`` template you need to display the
-properties of the job in a table.
+   a. What fields do ALL FOUR of the classes have in common?
+   b. Which constructors are the same in ALL FOUR classes?
+   c. What getters and setters do ALL of the classes share?
+   d. Which custom methods are identical in ALL of the classes?
 
-Create New Jobs
-^^^^^^^^^^^^^^^
+#. In ``JobFields``, declare each of the common fields.
+#. Code the constructors.
+#. Use *Generate* to create the appropriate getters and setters.
+#. Add in the custom methods.
 
-Our ``JobController`` class and the ``new-job.html`` template is set up
-to allow a user to create new jobs through the interface, but it isn’t
-complete. Getting this to work comprises your next set of tasks.
+Extend ``JobFields`` into ``Employer``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First, you’ll need to work within ``JobForm`` to set up the properties
-to allow for both form display and form submission. Sally has put in
-place the code to display and process the ``name`` and the data
-associated with an employer.
+Now that you have the common code located in the ``JobFields`` file, we can
+modify the other classes to reference this shared code. Let's begin with
+``Employer``.
 
-Notice that rather having a field for ``employer``, we have a field for
-``employerId``.
+#. Modify line 5 to *extend* the ``JobFields`` class into ``Employer``.
 
-.. sourcecode:: java
+   .. sourcecode:: java
+      :lineno-start: 5
 
-   @NotNull
-   private int employerId;
+      public class Employer extends JobFields {
 
-In the user interface (that is, on the web page) we’ll only need to
-display the name of each employer, and when processing the form, we’ll
-use the ID to retrieve the employer from the data layer. Using the ID of
-an employer is the only way to uniquely identify which employer has been
-selected in the form, outside the cozy confines of our Java application.
+         //Code not displayed.
 
-In the ``JobForm`` constructor, we initialize the list of ``Employer``
-objects. Initializing the other lists is up to you.
+      }
 
-For tasks #3-5, you’ll need to mimic the code that’s in place for
-``employerId`` and the ``employers`` list for the other job field types.
+#. Next, remove any code in ``Employer`` that matches code from ``JobFields``
+   (e.g. the ``id``, ``value``, and ``nextId`` fields are shared).
+#. Remove any of the getters and setters that are the same.
+#. Remove any of the custom methods that are identical.
+#. The empty constructor is shared, but not the second. Replace the two
+   constructors with the following:
 
-Once you have that stuff in place, you’ll be ready to process the form
-in task #6. Validate the form in the ``add`` handler of
-``JobController``, and if it’s valid, create a new ``Job`` object and
-add it to the data layer by calling ``jobData.add(newJob)``.
+   .. sourcecode:: java
+      :lineno-start: 7
 
-To create the new job, you’ll need to find the pre-existing objects for
-all fields other than ``name`` (``employer``, ``location``, etc). Do
-this using the methods discussed above. Refer to the constructor in
-``Job`` to make sure you list the objects in the correct order when
-calling it.
+      public Employer(String value) {
+        super(value);
+      }
 
-Once you’ve created the new job, redirect to the single job display page
-that you created above. If the ``jobForm`` model object fails
-validation, display the form again.
+   The ``extends`` and ``super`` keywords link the ``JobFields`` and
+   ``Employer`` classes.
+#. Rerun your unit tests to verify your refactored code.
 
-Once you’ve knocked that out, you’ll be able to create new jobs in the
-system via the application interface! Note that these job objects won’t
-survive an application restart, because they live only within our
-in-progress application’s temporary data storage system. (This is one
-difference between how your app will behave compared with our demo app.
-If you add a new job to our demo app, it will persist.)
+Finish DRYing Your Code
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Repeat the process above for the ``Location``, ``CoreCompetency``, and
+   ``PositionType`` classes.
+#. Rerun your unit tests to verify that your classes and methods still work.
+
+.. admonition:: Tip
+
+   You know you need to do this, but here is the reminder anyway. Save, commit,
+   and push your work to GitHub.
 
 Sanity Check
 -------------
 
-Before submitting, make sure that the following are true of your
-application:
+    TODO: Add screenshots, gifs, or video showing successful app operation.
 
-#. You can create a new job from ``/job/add`` by entering the name of a
-   job, and selecting employer, location, skill, and position type
-   values from dropdown selects.
-#. If you leave off the name of a job, you are presented with the form
-   again, and a message describing the error is presented on the page.
-#. Upon creating a new job, you are sent to a screen displaying the data
-   for only the new job. The URL for this new job is of the form
-   ``/job?id=X`` where ``X`` is the numeric ID of the new job.
-#. When searching and listing data, your new job shows up when
-   appropriate. For example, you can see the job when searching for it
-   by employer, or by its location, skill, or position type.
-
-Refer to the `demo app <https://techjobs-oo.cfapps.io/>`__ if you’re not
-sure how thing are supposed to work.
+.. TODO: Add screenshots, gifs, or video showing successful app operation.
 
 How to Submit
 --------------
 
+Nice! You successfully shifted the old console app into a more useful object
+oriented configuration.
+
 To turn in your assignment and get credit, follow the
 :ref:`submission instructions <how-to-submit-work>`.
+
+.. TODO: Refactoring JobData class?

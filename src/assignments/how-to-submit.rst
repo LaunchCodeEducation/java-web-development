@@ -18,16 +18,16 @@ TechJobs (Console Edition)
 Graded assignment #1:
 :ref:`Work on TechJobs (Console Edition) <tech-jobs-console>`.
 
-TechJobs (MVC Edition)
-----------------------
-
-Graded assignment #2: :ref:`Work on TechJobs (MVC Edition) <tech-jobs-mvc>`.
-
 TechJobs (Object-Oriented Edition)
 ----------------------------------
 
-Graded assignment #3:
+Graded assignment #2:
 :ref:`Work on TechJobs (Object-Oriented Edition) <tech-jobs-oo>`.
+
+TechJobs (MVC Edition)
+----------------------
+
+Graded assignment #3: :ref:`Work on TechJobs (MVC Edition) <tech-jobs-mvc>`.
 
 Cheese MVC Persistent (???)
 ----------------------------

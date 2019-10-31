@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assignment #2: Revised Tech Jobs (Object-Oriented Edition)" href="new-techjobs-oo.html" />
+    <link rel="next" title="Assignment #3: Tech Jobs (MVC Edition)" href="tech-jobs-mvc.html" />
     <link rel="prev" title="Assignment #1: Tech Jobs (Console Edition)" href="tech-jobs-console.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -93,14 +93,14 @@ LaunchCode staff.</p>
 <p>Your last task was to get the prototype Tech Jobs app in good shape. Now it’s
 time to advance the underlying structure of the program.</p>
 <p>Your mentor on this project is Sally, one of the developers at LaunchCode. She
-regularly supports developers who are just getting started with their careers.</p>
+regularly supports coders who are just getting started with their careers.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/LC-Sally.png"><img alt="Sally's LaunchCode avatar." src="../_images/LC-Sally.png" style="width: 217.0px; height: 488.0px;" /></a>
 </div>
-<p>She’s done some initial work on the project and left you some TODOs. After
-seeing your strong work with your last project, Blake reported that you
+<p>After seeing your strong work with your last project, Blake reported that you
 performed well and learned quickly. Because of your success, he and Sally feel
 comfortable assigning you to a set of tasks that are a notch up in difficulty.</p>
+<p>Sally completed some initial work on the project and left you some TODOs.</p>
 </div>
 <div class="section" id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
@@ -109,28 +109,31 @@ comfortable assigning you to a set of tasks that are a notch up in difficulty.</
 <li>Read and understand code written by others.</li>
 <li>Work with <em>objects</em> to encapsulate data and methods.</li>
 <li>Use the generator in IntelliJ to automate routine tasks.</li>
-<li>Use unit testing and TDD to create new methods.</li>
+<li>Use unit testing and Test-Driven-Development (TDD) to verify and create new
+methods.</li>
+<li>Apply the concept of inheritance to streamline your classes (the DRY
+idea—Don’t Repeat Yourself).</li>
 </ol>
 </div>
 <div class="section" id="get-the-starter-code">
 <h2>Get the Starter Code<a class="headerlink" href="#get-the-starter-code" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Set up a local copy of the project: Visit the repository page <em>(TODO: Add
-link)</em> for this project and fork the repository to create a copy in your
-own GitHub account.</li>
+<li>Set up a local copy of the project. Visit the
+<a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-techjobs-oo.git" target="_blank">repository page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+for this project and fork the repo to create a copy in your own GitHub
+account.</li>
 <li>Open IntelliJ (if IntelliJ is currently open, save your work, close it, and
 reopen it).</li>
 <li>If the app opens up to an existing project, select <em>IntelliJ &gt; Preferences &gt;
 Appearance &amp; Behavior &gt; System Settings</em> and uncheck <em>Reopen last project on
 startup</em>. Close and Reopen IntelliJ.</li>
 <li>From the “Welcome to IntelliJ” dialog box, select <em>Check out from Version
-Control &gt; GitHub</em>.</li>
+Control &gt; Git</em>.</li>
 <li>Choose your fork from the repository dropdown, select the parent directory
 where you’d like to store your project, and hit <em>Clone</em>.</li>
 <li>In the screens that follow:<ol class="loweralpha">
 <li>Choose <em>Create Project From Existing Sources</em> on the first pane.</li>
-<li>Select <em>Auto Import</em> in the Gradle configuration pane.</li>
-<li>Select defaults on all other panes</li>
+<li>Select the defaults in all the other panes.</li>
 </ol>
 </li>
 </ol>
@@ -139,13 +142,15 @@ where you’d like to store your project, and hit <em>Clone</em>.</li>
 <h2>TechJobs (Object-Oriented Edition)<a class="headerlink" href="#techjobs-object-oriented-edition" title="Permalink to this headline">¶</a></h2>
 <p>Sally has gotten the ball rolling by adding a <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, along with classes
 to represent the individual properties of a job: <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
-<code class="docutils literal notranslate"><span class="pre">PositionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>.</p>
-<p>She also refactored the display methods to use these new classes. Finally, she
-modified the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class to properly create <code class="docutils literal notranslate"><span class="pre">Job</span></code> and related objects
-when importing data from <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>. She completed the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class,
+and she left you the task of filling in the others.</p>
+<p>Sally also refactored the display methods to use these new classes. Finally,
+she modified the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class to properly create <code class="docutils literal notranslate"><span class="pre">Job</span></code> and related
+objects when importing data from <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code>.</p>
 <p>As the team gets closer to deploying the app—and abandoning the test data
 they’ve been using—they’ll want an easy way to add and remove jobs via a
-user interface.</p>
+user interface. Before that, however, you need to finish shifting the project
+to an object-oriented design.</p>
 </div>
 <div class="section" id="why-change-to-object-oriented">
 <h2>Why Change to Object-Oriented?<a class="headerlink" href="#why-change-to-object-oriented" title="Permalink to this headline">¶</a></h2>
@@ -162,8 +167,8 @@ and the other non-ID fields are no longer strings. Instead, they are classes of
 their own.</p>
 <div class="section" id="job-fields">
 <h3>Job Fields<a class="headerlink" href="#job-fields" title="Permalink to this headline">¶</a></h3>
-<p>If you don’t have it open already, open the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class. You’ll see
-the following fields (among others):</p>
+<p>If you don’t have it open already, open the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class. You’ll see the
+following fields (among others):</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -175,10 +180,9 @@ the following fields (among others):</p>
 <span class="kd">private</span> <span class="n">CoreCompetency</span> <span class="n">coreCompetency</span><span class="o">;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Of these, only <code class="docutils literal notranslate"><span class="pre">name</span></code> is a string. Sally has created classes to represent
-each of the other properties. Each of these classes—<code class="docutils literal notranslate"><span class="pre">Employer</span></code>,
-<code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>—have <code class="docutils literal notranslate"><span class="pre">value</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code>
-fields.</p>
+<p>Of these, only <code class="docutils literal notranslate"><span class="pre">name</span></code> is a string. Sally created classes to represent each of
+the other properties. Each of these classes—<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>—have <code class="docutils literal notranslate"><span class="pre">value</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> fields.</p>
 <p>So, for example, if you had a <code class="docutils literal notranslate"><span class="pre">Job</span></code> instance, you could get the name of the
 employer this way:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// job is an instance of Job</span>
@@ -209,7 +213,7 @@ for each employer.</p>
 this will allow data to be updated more easily and properly. If we need to
 change the name of an employer (e.g.&nbsp;due to a typo or a name change at the
 company), we can change it in one place—the single <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object that
-represents that employer.</p>
+represents that company.</p>
 </div>
 <div class="section" id="enable-extension">
 <h4>Enable Extension<a class="headerlink" href="#enable-extension" title="Permalink to this headline">¶</a></h4>
@@ -228,196 +232,398 @@ behavior would be much more complicated and difficult moving forward.</p>
 </div>
 <div class="section" id="your-assignment">
 <h2>Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
-<p>You’ve been tasked with completing the following tasks:</p>
+<p>You’ve been assigned the following tasks:</p>
 <ol class="arabic simple">
-<li>Review the existing code to get an idea of how it works.</li>
-<li>Add getters, setters, and <code class="docutils literal notranslate"><span class="pre">toString</span></code> methods as needed to the new classes.</li>
-<li>Add custom <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> methods to the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</li>
-<li>Code a feature that allows new <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects to be added to the system.</li>
-<li>Use unit testing to verify the add job method.</li>
-<li>Use Test-Driven-Development (TDD) to design and code a <code class="docutils literal notranslate"><span class="pre">removeJob</span></code> method.</li>
+<li>Review Sally’s code in the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class to learn how to assign a
+unique ID.</li>
+<li>Add getters, setters, and custom methods as needed to the <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> classes.</li>
+<li>Complete the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class using what you learned in steps 1 and 2.</li>
+<li>Refactor the <code class="docutils literal notranslate"><span class="pre">printJobs</span></code> method to use <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects.</li>
+<li>Use unit testing to verify the ID generator and <code class="docutils literal notranslate"><span class="pre">equals</span></code> methods.</li>
+<li>Use TDD to design and code a custom <code class="docutils literal notranslate"><span class="pre">toString</span></code> method.</li>
+<li>Use inheritance to DRY the code within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>.</li>
 </ol>
 </div>
-<div class="section" id="a-review-jobdata">
-<h2>A) Review <code class="docutils literal notranslate"><span class="pre">JobData</span></code><a class="headerlink" href="#a-review-jobdata" title="Permalink to this headline">¶</a></h2>
-<p>You won’t be working on search and list functionality in this assignment, but
-you should know that Sally has refactored that code to work with the new
-classes.</p>
-<p>In this updated version, the data access functionality has been moved into its
-own package, <code class="docutils literal notranslate"><span class="pre">org.launchcode.models.data</span></code> to better organize our code as the
-application grows. Additionally, we’ve moved the logic to import data from the
-CSV file into <code class="docutils literal notranslate"><span class="pre">JobDataImporter</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class has been refactored to work with <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects, and the
-objects that a <code class="docutils literal notranslate"><span class="pre">Job</span></code> has references to (<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, etc.)
-rather than strings. You won’t need to understand the internals of how this
-works. Instead, you’ll need to understand how to use the class.</p>
-<p>Rather than having a collection of static methods, <code class="docutils literal notranslate"><span class="pre">JobData</span></code> now has several
-instance methods, with usage outlined below. Each controller already has a
-<code class="docutils literal notranslate"><span class="pre">JobData</span></code> object set up for you, named <code class="docutils literal notranslate"><span class="pre">jobData</span></code>.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Method</th>
-<th class="head">Return Type</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">findById(int)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">Job</span></code></td>
-<td>Find a job by its ID</td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">findByValue(String)</span></code></td>
-<td><code class="docutils literal notranslate"><span class="pre">ArrayList&lt;Job&gt;</span></code></td>
-<td>Find all jobs matching the given string in any of the fields.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Find the job with id 42</span>
-<span class="n">Job</span> <span class="n">someJob</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>
+<div class="section" id="explore-the-employer-class">
+<h2>1) Explore the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> Class<a class="headerlink" href="#explore-the-employer-class" title="Permalink to this headline">¶</a></h2>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> file in IntelliJ and examine the code. In addition to the
+two fields—<code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>—the class includes the standard getters and
+setters as well as some custom methods like <code class="docutils literal notranslate"><span class="pre">toString</span></code> and <code class="docutils literal notranslate"><span class="pre">equals</span></code>.</p>
+<p>You can refer to these examples as you fill in the missing pieces in the other
+classes, but for now let’s take a closer look at the constructors.</p>
+<div class="section" id="assign-a-unique-id">
+<h3>Assign a Unique ID<a class="headerlink" href="#assign-a-unique-id" title="Permalink to this headline">¶</a></h3>
+<p>One neat trick we can use is to automatically assign each new object a unique
+ID number.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>Examine the two constructors in <code class="docutils literal notranslate"><span class="pre">Employer.java</span></code>:</p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Employer</span> <span class="o">{</span>
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nextId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">value</span><span class="o">;</span>
 
-<span class="c1">// Find all jobs involving LaunchCode</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">jobsAtLaunchCode</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findByValue</span><span class="o">(</span><span class="s">&quot;launchcode&quot;</span><span class="o">);</span>
-</pre></div>
-</td></tr></table></div>
-<p>To work with the list of <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects itself, you can do the
-following:</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Get the full list of jobs</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Job</span><span class="o">&gt;</span> <span class="n">allOfTheJobs</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+   <span class="kd">public</span> <span class="nf">Employer</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">id</span> <span class="o">=</span> <span class="n">nextId</span><span class="o">;</span>
+      <span class="n">nextId</span><span class="o">++;</span>
+   <span class="o">}</span>
 
-<span class="c1">// add a new Job object to the list</span>
-<span class="n">jobData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newJob</span><span class="o">);</span>
+   <span class="kd">public</span> <span class="nf">Employer</span><span class="o">(</span><span class="n">String</span> <span class="n">aValue</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">();</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">aValue</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="c1">// Getters and setters omitted from this view.</span>
+<span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>Additionally, collections of classes that make up the individual properties of
-a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object—<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>,
-<code class="docutils literal notranslate"><span class="pre">PositionType</span></code>—are available as properties of <code class="docutils literal notranslate"><span class="pre">JobData</span></code>. For example, all
-employers are contained in a property called <code class="docutils literal notranslate"><span class="pre">Employers</span></code>.</p>
-<p>There are two methods that you might find useful:</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Find the employer with id=7</span>
-<span class="n">Employer</span> <span class="n">anEmployer</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">getEmployers</span><span class="o">().</span><span class="na">findById</span><span class="o">(</span><span class="mi">7</span><span class="o">);</span>
-
-<span class="c1">// Get all employers</span>
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Employer</span><span class="o">&gt;</span> <span class="n">allEmployers</span> <span class="o">=</span> <span class="n">jobData</span><span class="o">.</span><span class="na">getEmployers</span><span class="o">().</span><span class="na">findAll</span><span class="o">();</span>
-</pre></div>
-</td></tr></table></div>
-<p>Examples for locations, position types, and core competencies are similar.</p>
+<ol class="arabic simple">
+<li>Line 3 declares the variable <code class="docutils literal notranslate"><span class="pre">nextId</span></code>. Since it is <code class="docutils literal notranslate"><span class="pre">static</span></code>, its
+changing value is NOT stored within any <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object.</li>
+<li>The first constructor (lines 6 - 9) accepts no arguments and assigns the
+value of <code class="docutils literal notranslate"><span class="pre">nextId</span></code> to the <code class="docutils literal notranslate"><span class="pre">id</span></code> field. It then increments <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.
+Thus, every new <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object will get a different ID number.</li>
+<li>The second constructor (lines 11 - 14) assigns <code class="docutils literal notranslate"><span class="pre">aValue</span></code> to the <code class="docutils literal notranslate"><span class="pre">value</span></code>
+field. However, it ALSO initializes <code class="docutils literal notranslate"><span class="pre">id</span></code> for the object by calling the
+first constructor with the <code class="docutils literal notranslate"><span class="pre">this();</span></code> statement. Including <code class="docutils literal notranslate"><span class="pre">this();</span></code> in
+any <code class="docutils literal notranslate"><span class="pre">Employer</span></code> constructor makes initializing <code class="docutils literal notranslate"><span class="pre">id</span></code> a default behavior.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="complete-the-support-classes">
+<h2>2) Complete the Support Classes<a class="headerlink" href="#complete-the-support-classes" title="Permalink to this headline">¶</a></h2>
+<p>Sally needs you to build up the remaining classes. In each case, you can refer
+to the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class for hints on how to structure your code.</p>
+<div class="section" id="the-location-class">
+<h3>The <code class="docutils literal notranslate"><span class="pre">Location</span></code> Class<a class="headerlink" href="#the-location-class" title="Permalink to this headline">¶</a></h3>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">Location.java</span></code> file. Note that the getters, setters, and custom
+methods for this class are done, as is the constructor for initializing the
+<code class="docutils literal notranslate"><span class="pre">id</span></code> field.</p>
+<p>Sally left you a <code class="docutils literal notranslate"><span class="pre">TODO</span></code> comment with instructions for coding a second
+constructor:</p>
+<ol class="arabic simple">
+<li>It should call the first constructor to initialize the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
+<li>It must also initialize the <code class="docutils literal notranslate"><span class="pre">value</span></code> field for a new <code class="docutils literal notranslate"><span class="pre">Location</span></code> object.</li>
+</ol>
+</div>
+<div class="section" id="the-corecompetency-class">
+<h3>The <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code> Class<a class="headerlink" href="#the-corecompetency-class" title="Permalink to this headline">¶</a></h3>
+<p>Open the class file. In this case, the constructors and custom methods are
+ready. Sally needs you to complete the somewhat tedious task of writing the
+getters and setters for the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> fields, but NOT for
+<code class="docutils literal notranslate"><span class="pre">nextID</span></code>.</p>
+<p>Fortunately, IntelliJ has a tool to help with this:</p>
+<ol class="arabic simple">
+<li>Right-click in the editor pane and select <em>Generate</em>.</li>
+<li>Select the <em>Getter and Setter</em> option.</li>
+<li>Select the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> options, then click <em>OK</em>.</li>
+</ol>
+<p>PRESTO! Getters and setters appear.</p>
+</div>
+<div class="section" id="the-positiontype-class">
+<h3>The <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> Class<a class="headerlink" href="#the-positiontype-class" title="Permalink to this headline">¶</a></h3>
+<p>Open the class file. This time the constructors, getters, and setters are done.
+Sally’s comments direct you to where you need to add the custom methods.</p>
+<ol class="arabic simple">
+<li>Code a <code class="docutils literal notranslate"><span class="pre">toString</span></code> method that just returns the value of a <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>
+object.</li>
+<li>Use the <em>Generate</em> option again to add the <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code>
+methods. Refer to the <a class="reference internal" href="../chapters/classes-part2/equals-shortcut.html#equals-shortcut"><span class="std std-ref">previous section</span></a> of this
+chapter if you need a quick review.</li>
+<li>Assume that two <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> objects are equal when their <code class="docutils literal notranslate"><span class="pre">id</span></code> fields
+match.</li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Now would be a good time to save, commit, and push your work up to GitHub.</p>
+</div>
+</div>
+</div>
+<div class="section" id="complete-the-job-class">
+<h2>3) Complete the <code class="docutils literal notranslate"><span class="pre">Job</span></code> Class<a class="headerlink" href="#complete-the-job-class" title="Permalink to this headline">¶</a></h2>
+<p>Now open the <code class="docutils literal notranslate"><span class="pre">Job</span></code> file. OOF! There are a lot of fields declared and not much
+else.</p>
+<ol class="arabic simple">
+<li>Code a constructor to initialize the <code class="docutils literal notranslate"><span class="pre">id</span></code> field with a unique value. This
+constructor should take no parameters.</li>
+<li>Code a second constructor that takes 5 parameters and assigns values to
+<code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">positionType</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>. Also, this constructor should call the first in order to
+initialize the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
+<li>Generate getters and setters for each field EXCEPT <code class="docutils literal notranslate"><span class="pre">nextID</span></code>.</li>
+<li>Generate the <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> methods. Consider two <code class="docutils literal notranslate"><span class="pre">Job</span></code>
+objects equal when their id fields match.</li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Save, commit, and push your work to GitHub.</p>
+</div>
+</div>
+<div class="section" id="refactor-printjobs">
+<h2>4) Refactor <code class="docutils literal notranslate"><span class="pre">printJobs</span></code><a class="headerlink" href="#refactor-printjobs" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>TODO: Evaluate whether this is redundant based on <code class="docutils literal notranslate"><span class="pre">toString</span></code> tests.</div></blockquote>
+</div>
+<div class="section" id="use-unit-testing-to-verify-parts-of-the-job-class">
+<h2>5) Use Unit Testing to Verify Parts of the <code class="docutils literal notranslate"><span class="pre">Job</span></code> Class<a class="headerlink" href="#use-unit-testing-to-verify-parts-of-the-job-class" title="Permalink to this headline">¶</a></h2>
+<p>Instead of manually creating sample <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects to verify that your class
+works correctly, you will use unit tests instead.</p>
+<p>Create a new class inside the <code class="docutils literal notranslate"><span class="pre">TechJobsOO</span></code> folder called <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>.
+This file will hold all of the tests for the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</p>
+<div class="section" id="test-the-empty-constructor">
+<h3>Test the Empty Constructor<a class="headerlink" href="#test-the-empty-constructor" title="Permalink to this headline">¶</a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object should contain a unique ID number, and these should also be
+sequential integers.</p>
+<ol class="arabic">
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobId</span></code>. Do not
+forget to annotate it with <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code>.</p>
+</li>
+<li><p class="first">Create two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects using the empty constructor.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Instead of creating the <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects inside the test method, you could
+declare and initialize them using <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code>.</p>
+</div>
+</li>
+<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">assertEquals</span></code>, <code class="docutils literal notranslate"><span class="pre">assertTrue</span></code>, or <code class="docutils literal notranslate"><span class="pre">assertFalse</span></code> to test that the
+ID values for the two objects are NOT the same and differ by 1.</p>
+</li>
+<li><p class="first">Run the test to verify that your <code class="docutils literal notranslate"><span class="pre">Job()</span></code> constructor correctly assigns
+ID numbers. If the test doesn’t pass, what should be your first thought?</p>
+<ol class="loweralpha simple">
+<li>“Drat! I need to fix the unit test.”</li>
+<li>“Drat! I need to fix my <code class="docutils literal notranslate"><span class="pre">Job()</span></code> constructor code.”</li>
+</ol>
 <div class="admonition-warning admonition">
 <p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p>You should not try to create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with <code class="docutils literal notranslate"><span class="pre">Employer</span></code>,
-<code class="docutils literal notranslate"><span class="pre">Location</span></code>, etc. properties that don’t already exist. Our non-database
-system isn’t as robust as it will be shortly, and doing something like
-this might break it.</p>
-<p class="last">When you create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object for this assignment, you’ll always
-be doing so using existing employers, locations, etc.</p>
+<p>The answer is NOT “a”.</p>
+<p class="last">Your test code <em>might</em> be incorrect, but that should not be your FIRST
+thought. TDD begins with writing tests for desired behaviors. If the
+tests fail, that indicates errors in the methods trying to produce the
+behavior rather than in the tests that define that behavior.</p>
 </div>
+</li>
+</ol>
 </div>
-<div class="section" id="your-tasks">
-<h2>Your Tasks<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h2>
-<p>In IntelliJ, select <em>View &gt; Tool
-Windows &gt; TODO</em> to pop open a small pane at the bottom of the window.
-This list is populated by any code comments that start with <code class="docutils literal notranslate"><span class="pre">TODO</span></code>. In
-particular, you’ll see your 6 tasks listed.</p>
-<blockquote>
-<div>TODO: Task List screenshot</div></blockquote>
-<p>As you work on your tasks, refer to the <a class="reference external" href="https://techjobs-oo.cfapps.io/" target="_blank">demo
-app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to see how your application
-should behave.</p>
-<div class="section" id="display-a-single-job">
-<h3>Display A Single Job<a class="headerlink" href="#display-a-single-job" title="Permalink to this headline">¶</a></h3>
-<p>Your first two tasks involve displaying data associated with a single
-job. When you’re done, visiting the URL <code class="docutils literal notranslate"><span class="pre">/job?id=X</span></code> will display the
-details of the job with an <code class="docutils literal notranslate"><span class="pre">id</span></code> equal to X.</p>
-<p>Within the <code class="docutils literal notranslate"><span class="pre">index</span></code> handler method of <code class="docutils literal notranslate"><span class="pre">JobController</span></code>, you should
-retrieve the job with the given ID, and then pass it into the view.</p>
-<p>Within the <code class="docutils literal notranslate"><span class="pre">job-detail.html</span></code> template you need to display the
-properties of the job in a table.</p>
-</div>
-<div class="section" id="create-new-jobs">
-<h3>Create New Jobs<a class="headerlink" href="#create-new-jobs" title="Permalink to this headline">¶</a></h3>
-<p>Our <code class="docutils literal notranslate"><span class="pre">JobController</span></code> class and the <code class="docutils literal notranslate"><span class="pre">new-job.html</span></code> template is set up
-to allow a user to create new jobs through the interface, but it isn’t
-complete. Getting this to work comprises your next set of tasks.</p>
-<p>First, you’ll need to work within <code class="docutils literal notranslate"><span class="pre">JobForm</span></code> to set up the properties
-to allow for both form display and form submission. Sally has put in
-place the code to display and process the <code class="docutils literal notranslate"><span class="pre">name</span></code> and the data
-associated with an employer.</p>
-<p>Notice that rather having a field for <code class="docutils literal notranslate"><span class="pre">employer</span></code>, we have a field for
-<code class="docutils literal notranslate"><span class="pre">employerId</span></code>.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotNull</span>
-<span class="kd">private</span> <span class="kt">int</span> <span class="n">employerId</span><span class="o">;</span>
+<div class="section" id="test-the-full-constructor">
+<h3>Test the Full Constructor<a class="headerlink" href="#test-the-full-constructor" title="Permalink to this headline">¶</a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object should contain six fields—<code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">employer</span></code>,
+<code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">positionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>. The data types for
+these fields are <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, respectively.</p>
+<ol class="arabic">
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobFields</span></code>.</p>
+</li>
+<li><p class="first">Declare and initialize a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with the following data:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="s">&quot;Product tester&quot;</span><span class="o">,</span> <span class="s">&quot;ACME&quot;</span><span class="o">,</span> <span class="s">&quot;Desert&quot;</span><span class="o">,</span> <span class="s">&quot;Quality control&quot;</span><span class="o">,</span> <span class="s">&quot;Persistence&quot;</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>In the user interface (that is, on the web page) we’ll only need to
-display the name of each employer, and when processing the form, we’ll
-use the ID to retrieve the employer from the data layer. Using the ID of
-an employer is the only way to uniquely identify which employer has been
-selected in the form, outside the cozy confines of our Java application.</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">JobForm</span></code> constructor, we initialize the list of <code class="docutils literal notranslate"><span class="pre">Employer</span></code>
-objects. Initializing the other lists is up to you.</p>
-<p>For tasks #3-5, you’ll need to mimic the code that’s in place for
-<code class="docutils literal notranslate"><span class="pre">employerId</span></code> and the <code class="docutils literal notranslate"><span class="pre">employers</span></code> list for the other job field types.</p>
-<p>Once you have that stuff in place, you’ll be ready to process the form
-in task #6. Validate the form in the <code class="docutils literal notranslate"><span class="pre">add</span></code> handler of
-<code class="docutils literal notranslate"><span class="pre">JobController</span></code>, and if it’s valid, create a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and
-add it to the data layer by calling <code class="docutils literal notranslate"><span class="pre">jobData.add(newJob)</span></code>.</p>
-<p>To create the new job, you’ll need to find the pre-existing objects for
-all fields other than <code class="docutils literal notranslate"><span class="pre">name</span></code> (<code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, etc). Do
-this using the methods discussed above. Refer to the constructor in
-<code class="docutils literal notranslate"><span class="pre">Job</span></code> to make sure you list the objects in the correct order when
-calling it.</p>
-<p>Once you’ve created the new job, redirect to the single job display page
-that you created above. If the <code class="docutils literal notranslate"><span class="pre">jobForm</span></code> model object fails
-validation, display the form again.</p>
-<p>Once you’ve knocked that out, you’ll be able to create new jobs in the
-system via the application interface! Note that these job objects won’t
-survive an application restart, because they live only within our
-in-progress application’s temporary data storage system. (This is one
-difference between how your app will behave compared with our demo app.
-If you add a new job to our demo app, it will persist.)</p>
+</li>
+<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">assert</span></code> statements to test that the constructor correctly assigns the
+class and value of each field.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">instanceof</span></code> keyword can be used to check the class of an object.
+The result of the comparison is a boolean.</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">objectName</span> <span class="k">instanceof</span> <span class="n">ClassName</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="test-the-equals-method">
+<h3>Test the <code class="docutils literal notranslate"><span class="pre">equals</span></code> Method<a class="headerlink" href="#test-the-equals-method" title="Permalink to this headline">¶</a></h3>
+<p>Two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects are considered equal if they have the same <code class="docutils literal notranslate"><span class="pre">id</span></code> value,
+even if one or more of the other fields differ. Similarly, the two objects
+are NOT equal if their <code class="docutils literal notranslate"><span class="pre">id</span></code> values differ, even if all the other fields are
+identical.</p>
+<ol class="arabic simple">
+<li>In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testJobsForEquality</span></code>.</li>
+<li>Generate two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that have identical field values EXCEPT for
+<code class="docutils literal notranslate"><span class="pre">id</span></code>. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
+<li>Generate a third <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and reassign its <code class="docutils literal notranslate"><span class="pre">id</span></code> value to be the same
+as one of the objects in the previous step. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns
+<code class="docutils literal notranslate"><span class="pre">true</span></code> even when the other field values differ.</li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Time to save, commit, and push your work to GitHub again.</p>
+</div>
+</div>
+</div>
+<div class="section" id="use-tdd-to-build-the-tostring-method">
+<h2>6) Use TDD to Build The <code class="docutils literal notranslate"><span class="pre">toString</span></code> Method<a class="headerlink" href="#use-tdd-to-build-the-tostring-method" title="Permalink to this headline">¶</a></h2>
+<p>To display the data for a particular <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, you need to implement a
+custom <code class="docutils literal notranslate"><span class="pre">toString</span></code> method. Rather than creating this method and then testing
+it, you will flip that process using TDD.</p>
+<div class="section" id="create-first-test-for-tostring">
+<h3>Create First Test for <code class="docutils literal notranslate"><span class="pre">toString</span></code><a class="headerlink" href="#create-first-test-for-tostring" title="Permalink to this headline">¶</a></h3>
+<p>Before writing your first test, consider how we want the method to behave:</p>
+<ol class="arabic">
+<li><p class="first">When passed a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, it should return a string that contains a
+blank line before and after the job information.</p>
+</li>
+<li><p class="first">The string should contain a label for each field, followed by the data
+stored in that field. Each field should be on its own line.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ID:  _______
+Name: _______
+Employer: _______
+Location: _______
+Position Type: _______
+Core Competency: _______
+</pre></div>
+</div>
+</li>
+<li><p class="first">If a field is empty, the method should add, “Data not available” after
+the label.</p>
+</li>
+<li><p class="first">(Bonus) If a <code class="docutils literal notranslate"><span class="pre">Job</span></code> object ONLY contains data for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field, the
+method should return, “OOPS! This job does not seem to exist.”</p>
+</li>
+</ol>
+<p>In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, add a new test to check the first requirement, then run
+that test (it should fail).</p>
+<p>Woo hoo! Failure is what we want here! Now you get to fix that.</p>
+</div>
+<div class="section" id="code-tostring-to-pass-the-first-test">
+<h3>Code <code class="docutils literal notranslate"><span class="pre">toString</span></code> to Pass the First Test<a class="headerlink" href="#code-tostring-to-pass-the-first-test" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, create a <code class="docutils literal notranslate"><span class="pre">toString</span></code> method that passes the first test.
+Since the test only checks if the returned string starts and ends with a blank
+line, make that happen.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">Do NOT add anything beyond what is needed to make the test pass. You will
+add the remaining behaviors for <code class="docutils literal notranslate"><span class="pre">toString</span></code> as you code each new test.</p>
+</div>
+</div>
+<div class="section" id="finish-the-tdd-for-tostring">
+<h3>Finish the TDD for <code class="docutils literal notranslate"><span class="pre">toString</span></code><a class="headerlink" href="#finish-the-tdd-for-tostring" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Code a new test for the second required behavior, then run the tests to make
+sure the new one fails.</li>
+<li>Modify <code class="docutils literal notranslate"><span class="pre">toString</span></code> to make the new test pass. Also, make sure that your
+updates still pass all of the old tests.</li>
+<li>Continue this test-refactor cycle until all of the behaviors we want for
+<code class="docutils literal notranslate"><span class="pre">toString</span></code> work. Remember to add only ONE new test at a time.</li>
+</ol>
+<p>Cool! Your <code class="docutils literal notranslate"><span class="pre">Job</span></code> class is now complete and operates as desired.</p>
+</div>
+</div>
+<div class="section" id="refactor-to-dry-the-support-classes">
+<h2>7) Refactor to DRY the Support Classes<a class="headerlink" href="#refactor-to-dry-the-support-classes" title="Permalink to this headline">¶</a></h2>
+<p>Review the code in the <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code> classes. What similarities do you see?</p>
+<p>There is a fair amount of repetition between the classes. As a good coder,
+anytime you find yourself adding identical code in multiple locations you
+should consider how to streamline the process.</p>
+<blockquote>
+<div>DRY = “Don’t Repeat Yourself”.</div></blockquote>
+<div class="section" id="create-a-base-class">
+<h3>Create a Base Class<a class="headerlink" href="#create-a-base-class" title="Permalink to this headline">¶</a></h3>
+<p>Let’s move all of the repeated code into a separate class. We will then have
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> <em>inherit</em>
+this common code.</p>
+<ol class="arabic simple">
+<li>Create a new class called <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>.</li>
+<li>Consider the following questions to help you decide what code to put in the
+<code class="docutils literal notranslate"><span class="pre">JobFields</span></code> class:<ol class="loweralpha">
+<li>What fields do ALL FOUR of the classes have in common?</li>
+<li>Which constructors are the same in ALL FOUR classes?</li>
+<li>What getters and setters do ALL of the classes share?</li>
+<li>Which custom methods are identical in ALL of the classes?</li>
+</ol>
+</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>, declare each of the common fields.</li>
+<li>Code the constructors.</li>
+<li>Use <em>Generate</em> to create the appropriate getters and setters.</li>
+<li>Add in the custom methods.</li>
+</ol>
+</div>
+<div class="section" id="extend-jobfields-into-employer">
+<h3>Extend <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> into <code class="docutils literal notranslate"><span class="pre">Employer</span></code><a class="headerlink" href="#extend-jobfields-into-employer" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have the common code located in the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> file, we can
+modify the other classes to reference this shared code. Let’s begin with
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code>.</p>
+<ol class="arabic">
+<li><p class="first">Modify line 5 to <em>extend</em> the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> class into <code class="docutils literal notranslate"><span class="pre">Employer</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Employer</span> <span class="kd">extends</span> <span class="n">JobFields</span> <span class="o">{</span>
+
+   <span class="c1">//Code not displayed.</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Next, remove any code in <code class="docutils literal notranslate"><span class="pre">Employer</span></code> that matches code from <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>
+(e.g. the <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">nextId</span></code> fields are shared).</p>
+</li>
+<li><p class="first">Remove any of the getters and setters that are the same.</p>
+</li>
+<li><p class="first">Remove any of the custom methods that are identical.</p>
+</li>
+<li><p class="first">The empty constructor is shared, but not the second. Replace the two
+constructors with the following:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Employer</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">super</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">extends</span></code> and <code class="docutils literal notranslate"><span class="pre">super</span></code> keywords link the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code> classes.</p>
+</li>
+<li><p class="first">Rerun your unit tests to verify your refactored code.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="finish-drying-your-code">
+<h3>Finish DRYing Your Code<a class="headerlink" href="#finish-drying-your-code" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Repeat the process above for the <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code> classes.</li>
+<li>Rerun your unit tests to verify that your classes and methods still work.</li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">You know you need to do this, but here is the reminder anyway. Save, commit,
+and push your work to GitHub.</p>
+</div>
 </div>
 </div>
 <div class="section" id="sanity-check">
 <h2>Sanity Check<a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h2>
-<p>Before submitting, make sure that the following are true of your
-application:</p>
-<ol class="arabic simple">
-<li>You can create a new job from <code class="docutils literal notranslate"><span class="pre">/job/add</span></code> by entering the name of a
-job, and selecting employer, location, skill, and position type
-values from dropdown selects.</li>
-<li>If you leave off the name of a job, you are presented with the form
-again, and a message describing the error is presented on the page.</li>
-<li>Upon creating a new job, you are sent to a screen displaying the data
-for only the new job. The URL for this new job is of the form
-<code class="docutils literal notranslate"><span class="pre">/job?id=X</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is the numeric ID of the new job.</li>
-<li>When searching and listing data, your new job shows up when
-appropriate. For example, you can see the job when searching for it
-by employer, or by its location, skill, or position type.</li>
-</ol>
-<p>Refer to the <a class="reference external" href="https://techjobs-oo.cfapps.io/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> if you’re not
-sure how thing are supposed to work.</p>
+<blockquote>
+<div>TODO: Add screenshots, gifs, or video showing successful app operation.</div></blockquote>
 </div>
 <div class="section" id="how-to-submit">
 <h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
+<p>Nice! You successfully shifted the old console app into a more useful object
+oriented configuration.</p>
 <p>To turn in your assignment and get credit, follow the
 <a class="reference internal" href="how-to-submit.html#how-to-submit-work"><span class="std std-ref">submission instructions</span></a>.</p>
 </div>
@@ -432,7 +638,7 @@ sure how thing are supposed to work.</p>
         <li class="previous"><a href="tech-jobs-console.html"><span aria-hidden="true">&larr;</span> Assignment #1: Tech Jobs (Console Edition)</a></li>
         
         
-        <li class="next"><a href="new-techjobs-oo.html">Assignment #2: Revised Tech Jobs (Object-Oriented Edition) <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="tech-jobs-mvc.html">Assignment #3: Tech Jobs (MVC Edition) <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
