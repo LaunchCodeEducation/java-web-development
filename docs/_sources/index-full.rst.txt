@@ -12,6 +12,7 @@ Chapters
    chapters/classes-part2/index
    chapters/unit-testing/index
    chapters/inheritance/index
+   chapters/interfaces-and-polymorphism/index
 
 
 .. toctree::

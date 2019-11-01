@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>8.1. Introduction &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Index" href="../../genindex.html" />
+    <link rel="prev" title="8. Interfaces and Polymorphism" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">8. Interfaces and Polymorphism</a></li>
+    <li class="active">8.1. Introduction</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="introduction">
+<h1>8.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The third and last <strong>Pillar of Object-Oriented Programming</strong> that we’ll
+explore is <strong>polymorphism</strong>.</p>
+<div class="section" id="polymorphism">
+<h2>8.1.1. Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">¶</a></h2>
+<p>From our <a class="reference external" href="../../glossary/" target="_blank">glossary<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>:</p>
+<aside class="aside-definition"><p><strong>polymorphism</strong>: An object-oriented mechanism that allows for objects
+of different types to be used in the same way.</p>
+</aside><p>We’ve already encountered polymorphism made possible by inheritance.
+Recall the example from the <a class="reference external" href="../classes-and-objects-inheritance/#inheritance-in-java" target="_blank">lesson on
+inheritance<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+where we defined a <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class, with subclasses <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Tiger</span></code>.</p>
+<p>Suppose we had a <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> like below.</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class CatOwner
+{
+    private Cat pet;
+
+    public CatOwner(Cat pet) {
+        this.pet = pet;
+    }
+
+    public void feedTheCat() {
+
+        // ...code to prepare the cat&#39;s meal...
+
+        pet.eat();
+    }
+}
+</pre></div>
+</div>
+<p>The method <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> uses the field <code class="docutils literal notranslate"><span class="pre">pet</span></code>, which is of type
+<code class="docutils literal notranslate"><span class="pre">Cat</span></code>, but since a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">Cat</span></code> via inheritance, it is
+perfectly acceptable to use an instance of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> to fill the
+<code class="docutils literal notranslate"><span class="pre">pet</span></code> field.</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>HouseCat suki = new HouseCat(&quot;Suki&quot;, 12);
+CatOwner Annie = new CatOwner (suki);
+
+Annie.feedTheCat();
+</pre></div>
+</div>
+<p>Similarly, <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> can accept <code class="docutils literal notranslate"><span class="pre">Tiger</span></code> instances as well. This
+is because the only thing that the method requires is that the input
+parameter has the methods defined within <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, and via inheritance,
+both of the subclasses satisfy this requirement. This is an example of
+polymorphism.</p>
+<p>There’s one more object-oriented mechanism that empowers us to code in a
+polymorphic way: the interface.</p>
+</div>
+<div class="section" id="interfaces">
+<h2>8.1.2. Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h2>
+<p>An <strong>interface</strong> is a formal construction within Java that allows us to
+create a contract that classes can choose to fulfill. A Java interface
+may contain:</p>
+<ul class="simple">
+<li>Constants (that is, <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span></code> fields)</li>
+<li>Method signatures</li>
+<li>Static methods</li>
+<li>Default methods</li>
+</ul>
+<aside class="aside-note"><p>An interface may also contain “nested types”, which we won’t discuss in
+this class.</p>
+</aside><p>The most useful aspect of interfaces is to specify method signatures.
+Recall that a method signature includes the name, parameters, and return
+type of a method, but no body. From the list above, we’ve seen every
+type of member except for <strong>default methods</strong>. We’ll describe these
+briefly near the end of this lesson.</p>
+<p>Here’s a simple example:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public interface Feedable
+{
+
+    void eat();
+
+}
+</pre></div>
+</div>
+<p>And here are some observations:</p>
+<ul class="simple">
+<li>An interface is defined similarly to an abstract class, but using the
+keyword <code class="docutils literal notranslate"><span class="pre">interface</span></code>. (We’ll discuss similarities and differences
+between interfaces and abstract classes below.)</li>
+<li><code class="docutils literal notranslate"><span class="pre">eat</span></code> only has a signature. We are not allowed to provide a body
+for methods defined in interfaces.</li>
+<li><code class="docutils literal notranslate"><span class="pre">eat</span></code> does not have an access modifier. Interface members are
+always <code class="docutils literal notranslate"><span class="pre">public</span></code>, and while we may use the <code class="docutils literal notranslate"><span class="pre">public</span></code> modifier, it’s
+unnecessary. An interface method may not have an access modifier that
+is more restrictive than <code class="docutils literal notranslate"><span class="pre">public</span></code>.</li>
+<li>The interface itself is declared <code class="docutils literal notranslate"><span class="pre">public</span></code>, which means any other
+class may use it. We may also leave off <code class="docutils literal notranslate"><span class="pre">public</span></code>, making the
+interface package-private, or usable only within the same package.</li>
+<li>The name is indicative of the behavior that the interface is intended
+to describe. While this is only a convention, most interfaces have
+names that are adjectives. Whatever you do, use meaningful names!</li>
+</ul>
+<p>The purpose of an interface is to define a contract that classes may
+choose to uphold. In doing so, we say that they “<em>implement</em> the
+interface”. The syntax for implementation is similar to that for
+inheritance. Here’s how we can use the <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface in
+defining our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Cat implements Feedable
+{
+
+    @Override
+    public void eat()
+    {
+        // method implementation
+    }
+
+    // ...rest of the class definition...
+
+}
+</pre></div>
+</div>
+<p>Since we’ve declared that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> implements <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>, we have to
+provide an implementation for the <code class="docutils literal notranslate"><span class="pre">eat</span></code> method, with the signature as
+specified in the interface definition. Note that we use <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code>,
+just as we do when overriding an inherited method in a subclass. Like
+that situation, using <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> when implementing methods defined in
+an interface will enable the compiler to check that your method
+signature does indeed match that of the interface.</p>
+<aside class="aside-note"><p>You may both extend a class and implement an interface at the same time:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class MyClass extends MySubclass implements MyInterface
+{
+    // ...code...
+}
+</pre></div>
+</div>
+</aside><p>As with classes, interfaces define a type that can be used when
+declaring fields, parameters, and local variables.</p>
+<p>Using an interface allows us to relax the requirements on our code
+elsewhere, thus making it more extensible and adaptable. For example,
+here’s how we might modify <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code>:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class CatOwner
+{
+    private Feedable pet;
+
+    public CatOwner(Feedable pet) {
+        this.pet = pet;
+    }
+
+    public  void feedTheCat() {
+
+        // ...code to prepare the cat&#39;s meal...
+
+        pet.eat();
+    }
+}
+</pre></div>
+</div>
+<p>Note that we’ve declared the property <code class="docutils literal notranslate"><span class="pre">pet</span></code> to be of type
+<code class="docutils literal notranslate"><span class="pre">Feedable</span></code>. This class assumes that the only behavior of <code class="docutils literal notranslate"><span class="pre">pet</span></code> that
+we’ll need within the class is the ability to <code class="docutils literal notranslate"><span class="pre">eat</span></code>. But if that’s all
+we need, then we should relax the requirements on the <code class="docutils literal notranslate"><span class="pre">pet</span></code> property
+as much as possible. In fact, there’s nothing specific about cats in
+this class, so we might make our code a step more abstract and flexible
+by doing the following:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class PetOwner
+{
+    private Feedable pet;
+
+    public PetOwner(Feedable pet) {
+        this.pet = pet;
+    }
+
+    public void feedThePet() {
+
+        // ...code to prepare the pet&#39;s meal...
+
+        pet.eat();
+    }
+}
+
+public class CatOwner extends PetOwner
+{
+    // code that requires Cat-specific behavior
+}
+</pre></div>
+</div>
+<p>We’ve created a <code class="docutils literal notranslate"><span class="pre">PetOwner</span></code> class that encapsulates the behavior that
+could apply to any pet (any <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>, actually), and have
+<code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> extend <code class="docutils literal notranslate"><span class="pre">PetOwner</span></code>. This allows other classes to extend
+<code class="docutils literal notranslate"><span class="pre">PetOwner</span></code> to make, say, a <code class="docutils literal notranslate"><span class="pre">DogOwner</span></code> that knows how to play fetch
+with their pet, or a <code class="docutils literal notranslate"><span class="pre">HorseOwner</span></code> that knows how to ride their pet. It
+also reduces the dependency of the <code class="docutils literal notranslate"><span class="pre">feedThePet</span></code> method on the specific
+type of pet, since it doesn’t need to care.</p>
+<p>To use this new class design, we can revise the sample code from above
+as follows:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>HouseCat suki = new HouseCat(&quot;Suki&quot;, 12);
+CatOwner Annie = new CatOwner(suki);
+
+Annie.feedThePet();
+</pre></div>
+</div>
+<p>While the code usage here remains unchanged except for changing the
+method name from <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> to the more generic <code class="docutils literal notranslate"><span class="pre">feedThePet</span></code>, the
+opportunities for using the classes we’ve built are much wider since the
+defined classes are no longer dependent on the specific <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.
+Also notice that we’ve used the object <code class="docutils literal notranslate"><span class="pre">suki</span></code> in a polymorphic way,
+creating it as a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>, but using it as a <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> within the
+<code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class.</p>
+<aside class="aside-note"><p>Like inheritance, interfaces enable polymorphic usage of objects. We can
+create an object, and then use it in different contexts based on any
+interfaces that it implements.</p>
+</aside><p>One final note before discussing how we might use interfaces in our
+code: <em>Interfaces may not be created like objects are, with</em> <code class="docutils literal notranslate"><span class="pre">new</span></code>.
+You may implement an interface, or declare variables and parameters as
+interface types. You can not, however, create an instance of an
+interface.</p>
+</div>
+<div class="section" id="interfaces-in-the-wild">
+<h2>8.1.3. Interfaces In The Wild<a class="headerlink" href="#interfaces-in-the-wild" title="Permalink to this headline">¶</a></h2>
+<p>The most immediate situations that you’ll encounter in which you’ll want
+to use interfaces are when working with interfaces and classes that are
+part of Java. Here are just a few.</p>
+<div class="section" id="comparable-t">
+<h3>8.1.3.1. Comparable&lt;T&gt;<a class="headerlink" href="#comparable-t" title="Permalink to this headline">¶</a></h3>
+<p><strong>Purpose</strong>: A class implements <code class="docutils literal notranslate"><span class="pre">Comparable&lt;T&gt;</span></code> in order to allow
+comparison - in a “greater than” and “less than” sense - to another
+instance of the class. This is a “parameterized” interface, which means
+that when using it you need to specify the class that it will be
+comparing. For example, <code class="docutils literal notranslate"><span class="pre">Comparable&lt;Job&gt;</span></code> would compare <code class="docutils literal notranslate"><span class="pre">Job</span></code>
+objects.</p>
+<p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">compareTo(T)</span></code></p>
+<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html" target="_blank">Comparable&lt;T&gt;
+Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
+</div>
+<div class="section" id="comparator-t">
+<h3>8.1.3.2. Comparator&lt;T&gt;<a class="headerlink" href="#comparator-t" title="Permalink to this headline">¶</a></h3>
+<p><strong>Purpose</strong>: Compare two objects of a given class. When wanting to
+compare objects from a given class, you can create several different
+<code class="docutils literal notranslate"><span class="pre">Comparator</span></code> classes to allow different types of comparison and
+ordering. The class that you want to compare objects of <em>does not</em>
+implement the interface itself.</p>
+<p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">compare(T,</span> <span class="pre">T)</span></code></p>
+<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank">Comparator&lt;T&gt;
+Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
+<p>This interface can be used to determine, given two objects of the given
+type, which one is “greater” than the other. It is also used by
+collections such as
+<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank">ArrayList<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+to sort its contents with the
+<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#sort-java.util.Comparator-" target="_blank">sort<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+method.</p>
+<aside class="aside-note"><p>For more on the differences between <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> and <code class="docutils literal notranslate"><span class="pre">Comparable</span></code>,
+see <a class="reference external" href="https://www.javatpoint.com/difference-between-comparable-and-comparator" target="_blank">this
+article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</aside></div>
+<div class="section" id="iterable-t">
+<h3>8.1.3.3. Iterable&lt;T&gt;<a class="headerlink" href="#iterable-t" title="Permalink to this headline">¶</a></h3>
+<p><strong>Purpose</strong>: Enable iteration over a collection of objects using a
+for-each loop</p>
+<p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">iterator()</span></code></p>
+<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html" target="_blank">Iterable&lt;T&gt;
+Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
+<p>This interface is implemented by the <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;T&gt;</span></code> class, which we’ve
+been using throughout this course.</p>
+<p><strong>Example</strong></p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Iterable&lt;String&gt; collection = new ArrayList&lt;&gt;();
+
+// Add items to the collection
+
+for (String item : collection) {
+    // do something with each item
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-t">
+<h3>8.1.3.4. List&lt;T&gt;<a class="headerlink" href="#list-t" title="Permalink to this headline">¶</a></h3>
+<p><strong>Purpose</strong>: Enable access to objects in a collection by index. In other
+words, enable ordered collections.</p>
+<p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add(int,</span> <span class="pre">T)</span></code>, <code class="docutils literal notranslate"><span class="pre">get(int)</span></code>, <code class="docutils literal notranslate"><span class="pre">indexOf(T)</span></code></p>
+<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List&lt;T&gt;
+Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
+<p>This interface is also implemented by the <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;T&gt;</span></code> class, which
+we’ve been using throughout this course. In fact, <code class="docutils literal notranslate"><span class="pre">List&lt;T&gt;</span></code> extends
+<code class="docutils literal notranslate"><span class="pre">Iterable&lt;T&gt;</span></code>. <em>An interface may extend another interface</em>, in the
+same way that classes may extend each other.</p>
+<p><strong>Example</strong></p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>List&lt;String&gt; collection = new ArrayList&lt;&gt;();
+
+// Add items to the collection
+
+// Get the first item
+String firstItem = collection.get(0);
+</pre></div>
+</div>
+</div>
+<div class="section" id="map-k-v">
+<h3>8.1.3.5. Map&lt;K, V&gt;<a class="headerlink" href="#map-k-v" title="Permalink to this headline">¶</a></h3>
+<p><strong>Purpose</strong>: Represent a collection of key/value pairs.</p>
+<p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">get(K)</span></code>, <code class="docutils literal notranslate"><span class="pre">containsKey(K)</span></code>, <code class="docutils literal notranslate"><span class="pre">put(K,</span> <span class="pre">V)</span></code></p>
+<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank">Map&lt;K, V&gt;
+Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
+<p>This interface is implemented by the <code class="docutils literal notranslate"><span class="pre">HashMap&lt;K,</span> <span class="pre">V&gt;</span></code> class, which
+we’ve been using throughout this course.</p>
+<p><strong>Example</strong></p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Map&lt;String, String&gt; collection = new HashMap&lt;&gt;();
+
+// Add items to the collection
+
+// Get item with key &quot;hello&quot;
+String hello = collection.get(&quot;hello&quot;);
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-methods">
+<h3>8.1.3.6. Default Methods<a class="headerlink" href="#default-methods" title="Permalink to this headline">¶</a></h3>
+<p>We mentioned above that we would introduce <strong>default methods</strong>, so let’s
+do that now. A default method has a body. In other words, it is a
+fully-formed method. It is preceded with the <code class="docutils literal notranslate"><span class="pre">default</span></code> keyword, and it
+may be overridden by classes implementing the interface.</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public interface MyInterface {
+
+    void someMethod();
+
+    default void someOtherMethod() {
+        // ...code goes here...
+    }
+
+}
+</pre></div>
+</div>
+<p>Default methods were added to Java 8 (the most recent version of Java),
+and thus are relatively new. Their intended purpose is to allow
+programmers to add a method to an interface that has already been
+released, while not forcing those already using the interface to add new
+code to their classes. You should avoid using default methods in all
+other situations other than the one described here. <em>Do not use default
+methods when writing a new interface.</em></p>
+</div>
+</div>
+<div class="section" id="comparison-to-abstract-classes">
+<h2>8.1.4. Comparison to Abstract Classes<a class="headerlink" href="#comparison-to-abstract-classes" title="Permalink to this headline">¶</a></h2>
+<p>We mentioned above that interfaces share some characteristics with
+abstract classes. Recall that an abstract class is one declared with the
+<code class="docutils literal notranslate"><span class="pre">abstract</span></code> keyword. You may not create an object from an abstract
+class, and like an interface, an abstract class is allowed to contain
+methods that only have signatures (that is, they don’t have
+implementation code).</p>
+<p>The main differences between interfaces and abstract classes are: - You
+<em>implement</em> an interface, while you <em>extend</em> an abstract class. The net
+effect of this is that a class may implement interfaces while also
+extending a class. Note that while you can implement <em>more than one</em>
+interface, you can only extend <em>one</em> class. - Abstract classes may
+contain non-constant fields, while interfaces may not. - Interfaces may
+only contain implementation code inside of default or static methods,
+thus they can’t contain methods that need to be shared by class
+instances in the same way that abstract classes do. In particular, any
+method that needs to use an instance property may not be part of an
+interface, since interfaces don’t have instance properties. Unlike
+interfaces, abstract classes may have methods which are not static or
+default and which do have implementation code. - Abstract classes should
+be used to collect and specify behavior by related classes, while an
+interface should be used to specify related behaviors that may be common
+across unrelated classes.</p>
+<p>For example, we could implement <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> in many ways, to sort a
+wide variety of classes whose objects may be compared to one another:
+<code class="docutils literal notranslate"><span class="pre">Date</span></code> (compare by temporal order), <code class="docutils literal notranslate"><span class="pre">Student</span></code> (compare by GPA),
+<code class="docutils literal notranslate"><span class="pre">Person</span></code> (compare by age), <code class="docutils literal notranslate"><span class="pre">City</span></code> (compare by population). However,
+it’s unlikely that these classes would have any implementable behavior
+that would warrant that they have the same base class.</p>
+</div>
+<div class="section" id="benefits-of-using-interfaces">
+<h2>8.1.5. Benefits of Using Interfaces<a class="headerlink" href="#benefits-of-using-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>Interfaces are great! Trust us, they really are. Once you get used to
+them, you’ll begin to think more abstractly about which <em>behaviors</em> your
+code requires rather than which <em>classes</em> your code requires. This means
+you’ll be able to “code to interfaces” (an OOP principle) instead of
+coding to classes, and your code will become more flexible and
+extensible.</p>
+<p>Here are a few benefits of using interfaces:</p>
+<ul class="simple">
+<li>You can only extend one class, but you may implement many interfaces.</li>
+<li>You can extend a class and implement an interface at the same time.</li>
+<li>By declaring variables and parameters as interface types, you make
+your code useful for a much wider variety of situations.</li>
+<li>When you declare properties and return types to be interface types,
+you decouple code using your classes from the actual class types you
+use. This means that you are free to change the specific
+implementation of your classes without affecting those using them.
+For example, if from a public method you returned an object of type
+<code class="docutils literal notranslate"><span class="pre">Iterable&lt;Job&gt;</span></code> then you would be free to change the method’s
+internal structure to use, say, a
+<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html" target="_blank">HashSet<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+instead of an
+<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank">ArrayList<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
+</ul>
+<p>Remember that you don’t need to start creating interfaces to use their
+power! When working with collections, in particular, think about the
+behaviors that your code requires, and declare variables and parameters
+to be interface types if you only need to use specific behaviors such as
+ordering or iteration.</p>
+</div>
+<div class="section" id="references">
+<h2>8.1.6. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank">Interfaces
+Tutorial<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html" target="_blank">Comparable
+Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank">Comparator
+Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html" target="_blank">Iterable
+Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List
+Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank">Map
+Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+</ul>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> 8. Interfaces and Polymorphism</a></li>
+        
+        
+        <li class="next"><a href="../../genindex.html">Index <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/interfaces-and-polymorphism/introduction.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
