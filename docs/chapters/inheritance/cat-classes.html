@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>7.3. A Tale of Two Cats &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="7.4. Inheriting from Abstraction" href="abstract-inheritance.html" />
+    <link rel="prev" title="7.2. Inheritance in Java" href="java-inheritance.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">7. Inheritance</a></li>
+    <li class="active">7.3. A Tale of Two Cats</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="a-tale-of-two-cats">
+<h1>7.3. A Tale of Two Cats<a class="headerlink" href="#a-tale-of-two-cats" title="Permalink to this headline">¶</a></h1>
+<p>Let’s revisit our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> friends. In <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>,
+open <code class="docutils literal notranslate"><span class="pre">src/org/launchcode/java/demos/inheritance</span></code> and examine the two classes inside.</p>
+<div class="section" id="inheriting-fields-and-properties">
+<h2>7.3.1. Inheriting Fields and Properties<a class="headerlink" href="#inheriting-fields-and-properties" title="Permalink to this headline">¶</a></h2>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> has a <code class="docutils literal notranslate"><span class="pre">private</span></code> string field <code class="docutils literal notranslate"><span class="pre">family</span></code>, representing
+the biological family of all cats.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">String</span> <span class="n">family</span> <span class="o">=</span> <span class="s">&quot;Felidae&quot;</span><span class="o">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This field is not directly accessible by <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> since it is <code class="docutils literal notranslate"><span class="pre">private</span></code>.
+However, it may be read via the public getter <code class="docutils literal notranslate"><span class="pre">getFamily</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">getFamily</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="n">family</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>There is no setter for <code class="docutils literal notranslate"><span class="pre">family</span></code>, however. It may only be set within <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.
+It makes sense that a subclass should not be able to change the biological family
+of a cat, since this field should rarely, if ever, change.</p>
+<p>Methods of the base class <code class="docutils literal notranslate"><span class="pre">Cat</span></code> may be called on instances of the
+subclass <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> as if they were defined as part of the
+<code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>.</p>
+<p>Try it out. In your inheritance folder, create a <code class="docutils literal notranslate"><span class="pre">Main</span></code> class. Within that class,
+write an instance of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> and call some of the methods it inherits from <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HouseCat</span> <span class="n">garfield</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Garfield&quot;</span><span class="o">,</span> <span class="mi">12</span><span class="o">);</span>
+<span class="n">garfield</span><span class="o">.</span><span class="na">eat</span><span class="o">();</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">garfield</span><span class="o">.</span><span class="na">isTired</span><span class="o">());</span>   <span class="c1">// prints true</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">eat</span></code> method was defined in <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, but may be called on all
+<code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> instances as well. We say: “<code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> inherits the
+method <code class="docutils literal notranslate"><span class="pre">eat()</span></code> from <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.” We know we have successfully called <code class="docutils literal notranslate"><span class="pre">eat()</span></code> on
+<code class="docutils literal notranslate"><span class="pre">garfield</span></code> because the printed statement indicates the cat is now tired.</p>
+</div>
+<div class="section" id="super">
+<h2>7.3.2. <code class="docutils literal notranslate"><span class="pre">super</span></code><a class="headerlink" href="#super" title="Permalink to this headline">¶</a></h2>
+<p>We mention above that a subclass inherits all <em>non-constructor</em>
+methods from its base class. Indeed, when extending a class, we will not
+be able to create new instances of our subclass <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> using any
+constructors provided by <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
+<p>The base class <code class="docutils literal notranslate"><span class="pre">Cat</span></code> has a constructor that takes a single parameter
+of type <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Cat</span> <span class="o">(</span><span class="kt">double</span> <span class="n">aWeight</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">weight</span> <span class="o">=</span> <span class="n">aWeight</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>But because <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> does not have such a constructor, the following code
+does not compile:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">HouseCat</span> <span class="n">mittens</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="mf">8.4</span><span class="o">);</span>
+</pre></div>
+</div>
+<p id="index-0"><code class="docutils literal notranslate"><span class="pre">Cat</span></code> constructors are not inherited by <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>. If we want
+to use a <code class="docutils literal notranslate"><span class="pre">Cat</span></code> constructor in this subclass, we must explicitly
+provide it.</p>
+<p>To do so, look at the constructor included in <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">HouseCat</span><span class="o">(</span><span class="n">String</span> <span class="n">aName</span><span class="o">,</span> <span class="kt">double</span> <span class="n">aWeight</span><span class="o">)</span> <span class="o">{</span>
+   <span class="kd">super</span><span class="o">(</span><span class="n">aWeight</span><span class="o">);</span>
+   <span class="n">name</span> <span class="o">=</span> <span class="n">aName</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">super</span></code> keyword allows the subclass to access the constructor from the
+base class. This call to the base class constructor must be the first line of
+the subclass constructor. In the case of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>, the subclass constructor
+extends the original constructor by setting an additional property, <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>If a base class constructor takes no arguments, then the
+default constructor is implicitly called for you in the subclass.</p>
+<p>For example, we can add an additional constructor in <code class="docutils literal notranslate"><span class="pre">Cat</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Cat</span> <span class="o">()</span> <span class="o">{</span>
+   <span class="n">weight</span> <span class="o">=</span> <span class="mi">13</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Then in <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>, we can simply define another constructor as this:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">HouseCat</span><span class="o">(</span><span class="n">String</span> <span class="n">aName</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">name</span> <span class="o">=</span> <span class="n">aName</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Even though we don’t explicitly specify that we want to call a
+constructor from <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, the default constructor will be called. Now, we can
+initialize a new <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> with only a <code class="docutils literal notranslate"><span class="pre">name</span></code> property and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> default
+constructor will still be applied. Back in <code class="docutils literal notranslate"><span class="pre">Main</span></code>, you can confirm that the base
+class constructor has been called:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HouseCat</span> <span class="n">spike</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Spike&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">spike</span><span class="o">.</span><span class="na">getWeight</span><span class="o">());</span>   <span class="c1">// prints 13</span>
+</pre></div>
+</td></tr></table></div>
+<p>As a consequence of this constructor syntax, we can easily expose any
+constructor from the base class by providing a subclass constructor with
+the same signature and a body that only calls the base class
+constructor.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">HouseCat</span><span class="o">(</span><span class="kt">double</span> <span class="n">aWeight</span><span class="o">)</span> <span class="o">{</span>
+   <span class="kd">super</span><span class="o">(</span><span class="n">aWeight</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">This constructor is a bad one, and is included merely to introduce
+syntax and usage. We would not want to have a constructor for
+<code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> that didn’t initialize an essential field such as <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+</div>
+</div>
+<div class="section" id="override">
+<span id="index-1"></span><h2>7.3.3. <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code><a class="headerlink" href="#override" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes when extending a class, we’ll want to modify behavior provided
+by the base class. This can be done by replacing the implementation of
+an inherited method by a completely new method implementation. For a
+given method, we can do this via <strong>method overriding</strong>.</p>
+<p>In our example, the <code class="docutils literal notranslate"><span class="pre">noise</span></code> method of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> overrides the
+method of the same name in <code class="docutils literal notranslate"><span class="pre">Cat</span></code>. When we override it, we should use
+the <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> annotation.</p>
+<p>Here are the methods in question.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">Cat</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>69
+70
+71</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">noise</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Meeeeeeooooowww!&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>In <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">noise</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello, my name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>If we have a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> object and call its <code class="docutils literal notranslate"><span class="pre">noise()</span></code> method, we will be
+using the method defined in <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Cat</span> <span class="n">plainCat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">(</span><span class="mf">8.6</span><span class="o">);</span>
+<span class="n">HouseCat</span> <span class="n">cheshireCat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Cheshire&quot;</span><span class="o">,</span> <span class="mi">12</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">plainCat</span><span class="o">.</span><span class="na">noise</span><span class="o">());</span> <span class="c1">// prints &quot;Meeeeeeooooowww!&quot;</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">garfield</span><span class="o">.</span><span class="na">noise</span><span class="o">());</span> <span class="c1">// prints &quot;Hello, my name is Cheshire!&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Similar to other <a class="reference internal" href="../unit-testing/junit.html#java-annotations"><span class="std std-ref">Java Annotations</span></a>, the <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> annotation is
+not required. However, it can prevent unintentional errors, and makes it clear
+when reading your code what you intend to do.</p>
+<p>The compiler will see the annotation and check to ensure that the signatures
+of the base method and the overriding method match up. If they don’t, it will
+flag an error. This can help prevent you from inadvertently creating a method
+with a different signature.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>When overriding a method from a base class, the method signatures <em>must
+be exactly the same</em>. Recall that the signature of a method is the
+method name and access level, along with it’s return type and the type
+and number of input parameters.</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">noise</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<p>When overriding a method, we may call the method from the base class
+that we are overriding by using <code class="docutils literal notranslate"><span class="pre">super</span></code>. Modify your <code class="docutils literal notranslate"><span class="pre">HouseCat.noise()</span></code>
+method as follows:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">noise</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">if</span> <span class="o">(</span><span class="n">isSatisfied</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="s">&quot;Hello, my name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">;</span>
+   <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">noise</span><span class="o">();</span> <span class="c1">// prints &quot;Meeeeeeooooowww!&quot;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This calls the overridden method in the base class via
+<code class="docutils literal notranslate"><span class="pre">super.noise()</span></code>, carrying out the original behavior if the given
+conditional branch is reached.</p>
+</div>
+<div class="section" id="object-class">
+<span id="index-2"></span><h2>7.3.4. <code class="docutils literal notranslate"><span class="pre">Object</span></code> Class<a class="headerlink" href="#object-class" title="Permalink to this headline">¶</a></h2>
+<p>In a previous lesson, we introduced the <a class="reference internal" href="../classes-part2/special-methods.html#special-methods"><span class="std std-ref">Special Methods</span></a> <code class="docutils literal notranslate"><span class="pre">equals</span></code> and
+<code class="docutils literal notranslate"><span class="pre">toString</span></code>. All classes contain default implementations of these methods that
+can be overridden.</p>
+<p>In fact, these default methods are part of a class called <code class="docutils literal notranslate"><span class="pre">Object</span></code>. If
+a class does not explicitly extend another class, then it implicitly
+extends <code class="docutils literal notranslate"><span class="pre">Object</span></code>. So the default implementations of <code class="docutils literal notranslate"><span class="pre">equals</span></code> and
+<code class="docutils literal notranslate"><span class="pre">toString</span></code> (along with a few <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#method.summary" target="_blank">other
+methods<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>)
+are made available to us via inheritance.</p>
+<p>Note that we should use the <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> annotation when we provide new
+implementations of these methods as well.</p>
+</div>
+<div class="section" id="references">
+<h2>7.3.5. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html" target="_blank">The &#64;Override annotation
+(docs.oracle.com)]<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" target="_blank">The Object Class
+(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+</ul>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>7.3.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>For this question, refer to the code block below.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span> <span class="o">{</span>
+   <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">friendly</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">language</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">text</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Message</span><span class="o">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="o">,</span> <span class="n">String</span> <span class="n">aText</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">language</span> <span class="o">=</span> <span class="n">aLanguage</span><span class="o">;</span>
+      <span class="n">text</span> <span class="o">=</span> <span class="n">aText</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">getFriendly</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">friendly</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLanguage</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">language</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getText</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">text</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>A class called <code class="docutils literal notranslate"><span class="pre">Greeting</span></code> extends <code class="docutils literal notranslate"><span class="pre">Message</span></code>. <code class="docutils literal notranslate"><span class="pre">Greeting</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Message</span></code> are both defined within a package called <code class="docutils literal notranslate"><span class="pre">Speech</span></code>.
+Select all of the fields and methods that are inherited by
+<code class="docutils literal notranslate"><span class="pre">Greeting</span></code>.</p>
+<ol class="last loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">friendly</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">language</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">text</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Message</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getFriendly</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getLanguage</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">getText</span></code></li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>For this question, refer to the code block below.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span> <span class="o">{</span>
+   <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">friendly</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">language</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">text</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Message</span><span class="o">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="o">,</span> <span class="n">String</span> <span class="n">aText</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">language</span> <span class="o">=</span> <span class="n">aLanguage</span><span class="o">;</span>
+      <span class="n">text</span> <span class="o">=</span> <span class="n">aText</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">getFriendly</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">friendly</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLanguage</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">language</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getText</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">text</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>A class called <code class="docutils literal notranslate"><span class="pre">Greeting</span></code> extends <code class="docutils literal notranslate"><span class="pre">Message</span></code>. What would a constructor for
+<code class="docutils literal notranslate"><span class="pre">Greeting</span></code> need to be to call the <code class="docutils literal notranslate"><span class="pre">Message</span></code> constructor?</p>
+<ol class="last loweralpha">
+<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="o">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="o">,</span> <span class="n">String</span> <span class="n">aText</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">isFriendly</span><span class="o">)</span> <span class="o">{</span>
+   <span class="kd">super</span><span class="o">(</span><span class="n">aLanguage</span><span class="o">,</span> <span class="n">aText</span><span class="o">);</span>
+   <span class="n">friendly</span> <span class="o">=</span> <span class="n">isFriendly</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="o">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="o">,</span> <span class="n">String</span> <span class="n">aText</span><span class="o">)</span> <span class="o">{</span>
+   <span class="kd">super</span><span class="o">(</span><span class="n">aLanguage</span><span class="o">,</span> <span class="n">aText</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="o">()</span> <span class="o">{</span>
+   <span class="kd">super</span><span class="o">(</span><span class="n">aLanguage</span><span class="o">,</span> <span class="n">aText</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="o">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="o">,</span> <span class="n">String</span> <span class="n">aText</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">language</span> <span class="o">=</span> <span class="n">aLanguage</span><span class="o">;</span>
+   <span class="n">text</span> <span class="o">=</span> <span class="n">aText</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="java-inheritance.html"><span aria-hidden="true">&larr;</span> 7.2. Inheritance in Java</a></li>
+        
+        
+        <li class="next"><a href="abstract-inheritance.html">7.4. Inheriting from Abstraction <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/inheritance/cat-classes.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

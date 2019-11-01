@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.1. Classes and Objects: Inheritance" href="introduction.html" />
+    <link rel="next" title="7.1. Inheritance in OOP" href="oop-inheritance.html" />
     <link rel="prev" title="6.4. Studio: Unit Testing" href="../unit-testing/studio.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -87,18 +87,44 @@
 <span id="id1"></span><h1>7. Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ol>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">7.1. Classes and Objects: Inheritance</a><ol>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#inheritance-in-java">7.1.1. Inheritance in Java</a><ol>
-<li class="toctree-l3"><a class="reference internal" href="introduction.html#working-with-constructors-in-subclasses">7.1.1.1. Working With Constructors in Subclasses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="introduction.html#overriding-base-class-behavior">7.1.1.2. Overriding Base Class Behavior</a></li>
-<li class="toctree-l3"><a class="reference internal" href="introduction.html#the-object-class">7.1.1.3. The Object Class</a></li>
-<li class="toctree-l3"><a class="reference internal" href="introduction.html#abstract-classes-and-methods">7.1.1.4. Abstract Classes and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop-inheritance.html">7.1. Inheritance in OOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java-inheritance.html">7.2. Inheritance in Java</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="java-inheritance.html#check-your-understanding">7.2.1. Check Your Understanding</a></li>
 </ol>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#data-typing-and-inheritance">7.1.2. Data Typing And Inheritance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#references">7.1.3. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cat-classes.html">7.3. A Tale of Two Cats</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="cat-classes.html#inheriting-fields-and-properties">7.3.1. Inheriting Fields and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cat-classes.html#super">7.3.2. <code class="docutils literal notranslate"><span class="pre">super</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cat-classes.html#override">7.3.3. <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cat-classes.html#object-class">7.3.4. <code class="docutils literal notranslate"><span class="pre">Object</span></code> Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cat-classes.html#references">7.3.5. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cat-classes.html#check-your-understanding">7.3.6. Check Your Understanding</a></li>
 </ol>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="abstract-inheritance.html">7.4. Inheriting from Abstraction</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="abstract-inheritance.html#abstract-classes">7.4.1. <code class="docutils literal notranslate"><span class="pre">abstract</span></code> Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract-inheritance.html#abstract-methods">7.4.2. <code class="docutils literal notranslate"><span class="pre">abstract</span></code> Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract-inheritance.html#references">7.4.3. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abstract-inheritance.html#check-your-understanding">7.4.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="casting.html">7.5. Casting</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="casting.html#references">7.5.1. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="casting.html#check-your-understanding">7.5.2. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing-inheritance.html">7.6. Testing Inheritance</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="testing-inheritance.html#check-your-understanding">7.6.1. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class-diagrams.html">7.7. Class Diagrams</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="class-diagrams.html#diagramming-a-single-class">7.7.1. Diagramming a Single Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-diagrams.html#diagramming-class-relationships">7.7.2. Diagramming Class Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-diagrams.html#references">7.7.3. References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class-diagrams.html#check-your-understanding">7.7.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<<<<<<< HEAD
 <li class="toctree-l1"><a class="reference internal" href="exercises.html">7.2. Exercises: Inheritance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="studio.html">7.3. Studio: Fun with Quizzes</a><ol>
 <li class="toctree-l2"><a class="reference internal" href="studio.html#design">7.3.1. Design</a></li>
@@ -108,6 +134,8 @@
 <li class="toctree-l2"><a class="reference internal" href="studio.html#bonus-missions">7.3.5. Bonus Missions</a></li>
 </ol>
 </li>
+=======
+>>>>>>> master
 </ol>
 </div>
 </div>
@@ -121,7 +149,7 @@
         <li class="previous"><a href="../unit-testing/studio.html"><span aria-hidden="true">&larr;</span> 6.4. Studio: Unit Testing</a></li>
         
         
-        <li class="next"><a href="introduction.html">7.1. Classes and Objects: Inheritance <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="oop-inheritance.html">7.1. Inheritance in OOP <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

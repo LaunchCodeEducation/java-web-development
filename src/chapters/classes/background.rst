@@ -151,7 +151,7 @@ Check Your Understanding
          String name = "Jess"
 
          public void sayHello() {
-            System.out.println("Hello " + here.name+"!");
+            System.out.println("Hello " + here.name + "!");
          
       }
 

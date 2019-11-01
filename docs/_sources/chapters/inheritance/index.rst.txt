@@ -6,7 +6,11 @@ Inheritance
 .. toctree::
    :maxdepth: 3
 
-   introduction
-   exercises
-   studio
+   oop-inheritance
+   java-inheritance
+   cat-classes
+   abstract-inheritance
+   casting
+   testing-inheritance
+   class-diagrams
    
