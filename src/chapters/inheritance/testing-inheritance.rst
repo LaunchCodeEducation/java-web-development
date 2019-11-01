@@ -2,7 +2,7 @@ Testing Inheritance
 ===================
 
 Not sure you get the whole inheritance idea? Still not sure which fields and methods get inherited and 
-which are overridden? Looking to *test* your understanding? 😉
+which are overridden? Looking to *test* your understanding? (wink)
 
 Knowing what we know now about :ref:`unit-testing` and :ref:`inheritance`, we can test that our 
 subclasses extend their base classes.
