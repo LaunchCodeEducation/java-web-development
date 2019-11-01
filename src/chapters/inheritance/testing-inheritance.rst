@@ -46,6 +46,7 @@ Check Your Understanding
       }
 
    .. sourcecode:: java
+      :linenos:
 
       @Test
       public void inheritsDefaultCatInSecondConstructor() {
@@ -69,6 +70,7 @@ Check Your Understanding
    inherits ``eat()``?
 
    .. sourcecode:: java
+      :linenos:
 
       @Test
       public void isNotInitiallyTired() {

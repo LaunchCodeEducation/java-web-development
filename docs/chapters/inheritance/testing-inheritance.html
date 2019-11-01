@@ -123,13 +123,17 @@ constructor on <code class="docutils literal notranslate"><span class="pre">Hous
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">inheritsDefaultCatInSecondConstructor</span><span class="o">()</span> <span class="o">{</span>
    <span class="n">HouseCat</span> <span class="n">keyboardCat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Keyboard Cat&quot;</span><span class="o">);</span>
    <span class="o">&lt;</span><span class="n">insert</span> <span class="n">assertion</span> <span class="n">method</span> <span class="n">here</span><span class="o">&gt;</span>
 <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <ol class="last loweralpha simple">
 <li><code class="docutils literal notranslate"><span class="pre">assertEquals(13,</span> <span class="pre">keyboardCat.getWeight());</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">assertNotNull(keyboardCat.getWeight());</span></code></li>
@@ -141,7 +145,13 @@ constructor on <code class="docutils literal notranslate"><span class="pre">Hous
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What additional assert method can we add to this test to properly verify that <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>
 inherits <code class="docutils literal notranslate"><span class="pre">eat()</span></code>?</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">isNotInitiallyTired</span><span class="o">()</span> <span class="o">{</span>
    <span class="n">HouseCat</span> <span class="n">keyboardCat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Keyboard Cat&quot;</span><span class="o">);</span>
    <span class="n">assertFalse</span><span class="o">(</span><span class="n">keyboardCat</span><span class="o">.</span><span class="na">isHungry</span><span class="o">());</span>
@@ -149,7 +159,7 @@ inherits <code class="docutils literal notranslate"><span class="pre">eat()</spa
    <span class="n">keyboardCat</span><span class="o">.</span><span class="na">eat</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <ol class="last loweralpha simple">
 <li><code class="docutils literal notranslate"><span class="pre">assertFalse(keyboardCat.isTired());</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">assertTrue(keyboardCat.isTired());</span></code></li>

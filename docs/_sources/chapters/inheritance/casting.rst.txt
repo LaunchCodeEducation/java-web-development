@@ -107,7 +107,7 @@ Check Your Understanding
          }
       }
       
-   Which of the following instantiations does not contain an error:
+   Which of the following does not contain an error:
  
    a. 
       .. sourcecode:: java
@@ -146,6 +146,6 @@ Check Your Understanding
 
    c. The practice of storing an object of one type in a variable of another type
 
-   d. Shapeshifters - The practice of storing an object of one type in a variable of another type
+   d. Shapeshifting
 
 .. ans: c, The practice of storing an object of one type in a variable of another type
