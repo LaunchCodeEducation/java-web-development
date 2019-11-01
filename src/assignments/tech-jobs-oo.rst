@@ -356,12 +356,13 @@ Each ``Job`` object should contain six fields---``id``, ``name``, ``employer``,
 these fields are ``int``, ``String``, ``Employer``, ``Location``,
 ``PositionType``, and ``CoreCompetency``, respectively.
 
-#. In ``JobClassTests``, define a test called ``testSettingJobFields``.
+#. In ``JobClassTests``, define a test called
+   ``testJobConstructorSetsAllFields``.
 #. Declare and initialize a new ``Job`` object with the following data:
 
    .. sourcecode:: java
 
-      new Job("Product tester", "ACME", "Desert", "Quality control", "Persistence");
+      new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
 #. Use ``assert`` statements to test that the constructor correctly assigns the
    class and value of each field.

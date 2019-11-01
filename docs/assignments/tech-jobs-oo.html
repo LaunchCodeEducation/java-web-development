@@ -425,10 +425,11 @@ behavior rather than in the tests that define that behavior.</p>
 these fields are <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
 <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, respectively.</p>
 <ol class="arabic">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobFields</span></code>.</p>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called
+<code class="docutils literal notranslate"><span class="pre">testJobConstructorSetsAllFields</span></code>.</p>
 </li>
 <li><p class="first">Declare and initialize a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with the following data:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="s">&quot;Product tester&quot;</span><span class="o">,</span> <span class="s">&quot;ACME&quot;</span><span class="o">,</span> <span class="s">&quot;Desert&quot;</span><span class="o">,</span> <span class="s">&quot;Quality control&quot;</span><span class="o">,</span> <span class="s">&quot;Persistence&quot;</span><span class="o">);</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="s">&quot;Product tester&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">Employer</span><span class="o">(</span><span class="s">&quot;ACME&quot;</span><span class="o">),</span> <span class="k">new</span> <span class="n">Location</span><span class="o">(</span><span class="s">&quot;Desert&quot;</span><span class="o">),</span> <span class="k">new</span> <span class="n">PositionType</span><span class="o">(</span><span class="s">&quot;Quality control&quot;</span><span class="o">),</span> <span class="k">new</span> <span class="n">CoreCompetency</span><span class="o">(</span><span class="s">&quot;Persistence&quot;</span><span class="o">));</span>
 </pre></div>
 </div>
 </li>
