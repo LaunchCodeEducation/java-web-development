@@ -48,7 +48,7 @@ should be able to:
 Implementation
 --------------
 
-Create a new IntelliJ project. Using test-driven development and JUnit, implement the design that you created.
+Create a new IntelliJ project and implement the design that you created.
 If you are unsure about your design, get some feedback by talking through it with a classmate before you start coding.
 
 Putting it all together
@@ -77,3 +77,4 @@ Bonus Missions
       question, and 1-5 for another.
    #. Paragraph: Similar to short answer but allows for responses of up
       to 500 characters.
+#. Add tests with JUnit to your classes. 
