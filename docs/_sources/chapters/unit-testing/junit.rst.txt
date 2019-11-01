@@ -90,12 +90,32 @@ Once written, you likely need to add these import statements at the top of your 
 
 As we mention above, ``@Test`` annotates the method to signal it as a test case. We need 
 to add the appropriate import statement in order to take advantage of this annotation. 
+
 Our empty test is aptly named ``emptyTest()``, a description of its role. This test does 
 not follow the AAA rule from our :ref:`testing-best-practices`, as it jumps straight to 
-asserting. Nor is it relevant, for that matter. Again, the IDE comes in handy, inserting 
-the names of each of our parameters, "expected:", "actual:", and "delta:". This empty 
-test is simply asserting an expected value of ``10`` to equal an actual value of ``10``, 
-with an accepted ``.001`` variance. Of course, ``10`` equals ``10``. But let's run it so 
+asserting. Nor is it relevant, for that matter. 
+
+Again, the IDE comes in handy, inserting the names of each of our parameters, 
+"expected:", "actual:", and "delta:". This empty test is simply asserting an 
+expected value of ``10`` to equal an actual value of ``10``, 
+with an accepted ``.001`` variance. 
+
+.. admonition:: Note
+
+   The third argument, called ``delta``, is the amount of allowed difference between the 
+   expected and actual values. If the difference between the two values is within 
+   that range, then the test still passes. 
+   This argument is optional for some comparisons and required for others. One 
+   scenario in which it is required is when comparing doubles. 
+
+   Why is it required? Well, that's kind of a long story. Some number types are 
+   `floating-point numbers <https://en.wikipedia.org/wiki/Floating-point_arithmetic>`__. 
+   Due to the nature of their storage, these types carry with them a certain 
+   degree of 
+   `inaccuracy <https://en.wikipedia.org/wiki/Floating-point_arithmetic#Accuracy_problems>`__. 
+   In brief, the ``delta`` argument ensures we can still reasonably compare two doubles.
+
+Of course, ``10`` equals ``10``. But let's run it so 
 we know our test runner works. Click the green arrow to the left of 
 ``public class CarTest`` to run the test. Once run, you'll see a new output panel with a 
 green check mark indicating the test passed and a message stating the test passed. We 
@@ -183,8 +203,8 @@ your unit testing playbook.
 
    + - Assertion
      - Description
-   + - ``assertEquals(expected, actual, delta)``
-     - Asserts that two values, expected and actual, are equal to each other within a given delta range
+   + - ``assertEquals(expected, actual, optional_delta)``
+     - Asserts that two values, expected and actual, are equal to each other (optionally, within a given range of difference)
    + - ``assertFalse(condition)``
      - Asserts that a given condition is false
    + - ``assertTrue(condition)``

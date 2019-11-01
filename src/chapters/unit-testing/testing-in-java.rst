@@ -20,10 +20,10 @@ building blocks, which are individual statements and methods.
    `here <https://education.launchcode.org/intro-to-professional-web-dev/chapters/unit-testing/why-test.html>`__.
 
 Why We Test
-^^^^^^^^^^^
+-----------
 
 Refactoring
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 Because they work on the most basic functionality of your code, 
 unit tests safeguard against bugs introduced in refactoring.
@@ -46,7 +46,7 @@ to pass after the refactor, you can move on, knowing you have not
 inadvertently introduced a bug.
 
 Documentation
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 Unit tests are the most enlightened form of documentation. Again, 
 because they address the most fundamental tasks of your classes,
@@ -63,7 +63,7 @@ that a change has been made if a test fails.
 .. _testing-best-practices:
 
 Testing Best Practices
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Below are some best practices to keep in mind when writing unit tests, in any language.
 
@@ -90,3 +90,23 @@ Below are some best practices to keep in mind when writing unit tests, in any la
    There is no need to test trivial code. For example, unless they contain additional 
    functionality, there is no need to write tests for getters and setters. Your IntelliJ 
    IDE offers code completion for these anyway.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   True or False: Comments are the best tool to make your code readable.
+
+.. ans: False, comments are helpful but can be used in tandem with other forms of documentation, including unit tests
+
+.. admonition:: Question
+
+   Unit tests are a form of:
+
+   #. Manual testing
+   #. Automated testing
+   #. Integration testing
+   #. Documentation testing
+
+..  ans: Automated testing
