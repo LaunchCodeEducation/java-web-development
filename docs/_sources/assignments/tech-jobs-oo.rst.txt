@@ -68,10 +68,6 @@ to represent the individual properties of a job: ``Employer``, ``Location``,
 ``PositionType``, and ``CoreCompetency``. She completed the ``Employer`` class,
 and she left you the task of filling in the others.
 
-Sally also refactored the display methods to use these new classes. Finally,
-she modified the ``JobData`` class to properly create ``Job`` and related
-objects when importing data from ``job_data.csv``.
-
 As the team gets closer to deploying the app---and abandoning the test data
 they’ve been using---they’ll want an easy way to add and remove jobs via a
 user interface. Before that, however, you need to finish shifting the project
@@ -97,8 +93,7 @@ their own.
 Job Fields
 ^^^^^^^^^^^
 
-If you don’t have it open already, open the ``Job`` class. You’ll see the
-following fields (among others):
+Open the ``Job`` class file. You’ll see the following fields (among others):
 
 .. sourcecode:: java
    :linenos:
@@ -110,7 +105,7 @@ following fields (among others):
    private CoreCompetency coreCompetency;
 
 Of these, only ``name`` is a string. Sally created classes to represent each of
-the other properties. Each of these classes---``Employer``, ``Location``,
+the other properties. These classes---``Employer``, ``Location``,
 ``CoreCompetency``, ``PositionType``---have ``value`` and ``id`` fields.
 
 So, for example, if you had a ``Job`` instance, you could get the name of the
@@ -123,14 +118,14 @@ employer this way:
 
 Additionally, the ``toString()`` method of the ``Employer`` class is set up to
 return the ``value`` field. Thus, using one of these objects in another string
-context like ``System.out.println`` will print the ``value``.
+context like ``System.out.println`` will print the data stored in ``value``.
 
 .. sourcecode:: java
 
    // Prints the name of the employer
    System.out.println(job.getEmployer);
 
-Why do we go to all of this trouble, when we could store this job-related data
+Why do we go to all of this trouble when we could store this job-related data
 as strings? There are a couple of reasons.
 
 Eliminate Duplication of Data
@@ -139,8 +134,8 @@ Eliminate Duplication of Data
 In our app, we have multiple jobs that have the same value in a given field.
 For example, there are multiple jobs with position type “Web - Full Stack”, and
 there are different jobs with the same employer. If we store the values of
-these fields as strings directly within the ``Job`` class, these strings would
-be repeated in several places across the application.
+these fields as strings directly within each ``Job`` object, that data would be
+repeated in several places across the application.
 
 By using objects, we can have a single ``PositionType`` object with value “Web
 - Full Stack”. Each job that wants to use that position type holds onto a
@@ -163,9 +158,9 @@ future needs.
 For example, it would be useful for an ``Employer`` object to have an address,
 a primary contact, and a list of jobs available at that employer.
 
-For a ``Location`` object, it would be useful to have a list of zip codes
-associated with that location, in order to determine which location an employer
-or job is located in.
+For a ``Location`` object, useful information includes a list of zip codes
+associated with that location, in order to determine the city and state for an
+employer or job.
 
 If we were to store these properties as strings, extending and modifying this
 behavior would be much more complicated and difficult moving forward.
@@ -180,8 +175,8 @@ You’ve been assigned the following tasks:
 #. Add getters, setters, and custom methods as needed to the ``Location``,
    ``CoreCompetency``, and ``PositionType`` classes.
 #. Complete the ``Job`` class using what you learned in steps 1 and 2.
-#. Refactor the ``printJobs`` method to use ``Job`` objects.
-#. Use unit testing to verify the ID generator and ``equals`` methods.
+#. Use unit testing to verify the constructors and ``equals`` methods for the
+   ``Job`` class.
 #. Use TDD to design and code a custom ``toString`` method.
 #. Use inheritance to DRY the code within ``Employer``, ``Location``,
    ``CoreCompetency``, and ``PositionType``.
@@ -278,8 +273,8 @@ The ``PositionType`` Class
 Open the class file. This time the constructors, getters, and setters are done.
 Sally's comments direct you to where you need to add the custom methods.
 
-#. Code a ``toString`` method that just returns the value of a ``PositionType``
-   object.
+#. Code a ``toString`` method that just returns the ``value`` of a
+   ``PositionType`` object.
 #. Use the *Generate* option again to add the ``equals`` and ``hashCode``
    methods. Refer to the :ref:`previous section <equals-shortcut>` of this
    chapter if you need a quick review.
@@ -310,21 +305,15 @@ else.
 
    Save, commit, and push your work to GitHub.
 
-4) Refactor ``printJobs``
---------------------------
-
-   TODO: Evaluate whether this is redundant based on ``toString`` tests.
-
-.. TODO: Evaluate whether this is redundant based on ``toString`` tests.
-
-5) Use Unit Testing to Verify Parts of the ``Job`` Class
+4) Use Unit Testing to Verify Parts of the ``Job`` Class
 ---------------------------------------------------------
 
 Instead of manually creating sample ``Job`` objects to verify that your class
 works correctly, you will use unit tests instead.
 
-Create a new class inside the ``TechJobsOO`` folder called ``JobClassTests``.
-This file will hold all of the tests for the ``Job`` class.
+Create a new package inside the ``TechJobsOO`` folder called ``Tests``, then
+create a new class inside this folder called ``JobClassTests``. The file will
+hold all of the tests for the ``Job`` class.
 
 Test the Empty Constructor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -344,7 +333,8 @@ sequential integers.
 #. Use ``assertEquals``, ``assertTrue``, or ``assertFalse`` to test that the
    ID values for the two objects are NOT the same and differ by 1.
 #. Run the test to verify that your ``Job()`` constructor correctly assigns
-   ID numbers. If the test doesn't pass, what should be your first thought?
+   ID numbers.
+#. If the test doesn't pass, what should be your first thought?
 
    a. "Drat! I need to fix the unit test."
    b. "Drat! I need to fix my ``Job()`` constructor code."
@@ -404,7 +394,7 @@ identical.
 
    Time to save, commit, and push your work to GitHub again.
 
-6) Use TDD to Build The ``toString`` Method
+5) Use TDD to Build The ``toString`` Method
 --------------------------------------------
 
 To display the data for a particular ``Job`` object, you need to implement a
@@ -447,7 +437,7 @@ In the ``Job`` class, create a ``toString`` method that passes the first test.
 Since the test only checks if the returned string starts and ends with a blank
 line, make that happen.
 
-.. admonition:: Warning
+.. admonition:: Tip
 
    Do NOT add anything beyond what is needed to make the test pass. You will
    add the remaining behaviors for ``toString`` as you code each new test.
@@ -464,7 +454,7 @@ Finish the TDD for ``toString``
 
 Cool! Your ``Job`` class is now complete and operates as desired.
 
-7) Refactor to DRY the Support Classes
+6) Refactor to DRY the Support Classes
 ---------------------------------------
 
 Review the code in the ``Employer``, ``Location``, ``CoreCompetency``, and
@@ -548,17 +538,48 @@ Finish DRYing Your Code
 Sanity Check
 -------------
 
-    TODO: Add screenshots, gifs, or video showing successful app operation.
+Once you finish all of the tasks outlined above, all that remains is to check
+the console display.
 
-.. TODO: Add screenshots, gifs, or video showing successful app operation.
+Sally has provided some commented-out code in ``Main`` that prints out a small
+ArrayList of ``Job`` objects. Go ahead and activate this code and run it.
+Properly done, your output should look something like:
+
+.. sourcecode:: bash
+
+   ID: 1
+   Name: Product tester
+   Employer: ACME
+   Location: Desert
+   Position Type: Quality control
+   Core Competency: Persistence
+
+
+   ID: 2
+   Name: Web Developer
+   Employer: LaunchCode
+   Location: St. Louis
+   Position Type: Front-end developer
+   Core Competency: JavaScript
+
+
+   ID: 3
+   Name: Ice cream tester
+   Employer: Data not available
+   Location: Home
+   Position Type: UX
+   Core Competency: Tasting ability
+
+Excellent! You successfully shifted the old console app into a more useful
+object oriented configuration.
+
+Now that the new structure is ready, another team member can refactor the
+import and display methods to use the new classes. Once these are ready, our
+team will refine the search features and move the app online to provide a
+better user interface.
 
 How to Submit
 --------------
 
-Nice! You successfully shifted the old console app into a more useful object
-oriented configuration.
-
 To turn in your assignment and get credit, follow the
 :ref:`submission instructions <how-to-submit-work>`.
-
-.. TODO: Refactoring JobData class?

@@ -144,9 +144,6 @@ where you’d like to store your project, and hit <em>Clone</em>.</li>
 to represent the individual properties of a job: <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
 <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>. She completed the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class,
 and she left you the task of filling in the others.</p>
-<p>Sally also refactored the display methods to use these new classes. Finally,
-she modified the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class to properly create <code class="docutils literal notranslate"><span class="pre">Job</span></code> and related
-objects when importing data from <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code>.</p>
 <p>As the team gets closer to deploying the app—and abandoning the test data
 they’ve been using—they’ll want an easy way to add and remove jobs via a
 user interface. Before that, however, you need to finish shifting the project
@@ -167,8 +164,7 @@ and the other non-ID fields are no longer strings. Instead, they are classes of
 their own.</p>
 <div class="section" id="job-fields">
 <h3>Job Fields<a class="headerlink" href="#job-fields" title="Permalink to this headline">¶</a></h3>
-<p>If you don’t have it open already, open the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class. You’ll see the
-following fields (among others):</p>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class file. You’ll see the following fields (among others):</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -181,7 +177,7 @@ following fields (among others):</p>
 </pre></div>
 </td></tr></table></div>
 <p>Of these, only <code class="docutils literal notranslate"><span class="pre">name</span></code> is a string. Sally created classes to represent each of
-the other properties. Each of these classes—<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
+the other properties. These classes—<code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
 <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>—have <code class="docutils literal notranslate"><span class="pre">value</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code> fields.</p>
 <p>So, for example, if you had a <code class="docutils literal notranslate"><span class="pre">Job</span></code> instance, you could get the name of the
 employer this way:</p>
@@ -191,20 +187,20 @@ employer this way:</p>
 </div>
 <p>Additionally, the <code class="docutils literal notranslate"><span class="pre">toString()</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class is set up to
 return the <code class="docutils literal notranslate"><span class="pre">value</span></code> field. Thus, using one of these objects in another string
-context like <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code> will print the <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
+context like <code class="docutils literal notranslate"><span class="pre">System.out.println</span></code> will print the data stored in <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Prints the name of the employer</span>
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">job</span><span class="o">.</span><span class="na">getEmployer</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>Why do we go to all of this trouble, when we could store this job-related data
+<p>Why do we go to all of this trouble when we could store this job-related data
 as strings? There are a couple of reasons.</p>
 <div class="section" id="eliminate-duplication-of-data">
 <h4>Eliminate Duplication of Data<a class="headerlink" href="#eliminate-duplication-of-data" title="Permalink to this headline">¶</a></h4>
 <p>In our app, we have multiple jobs that have the same value in a given field.
 For example, there are multiple jobs with position type “Web - Full Stack”, and
 there are different jobs with the same employer. If we store the values of
-these fields as strings directly within the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, these strings would
-be repeated in several places across the application.</p>
+these fields as strings directly within each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, that data would be
+repeated in several places across the application.</p>
 <p>By using objects, we can have a single <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> object with value “Web
 - Full Stack”. Each job that wants to use that position type holds onto a
 reference to the given object. Similarly, we can have one <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object
@@ -222,9 +218,9 @@ for their string values, it’s easy to imagine adding new properties to address
 future needs.</p>
 <p>For example, it would be useful for an <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object to have an address,
 a primary contact, and a list of jobs available at that employer.</p>
-<p>For a <code class="docutils literal notranslate"><span class="pre">Location</span></code> object, it would be useful to have a list of zip codes
-associated with that location, in order to determine which location an employer
-or job is located in.</p>
+<p>For a <code class="docutils literal notranslate"><span class="pre">Location</span></code> object, useful information includes a list of zip codes
+associated with that location, in order to determine the city and state for an
+employer or job.</p>
 <p>If we were to store these properties as strings, extending and modifying this
 behavior would be much more complicated and difficult moving forward.</p>
 </div>
@@ -239,8 +235,8 @@ unique ID.</li>
 <li>Add getters, setters, and custom methods as needed to the <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
 <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> classes.</li>
 <li>Complete the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class using what you learned in steps 1 and 2.</li>
-<li>Refactor the <code class="docutils literal notranslate"><span class="pre">printJobs</span></code> method to use <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects.</li>
-<li>Use unit testing to verify the ID generator and <code class="docutils literal notranslate"><span class="pre">equals</span></code> methods.</li>
+<li>Use unit testing to verify the constructors and <code class="docutils literal notranslate"><span class="pre">equals</span></code> methods for the
+<code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</li>
 <li>Use TDD to design and code a custom <code class="docutils literal notranslate"><span class="pre">toString</span></code> method.</li>
 <li>Use inheritance to DRY the code within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
 <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>.</li>
@@ -344,8 +340,8 @@ getters and setters for the <code class="docutils literal notranslate"><span cla
 <p>Open the class file. This time the constructors, getters, and setters are done.
 Sally’s comments direct you to where you need to add the custom methods.</p>
 <ol class="arabic simple">
-<li>Code a <code class="docutils literal notranslate"><span class="pre">toString</span></code> method that just returns the value of a <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>
-object.</li>
+<li>Code a <code class="docutils literal notranslate"><span class="pre">toString</span></code> method that just returns the <code class="docutils literal notranslate"><span class="pre">value</span></code> of a
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code> object.</li>
 <li>Use the <em>Generate</em> option again to add the <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code>
 methods. Refer to the <a class="reference internal" href="../chapters/classes-part2/equals-shortcut.html#equals-shortcut"><span class="std std-ref">previous section</span></a> of this
 chapter if you need a quick review.</li>
@@ -378,17 +374,13 @@ objects equal when their id fields match.</li>
 <p class="last">Save, commit, and push your work to GitHub.</p>
 </div>
 </div>
-<div class="section" id="refactor-printjobs">
-<h2>4) Refactor <code class="docutils literal notranslate"><span class="pre">printJobs</span></code><a class="headerlink" href="#refactor-printjobs" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>TODO: Evaluate whether this is redundant based on <code class="docutils literal notranslate"><span class="pre">toString</span></code> tests.</div></blockquote>
-</div>
 <div class="section" id="use-unit-testing-to-verify-parts-of-the-job-class">
-<h2>5) Use Unit Testing to Verify Parts of the <code class="docutils literal notranslate"><span class="pre">Job</span></code> Class<a class="headerlink" href="#use-unit-testing-to-verify-parts-of-the-job-class" title="Permalink to this headline">¶</a></h2>
+<h2>4) Use Unit Testing to Verify Parts of the <code class="docutils literal notranslate"><span class="pre">Job</span></code> Class<a class="headerlink" href="#use-unit-testing-to-verify-parts-of-the-job-class" title="Permalink to this headline">¶</a></h2>
 <p>Instead of manually creating sample <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects to verify that your class
 works correctly, you will use unit tests instead.</p>
-<p>Create a new class inside the <code class="docutils literal notranslate"><span class="pre">TechJobsOO</span></code> folder called <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>.
-This file will hold all of the tests for the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</p>
+<p>Create a new package inside the <code class="docutils literal notranslate"><span class="pre">TechJobsOO</span></code> folder called <code class="docutils literal notranslate"><span class="pre">Tests</span></code>, then
+create a new class inside this folder called <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>. The file will
+hold all of the tests for the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</p>
 <div class="section" id="test-the-empty-constructor">
 <h3>Test the Empty Constructor<a class="headerlink" href="#test-the-empty-constructor" title="Permalink to this headline">¶</a></h3>
 <p>Each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object should contain a unique ID number, and these should also be
@@ -408,7 +400,9 @@ declare and initialize them using <code class="docutils literal notranslate"><sp
 ID values for the two objects are NOT the same and differ by 1.</p>
 </li>
 <li><p class="first">Run the test to verify that your <code class="docutils literal notranslate"><span class="pre">Job()</span></code> constructor correctly assigns
-ID numbers. If the test doesn’t pass, what should be your first thought?</p>
+ID numbers.</p>
+</li>
+<li><p class="first">If the test doesn’t pass, what should be your first thought?</p>
 <ol class="loweralpha simple">
 <li>“Drat! I need to fix the unit test.”</li>
 <li>“Drat! I need to fix my <code class="docutils literal notranslate"><span class="pre">Job()</span></code> constructor code.”</li>
@@ -472,7 +466,7 @@ as one of the objects in the previous step. Test that <code class="docutils lite
 </div>
 </div>
 <div class="section" id="use-tdd-to-build-the-tostring-method">
-<h2>6) Use TDD to Build The <code class="docutils literal notranslate"><span class="pre">toString</span></code> Method<a class="headerlink" href="#use-tdd-to-build-the-tostring-method" title="Permalink to this headline">¶</a></h2>
+<h2>5) Use TDD to Build The <code class="docutils literal notranslate"><span class="pre">toString</span></code> Method<a class="headerlink" href="#use-tdd-to-build-the-tostring-method" title="Permalink to this headline">¶</a></h2>
 <p>To display the data for a particular <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, you need to implement a
 custom <code class="docutils literal notranslate"><span class="pre">toString</span></code> method. Rather than creating this method and then testing
 it, you will flip that process using TDD.</p>
@@ -510,8 +504,8 @@ that test (it should fail).</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, create a <code class="docutils literal notranslate"><span class="pre">toString</span></code> method that passes the first test.
 Since the test only checks if the returned string starts and ends with a blank
 line, make that happen.</p>
-<div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">Do NOT add anything beyond what is needed to make the test pass. You will
 add the remaining behaviors for <code class="docutils literal notranslate"><span class="pre">toString</span></code> as you code each new test.</p>
 </div>
@@ -530,7 +524,7 @@ updates still pass all of the old tests.</li>
 </div>
 </div>
 <div class="section" id="refactor-to-dry-the-support-classes">
-<h2>7) Refactor to DRY the Support Classes<a class="headerlink" href="#refactor-to-dry-the-support-classes" title="Permalink to this headline">¶</a></h2>
+<h2>6) Refactor to DRY the Support Classes<a class="headerlink" href="#refactor-to-dry-the-support-classes" title="Permalink to this headline">¶</a></h2>
 <p>Review the code in the <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> classes. What similarities do you see?</p>
 <p>There is a fair amount of repetition between the classes. As a good coder,
@@ -617,13 +611,44 @@ and push your work to GitHub.</p>
 </div>
 <div class="section" id="sanity-check">
 <h2>Sanity Check<a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>TODO: Add screenshots, gifs, or video showing successful app operation.</div></blockquote>
+<p>Once you finish all of the tasks outlined above, all that remains is to check
+the console display.</p>
+<p>Sally has provided some commented-out code in <code class="docutils literal notranslate"><span class="pre">Main</span></code> that prints out a small
+ArrayList of <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects. Go ahead and activate this code and run it.
+Properly done, your output should look something like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ID: <span class="m">1</span>
+Name: Product tester
+Employer: ACME
+Location: Desert
+Position Type: Quality control
+Core Competency: Persistence
+
+
+ID: <span class="m">2</span>
+Name: Web Developer
+Employer: LaunchCode
+Location: St. Louis
+Position Type: Front-end developer
+Core Competency: JavaScript
+
+
+ID: <span class="m">3</span>
+Name: Ice cream tester
+Employer: Data not available
+Location: Home
+Position Type: UX
+Core Competency: Tasting ability
+</pre></div>
+</div>
+<p>Excellent! You successfully shifted the old console app into a more useful
+object oriented configuration.</p>
+<p>Now that the new structure is ready, another team member can refactor the
+import and display methods to use the new classes. Once these are ready, our
+team will refine the search features and move the app online to provide a
+better user interface.</p>
 </div>
 <div class="section" id="how-to-submit">
 <h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
-<p>Nice! You successfully shifted the old console app into a more useful object
-oriented configuration.</p>
 <p>To turn in your assignment and get credit, follow the
 <a class="reference internal" href="how-to-submit.html#how-to-submit-work"><span class="std std-ref">submission instructions</span></a>.</p>
 </div>
