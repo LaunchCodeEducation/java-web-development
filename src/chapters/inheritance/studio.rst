@@ -1,7 +1,7 @@
 .. _inheritance-studio:
 
-Studio: Inheritance
-===================
+Studio: Fun with Quizzes
+========================
 
 For this studio, you will design and build a console program that allows
 the user to take a quiz. This means you will have to create some
