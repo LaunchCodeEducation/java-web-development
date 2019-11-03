@@ -3,6 +3,8 @@ Modifiers in Java
 
 .. index:: ! access level, ! access modifier, ! public, ! private, ! default access
 
+.. _access-modifiers:
+
 Access Modifiers
 ----------------
 
