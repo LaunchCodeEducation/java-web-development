@@ -8,8 +8,8 @@ We've learned that ``ArrayList<T>`` implements both ``List<E>`` and
 Check out the documentation for `List<E> <https://docs.oracle.com/javase/8/docs/api/java/util/List.html>`__
 and `Iterable<T> <https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>`__ to confirm for yourself!
 
-    TODO: Revise instructions to reference new assignments/studios and remove
-    Spring Boot requirements.
+   TODO: Revise instructions to reference new assignments/studios and remove
+   Spring Boot requirements.
 
 .. TODO: Revise instructions to reference new assignments/studios and remove
    Spring Boot requirements.
