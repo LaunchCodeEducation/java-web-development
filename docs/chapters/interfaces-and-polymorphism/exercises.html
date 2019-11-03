@@ -86,7 +86,22 @@
     
   <div class="section" id="exercises-interfaces-and-polymorphism">
 <h1>8.2. Exercises: Interfaces and Polymorphism<a class="headerlink" href="#exercises-interfaces-and-polymorphism" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p>We’ve learned that <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;T&gt;</span></code> implements both <code class="docutils literal notranslate"><span class="pre">List&lt;E&gt;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Iterable&lt;T&gt;</span></code>. In fact, <code class="docutils literal notranslate"><span class="pre">List&lt;E&gt;</span></code> extends <code class="docutils literal notranslate"><span class="pre">Iterable&lt;T&gt;</span></code>, which means that
+<code class="docutils literal notranslate"><span class="pre">List&lt;E&gt;</span></code> includes all of the contracted methods that <code class="docutils literal notranslate"><span class="pre">Iterable&lt;T&gt;</span></code> does.</p>
+<p>Check out the documentation for <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List&lt;E&gt;<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+and <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html" target="_blank">Iterable&lt;T&gt;<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to confirm for yourself!</p>
+<blockquote>
+<div>TODO: Revise instructions to reference new assignments/studios and remove
+Spring Boot requirements.</div></blockquote>
+<p>Open up your <code class="docutils literal notranslate"><span class="pre">techjobs-mvc</span></code> solution. Within <code class="docutils literal notranslate"><span class="pre">ListController</span></code> and
+<code class="docutils literal notranslate"><span class="pre">SearchController</span></code>, change every local variable that’s declared to be of
+type <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> to be either a <code class="docutils literal notranslate"><span class="pre">List</span></code> or an <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>, using the least
+restrictive type as possible. In other words, if you only need to loop over the
+collection, use <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>, but if you also need to access elements of the
+collection by index—as in, <code class="docutils literal notranslate"><span class="pre">Type</span> <span class="pre">item</span> <span class="pre">=</span> <span class="pre">items.get(0)</span></code>—then use <code class="docutils literal notranslate"><span class="pre">List</span></code>.
+Be sure to look at the templates to see how collections being passed into the
+templates are used. Also be sure to test your code after making these changes!</p>
 </div>
 
 
