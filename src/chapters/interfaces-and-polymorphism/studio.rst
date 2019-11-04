@@ -41,60 +41,89 @@ the ``name`` property, and print it out. Here's part of that code:
 .. sourcecode:: java
    :lineno-start: 11
 
-   ArrayList<City> cities = CityData.loadData();
+   ArrayList<City> cities = CityData.loadData();  // Loads the CSV data into the 'cities' list
 
 
    NameComparator comparator = new NameComparator();
-   cities.sort(comparator);
+   cities.sort(comparator);  // Sorts the 'cities' list alphabetically
 
-To sort the ``cities`` list, we use ``NameComparator``, which is located in the
-``org.launchcode.comparators`` package of the project. ``NameComparator``
-implements ``Comparator<City>`` by providing the ``compare(City, City)``
-method, which compares two cities to determine which should be ordered before
-the other. Since sorting by name is just sorting alphabetically by the ``name``
-file, ``NameComparator`` uses the ``compareTo`` method of the ``String`` class
-with the ``name`` properties of the given input parameters. ``compareTo`` is
-the *instance version* of ``Comparator.compare``; it returns integers under the
-same conditions, but can be called on a ``String`` instance rather than on a
-``Comparator`` instance.
+   printCities(cities); // Prints the items from the 'cities' list
 
-The ``Comparator<T>`` interface contains the method ``compare(T, T)``. This
-method returns an integer that determines which of the two objects comes
-before the other, or is *less than* the other. If the returned integer is less
-than zero, then the first parameter comes before the second. If the value is
-zero, then the parameters are the same in terms of ordering. If the value is
-greater than zero, then the second parameter comes before the first.
+Go ahead and run the ``main`` method to see how the program displays the city
+data.
+
+Sorting Cities
+~~~~~~~~~~~~~~~
+
+To sort the ``cities`` list, we use the ``NameComparator`` class, which is
+located in the ``org.launchcode.comparators`` package of the project.
+
+``NameComparator`` implements ``Comparator<City>`` which provides the
+``compare(City, City)`` method.
+
+#. ``compare(City, City)`` takes two ``City`` objects and determines which one
+   should be ordered before the other.
+#. Sorting by name is just ordering the ``City`` objects alphabetically by
+   their ``name`` fields. Thus, ``NameComparator`` uses the ``compareTo``
+   method of the ``String`` class and passes in the ``name`` properties of the
+   two input objects. This occurs in line 14 of the class:
+
+   .. sourcecode:: java
+      :lineno-start: 10
+
+      public class NameComparator implements Comparator<City> {
+
+         @Override
+         public int compare(City o1, City o2) {
+            return o1.getName().compareTo(o2.getName());
+         }
+      }
+
+#. ``compareTo`` is the *instance version* of ``Comparator.compare``. It
+   returns integers based on the two inputs, and it can be called on a
+   ``String`` instance rather than on a ``Comparator`` instance.
+#. The ``Comparator<T>`` interface contains the method ``compare(T, T)``. This
+   method returns an integer that determines which of the two objects comes
+   before the other, or is *less than* the other. If the returned integer is
+   less than zero, then the first parameter comes before the second. If the
+   value is zero, then the parameters are the same in terms of ordering. If the
+   value is greater than zero, then the second parameter comes before the
+   first.
 
 .. admonition:: Tip
 
    Think of the result returned by calling ``compare(x, y)`` as being the
    *value* of calculating ``x - y``. If ``x`` is smaller than ``y``, the value
-   is negative. If ``x`` is larger than ``y``, the result is positive.
+   is negative, and ``x`` should be ordered first. If ``x`` is larger than
+   ``y``, the result is positive, and ``y`` comes first.
 
-In order to sort the list, the comparator object is passed in to the ``sort``
-method for it to use. The list is sorted *in place*. Rather than returning a
-new list that is sorted, ``sort`` modifies the given list by reordering its
-contents.
+To sort the list, the comparator object is passed in to the ``sort`` method for
+it to use. The list is sorted *in place*. Rather than returning a new list that
+is sorted, ``sort`` modifies the given list by reordering its contents.
 
 Your Task
 ----------
 
-Your task is to implement AT LEAST TWO of the following comparators:
+Using ``NameComparator`` and the `Comparator documentation <http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html>`__
+as guidance, implement AT LEAST TWO of the following comparators:
 
-#. ``StateComparator`` - Results in an alphabetical sorting by state.
-#. ``PopulationComparator`` - Results in a sorting by population, from largest
-   to smallest.
-#. ``AreaComparator`` - Results in sorting by land area, from largest to
-   smallest.
+#. ``StateComparator`` - Produces an alphabetical sorting by state.
+#. ``PopulationComparator`` - Results in a sorting by population, from
+   *largest* to *smallest* size.
+#. ``AreaComparator`` - Results in a sorting by land area, from *largest* to
+   *smallest* size.
 
-Your comparators should be placed in the `org.launchcode.comparators` package,
-and they should implement ``Comparator<City>``. Test them out by modifying the
-code in ``Main.java``.
+Place your new comparators in the `org.launchcode.comparators` package,
+and they should implement ``Comparator<City>``.
 
-Refer to ``NameComparator`` and the `Comparator documentation <http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html>`__ for guidance.
+Test each one by modifying the code in ``Main.java`` to assign the different
+comparators.
 
-Bonus Mission
---------------
+Bonus Missions
+---------------
+
+Sort Based on Multiple Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Create a ``CompoundComparator`` class that is able to order the cities based on
 multiple factors. For example, we should be able to order alphabetically by
@@ -107,33 +136,36 @@ Here are the steps to carry this out:
 #. Initialize ``comparators`` to be an empty list: ``new ArrayList<>()``. You
    can do this in a constructor, or in the same line that you declare the
    field.
-#. Provide a method ``add(Comparator<City>)`` that adds a comparator to the
-   ``comparators`` list.
+#. Provide a method ``add(Comparator<City> newComparator)`` that adds a
+   selected comparator to the ``comparators`` list.
 #. You'll need the following method in order to implement the interface:
 
    .. sourcecode:: java
 
       @Override
-      public int compare(City o1, City o2)
+      public int compare(City o1, City o2){
+         // Your code here...
+      }
 
-   This method should use each object in ``comparators``, in order. You'll first
-   use ``comparator.get(0)`` to compare ``o1`` and ``o2``.
-
-   You only need to move on to the next comparator if the first comparator
-   returns 0. For example, if you're comparing cities by state and then by
-   population, when comparing St. Louis and New York, you don't need to compare
-   population. You know that St. Louis comes before New York because
-   "Missouri" comes before "New York". However, when comparing St. Louis and
-   Kansas City, you would need to compare population, since the cities are in
-   the same state.
+   a. The method should apply each object in ``comparators`` in order. You'll
+      first use ``comparators.get(0).compare(o1, o2)`` to sort ``o1`` and
+      ``o2`` by the first comparator, then ``comparators.get(1)``, etc.
+   b. You only need to move on to the next comparator in the list if the
+      previous one returns ``0``.
+   c. For example, assume you want to compare cities by state and then by
+      population. When ordering St. Louis and Las Vegas, you do NOT need to
+      compare population. St. Louis comes before Las Vegas because "Missouri"
+      comes before "Nevada". However, when comparing St. Louis and Kansas City,
+      you *would* need to compare population, since the cities are in the same
+      state.
 
    .. admonition:: Tip
 
       We suggest using a ``while`` loop to do this, along with some variables to
-      keep track of the state.
+      keep track of the list index and the ``compare`` result.
 
 #. To use ``CompoundComparator``, create an instance of the class and then add
-   individual comparators in the order that want them to be used:
+   individual comparators in the order that you want them to be used:
 
    .. sourcecode:: java
       :linenos:
@@ -142,3 +174,8 @@ Here are the steps to carry this out:
       comparator.add(new StateComparator());
       comparator.add(new PopulationComparator());
 
+Select the Sorting Method
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Prompt the user to decide how to sort the city data, and then implement the
+chosen options.
