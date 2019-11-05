@@ -320,8 +320,8 @@ any <code class="docutils literal notranslate"><span class="pre">Employer</span>
 </div>
 <div class="section" id="complete-the-support-classes">
 <h2>2) Complete the Support Classes<a class="headerlink" href="#complete-the-support-classes" title="Permalink to this headline">¶</a></h2>
-<p>Sally needs you to build up the remaining classes. In each case, you can refer
-to the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class for hints on how to structure your code.</p>
+<p>Sally needs you to build up the remaining classes. In each case, refer to the
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code> class for hints on how to structure your code.</p>
 <div class="section" id="the-location-class">
 <h3>The <code class="docutils literal notranslate"><span class="pre">Location</span></code> Class<a class="headerlink" href="#the-location-class" title="Permalink to this headline">¶</a></h3>
 <p>Open the <code class="docutils literal notranslate"><span class="pre">Location.java</span></code> file. Note that the getters, setters, and custom
@@ -341,12 +341,26 @@ ready. Sally needs you to complete the somewhat tedious task of writing the
 getters and setters for the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> fields, but NOT for
 <code class="docutils literal notranslate"><span class="pre">nextID</span></code>.</p>
 <p>Fortunately, IntelliJ has a tool to help with this:</p>
-<ol class="arabic simple">
-<li>Right-click in the editor pane and select <em>Generate</em>.</li>
-<li>Select the <em>Getter and Setter</em> option.</li>
-<li>Select the <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> options, then click <em>OK</em>.</li>
-</ol>
+<ol class="arabic">
+<li><p class="first">Right-click in the editor pane and select <em>Generate</em>.</p>
+</li>
+<li><p class="first">Select the <em>Getter and Setter</em> option.</p>
+</li>
+<li><p class="first">Select the <code class="docutils literal notranslate"><span class="pre">value</span></code> option, then click <em>OK</em>.</p>
 <p>PRESTO! Getters and setters appear.</p>
+</li>
+<li><p class="first">Since the unique value of <code class="docutils literal notranslate"><span class="pre">id</span></code> is set with the constructors, we only need
+to add a getter for this field. Select <em>Generate</em> again and use the
+<em>Getter</em> option for <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+</li>
+</ol>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Want to use fewer clicks? You could always <em>Generate</em> getters and setters
+for both <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>, and then delete the <code class="docutils literal notranslate"><span class="pre">setID</span></code> method.</p>
+<p class="last">Be careful, though. If you forget to remove <code class="docutils literal notranslate"><span class="pre">setID</span></code>, then users can change
+the <code class="docutils literal notranslate"><span class="pre">id</span></code> value, which may cause problems in the program.</p>
+</div>
 </div>
 <div class="section" id="the-positiontype-class">
 <h3>The <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> Class<a class="headerlink" href="#the-positiontype-class" title="Permalink to this headline">¶</a></h3>
@@ -378,7 +392,8 @@ constructor should take no parameters.</li>
 <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">positionType</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>. Also, this constructor should call the first in order to
 initialize the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
-<li>Generate getters and setters for each field EXCEPT <code class="docutils literal notranslate"><span class="pre">nextID</span></code>.</li>
+<li>Generate getters and setters for each field EXCEPT <code class="docutils literal notranslate"><span class="pre">nextID</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code>.</li>
+<li>Generate a getter for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
 <li>Generate the <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> methods. Consider two <code class="docutils literal notranslate"><span class="pre">Job</span></code>
 objects equal when their id fields match.</li>
 </ol>
@@ -469,10 +484,16 @@ identical.</p>
 <li>In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testJobsForEquality</span></code>.</li>
 <li>Generate two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that have identical field values EXCEPT for
 <code class="docutils literal notranslate"><span class="pre">id</span></code>. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
-<li>Generate a third <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and reassign its <code class="docutils literal notranslate"><span class="pre">id</span></code> value to be the same
-as one of the objects in the previous step. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns
-<code class="docutils literal notranslate"><span class="pre">true</span></code> even when the other field values differ.</li>
 </ol>
+<p>It might seem logical to follow up the <code class="docutils literal notranslate"><span class="pre">false</span></code> case by testing to make sure
+that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> when two objects have the same ID. However,
+the positive test is irrelevant in this case.</p>
+<p>The way you built your <code class="docutils literal notranslate"><span class="pre">Job</span></code> class, each <code class="docutils literal notranslate"><span class="pre">id</span></code> field gets assigned a unique
+value, and the class does not contain a <code class="docutils literal notranslate"><span class="pre">setId</span></code> method. You also verified
+that each new object gets a different ID when you tested the constructors.
+Without modifying the constructors or adding a setter, there is no scenario in
+which two different jobs will have the same ID number. Thus, we can skip the
+test for this condition.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">Time to save, commit, and push your work to GitHub again.</p>
@@ -552,35 +573,35 @@ should consider how to streamline the process.</p>
 <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> <em>inherit</em>
 this common code.</p>
 <ol class="arabic simple">
-<li>Create a new class called <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>.</li>
+<li>Create a new class called <code class="docutils literal notranslate"><span class="pre">JobField</span></code>.</li>
 <li>Consider the following questions to help you decide what code to put in the
-<code class="docutils literal notranslate"><span class="pre">JobFields</span></code> class:<ol class="loweralpha">
+<code class="docutils literal notranslate"><span class="pre">JobField</span></code> class:<ol class="loweralpha">
 <li>What fields do ALL FOUR of the classes have in common?</li>
 <li>Which constructors are the same in ALL FOUR classes?</li>
 <li>What getters and setters do ALL of the classes share?</li>
 <li>Which custom methods are identical in ALL of the classes?</li>
 </ol>
 </li>
-<li>In <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>, declare each of the common fields.</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">JobField</span></code>, declare each of the common fields.</li>
 <li>Code the constructors.</li>
 <li>Use <em>Generate</em> to create the appropriate getters and setters.</li>
 <li>Add in the custom methods.</li>
-<li>Finally, to prevent the creation of a <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> object, make this class
+<li>Finally, to prevent the creation of a <code class="docutils literal notranslate"><span class="pre">JobField</span></code> object, make this class
 <em>abstract</em>.</li>
 </ol>
 </div>
-<div class="section" id="extend-jobfields-into-employer">
-<h3>Extend <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> into <code class="docutils literal notranslate"><span class="pre">Employer</span></code><a class="headerlink" href="#extend-jobfields-into-employer" title="Permalink to this headline">¶</a></h3>
-<p>Now that you have the common code located in the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> file, we can
+<div class="section" id="extend-jobfield-into-employer">
+<h3>Extend <code class="docutils literal notranslate"><span class="pre">JobField</span></code> into <code class="docutils literal notranslate"><span class="pre">Employer</span></code><a class="headerlink" href="#extend-jobfield-into-employer" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have the common code located in the <code class="docutils literal notranslate"><span class="pre">JobField</span></code> file, we can
 modify the other classes to reference this shared code. Let’s begin with
 <code class="docutils literal notranslate"><span class="pre">Employer</span></code>.</p>
 <ol class="arabic">
-<li><p class="first">Modify line 5 to <em>extend</em> the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> class into <code class="docutils literal notranslate"><span class="pre">Employer</span></code>.</p>
+<li><p class="first">Modify line 5 to <em>extend</em> the <code class="docutils literal notranslate"><span class="pre">JobField</span></code> class into <code class="docutils literal notranslate"><span class="pre">Employer</span></code>.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Employer</span> <span class="kd">extends</span> <span class="n">JobFields</span> <span class="o">{</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Employer</span> <span class="kd">extends</span> <span class="n">JobField</span> <span class="o">{</span>
 
    <span class="c1">//Code not displayed.</span>
 
@@ -588,7 +609,7 @@ modify the other classes to reference this shared code. Let’s begin with
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Next, remove any code in <code class="docutils literal notranslate"><span class="pre">Employer</span></code> that matches code from <code class="docutils literal notranslate"><span class="pre">JobFields</span></code>
+<li><p class="first">Next, remove any code in <code class="docutils literal notranslate"><span class="pre">Employer</span></code> that matches code from <code class="docutils literal notranslate"><span class="pre">JobField</span></code>
 (e.g. the <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">nextId</span></code> fields are shared).</p>
 </li>
 <li><p class="first">Remove any of the getters and setters that are the same.</p>
@@ -604,7 +625,7 @@ constructors with the following:</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>The <code class="docutils literal notranslate"><span class="pre">extends</span></code> and <code class="docutils literal notranslate"><span class="pre">super</span></code> keywords link the <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> and
+<p>The <code class="docutils literal notranslate"><span class="pre">extends</span></code> and <code class="docutils literal notranslate"><span class="pre">super</span></code> keywords link the <code class="docutils literal notranslate"><span class="pre">JobField</span></code> and
 <code class="docutils literal notranslate"><span class="pre">Employer</span></code> classes.</p>
 </li>
 <li><p class="first">Rerun your unit tests to verify your refactored code.</p>

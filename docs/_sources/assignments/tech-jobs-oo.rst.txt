@@ -243,8 +243,8 @@ ID number.
 2) Complete the Support Classes
 --------------------------------
 
-Sally needs you to build up the remaining classes. In each case, you can refer
-to the ``Employer`` class for hints on how to structure your code.
+Sally needs you to build up the remaining classes. In each case, refer to the
+``Employer`` class for hints on how to structure your code.
 
 The ``Location`` Class
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -271,9 +271,21 @@ Fortunately, IntelliJ has a tool to help with this:
 
 #. Right-click in the editor pane and select *Generate*.
 #. Select the *Getter and Setter* option.
-#. Select the ``id`` and ``value`` options, then click *OK*.
+#. Select the ``value`` option, then click *OK*.
 
-PRESTO! Getters and setters appear.
+   PRESTO! Getters and setters appear.
+
+#. Since the unique value of ``id`` is set with the constructors, we only need
+   to add a getter for this field. Select *Generate* again and use the
+   *Getter* option for ``id``.
+
+.. admonition:: Note
+
+   Want to use fewer clicks? You could always *Generate* getters and setters
+   for both ``id`` and ``value``, and then delete the ``setID`` method.
+
+   Be careful, though. If you forget to remove ``setID``, then users can change
+   the ``id`` value, which may cause problems in the program.
 
 The ``PositionType`` Class
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -305,7 +317,8 @@ else.
    ``name``, ``employer``, ``location``, ``positionType``, and
    ``coreCompetency``. Also, this constructor should call the first in order to
    initialize the ``id`` field.
-#. Generate getters and setters for each field EXCEPT ``nextID``.
+#. Generate getters and setters for each field EXCEPT ``nextID`` and ``id``.
+#. Generate a getter for the ``id`` field.
 #. Generate the ``equals`` and ``hashCode`` methods. Consider two ``Job``
    objects equal when their id fields match.
 
@@ -395,9 +408,17 @@ identical.
 #. In ``JobTest``, define a test called ``testJobsForEquality``.
 #. Generate two ``Job`` objects that have identical field values EXCEPT for
    ``id``. Test that ``equals`` returns ``false``.
-#. Generate a third ``Job`` object and reassign its ``id`` value to be the same
-   as one of the objects in the previous step. Test that ``equals`` returns
-   ``true`` even when the other field values differ.
+
+It might seem logical to follow up the ``false`` case by testing to make sure
+that ``equals`` returns ``true`` when two objects have the same ID. However,
+the positive test is irrelevant in this case.
+
+The way you built your ``Job`` class, each ``id`` field gets assigned a unique
+value, and the class does not contain a ``setId`` method. You also verified
+that each new object gets a different ID when you tested the constructors.
+Without modifying the constructors or adding a setter, there is no scenario in
+which two different jobs will have the same ID number. Thus, we can skip the
+test for this condition.
 
 .. admonition:: Tip
 
@@ -482,41 +503,41 @@ Let's move all of the repeated code into a separate class. We will then have
 ``Employer``, ``Location``, ``CoreCompetency``, and ``PositionType`` *inherit*
 this common code.
 
-#. Create a new class called ``JobFields``.
+#. Create a new class called ``JobField``.
 #. Consider the following questions to help you decide what code to put in the
-   ``JobFields`` class:
+   ``JobField`` class:
 
    a. What fields do ALL FOUR of the classes have in common?
    b. Which constructors are the same in ALL FOUR classes?
    c. What getters and setters do ALL of the classes share?
    d. Which custom methods are identical in ALL of the classes?
 
-#. In ``JobFields``, declare each of the common fields.
+#. In ``JobField``, declare each of the common fields.
 #. Code the constructors.
 #. Use *Generate* to create the appropriate getters and setters.
 #. Add in the custom methods.
-#. Finally, to prevent the creation of a ``JobFields`` object, make this class
+#. Finally, to prevent the creation of a ``JobField`` object, make this class
    *abstract*.
 
-Extend ``JobFields`` into ``Employer``
+Extend ``JobField`` into ``Employer``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now that you have the common code located in the ``JobFields`` file, we can
+Now that you have the common code located in the ``JobField`` file, we can
 modify the other classes to reference this shared code. Let's begin with
 ``Employer``.
 
-#. Modify line 5 to *extend* the ``JobFields`` class into ``Employer``.
+#. Modify line 5 to *extend* the ``JobField`` class into ``Employer``.
 
    .. sourcecode:: java
       :lineno-start: 5
 
-      public class Employer extends JobFields {
+      public class Employer extends JobField {
 
          //Code not displayed.
 
       }
 
-#. Next, remove any code in ``Employer`` that matches code from ``JobFields``
+#. Next, remove any code in ``Employer`` that matches code from ``JobField``
    (e.g. the ``id``, ``value``, and ``nextId`` fields are shared).
 #. Remove any of the getters and setters that are the same.
 #. Remove any of the custom methods that are identical.
@@ -530,7 +551,7 @@ modify the other classes to reference this shared code. Let's begin with
         super(value);
       }
 
-   The ``extends`` and ``super`` keywords link the ``JobFields`` and
+   The ``extends`` and ``super`` keywords link the ``JobField`` and
    ``Employer`` classes.
 #. Rerun your unit tests to verify your refactored code.
 
