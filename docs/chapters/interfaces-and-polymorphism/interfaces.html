@@ -86,8 +86,218 @@
     
   <div class="section" id="interfaces">
 <h1>8.2. Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">An <strong>interface</strong> is a formal construction within Java that allows us to
+create a contract that classes can choose to fulfill. A Java interface
+may contain:</p>
+<ol class="arabic simple">
+<li>Constants (that is, <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span></code> fields)</li>
+<li>Method signatures</li>
+<li>Static methods</li>
+<li>Default methods</li>
+</ol>
+<div class="section" id="method-signatures">
+<h2>8.2.1. Method Signatures<a class="headerlink" href="#method-signatures" title="Permalink to this headline">¶</a></h2>
+<p>One really useful aspect of using an interface is the ability to specify method signatures.
+Recall that a method signature includes the name, parameters, and return
+type of a method, but no body.</p>
+<p>As part of our cat application, let’s create a method signature, <code class="docutils literal notranslate"><span class="pre">eat</span></code>, as part of an interface, <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Feedable</span>
+<span class="o">{</span>
+
+   <span class="kt">void</span> <span class="nf">eat</span><span class="o">();</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>In the code above, you may have noticed a few things:</p>
+<p>#. That we need to use the <code class="docutils literal notranslate"><span class="pre">interface</span></code> keyword to define our interface, <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>.
+#.``eat`` only has a signature. We are not allowed to provide a body for methods defined in interfaces.
+#. <code class="docutils literal notranslate"><span class="pre">eat</span></code> also does not have an access modifier. Interface members are always <code class="docutils literal notranslate"><span class="pre">public</span></code>, and while we may use the <code class="docutils literal notranslate"><span class="pre">public</span></code> modifier, it’s unnecessary. An interface method may NOT have an access modifier that is more restrictive than <code class="docutils literal notranslate"><span class="pre">public</span></code>.
+#. The <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface itself is declared <code class="docutils literal notranslate"><span class="pre">public</span></code>, which means any other class may use it. We may also leave off <code class="docutils literal notranslate"><span class="pre">public</span></code>, making the interface package-private, or usable only within the same package.
+#. The name is indicative of the behavior that the interface is intended to describe. While this is only a convention, most interfaces have names that are adjectives. Whatever you do, use meaningful names!</p>
+<p>The purpose of an interface is to define a contract that classes may
+choose to uphold. In doing so, we say that they “<em>implement</em> the
+interface”. The syntax for implementation is similar to that for
+inheritance. Here’s how we can use the <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface in
+defining our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="kd">implements</span> <span class="n">Feedable</span>
+<span class="o">{</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">()</span>
+   <span class="o">{</span>
+      <span class="c1">// method implementation</span>
+   <span class="o">}</span>
+
+   <span class="c1">// ...rest of the class definition...</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Since we’ve declared that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> implements <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>, we have to
+provide an implementation for the <code class="docutils literal notranslate"><span class="pre">eat</span></code> method, with the signature as
+specified in the interface definition. Note that we use <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code>,
+just as we do when overriding an inherited method in a subclass. Like
+that situation, using <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> when implementing methods defined in
+an interface will enable the compiler to check that your method
+signature does indeed match that of the interface.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>You may both extend a class and implement an interface at the same time:</p>
+<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="n">MySubclass</span> <span class="kd">implements</span> <span class="n">MyInterface</span>
+<span class="o">{</span>
+   <span class="c1">// ...code...</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>As with classes, interfaces define a type that can be used when
+declaring fields, parameters, and local variables.</p>
+<p>Using an interface allows us to relax the requirements on our code
+elsewhere, thus making it more extensible and adaptable. For example,
+here’s how we might modify our <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatOwner</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Feedable</span> <span class="n">pet</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">CatOwner</span><span class="o">(</span><span class="n">Feedable</span> <span class="n">pet</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">pet</span> <span class="o">=</span> <span class="n">pet</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span>  <span class="kt">void</span> <span class="nf">feedTheCat</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="c1">// ...code to prepare the cat&#39;s meal...</span>
+
+        <span class="n">pet</span><span class="o">.</span><span class="na">eat</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that we’ve declared the property <code class="docutils literal notranslate"><span class="pre">pet</span></code> to be of type
+<code class="docutils literal notranslate"><span class="pre">Feedable</span></code>. This class assumes that the only behavior of <code class="docutils literal notranslate"><span class="pre">pet</span></code> that
+we’ll need within the class is the ability to <code class="docutils literal notranslate"><span class="pre">eat</span></code>. But if that’s all
+we need, then we should relax the requirements on the <code class="docutils literal notranslate"><span class="pre">pet</span></code> property
+as much as possible. In fact, there’s nothing specific about cats in
+this class, so we might make our code a step more abstract and flexible
+by doing the following:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">PetOwner</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Feedable</span> <span class="n">pet</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">PetOwner</span><span class="o">(</span><span class="n">Feedable</span> <span class="n">pet</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">pet</span> <span class="o">=</span> <span class="n">pet</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">feedThePet</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="c1">// ...code to prepare the pet&#39;s meal...</span>
+
+        <span class="n">pet</span><span class="o">.</span><span class="na">eat</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatOwner</span> <span class="kd">extends</span> <span class="n">PetOwner</span>
+<span class="o">{</span>
+    <span class="c1">// code that requires Cat-specific behavior</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We’ve created a <code class="docutils literal notranslate"><span class="pre">PetOwner</span></code> class that encapsulates the behavior that
+could apply to any pet (any <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>, actually), and have
+<code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> extend <code class="docutils literal notranslate"><span class="pre">PetOwner</span></code>. This allows other classes to extend
+<code class="docutils literal notranslate"><span class="pre">PetOwner</span></code> to make, say, a <code class="docutils literal notranslate"><span class="pre">DogOwner</span></code> that knows how to play fetch
+with their pet, or a <code class="docutils literal notranslate"><span class="pre">HorseOwner</span></code> that knows how to ride their pet. It
+also reduces the dependency of the <code class="docutils literal notranslate"><span class="pre">feedThePet</span></code> method on the specific
+type of pet, since it doesn’t need to care.</p>
+<p>To use this new class design, we can revise the sample code from above
+as follows:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HouseCat</span> <span class="n">suki</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Suki&quot;</span><span class="o">,</span> <span class="mi">12</span><span class="o">);</span>
+<span class="n">CatOwner</span> <span class="n">Annie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CatOwner</span><span class="o">(</span><span class="n">suki</span><span class="o">);</span>
+
+<span class="n">Annie</span><span class="o">.</span><span class="na">feedThePet</span><span class="o">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>While the code usage here remains unchanged except for changing the
+method name from <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> to the more generic <code class="docutils literal notranslate"><span class="pre">feedThePet</span></code>, the
+opportunities for using the classes we’ve built are much wider since the
+defined classes are no longer dependent on the specific <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.
+Also notice that we’ve used the object <code class="docutils literal notranslate"><span class="pre">suki</span></code> in a polymorphic way,
+creating it as a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>, but using it as a <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> within the
+<code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Like inheritance, interfaces enable polymorphic usage of objects. We can
+create an object, and then use it in different contexts based on any
+interfaces that it implements.</p>
+</div>
+<p><em>Interfaces may not be created like objects are, with</em> <code class="docutils literal notranslate"><span class="pre">new</span></code>.
+You may implement an interface, or declare variables and parameters as
+interface types. You can not, however, create an instance of an
+interface.</p>
+</div>
 <div class="section" id="benefits-of-using-interfaces">
-<h2>8.2.1. Benefits of Using Interfaces<a class="headerlink" href="#benefits-of-using-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2>8.2.2. Benefits of Using Interfaces<a class="headerlink" href="#benefits-of-using-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>Interfaces are great! Trust us, they really are. Once you get used to
 them, you’ll begin to think more abstractly about which <em>behaviors</em> your
 code requires rather than which <em>classes</em> your code requires. This means
@@ -95,7 +305,7 @@ you’ll be able to “code to interfaces” (an OOP principle) instead of
 coding to classes, and your code will become more flexible and
 extensible.</p>
 <p>Here are a few benefits of using interfaces:</p>
-<ul class="simple">
+<ol class="arabic simple">
 <li>You can only extend one class, but you may implement many interfaces.</li>
 <li>You can extend a class and implement an interface at the same time.</li>
 <li>By declaring variables and parameters as interface types, you make
@@ -110,186 +320,12 @@ internal structure to use, say, a
 <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html" target="_blank">HashSet<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 instead of an
 <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank">ArrayList<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
-</ul>
+</ol>
 <p>Remember that you don’t need to start creating interfaces to use their
 power! When working with collections, in particular, think about the
 behaviors that your code requires, and declare variables and parameters
 to be interface types if you only need to use specific behaviors such as
 ordering or iteration.</p>
-</div>
-<div class="section" id="references">
-<h2>8.2.2. References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank">Interfaces
-Tutorial<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html" target="_blank">Comparable
-Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank">Comparator
-Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html" target="_blank">Iterable
-Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List
-Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank">Map
-Interface<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-</ul>
-<p>An <strong>interface</strong> is a formal construction within Java that allows us to
-create a contract that classes can choose to fulfill. A Java interface
-may contain:</p>
-<ul class="simple">
-<li>Constants (that is, <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span></code> fields)</li>
-<li>Method signatures</li>
-<li>Static methods</li>
-<li>Default methods</li>
-</ul>
-<aside class="aside-note"><p>An interface may also contain “nested types”, which we won’t discuss in
-this class.</p>
-</aside><p>The most useful aspect of interfaces is to specify method signatures.
-Recall that a method signature includes the name, parameters, and return
-type of a method, but no body. From the list above, we’ve seen every
-type of member except for <strong>default methods</strong>. We’ll describe these
-briefly near the end of this lesson.</p>
-<p>Here’s a simple example:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public interface Feedable
-{
-
-    void eat();
-
-}
-</pre></div>
-</div>
-<p>And here are some observations:</p>
-<ul class="simple">
-<li>An interface is defined similarly to an abstract class, but using the
-keyword <code class="docutils literal notranslate"><span class="pre">interface</span></code>. (We’ll discuss similarities and differences
-between interfaces and abstract classes below.)</li>
-<li><code class="docutils literal notranslate"><span class="pre">eat</span></code> only has a signature. We are not allowed to provide a body
-for methods defined in interfaces.</li>
-<li><code class="docutils literal notranslate"><span class="pre">eat</span></code> does not have an access modifier. Interface members are
-always <code class="docutils literal notranslate"><span class="pre">public</span></code>, and while we may use the <code class="docutils literal notranslate"><span class="pre">public</span></code> modifier, it’s
-unnecessary. An interface method may not have an access modifier that
-is more restrictive than <code class="docutils literal notranslate"><span class="pre">public</span></code>.</li>
-<li>The interface itself is declared <code class="docutils literal notranslate"><span class="pre">public</span></code>, which means any other
-class may use it. We may also leave off <code class="docutils literal notranslate"><span class="pre">public</span></code>, making the
-interface package-private, or usable only within the same package.</li>
-<li>The name is indicative of the behavior that the interface is intended
-to describe. While this is only a convention, most interfaces have
-names that are adjectives. Whatever you do, use meaningful names!</li>
-</ul>
-<p>The purpose of an interface is to define a contract that classes may
-choose to uphold. In doing so, we say that they “<em>implement</em> the
-interface”. The syntax for implementation is similar to that for
-inheritance. Here’s how we can use the <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface in
-defining our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class Cat implements Feedable
-{
-
-    @Override
-    public void eat()
-    {
-        // method implementation
-    }
-
-    // ...rest of the class definition...
-
-}
-</pre></div>
-</div>
-<p>Since we’ve declared that <code class="docutils literal notranslate"><span class="pre">Cat</span></code> implements <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>, we have to
-provide an implementation for the <code class="docutils literal notranslate"><span class="pre">eat</span></code> method, with the signature as
-specified in the interface definition. Note that we use <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code>,
-just as we do when overriding an inherited method in a subclass. Like
-that situation, using <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> when implementing methods defined in
-an interface will enable the compiler to check that your method
-signature does indeed match that of the interface.</p>
-<aside class="aside-note"><p>You may both extend a class and implement an interface at the same time:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class MyClass extends MySubclass implements MyInterface
-{
-    // ...code...
-}
-</pre></div>
-</div>
-</aside><p>As with classes, interfaces define a type that can be used when
-declaring fields, parameters, and local variables.</p>
-<p>Using an interface allows us to relax the requirements on our code
-elsewhere, thus making it more extensible and adaptable. For example,
-here’s how we might modify <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code>:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class CatOwner
-{
-    private Feedable pet;
-
-    public CatOwner(Feedable pet) {
-        this.pet = pet;
-    }
-
-    public  void feedTheCat() {
-
-        // ...code to prepare the cat&#39;s meal...
-
-        pet.eat();
-    }
-}
-</pre></div>
-</div>
-<p>Note that we’ve declared the property <code class="docutils literal notranslate"><span class="pre">pet</span></code> to be of type
-<code class="docutils literal notranslate"><span class="pre">Feedable</span></code>. This class assumes that the only behavior of <code class="docutils literal notranslate"><span class="pre">pet</span></code> that
-we’ll need within the class is the ability to <code class="docutils literal notranslate"><span class="pre">eat</span></code>. But if that’s all
-we need, then we should relax the requirements on the <code class="docutils literal notranslate"><span class="pre">pet</span></code> property
-as much as possible. In fact, there’s nothing specific about cats in
-this class, so we might make our code a step more abstract and flexible
-by doing the following:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public class PetOwner
-{
-    private Feedable pet;
-
-    public PetOwner(Feedable pet) {
-        this.pet = pet;
-    }
-
-    public void feedThePet() {
-
-        // ...code to prepare the pet&#39;s meal...
-
-        pet.eat();
-    }
-}
-
-public class CatOwner extends PetOwner
-{
-    // code that requires Cat-specific behavior
-}
-</pre></div>
-</div>
-<p>We’ve created a <code class="docutils literal notranslate"><span class="pre">PetOwner</span></code> class that encapsulates the behavior that
-could apply to any pet (any <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>, actually), and have
-<code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> extend <code class="docutils literal notranslate"><span class="pre">PetOwner</span></code>. This allows other classes to extend
-<code class="docutils literal notranslate"><span class="pre">PetOwner</span></code> to make, say, a <code class="docutils literal notranslate"><span class="pre">DogOwner</span></code> that knows how to play fetch
-with their pet, or a <code class="docutils literal notranslate"><span class="pre">HorseOwner</span></code> that knows how to ride their pet. It
-also reduces the dependency of the <code class="docutils literal notranslate"><span class="pre">feedThePet</span></code> method on the specific
-type of pet, since it doesn’t need to care.</p>
-<p>To use this new class design, we can revise the sample code from above
-as follows:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>HouseCat suki = new HouseCat(&quot;Suki&quot;, 12);
-CatOwner Annie = new CatOwner(suki);
-
-Annie.feedThePet();
-</pre></div>
-</div>
-<p>While the code usage here remains unchanged except for changing the
-method name from <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> to the more generic <code class="docutils literal notranslate"><span class="pre">feedThePet</span></code>, the
-opportunities for using the classes we’ve built are much wider since the
-defined classes are no longer dependent on the specific <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.
-Also notice that we’ve used the object <code class="docutils literal notranslate"><span class="pre">suki</span></code> in a polymorphic way,
-creating it as a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>, but using it as a <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> within the
-<code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class.</p>
-<aside class="aside-note"><p>Like inheritance, interfaces enable polymorphic usage of objects. We can
-create an object, and then use it in different contexts based on any
-interfaces that it implements.</p>
-</aside><p>One final note before discussing how we might use interfaces in our
-code: <em>Interfaces may not be created like objects are, with</em> <code class="docutils literal notranslate"><span class="pre">new</span></code>.
-You may implement an interface, or declare variables and parameters as
-interface types. You can not, however, create an instance of an
-interface.</p>
 </div>
 </div>
 

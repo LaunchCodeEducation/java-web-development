@@ -1,12 +1,12 @@
 Interfaces In The Wild
-----------------------
+======================
 
 The most immediate situations that you’ll encounter in which you’ll want
 to use interfaces are when working with interfaces and classes that are
 part of Java. Here are just a few.
 
 Comparable<T>
-~~~~~~~~~~~~~
+-------------
 
 **Purpose**: A class implements ``Comparable<T>`` in order to allow
 comparison - in a “greater than” and “less than” sense - to another
@@ -21,7 +21,7 @@ objects.
 Documentation <http://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html>`__
 
 Comparator<T>
-~~~~~~~~~~~~~
+-------------
 
 **Purpose**: Compare two objects of a given class. When wanting to
 compare objects from a given class, you can create several different
@@ -42,20 +42,14 @@ to sort its contents with the
 `sort <http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#sort-java.util.Comparator->`__
 method.
 
-.. raw:: html
+.. admonition:: Note
 
-   <aside class="aside-note">
-
-For more on the differences between ``Comparator`` and ``Comparable``,
-see `this
-article <https://www.javatpoint.com/difference-between-comparable-and-comparator>`__.
-
-.. raw:: html
-
-   </aside>
+    For more on the differences between ``Comparator`` and ``Comparable``,
+    see `this
+    article <https://www.javatpoint.com/difference-between-comparable-and-comparator>`__.
 
 Iterable<T>
-~~~~~~~~~~~
+-----------
 
 **Purpose**: Enable iteration over a collection of objects using a
 for-each loop
@@ -68,20 +62,21 @@ Documentation <http://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>
 This interface is implemented by the ``ArrayList<T>`` class, which we’ve
 been using throughout this course.
 
-**Example**
+.. admonition:: Example
 
-.. code:: java
+   .. sourcecode:: java
+      :linenos:
 
-   Iterable<String> collection = new ArrayList<>();
+      Iterable<String> collection = new ArrayList<>();
 
-   // Add items to the collection
+      // Add items to the collection
 
-   for (String item : collection) {
-       // do something with each item
-   }
+      for (String item : collection) {
+         // do something with each item
+      }
 
 List<T>
-~~~~~~~
+-------
 
 **Purpose**: Enable access to objects in a collection by index. In other
 words, enable ordered collections.
@@ -96,19 +91,20 @@ we’ve been using throughout this course. In fact, ``List<T>`` extends
 ``Iterable<T>``. *An interface may extend another interface*, in the
 same way that classes may extend each other.
 
-**Example**
+.. admonition:: Example
 
-.. code:: java
+   .. sourcecode:: java
+      :linenos:
 
-   List<String> collection = new ArrayList<>();
+      List<String> collection = new ArrayList<>();
 
-   // Add items to the collection
+      // Add items to the collection
 
-   // Get the first item
-   String firstItem = collection.get(0);
+      // Get the first item
+      String firstItem = collection.get(0);
 
 Map<K, V>
-~~~~~~~~~
+---------
 
 **Purpose**: Represent a collection of key/value pairs.
 
@@ -120,26 +116,30 @@ Documentation <http://docs.oracle.com/javase/8/docs/api/java/util/Map.html>`__
 This interface is implemented by the ``HashMap<K, V>`` class, which
 we’ve been using throughout this course.
 
-**Example**
+.. admonition:: Example
 
-.. code:: java
+   .. sourcecode:: java
+      :linenos:
 
-   Map<String, String> collection = new HashMap<>();
+      Map<String, String> collection = new HashMap<>();
 
-   // Add items to the collection
+      // Add items to the collection
 
-   // Get item with key "hello"
-   String hello = collection.get("hello");
+      // Get item with key "hello"
+      String hello = collection.get("hello");
 
 Default Methods
-~~~~~~~~~~~~~~~
+---------------
 
-We mentioned above that we would introduce **default methods**, so let’s
+.. index:: ! default methods
+
+We also want to introduce **default methods**, so let’s
 do that now. A default method has a body. In other words, it is a
 fully-formed method. It is preceded with the ``default`` keyword, and it
 may be overridden by classes implementing the interface.
 
-.. code:: java
+.. sourcecode:: java
+   :linenos:
 
    public interface MyInterface {
 
@@ -151,7 +151,7 @@ may be overridden by classes implementing the interface.
 
    }
 
-Default methods were added to Java 8 (the most recent version of Java),
+Default methods were added to Java 8,
 and thus are relatively new. Their intended purpose is to allow
 programmers to add a method to an interface that has already been
 released, while not forcing those already using the interface to add new

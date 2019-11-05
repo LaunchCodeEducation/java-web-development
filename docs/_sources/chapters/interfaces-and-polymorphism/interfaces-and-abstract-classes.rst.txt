@@ -1,7 +1,7 @@
-Comparison to Abstract Classes
-------------------------------
+Interfaces and Abstract Classes
+===============================
 
-We mentioned above that interfaces share some characteristics with
+We mentioned previously that interfaces share some characteristics with
 abstract classes. Recall that an abstract class is one declared with the
 ``abstract`` keyword. You may not create an object from an abstract
 class, and like an interface, an abstract class is allowed to contain
@@ -12,8 +12,8 @@ The main differences between interfaces and abstract classes are: - You
 *implement* an interface, while you *extend* an abstract class. The net
 effect of this is that a class may implement interfaces while also
 extending a class. Note that while you can implement *more than one*
-interface, you can only extend *one* class. - Abstract classes may
-contain non-constant fields, while interfaces may not. - Interfaces may
+interface, you can only extend *one* class. Abstract classes may
+contain non-constant fields, while interfaces may not. Interfaces may
 only contain implementation code inside of default or static methods,
 thus they can’t contain methods that need to be shared by class
 instances in the same way that abstract classes do. In particular, any

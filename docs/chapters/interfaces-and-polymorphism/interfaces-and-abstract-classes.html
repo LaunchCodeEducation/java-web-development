@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>8.3. Comparison to Abstract Classes &#8212; Java Web Development  documentation</title>
+    <title>8.3. Interfaces and Abstract Classes &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">8. Interfaces and Polymorphism</a></li>
-    <li class="active">8.3. Comparison to Abstract Classes</li>
+    <li class="active">8.3. Interfaces and Abstract Classes</li>
 </ol>
 
 
@@ -84,9 +84,9 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="comparison-to-abstract-classes">
-<h1>8.3. Comparison to Abstract Classes<a class="headerlink" href="#comparison-to-abstract-classes" title="Permalink to this headline">¶</a></h1>
-<p>We mentioned above that interfaces share some characteristics with
+  <div class="section" id="interfaces-and-abstract-classes">
+<h1>8.3. Interfaces and Abstract Classes<a class="headerlink" href="#interfaces-and-abstract-classes" title="Permalink to this headline">¶</a></h1>
+<p>We mentioned previously that interfaces share some characteristics with
 abstract classes. Recall that an abstract class is one declared with the
 <code class="docutils literal notranslate"><span class="pre">abstract</span></code> keyword. You may not create an object from an abstract
 class, and like an interface, an abstract class is allowed to contain
@@ -96,8 +96,8 @@ implementation code).</p>
 <em>implement</em> an interface, while you <em>extend</em> an abstract class. The net
 effect of this is that a class may implement interfaces while also
 extending a class. Note that while you can implement <em>more than one</em>
-interface, you can only extend <em>one</em> class. - Abstract classes may
-contain non-constant fields, while interfaces may not. - Interfaces may
+interface, you can only extend <em>one</em> class. Abstract classes may
+contain non-constant fields, while interfaces may not. Interfaces may
 only contain implementation code inside of default or static methods,
 thus they can’t contain methods that need to be shared by class
 instances in the same way that abstract classes do. In particular, any
