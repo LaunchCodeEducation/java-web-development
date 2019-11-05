@@ -166,13 +166,16 @@ For a ``Location`` object, useful information includes a list of zip codes
 associated with that location, in order to determine the city and state for an
 employer or job.
 
-If we were to store these properties as strings, extending and modifying this
-behavior would be much more complicated and difficult moving forward.
+If we were to store these four new properties as strings within the ``Job``
+class, extending and modifying this behavior would be much more complicated and
+difficult moving forward.
 
 Your Assignment
 ---------------
 
-You’ve been assigned the following tasks:
+The list below provides a general overview of your assigned tasks. Specific
+details for each part appear in the following sections, so be sure to read them
+carefully as you solve each problem.
 
 #. Review Sally's code in the ``Employer`` class to learn how to assign a
    unique ID.
@@ -181,7 +184,8 @@ You’ve been assigned the following tasks:
 #. Complete the ``Job`` class using what you learned in steps 1 and 2.
 #. Use unit testing to verify the constructors and ``equals`` methods for the
    ``Job`` class.
-#. Use TDD to design and code a custom ``toString`` method.
+#. Use TDD to design and code a custom ``toString`` method for the ``Job``
+   class.
 #. Use inheritance to DRY the code within ``Employer``, ``Location``,
    ``CoreCompetency``, and ``PositionType``.
 
@@ -315,8 +319,8 @@ else.
 Instead of manually creating sample ``Job`` objects to verify that your class
 works correctly, you will use unit tests instead.
 
-Create a new package inside the ``TechJobsOO`` folder called ``Tests``, then
-create a new class inside this folder called ``JobClassTests``. The file will
+Create a new package inside the ``techjobs_oo`` folder called ``Tests``, then
+create a new class inside this folder called ``JobTest``. The file will
 hold all of the tests for the ``Job`` class.
 
 Test the Empty Constructor
@@ -325,7 +329,7 @@ Test the Empty Constructor
 Each ``Job`` object should contain a unique ID number, and these should also be
 sequential integers.
 
-#. In ``JobClassTests``, define a test called ``testSettingJobId``. Do not
+#. In ``JobTest``, define a test called ``testSettingJobId``. Do not
    forget to annotate it with ``@Test``.
 #. Create two ``Job`` objects using the empty constructor.
 
@@ -360,7 +364,7 @@ Each ``Job`` object should contain six fields---``id``, ``name``, ``employer``,
 these fields are ``int``, ``String``, ``Employer``, ``Location``,
 ``PositionType``, and ``CoreCompetency``, respectively.
 
-#. In ``JobClassTests``, define a test called
+#. In ``JobTest``, define a test called
    ``testJobConstructorSetsAllFields``.
 #. Declare and initialize a new ``Job`` object with the following data:
 
@@ -388,7 +392,7 @@ even if one or more of the other fields differ. Similarly, the two objects
 are NOT equal if their ``id`` values differ, even if all the other fields are
 identical.
 
-#. In ``JobClassTests``, define a test called ``testJobsForEquality``.
+#. In ``JobTest``, define a test called ``testJobsForEquality``.
 #. Generate two ``Job`` objects that have identical field values EXCEPT for
    ``id``. Test that ``equals`` returns ``false``.
 #. Generate a third ``Job`` object and reassign its ``id`` value to be the same
@@ -430,7 +434,7 @@ Before writing your first test, consider how we want the method to behave:
 #. (Bonus) If a ``Job`` object ONLY contains data for the ``id`` field, the
    method should return, "OOPS! This job does not seem to exist."
 
-In ``JobClassTests``, add a new test to check the first requirement, then run
+In ``JobTest``, add a new test to check the first requirement, then run
 that test (it should fail).
 
 Woo hoo! Failure is what we want here! Now you get to fix that.
@@ -491,6 +495,8 @@ this common code.
 #. Code the constructors.
 #. Use *Generate* to create the appropriate getters and setters.
 #. Add in the custom methods.
+#. Finally, to prevent the creation of a ``JobFields`` object, make this class
+   *abstract*.
 
 Extend ``JobFields`` into ``Employer``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

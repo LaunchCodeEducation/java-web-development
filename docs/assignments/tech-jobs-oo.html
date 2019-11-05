@@ -230,14 +230,17 @@ a primary contact, and a list of jobs available at that employer.</p>
 <p>For a <code class="docutils literal notranslate"><span class="pre">Location</span></code> object, useful information includes a list of zip codes
 associated with that location, in order to determine the city and state for an
 employer or job.</p>
-<p>If we were to store these properties as strings, extending and modifying this
-behavior would be much more complicated and difficult moving forward.</p>
+<p>If we were to store these four new properties as strings within the <code class="docutils literal notranslate"><span class="pre">Job</span></code>
+class, extending and modifying this behavior would be much more complicated and
+difficult moving forward.</p>
 </div>
 </div>
 </div>
 <div class="section" id="your-assignment">
 <h2>Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
-<p>You’ve been assigned the following tasks:</p>
+<p>The list below provides a general overview of your assigned tasks. Specific
+details for each part appear in the following sections, so be sure to read them
+carefully as you solve each problem.</p>
 <ol class="arabic simple">
 <li>Review Sally’s code in the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class to learn how to assign a
 unique ID.</li>
@@ -246,7 +249,8 @@ unique ID.</li>
 <li>Complete the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class using what you learned in steps 1 and 2.</li>
 <li>Use unit testing to verify the constructors and <code class="docutils literal notranslate"><span class="pre">equals</span></code> methods for the
 <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</li>
-<li>Use TDD to design and code a custom <code class="docutils literal notranslate"><span class="pre">toString</span></code> method.</li>
+<li>Use TDD to design and code a custom <code class="docutils literal notranslate"><span class="pre">toString</span></code> method for the <code class="docutils literal notranslate"><span class="pre">Job</span></code>
+class.</li>
 <li>Use inheritance to DRY the code within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
 <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, and <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>.</li>
 </ol>
@@ -387,15 +391,15 @@ objects equal when their id fields match.</li>
 <h2>4) Use Unit Testing to Verify Parts of the <code class="docutils literal notranslate"><span class="pre">Job</span></code> Class<a class="headerlink" href="#use-unit-testing-to-verify-parts-of-the-job-class" title="Permalink to this headline">¶</a></h2>
 <p>Instead of manually creating sample <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects to verify that your class
 works correctly, you will use unit tests instead.</p>
-<p>Create a new package inside the <code class="docutils literal notranslate"><span class="pre">TechJobsOO</span></code> folder called <code class="docutils literal notranslate"><span class="pre">Tests</span></code>, then
-create a new class inside this folder called <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>. The file will
+<p>Create a new package inside the <code class="docutils literal notranslate"><span class="pre">techjobs_oo</span></code> folder called <code class="docutils literal notranslate"><span class="pre">Tests</span></code>, then
+create a new class inside this folder called <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>. The file will
 hold all of the tests for the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class.</p>
 <div class="section" id="test-the-empty-constructor">
 <h3>Test the Empty Constructor<a class="headerlink" href="#test-the-empty-constructor" title="Permalink to this headline">¶</a></h3>
 <p>Each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object should contain a unique ID number, and these should also be
 sequential integers.</p>
 <ol class="arabic">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobId</span></code>. Do not
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testSettingJobId</span></code>. Do not
 forget to annotate it with <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code>.</p>
 </li>
 <li><p class="first">Create two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects using the empty constructor.</p>
@@ -434,7 +438,7 @@ behavior rather than in the tests that define that behavior.</p>
 these fields are <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>,
 <code class="docutils literal notranslate"><span class="pre">PositionType</span></code>, and <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, respectively.</p>
 <ol class="arabic">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called
 <code class="docutils literal notranslate"><span class="pre">testJobConstructorSetsAllFields</span></code>.</p>
 </li>
 <li><p class="first">Declare and initialize a new <code class="docutils literal notranslate"><span class="pre">Job</span></code> object with the following data:</p>
@@ -462,7 +466,7 @@ even if one or more of the other fields differ. Similarly, the two objects
 are NOT equal if their <code class="docutils literal notranslate"><span class="pre">id</span></code> values differ, even if all the other fields are
 identical.</p>
 <ol class="arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testJobsForEquality</span></code>.</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, define a test called <code class="docutils literal notranslate"><span class="pre">testJobsForEquality</span></code>.</li>
 <li>Generate two <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects that have identical field values EXCEPT for
 <code class="docutils literal notranslate"><span class="pre">id</span></code>. Test that <code class="docutils literal notranslate"><span class="pre">equals</span></code> returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
 <li>Generate a third <code class="docutils literal notranslate"><span class="pre">Job</span></code> object and reassign its <code class="docutils literal notranslate"><span class="pre">id</span></code> value to be the same
@@ -505,7 +509,7 @@ the label.</p>
 method should return, “OOPS! This job does not seem to exist.”</p>
 </li>
 </ol>
-<p>In <code class="docutils literal notranslate"><span class="pre">JobClassTests</span></code>, add a new test to check the first requirement, then run
+<p>In <code class="docutils literal notranslate"><span class="pre">JobTest</span></code>, add a new test to check the first requirement, then run
 that test (it should fail).</p>
 <p>Woo hoo! Failure is what we want here! Now you get to fix that.</p>
 </div>
@@ -561,6 +565,8 @@ this common code.</p>
 <li>Code the constructors.</li>
 <li>Use <em>Generate</em> to create the appropriate getters and setters.</li>
 <li>Add in the custom methods.</li>
+<li>Finally, to prevent the creation of a <code class="docutils literal notranslate"><span class="pre">JobFields</span></code> object, make this class
+<em>abstract</em>.</li>
 </ol>
 </div>
 <div class="section" id="extend-jobfields-into-employer">
