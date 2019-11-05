@@ -117,21 +117,30 @@ idea—Don’t Repeat Yourself).</li>
 </div>
 <div class="section" id="get-the-starter-code">
 <h2>Get the Starter Code<a class="headerlink" href="#get-the-starter-code" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Set up a local copy of the project. Visit the
+<ol class="arabic">
+<li><p class="first">Set up a local copy of the project. Visit the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-techjobs-oo.git" target="_blank">repository page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 for this project and fork the repo to create a copy in your own GitHub
-account.</li>
-<li>Open IntelliJ (if IntelliJ is currently open, save your work, close it, and
-reopen it).</li>
-<li>If the app opens up to an existing project, select <em>IntelliJ &gt; Preferences &gt;
-Appearance &amp; Behavior &gt; System Settings</em> and uncheck <em>Reopen last project on
-startup</em>. Close and Reopen IntelliJ.</li>
-<li>From the “Welcome to IntelliJ” dialog box, select <em>Check out from Version
-Control &gt; Git</em>.</li>
-<li>Choose your fork from the repository dropdown, select the parent directory
-where you’d like to store your project, and hit <em>Clone</em>.</li>
-<li>In the screens that follow:<ol class="loweralpha">
+account.</p>
+</li>
+<li><p class="first">Open IntelliJ (if IntelliJ is currently open, close the current project).</p>
+</li>
+<li><p class="first">If the app opens up to an existing project, close it.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">To prevent IntelliJ from defaulting to the last open project, select
+<em>IntelliJ &gt; Preferences &gt;  Appearance &amp; Behavior &gt; System Settings</em> and
+uncheck <em>Reopen last project on startup</em>.</p>
+</div>
+</li>
+<li><p class="first">From the “Welcome to IntelliJ” dialog box, select <em>Check out from Version
+Control &gt; Git</em>.</p>
+</li>
+<li><p class="first">Choose your fork from the repository dropdown, select the parent directory
+where you’d like to store your project, and hit <em>Clone</em>.</p>
+</li>
+<li><p class="first">In the screens that follow:</p>
+<ol class="loweralpha simple">
 <li>Choose <em>Create Project From Existing Sources</em> on the first pane.</li>
 <li>Select the defaults in all the other panes.</li>
 </ol>
@@ -198,9 +207,9 @@ as strings? There are a couple of reasons.</p>
 <h4>Eliminate Duplication of Data<a class="headerlink" href="#eliminate-duplication-of-data" title="Permalink to this headline">¶</a></h4>
 <p>In our app, we have multiple jobs that have the same value in a given field.
 For example, there are multiple jobs with position type “Web - Full Stack”, and
-there are different jobs with the same employer. If we store the values of
-these fields as strings directly within each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, that data would be
-repeated in several places across the application.</p>
+each employer may list several jobs. If we store the values of these fields as
+strings directly within each <code class="docutils literal notranslate"><span class="pre">Job</span></code> object, that data would be repeated in
+several places across the application.</p>
 <p>By using objects, we can have a single <code class="docutils literal notranslate"><span class="pre">PositionType</span></code> object with value “Web
 - Full Stack”. Each job that wants to use that position type holds onto a
 reference to the given object. Similarly, we can have one <code class="docutils literal notranslate"><span class="pre">Employer</span></code> object

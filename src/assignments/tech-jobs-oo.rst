@@ -46,11 +46,15 @@ Get the Starter Code
    `repository page <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-oo.git>`__
    for this project and fork the repo to create a copy in your own GitHub
    account.
-#. Open IntelliJ (if IntelliJ is currently open, save your work, close it, and
-   reopen it).
-#. If the app opens up to an existing project, select *IntelliJ > Preferences >
-   Appearance & Behavior > System Settings* and uncheck *Reopen last project on
-   startup*. Close and Reopen IntelliJ.
+#. Open IntelliJ (if IntelliJ is currently open, close the current project).
+#. If the app opens up to an existing project, close it.
+
+   .. admonition:: Tip
+
+      To prevent IntelliJ from defaulting to the last open project, select
+      *IntelliJ > Preferences >  Appearance & Behavior > System Settings* and
+      uncheck *Reopen last project on startup*.
+
 #. From the “Welcome to IntelliJ” dialog box, select *Check out from Version
    Control > Git*.
 #. Choose your fork from the repository dropdown, select the parent directory
@@ -133,9 +137,9 @@ Eliminate Duplication of Data
 
 In our app, we have multiple jobs that have the same value in a given field.
 For example, there are multiple jobs with position type “Web - Full Stack”, and
-there are different jobs with the same employer. If we store the values of
-these fields as strings directly within each ``Job`` object, that data would be
-repeated in several places across the application.
+each employer may list several jobs. If we store the values of these fields as
+strings directly within each ``Job`` object, that data would be repeated in
+several places across the application.
 
 By using objects, we can have a single ``PositionType`` object with value “Web
 - Full Stack”. Each job that wants to use that position type holds onto a
@@ -162,8 +166,9 @@ For a ``Location`` object, useful information includes a list of zip codes
 associated with that location, in order to determine the city and state for an
 employer or job.
 
-If we were to store these properties as strings, extending and modifying this
-behavior would be much more complicated and difficult moving forward.
+If we were to store these four new properties as strings within the ``Job``
+class, extending and modifying this behavior would be much more complicated and
+difficult moving forward.
 
 Your Assignment
 ---------------
