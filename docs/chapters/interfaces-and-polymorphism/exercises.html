@@ -92,23 +92,38 @@ class, adding instance methods to a class, or overriding a method like
 <code class="docutils literal notranslate"><span class="pre">toString</span></code>.</p>
 <p>To help overcome this, let’s consider a common occurrence—sorting an
 <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> of objects.</p>
-<p>If the list contains <code class="docutils literal notranslate"><span class="pre">String</span></code> or numerical entries, then sorting the list
-is trivial:</p>
-<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">listName</span><span class="o">);</span>
+<ol class="arabic">
+<li><p class="first">If the list contains <code class="docutils literal notranslate"><span class="pre">String</span></code> or numerical entries, then sorting the list
+is <a class="reference internal" href="../control-flow-and-collections/arraylist.html#id1"><span class="std std-ref">trivial</span></a>:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">arrayListName</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>However, if the elements are custom objects (like <code class="docutils literal notranslate"><span class="pre">Cat</span></code>) then sorting the
-list becomes more complicated. This is because the objects contain multiple
-fields, each of which could be used as a sorting option. For <code class="docutils literal notranslate"><span class="pre">Cat</span></code> objects,
-this could include <code class="docutils literal notranslate"><span class="pre">name</span></code> or <code class="docutils literal notranslate"><span class="pre">age</span></code>.</p>
+</li>
+<li><p class="first">However, if the elements are custom objects (like <code class="docutils literal notranslate"><span class="pre">Cat</span></code>), then sorting the
+list becomes more complicated. This is because the objects may contain
+multiple fields, each of which could be used as a sorting option. For
+<code class="docutils literal notranslate"><span class="pre">Cat</span></code> objects, this could include <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, or <code class="docutils literal notranslate"><span class="pre">mass</span></code>.</p>
+</li>
+</ol>
 <div class="section" id="getting-started">
 <h2>8.2.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>IntelliJ directions for getting into the lesson 7 package.</div></blockquote>
+<p>We are going to practice with interfaces by playing around with a small ice
+cream store. It consists of a refrigerated display <code class="docutils literal notranslate"><span class="pre">Case</span></code>, which contains
+a collection of ice cream <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> objects and a selection of <code class="docutils literal notranslate"><span class="pre">Cone</span></code>
+objects.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Did you notice the abstract <code class="docutils literal notranslate"><span class="pre">Ingredient</span></code> class? This gets extended into
+<code class="docutils literal notranslate"><span class="pre">Flavor</span></code> and <code class="docutils literal notranslate"><span class="pre">Cone</span></code> to help streamline the code.</p>
+</div>
 </div>
 <div class="section" id="sorting-flavors-by-name">
 <h2>8.2.2. Sorting Flavors by Name<a class="headerlink" href="#sorting-flavors-by-name" title="Permalink to this headline">¶</a></h2>
-<p>Sort <code class="docutils literal notranslate"><span class="pre">flavors</span></code> array by name… (steps walk through how to do this).</p>
+<p>To display a menu for the customers, we need to sort the ice cream flavors
+alphabetically by their <code class="docutils literal notranslate"><span class="pre">name</span></code> field.</p>
+<p>For comparison, let’s do this without interfaces:</p>
 <p>But…</p>
 <blockquote>
 <div>Ah ha! An exiting interface has solved the sorting-objects-by-field

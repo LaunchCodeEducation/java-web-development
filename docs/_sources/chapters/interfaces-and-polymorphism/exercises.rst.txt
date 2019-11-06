@@ -9,27 +9,42 @@ class, adding instance methods to a class, or overriding a method like
 To help overcome this, let's consider a common occurrence---sorting an
 ``ArrayList`` of objects.
 
-If the list contains ``String`` or numerical entries, then sorting the list
-is trivial:
+#. If the list contains ``String`` or numerical entries, then sorting the list
+   is :ref:`trivial <arraylist-methods>`:
 
-.. sourcecode:: Java
+   .. sourcecode:: Java
 
-   Collections.sort(listName);
+      Collections.sort(arrayListName);
 
-However, if the elements are custom objects (like ``Cat``) then sorting the
-list becomes more complicated. This is because the objects contain multiple
-fields, each of which could be used as a sorting option. For ``Cat`` objects,
-this could include ``name`` or ``age``.
+#. However, if the elements are custom objects (like ``Cat``), then sorting the
+   list becomes more complicated. This is because the objects may contain
+   multiple fields, each of which could be used as a sorting option. For
+   ``Cat`` objects, this could include ``name``, ``age``, or ``mass``.
 
 Getting Started
 -----------------
 
    IntelliJ directions for getting into the lesson 7 package.
 
+We are going to practice with interfaces by playing around with a small ice
+cream store. It consists of a refrigerated display ``Case``, which contains
+a collection of ice cream ``Flavor`` objects and a selection of ``Cone``
+objects.
+
+.. admonition:: Tip
+
+   Did you notice the abstract ``Ingredient`` class? This gets extended into
+   ``Flavor`` and ``Cone`` to help streamline the code.
+
 Sorting Flavors by Name
 ------------------------
 
-Sort ``flavors`` array by name... (steps walk through how to do this).
+To display a menu for the customers, we need to sort the ice cream flavors
+alphabetically by their ``name`` field.
+
+For comparison, let's do this without interfaces:
+
+
 
 But...
 
