@@ -1,24 +1,42 @@
 Exercises: Interfaces and Polymorphism
 =======================================
 
-We've learned that ``ArrayList<T>`` implements both ``List<E>`` and
-``Iterable<T>``. In fact, ``List<E>`` extends ``Iterable<T>``, which means that
-``List<E>`` includes all of the contracted methods that ``Iterable<T>`` does.
+It takes time for new Java coders to recognize the usefulness of interfaces. At
+first glance, they do not seem to provide much benefit over extending a base
+class, adding instance methods to a class, or overriding a method like
+``toString``.
 
-Check out the documentation for `List<E> <https://docs.oracle.com/javase/8/docs/api/java/util/List.html>`__
-and `Iterable<T> <https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html>`__ to confirm for yourself!
+To help overcome this, let's consider a common occurrence---sorting an
+``ArrayList`` of objects.
 
-   TODO: Revise instructions to reference new assignments/studios and remove
-   Spring Boot requirements.
+If the list contains ``String`` or numerical entries, then sorting the list
+is trivial:
 
-.. TODO: Revise instructions to reference new assignments/studios and remove
-   Spring Boot requirements.
+.. sourcecode:: Java
 
-Open up your ``techjobs-mvc`` solution. Within ``ListController`` and
-``SearchController``, change every local variable that's declared to be of
-type ``ArrayList`` to be either a ``List`` or an ``Iterable``, using the least
-restrictive type as possible. In other words, if you only need to loop over the
-collection, use ``Iterable``, but if you also need to access elements of the
-collection by index---as in, ``Type item = items.get(0)``---then use ``List``.
-Be sure to look at the templates to see how collections being passed into the
-templates are used. Also be sure to test your code after making these changes!
+   Collections.sort(listName);
+
+However, if the elements are custom objects (like ``Cat``) then sorting the
+list becomes more complicated. This is because the objects contain multiple
+fields, each of which could be used as a sorting option. For ``Cat`` objects,
+this could include ``name`` or ``age``.
+
+Getting Started
+-----------------
+
+   IntelliJ directions for getting into the lesson 7 package.
+
+Sorting Flavors by Name
+------------------------
+
+Sort ``flavors`` array by name... (steps walk through how to do this).
+
+But...
+
+   Ah ha! An exiting interface has solved the sorting-objects-by-field
+   problem.
+
+Sorting Cones by Cost
+----------------------
+
+Use the ``Comparator`` interface to sort ``cones`` list by cost...
