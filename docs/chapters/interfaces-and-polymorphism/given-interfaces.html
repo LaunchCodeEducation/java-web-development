@@ -98,7 +98,7 @@ that when using it you need to specify the class that it will be
 comparing. For example, <code class="docutils literal notranslate"><span class="pre">Comparable&lt;Job&gt;</span></code> would compare <code class="docutils literal notranslate"><span class="pre">Job</span></code>
 objects.</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">compareTo(T)</span></code></p>
-<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html" target="_blank">Comparable&lt;T&gt;
+<p><a class="reference external" href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Comparable.html" target="_blank">Comparable&lt;T&gt;
 Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
 </div>
 <div class="section" id="comparator-t">
@@ -109,14 +109,13 @@ compare objects from a given class, you can create several different
 ordering. The class that you want to compare objects of <em>does not</em>
 implement the interface itself.</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">compare(T,</span> <span class="pre">T)</span></code></p>
-<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank">Comparator&lt;T&gt;
+<p><a class="reference external" href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/Comparator.html" target="_blank">Comparator&lt;T&gt;
 Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
 <p>This interface can be used to determine, given two objects of the given
 type, which one is “greater” than the other. It is also used by
-collections such as
-<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank">ArrayList<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+collections such as <a class="reference internal" href="../control-flow-and-collections/arraylist.html#array-list"><span class="std std-ref">an ArrayList</span></a>
 to sort its contents with the
-<a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#sort-java.util.Comparator-" target="_blank">sort<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+<a class="reference internal" href="../control-flow-and-collections/arraylist.html#arraylistsort"><span class="std std-ref">sort</span></a>
 method.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
@@ -158,7 +157,7 @@ been using throughout this course.</p>
 <p><strong>Purpose</strong>: Enable access to objects in a collection by index. In other
 words, enable ordered collections.</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add(int,</span> <span class="pre">T)</span></code>, <code class="docutils literal notranslate"><span class="pre">get(int)</span></code>, <code class="docutils literal notranslate"><span class="pre">indexOf(T)</span></code></p>
-<p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank">List&lt;T&gt;
+<p><a class="reference external" href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/List.html" target="_blank">List&lt;T&gt;
 Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
 <p>This interface is also implemented by the <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;T&gt;</span></code> class, which
 we’ve been using throughout this course. In fact, <code class="docutils literal notranslate"><span class="pre">List&lt;T&gt;</span></code> extends
@@ -206,38 +205,12 @@ we’ve been using throughout this course.</p>
 </td></tr></table></div>
 </div>
 </div>
-<div class="section" id="default-methods">
-<h2>8.4.6. Default Methods<a class="headerlink" href="#default-methods" title="Permalink to this headline">¶</a></h2>
-<p id="index-0">We also want to introduce <strong>default methods</strong>, so let’s
-do that now. A default method has a body. In other words, it is a
-fully-formed method. It is preceded with the <code class="docutils literal notranslate"><span class="pre">default</span></code> keyword, and it
-may be overridden by classes implementing the interface.</p>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MyInterface</span> <span class="o">{</span>
-
-    <span class="kt">void</span> <span class="nf">someMethod</span><span class="o">();</span>
-
-    <span class="k">default</span> <span class="kt">void</span> <span class="nf">someOtherMethod</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// ...code goes here...</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-</pre></div>
-</td></tr></table></div>
-<p>Default methods were added to Java 8,
-and thus are relatively new. Their intended purpose is to allow
-programmers to add a method to an interface that has already been
-released, while not forcing those already using the interface to add new
-code to their classes. You should avoid using default methods in all
-other situations other than the one described here. <em>Do not use default
-methods when writing a new interface.</em></p>
+<div class="section" id="check-your-understanding">
+<h2>8.4.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True or False: an interface can extend another interface.</p>
+</div>
 </div>
 </div>
 

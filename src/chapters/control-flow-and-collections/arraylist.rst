@@ -1,3 +1,5 @@
+.. _array-list:
+
 ArrayList
 =========
 
@@ -274,6 +276,8 @@ Thus, the first item in this table:
      - ``planets.indexOf("Jupiter")`` returns ``4``
 
 Here's a couple more methods that require slightly longer descriptions:
+
+.. _arraylistsort:
 
 .. list-table:: Collections.sort()
    :header-rows: 1

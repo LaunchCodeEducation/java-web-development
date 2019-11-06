@@ -12,11 +12,16 @@ may contain:
 #. Static methods
 #. Default methods
 
+Creating an Interface
+---------------------
+
 Method Signatures
------------------
+^^^^^^^^^^^^^^^^^
+
+.. index:: ! method signature
 
 One really useful aspect of using an interface is the ability to specify method signatures.
-Recall that a method signature includes the name, parameters, and return
+Recall that a **method signature** includes the name, parameters, and return
 type of a method, but no body.
 
 As part of our cat application, let's create a method signature, ``eat``, as part of an interface, ``Feedable``.
@@ -36,10 +41,42 @@ As part of our cat application, let's create a method signature, ``eat``, as par
 In the code above, you may have noticed a few things:
 
 #. That we need to use the ``interface`` keyword to define our interface, ``Feedable``.
-#.``eat`` only has a signature. We are not allowed to provide a body for methods defined in interfaces.
+#. ``eat`` only has a signature. We are NOT allowed to provide a body for methods defined in interfaces.
 #. ``eat`` also does not have an access modifier. Interface members are always ``public``, and while we may use the ``public`` modifier, it’s unnecessary. An interface method may NOT have an access modifier that is more restrictive than ``public``.
 #. The ``Feedable`` interface itself is declared ``public``, which means any other class may use it. We may also leave off ``public``, making the interface package-private, or usable only within the same package.
 #. The name is indicative of the behavior that the interface is intended to describe. While this is only a convention, most interfaces have names that are adjectives. Whatever you do, use meaningful names!
+
+Default Methods
+---------------
+
+.. index:: ! default methods
+
+A **default method** has a body and is a
+fully-formed method. It is preceded with the ``default`` keyword, and it
+may be overridden by classes implementing the interface.
+
+.. sourcecode:: java
+   :linenos:
+
+   public interface MyInterface {
+
+       void someMethod();
+
+       default void someOtherMethod() {
+           // ...code goes here...
+       }
+
+   }
+
+The intended purpose of default mathods is to allow
+programmers to add a method to an interface that has already been
+released, while not forcing those already using the interface to add new
+code to their classes. You should avoid using default methods in all
+other situations other than the one described here. *Do not use default
+methods when writing a new interface.*
+
+Implementing an Interface
+-------------------------
 
 The purpose of an interface is to define a contract that classes may
 choose to uphold. In doing so, we say that they “*implement* the
@@ -201,15 +238,43 @@ Here are a few benefits of using interfaces:
    you decouple code using your classes from the actual class types you
    use. This means that you are free to change the specific
    implementation of your classes without affecting those using them.
-   For example, if from a public method you returned an object of type
-   ``Iterable<Job>`` then you would be free to change the method’s
-   internal structure to use, say, a
-   `HashSet <http://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html>`__
-   instead of an
-   `ArrayList <http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html>`__.
 
 Remember that you don’t need to start creating interfaces to use their
-power! When working with collections, in particular, think about the
-behaviors that your code requires, and declare variables and parameters
-to be interface types if you only need to use specific behaviors such as
+power! As we will cover later in the chapter, when working with collections, we can declare variables and parameters
+to be interface types if we only need to use specific behaviors such as
 ordering or iteration.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Fill in the following blanks.
+
+   A class can extend _______ class(s) and implement ________ interface(s).
+
+.. ans: one, many
+
+.. admonition:: Question
+
+   True or False:
+
+   An interface can contain a ``static`` variable, a ``final`` variable, and a ``static final`` variable.
+
+.. ans: false
+
+.. admonition:: Question
+
+   What keywords are missing from the following interface?
+
+   .. sourcecode:: java
+      :linenos: 
+
+      public Temperature {
+
+         double final ABSOLUTEZERO = -273.15;
+
+         double convertTemp();
+      }
+
+.. ans: interface, static

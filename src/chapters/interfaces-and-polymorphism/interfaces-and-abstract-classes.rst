@@ -8,7 +8,7 @@ class, and like an interface, an abstract class is allowed to contain
 methods that only have signatures (that is, they don’t have
 implementation code).
 
-The main differences between interfaces and abstract classes are: - You
+The main differences between interfaces and abstract classes are: you
 *implement* an interface, while you *extend* an abstract class. The net
 effect of this is that a class may implement interfaces while also
 extending a class. Note that while you can implement *more than one*
@@ -20,15 +20,27 @@ instances in the same way that abstract classes do. In particular, any
 method that needs to use an instance property may not be part of an
 interface, since interfaces don’t have instance properties. Unlike
 interfaces, abstract classes may have methods which are not static or
-default and which do have implementation code. - Abstract classes should
-be used to collect and specify behavior by related classes, while an
-interface should be used to specify related behaviors that may be common
-across unrelated classes.
+default and which do have implementation code. 
 
-For example, we could implement ``Comparator`` in many ways, to sort a
-wide variety of classes whose objects may be compared to one another:
-``Date`` (compare by temporal order), ``Student`` (compare by GPA),
-``Person`` (compare by age), ``City`` (compare by population). However,
-it’s unlikely that these classes would have any implementable behavior
-that would warrant that they have the same base class.
+   Abstract classes should be used to collect and specify behavior by related classes, while an
+   interface should be used to specify related behaviors that may be common
+   across unrelated classes.
 
+.. admonition:: Example
+
+   Let's go back to our ``Feedable`` interface. If we want to add a ``Dog`` class to our application, we might implement the ``Feedable`` interface for our ``Dog`` class.
+   This makes sense as dogs are creatures that we feed. However, as dogs and cats are so different, it is unlikely that they would share many behaviors through the ``Pet`` class.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Check all statements that are TRUE about the differences between interfaces and abstract classes.
+
+   a. You extend an abstract class, but implement an interface.
+   b. You can implement many interfaces and many classes.
+   c. Interfaces cannot contain non-constant fields, but abstract classes can.
+   d. Methods that use instance properties can be in both interfaces and abstract classes.
+
+.. ans: a,c

@@ -86,7 +86,73 @@
     
   <div class="section" id="unit-testing-and-interfaces">
 <h1>8.5. Unit Testing and Interfaces<a class="headerlink" href="#unit-testing-and-interfaces" title="Permalink to this headline">¶</a></h1>
-<p>Write unit tests that verify interface-based code</p>
+<p>After all that we have learned about interfaces, you are probably wondering, how do I write my unit tests with interfaces?</p>
+<p>The best practices to testing interfaces are very similar to those of <a class="reference internal" href="../inheritance/testing-inheritance.html#testinginheritance"><span class="std std-ref">testing inheritance</span></a>. You want to focus on testing the contract that the interface is supposed to be upholding as opposed to the interface itself.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>We have a <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> interface, a <code class="docutils literal notranslate"><span class="pre">Celsius</span></code> class, and a <code class="docutils literal notranslate"><span class="pre">Fahrenheit</span></code> class.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Temperature</span> <span class="o">{</span>
+   <span class="kt">double</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">ABS_ZERO</span> <span class="o">=</span> <span class="o">-</span><span class="mf">273.15</span><span class="o">;</span>
+
+   <span class="kt">double</span> <span class="nf">convertTemp</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Celsius</span> <span class="kd">implements</span> <span class="n">Temperature</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">currentTemp</span><span class="o">;</span>
+
+   <span class="nd">@Overrides</span>
+   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">convertTemp</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">currentTemp</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Fahrenheit</span> <span class="kd">implements</span> <span class="n">Temperature</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="kt">double</span> <span class="n">currentTemp</span><span class="o">;</span>
+
+   <span class="nd">@Overrides</span>
+   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">convertTemp</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">currentTemp</span> <span class="o">-</span> <span class="mi">32</span><span class="o">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last">In this situation, we can test the contract that the interface is supposed to be upholding, but not the interface itself.
+We may choose to test that <code class="docutils literal notranslate"><span class="pre">ABS_ZERO</span></code> is <code class="docutils literal notranslate"><span class="pre">-273.15</span></code> for both <code class="docutils literal notranslate"><span class="pre">Fahrenheit</span></code> and <code class="docutils literal notranslate"><span class="pre">Celsius</span></code>.
+We may also want to test that the <code class="docutils literal notranslate"><span class="pre">convertTemp</span></code> function works as expected, however, since <code class="docutils literal notranslate"><span class="pre">convertTemp</span></code> has a different method body depending on whether it is in <code class="docutils literal notranslate"><span class="pre">Fahrenheit</span></code> or <code class="docutils literal notranslate"><span class="pre">Celsius</span></code>, we cannot define the as expected behavior with a test on our interface, <code class="docutils literal notranslate"><span class="pre">Temperature</span></code>.</p>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>8.5.1. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True or False: You should test the interface itself.</p>
+</div>
+</div>
 </div>
 
 

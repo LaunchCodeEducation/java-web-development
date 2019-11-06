@@ -13,12 +13,13 @@ Polymorphism
 of different types to be used in the same way.
 
 We’ve already encountered polymorphism made possible by inheritance when talking about :ref:`casting <casting>` with our ``Cat`` and ``HouseCat`` classes.
+In that case, we stored an object of type ``HouseCat`` in its compatible type, ``Cat``.
 
 Let's take a closer look at how polymorphism might work in our cat-centric application.
 
 .. admonition:: Example
 
-   Suppose we had a ``CatOwner`` like below.
+   Suppose we had a ``CatOwner`` class like the one below:
 
    .. sourcecode:: java
       :linenos: 
@@ -57,5 +58,4 @@ Let's take a closer look at how polymorphism might work in our cat-centric appli
    parameter has the methods defined within ``Cat``, and via inheritance,
    both of the subclasses satisfy this requirement.
 
-There’s one more object-oriented mechanism that empowers us to code in a
-polymorphic way: the interface.
+In addition to using classes to code in a polymorphic way, we can use interfaces.

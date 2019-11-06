@@ -18,7 +18,7 @@ objects.
 **Important Methods**: ``compareTo(T)``
 
 `Comparable<T>
-Documentation <http://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html>`__
+Documentation <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Comparable.html>`__
 
 Comparator<T>
 -------------
@@ -32,14 +32,13 @@ implement the interface itself.
 **Important Methods**: ``compare(T, T)``
 
 `Comparator<T>
-Documentation <http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html>`__
+Documentation <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/Comparator.html>`__
 
 This interface can be used to determine, given two objects of the given
 type, which one is “greater” than the other. It is also used by
-collections such as
-`ArrayList <http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html>`__
+collections such as :ref:`an ArrayList <array-list>`
 to sort its contents with the
-`sort <http://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html#sort-java.util.Comparator->`__
+:ref:`sort <arraylistsort>`
 method.
 
 .. admonition:: Note
@@ -84,7 +83,7 @@ words, enable ordered collections.
 **Important Methods**: ``add(int, T)``, ``get(int)``, ``indexOf(T)``
 
 `List<T>
-Documentation <http://docs.oracle.com/javase/8/docs/api/java/util/List.html>`__
+Documentation <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/List.html>`__
 
 This interface is also implemented by the ``ArrayList<T>`` class, which
 we’ve been using throughout this course. In fact, ``List<T>`` extends
@@ -128,33 +127,11 @@ we’ve been using throughout this course.
       // Get item with key "hello"
       String hello = collection.get("hello");
 
-Default Methods
----------------
+Check Your Understanding
+------------------------
 
-.. index:: ! default methods
+.. admonition:: Question
 
-We also want to introduce **default methods**, so let’s
-do that now. A default method has a body. In other words, it is a
-fully-formed method. It is preceded with the ``default`` keyword, and it
-may be overridden by classes implementing the interface.
+   True or False: an interface can extend another interface.
 
-.. sourcecode:: java
-   :linenos:
-
-   public interface MyInterface {
-
-       void someMethod();
-
-       default void someOtherMethod() {
-           // ...code goes here...
-       }
-
-   }
-
-Default methods were added to Java 8,
-and thus are relatively new. Their intended purpose is to allow
-programmers to add a method to an interface that has already been
-released, while not forcing those already using the interface to add new
-code to their classes. You should avoid using default methods in all
-other situations other than the one described here. *Do not use default
-methods when writing a new interface.*
+.. ans: True

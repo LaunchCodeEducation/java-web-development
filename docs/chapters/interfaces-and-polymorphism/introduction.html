@@ -92,11 +92,12 @@ explore is polymorphism.</p>
 <h2>8.1.1. Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">¶</a></h2>
 <p><strong>Polymorphism</strong> is an object-oriented mechanism that allows for objects
 of different types to be used in the same way.</p>
-<p>We’ve already encountered polymorphism made possible by inheritance when talking about <a class="reference internal" href="../inheritance/casting.html#casting"><span class="std std-ref">casting</span></a> with our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> classes.</p>
+<p>We’ve already encountered polymorphism made possible by inheritance when talking about <a class="reference internal" href="../inheritance/casting.html#casting"><span class="std std-ref">casting</span></a> with our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> classes.
+In that case, we stored an object of type <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> in its compatible type, <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
 <p>Let’s take a closer look at how polymorphism might work in our cat-centric application.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>Suppose we had a <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> like below.</p>
+<p>Suppose we had a <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class like the one below:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -146,8 +147,7 @@ is because the only thing that the method requires is that the input
 parameter has the methods defined within <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, and via inheritance,
 both of the subclasses satisfy this requirement.</p>
 </div>
-<p>There’s one more object-oriented mechanism that empowers us to code in a
-polymorphic way: the interface.</p>
+<p>In addition to using classes to code in a polymorphic way, we can use interfaces.</p>
 </div>
 </div>
 

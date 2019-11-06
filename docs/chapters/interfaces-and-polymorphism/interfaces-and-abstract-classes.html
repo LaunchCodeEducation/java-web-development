@@ -92,7 +92,7 @@ abstract classes. Recall that an abstract class is one declared with the
 class, and like an interface, an abstract class is allowed to contain
 methods that only have signatures (that is, they don’t have
 implementation code).</p>
-<p>The main differences between interfaces and abstract classes are: - You
+<p>The main differences between interfaces and abstract classes are: you
 <em>implement</em> an interface, while you <em>extend</em> an abstract class. The net
 effect of this is that a class may implement interfaces while also
 extending a class. Note that while you can implement <em>more than one</em>
@@ -104,16 +104,29 @@ instances in the same way that abstract classes do. In particular, any
 method that needs to use an instance property may not be part of an
 interface, since interfaces don’t have instance properties. Unlike
 interfaces, abstract classes may have methods which are not static or
-default and which do have implementation code. - Abstract classes should
-be used to collect and specify behavior by related classes, while an
+default and which do have implementation code.</p>
+<blockquote>
+<div>Abstract classes should be used to collect and specify behavior by related classes, while an
 interface should be used to specify related behaviors that may be common
-across unrelated classes.</p>
-<p>For example, we could implement <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> in many ways, to sort a
-wide variety of classes whose objects may be compared to one another:
-<code class="docutils literal notranslate"><span class="pre">Date</span></code> (compare by temporal order), <code class="docutils literal notranslate"><span class="pre">Student</span></code> (compare by GPA),
-<code class="docutils literal notranslate"><span class="pre">Person</span></code> (compare by age), <code class="docutils literal notranslate"><span class="pre">City</span></code> (compare by population). However,
-it’s unlikely that these classes would have any implementable behavior
-that would warrant that they have the same base class.</p>
+across unrelated classes.</div></blockquote>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="last">Let’s go back to our <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface. If we want to add a <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class to our application, we might implement the <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface for our <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class.
+This makes sense as dogs are creatures that we feed. However, as dogs and cats are so different, it is unlikely that they would share many behaviors through the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class.</p>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>8.3.1. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Check all statements that are TRUE about the differences between interfaces and abstract classes.</p>
+<ol class="last loweralpha simple">
+<li>You extend an abstract class, but implement an interface.</li>
+<li>You can implement many interfaces and many classes.</li>
+<li>Interfaces cannot contain non-constant fields, but abstract classes can.</li>
+<li>Methods that use instance properties can be in both interfaces and abstract classes.</li>
+</ol>
+</div>
+</div>
 </div>
 
 
