@@ -3,7 +3,7 @@ Array
 
 We learned about arrays in Java in :ref:`a previous lesson <array>`, 
 so let’s spend a moment comparing them to ``ArrayLists``. ``ArrayLists``  
-are generally easier to use that Java's ``Array``. Let's see why this is.
+are generally easier to use than Java's ``Array``. Let's see why this is.
 
 Why does Java have both ``Arrays`` and ``ArrayLists``? The answer is
 historical, at least in part. Java is a C-style language, and arrays are
