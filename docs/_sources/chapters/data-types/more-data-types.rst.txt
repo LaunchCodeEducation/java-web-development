@@ -279,7 +279,7 @@ methods.
 #. The ``main`` method in the ``HelloMethods`` class has the same structure as
    that of our :ref:`temperature conversion example <temp-conversion>`.
 #. Take a look at the ``Message`` class. Note that it does NOT have a ``main``
-   method, so it can’t be run on it’s own. Code within the ``Message`` class
+   method, so it can’t be run on its own. Code within the ``Message`` class
    must be called from elsewhere in order to execute.
 #. The ``Message`` class contains the ``getMessage`` method. Like ``main``, it
    has the ``static`` keyword. Unlike ``main``, ``getMessage`` has a return
