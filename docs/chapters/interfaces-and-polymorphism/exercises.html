@@ -121,17 +121,178 @@ objects.</p>
 </div>
 <div class="section" id="sorting-flavors-by-name">
 <h2>8.2.2. Sorting Flavors by Name<a class="headerlink" href="#sorting-flavors-by-name" title="Permalink to this headline">¶</a></h2>
-<p>To display a menu for the customers, we need to sort the ice cream flavors
-alphabetically by their <code class="docutils literal notranslate"><span class="pre">name</span></code> field.</p>
-<p>For comparison, let’s do this without interfaces:</p>
-<p>But…</p>
-<blockquote>
-<div>Ah ha! An exiting interface has solved the sorting-objects-by-field
-problem.</div></blockquote>
+<p>To display a menu for our customers, we need to sort the ice cream flavors
+alphabetically by their <code class="docutils literal notranslate"><span class="pre">name</span></code> field. Fortunately, the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code>
+interface has solved the sorting-objects-by-field problem.</p>
+<div class="section" id="create-a-sorting-class">
+<h3>8.2.2.1. Create a Sorting Class<a class="headerlink" href="#create-a-sorting-class" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Create a new class called <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> and have it implement the
+<code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FlavorComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="o">{</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Notice that IntelliJ flags a couple of errors that you need to fix:</p>
+<ol class="loweralpha">
+<li><p class="first">Import <code class="docutils literal notranslate"><span class="pre">java.util.Comparator</span></code>. This removes the flag on <code class="docutils literal notranslate"><span class="pre">Comparator</span></code>.</p>
+</li>
+<li><p class="first">Hover over the line again and select <em>implement methods</em>. Choose the
+<code class="docutils literal notranslate"><span class="pre">compare</span></code> option.</p>
+<div class="figure">
+<img alt="Selection menu for methods to implement." src="../../_images/implement-methods.png" />
+</div>
+</li>
+<li><p class="first">This adds an <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> method that compares two <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> objects
+and <em>always</em> returns <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Flavor</span> <span class="n">o1</span><span class="o">,</span> <span class="n">Flavor</span> <span class="n">o2</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+</ol>
+</li>
+<li><p class="first">Always returning <code class="docutils literal notranslate"><span class="pre">0</span></code> results in no sorting, so replace line 8 with:</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">o1</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">compareTo</span><span class="o">(</span><span class="n">o2</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</pre></div>
+</div>
+<p>This returns an integer (negative, positive, or zero) depending on
+whether <code class="docutils literal notranslate"><span class="pre">o1</span></code> or <code class="docutils literal notranslate"><span class="pre">o2</span></code> comes first, alphabetically.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="sorting-the-flavors-arraylist">
+<h3>8.2.2.2. Sorting the <code class="docutils literal notranslate"><span class="pre">flavors</span></code> ArrayList<a class="headerlink" href="#sorting-the-flavors-arraylist" title="Permalink to this headline">¶</a></h3>
+<p>In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, we declare <code class="docutils literal notranslate"><span class="pre">allItems</span></code> that contains everything in the <code class="docutils literal notranslate"><span class="pre">Case</span></code>
+as well as specific <code class="docutils literal notranslate"><span class="pre">flavors</span></code> and <code class="docutils literal notranslate"><span class="pre">cones</span></code> collections.</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+   <span class="n">Case</span> <span class="n">allItems</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic">
+<li><p class="first">To sort the <code class="docutils literal notranslate"><span class="pre">flavors</span></code> list, first create a new <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code>
+object.</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+   <span class="n">Case</span> <span class="n">allItems</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
+   <span class="n">Comparator</span> <span class="n">comparator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FlavorComparator</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Next, call the <code class="docutils literal notranslate"><span class="pre">sort</span></code> method on <code class="docutils literal notranslate"><span class="pre">flavors</span></code> and pass the <code class="docutils literal notranslate"><span class="pre">comparator</span></code>
+object as the argument.</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+   <span class="n">Case</span> <span class="n">allItems</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
+   <span class="n">Comparator</span> <span class="n">comparator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FlavorComparator</span><span class="o">();</span>
+
+   <span class="n">flavors</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">comparator</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Iterating through the <code class="docutils literal notranslate"><span class="pre">flavors</span></code> list before and after the sort shows
+the results. (The output below displays just the <code class="docutils literal notranslate"><span class="pre">name</span></code> fields).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Before:                 After:
+
+Vanilla                 Chocolate
+Chocolate               Red Velvet
+Red Velvet              Rocky Road
+Rocky Road              Strawberry Sorbet
+Strawberry Sorbet       Vanilla
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">Main</span></code> does NOT have to implement the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface.
+This only needs to happen in the class that actually uses the <code class="docutils literal notranslate"><span class="pre">compare</span></code>
+method.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Instead of declaring and initializing a <code class="docutils literal notranslate"><span class="pre">comparator</span></code> object, we could
+condense lines 10 &amp; 12 into a single statement:</p>
+<div class="last highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">flavors</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="k">new</span> <span class="n">FlavorComparator</span><span class="o">());</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="sorting-cones-by-cost">
 <h2>8.2.3. Sorting Cones by Cost<a class="headerlink" href="#sorting-cones-by-cost" title="Permalink to this headline">¶</a></h2>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface to sort <code class="docutils literal notranslate"><span class="pre">cones</span></code> list by cost…</p>
+<p>Now let’s sort our <code class="docutils literal notranslate"><span class="pre">cones</span></code> list by cost, from least expensive to most
+expensive.</p>
+<ol class="arabic">
+<li><p class="first">Create the new class <code class="docutils literal notranslate"><span class="pre">ConeComparator</span></code>.</p>
+</li>
+<li><p class="first">Follow the example above to implement the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface and
+evaluate <code class="docutils literal notranslate"><span class="pre">Cone</span></code> objects by cost.</p>
+</li>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, sort the <code class="docutils literal notranslate"><span class="pre">cones</span></code> list, then print the entries to the screen
+to verify the results.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Bowl: <span class="nv">$0</span>.05
+Wafer: <span class="nv">$0</span>.50
+Sugar: <span class="nv">$0</span>.75
+Waffle: <span class="nv">$1</span>.25
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="section" id="troubleshooting">
+<h3>8.2.3.1. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<p>Did you get this error?</p>
+<div class="figure">
+<img alt="``compare`` must return ``int``." src="../../_images/compare-double.png" />
+</div>
+<p>This happens because according to the interface, <code class="docutils literal notranslate"><span class="pre">compare</span></code> MUST return an
+integer value, but the <code class="docutils literal notranslate"><span class="pre">cost</span></code> fields are <code class="docutils literal notranslate"><span class="pre">double</span></code> type.</p>
+<p>To fix this, use an <code class="docutils literal notranslate"><span class="pre">if/else</span> <span class="pre">if/else</span></code> block to evaluate
+<code class="docutils literal notranslate"><span class="pre">o1.getCost()</span> <span class="pre">-</span> <span class="pre">o2.getCost()</span></code>. Return a positive integer, negative integer,
+or 0 depending on the result.</p>
+</div>
+</div>
+<div class="section" id="bonus-exercises">
+<h2>8.2.4. Bonus Exercises<a class="headerlink" href="#bonus-exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Modify <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> to sort <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> objects by the number of
+allergens.</li>
+<li>Create a <code class="docutils literal notranslate"><span class="pre">Topping</span></code> class that extends <code class="docutils literal notranslate"><span class="pre">Ingredient</span></code>. Add toppings
+to the <code class="docutils literal notranslate"><span class="pre">Case</span></code> constructor, then choose how to sort a <code class="docutils literal notranslate"><span class="pre">toppings</span></code> array
+in <code class="docutils literal notranslate"><span class="pre">Main</span></code>.</li>
+</ol>
+</div>
+<div class="section" id="next-steps">
+<h2>8.2.5. Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<p>In these exercises, you practiced implementing existing interfaces. In the
+studio activity, you will design and implement your own.</p>
 </div>
 </div>
 

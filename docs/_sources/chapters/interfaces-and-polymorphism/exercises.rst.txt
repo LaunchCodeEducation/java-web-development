@@ -39,19 +39,164 @@ objects.
 Sorting Flavors by Name
 ------------------------
 
-To display a menu for the customers, we need to sort the ice cream flavors
-alphabetically by their ``name`` field.
+To display a menu for our customers, we need to sort the ice cream flavors
+alphabetically by their ``name`` field. Fortunately, the ``Comparator``
+interface has solved the sorting-objects-by-field problem.
 
-For comparison, let's do this without interfaces:
+Create a Sorting Class
+~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Create a new class called ``FlavorComparator`` and have it implement the
+   ``Comparator`` interface:
 
+   .. sourcecode:: Java
 
-But...
+      public class FlavorComparator implements Comparator<Flavor> {
 
-   Ah ha! An exiting interface has solved the sorting-objects-by-field
-   problem.
+#. Notice that IntelliJ flags a couple of errors that you need to fix:
+
+   a. Import ``java.util.Comparator``. This removes the flag on ``Comparator``.
+   b. Hover over the line again and select *implement methods*. Choose the
+      ``compare`` option.
+
+      .. figure:: figures/implement-methods.png
+         :alt: Selection menu for methods to implement.
+
+   c. This adds an ``@Override`` method that compares two ``Flavor`` objects
+      and *always* returns ``0``.
+
+      .. sourcecode:: Java
+         :lineno-start: 6
+
+         @Override
+         public int compare(Flavor o1, Flavor o2) {
+            return 0;
+         }
+
+#. Always returning ``0`` results in no sorting, so replace line 8 with:
+
+   .. sourcecode:: Java
+
+      return o1.getName().compareTo(o2.getName());
+
+   This returns an integer (negative, positive, or zero) depending on
+   whether ``o1`` or ``o2`` comes first, alphabetically.
+
+Sorting the ``flavors`` ArrayList
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In ``Main``, we declare ``allItems`` that contains everything in the ``Case``
+as well as specific ``flavors`` and ``cones`` collections.
+
+.. sourcecode:: Java
+   :lineno-start: 6
+
+   public static void main(String[] args){
+      Case allItems = new Case();
+      ArrayList<Flavor> flavors = allItems.getFlavors();
+      ArrayList<Cone> cones = allItems.getCones();
+
+   }
+
+#. To sort the ``flavors`` list, first create a new ``FlavorComparator``
+   object.
+
+   .. sourcecode:: Java
+      :lineno-start: 6
+
+      public static void main(String[] args){
+         Case allItems = new Case();
+         ArrayList<Flavor> flavors = allItems.getFlavors();
+         ArrayList<Cone> cones = allItems.getCones();
+         Comparator comparator = new FlavorComparator();
+      }
+
+#. Next, call the ``sort`` method on ``flavors`` and pass the ``comparator``
+   object as the argument.
+
+   .. sourcecode:: Java
+      :lineno-start: 6
+
+      public static void main(String[] args){
+         Case allItems = new Case();
+         ArrayList<Flavor> flavors = allItems.getFlavors();
+         ArrayList<Cone> cones = allItems.getCones();
+         Comparator comparator = new FlavorComparator();
+
+         flavors.sort(comparator);
+      }
+
+#. Iterating through the ``flavors`` list before and after the sort shows
+   the results. (The output below displays just the ``name`` fields).
+
+   .. sourcecode:: bash
+
+      Before:                 After:
+
+      Vanilla                 Chocolate
+      Chocolate               Red Velvet
+      Red Velvet              Rocky Road
+      Rocky Road              Strawberry Sorbet
+      Strawberry Sorbet       Vanilla
+
+Note that ``Main`` does NOT have to implement the ``Comparator`` interface.
+This only needs to happen in the class that actually uses the ``compare``
+method.
+
+.. admonition:: Tip
+
+   Instead of declaring and initializing a ``comparator`` object, we could
+   condense lines 10 & 12 into a single statement:
+
+   .. sourcecode:: Java
+
+      flavors.sort(new FlavorComparator());
 
 Sorting Cones by Cost
 ----------------------
 
-Use the ``Comparator`` interface to sort ``cones`` list by cost...
+Now let's sort our ``cones`` list by cost, from least expensive to most
+expensive.
+
+#. Create the new class ``ConeComparator``.
+#. Follow the example above to implement the ``Comparator`` interface and
+   evaluate ``Cone`` objects by cost.
+#. In ``Main``, sort the ``cones`` list, then print the entries to the screen
+   to verify the results.
+
+   .. sourcecode:: bash
+
+      Bowl: $0.05
+      Wafer: $0.50
+      Sugar: $0.75
+      Waffle: $1.25
+
+Troubleshooting
+~~~~~~~~~~~~~~~~
+
+Did you get this error?
+
+.. figure:: figures/compare-double.png
+   :alt: ``compare`` must return ``int``.
+
+This happens because according to the interface, ``compare`` MUST return an
+integer value, but the ``cost`` fields are ``double`` type.
+
+To fix this, use an ``if/else if/else`` block to evaluate
+``o1.getCost() - o2.getCost()``. Return a positive integer, negative integer,
+or 0 depending on the result.
+
+Bonus Exercises
+----------------
+
+#. Modify ``FlavorComparator`` to sort ``Flavor`` objects by the number of
+   allergens.
+#. Create a ``Topping`` class that extends ``Ingredient``. Add toppings
+   to the ``Case`` constructor, then choose how to sort a ``toppings`` array
+   in ``Main``.
+
+Next Steps
+-----------
+
+In these exercises, you practiced implementing existing interfaces. In the
+studio activity, you will design and implement your own.
