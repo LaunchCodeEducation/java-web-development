@@ -347,18 +347,18 @@ Check Your Understanding
          :linenos:
       
          ArrayList<String> charStars = new ArrayList<>();
-         chars.add('a');
-         chars.add('b');
-         chars.add('c');
+         charStars.add('a');
+         charStars.add('b');
+         charStars.add('c');
 
    #. 
       .. sourcecode:: java
          :linenos:
       
          ArrayList<Char> charStars = new ArrayList<>();
-         chars.add('a');
-         chars.add('b');
-         chars.add('c');
+         charStars.add('a');
+         charStars.add('b');
+         charStars.add('c');
 
    #. 
       .. sourcecode:: java
@@ -370,11 +370,11 @@ Check Your Understanding
          :linenos:
       
          ArrayList<String> charStars = new ArrayList<>();
-         chars.add("a");
-         chars.add("b");
-         chars.add("c");
+         charStars.add("a");
+         charStars.add("b");
+         charStars.add("c");
 
 .. ans: ArrayList<String> charStars = new ArrayList<>();
-         chars.add("a");
-         chars.add("b");
-         chars.add("c");
+         charStars.add("a");
+         charStars.add("b");
+         charStars.add("c");
