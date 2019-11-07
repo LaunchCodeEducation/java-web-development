@@ -206,7 +206,7 @@ References
 ----------
 
 -  `HashMap Class
-   (docs.oracle.com) <https://docs.oracle./comjavase/8/docs/api/java/util/HashMap.html>`__
+   (docs.oracle.com) <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/HashMap.html>`__
 
 Check Your Understanding
 -------------------------
