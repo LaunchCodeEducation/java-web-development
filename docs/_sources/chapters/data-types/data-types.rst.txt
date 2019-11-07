@@ -259,7 +259,7 @@ the reverse process (object to primitive) was called **unboxing**.
       int sum = ourNumber + randomInt;
 
    #. Line 2 declares and initializes ``randomNumber`` as an ``Integer`` type.
-   #. Line 3 and converts ``randomNumber`` to an ``int`` and stores the value in
+   #. Line 3 converts ``randomNumber`` to an ``int`` and stores the value in
       the ``randomInt`` variable.
 
 .. index:: ! autoboxing
