@@ -1,10 +1,10 @@
 Exercises: Interfaces and Polymorphism
 =======================================
 
-It takes time for new Java coders to recognize the usefulness of interfaces. At
-first glance, they do not seem to provide much benefit over extending a base
-class, adding instance methods to a class, or overriding a method like
-``toString``.
+As a new Java coder, it might take you some time to recognize the usefulness of
+interfaces. At first glance, these tools do not seem to provide much benefit
+over extending a base class, adding instance methods to a class, or overriding
+a method like ``toString``.
 
 To help overcome this, let's consider a common occurrence---sorting an
 ``ArrayList`` of objects.
@@ -44,14 +44,14 @@ alphabetically by their ``name`` field. Fortunately, the ``Comparator``
 interface has solved the sorting-objects-by-field problem.
 
 Create a Sorting Class
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Create a new class called ``FlavorComparator`` and have it implement the
    ``Comparator`` interface:
 
    .. sourcecode:: Java
 
-      public class FlavorComparator implements Comparator<Flavor> {
+      public class FlavorComparator implements Comparator<Flavor>
 
 #. Notice that IntelliJ flags a couple of errors that you need to fix:
 
@@ -83,7 +83,7 @@ Create a Sorting Class
    whether ``o1`` or ``o2`` comes first, alphabetically.
 
 Sorting the ``flavors`` ArrayList
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In ``Main``, we declare ``allItems`` that contains everything in the ``Case``
 as well as specific ``flavors`` and ``cones`` collections.
@@ -146,7 +146,7 @@ method.
 .. admonition:: Tip
 
    Instead of declaring and initializing a ``comparator`` object, we could
-   condense lines 10 & 12 into a single statement:
+   combine steps 1 and 2 by using a single statement:
 
    .. sourcecode:: Java
 
@@ -172,7 +172,7 @@ expensive.
       Waffle: $1.25
 
 Troubleshooting
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 Did you get this error?
 

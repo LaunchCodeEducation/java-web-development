@@ -2,7 +2,7 @@ Studio: Spinning the Discs
 ===========================
 
 Although they look the same, the old optical discs---CDs and DVDs---are quite
-different from each other. Let's use them as a model for creating a new
+different from each other. Let's use them as the focus for creating a new
 interface.
 
 Getting Ready

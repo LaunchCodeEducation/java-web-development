@@ -86,10 +86,10 @@
     
   <div class="section" id="exercises-interfaces-and-polymorphism">
 <h1>8.2. Exercises: Interfaces and Polymorphism<a class="headerlink" href="#exercises-interfaces-and-polymorphism" title="Permalink to this headline">¶</a></h1>
-<p>It takes time for new Java coders to recognize the usefulness of interfaces. At
-first glance, they do not seem to provide much benefit over extending a base
-class, adding instance methods to a class, or overriding a method like
-<code class="docutils literal notranslate"><span class="pre">toString</span></code>.</p>
+<p>As a new Java coder, it might take you some time to recognize the usefulness of
+interfaces. At first glance, these tools do not seem to provide much benefit
+over extending a base class, adding instance methods to a class, or overriding
+a method like <code class="docutils literal notranslate"><span class="pre">toString</span></code>.</p>
 <p>To help overcome this, let’s consider a common occurrence—sorting an
 <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> of objects.</p>
 <ol class="arabic">
@@ -129,7 +129,7 @@ interface has solved the sorting-objects-by-field problem.</p>
 <ol class="arabic">
 <li><p class="first">Create a new class called <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> and have it implement the
 <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface:</p>
-<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FlavorComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="o">{</span>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FlavorComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </li>
@@ -239,7 +239,7 @@ method.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>Instead of declaring and initializing a <code class="docutils literal notranslate"><span class="pre">comparator</span></code> object, we could
-condense lines 10 &amp; 12 into a single statement:</p>
+combine steps 1 and 2 by using a single statement:</p>
 <div class="last highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">flavors</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="k">new</span> <span class="n">FlavorComparator</span><span class="o">());</span>
 </pre></div>
 </div>
