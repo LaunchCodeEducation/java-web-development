@@ -258,12 +258,12 @@ Check Your Understanding
    
    What will ``moons.get("Mars");`` return?
 
-   #. ``3``
+   #. ``2``
    
-   #. ``{Mars: 3}``
+   #. ``{Mars: 2}``
 
-   #. ``3.0``
+   #. ``2.0``
 
    #. ``"Mars"``
 
-.. ans - ``3``
+.. ans - ``2``
