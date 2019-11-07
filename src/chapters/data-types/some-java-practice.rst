@@ -23,7 +23,7 @@ Temperature Conversion
    .. sourcecode:: java
       :linenos:
 
-      package org.launchcode.java.demos.javawebdevelopment.datatypes;
+      package org.launchcode.java.demos.lsn1datatypes;
 
       import java.util.Scanner;
 
@@ -62,7 +62,7 @@ at them in the following order:
 Java Packages
 -------------
 
-Line 1 of of the program above, ``package org.launchcode.java.demos.javawebdevelopment.datatypes;``
+Line 1 of of the program above, ``package org.launchcode.java.demos.lsn1datatypes;``
 declares the package in which the file resides. For this simple program, your code 
 could run without this line. However, you want to get used to always declaring the 
 package of your Java classes. 
