@@ -1,7 +1,7 @@
 Unit Testing and Interfaces
 ===========================
 
-After all that we have learned about interfaces, you are probably wondering, how do I write my unit tests with interfaces?
+After all that we have learned about interfaces, you are probably wondering, *how do I write my unit tests with interfaces?*
 
 The best practices to testing interfaces are very similar to those of :ref:`testing inheritance <testinginheritance>`. You want to focus on testing the contract that the interface is supposed to be upholding as opposed to the interface itself.
 

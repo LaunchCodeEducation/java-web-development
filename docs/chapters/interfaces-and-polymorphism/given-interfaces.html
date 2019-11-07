@@ -86,15 +86,13 @@
     
   <div class="section" id="interfaces-in-the-wild">
 <h1>8.4. Interfaces In The Wild<a class="headerlink" href="#interfaces-in-the-wild" title="Permalink to this headline">¶</a></h1>
-<p>The most immediate situations that you’ll encounter in which you’ll want
-to use interfaces are when working with interfaces and classes that are
-part of Java. Here are just a few.</p>
+<p>The first situations where you’ll want to use interfaces involve applying pre-defined interfaces and classes that are part of Java. Here are a few examples.</p>
 <div class="section" id="comparable-t">
 <h2>8.4.1. Comparable&lt;T&gt;<a class="headerlink" href="#comparable-t" title="Permalink to this headline">¶</a></h2>
 <p><strong>Purpose</strong>: A class implements <code class="docutils literal notranslate"><span class="pre">Comparable&lt;T&gt;</span></code> in order to allow
-comparison - in a “greater than” and “less than” sense - to another
+comparison—in a “greater than” and “less than” sense—to another
 instance of the class. This is a “parameterized” interface, which means
-that when using it you need to specify the class that it will be
+that you need to specify the class that it will be
 comparing. For example, <code class="docutils literal notranslate"><span class="pre">Comparable&lt;Job&gt;</span></code> would compare <code class="docutils literal notranslate"><span class="pre">Job</span></code>
 objects.</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">compareTo(T)</span></code></p>
@@ -103,11 +101,7 @@ Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
 </div>
 <div class="section" id="comparator-t">
 <h2>8.4.2. Comparator&lt;T&gt;<a class="headerlink" href="#comparator-t" title="Permalink to this headline">¶</a></h2>
-<p><strong>Purpose</strong>: Compare two objects of a given class. When wanting to
-compare objects from a given class, you can create several different
-<code class="docutils literal notranslate"><span class="pre">Comparator</span></code> classes to allow different types of comparison and
-ordering. The class that you want to compare objects of <em>does not</em>
-implement the interface itself.</p>
+<p><strong>Purpose</strong>: Compares two objects of a given class. To allow comparisons and ordering based on the different fields, you can create several different <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> classes. The class for the compared objects does NOT implement the interface itself.</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">compare(T,</span> <span class="pre">T)</span></code></p>
 <p><a class="reference external" href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/Comparator.html" target="_blank">Comparator&lt;T&gt;
 Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
@@ -126,7 +120,7 @@ article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 <div class="section" id="iterable-t">
 <h2>8.4.3. Iterable&lt;T&gt;<a class="headerlink" href="#iterable-t" title="Permalink to this headline">¶</a></h2>
-<p><strong>Purpose</strong>: Enable iteration over a collection of objects using a
+<p><strong>Purpose</strong>: Enables iteration over a collection of objects using a
 for-each loop</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">iterator()</span></code></p>
 <p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html" target="_blank">Iterable&lt;T&gt;
@@ -152,10 +146,10 @@ been using throughout this course.</p>
 </td></tr></table></div>
 </div>
 </div>
-<div class="section" id="list-t">
-<h2>8.4.4. List&lt;T&gt;<a class="headerlink" href="#list-t" title="Permalink to this headline">¶</a></h2>
-<p><strong>Purpose</strong>: Enable access to objects in a collection by index. In other
-words, enable ordered collections.</p>
+<div class="section" id="list-e">
+<h2>8.4.4. List&lt;E&gt;<a class="headerlink" href="#list-e" title="Permalink to this headline">¶</a></h2>
+<p><strong>Purpose</strong>: Enables access to objects in a collection by index. In other
+words, it enables ordered collections.</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add(int,</span> <span class="pre">T)</span></code>, <code class="docutils literal notranslate"><span class="pre">get(int)</span></code>, <code class="docutils literal notranslate"><span class="pre">indexOf(T)</span></code></p>
 <p><a class="reference external" href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/List.html" target="_blank">List&lt;T&gt;
 Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
@@ -182,7 +176,7 @@ same way that classes may extend each other.</p>
 </div>
 <div class="section" id="map-k-v">
 <h2>8.4.5. Map&lt;K, V&gt;<a class="headerlink" href="#map-k-v" title="Permalink to this headline">¶</a></h2>
-<p><strong>Purpose</strong>: Represent a collection of key/value pairs.</p>
+<p><strong>Purpose</strong>: Represents a collection of key/value pairs.</p>
 <p><strong>Important Methods</strong>: <code class="docutils literal notranslate"><span class="pre">get(K)</span></code>, <code class="docutils literal notranslate"><span class="pre">containsKey(K)</span></code>, <code class="docutils literal notranslate"><span class="pre">put(K,</span> <span class="pre">V)</span></code></p>
 <p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html" target="_blank">Map&lt;K, V&gt;
 Documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
@@ -209,7 +203,8 @@ we’ve been using throughout this course.</p>
 <h2>8.4.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True or False: an interface can extend another interface.</p>
+<p>True or False</p>
+<p class="last">An interface can extend another interface.</p>
 </div>
 </div>
 </div>

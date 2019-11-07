@@ -3,7 +3,7 @@ Introduction
 
 .. index:: ! polymorphism
 
-The third **pillar of Object-Oriented Programming** that we’ll
+The third pillar of Object-Oriented Programming that we’ll
 explore is polymorphism.
 
 Polymorphism
@@ -58,4 +58,4 @@ Let's take a closer look at how polymorphism might work in our cat-centric appli
    parameter has the methods defined within ``Cat``, and via inheritance,
    both of the subclasses satisfy this requirement.
 
-In addition to using classes to code in a polymorphic way, we can use interfaces.
+In addition to using classes to code in a polymorphic way, we can use *interfaces*.

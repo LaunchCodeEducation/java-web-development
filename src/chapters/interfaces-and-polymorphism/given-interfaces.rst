@@ -1,17 +1,15 @@
 Interfaces In The Wild
 ======================
 
-The most immediate situations that you’ll encounter in which you’ll want
-to use interfaces are when working with interfaces and classes that are
-part of Java. Here are just a few.
+The first situations where you’ll want to use interfaces involve applying pre-defined interfaces and classes that are part of Java. Here are a few examples.
 
 Comparable<T>
 -------------
 
 **Purpose**: A class implements ``Comparable<T>`` in order to allow
-comparison - in a “greater than” and “less than” sense - to another
+comparison---in a “greater than” and “less than” sense---to another
 instance of the class. This is a “parameterized” interface, which means
-that when using it you need to specify the class that it will be
+that you need to specify the class that it will be
 comparing. For example, ``Comparable<Job>`` would compare ``Job``
 objects.
 
@@ -23,11 +21,7 @@ Documentation <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java
 Comparator<T>
 -------------
 
-**Purpose**: Compare two objects of a given class. When wanting to
-compare objects from a given class, you can create several different
-``Comparator`` classes to allow different types of comparison and
-ordering. The class that you want to compare objects of *does not*
-implement the interface itself.
+**Purpose**: Compares two objects of a given class. To allow comparisons and ordering based on the different fields, you can create several different ``Comparator`` classes. The class for the compared objects does NOT implement the interface itself.
 
 **Important Methods**: ``compare(T, T)``
 
@@ -50,7 +44,7 @@ method.
 Iterable<T>
 -----------
 
-**Purpose**: Enable iteration over a collection of objects using a
+**Purpose**: Enables iteration over a collection of objects using a
 for-each loop
 
 **Important Methods**: ``iterator()``
@@ -74,11 +68,11 @@ been using throughout this course.
          // do something with each item
       }
 
-List<T>
+List<E>
 -------
 
-**Purpose**: Enable access to objects in a collection by index. In other
-words, enable ordered collections.
+**Purpose**: Enables access to objects in a collection by index. In other
+words, it enables ordered collections.
 
 **Important Methods**: ``add(int, T)``, ``get(int)``, ``indexOf(T)``
 
@@ -105,7 +99,7 @@ same way that classes may extend each other.
 Map<K, V>
 ---------
 
-**Purpose**: Represent a collection of key/value pairs.
+**Purpose**: Represents a collection of key/value pairs.
 
 **Important Methods**: ``get(K)``, ``containsKey(K)``, ``put(K, V)``
 
@@ -132,6 +126,8 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True or False: an interface can extend another interface.
+   True or False
+   
+   An interface can extend another interface.
 
 .. ans: True

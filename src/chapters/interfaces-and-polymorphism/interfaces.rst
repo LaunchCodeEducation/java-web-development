@@ -3,9 +3,8 @@ Interfaces
 
 .. index:: ! interface
 
-An **interface** is a formal construction within Java that allows us to
-create a contract that classes can choose to fulfill. A Java interface
-may contain:
+An **interface** is a formal construction within Java. Interfaces allow us to create a set of behaviors that a class must fulfill.
+A Java interface may contain:
 
 #. Constants (that is, ``static final`` fields)
 #. Method signatures
@@ -38,7 +37,7 @@ As part of our cat application, let's create a method signature, ``eat``, as par
 
       }
 
-In the code above, you may have noticed a few things:
+In the code above, you may have noticed few things:
 
 #. That we need to use the ``interface`` keyword to define our interface, ``Feedable``.
 #. ``eat`` only has a signature. We are NOT allowed to provide a body for methods defined in interfaces.
@@ -46,8 +45,14 @@ In the code above, you may have noticed a few things:
 #. The ``Feedable`` interface itself is declared ``public``, which means any other class may use it. We may also leave off ``public``, making the interface package-private, or usable only within the same package.
 #. The name is indicative of the behavior that the interface is intended to describe. While this is only a convention, most interfaces have names that are adjectives. Whatever you do, use meaningful names!
 
+Static Methods
+^^^^^^^^^^^^^^
+
+A static method in an interface can contain code in the body. However, a static method cannot contain any references to instance properties in other classes.
+
+
 Default Methods
----------------
+^^^^^^^^^^^^^^^
 
 .. index:: ! default methods
 
@@ -68,18 +73,16 @@ may be overridden by classes implementing the interface.
 
    }
 
-The intended purpose of default mathods is to allow
+The intended purpose of default methods is to allow
 programmers to add a method to an interface that has already been
 released, while not forcing those already using the interface to add new
 code to their classes. You should avoid using default methods in all
-other situations other than the one described here. *Do not use default
-methods when writing a new interface.*
+other situations other than the one described here.
 
 Implementing an Interface
 -------------------------
 
-The purpose of an interface is to define a contract that classes may
-choose to uphold. In doing so, we say that they “*implement* the
+The purpose of an interface is to define a contract of behaviors that classes uphold. In doing so, we say that they “*implement* the
 interface”. The syntax for implementation is similar to that for
 inheritance. Here’s how we can use the ``Feedable`` interface in
 defining our ``Cat`` class.
@@ -123,10 +126,9 @@ signature does indeed match that of the interface.
       }
 
 As with classes, interfaces define a type that can be used when
-declaring fields, parameters, and local variables.
-
-Using an interface allows us to relax the requirements on our code
-elsewhere, thus making it more extensible and adaptable. For example,
+declaring fields, parameters, and local variables. This allows us to relax the requirements on our code
+elsewhere, thus making it more extensible and adaptable.
+If an application is extensible, it is easier for programmers for new capabilites to be added later on. For example,
 here’s how we might modify our ``CatOwner`` class:
 
 .. sourcecode:: java
@@ -180,8 +182,7 @@ by doing the following:
        // code that requires Cat-specific behavior
    }
 
-We’ve created a ``PetOwner`` class that encapsulates the behavior that
-could apply to any pet (any ``Feedable``, actually), and have
+We’ve created a ``PetOwner`` class that encapsulates the behavior for any pet (any ``Feedable``, actually), and have
 ``CatOwner`` extend ``PetOwner``. This allows other classes to extend
 ``PetOwner`` to make, say, a ``DogOwner`` that knows how to play fetch
 with their pet, or a ``HorseOwner`` that knows how to ride their pet. It
@@ -210,7 +211,7 @@ creating it as a ``HouseCat``, but using it as a ``Feedable`` within the
 .. admonition:: Note
 
    Like inheritance, interfaces enable polymorphic usage of objects. We can
-   create an object, and then use it in different contexts based on any
+   create an object and then use it in different contexts based on the
    interfaces that it implements.
 
 *Interfaces may not be created like objects are, with* ``new``.
@@ -221,8 +222,7 @@ interface.
 Benefits of Using Interfaces
 ----------------------------
 
-Interfaces are great! Trust us, they really are. Once you get used to
-them, you’ll begin to think more abstractly about which *behaviors* your
+Once you get used to interfaces, you’ll begin to think more abstractly about which *behaviors* your
 code requires rather than which *classes* your code requires. This means
 you’ll be able to “code to interfaces” (an OOP principle) instead of
 coding to classes, and your code will become more flexible and
@@ -249,11 +249,16 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Fill in the following blanks.
+   Choose the appropriate option to fill in the blanks.
 
    A class can extend _______ class(s) and implement ________ interface(s).
 
-.. ans: one, many
+   a. one, one
+   b. one, more than one
+   c. more than one, one
+   d. more than one, more than one
+
+.. ans: b
 
 .. admonition:: Question
 
@@ -272,7 +277,7 @@ Check Your Understanding
 
       public Temperature {
 
-         double final ABSOLUTEZERO = -273.15;
+         double final ABSOLUTE_ZERO = -273.15;
 
          double convertTemp();
       }
