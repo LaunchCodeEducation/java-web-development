@@ -7,3 +7,4 @@ Interfaces and Polymorphism
    introduction
    exercises
    studio
+   new-studio
