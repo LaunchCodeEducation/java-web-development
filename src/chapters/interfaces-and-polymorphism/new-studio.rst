@@ -82,15 +82,15 @@ behavior vary. Thus, a method like ``spinDisc()`` fits well into an interface.
    belong in the interface.
 #. Write down details about how these behaviors differ for CDs and DVDs. This
    guides your thinking about how each class should override the methods.
-#. For the common behaviors that cannot go into the interface, decide if they
-   could be placed in an abstract class or if they need to appear in the
-   separate ``CD`` and ``DVD`` classes.
+#. For the behaviors that cannot go into the interface, decide if they could be
+   placed in an abstract class or if they need to appear in the separate ``CD``
+   and ``DVD`` classes.
 #. Finally, write down the fields needed to define the properties of a CD or
    DVD (e.g. ``storageCapacity``). Consider:
 
-   a. Which fields are shared by both types of discs?
-   b. Which fields are unique to each class?
-   c. Do any of the fields represent *constants*?
+   a. Which fields are shared by both types of discs, and which ones are
+      unique to each class?
+   b. Do any of the fields represent *constants*?
 
 Code the Interface
 -------------------
@@ -101,17 +101,16 @@ start building!
 #. Create an ``OpticalDisc`` file for the interface. Refer back to
    (*TODO: Add relevant chapter link*) if you need a quick review of how to do
    this.
+#. Declare and initialize any constant fields.
 #. Add a method signature for each of the behaviors you identified for the
    interface. For example:
 
    .. sourcecode:: Java
 
-      void spinDisc()
+      void spinDisc();
 
-#. In the ``DVD`` and ``CD`` classes, implement the interface and fill in the
-   override code for each of the interface methods.
-
-Good work.
+Good work. Now you need to step back from the interface for a moment and take
+care of the remaining methods and fields.
 
 Code the Abstract Class
 ------------------------

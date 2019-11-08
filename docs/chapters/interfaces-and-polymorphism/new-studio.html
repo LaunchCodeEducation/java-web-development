@@ -157,13 +157,13 @@ behavior vary. Thus, a method like <code class="docutils literal notranslate"><s
 belong in the interface.</li>
 <li>Write down details about how these behaviors differ for CDs and DVDs. This
 guides your thinking about how each class should override the methods.</li>
-<li>For the common behaviors that cannot go into the interface, decide if they
-could be placed in an abstract class or if they need to appear in the
-separate <code class="docutils literal notranslate"><span class="pre">CD</span></code> and <code class="docutils literal notranslate"><span class="pre">DVD</span></code> classes.</li>
+<li>For the behaviors that cannot go into the interface, decide if they could be
+placed in an abstract class or if they need to appear in the separate <code class="docutils literal notranslate"><span class="pre">CD</span></code>
+and <code class="docutils literal notranslate"><span class="pre">DVD</span></code> classes.</li>
 <li>Finally, write down the fields needed to define the properties of a CD or
 DVD (e.g. <code class="docutils literal notranslate"><span class="pre">storageCapacity</span></code>). Consider:<ol class="loweralpha">
-<li>Which fields are shared by both types of discs?</li>
-<li>Which fields are unique to each class?</li>
+<li>Which fields are shared by both types of discs, and which ones are
+unique to each class?</li>
 <li>Do any of the fields represent <em>constants</em>?</li>
 </ol>
 </li>
@@ -178,17 +178,17 @@ start building!</p>
 (<em>TODO: Add relevant chapter link</em>) if you need a quick review of how to do
 this.</p>
 </li>
+<li><p class="first">Declare and initialize any constant fields.</p>
+</li>
 <li><p class="first">Add a method signature for each of the behaviors you identified for the
 interface. For example:</p>
-<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">spinDisc</span><span class="o">()</span>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">spinDisc</span><span class="o">();</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">DVD</span></code> and <code class="docutils literal notranslate"><span class="pre">CD</span></code> classes, implement the interface and fill in the
-override code for each of the interface methods.</p>
-</li>
 </ol>
-<p>Good work.</p>
+<p>Good work. Now you need to step back from the interface for a moment and take
+care of the remaining methods and fields.</p>
 </div>
 <div class="section" id="code-the-abstract-class">
 <h2>8.4.6. Code the Abstract Class<a class="headerlink" href="#code-the-abstract-class" title="Permalink to this headline">¶</a></h2>
