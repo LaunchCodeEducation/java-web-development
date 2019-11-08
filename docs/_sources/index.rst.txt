@@ -32,6 +32,7 @@ Studios
    chapters/classes-part2/studio
    chapters/unit-testing/studio
    chapters/inheritance/studio
+   chapters/interfaces-and-polymorphism/studio
 
 Assignments
 ------------
@@ -58,4 +59,3 @@ Appendices
    todos
    index-full
    glossary
-   

@@ -69,8 +69,8 @@ Here we declare and initialize two objects, ``students`` and ``grades``,
 which appear to be of type ``ArrayList<String>`` and
 ``ArrayList<Double>``, respectively. An ``ArrayList`` in Java is very
 similar to an :ref:`Array <array>`. Like an ``Array``, we must let
-the compiler know what kind of objects our ``ArrayList`` is going to 
-contain. In the case of ``students``, the ``ArrayList`` will contain 
+the compiler know what kind of objects our ``ArrayList`` is going to
+contain. In the case of ``students``, the ``ArrayList`` will contain
 values of type
 ``String`` (representing the names of the students), so we use the
 ``ArrayList<String>`` syntax to inform the compiler that we intend to
@@ -78,22 +78,22 @@ fill our list with Strings. Similarly, ``grades`` will hold exclusively
 values of type ``Double`` and is declared to be of type
 ``ArrayList<Double>``.
 
-.. warning:: 
+.. warning::
 
    Notice that we declared ``grades`` to be of type ``ArrayList<Double>``,
    using the wrapper class ``Double`` rather than the primitive type
    ``double``. All values stored in Java collections must be objects, so
-   we’ll have to use object types in those situations. 
+   we’ll have to use object types in those situations.
 
 
-In lines 10 and 11, we also initialize each list by creating a new, empty 
-list. Note that when we call the ``ArrayList`` constructor, as in 
-``new ArrayList<>()``, we don’t need to specify type (it’s implicit in the 
+In lines 10 and 11, we also initialize each list by creating a new, empty
+list. Note that when we call the ``ArrayList`` constructor, as in
+``new ArrayList<>()``, we don’t need to specify type (it’s implicit in the
 left-hand side of the assignment).
 
 .. index:: ! generic class, generic type
 
-.. note:: 
+.. admonition:: Note
 
    You will sometimes see the ``ArrayList`` class written as ArrayList<E>,
    where ``E`` represents a placeholder for the type that a programmer will
@@ -288,9 +288,9 @@ Here's a couple more methods that require slightly longer descriptions:
    * - ``Collections.sort()``
      - Sorts a Collection in ascending order, returns the sorted Collection
      - ``Collections.sort(planets)`` returns ``["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"]``
-   
-This method is technically used on Java's ``Collections`` class and 
-thus requires a different ``import`` statement: 
+
+This method is technically used on Java's ``Collections`` class and
+thus requires a different ``import`` statement:
 
 .. sourcecode:: java
 
@@ -298,8 +298,8 @@ thus requires a different ``import`` statement:
 
 ``Collections`` is itself a member of the collections framework but not all members of the framework
 are instances of this class. We include this method here because, should you be in the market for a sorting method,
-this is a helpful one to know. 
-   
+this is a helpful one to know.
+
 .. list-table:: toArray()
    :header-rows: 1
 
@@ -307,11 +307,11 @@ this is a helpful one to know.
      - Description
      - Example
    * - ``toArray()``
-     - Returns an Array containing the elements of the ArrayList 
-     - ``planets.toArray(planetsArray)`` returns 
+     - Returns an Array containing the elements of the ArrayList
+     - ``planets.toArray(planetsArray)`` returns
        ``{"Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"}``
 
-Perhaps you recall that in Java, you must know the size of the Array when you 
+Perhaps you recall that in Java, you must know the size of the Array when you
 create it. So we'll need to first define the new Array before we can use ``toArray()``.
 
 .. sourcecode:: java
@@ -346,33 +346,34 @@ Check Your Understanding
 
    Create an ``ArrayList`` called ``charStars`` containing ``a``, ``b``, and ``c``.
 
-   #. 
+   #.
+
       .. sourcecode:: java
          :linenos:
-      
+
          ArrayList<String> charStars = new ArrayList<>();
          chars.add('a');
          chars.add('b');
          chars.add('c');
 
-   #. 
+   #.
       .. sourcecode:: java
          :linenos:
-      
+
          ArrayList<Char> charStars = new ArrayList<>();
          chars.add('a');
          chars.add('b');
          chars.add('c');
 
-   #. 
+   #.
       .. sourcecode:: java
-      
+
          ArrayList<char> charStars = new ArrayList<char>('a', 'b', 'c');
 
-   #. 
+   #.
       .. sourcecode:: java
          :linenos:
-      
+
          ArrayList<String> charStars = new ArrayList<>();
          chars.add("a");
          chars.add("b");

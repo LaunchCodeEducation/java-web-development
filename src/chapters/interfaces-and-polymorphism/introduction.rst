@@ -1,5 +1,5 @@
 Introduction
-============
+=============
 
 .. index:: ! polymorphism
 
@@ -22,7 +22,7 @@ Let's take a closer look at how polymorphism might work in our cat-centric appli
    Suppose we had a ``CatOwner`` class like the one below:
 
    .. sourcecode:: java
-      :linenos: 
+      :linenos:
 
       public class CatOwner
       {
