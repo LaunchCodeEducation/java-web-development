@@ -8,11 +8,9 @@ interface.
 Getting Ready
 --------------
 
-   TODO: Add link to starter code repository.
-
 Set up a local copy of the project:
 
-#. Visit the repository page (*TODO: Add link here*)
+#. Visit the `repository page <https://github.com/LaunchCodeEducation/java-web-dev-studio7>`__
    for this project and fork it to create a copy under your own GitHub account.
 #. Back in IntelliJ, close any open projects.
 #. On the IntelliJ welcome screen, click *Check out from Version Control* and
@@ -118,7 +116,8 @@ Code the Abstract Class
 To streamline the field and constructor code for ``CD`` and ``DVD``, you
 need to start with a base class.
 
-#. Create an abstract ``BaseDisc`` class and declare the shared fields.
+#. Create an abstract ``BaseDisc`` class and declare the fields used by both
+   ``CD`` and ``DVD``.
 #. Code the shared constructors, getters, setters, and custom methods.
 
 OK. Now put your code to work.
