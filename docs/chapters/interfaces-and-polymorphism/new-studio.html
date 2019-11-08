@@ -108,64 +108,78 @@ Accept the default settings on all other screens.</li>
 </div>
 <div class="section" id="disc-project-overview">
 <h2>8.4.2. Disc Project Overview<a class="headerlink" href="#disc-project-overview" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<p>In this activity, you will pair up to design a new custom interface.</p>
+<p>Take a look at the prepared <code class="docutils literal notranslate"><span class="pre">CD</span></code> and <code class="docutils literal notranslate"><span class="pre">DVD</span></code> classes in the starter
+code—only their signatures are present. You will add fields and methods by
+extending a base class and implementing your interface. Before you do this,
+however, you need to consider what code to place in the interface vs. the
+abstract class vs. each specific class.</p>
+<p>Just like you did with your Restaurant Menu studios, you will begin with pen
+and paper (or similar tools).</p>
 </div>
 <div class="section" id="consider-generic-behaviors">
 <h2>8.4.3. Consider Generic Behaviors<a class="headerlink" href="#consider-generic-behaviors" title="Permalink to this headline">¶</a></h2>
-<p>Some intro text here…</p>
-<ol class="arabic">
-<li><p class="first">With a partner, make a list of behaviors that both CDs and DVDs share (e.g.
-they spin). Feel free to do some quick research online if needed.</p>
-</li>
-<li><p class="first">Next, sort the behaviors according to whether or not they depend on
-any type of instance variable.</p>
-</li>
-<li><p class="first">If ALL of the behaviors you listed depend on instance data, then return to
-step 1. You can keep all of your current ideas, but focus on identifying
-at least one additional behavior that does NOT rely on a specific class
-field.</p>
-</li>
-<li><p class="first">Next…</p>
-<blockquote>
-<div><p>Tie this work to the thought process behind what should go into the
-interface.</p>
-</div></blockquote>
-</li>
+<p>Here are a few behaviors that both CDs and DVDs share:</p>
+<ol class="loweralpha simple">
+<li>They both spin,</li>
+<li>They both store data,</li>
+<li>Data gets written to the discs by using a laser,</li>
+<li>The data on the discs can be read by using a laser,</li>
+<li>Once loaded, they both report information like name, capacity, contents, and
+disc type.</li>
 </ol>
+<p>With your partner, add one or two more behaviors to the list. Feel free to
+do some quick research online if needed. Note that information like storage
+capacity does NOT belong on this list, since it describes a <em>property</em>
+(field) rather than a <em>behavior</em> (method).</p>
+<p>For each behavior, identify if it depends on any type of instance variable.
+For example, the spinning behavior does not require any field information
+from the <code class="docutils literal notranslate"><span class="pre">CD</span></code> or <code class="docutils literal notranslate"><span class="pre">DVD</span></code> classes.</p>
+<p>This collecting and sorting of behaviors is the first step toward designing
+your interface and abstract class. It prompts you to consider behaviors that
+can be generally applied vs. those that depend on data stored in a specific
+object.</p>
 </div>
 <div class="section" id="consider-class-specific-behavior-and-data">
 <h2>8.4.4. Consider Class-Specific Behavior and Data<a class="headerlink" href="#consider-class-specific-behavior-and-data" title="Permalink to this headline">¶</a></h2>
-<p>Even though CDs and DVDs both spin, they do so at different speeds. Their
-<em>behavior</em> (spinning) is the same, but the details of that behavior vary.</p>
-<ol class="arabic">
-<li><p class="first">For the common behaviors you and your partner identified, write down details
-about how they differ for CDs and DVDs.</p>
-</li>
-<li><p class="first">Next, write down the fields needed to define the properties of a CD or DVD.</p>
-<ol class="loweralpha simple">
+<p>Next, you and your partner need to decide which behaviors go into the
+interface vs. an abstract class.</p>
+<p>Behaviors added to an interface do NOT have to be identical for every object
+that implements the interface. The key is that the methods require no
+object-specific data. The methods can accept parameters, but these should
+represent generic values like <code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">searchTerm</span></code> rather than field data
+like <code class="docutils literal notranslate"><span class="pre">DVD.title</span></code>.</p>
+<p>For example, even though CDs and DVDs both spin, they do so at different
+speeds. Their <em>behavior</em> (spinning) is the same, but the details of that
+behavior vary. Thus, a method like <code class="docutils literal notranslate"><span class="pre">spinDisc()</span></code> fits well into an interface.</p>
+<ol class="arabic simple">
+<li>For the other behaviors you and your partner sorted, decide which ones
+belong in the interface.</li>
+<li>Write down details about how these behaviors differ for CDs and DVDs. This
+guides your thinking about how each class should override the methods.</li>
+<li>For the common behaviors that cannot go into the interface, decide if they
+could be placed in an abstract class or if they need to appear in the
+separate <code class="docutils literal notranslate"><span class="pre">CD</span></code> and <code class="docutils literal notranslate"><span class="pre">DVD</span></code> classes.</li>
+<li>Finally, write down the fields needed to define the properties of a CD or
+DVD (e.g. <code class="docutils literal notranslate"><span class="pre">storageCapacity</span></code>). Consider:<ol class="loweralpha">
 <li>Which fields are shared by both types of discs?</li>
 <li>Which fields are unique to each class?</li>
 <li>Do any of the fields represent <em>constants</em>?</li>
 </ol>
 </li>
-<li><p class="first">Next…</p>
-<blockquote>
-<div><p>Relate this work to thinking about how each class should override the
-interface methods and what should be put into an abstract class.</p>
-</div></blockquote>
-</li>
 </ol>
 </div>
 <div class="section" id="code-the-interface">
 <h2>8.4.5. Code the Interface<a class="headerlink" href="#code-the-interface" title="Permalink to this headline">¶</a></h2>
-<p>Some transition text here…</p>
+<p>Now that your team has completed the before-coding thinking, it’s time to
+start building!</p>
 <ol class="arabic">
 <li><p class="first">Create an <code class="docutils literal notranslate"><span class="pre">OpticalDisc</span></code> file for the interface. Refer back to
 (<em>TODO: Add relevant chapter link</em>) if you need a quick review of how to do
 this.</p>
 </li>
-<li><p class="first">Add a method signature for each of the common behaviors you identified. For
-example:</p>
+<li><p class="first">Add a method signature for each of the behaviors you identified for the
+interface. For example:</p>
 <div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">spinDisc</span><span class="o">()</span>
 </pre></div>
 </div>
@@ -173,16 +187,18 @@ example:</p>
 <li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">DVD</span></code> and <code class="docutils literal notranslate"><span class="pre">CD</span></code> classes, implement the interface and fill in the
 override code for each of the interface methods.</p>
 </li>
-<li><p class="first">Next…</p>
-</li>
 </ol>
+<p>Good work.</p>
 </div>
 <div class="section" id="code-the-abstract-class">
 <h2>8.4.6. Code the Abstract Class<a class="headerlink" href="#code-the-abstract-class" title="Permalink to this headline">¶</a></h2>
+<p>To streamline the field and constructor code for <code class="docutils literal notranslate"><span class="pre">CD</span></code> and <code class="docutils literal notranslate"><span class="pre">DVD</span></code>, you
+need to start with a base class.</p>
 <ol class="arabic simple">
 <li>Create an abstract <code class="docutils literal notranslate"><span class="pre">BaseDisc</span></code> class and declare the shared fields.</li>
 <li>Code the shared constructors, getters, setters, and custom methods.</li>
 </ol>
+<p>OK. Now put your code to work.</p>
 </div>
 <div class="section" id="complete-the-disc-classes">
 <h2>8.4.7. Complete the Disc Classes<a class="headerlink" href="#complete-the-disc-classes" title="Permalink to this headline">¶</a></h2>

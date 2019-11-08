@@ -25,55 +25,84 @@ Set up a local copy of the project:
 Disc Project Overview
 ----------------------
 
-Lorem ipsum...
+In this activity, you will pair up to design a new custom interface.
+
+Take a look at the prepared ``CD`` and ``DVD`` classes in the starter
+code---only their signatures are present. You will add fields and methods by
+extending a base class and implementing your interface. Before you do this,
+however, you need to consider what code to place in the interface vs. the
+abstract class vs. each specific class.
+
+Just like you did with your Restaurant Menu studios, you will begin with pen
+and paper (or similar tools).
 
 Consider Generic Behaviors
 ---------------------------
 
-Some intro text here...
+Here are a few behaviors that both CDs and DVDs share:
 
-#. With a partner, make a list of behaviors that both CDs and DVDs share (e.g.
-   they spin). Feel free to do some quick research online if needed.
-#. Next, sort the behaviors according to whether or not they depend on
-   any type of instance variable.
-#. If ALL of the behaviors you listed depend on instance data, then return to
-   step 1. You can keep all of your current ideas, but focus on identifying
-   at least one additional behavior that does NOT rely on a specific class
-   field.
-#. Next...
+a. They both spin,
+b. They both store data,
+c. Data gets written to the discs by using a laser,
+d. The data on the discs can be read by using a laser,
+e. Once loaded, they both report information like name, capacity, contents, and
+   disc type.
 
-      Tie this work to the thought process behind what should go into the
-      interface.
+With your partner, add one or two more behaviors to the list. Feel free to
+do some quick research online if needed. Note that information like storage
+capacity does NOT belong on this list, since it describes a *property*
+(field) rather than a *behavior* (method).
+
+For each behavior, identify if it depends on any type of instance variable.
+For example, the spinning behavior does not require any field information
+from the ``CD`` or ``DVD`` classes.
+
+This collecting and sorting of behaviors is the first step toward designing
+your interface and abstract class. It prompts you to consider behaviors that
+can be generally applied vs. those that depend on data stored in a specific
+object.
 
 Consider Class-Specific Behavior and Data
 ------------------------------------------
 
-Even though CDs and DVDs both spin, they do so at different speeds. Their
-*behavior* (spinning) is the same, but the details of that behavior vary.
+Next, you and your partner need to decide which behaviors go into the
+interface vs. an abstract class.
 
-#. For the common behaviors you and your partner identified, write down details
-   about how they differ for CDs and DVDs.
-#. Next, write down the fields needed to define the properties of a CD or DVD.
+Behaviors added to an interface do NOT have to be identical for every object
+that implements the interface. The key is that the methods require no
+object-specific data. The methods can accept parameters, but these should
+represent generic values like ``String searchTerm`` rather than field data
+like ``DVD.title``.
+
+For example, even though CDs and DVDs both spin, they do so at different
+speeds. Their *behavior* (spinning) is the same, but the details of that
+behavior vary. Thus, a method like ``spinDisc()`` fits well into an interface.
+
+#. For the other behaviors you and your partner sorted, decide which ones
+   belong in the interface.
+#. Write down details about how these behaviors differ for CDs and DVDs. This
+   guides your thinking about how each class should override the methods.
+#. For the common behaviors that cannot go into the interface, decide if they
+   could be placed in an abstract class or if they need to appear in the
+   separate ``CD`` and ``DVD`` classes.
+#. Finally, write down the fields needed to define the properties of a CD or
+   DVD (e.g. ``storageCapacity``). Consider:
 
    a. Which fields are shared by both types of discs?
    b. Which fields are unique to each class?
    c. Do any of the fields represent *constants*?
 
-#. Next...
-
-      Relate this work to thinking about how each class should override the
-      interface methods and what should be put into an abstract class.
-
 Code the Interface
 -------------------
 
-Some transition text here...
+Now that your team has completed the before-coding thinking, it's time to
+start building!
 
 #. Create an ``OpticalDisc`` file for the interface. Refer back to
    (*TODO: Add relevant chapter link*) if you need a quick review of how to do
    this.
-#. Add a method signature for each of the common behaviors you identified. For
-   example:
+#. Add a method signature for each of the behaviors you identified for the
+   interface. For example:
 
    .. sourcecode:: Java
 
@@ -81,13 +110,19 @@ Some transition text here...
 
 #. In the ``DVD`` and ``CD`` classes, implement the interface and fill in the
    override code for each of the interface methods.
-#. Next...
+
+Good work.
 
 Code the Abstract Class
 ------------------------
 
+To streamline the field and constructor code for ``CD`` and ``DVD``, you
+need to start with a base class.
+
 #. Create an abstract ``BaseDisc`` class and declare the shared fields.
 #. Code the shared constructors, getters, setters, and custom methods.
+
+OK. Now put your code to work.
 
 Complete the Disc Classes
 --------------------------
