@@ -20,7 +20,7 @@ Method Signatures
 .. index:: ! method signature
 
 One really useful aspect of using an interface is the ability to specify method signatures.
-Recall that a **method signature** includes the name, parameters, and return
+A **method signature** includes the name, parameters, and return
 type of a method, but no body.
 
 As part of our cat application, let's create a method signature, ``eat``, as part of an interface, ``Feedable``.
@@ -37,7 +37,7 @@ As part of our cat application, let's create a method signature, ``eat``, as par
 
       }
 
-In the code above, you may have noticed few things:
+In the code above, notice the following:
 
 #. That we need to use the ``interface`` keyword to define our interface, ``Feedable``.
 #. ``eat`` only has a signature. We are NOT allowed to provide a body for methods defined in interfaces.
@@ -48,8 +48,9 @@ In the code above, you may have noticed few things:
 Static Methods
 ^^^^^^^^^^^^^^
 
-A static method in an interface can contain code in the body. However, a static method cannot contain any references to instance properties in other classes.
-
+A static method in an interface can contain code in the body.
+However, a static method cannot contain any references to instance properties in other classes.
+This means that our static methods should only deal with universal behaviors that are NOT dependent on instance properties, but may be dependent on constants.
 
 Default Methods
 ^^^^^^^^^^^^^^^
@@ -76,8 +77,7 @@ may be overridden by classes implementing the interface.
 The intended purpose of default methods is to allow
 programmers to add a method to an interface that has already been
 released, while not forcing those already using the interface to add new
-code to their classes. You should avoid using default methods in all
-other situations other than the one described here.
+code to their classes. *You should avoid using default methods in all situations other than the one described here.*
 
 Implementing an Interface
 -------------------------
@@ -128,7 +128,7 @@ signature does indeed match that of the interface.
 As with classes, interfaces define a type that can be used when
 declaring fields, parameters, and local variables. This allows us to relax the requirements on our code
 elsewhere, thus making it more extensible and adaptable.
-If an application is extensible, it is easier for programmers for new capabilites to be added later on. For example,
+If an application is extensible, it is easier for programmers for new capabilities to be added later on. For example,
 here’s how we might modify our ``CatOwner`` class:
 
 .. sourcecode:: java

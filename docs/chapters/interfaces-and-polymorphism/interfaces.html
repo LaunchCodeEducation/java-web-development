@@ -99,7 +99,7 @@ A Java interface may contain:</p>
 <div class="section" id="method-signatures">
 <h3>8.2.1.1. Method Signatures<a class="headerlink" href="#method-signatures" title="Permalink to this headline">¶</a></h3>
 <p id="index-1">One really useful aspect of using an interface is the ability to specify method signatures.
-Recall that a <strong>method signature</strong> includes the name, parameters, and return
+A <strong>method signature</strong> includes the name, parameters, and return
 type of a method, but no body.</p>
 <p>As part of our cat application, let’s create a method signature, <code class="docutils literal notranslate"><span class="pre">eat</span></code>, as part of an interface, <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>.</p>
 <div class="admonition-example admonition">
@@ -118,7 +118,7 @@ type of a method, but no body.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>In the code above, you may have noticed few things:</p>
+<p>In the code above, notice the following:</p>
 <ol class="arabic simple">
 <li>That we need to use the <code class="docutils literal notranslate"><span class="pre">interface</span></code> keyword to define our interface, <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>.</li>
 <li><code class="docutils literal notranslate"><span class="pre">eat</span></code> only has a signature. We are NOT allowed to provide a body for methods defined in interfaces.</li>
@@ -129,7 +129,9 @@ type of a method, but no body.</p>
 </div>
 <div class="section" id="static-methods">
 <h3>8.2.1.2. Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this headline">¶</a></h3>
-<p>A static method in an interface can contain code in the body. However, a static method cannot contain any references to instance properties in other classes.</p>
+<p>A static method in an interface can contain code in the body.
+However, a static method cannot contain any references to instance properties in other classes.
+This means that our static methods should only deal with universal behaviors that are NOT dependent on instance properties, but may be dependent on constants.</p>
 </div>
 <div class="section" id="default-methods">
 <h3>8.2.1.3. Default Methods<a class="headerlink" href="#default-methods" title="Permalink to this headline">¶</a></h3>
@@ -158,8 +160,7 @@ may be overridden by classes implementing the interface.</p>
 <p>The intended purpose of default methods is to allow
 programmers to add a method to an interface that has already been
 released, while not forcing those already using the interface to add new
-code to their classes. You should avoid using default methods in all
-other situations other than the one described here.</p>
+code to their classes. <em>You should avoid using default methods in all situations other than the one described here.</em></p>
 </div>
 </div>
 <div class="section" id="implementing-an-interface">
@@ -219,7 +220,7 @@ signature does indeed match that of the interface.</p>
 <p>As with classes, interfaces define a type that can be used when
 declaring fields, parameters, and local variables. This allows us to relax the requirements on our code
 elsewhere, thus making it more extensible and adaptable.
-If an application is extensible, it is easier for programmers for new capabilites to be added later on. For example,
+If an application is extensible, it is easier for programmers for new capabilities to be added later on. For example,
 here’s how we might modify our <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
