@@ -41,7 +41,7 @@ source code.
 
          // Get student grades
          for (String student : students) {
-            System.out.println("Grade for " + student + ": ");
+            System.out.print("Grade for " + student + ": ");
             Double grade = input.nextDouble();
             grades.add(grade);
          }
