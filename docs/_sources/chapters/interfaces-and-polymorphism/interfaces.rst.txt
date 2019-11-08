@@ -3,13 +3,16 @@ Interfaces
 
 .. index:: ! interface
 
-An **interface** is a formal construction within Java. Interfaces allow us to create a set of behaviors that a class must fulfill.
-A Java interface may contain:
+An **interface** is a formal construction within Java. Interfaces allow us to
+create a set of behaviors that a class must fulfill. A Java interface may
+contain:
 
 #. Constants (that is, ``static final`` fields)
 #. Method signatures
 #. Static methods
 #. Default methods
+
+.. _create-an-interface:
 
 Creating an Interface
 ---------------------

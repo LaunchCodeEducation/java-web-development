@@ -96,9 +96,9 @@ Code the Interface
 Now that your team has completed the before-coding thinking, it's time to
 start building!
 
-#. Create an ``OpticalDisc`` file for the interface. Refer back to
-   (*TODO: Add relevant chapter link*) if you need a quick review of how to do
-   this.
+#. Add an ``OpticalDisc`` file for the interface. Refer back to
+   :ref:`Creating an Interface <create-an-interface>` if you need a quick
+   review of the syntax.
 #. Declare and initialize any constant fields.
 #. Add a method signature for each of the behaviors you identified for the
    interface. For example:
