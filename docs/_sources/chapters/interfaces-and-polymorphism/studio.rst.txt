@@ -127,7 +127,7 @@ Complete the Disc Classes
 
 #. Extend the base class into the ``CD`` and ``DVD`` classes.
 #. Implement the interface in each class.
-#. Code the ``@Override`` methods.
+#. Fill in the ``@Override`` code for each of the interface methods.
 
    .. admonition:: Tip
 
@@ -181,4 +181,5 @@ Bonus Missions: Other Discs & Disks?
 
    a. Abstract class or interface? Which one can be applied to the ``Wheel``
       and ``Frisbee`` classes?
-   b. Next...
+   b. Discuss these questions with your peers, then code one of the classes
+      just for fun.
