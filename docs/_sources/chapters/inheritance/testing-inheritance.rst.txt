@@ -1,3 +1,5 @@
+.. _testinginheritance:
+
 Testing Inheritance
 ===================
 
