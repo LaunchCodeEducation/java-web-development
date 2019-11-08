@@ -1,7 +1,7 @@
 .. _classes-studio-part1:
 
-Studio: Classes and Objects
-===========================
+Studio: Restaurant Menu
+========================
 
 Let’s practice designing classes using the following scenario. You’ve
 been hired to create a web application for a local restaurant. 
