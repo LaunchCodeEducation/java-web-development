@@ -101,15 +101,16 @@ is <a class="reference internal" href="../control-flow-and-collections/arraylist
 </li>
 <li><p class="first">However, if the elements are custom objects (like <code class="docutils literal notranslate"><span class="pre">Cat</span></code>), then sorting the
 list becomes more complicated. This is because the objects may contain
-multiple fields, each of which could be used as a sorting option. For
+multiple fields, any of which could be used as a sorting option. For
 <code class="docutils literal notranslate"><span class="pre">Cat</span></code> objects, this could include <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, or <code class="docutils literal notranslate"><span class="pre">mass</span></code>.</p>
 </li>
 </ol>
 <div class="section" id="getting-started">
 <h2>8.2.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>IntelliJ directions for getting into the lesson 7 package.</div></blockquote>
-<p>We are going to practice with interfaces by playing around with a small ice
+<p>Work on these exercises in the IntelliJ <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project.
+You will find the starter code in the <code class="docutils literal notranslate"><span class="pre">lsn7interfaces</span></code> package. Go ahead and
+open the folder and take a quick look at the class files.</p>
+<p>You will practice implementing interfaces by playing around with a small ice
 cream store. It consists of a refrigerated display <code class="docutils literal notranslate"><span class="pre">Case</span></code>, which contains
 a collection of ice cream <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> objects and a selection of <code class="docutils literal notranslate"><span class="pre">Cone</span></code>
 objects.</p>
@@ -121,9 +122,9 @@ objects.</p>
 </div>
 <div class="section" id="sorting-flavors-by-name">
 <h2>8.2.2. Sorting Flavors by Name<a class="headerlink" href="#sorting-flavors-by-name" title="Permalink to this headline">¶</a></h2>
-<p>To display a menu for our customers, we need to sort the ice cream flavors
+<p>To display a menu for your customers, you need to sort the ice cream flavors
 alphabetically by their <code class="docutils literal notranslate"><span class="pre">name</span></code> field. Fortunately, the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code>
-interface has solved the sorting-objects-by-field problem.</p>
+interface helps you solve the sorting-objects-by-field problem.</p>
 <div class="section" id="create-a-sorting-class">
 <h3>8.2.2.1. Create a Sorting Class<a class="headerlink" href="#create-a-sorting-class" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
@@ -162,7 +163,7 @@ and <em>always</em> returns <code class="docutils literal notranslate"><span cla
 </pre></div>
 </div>
 <p>This returns an integer (negative, positive, or zero) depending on
-whether <code class="docutils literal notranslate"><span class="pre">o1</span></code> or <code class="docutils literal notranslate"><span class="pre">o2</span></code> comes first, alphabetically.</p>
+whether <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> object <code class="docutils literal notranslate"><span class="pre">o1</span></code> or <code class="docutils literal notranslate"><span class="pre">o2</span></code> comes first, alphabetically.</p>
 </li>
 </ol>
 </div>
@@ -238,7 +239,7 @@ This only needs to happen in the class that actually uses the <code class="docut
 method.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p>Instead of declaring and initializing a <code class="docutils literal notranslate"><span class="pre">comparator</span></code> object, we could
+<p>Instead of declaring and initializing the <code class="docutils literal notranslate"><span class="pre">comparator</span></code> object, we could
 combine steps 1 and 2 by using a single statement:</p>
 <div class="last highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">flavors</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="k">new</span> <span class="n">FlavorComparator</span><span class="o">());</span>
 </pre></div>
@@ -256,12 +257,14 @@ expensive.</p>
 <li><p class="first">Follow the example above to implement the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface and
 evaluate <code class="docutils literal notranslate"><span class="pre">Cone</span></code> objects by cost.</p>
 </li>
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, sort the <code class="docutils literal notranslate"><span class="pre">cones</span></code> list, then print the entries to the screen
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, sort the <code class="docutils literal notranslate"><span class="pre">cones</span></code> list, then print the elements to the screen
 to verify the results.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Bowl: <span class="nv">$0</span>.05
-Wafer: <span class="nv">$0</span>.50
-Sugar: <span class="nv">$0</span>.75
-Waffle: <span class="nv">$1</span>.25
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Before:           After:
+
+Waffle: <span class="nv">$1</span>.25        Bowl: <span class="nv">$0</span>.05
+Sugar: <span class="nv">$0</span>.75         Wafer: <span class="nv">$0</span>.50
+Wafer: <span class="nv">$0</span>.50         Sugar: <span class="nv">$0</span>.75
+Bowl: <span class="nv">$0</span>.05          Waffle: <span class="nv">$1</span>.25
 </pre></div>
 </div>
 </li>

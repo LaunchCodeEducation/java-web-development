@@ -59,4 +59,3 @@ Appendices
    todos
    index-full
    glossary
-   

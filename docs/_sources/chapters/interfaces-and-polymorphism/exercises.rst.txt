@@ -18,15 +18,17 @@ To help overcome this, let's consider a common occurrence---sorting an
 
 #. However, if the elements are custom objects (like ``Cat``), then sorting the
    list becomes more complicated. This is because the objects may contain
-   multiple fields, each of which could be used as a sorting option. For
+   multiple fields, any of which could be used as a sorting option. For
    ``Cat`` objects, this could include ``name``, ``age``, or ``mass``.
 
 Getting Started
 -----------------
 
-   IntelliJ directions for getting into the lesson 7 package.
+Work on these exercises in the IntelliJ ``java-web-dev-exercises`` project.
+You will find the starter code in the ``lsn7interfaces`` package. Go ahead and
+open the folder and take a quick look at the class files.
 
-We are going to practice with interfaces by playing around with a small ice
+You will practice implementing interfaces by playing around with a small ice
 cream store. It consists of a refrigerated display ``Case``, which contains
 a collection of ice cream ``Flavor`` objects and a selection of ``Cone``
 objects.
@@ -39,9 +41,9 @@ objects.
 Sorting Flavors by Name
 ------------------------
 
-To display a menu for our customers, we need to sort the ice cream flavors
+To display a menu for your customers, you need to sort the ice cream flavors
 alphabetically by their ``name`` field. Fortunately, the ``Comparator``
-interface has solved the sorting-objects-by-field problem.
+interface helps you solve the sorting-objects-by-field problem.
 
 Create a Sorting Class
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -80,7 +82,7 @@ Create a Sorting Class
       return o1.getName().compareTo(o2.getName());
 
    This returns an integer (negative, positive, or zero) depending on
-   whether ``o1`` or ``o2`` comes first, alphabetically.
+   whether ``Flavor`` object ``o1`` or ``o2`` comes first, alphabetically.
 
 Sorting the ``flavors`` ArrayList
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -145,7 +147,7 @@ method.
 
 .. admonition:: Tip
 
-   Instead of declaring and initializing a ``comparator`` object, we could
+   Instead of declaring and initializing the ``comparator`` object, we could
    combine steps 1 and 2 by using a single statement:
 
    .. sourcecode:: Java
@@ -161,15 +163,17 @@ expensive.
 #. Create the new class ``ConeComparator``.
 #. Follow the example above to implement the ``Comparator`` interface and
    evaluate ``Cone`` objects by cost.
-#. In ``Main``, sort the ``cones`` list, then print the entries to the screen
+#. In ``Main``, sort the ``cones`` list, then print the elements to the screen
    to verify the results.
 
    .. sourcecode:: bash
 
-      Bowl: $0.05
-      Wafer: $0.50
-      Sugar: $0.75
-      Waffle: $1.25
+      Before:           After:
+
+      Waffle: $1.25        Bowl: $0.05
+      Sugar: $0.75         Wafer: $0.50
+      Wafer: $0.50         Sugar: $0.75
+      Bowl: $0.05          Waffle: $1.25
 
 Troubleshooting
 ^^^^^^^^^^^^^^^^
