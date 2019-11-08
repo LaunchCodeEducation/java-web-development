@@ -1,7 +1,7 @@
 .. _classes-part1:
 
-Classes in Java
-===============
+Classes in Java, Part 1
+========================
 
 .. toctree::
 

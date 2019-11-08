@@ -1,4 +1,4 @@
-Objects and Classes, Part 2
+Classes and Objects, Part 2
 ============================
 
 .. toctree::
