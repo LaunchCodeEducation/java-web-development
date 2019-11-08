@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.2. Exercises: Interfaces and Polymorphism" href="exercises.html" />
+    <link rel="next" title="8.2. Interfaces" href="interfaces.html" />
     <link rel="prev" title="8. Interfaces and Polymorphism" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -86,7 +86,69 @@
     
   <div class="section" id="introduction">
 <h1>8.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p id="index-0">The third pillar of Object-Oriented Programming that we’ll
+explore is polymorphism.</p>
+<div class="section" id="polymorphism">
+<h2>8.1.1. Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">¶</a></h2>
+<p><strong>Polymorphism</strong> is an object-oriented mechanism that allows for objects
+of different types to be used in the same way.</p>
+<p>We’ve already encountered polymorphism made possible by inheritance when talking about <a class="reference internal" href="../inheritance/casting.html#casting"><span class="std std-ref">casting</span></a> with our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> classes.
+In that case, we stored an object of type <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> in its compatible type, <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
+<p>Let’s take a closer look at how polymorphism might work in our cat-centric application.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>Suppose we had a <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class like the one below:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatOwner</span>
+<span class="o">{</span>
+   <span class="kd">private</span> <span class="n">Cat</span> <span class="n">pet</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">CatOwner</span><span class="o">(</span><span class="n">Cat</span> <span class="n">pet</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">pet</span> <span class="o">=</span> <span class="n">pet</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">feedTheCat</span><span class="o">()</span> <span class="o">{</span>
+
+      <span class="c1">// ...code to prepare the cat&#39;s meal...</span>
+
+      <span class="n">pet</span><span class="o">.</span><span class="na">eat</span><span class="o">();</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The method <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> uses the field <code class="docutils literal notranslate"><span class="pre">pet</span></code>, which is of type
+<code class="docutils literal notranslate"><span class="pre">Cat</span></code>, but since a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> <em>is a</em> <code class="docutils literal notranslate"><span class="pre">Cat</span></code> via inheritance, it is
+perfectly acceptable to use an instance of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> to fill the
+<code class="docutils literal notranslate"><span class="pre">pet</span></code> field.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HouseCat</span> <span class="n">suki</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HouseCat</span><span class="o">(</span><span class="s">&quot;Suki&quot;</span><span class="o">,</span> <span class="mi">12</span><span class="o">);</span>
+<span class="n">CatOwner</span> <span class="n">Annie</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CatOwner</span> <span class="o">(</span><span class="n">suki</span><span class="o">);</span>
+
+<span class="n">Annie</span><span class="o">.</span><span class="na">feedTheCat</span><span class="o">();</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last">Similarly, <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> can accept <code class="docutils literal notranslate"><span class="pre">Tiger</span></code> instances as well. This
+is because the only thing that the method requires is that the input
+parameter has the methods defined within <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, and via inheritance,
+both of the subclasses satisfy this requirement.</p>
+</div>
+<p>In addition to using classes to code in a polymorphic way, we can use <em>interfaces</em>.</p>
+</div>
 </div>
 
 
@@ -98,7 +160,7 @@
         <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> 8. Interfaces and Polymorphism</a></li>
         
         
-        <li class="next"><a href="exercises.html">8.2. Exercises: Interfaces and Polymorphism <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="interfaces.html">8.2. Interfaces <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

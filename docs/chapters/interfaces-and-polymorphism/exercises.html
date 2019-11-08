@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>8.2. Exercises: Interfaces and Polymorphism &#8212; Java Web Development  documentation</title>
+    <title>8.6. Exercises: Interfaces and Polymorphism &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.3. Studio: Sorting Cities" href="studio.html" />
-    <link rel="prev" title="8.1. Introduction" href="introduction.html" />
+    <link rel="next" title="8.7. Studio: Spinning the Discs" href="studio.html" />
+    <link rel="prev" title="8.5. Unit Testing and Interfaces" href="testing-interfaces.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">8. Interfaces and Polymorphism</a></li>
-    <li class="active">8.2. Exercises: Interfaces and Polymorphism</li>
+    <li class="active">8.6. Exercises: Interfaces and Polymorphism</li>
 </ol>
 
 
@@ -85,7 +85,7 @@
 
     
   <div class="section" id="exercises-interfaces-and-polymorphism">
-<h1>8.2. Exercises: Interfaces and Polymorphism<a class="headerlink" href="#exercises-interfaces-and-polymorphism" title="Permalink to this headline">¶</a></h1>
+<h1>8.6. Exercises: Interfaces and Polymorphism<a class="headerlink" href="#exercises-interfaces-and-polymorphism" title="Permalink to this headline">¶</a></h1>
 <p>As a new Java coder, it might take you some time to recognize the usefulness of
 interfaces. At first glance, these tools do not seem to provide much benefit
 over extending a base class, adding instance methods to a class, or overriding
@@ -106,7 +106,7 @@ multiple fields, any of which could be used as a sorting option. For
 </li>
 </ol>
 <div class="section" id="getting-started">
-<h2>8.2.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<h2>8.6.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Work on these exercises in the IntelliJ <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project.
 You will find the starter code in the <code class="docutils literal notranslate"><span class="pre">lsn7interfaces</span></code> package. Go ahead and
 open the folder and take a quick look at the class files.</p>
@@ -121,12 +121,12 @@ objects.</p>
 </div>
 </div>
 <div class="section" id="sorting-flavors-by-name">
-<h2>8.2.2. Sorting Flavors by Name<a class="headerlink" href="#sorting-flavors-by-name" title="Permalink to this headline">¶</a></h2>
+<h2>8.6.2. Sorting Flavors by Name<a class="headerlink" href="#sorting-flavors-by-name" title="Permalink to this headline">¶</a></h2>
 <p>To display a menu for your customers, you need to sort the ice cream flavors
 alphabetically by their <code class="docutils literal notranslate"><span class="pre">name</span></code> field. Fortunately, the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code>
 interface helps you solve the sorting-objects-by-field problem.</p>
 <div class="section" id="create-a-sorting-class">
-<h3>8.2.2.1. Create a Sorting Class<a class="headerlink" href="#create-a-sorting-class" title="Permalink to this headline">¶</a></h3>
+<h3>8.6.2.1. Create a Sorting Class<a class="headerlink" href="#create-a-sorting-class" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Create a new class called <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> and have it implement the
 <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface:</p>
@@ -168,7 +168,7 @@ whether <code class="docutils literal notranslate"><span class="pre">Flavor</spa
 </ol>
 </div>
 <div class="section" id="sorting-the-flavors-arraylist">
-<h3>8.2.2.2. Sorting the <code class="docutils literal notranslate"><span class="pre">flavors</span></code> ArrayList<a class="headerlink" href="#sorting-the-flavors-arraylist" title="Permalink to this headline">¶</a></h3>
+<h3>8.6.2.2. Sorting the <code class="docutils literal notranslate"><span class="pre">flavors</span></code> ArrayList<a class="headerlink" href="#sorting-the-flavors-arraylist" title="Permalink to this headline">¶</a></h3>
 <p>In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, we declare <code class="docutils literal notranslate"><span class="pre">allItems</span></code> that contains everything in the <code class="docutils literal notranslate"><span class="pre">Case</span></code>
 as well as specific <code class="docutils literal notranslate"><span class="pre">flavors</span></code> and <code class="docutils literal notranslate"><span class="pre">cones</span></code> collections.</p>
 <div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
@@ -248,7 +248,7 @@ combine steps 1 and 2 by using a single statement:</p>
 </div>
 </div>
 <div class="section" id="sorting-cones-by-cost">
-<h2>8.2.3. Sorting Cones by Cost<a class="headerlink" href="#sorting-cones-by-cost" title="Permalink to this headline">¶</a></h2>
+<h2>8.6.3. Sorting Cones by Cost<a class="headerlink" href="#sorting-cones-by-cost" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s sort our <code class="docutils literal notranslate"><span class="pre">cones</span></code> list by cost, from least expensive to most
 expensive.</p>
 <ol class="arabic">
@@ -270,7 +270,7 @@ Bowl: <span class="nv">$0</span>.05          Waffle: <span class="nv">$1</span>.
 </li>
 </ol>
 <div class="section" id="troubleshooting">
-<h3>8.2.3.1. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<h3>8.6.3.1. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
 <p>Did you get this error?</p>
 <div class="figure">
 <img alt="``compare`` must return ``int``." src="../../_images/compare-double.png" />
@@ -283,7 +283,7 @@ or 0 depending on the result.</p>
 </div>
 </div>
 <div class="section" id="bonus-exercises">
-<h2>8.2.4. Bonus Exercises<a class="headerlink" href="#bonus-exercises" title="Permalink to this headline">¶</a></h2>
+<h2>8.6.4. Bonus Exercises<a class="headerlink" href="#bonus-exercises" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Modify <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> to sort <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> objects by the number of
 allergens, from highest to lowest.</li>
@@ -293,7 +293,7 @@ in <code class="docutils literal notranslate"><span class="pre">Main</span></cod
 </ol>
 </div>
 <div class="section" id="next-steps">
-<h2>8.2.5. Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<h2>8.6.5. Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
 <p>In these exercises, you practiced implementing existing interfaces. In the
 studio activity, you will design and implement your own.</p>
 </div>
@@ -305,10 +305,10 @@ studio activity, you will design and implement your own.</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="introduction.html"><span aria-hidden="true">&larr;</span> 8.1. Introduction</a></li>
+        <li class="previous"><a href="testing-interfaces.html"><span aria-hidden="true">&larr;</span> 8.5. Unit Testing and Interfaces</a></li>
         
         
-        <li class="next"><a href="studio.html">8.3. Studio: Sorting Cities <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="studio.html">8.7. Studio: Spinning the Discs <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
