@@ -114,8 +114,8 @@ Accept the default settings on all other screens.</li>
 <h2>8.4.3. Consider Generic Behaviors<a class="headerlink" href="#consider-generic-behaviors" title="Permalink to this headline">¶</a></h2>
 <p>Some intro text here…</p>
 <ol class="arabic">
-<li><p class="first">With a partner, start by making a list of behaviors that both CDs and DVDs
-share (e.g. they spin).</p>
+<li><p class="first">With a partner, make a list of behaviors that both CDs and DVDs share (e.g.
+they spin). Feel free to do some quick research online if needed.</p>
 </li>
 <li><p class="first">Next, sort the behaviors according to whether or not they depend on
 any type of instance variable.</p>
@@ -126,8 +126,10 @@ at least one additional behavior that does NOT rely on a specific class
 field.</p>
 </li>
 <li><p class="first">Next…</p>
-<p>Tie this work into starting the thought process behind what should go into
-the interface.</p>
+<blockquote>
+<div><p>Tie this work to the thought process behind what should go into the
+interface.</p>
+</div></blockquote>
 </li>
 </ol>
 </div>
@@ -136,12 +138,21 @@ the interface.</p>
 <p>Even though CDs and DVDs both spin, they do so at different speeds. Their
 <em>behavior</em> (spinning) is the same, but the details of that behavior vary.</p>
 <ol class="arabic">
-<li><p class="first">For the common behaviors you and your partner identified, provide details
+<li><p class="first">For the common behaviors you and your partner identified, write down details
 about how they differ for CDs and DVDs.</p>
 </li>
+<li><p class="first">Next, write down the fields needed to define the properties of a CD or DVD.</p>
+<ol class="loweralpha simple">
+<li>Which fields are shared by both types of discs?</li>
+<li>Which fields are unique to each class?</li>
+<li>Do any of the fields represent <em>constants</em>?</li>
+</ol>
+</li>
 <li><p class="first">Next…</p>
-<p>Relate this section to thinking about how each class should override the
-interface methods.</p>
+<blockquote>
+<div><p>Relate this work to thinking about how each class should override the
+interface methods and what should be put into an abstract class.</p>
+</div></blockquote>
 </li>
 </ol>
 </div>
@@ -168,22 +179,63 @@ override code for each of the interface methods.</p>
 </div>
 <div class="section" id="code-the-abstract-class">
 <h2>8.4.6. Code the Abstract Class<a class="headerlink" href="#code-the-abstract-class" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<ol class="arabic simple">
+<li>Create an abstract <code class="docutils literal notranslate"><span class="pre">BaseDisc</span></code> class and declare the shared fields.</li>
+<li>Code the shared constructors, getters, setters, and custom methods.</li>
+</ol>
+</div>
+<div class="section" id="complete-the-disc-classes">
+<h2>8.4.7. Complete the Disc Classes<a class="headerlink" href="#complete-the-disc-classes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Extend the base class into the <code class="docutils literal notranslate"><span class="pre">CD</span></code> and <code class="docutils literal notranslate"><span class="pre">DVD</span></code> classes.</p>
+</li>
+<li><p class="first">Implement the interface in each class.</p>
+</li>
+<li><p class="first">Code the <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code> methods.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>You can hover over the <code class="docutils literal notranslate"><span class="pre">implements</span></code> keyword and click the IntelliJ
+suggestions to generate these method signatures.</p>
+<p class="last">Since these are <em>signatures</em> only, you will need to add specific code to
+each method.</p>
+</div>
+</li>
+<li><p class="first">Add getters, setters, and any other custom methods needed by each class.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="add-method-calls-to-main">
+<h2>8.4.8. Add Method Calls to <code class="docutils literal notranslate"><span class="pre">Main</span></code><a class="headerlink" href="#add-method-calls-to-main" title="Permalink to this headline">¶</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">main</span></code> method, declare and initialize a <code class="docutils literal notranslate"><span class="pre">CD</span></code> and <code class="docutils literal notranslate"><span class="pre">DVD</span></code> object,
+then run each of the behaviors you and your partner identified.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">CD</span><span class="o">.</span><span class="na">spinDisc</span><span class="o">();</span>
+<span class="n">DVD</span><span class="o">.</span><span class="na">spinDisc</span><span class="o">();</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>Output</strong></p>
+<div class="last highlight-Bash notranslate"><div class="highlight"><pre><span></span>A CD spins at a rate of <span class="m">200</span> - <span class="m">500</span> rpm.
+A DVD spins at a rate of <span class="m">570</span> - <span class="m">1600</span> rpm.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="bonus-missions-other-discs-disks">
-<h2>8.4.7. Bonus Missions: Other Discs &amp; Disks?<a class="headerlink" href="#bonus-missions-other-discs-disks" title="Permalink to this headline">¶</a></h2>
+<h2>8.4.9. Bonus Missions: Other Discs &amp; Disks?<a class="headerlink" href="#bonus-missions-other-discs-disks" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>CDs and DVDs are not the only flat, circular media that have been used to
-store and retrieve data.<ol class="loweralpha">
+store and return data.<ol class="loweralpha">
 <li>Add classes for vinyl records (LPs) and floppy disks.</li>
-<li>Does your interface apply to all four storage classes? If so, implement
-the interface into the LP and floppy classes, and complete the
-appropriate override methods.</li>
+<li>Does your interface apply to all four classes? If so, implement the
+interface into the LP and floppy classes, and complete the appropriate
+override methods.</li>
 <li>If your interface does NOT apply to all of the classes, modify it to do so.
 (Note: At the very least, you need to rename the interface).</li>
 <li>Does your abstract class apply to LPs and floppy disks? If so, extend it
-into the new classes. If not, should you modify it or extend a different
-abstract class?</li>
+into the new classes. If not, should you modify it or extend a
+<em>different</em> abstract class?</li>
 </ol>
 </li>
 <li>What about wheels and Frisbees? These are also spinning disks, but they are

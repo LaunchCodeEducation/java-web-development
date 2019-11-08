@@ -32,8 +32,8 @@ Consider Generic Behaviors
 
 Some intro text here...
 
-#. With a partner, start by making a list of behaviors that both CDs and DVDs
-   share (e.g. they spin).
+#. With a partner, make a list of behaviors that both CDs and DVDs share (e.g.
+   they spin). Feel free to do some quick research online if needed.
 #. Next, sort the behaviors according to whether or not they depend on
    any type of instance variable.
 #. If ALL of the behaviors you listed depend on instance data, then return to
@@ -42,8 +42,8 @@ Some intro text here...
    field.
 #. Next...
 
-   Tie this work into starting the thought process behind what should go into
-   the interface.
+      Tie this work to the thought process behind what should go into the
+      interface.
 
 Consider Class-Specific Behavior and Data
 ------------------------------------------
@@ -51,12 +51,18 @@ Consider Class-Specific Behavior and Data
 Even though CDs and DVDs both spin, they do so at different speeds. Their
 *behavior* (spinning) is the same, but the details of that behavior vary.
 
-#. For the common behaviors you and your partner identified, provide details
+#. For the common behaviors you and your partner identified, write down details
    about how they differ for CDs and DVDs.
+#. Next, write down the fields needed to define the properties of a CD or DVD.
+
+   a. Which fields are shared by both types of discs?
+   b. Which fields are unique to each class?
+   c. Do any of the fields represent *constants*?
+
 #. Next...
 
-   Relate this section to thinking about how each class should override the
-   interface methods.
+      Relate this work to thinking about how each class should override the
+      interface methods and what should be put into an abstract class.
 
 Code the Interface
 -------------------
@@ -80,23 +86,62 @@ Some transition text here...
 Code the Abstract Class
 ------------------------
 
-Lorem ipsum...
+#. Create an abstract ``BaseDisc`` class and declare the shared fields.
+#. Code the shared constructors, getters, setters, and custom methods.
+
+Complete the Disc Classes
+--------------------------
+
+#. Extend the base class into the ``CD`` and ``DVD`` classes.
+#. Implement the interface in each class.
+#. Code the ``@Override`` methods.
+
+   .. admonition:: Tip
+
+      You can hover over the ``implements`` keyword and click the IntelliJ
+      suggestions to generate these method signatures.
+
+      Since these are *signatures* only, you will need to add specific code to
+      each method.
+
+#. Add getters, setters, and any other custom methods needed by each class.
+
+Add Method Calls to ``Main``
+-----------------------------
+
+In the ``main`` method, declare and initialize a ``CD`` and ``DVD`` object,
+then run each of the behaviors you and your partner identified.
+
+.. admonition:: Example
+
+   .. sourcecode:: Java
+      :linenos:
+
+      CD.spinDisc();
+      DVD.spinDisc();
+
+   **Output**
+
+   .. sourcecode:: Bash
+
+      A CD spins at a rate of 200 - 500 rpm.
+      A DVD spins at a rate of 570 - 1600 rpm.
 
 Bonus Missions: Other Discs & Disks?
 -------------------------------------
 
 #. CDs and DVDs are not the only flat, circular media that have been used to
-   store and retrieve data.
+   store and return data.
 
    a. Add classes for vinyl records (LPs) and floppy disks.
-   b. Does your interface apply to all four storage classes? If so, implement
-      the interface into the LP and floppy classes, and complete the
-      appropriate override methods.
+   b. Does your interface apply to all four classes? If so, implement the
+      interface into the LP and floppy classes, and complete the appropriate
+      override methods.
    c. If your interface does NOT apply to all of the classes, modify it to do so.
       (Note: At the very least, you need to rename the interface).
    d. Does your abstract class apply to LPs and floppy disks? If so, extend it
-      into the new classes. If not, should you modify it or extend a different
-      abstract class?
+      into the new classes. If not, should you modify it or extend a
+      *different* abstract class?
 
 #. What about wheels and Frisbees? These are also spinning disks, but they are
    not used for data storage.
