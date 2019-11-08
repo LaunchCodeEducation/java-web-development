@@ -194,7 +194,7 @@ Bonus Exercises
 ----------------
 
 #. Modify ``FlavorComparator`` to sort ``Flavor`` objects by the number of
-   allergens.
+   allergens, from highest to lowest.
 #. Create a ``Topping`` class that extends ``Ingredient``. Add toppings
    to the ``Case`` constructor, then choose how to sort a ``toppings`` array
    in ``Main``.
