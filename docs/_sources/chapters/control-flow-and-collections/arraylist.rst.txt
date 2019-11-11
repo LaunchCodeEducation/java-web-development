@@ -284,9 +284,9 @@ Here's a couple more methods that require slightly longer descriptions:
    * - ``Collections.sort()``
      - Sorts a Collection in ascending order, returns the sorted Collection
      - ``Collections.sort(planets)`` returns ``["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"]``
-   
-This method is technically used on Java's ``Collections`` class and 
-thus requires a different ``import`` statement: 
+
+This method is technically used on Java's ``Collections`` class and
+thus requires a different ``import`` statement:
 
 .. sourcecode:: java
 
@@ -294,27 +294,28 @@ thus requires a different ``import`` statement:
 
 ``Collections`` is itself a member of the collections framework but not all members of the framework
 are instances of this class. We include this method here because, should you be in the market for a sorting method,
-this is a helpful one to know. 
-   
+this is a helpful one to know.
+
 .. list-table:: toArray()
    :header-rows: 1
 
    * - Java Syntax
      - Description
      - Example
-   * - ``toArray()``
-     - Returns an Array containing the elements of the ArrayList 
-     - ``planets.toArray(planetsArray)`` returns 
+   * - ``toArray(arrayName)``
+     - Returns an Array containing the elements of the ArrayList
+     - ``planets.toArray(planetsArray)`` returns
        ``{"Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"}``
 
-Perhaps you recall that in Java, you must know the size of the Array when you 
-create it. So we'll need to first define the new Array before we can use ``toArray()``.
+Perhaps you recall that in Java, you must know the size of the Array when you
+create it. So we'll need to first define the new Array before we can use
+``toArray()``.
 
 .. sourcecode:: java
    :linenos:
 
-   String planetsArr[] = new String[planets.size()];
-   planets.toArray(planetsArr);
+   String[] planetsArray = new String[planets.size()];
+   planets.toArray(planetsArray);
 
 Speaking of Arrays, let's see the Array version of Gradebook next.
 
