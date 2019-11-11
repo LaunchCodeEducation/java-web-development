@@ -85,7 +85,7 @@
 
     
   <div class="section" id="arraylist">
-<h1>3.4. ArrayList<a class="headerlink" href="#arraylist" title="Permalink to this headline">¶</a></h1>
+<span id="array-list"></span><h1>3.4. ArrayList<a class="headerlink" href="#arraylist" title="Permalink to this headline">¶</a></h1>
 <p>To write an <strong>ArrayList</strong> version of the program, we will have to introduce
 several new Java concepts, including the class <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. We will also review different
 kinds of <code class="docutils literal notranslate"><span class="pre">for</span></code> loops used in Java.</p>
@@ -209,12 +209,14 @@ we’ll have to use object types in those situations.</p>
 list. Note that when we call the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> constructor, as in
 <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">ArrayList&lt;&gt;()</span></code>, we don’t need to specify type (it’s implicit in the
 left-hand side of the assignment).</p>
-<div class="admonition" id="index-1">
+<div class="admonition-note admonition" id="index-1">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You will sometimes see the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> class written as ArrayList&lt;E&gt;,
+<p>You will sometimes see the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> class written as ArrayList&lt;E&gt;,
 where <code class="docutils literal notranslate"><span class="pre">E</span></code> represents a placeholder for the type that a programmer will
 declare a given list to hold. This is especially true in documentation.
 You can think of <code class="docutils literal notranslate"><span class="pre">E</span></code> as representing an arbitrary type.</p>
+<p class="last">Classes like ArrayList&lt;E&gt; that take another type or class as a parameter
+are referred to as <strong>generic classes</strong> or <strong>generic types</strong>.</p>
 </div>
 <div class="section" id="arraylist-iteration">
 <h2>3.4.1. <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> Iteration<a class="headerlink" href="#arraylist-iteration" title="Permalink to this headline">¶</a></h2>
@@ -397,7 +399,7 @@ for the time being.</p>
 </tbody>
 </table>
 <p>Here’s a couple more methods that require slightly longer descriptions:</p>
-<table border="1" class="docutils" id="id3">
+<span id="arraylistsort"></span><table border="1" class="docutils" id="id3">
 <caption><span class="caption-text">Collections.sort()</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />

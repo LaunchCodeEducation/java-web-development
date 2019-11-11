@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>8. Interfaces and Polymorphism &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="8.1. Introduction" href="introduction.html" />
+    <link rel="prev" title="7.9. Studio: Fun with Quizzes" href="../inheritance/studio.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li class="active">8. Interfaces and Polymorphism</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="interfaces-and-polymorphism">
+<h1>8. Interfaces and Polymorphism<a class="headerlink" href="#interfaces-and-polymorphism" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ol>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">8.1. Introduction</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#polymorphism">8.1.1. Polymorphism</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">8.2. Interfaces</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#creating-an-interface">8.2.1. Creating an Interface</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="interfaces.html#method-signatures">8.2.1.1. Method Signatures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interfaces.html#static-methods">8.2.1.2. Static Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interfaces.html#default-methods">8.2.1.3. Default Methods</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#implementing-an-interface">8.2.2. Implementing an Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#benefits-of-using-interfaces">8.2.3. Benefits of Using Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interfaces.html#check-your-understanding">8.2.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces-and-abstract-classes.html">8.3. Interfaces and Abstract Classes</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="interfaces-and-abstract-classes.html#check-your-understanding">8.3.1. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="given-interfaces.html">8.4. Interfaces In The Wild</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="given-interfaces.html#comparable-t">8.4.1. Comparable&lt;T&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="given-interfaces.html#comparator-t">8.4.2. Comparator&lt;T&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="given-interfaces.html#iterable-t">8.4.3. Iterable&lt;T&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="given-interfaces.html#list-e">8.4.4. List&lt;E&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="given-interfaces.html#map-k-v">8.4.5. Map&lt;K, V&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="given-interfaces.html#check-your-understanding">8.4.6. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing-interfaces.html">8.5. Unit Testing and Interfaces</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="testing-interfaces.html#check-your-understanding">8.5.1. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">8.6. Exercises: Interfaces and Polymorphism</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#getting-started">8.6.1. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#sorting-flavors-by-name">8.6.2. Sorting Flavors by Name</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html#create-a-sorting-class">8.6.2.1. Create a Sorting Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html#sorting-the-flavors-arraylist">8.6.2.2. Sorting the <code class="docutils literal notranslate"><span class="pre">flavors</span></code> ArrayList</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#sorting-cones-by-cost">8.6.3. Sorting Cones by Cost</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html#troubleshooting">8.6.3.1. Troubleshooting</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#bonus-exercises">8.6.4. Bonus Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#next-steps">8.6.5. Next Steps</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="studio.html">8.7. Studio: Spinning the Discs</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#getting-ready">8.7.1. Getting Ready</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#disc-project-overview">8.7.2. Disc Project Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#consider-generic-behaviors">8.7.3. Consider Generic Behaviors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#consider-class-specific-behavior-and-data">8.7.4. Consider Class-Specific Behavior and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#code-the-interface">8.7.5. Code the Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#code-the-abstract-class">8.7.6. Code the Abstract Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#complete-the-disc-classes">8.7.7. Complete the Disc Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#add-method-calls-to-main">8.7.8. Add Method Calls to <code class="docutils literal notranslate"><span class="pre">Main</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#bonus-missions-other-discs-disks">8.7.9. Bonus Missions: Other Discs &amp; Disks?</a></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="../inheritance/studio.html"><span aria-hidden="true">&larr;</span> 7.9. Studio: Fun with Quizzes</a></li>
+        
+        
+        <li class="next"><a href="introduction.html">8.1. Introduction <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/interfaces-and-polymorphism/index.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
