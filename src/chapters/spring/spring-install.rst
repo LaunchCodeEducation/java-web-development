@@ -124,23 +124,33 @@ is a decentralized place for developers to post their code for others to use.
 Running a Spring Project
 ------------------------
 
-To run the application, click on the Gradle icon on the side, then go into *Tasks->application* and double-click *bootRun*
+To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar, 
+click the panel icon in the bottom left corner of your window and select *Gradle*. 
+
+.. figure:: figures/panel-icon.png
+      :alt: Panel icon options expanded
+
+      Hovering over this icon opens options for panels to open.
+
+Once the Gradle panel is opened, go into *Tasks->application* and double-click *bootRun*.
+
+.. figure:: figures/gradle-bootrun.png
+      :alt: Gradle panel view with bootRun selected
+
+      Gradle panel view with bootRun selected.
 
 .. admonition:: Note
 
-   If you don’t see the Gradle side bar, click the panel icon in the bottom
-   left and select *Gradle*.
-
    Also note that you may not see the same output in the Gradle panel as is
    shown in the video. You may see something that looks more like this:
-   |windows bootRun|
+   
+   .. figure:: figures/windows-bootrun.png
+      :alt: Alternative bootrun view
+
+      Click the circled icon to switch the view.
 
    If you do, click the circled icon to toggle the view so that it matches
    the one in the video.
-
-.. raw:: html
-
-   </aside>
 
 -  You can then visit the corresponding web page at ``localhost:8080``
    (Right now, you’ll see an error page, but we’ll fix that below.) Now
