@@ -317,8 +317,8 @@ create it. So we'll need to first define the new Array before we can use ``toArr
 .. sourcecode:: java
    :linenos:
 
-   String planetsArr[] = new String[planets.size()];
-   planets.toArray(planetsArr);
+   String[] planetsArray = new String[planets.size()];
+   planets.toArray(planetsArray);
 
 Speaking of Arrays, let's see the Array version of Gradebook next.
 

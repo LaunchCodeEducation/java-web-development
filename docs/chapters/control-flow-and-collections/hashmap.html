@@ -86,16 +86,16 @@
     
   <div class="section" id="hashmap">
 <span id="index-0"></span><h1>3.6. HashMap<a class="headerlink" href="#hashmap" title="Permalink to this headline">¶</a></h1>
-<p>Java also provides us a structure to store
-data as key/value pairs. Java calls these objects <strong>hashmaps</strong>
-(or <strong>maps</strong>, more generally), and they are provided by the <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> class.</p>
+<p>Java also provides us a structure to store data as key/value pairs. Java calls
+these objects <strong>hashmaps</strong> (or <strong>maps</strong>, more generally), and they are
+provided by the <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> class.</p>
 <p>Considering the gradebook example, we can improve our program using a
 map. We’ll store the students’ grades along with their names in the same
 data structure. The names will be the keys, and the grades will be the
 values.</p>
 <p>As with the other collection structures, in Java we must specify the types of
-the objects we’ll be storing when we declare a variable or parameter to be a map.
-This means specifying both key and value data types, which are allowed
+the objects we’ll be storing when we declare a variable or parameter to be a
+map. This means specifying both key and value data types, which are allowed
 to be different types for a given map.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -252,12 +252,12 @@ construct a simpler loop:</p>
 </td></tr></table></div>
 <div class="section" id="hashmap-methods">
 <h2>3.6.1. HashMap Methods<a class="headerlink" href="#hashmap-methods" title="Permalink to this headline">¶</a></h2>
-<p>Let’s collect some <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> methods as we have for <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. As we said about
-<code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>, this is by no means a comprehensive list. For full details on all
-properties and methods available, see the reference section below for official documentation
-on the <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> class.</p>
-<p>For the purposes of this table, we’ll create a map to hold our solar system’s planets
-and the number of moons associated with each.</p>
+<p>Let’s collect some <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> methods as we have for <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. As we
+said about <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>, this is by no means a comprehensive list. For full
+details on all properties and methods available, see the reference section
+below for official documentation on the <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> class.</p>
+<p>For the purposes of this table, we’ll create a map to hold our solar system’s
+planets and the number of moons associated with each.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -266,7 +266,7 @@ and the number of moons associated with each.</p>
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">students</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">moons</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 <span class="n">moons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;Mercury&quot;</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
 <span class="n">moons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;Venus&quot;</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
 <span class="n">moons</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;Earth&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
@@ -319,9 +319,9 @@ and the number of moons associated with each.</p>
 </tr>
 </tbody>
 </table>
-<p>We have only brushed the surface of how arrays, <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>, and maps work. We
-leave it to you to refer to the official documentation linked below for
-more details. You’ll certainly be using <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code> and maps in more ways than
+<p>We have only brushed the surface of how arrays, <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code>, and maps work.
+We leave it to you to refer to the official documentation linked below for more
+details. You’ll certainly be using <code class="docutils literal notranslate"><span class="pre">ArrayLists</span></code> and maps in more ways than
 those covered in this lesson, but with the knowledge you have now, you
 should be able to use Java collections and learn new uses as you go.</p>
 </div>
