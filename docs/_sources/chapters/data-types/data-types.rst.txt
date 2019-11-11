@@ -284,7 +284,7 @@ Each of the primitive data types has a corresponding object type:
 #. ``int`` ---> ``Integer``
 #. ``float`` ---> ``Float``
 #. ``double`` ---> ``Double``
-#. ``char`` ---> ``Char``
+#. ``char`` ---> ``Character``
 #. ``boolean`` ---> ``Boolean``
 
 References
