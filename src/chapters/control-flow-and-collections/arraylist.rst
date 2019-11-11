@@ -317,8 +317,8 @@ create it. So we'll need to first define the new Array before we can use ``toArr
 .. sourcecode:: java
    :linenos:
 
-   String planetsArr[] = new String[planets.size()];
-   planets.toArray(planetsArr);
+   String[] planetsArray = new String[planets.size()];
+   planets.toArray(planetsArray);
 
 Speaking of Arrays, let's see the Array version of Gradebook next.
 
@@ -352,18 +352,18 @@ Check Your Understanding
          :linenos:
 
          ArrayList<String> charStars = new ArrayList<>();
-         chars.add('a');
-         chars.add('b');
-         chars.add('c');
+         charStars.add('a');
+         charStars.add('b');
+         charStars.add('c');
 
    #.
       .. sourcecode:: java
          :linenos:
 
          ArrayList<Char> charStars = new ArrayList<>();
-         chars.add('a');
-         chars.add('b');
-         chars.add('c');
+         charStars.add('a');
+         charStars.add('b');
+         charStars.add('c');
 
    #.
       .. sourcecode:: java
@@ -375,11 +375,11 @@ Check Your Understanding
          :linenos:
 
          ArrayList<String> charStars = new ArrayList<>();
-         chars.add("a");
-         chars.add("b");
-         chars.add("c");
+         charStars.add("a");
+         charStars.add("b");
+         charStars.add("c");
 
 .. ans: ArrayList<String> charStars = new ArrayList<>();
-         chars.add("a");
-         chars.add("b");
-         chars.add("c");
+         charStars.add("a");
+         charStars.add("b");
+         charStars.add("c");

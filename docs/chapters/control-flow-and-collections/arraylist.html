@@ -451,8 +451,8 @@ this is a helpful one to know.</p>
 <p>Perhaps you recall that in Java, you must know the size of the Array when you
 create it. So we’ll need to first define the new Array before we can use <code class="docutils literal notranslate"><span class="pre">toArray()</span></code>.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">planetsArr</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">planets</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
-<span class="n">planets</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="n">planetsArr</span><span class="o">);</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">planetsArray</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">planets</span><span class="o">.</span><span class="na">size</span><span class="o">()];</span>
+<span class="n">planets</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="n">planetsArray</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>Speaking of Arrays, let’s see the Array version of Gradebook next.</p>
@@ -484,9 +484,9 @@ create it. So we’ll need to first define the new Array before we can use <code
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">charStars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">);</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;b&#39;</span><span class="o">);</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;c&#39;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;b&#39;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;c&#39;</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -494,9 +494,9 @@ create it. So we’ll need to first define the new Array before we can use <code
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Char</span><span class="o">&gt;</span> <span class="n">charStars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">);</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;b&#39;</span><span class="o">);</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;c&#39;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;b&#39;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="sc">&#39;c&#39;</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
 </li>
@@ -508,9 +508,9 @@ create it. So we’ll need to first define the new Array before we can use <code
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">charStars</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">);</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;b&quot;</span><span class="o">);</span>
-<span class="n">chars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;c&quot;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;b&quot;</span><span class="o">);</span>
+<span class="n">charStars</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;c&quot;</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></div>
 </li>
