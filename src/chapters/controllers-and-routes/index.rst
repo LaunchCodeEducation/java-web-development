@@ -1,10 +1,9 @@
-Spring Boot
-===========
+Controllers and Routing
+=======================
 
 .. toctree::
    :maxdepth: 3
 
-   spring-install
    controllers
 
    
