@@ -1,28 +1,28 @@
-MVC
-===
+Design Patterns, MVC, and Spring, Oh My!
+========================================
 
-.. index:: ! design pattern, ! Model View Controller, ! MVC
+.. index:: ! design pattern, ! Model-View-Controller, ! MVC, ! model, ! view, ! controller
 
-So far, we have learned a lot about designing applications. What we have worked on is called a **design pattern**.
-A design pattern is a set of conventions that we follow to build an application.
+So far, we have been designing our applications by diagrammming classes, drawing connections, and adding in interfaces.
+This practice benefits us because we can start seeing issues *before* we start coding.
+Many software developers start their applications with this process.
+But before we start diagramming our ``Cat`` class and our ``HouseCat`` class, we decide on the template for our design that we want to use.
+These design templates that are abstract solutions to common software architecture problems are called **design patterns**.
+Design patterns provide a set of conventions that we follow to build an application.
 
-The **Model View Controller** pattern (MVC) is a design pattern where models, views, and controllers work together.
-Data is stored in models, the user interface elements go in views, and controllers pass data from the models to the views.
+**Model-View-Controller** (MVC) is a design pattern where the programming logic behind the application is broken down into 3 components: models, views, and controllers.
+A **model** handles the data and business logic of the application. A **view** handles the user interface elements.
+A **controller** passes information from the models to the views. Controllers are the "traffic cops" of the application, capable of passing data back and forth to the browser in MVC web applications. This process will be covered in depth later on in this chapter.
 
-.. admonition:: Example
+.. TODO: Add figure showing the relationship between models, views, and controllers.
 
-   Let's say that we need to build an application for a bank.
-   We need to keep track of how much money a customer has in their savings account.
-   
-   The model of the application is where the value on the customer's savings account is stored and the interface where that information is presented to the customer is the view.
-   The controller of our application handles the passing of the data between our model and view so the customer can not only view their balance, but also do other necessary items like transfering money in and out of their account.
+Because MVC breaks down all of the programming logic of an application into three digestable components, we can use this particular design pattern to make extensible applications.
+We also use MVC because it separates the components of the programs that the user interacts with from the underlying business logic.
 
-Why is this design pattern important? MVC breaks down all of the programming logic behind a user interface into three digestable components.
-OOP has also taught us that the more we break down our applications into digestable components, the better. We will be able to debug an individual component as opposed to having to debug a whole application.
-We will also be able to add new features to our application with ease.
+.. index:: ! Spring
 
-Why Spring
-----------
+Spring
+------
 
-Spring is a Java framework. Using Spring, we will be able to create web applications with Java in the MVC pattern.
+**Spring** is a Java framework. We will be using Spring Boot, an extension of Spring MVC to build Java based web applications with the MVC design pattern.
 

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9.2. MVC &#8212; Java Web Development  documentation</title>
+    <title>9.2. Design Patterns, MVC, and Spring, Oh My! &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="studio.html" />
+    <link rel="next" title="9.3. Studio" href="studio.html" />
     <link rel="prev" title="9.1. Install Spring" href="spring-install.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">9. Spring Boot</a></li>
-    <li class="active">9.2. MVC</li>
+    <li class="active">9.2. Design Patterns, MVC, and Spring, Oh My!</li>
 </ol>
 
 
@@ -84,25 +84,22 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="mvc">
-<h1>9.2. MVC<a class="headerlink" href="#mvc" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">So far, we have learned a lot about designing applications. What we have worked on is called a <strong>design pattern</strong>.
-A design pattern is a set of conventions that we follow to build an application.</p>
-<p>The <strong>Model View Controller</strong> pattern (MVC) is a design pattern where models, views, and controllers work together.
-Data is stored in models, the user interface elements go in views, and controllers pass data from the models to the views.</p>
-<div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>Let’s say that we need to build an application for a bank.
-We need to keep track of how much money a customer has in their savings account.</p>
-<p class="last">The model of the application is where the value on the customer’s savings account is stored and the interface where that information is presented to the customer is the view.
-The controller of our application handles the passing of the data between our model and view so the customer can not only view their balance, but also do other necessary items like transfering money in and out of their account.</p>
-</div>
-<p>Why is this design pattern important? MVC breaks down all of the programming logic behind a user interface into three digestable components.
-OOP has also taught us that the more we break down our applications into digestable components, the better. We will be able to debug an individual component as opposed to having to debug a whole application.
-We will also be able to add new features to our application with ease.</p>
-<div class="section" id="why-spring">
-<h2>9.2.1. Why Spring<a class="headerlink" href="#why-spring" title="Permalink to this headline">¶</a></h2>
-<p>Spring is a Java framework. Using Spring, we will be able to create web applications with Java in the MVC pattern.</p>
+  <div class="section" id="design-patterns-mvc-and-spring-oh-my">
+<h1>9.2. Design Patterns, MVC, and Spring, Oh My!<a class="headerlink" href="#design-patterns-mvc-and-spring-oh-my" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">So far, we have been designing our applications by diagrammming classes, drawing connections, and adding in interfaces.
+This practice benefits us because we can start seeing issues <em>before</em> we start coding.
+Many software developers start their applications with this process.
+But before we start diagramming our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class and our <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> class, we decide on the template for our design that we want to use.
+These design templates that are abstract solutions to common software architecture problems are called <strong>design patterns</strong>.
+Design patterns provide a set of conventions that we follow to build an application.</p>
+<p><strong>Model-View-Controller</strong> (MVC) is a design pattern where the programming logic behind the application is broken down into 3 components: models, views, and controllers.
+A <strong>model</strong> handles the data and business logic of the application. A <strong>view</strong> handles the user interface elements.
+A <strong>controller</strong> passes information from the models to the views. Controllers are the “traffic cops” of the application, capable of passing data back and forth to the browser in MVC web applications. This process will be covered in depth later on in this chapter.</p>
+<p>Because MVC breaks down all of the programming logic of an application into three digestable components, we can use this particular design pattern to make extensible applications.
+We also use MVC because it separates the components of the programs that the user interacts with from the underlying business logic.</p>
+<div class="section" id="spring">
+<span id="index-1"></span><h2>9.2.1. Spring<a class="headerlink" href="#spring" title="Permalink to this headline">¶</a></h2>
+<p><strong>Spring</strong> is a Java framework. We will be using Spring Boot, an extension of Spring MVC to build Java based web applications with the MVC design pattern.</p>
 </div>
 </div>
 
@@ -115,7 +112,7 @@ We will also be able to add new features to our application with ease.</p>
         <li class="previous"><a href="spring-install.html"><span aria-hidden="true">&larr;</span> 9.1. Install Spring</a></li>
         
         
-        <li class="next"><a href="studio.html">&lt;no title&gt; <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="studio.html">9.3. Studio <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
