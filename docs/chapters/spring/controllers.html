@@ -87,58 +87,116 @@
   <div class="section" id="controllers">
 <h1>9.2. Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h1>
 <p>The first of the MVC elements we’ll work on implementing are the controllers. Recall that controllers
-are like the traffic cops of our application. They handle the requests and move data accordingly.</p>
-<div class="section" id="create-a-controller-for-your-spring-boot-project">
-<h2>9.2.1. Create a Controller for your Spring Boot Project<a class="headerlink" href="#create-a-controller-for-your-spring-boot-project" title="Permalink to this headline">¶</a></h2>
+are like the traffic cops of our application. They handle the requests and move data accordingly.
+Here, we create two controllers. One handles requests to our index path, <code class="docutils literal notranslate"><span class="pre">/</span></code>, another to a new path.</p>
+<div class="section" id="create-a-controller">
+<h2>9.2.1. Create a Controller<a class="headerlink" href="#create-a-controller" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>First, go to <em>src-&gt;main-&gt;java</em> and right click on your
 <code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code> package and then select <em>New-&gt;Package</em> and name
 your new package <code class="docutils literal notranslate"><span class="pre">controllers</span></code>.</li>
 <li>Add a <em>New-&gt;Java Class</em> to the package <code class="docutils literal notranslate"><span class="pre">controllers</span></code> and name it
 <code class="docutils literal notranslate"><span class="pre">HelloController</span></code>.</li>
-<li>Above the class definition for <code class="docutils literal notranslate"><span class="pre">HelloController</span></code>, add the annotation
-<code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> and add the corresponding class to your project.</li>
-<li>Add this code to the body of your <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> class:</li>
 </ol>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">)</span>
+<ol class="arabic" id="index-0" start="3">
+<li><p class="first">To tell the application that this class will function as a controller, add the annotation
+<code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> above the class definition for <code class="docutils literal notranslate"><span class="pre">HelloController</span></code>. As always, be sure to
+also add the corresponding class to your project.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloController</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Recall that annotations are like metadata about your code. They can help the framework do
+its work by adding context to your code.</p>
+</div>
+</li>
+<li><p class="first">Inside of the class, we want to write a method that will return a <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> message.</p>
+<p>Add this code to the body of your <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> class:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We’ve called this method <code class="docutils literal notranslate"><span class="pre">index</span></code> because it will be mapped to the index page, <code class="docutils literal notranslate"><span class="pre">/</span></code> of
+our application.</p>
+</li>
+</ol>
+<ol class="arabic" id="index-1" start="5">
+<li><p class="first">To specify which path this method is associated with, we add another annotation,
+<code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code>.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">For every controller method that you want to respond to a request, you will use this
+<code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> annotation.</p>
+</div>
+<p>Add the annotation above your method:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">value=&quot;&quot;</span></code> tells the controller that we are mapping this method to the default path, “”.</p>
+</li>
+</ol>
+<ol class="arabic" id="index-2" start="6">
+<li><p class="first">To return the text of our method, <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code>, we need to add one more annotation to this method,
+<code class="docutils literal notranslate"><span class="pre">&#64;ResponseBody</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">)</span>
 <span class="nd">@ResponseBody</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="o">()</span> <span class="o">{</span>
    <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<ol class="arabic simple">
-<li>Use Gradle to <em>bootRun</em> again and visit <em>localhost:8080</em>. You should
-see “Hello World”</li>
-<li>Now add another controller at another path by adding this code below
-the code posted above:</li>
-</ol>
-<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;goodbye&quot;</span><span class="o">)</span>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Soon, we’ll begin returning data in template contexts. Until then, we need the
+<code class="docutils literal notranslate"><span class="pre">&#64;ResponseBody</span></code> annotation to handle returning plain text.</p>
+</div>
+</li>
+<li><p class="first">Use Gradle to <em>bootRun</em> again and visit <em>localhost:8080</em>. You should
+see your message, “Hello World”.</p>
+</li>
+<li><p class="first">Now, lets add another controller method that maps to a non-default path.
+Anywhere inside your class, add:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;goodbye&quot;</span><span class="o">)</span>
 <span class="nd">@ResponseBody</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">goodbye</span><span class="o">(){</span>
    <span class="k">return</span> <span class="s">&quot;Goodbye&quot;</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<ol class="arabic simple">
-<li>Run the application again and visit <em>localhost:8080/goodbye</em> and you
-should see “Goodbye”.</li>
+<p>In this method, the value on <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> is the path that this request is affiliated
+with. We’ve also named the method with the same name, but this equality is not necessary, just
+helpful.</p>
+</li>
+<li><p class="first">Run the application again and visit <em>localhost:8080/goodbye</em> and you
+should see “Goodbye”.</p>
+</li>
 </ol>
-<p>Congratulations! You just ran your first Spring Boot program in
-IntelliJ!</p>
+<p>Congratulations! You can write controllers!</p>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">IntelliJ has a lot of helpful keyboard shortcuts. You saw me use
-<code class="docutils literal notranslate"><span class="pre">option</span> <span class="pre">+</span> <span class="pre">return</span></code> (or <code class="docutils literal notranslate"><span class="pre">alt</span> <span class="pre">+</span> <span class="pre">enter</span></code> on Windows and Linux) in this
-video. Find out more
+<p class="last">IntelliJ has a lot of helpful keyboard shortcuts. Find out more
 <a class="reference external" href="https://www.jetbrains.com/help/idea/2017.1/keyboard-shortcuts-you-cannot-miss.html" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 </div>
