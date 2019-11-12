@@ -57,17 +57,17 @@ Spring in IntelliJ
 #. If you see a Gradle build popup, go ahead and click
    *Import Gradle Project*.
 
-	..note::
+   .. figure:: figures/import-gradle-tip.png
+      :alt: Popup to import Gradle
 
-		This popup is fairly small and usually located in the lower right corner of the window.
+      A popup to suggest importing Gradle.
+
+   .. note::
+
+      This popup is fairly small and usually located in the lower right corner of the window.
 
 #. If a window then opens, check the *Use auto-import* box and
    leave everything else as it is.
-
-.. figure:: figures/import-gradle-tip.png
-   :alt: Popup to import Gradle
-
-   A popup to suggest importing Gradle.
 
 .. admonition:: Note
 
