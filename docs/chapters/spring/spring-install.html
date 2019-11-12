@@ -183,7 +183,12 @@ click <em>Update</em> on the side.</li>
 directories to get our Spring project up and running.</p>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory, you’ll find a familiar setup with both a <code class="docutils literal notranslate"><span class="pre">main</span></code> and
 <code class="docutils literal notranslate"><span class="pre">test</span></code> directory. Inside of <code class="docutils literal notranslate"><span class="pre">main</span></code> will be a <code class="docutils literal notranslate"><span class="pre">java</span></code> folder to house your packages and
-classes. You’ll also find that there is a <code class="docutils literal notranslate"><span class="pre">resources</span></code> folder in <code class="docutils literal notranslate"><span class="pre">main</span></code>. <code class="docutils literal notranslate"><span class="pre">resources</span></code> is
+classes. Inside the <code class="docutils literal notranslate"><span class="pre">java</span></code> folder is a <code class="docutils literal notranslate"><span class="pre">HelloSpringApplication</span></code>. Opening this for the first
+time, you’ll likely see some import errors that can be resolved by clicking on the context menu
+to add the corresponding library to the classpath. Expanding the main method shows you the line
+that allows the application to run. We’ll run the app in the section below but won’t be working with
+much else with the main method in this course.</p>
+<p>You’ll also find that there is a <code class="docutils literal notranslate"><span class="pre">resources</span></code> folder in <code class="docutils literal notranslate"><span class="pre">main</span></code>. <code class="docutils literal notranslate"><span class="pre">resources</span></code> is
 meant to hold your non-java code.</p>
 <p>Outside of <code class="docutils literal notranslate"><span class="pre">src</span></code>, a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> contains the basic items of our project that
 Spring expects to not be version controlled. These are files created by the IDE, the compiled
@@ -209,27 +214,47 @@ click the panel icon in the bottom left corner of your window and select <em>Gra
 <img alt="Panel icon options expanded" src="../../_images/panel-icon.png" />
 <p class="caption"><span class="caption-text">Hovering over this icon opens options for panels to open.</span></p>
 </div>
-<p>Once the Gradle panel is opened, go into <em>Tasks-&gt;application</em> and double-click <em>bootRun</em>.</p>
+<p>Once the Gradle panel is opened, go into <em>Tasks</em>. Here you’ll find the various tasks that Gradle can do for your
+project. Inside <em>Tasks</em>, open <em>application</em> and double-click <em>bootRun</em>. This will run our Spring Boot application.</p>
 <div class="figure" id="id4">
 <img alt="Gradle panel view with bootRun selected" src="../../_images/gradle-bootrun.png" />
 <p class="caption"><span class="caption-text">Gradle panel view with bootRun selected.</span></p>
 </div>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">bootRun</span></code> task is executed, you should see a new panel with output similar to this:</p>
+<div class="figure" id="id5">
+<img alt="bootRun output" src="../../_images/bootrun-output.png" />
+<p class="caption"><span class="caption-text">Output of the <code class="docutils literal notranslate"><span class="pre">bootRun</span></code> task.</span></p>
+</div>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>Also note that you may not see the same output in the Gradle panel as is
-shown in the video. You may see something that looks more like this:</p>
-<div class="figure" id="id5">
+shown above. You may see something that looks more like this:</p>
+<div class="figure" id="id6">
 <img alt="Alternative bootrun view" src="../../_images/windows-bootrun.png" />
 <p class="caption"><span class="caption-text">Click the circled icon to switch the view.</span></p>
 </div>
 <p class="last">If you do, click the circled icon to toggle the view so that it matches
-the one in the video.</p>
+the one above.</p>
 </div>
-<ul class="simple">
-<li>You can then visit the corresponding web page at <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>
-(Right now, you’ll see an error page, but we’ll fix that below.) Now
-go ahead and stop the application.</li>
-</ul>
+<p>Keep an eye out for a message that resembles:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Started HelloSpringApplication in <span class="m">1</span>.739 seconds
+</pre></div>
+</div>
+<p>While this message will change depending on the application you are running, this message indicates that the
+Spring Boot started up successfully. You’ll see an error message or a stack trace if there is an issue with
+your project preventing it from starting.</p>
+<p>You’ll also notice a message above:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tomcat</span> <span class="n">started</span> <span class="n">on</span> <span class="nf">port</span><span class="o">(</span><span class="n">s</span><span class="o">):</span> <span class="mi">8080</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>Tomcat is the embedded web server within your Spring application. So this tells us that Tomcat is listening
+for requests on local port 8080. You can then visit the corresponding web page at <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>.
+Right now, you’ll see an error page, but we’ll fix that soon.
+Now go ahead and stop the application by hitting the red square on the left side of the <em>Run</em> pane.</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">There is also a stop button up at the top right of the IntelliJ window.</p>
+</div>
 </div>
 </div>
 
