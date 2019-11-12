@@ -101,6 +101,8 @@ Outside of ``src``, a ``.gitignore`` contains the basic items of our project tha
 Spring expects to not be version controlled. These are files created by the IDE, the compiled
 code in the ``.build`` directory, and the gradle ``.jar`` and directory.
 
+.. index:: ! Gradle
+
 Gradle
 ^^^^^^
 
@@ -114,6 +116,7 @@ Remember specifying the dependencies of the Spring project? Scroll down to the b
 
 .. sourcecode:: java
    :lineno-start: 22
+
    dependencies {
       implementation ‘org.springframework.boot:spring-boot-starter-thymeleaf’
       implementation ‘org.springframework.boot:spring-boot-starter-web’
@@ -126,6 +129,8 @@ Remember specifying the dependencies of the Spring project? Scroll down to the b
 Gradle fetches these external packages from another location on the Internet so that we can use them
 in our project locally. That location is called the Maven central repository. The Maven central repository
 is a decentralized place for developers to post their code for others to use.
+
+.. index:: ! bootRun
 
 Running a Spring Project
 ------------------------

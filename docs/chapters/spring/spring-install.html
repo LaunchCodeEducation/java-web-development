@@ -194,20 +194,37 @@ meant to hold your non-java code.</p>
 Spring expects to not be version controlled. These are files created by the IDE, the compiled
 code in the <code class="docutils literal notranslate"><span class="pre">.build</span></code> directory, and the gradle <code class="docutils literal notranslate"><span class="pre">.jar</span></code> and directory.</p>
 <div class="section" id="gradle">
-<h3>9.1.3.1. Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h3>
+<span id="index-0"></span><h3>9.1.3.1. Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h3>
 <p>Gradle is a Java tool that handles much of the work related to building and deploying software
 applications in Java. Your Spring project contains a file called <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>. As with most new
 tools, you do not need to know everything that this file does. For now, the takeaway is that
 Gradle manages the external dependencies in our project.</p>
 <p>Remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
 <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file and you will see these items specified in a structure called <code class="docutils literal notranslate"><span class="pre">dependencies</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span>dependencies {
+   implementation ‘org.springframework.boot:spring-boot-starter-thymeleaf’
+   implementation ‘org.springframework.boot:spring-boot-starter-web’
+   developmentOnly ‘org.springframework.boot:spring-boot-devtools’
+   testImplementation(‘org.springframework.boot:spring-boot-starter-test’) {
+      exclude group: ‘org.junit.vintage’, module: ‘junit-vintage-engine’
+   }
+}
+</pre></div>
+</td></tr></table></div>
 <p>Gradle fetches these external packages from another location on the Internet so that we can use them
 in our project locally. That location is called the Maven central repository. The Maven central repository
 is a decentralized place for developers to post their code for others to use.</p>
 </div>
 </div>
 <div class="section" id="running-a-spring-project">
-<h2>9.1.4. Running a Spring Project<a class="headerlink" href="#running-a-spring-project" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>9.1.4. Running a Spring Project<a class="headerlink" href="#running-a-spring-project" title="Permalink to this headline">¶</a></h2>
 <p>To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar,
 click the panel icon in the bottom left corner of your window and select <em>Gradle</em>.</p>
 <div class="figure" id="id3">
