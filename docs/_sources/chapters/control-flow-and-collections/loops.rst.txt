@@ -277,7 +277,7 @@ Check Your Understanding
    .. sourcecode:: java
       :linenos:
 
-      char chars[] = {'p', 'l', 'r', 's', 't'};
+      char[] chars = {'p', 'l', 'r', 's', 't'};
 
       for (<loop-statement>) {
          System.out.println(i);
