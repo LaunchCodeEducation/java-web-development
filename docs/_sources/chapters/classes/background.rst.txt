@@ -132,7 +132,7 @@ this case, in order to refer to the field, we *must* use ``this``.
    local variable **shadows** the field. Errors caused by shadowing can be
    tricky to spot, so it’s best to avoid doing this in your code.
 
-.. note:: 
+.. note::
 
    If you want to learn more about this subject, check out the Oracle Documentation on `using the this keyword <https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html>`_.
 
@@ -152,7 +152,7 @@ Check Your Understanding
 
          public void sayHello() {
             System.out.println("Hello " + here.name + "!");
-         
+
       }
 
    a. line 7
