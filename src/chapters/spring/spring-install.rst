@@ -108,6 +108,7 @@ Remember specifying the dependencies of the Spring project? Scroll down to the b
 
 .. sourcecode:: java
    :lineno-start: 22
+
    dependencies {
       implementation ‘org.springframework.boot:spring-boot-starter-thymeleaf’
       implementation ‘org.springframework.boot:spring-boot-starter-web’
@@ -133,7 +134,7 @@ To run the application, click on the Gradle icon on the side, then go into *Task
 
    Also note that you may not see the same output in the Gradle panel as is
    shown in the video. You may see something that looks more like this:
-   |windows bootRun|
+   windows bootRun
 
    If you do, click the circled icon to toggle the view so that it matches
    the one in the video.
