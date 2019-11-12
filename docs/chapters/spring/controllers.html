@@ -88,6 +88,60 @@
 <h1>9.2. Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h1>
 <p>The first of the MVC elements we’ll work on implementing are the controllers. Recall that controllers
 are like the traffic cops of our application. They handle the requests and move data accordingly.</p>
+<div class="section" id="create-a-controller-for-your-spring-boot-project">
+<h2>9.2.1. Create a Controller for your Spring Boot Project<a class="headerlink" href="#create-a-controller-for-your-spring-boot-project" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>First, go to <em>src-&gt;main-&gt;java</em> and right click on your
+<code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code> package and then select <em>New-&gt;Package</em> and name
+your new package <code class="docutils literal notranslate"><span class="pre">controllers</span></code>.</li>
+<li>Add a <em>New-&gt;Java Class</em> to the package <code class="docutils literal notranslate"><span class="pre">controllers</span></code> and name it
+<code class="docutils literal notranslate"><span class="pre">HelloController</span></code>.</li>
+<li>Above the class definition for <code class="docutils literal notranslate"><span class="pre">HelloController</span></code>, add the annotation
+<code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> and add the corresponding class to your project.</li>
+<li>Add this code to the body of your <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> class:</li>
+</ol>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple">
+<li>Use Gradle to <em>bootRun</em> again and visit <em>localhost:8080</em>. You should
+see “Hello World”</li>
+<li>Now add another controller at another path by adding this code below
+the code posted above:</li>
+</ol>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;goodbye&quot;</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">goodbye</span><span class="o">(){</span>
+   <span class="k">return</span> <span class="s">&quot;Goodbye&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple">
+<li>Run the application again and visit <em>localhost:8080/goodbye</em> and you
+should see “Goodbye”.</li>
+</ol>
+<p>Congratulations! You just ran your first Spring Boot program in
+IntelliJ!</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">IntelliJ has a lot of helpful keyboard shortcuts. You saw me use
+<code class="docutils literal notranslate"><span class="pre">option</span> <span class="pre">+</span> <span class="pre">return</span></code> (or <code class="docutils literal notranslate"><span class="pre">alt</span> <span class="pre">+</span> <span class="pre">enter</span></code> on Windows and Linux) in this
+video. Find out more
+<a class="reference external" href="https://www.jetbrains.com/help/idea/2017.1/keyboard-shortcuts-you-cannot-miss.html" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
+</div>
 </div>
 
 
