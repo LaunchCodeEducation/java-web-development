@@ -3,8 +3,7 @@ Install Spring
 
 Spring Boot is a framework used to build Java web applications that
 implement the
-`MVC <https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488>`__
-pattern. For more about Spring, check out `Spring
+:ref:`<mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
 Initialize a Spring Boot Project
@@ -55,15 +54,20 @@ Spring in IntelliJ
       If you encounter an alert that the selected folder is not empty, choose
       the option to overwrite it.
 
-#. If you see an Gradle build popup, go ahead and click
+#. If you see a Gradle build popup, go ahead and click
    *Import Gradle Project*.
+
+   .. figure:: figures/import-gradle-tip.png
+      :alt: Popup to import Gradle
+
+      A popup to suggest importing Gradle.
+
+   .. note::
+
+      This popup is fairly small and usually located in the lower right corner of the window.
+
 #. If a window then opens, check the *Use auto-import* box and
    leave everything else as it is.
-
-.. figure:: figures/import-gradle-tip.png
-   :alt: Popup to import Gradle
-
-   A popup to suggest importing Gradle.
 
 .. admonition:: Note
 
