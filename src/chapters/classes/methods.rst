@@ -66,9 +66,9 @@ will have these methods. What will make your classes different from each
 other, and thus fulfill the purpose of creating each class, are the
 specific behaviors that are unique to your classes.
 
-Let’s say we want to add a method to report the GPA of a student in our
-``Student`` class. This method is an **instance method** since it will belong
-to each ``Student`` object created, and will use the data of each such object.
+Let’s say we want to add a method in our ``Student`` class that reports the GPA
+of a student. This method is an **instance method** since it will belong to
+each ``Student`` object created, and will use the data of each such object.
 
 .. sourcecode:: java
    :linenos:
