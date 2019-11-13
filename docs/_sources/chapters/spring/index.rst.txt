@@ -5,4 +5,5 @@ Spring Boot
    :maxdepth: 3
 
    spring-install
+   studio
 	
