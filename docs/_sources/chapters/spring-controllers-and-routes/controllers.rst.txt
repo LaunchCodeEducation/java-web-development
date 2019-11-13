@@ -49,7 +49,34 @@ anytime a user visits ``galaxyglossary.net/milkyway/orionarm``, the ``orionArm()
 ``@ResponseBody`` is yet another annotations used in the Spring controller context to return plain text
 from a controller method. This annotation we will only need to use for a short while, before we start
 to work with templates. Spring Boot's default action when responding to a controller method is to return 
-a template. Since we aren'tdoing that yet however, we need to tell the framework to return plain tex by 
+a template. Since we aren't doing that yet however, we need to tell the framework to return plain tex by 
 adding the ``@ResponseBody`` annotation.
 
 
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   What is the name of the task to start a Spring Boot application?
+ 
+   a. Gradle
+      
+   b. bootRun
+
+   c. run
+
+   d. Maven
+
+.. ans: b, bootRun
+
+.. admonition:: Question
+
+   True/False: All custom code in a Spring Boot application goes in the main method.
+ 
+   a. True
+
+   b. False
+
+.. ans: False, most features are developed outside of the main method.
