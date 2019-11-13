@@ -1,10 +1,3 @@
-Controllers
-===========
-
-The first of the MVC elements we'll work on implementing are the controllers. Recall that controllers 
-are like the traffic cops of our application. They handle the requests and move data accordingly. 
-Here, we create two controllers. One handles requests to our index path, ``/``, another to a new path.
-
 Create a Controller
 -------------------
 
@@ -14,8 +7,6 @@ Create a Controller
 
 #. Add a *New->Java Class* to the package ``controllers`` and name it
    ``HelloController``.
-
-.. index:: ! @Controller
 
 3. To tell the application that this class will function as a controller, add the annotation
    ``@Controller`` above the class definition for ``HelloController``. As always, be sure to 
@@ -27,11 +18,6 @@ Create a Controller
       @Controller
       public class HelloController {
       }
-
-   .. note::
-
-      Recall that annotations are like metadata about your code. They can help the framework do 
-      its work by adding context to your code.
 
 #. Inside of the class, we want to write a method that will return a ``Hello World`` message.
 
@@ -51,11 +37,6 @@ Create a Controller
 
 5. To specify which path this method is associated with, we add another annotation, 
    ``@RequestMapping``.
-
-   .. note::
-   
-      For every controller method that you want to respond to a request, you will use this 
-      ``@RequestMapping`` annotation.
 
    Add the annotation above your method:
 
@@ -108,7 +89,7 @@ Create a Controller
    with. We've also named the method with the same name, but this equality is not necessary, just 
    helpful.
 
-#. Run the application again and visit *localhost:8080/goodbye* and you
+#. Run the application again and visit ``localhost:8080/goodbye`` and you
    should see “Goodbye”.
 
 Congratulations! You can write controllers!

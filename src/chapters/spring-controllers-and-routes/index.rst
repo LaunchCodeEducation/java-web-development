@@ -5,5 +5,6 @@ Controllers and Routing
    :maxdepth: 3
 
    controllers
+   video-walkthrough
 
    

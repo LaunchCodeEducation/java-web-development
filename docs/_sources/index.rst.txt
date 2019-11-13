@@ -15,7 +15,7 @@ Chapters
    chapters/inheritance/index
    chapters/interfaces-and-polymorphism/index
    chapters/spring-intro/index
-   chapters/controllers-and-routes/index
+   chapters/spring-controllers-and-routes/index
 
 .. toctree::
 
