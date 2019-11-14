@@ -121,8 +121,9 @@ declare it to be ``public``.
 
 .. admonition:: Note
 
-   If you want to learn more about `controlling access to members of a class
-   <https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html>`__.
+   If you want to learn more about controlling access to members of a class, check
+   out this information from
+   `Oracle <https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html>`__.
 
 Check Your Understanding
 ------------------------
