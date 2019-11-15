@@ -85,18 +85,42 @@
     
   <div class="section" id="thymeleaf-commands">
 <span id="id1"></span><h1>Thymeleaf Commands<a class="headerlink" href="#thymeleaf-commands" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">${}</span></code> contains text</p>
+<p>Thymeleaf is a template engine and Thymeleaf templates make up the views of our MVC application.
+In order to create our templates, we use attributes to pass data through controllers to our views out of the model.</p>
 <div class="section" id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">th:text</span></code> dynamically populates the contents of an HTML element.
-<code class="docutils literal notranslate"><span class="pre">th:if</span></code> used to conditionally display data.
-<code class="docutils literal notranslate"><span class="pre">th:unless</span></code> used to conditionally display data.
-<code class="docutils literal notranslate"><span class="pre">th:each</span></code> used in conjunction with the <code class="docutils literal notranslate"><span class="pre">th:block</span></code> to iterate through items in an ArrayList.
-<code class="docutils literal notranslate"><span class="pre">th:block</span></code> see above.
-<code class="docutils literal notranslate"><span class="pre">th:fragment</span></code> defines template fragments.
-<code class="docutils literal notranslate"><span class="pre">th:replace</span></code> defines template fragments.
-<code class="docutils literal notranslate"><span class="pre">th:src</span></code> used to include static resources.
+<p>Thymeleaf has many attributes that we could use. In this book, we focus on a few key ones.</p>
+<div class="section" id="displaying-data">
+<h3>Displaying Data<a class="headerlink" href="#displaying-data" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">th:text</span></code> dynamically populates the contents of an HTML element.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;Hello from Thymeleaf!&quot;</span><span class="p">&gt;</span>text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>If we want to pull in a value of a variable from the controller, we can use the <strong>variable expressions</strong> syntax, <code class="docutils literal notranslate"><span class="pre">${}</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${message}&quot;</span><span class="p">&gt;</span>text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conditionally-displaying-data">
+<h3>Conditionally Displaying Data<a class="headerlink" href="#conditionally-displaying-data" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">th:if</span></code> will display the value if the expression evaluates to true.
+<code class="docutils literal notranslate"><span class="pre">th:unless</span></code> will display the value if the expression evaluates to false.</p>
+</div>
+<div class="section" id="iteration">
+<h3>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">th:each</span></code> used in conjunction with the <code class="docutils literal notranslate"><span class="pre">th:block</span></code> to iterate through items in an ArrayList.
+<code class="docutils literal notranslate"><span class="pre">th:block</span></code> see above.</p>
+</div>
+<div class="section" id="template-fragments">
+<h3>Template Fragments<a class="headerlink" href="#template-fragments" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">th:fragment</span></code> defines template fragments.
+<code class="docutils literal notranslate"><span class="pre">th:replace</span></code> defines template fragments.</p>
+</div>
+<div class="section" id="static-resources">
+<h3>Static Resources<a class="headerlink" href="#static-resources" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">th:src</span></code> used to include static resources.
 <code class="docutils literal notranslate"><span class="pre">th:href</span></code> used to include static resources.</p>
+</div>
 </div>
 </div>
 
