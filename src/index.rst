@@ -34,7 +34,6 @@ Studios
    chapters/unit-testing/studio
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
-   chapters/spring/studio
 
 Assignments
 ------------
@@ -54,6 +53,8 @@ Appendices
 .. toctree::
    :maxdepth: 1
    :name: appendicestoc
+
+   appendices/spring/thymeleaf
 
 .. toctree::
    :hidden:
