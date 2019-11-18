@@ -87,7 +87,8 @@
   <div class="section" id="constructors">
 <h1>4.4. Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h1>
 <p>We’ll often want to initialize, or set the initial value of, some of our
-fields when creating a new object from a class. <strong>Constructors</strong> allow us to do so.</p>
+fields when creating a new object from a class. <strong>Constructors</strong> allow us to do
+so.</p>
 <p>In Java, constructors have the same name as the class and are most often
 declared public (though they can have any other valid access modifier).
 They are declared <em>without a return type</em>. Any function that is named
@@ -265,10 +266,10 @@ safe to initialize <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>In the example above on line 15, we use <code class="docutils literal notranslate"><span class="pre">this()</span></code> to invoke another constructor within the same
-class. In this case, the second constructor calls the first with the
-default values for <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code>. If you use this
-syntax, the call to <code class="docutils literal notranslate"><span class="pre">this()</span></code> must be the first line in the
+<p>In the example above on line 17, we use <code class="docutils literal notranslate"><span class="pre">this()</span></code> to invoke another
+constructor within the same class. In this case, the second constructor calls
+the first with the default values for <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code> and <code class="docutils literal notranslate"><span class="pre">gpa</span></code>. If you
+use this syntax, the call to <code class="docutils literal notranslate"><span class="pre">this()</span></code> must be the first line in the
 constructor. This is a good practice not only because it makes your code
 shorter, but also because it allows any initialization behavior that may
 be carried out beyond just initializing variables to be contained in a
@@ -277,8 +278,10 @@ initialization code. Notice from this example that a constructor doesn’t
 need to require an initial value for each field as an argument.</p>
 <p>When defining constructors, think about:</p>
 <ol class="arabic simple">
-<li>Which fields must be initialized for your class to work properly? Be sure you initialize every such field.</li>
-<li>Which fields should be initialized by the user creating an object, and which should be initialized by the class itself?</li>
+<li>Which fields must be initialized for your class to work properly? Be sure
+you initialize every such field.</li>
+<li>Which fields should be initialized by the user creating an object, and
+which should be initialized by the class itself?</li>
 <li>What are the use-cases for your class that you should provide for?</li>
 </ol>
 </div>

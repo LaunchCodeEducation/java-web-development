@@ -92,15 +92,16 @@
 the value of the field. For methods, the <strong>access level</strong> determines who can
 call the method. The access level of a class member is determined by an
 <strong>access modifier</strong>.</p>
-<p>We’ve encountered access modifiers so far in our code.
-In our examples, you frequently see the keyword, <code class="docutils literal notranslate"><span class="pre">public</span></code>.
-<code class="docutils literal notranslate"><span class="pre">public</span></code> makes the field or method to be accessible by anyone working with our code.
-Another common access modifier is <code class="docutils literal notranslate"><span class="pre">private</span></code>, which restricts access to fields or methods so they can only be used within the class.
-Two additional access modifiers are available in Java, though they are used much less often than
-<code class="docutils literal notranslate"><span class="pre">public</span></code> and <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
+<p>We’ve encountered access modifiers so far in our code. In our examples, you
+frequently see the keyword, <code class="docutils literal notranslate"><span class="pre">public</span></code>. <code class="docutils literal notranslate"><span class="pre">public</span></code> makes the field or method to
+be accessible by anyone working with our code. Another common access modifier
+is <code class="docutils literal notranslate"><span class="pre">private</span></code>, which restricts access to fields or methods so they can only be
+used within the class. Two additional access modifiers are available in Java,
+though they are used much less often than <code class="docutils literal notranslate"><span class="pre">public</span></code> and <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>Let’s take a look at our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class again from the first section of this chapter.</p>
+<p>Let’s take another look at our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class from the last section,
+but with one small change.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -114,19 +115,26 @@ Two additional access modifiers are available in Java, though they are used much
    <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
 
    <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
-         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
    <span class="o">}</span>
 
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">In this HelloWorld class, we omit the access modifier, therefore implicitly giving the message field and the sayHello method <strong>default access</strong>.</p>
+<p class="last">In this <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class, we omit the <code class="docutils literal notranslate"><span class="pre">public</span></code> access modifier in lines
+3 and 5. Doing this implicitly gives the message field and the <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>
+method <strong>default access</strong>.</p>
 </div>
-<p>We should avoid giving everything default access when creating classes in Java and instead think carefully about what level of access each field and method should have.</p>
-<p>The table below details whether or not information can be accessed at different levels based on the access modifier.
-For example, a field with the <code class="docutils literal notranslate"><span class="pre">private</span></code> access modifier can be accessed within the class, but cannot be accessed outside the class at the world-level.
-In Java, world-level is the level of the whole application and contains all of the packages and classes.
-While we will discuss later how to decide which access modifier to use for different scenarios, you should save this table now as reference for those conversations.</p>
+<p>We should avoid giving everything default access when creating classes in Java
+and instead think carefully about what level of access each field and method
+should have.</p>
+<p>The table below details whether or not information can be accessed at different
+levels based on the access modifier. For example, a field with the <code class="docutils literal notranslate"><span class="pre">private</span></code>
+access modifier can be accessed within the class, but cannot be accessed
+outside the class at the world-level. In Java, world-level is the level of the
+whole application and contains all of the packages and classes. While we will
+discuss later how to decide which access modifier to use for different
+scenarios, you should save this table now as reference for those conversations.</p>
 <table border="1" class="colwidths-auto docutils" id="id2">
 <caption><span class="caption-text">Is information accessible at certain levels with certain access modifiers?</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <thead valign="bottom">
@@ -163,7 +171,8 @@ While we will discuss later how to decide which access modifier to use for diffe
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">If you would like to learn more about access modifiers, you should check out the <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">Oracle documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on the subject.</p>
 </div>
-<p>Let’s take a look at our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class again and add some access modifiers.</p>
+<p>Let’s take a look at our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class again and add some access
+modifiers.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -186,18 +195,27 @@ While we will discuss later how to decide which access modifier to use for diffe
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>Since <code class="docutils literal notranslate"><span class="pre">message</span></code> only needs to be used by <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>, we declare it to be <code class="docutils literal notranslate"><span class="pre">private</span></code>.
-Since we want <code class="docutils literal notranslate"><span class="pre">sayHello</span></code> to be usable by anybody else, we declare it to be <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p>
-<div class="admonition">
+<p>Since <code class="docutils literal notranslate"><span class="pre">message</span></code> only needs to be used by <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>, we declare it to be
+<code class="docutils literal notranslate"><span class="pre">private</span></code>. Since we want <code class="docutils literal notranslate"><span class="pre">sayHello</span></code> to be usable by anybody else, we
+declare it to be <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p>
+<div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">In Java, you should always use the most restrictive access modifier
+<p>In Java, you should always use the most restrictive access modifier
 possible. Minimizing access to class members allows code to be
 refactored more easily in the future, and hides details of how you
 implement your classes from others.</p>
+<p class="last">This makes your code more modular and modifiable. Each public member
+that you expose is another field or property that can be referenced
+directly elsewhere in any program using your class. Thus, changing any
+such field in your code could potentially break any code referencing
+such members. The fewer public members, the more you can change your
+code without breaking stuff elsewhere.</p>
 </div>
-<div class="admonition">
+<div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">If you want to learn more about <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">controlling access to members of a class<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p class="last">If you want to learn more about controlling access to members of a class, check
+out this information from
+<a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">Oracle<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 </div>
 <div class="section" id="check-your-understanding">

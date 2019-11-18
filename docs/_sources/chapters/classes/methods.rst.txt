@@ -6,8 +6,8 @@ Calling Methods on Objects
 
 .. index:: method
 
-A **method** is a function that belongs to a class. In Java, all
-procedures must be part of a class. Let’s revisit our ``HelloWorld`` class.
+A **method** is a function that belongs to a class. In Java, all procedures
+must be part of a class. Let’s revisit our ``HelloWorld`` class.
 
 .. sourcecode:: java
    :linenos:
@@ -66,9 +66,9 @@ will have these methods. What will make your classes different from each
 other, and thus fulfill the purpose of creating each class, are the
 specific behaviors that are unique to your classes.
 
-Let’s say we want to add a method to get the grade level of a student to our ``Student`` class.
-This method is an **instance method** since it will belong to each
-``Student`` object created, and will use the data of each such object.
+Let’s say we want to add a method in our ``Student`` class that reports the GPA
+of a student. This method is an **instance method** since it will belong to
+each ``Student`` object created, and will use the data of each such object.
 
 .. sourcecode:: java
    :linenos:
@@ -105,9 +105,12 @@ This method is an **instance method** since it will belong to each
 
    }
 
-We will make use of instance methods more in the next chapter, however, we wanted to share more about them now in our first conversation about classes.
-Sometimes when we create a class, we will need that class to have more behaviors than using only constructors, setters, and getters can provide.
-When we do want to add additional behaviors to our classes, we can use instance methods!
+We will make use of instance methods more in the next chapter, however, we
+wanted to share more about them now in our first conversation about classes.
+Sometimes when we create a class, we will need that class to have more
+behaviors than using only constructors, setters, and getters can provide. When
+we do want to add additional behaviors to our classes, we can use instance
+methods!
 
 Check Your Understanding
 ------------------------
