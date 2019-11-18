@@ -1,3 +1,5 @@
+.. _mvc:
+
 Design Patterns, MVC, and Spring, Oh My!
 ========================================
 

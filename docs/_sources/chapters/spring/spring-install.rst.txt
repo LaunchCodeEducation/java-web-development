@@ -3,8 +3,7 @@ Install Spring
 
 Spring Boot is a framework used to build Java web applications that
 implement the
-`MVC <https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488>`__
-pattern. For more about Spring, check out `Spring
+:ref:`<mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
 Initialize a Spring Boot Project
@@ -55,15 +54,20 @@ Spring in IntelliJ
       If you encounter an alert that the selected folder is not empty, choose
       the option to overwrite it.
 
-#. If you see an Gradle build popup, go ahead and click
+#. If you see a Gradle build popup, go ahead and click
    *Import Gradle Project*.
+
+   .. figure:: figures/import-gradle-tip.png
+      :alt: Popup to import Gradle
+
+      A popup to suggest importing Gradle.
+
+   .. note::
+
+      This popup is fairly small and usually located in the lower right corner of the window.
+
 #. If a window then opens, check the *Use auto-import* box and
    leave everything else as it is.
-
-.. figure:: figures/import-gradle-tip.png
-   :alt: Popup to import Gradle
-
-   A popup to suggest importing Gradle.
 
 .. admonition:: Note
 
@@ -88,12 +92,20 @@ directories to get our Spring project up and running.
 
 Within the ``src`` directory, you’ll find a familiar setup with both a ``main`` and
 ``test`` directory. Inside of ``main`` will be a ``java`` folder to house your packages and
-classes. You’ll also find that there is a ``resources`` folder in ``main``. ``resources`` is
+classes. Inside the ``java`` folder is a ``HelloSpringApplication``. Opening this for the first
+time, you'll likely see some import errors that can be resolved by clicking on the context menu
+to add the corresponding library to the classpath. Expanding the main method shows you the line
+that allows the application to run. We'll run the app in the section below but won't be working with
+much else with the main method in this course.
+
+You’ll also find that there is a ``resources`` folder in ``main``. ``resources`` is
 meant to hold your non-java code.
 
 Outside of ``src``, a ``.gitignore`` contains the basic items of our project that
 Spring expects to not be version controlled. These are files created by the IDE, the compiled
 code in the ``.build`` directory, and the gradle ``.jar`` and directory.
+
+.. index:: ! Gradle
 
 Gradle
 ^^^^^^
@@ -122,133 +134,77 @@ Gradle fetches these external packages from another location on the Internet so 
 in our project locally. That location is called the Maven central repository. The Maven central repository
 is a decentralized place for developers to post their code for others to use.
 
+.. index:: ! bootRun
+
 Running a Spring Project
 ------------------------
 
-To run the application, click on the Gradle icon on the side, then go into *Tasks->application* and double-click *bootRun*
+To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar, 
+click the panel icon in the bottom left corner of your window and select *Gradle*. 
+
+.. figure:: figures/panel-icon.png
+      :alt: Panel icon options expanded
+
+      Hovering over this icon opens options for panels to open.
+
+Once the Gradle panel is opened, go into *Tasks*. Here you'll find the various tasks that Gradle can do for your
+project. Inside *Tasks*, open *application* and double-click *bootRun*. This will run our Spring Boot application.
+
+.. figure:: figures/gradle-bootrun.png
+      :alt: Gradle panel view with bootRun selected
+
+      Gradle panel view with bootRun selected.
+
+Once the ``bootRun`` task is executed, you should see a new panel with output similar to this:
+
+.. figure:: figures/bootrun-output.png
+      :alt: bootRun output
+
+      Output of the ``bootRun`` task.
 
 .. admonition:: Note
 
-   If you don’t see the Gradle side bar, click the panel icon in the bottom
-   left and select *Gradle*.
-
    Also note that you may not see the same output in the Gradle panel as is
-   shown in the video. You may see something that looks more like this:
-   windows bootRun
+   shown above. You may see something that looks more like this:
+   
+   .. figure:: figures/windows-bootrun.png
+      :alt: Alternative bootrun view
+
+      Click the circled icon to switch the view.
 
    If you do, click the circled icon to toggle the view so that it matches
-   the one in the video.
+   the one above.
 
-.. raw:: html
+Keep an eye out for a message that resembles:
 
-   </aside>
+.. sourcecode:: bash
 
--  You can then visit the corresponding web page at ``localhost:8080``
-   (Right now, you’ll see an error page, but we’ll fix that below.) Now
-   go ahead and stop the application.
+   Started HelloSpringApplication in 1.739 seconds
 
-.. Create a Controller for your Spring Boot Project
-.. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+While this message will change depending on the application you are running, this message indicates that the 
+Spring Boot started up successfully. You'll see an error message or a stack trace if there is an issue with
+your project preventing it from starting. 
 
-.. -  First, add the necessary classes to your
-..    *src->main->java->org.yourorgname->HelloSpringApplication*:
-..    ``SpringBootApplication`` and ``SpringApplication``.
-.. -  Next, go to *src->main->java* and right click on your
-..    ``org.yourorgname`` package and then select *New->Package* and name
-..    your new package ``controllers``.
-.. -  Add a *New->Java Class* to the package ``controllers`` and name it
-..    ``HelloController``.
-.. -  Above the class definition for ``HelloController`` add the annotation
-..    ``@Controller`` and add the corresponding class to your project.
-.. -  Add this code to the body of your ``HelloController`` class:
+You'll also notice a message above:
 
-.. .. code:: java
+.. sourcecode:: java
 
-..        @RequestMapping(value="")
-..        @ResponseBody
-..        public String index(){
-..            return "Hello World";
-..        }
+   Tomcat started on port(s): 8080 ...
 
-.. -  Use Gradle to *bootRun* again and visit *localhost:8080*. You should
-..    see “Hello World”
-.. -  Now add another controller at another path by adding this code below
-..    the code posted above:
+Tomcat is the embedded web server within your Spring application. So this tells us that Tomcat is listening
+for requests on local port 8080. You can then visit the corresponding web page at ``localhost:8080``. 
+Right now, you’ll see an error page, but we’ll fix that soon. 
+Now go ahead and stop the application by hitting the red square on the left side of the *Run* pane.
 
-.. .. code:: java
+.. tip::
 
-..        @RequestMapping(value="goodbye")
-..        @ResponseBody
-..        public String goodbye(){
-..            return "Goodbye";
-..        }
-
-.. -  Run the application again and visit *localhost:8080/goodbye* and you
-..    should see “Goodbye”.
-
-.. Congratulations! You just ran your first Spring Boot program in
-.. IntelliJ!
-
-.. .. raw:: html
-
-..    <aside class="aside-pro-tip">
-
-.. IntelliJ has a lot of helpful keyboard shortcuts. You saw me use
-.. ``option + return`` (or ``alt + enter`` on Windows and Linux) in this
-.. video. Find out more
-.. `here <https://www.jetbrains.com/help/idea/2017.1/keyboard-shortcuts-you-cannot-miss.html>`__.
-
-.. .. raw:: html
-
-..    </aside>
-
-.. .. |windows bootRun| image:: images/windowsBootRun.png
+   There is also a stop button up at the top right of the IntelliJ window.
 
 
 
 
-.. .. index:: ! mvc
-
-.. MVC - design pattern. an approach to solving a common software problem. 
-.. not specific to java or spring, but an abstract approach.
-
-.. Models - buusiness objects. represent data that is part of the care functionality of the program. 
-.. structure is independent from the framework.
-.. ex - blog app - users are mdoels, so are blog posts
-
-.. Views - display data to the user via an interface
-
-.. controlloers - traffic cops. connect the model and views together. handle requests and move data
-
-.. mvc flow
-
-.. spring boot - one portion of a larger framework called spring
-.. 	spring mvc is a module w/in 
-.. 	boot is an extension of spring mvc
-.. 	convention over configuration
-.. 		embedded application server. tomcat
-.. 		default settings and locations - dont have to configure every path or settings
-.. 		easier configuration
-
-.. start.spring.io - 11:25 time for spring initializr info
-
-.. Hello Spring
-.. ============
-
-.. Spring Boot is a framework used to build Java web applications that
-.. implement the
-.. `MVC <https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488>`__
-.. pattern. For more about Spring, check out `Spring
-.. IO <https://spring.io/>`__. 
 
 
-
-.. Some of the benefits of Spring Boot are:
-
-.. -  Web development is simplified even more in Spring Boot than in Spring
-.. -  It provides Tomcat as an embedded web server
-.. -  A lot of settings are configured for us so there’s no need for
-..    additional XML configuration
 
 
 
