@@ -118,15 +118,15 @@ Gradle manages the external dependencies in our project.
 Remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
 ``build.gradle`` file and you will see these items specified in a structure called ``dependencies``.
 
-.. sourcecode:: java
+.. sourcecode:: groovy
    :lineno-start: 22
 
    dependencies {
-      implementation ‘org.springframework.boot:spring-boot-starter-thymeleaf’
-      implementation ‘org.springframework.boot:spring-boot-starter-web’
-      developmentOnly ‘org.springframework.boot:spring-boot-devtools’
-      testImplementation(‘org.springframework.boot:spring-boot-starter-test’) {
-         exclude group: ‘org.junit.vintage’, module: ‘junit-vintage-engine’
+      implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+      implementation 'org.springframework.boot:spring-boot-starter-web'
+      developmentOnly 'org.springframework.boot:spring-boot-devtools'
+      testImplementation('org.springframework.boot:spring-boot-starter-test') {
+         exclude group: 'org.junit.vintage’, module: ‘junit-vintage-engine'
       }
    }
 

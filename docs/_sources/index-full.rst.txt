@@ -14,6 +14,7 @@ Chapters
    chapters/inheritance/index
    chapters/interfaces-and-polymorphism/index
    chapters/spring/index
+   chapters/thymeleaf-views/index
 
 
 .. toctree::
@@ -35,6 +36,7 @@ Studios
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
    chapters/spring/studio
+   chapters/thymeleaf-views/studio
 
 Assignments
 -----------
@@ -60,4 +62,3 @@ Appendices
 
    todos
    glossary
-
