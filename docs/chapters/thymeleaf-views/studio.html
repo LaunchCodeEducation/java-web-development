@@ -86,13 +86,54 @@
     
   <div class="section" id="studio-spa-day">
 <h1>10.3. Studio: Spa Day!<a class="headerlink" href="#studio-spa-day" title="Permalink to this headline">¶</a></h1>
-<p>Today, we are going to use our knowledge of Thymeleaf to complete an application for a spa.</p>
+<p>After all of the hard work we have put into learning about Thymeleaf, it is time for a spa day!
+However, first, we need to put our knowledge of Thymeleaf to the test.
+Instead of heading out to our favorite spa, let’s make an application for the owners!</p>
 <p>Our application needs to do the following:</p>
 <ol class="arabic simple">
-<li>Conditionally display a list of facials based on the customer’s skin type.</li>
-<li>Iteratively display the different types of massage available.</li>
-<li>Use fragments to display other common services, such as a pedicure or manicure.</li>
+<li>Display the user’s name and skin type under their customer profile.</li>
+<li>Display the appropriate facial treatments for their skin type.</li>
 </ol>
+<p>As always, read through the whole page before starting to code.</p>
+<div class="section" id="setup">
+<h2>10.3.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Fork and clone the appropriate repository. Check out the project via Version Control.</p>
+</div>
+<div class="section" id="the-customer-profile">
+<h2>10.3.2. The Customer Profile<a class="headerlink" href="#the-customer-profile" title="Permalink to this headline">¶</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">controllers</span></code>, we have one controller called <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code>. Inside <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code>, we have three methods.</p>
+<ol class="arabic simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">customerForm()</span></code> method, which looks very similar to what we did in the last lesson.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">checkSkinType()</span></code> method. The owners gave us this method to help us figure out which facial treatments are appropriate for which skin type.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">spaMenu()</span></code> method, which we will use to bring in our Thymeleaf template, <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.</li>
+</ol>
+<p>In <code class="docutils literal notranslate"><span class="pre">templates</span></code>, we have one Thymeleaf template called <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.
+Inside <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>, there are two divs.
+Let’s focus on the div with the id, <code class="docutils literal notranslate"><span class="pre">clientProfile</span></code>.</p>
+<ol class="arabic simple">
+<li>Add an <code class="docutils literal notranslate"><span class="pre">h2</span></code> that says “My profile”.</li>
+<li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> and using <code class="docutils literal notranslate"><span class="pre">th:text</span></code>, bring in the value of <code class="docutils literal notranslate"><span class="pre">name</span></code>.</li>
+<li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> and using <code class="docutils literal notranslate"><span class="pre">th:text</span></code>, bring in the value of <code class="docutils literal notranslate"><span class="pre">skintype</span></code>.</li>
+</ol>
+<p>Run the application and head to <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> to see! Now we should see the form and when we fill it out, we should see a new page with the client profile at the top!</p>
+</div>
+<div class="section" id="list-all-appropriate-facial-treatments">
+<h2>10.3.3. List All Appropriate Facial Treatments<a class="headerlink" href="#list-all-appropriate-facial-treatments" title="Permalink to this headline">¶</a></h2>
+<p>Luckily for us, the spa owners gave us the <code class="docutils literal notranslate"><span class="pre">checkSkinType()</span></code> method in our <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code> and our teammates already set up code in our <code class="docutils literal notranslate"><span class="pre">spaMenu()</span></code> method to fill an <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code> with facial treatments that would work for the user’s skin type.
+Now, we just need to use Thymeleaf to display the appropriate facial treatments (stored in the ArrayList, <code class="docutils literal notranslate"><span class="pre">appropriateFacials</span></code>)!</p>
+<p>Let’s head back to <code class="docutils literal notranslate"><span class="pre">menu.html</span></code> and checkout the empty div with the id, <code class="docutils literal notranslate"><span class="pre">servicesMenu</span></code>.</p>
+<p>Add a table and iteratively (using our <code class="docutils literal notranslate"><span class="pre">th:each</span></code> and <code class="docutils literal notranslate"><span class="pre">th:block</span></code> combo) add rows for the values in appropriateFacials.</p>
+</div>
+<div class="section" id="fragments">
+<h2>10.3.4. Fragments<a class="headerlink" href="#fragments" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bonus-mission">
+<h2>10.3.5. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Modify <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to get some CSS practice!</li>
+<li>Work with routes and paths to display the spa menu page on a separate route from the form.</li>
+</ol>
+</div>
 </div>
 
 
