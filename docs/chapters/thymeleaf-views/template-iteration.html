@@ -86,17 +86,137 @@
     
   <div class="section" id="iterating-in-a-template">
 <h1>10.4. Iterating in a Template<a class="headerlink" href="#iterating-in-a-template" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
-<div class="section" id="for-each-in-thymeleaf">
-<h2>10.4.1. <code class="docutils literal notranslate"><span class="pre">for/each</span></code> in Thymeleaf<a class="headerlink" href="#for-each-in-thymeleaf" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
-<div class="section" id="try-it">
-<h3>10.4.1.1. Try It<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h3>
-<p>Code example…</p>
+<p>Let’s revisit part of the non-efficient HTML from the introduction, where we
+hard-coded the items in a list.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>French Roast<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Espresso<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Kopi Luwak<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Instant<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>If we want to add, remove, or edit the list items, we need to go in and change
+the individual tags, which is a poor use of our time. Fortunately, there is a
+way to streamline the process.</p>
+<p>In Java, we use <code class="docutils literal notranslate"><span class="pre">for/each</span></code> loops to iterate through the items in a data
+collection.</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="n">Type</span> <span class="n">item</span> <span class="o">:</span> <span class="n">collectionName</span><span class="o">)</span>
+</pre></div>
 </div>
+<p>Thymeleaf gives us a similar functionality to use in our templates, but we
+need to learn a different syntax.</p>
+<div class="section" id="th-each">
+<h2>10.4.1. <code class="docutils literal notranslate"><span class="pre">th:each</span></code><a class="headerlink" href="#th-each" title="Permalink to this headline">¶</a></h2>
+<p>The general syntax for iterating through a collection in Thymeleaf is:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="n">each</span> <span class="o">=</span> <span class="s2">&quot;variableName : ${collectionName}&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement gets placed INSIDE an HTML tag.</li>
+<li><code class="docutils literal notranslate"><span class="pre">collectionName</span></code> represents an ArrayList, HashMap, or other collection.</li>
+<li><code class="docutils literal notranslate"><span class="pre">variableName</span></code> represents an individual item or element within the
+collection.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">${}</span></code> specifies the data that will be provided by the controller.</li>
+</ol>
+<p>We can think of a <code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement as, <em>For each item within
+collectionName, repeat this HTML tag, but use the current value of
+variableName</em>.</p>
+<p>Let’s apply <code class="docutils literal notranslate"><span class="pre">th:each</span></code> to the HTML list example above. We can assume that we
+store each of the coffee names (French Roast, etc.) as strings in a ArrayList
+called <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code>.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Some points to note:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> is passed into the template by the controller.</li>
+<li>In the first pass through the loop, <code class="docutils literal notranslate"><span class="pre">item</span></code> takes the value of the first
+coffee name in the ArrayList.</li>
+<li><code class="docutils literal notranslate"><span class="pre">th:text=${item}</span></code> displays the value of <code class="docutils literal notranslate"><span class="pre">item</span></code> in the view, so the
+<code class="docutils literal notranslate"><span class="pre">li</span></code> element will show the first coffee name.</li>
+<li>Each successive iteration, <code class="docutils literal notranslate"><span class="pre">item</span></code> takes the next value in the list, and
+Thymeleaf adds a new <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;</span></code> tag to display that data.</li>
+</ol>
+<div class="section" id="location-matters">
+<h3>10.4.1.1. Location Matters<a class="headerlink" href="#location-matters" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">th:each</span></code> creates one HTML tag for each item in a collection, and only one
+<code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement can be placed in a given tag. BE CAREFUL where you place
+it.</p>
+<p>Consider the following code blocks:</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>Option #1:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Java Types<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Option #2:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Java Types<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Option #3:</p>
+<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Java Types<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Which option produces:</p>
+<ol class="arabic simple">
+<li>One heading, 4 ordered lists, and 4 coffee names (each name labeled as “1”)?</li>
+<li>One heading, one ordered list, and 4 coffee names (with the names labeled
+1, 2, 3…)?</li>
+<li>4 headings, 4 ordered lists, and 4 coffee names (each name labeled as “1”)?</li>
+</ol>
+</div>
+</div>
+<div class="section" id="th-block">
+<h2>10.4.2. <code class="docutils literal notranslate"><span class="pre">th:block</span></code><a class="headerlink" href="#th-block" title="Permalink to this headline">¶</a></h2>
+<p>Lorem ipsum…</p>
+</div>
+<div class="section" id="try-it">
+<h2>10.4.3. Try It<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<p>Video goes here?</p>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>10.4.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>10.4.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <p>Questions go here…</p>
 </div>
 </div>

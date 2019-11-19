@@ -47,12 +47,12 @@ and each ``<li>`` element, in addition to a couple of fun links. The CSS file
    <body>
       <h1>Java Types</h1>
       <div class="coffeeList">
-         <ul>
+         <ol>
             <li>French Roast</li>
             <li>Espresso</li>
             <li>Kopi Luwak</li>
             <li>Instant</li>
-         </ul>
+         </ol>
       </div>
       <hr>
       <div class="links">
