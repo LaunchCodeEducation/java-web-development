@@ -1,7 +1,7 @@
 Create a Controller
 -------------------
 
-Follow along with your ``hello-spring" application to create a controller class and two methods. 
+Follow along with your ``hello-spring`` application to create a controller class and two methods. 
 One handles requests to our index path, ``/``, another to a new path.
 
 #. First, go to *src->main->java* and right click on your
