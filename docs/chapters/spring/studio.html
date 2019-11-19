@@ -89,10 +89,7 @@
 <p>Wouldn’t it be nice to have a small tracker to show us what skills we have built and where we are at in learning them?
 Let’s build something that would let us do just that!</p>
 <p>As always, read through the whole studio before starting!</p>
-<p>At the end of the studio, your final project should be able to:</p>
-<ol class="arabic simple">
-<li>Take input from a user via a form and post the information in a way that is easy to read.</li>
-</ol>
+<p>At the end of the studio, your final project should be able to take input from a user via a form and post the information in a way that is easy to read.</p>
 <div class="section" id="start-up-spring">
 <h2>9.2.1. Start up Spring<a class="headerlink" href="#start-up-spring" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="using-the-spring-initializr">
@@ -120,8 +117,8 @@ Inside <code class="docutils literal notranslate"><span class="pre">SkillsContro
 <li>At <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>, add text that states the three possible programming languages someone could be working on.
 You need to have an <code class="docutils literal notranslate"><span class="pre">h1</span></code> with the title “Skills Tracker”, an <code class="docutils literal notranslate"><span class="pre">h2</span></code>, and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> containing three programming languages of your choosing.</li>
 <li>At <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, add a form that lets the user enter their name and choose their favorite, second favorite, and third favorite programming languages on your list.
-Use <code class="docutils literal notranslate"><span class="pre">select</span></code> elements for each of the rankings. Just as with the exercises, we will also use <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">RequestMethod.GET</span></code> for our <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping()</span></code>.</li>
-<li>Also at <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, use <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">RequestMethod.POST</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> to update the HTML with an <code class="docutils literal notranslate"><span class="pre">h1</span></code> stating the user’s name and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> showing the three programming languages in the order they chose.</li>
+Use <code class="docutils literal notranslate"><span class="pre">select</span></code> elements for each of the rankings. Just as with the exercises, we will use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping()</span></code>.</li>
+<li>Also at <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, use <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> to update the HTML with an <code class="docutils literal notranslate"><span class="pre">h1</span></code> stating the user’s name and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> showing the three programming languages in the order they chose.</li>
 </ol>
 </div>
 <div class="section" id="end-result">
