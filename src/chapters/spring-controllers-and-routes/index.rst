@@ -5,8 +5,7 @@ Controllers and Routing
    :maxdepth: 3
 
    controllers
-   controller--walkthrough
-   routes-intro
-   routes-walkthrough
+   routes
+   controllers-walkthrough
 
    
