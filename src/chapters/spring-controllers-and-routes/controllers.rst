@@ -2,10 +2,15 @@ Controllers
 ===========
 
 The first of the MVC elements we'll work on implementing are the controllers. Recall that controllers 
-are like the traffic cops of our application. They handle the requests and move data accordingly. 
+are like the traffic cops of our application. They handle the requests made from users interacting with the 
+application's view and update model data accordingly. Conversely, changes to model data are sent to the view 
+via controller methods.
 
-Diagram
--------
+.. figure:: figures/mvcOverviewDetail.png
+      :scale: 50%
+      :alt: MVC Flow
+
+      MVC flow
 
 .. index:: ! @Controller
 
