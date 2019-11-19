@@ -2,7 +2,8 @@ Constructors
 ============
 
 We’ll often want to initialize, or set the initial value of, some of our
-fields when creating a new object from a class. **Constructors** allow us to do so.
+fields when creating a new object from a class. **Constructors** allow us to do
+so.
 
 In Java, constructors have the same name as the class and are most often
 declared public (though they can have any other valid access modifier).
@@ -41,7 +42,7 @@ might use it:
 .. sourcecode:: java
 
    HelloWorld goodbye = new HelloWorld("Goodbye World");
-   System.out.println(goodbye.getMessage()); // prints "Goodbye World" 
+   System.out.println(goodbye.getMessage()); // prints "Goodbye World"
 
 
 .. index:: ! default constructor
@@ -139,10 +140,10 @@ A better way to write the above constructors would be this:
 
       }
 
-In the example above on line 15, we use ``this()`` to invoke another constructor within the same
-class. In this case, the second constructor calls the first with the
-default values for ``numberOfCredits`` and ``gpa``. If you use this
-syntax, the call to ``this()`` must be the first line in the
+In the example above on line 17, we use ``this()`` to invoke another
+constructor within the same class. In this case, the second constructor calls
+the first with the default values for ``numberOfCredits`` and ``gpa``. If you
+use this syntax, the call to ``this()`` must be the first line in the
 constructor. This is a good practice not only because it makes your code
 shorter, but also because it allows any initialization behavior that may
 be carried out beyond just initializing variables to be contained in a
@@ -152,8 +153,10 @@ need to require an initial value for each field as an argument.
 
 When defining constructors, think about:
 
-#. Which fields must be initialized for your class to work properly? Be sure you initialize every such field.
-#. Which fields should be initialized by the user creating an object, and which should be initialized by the class itself?
+#. Which fields must be initialized for your class to work properly? Be sure
+   you initialize every such field.
+#. Which fields should be initialized by the user creating an object, and
+   which should be initialized by the class itself?
 #. What are the use-cases for your class that you should provide for?
 
 Check Your Understanding
@@ -189,6 +192,6 @@ Check Your Understanding
 
    A. ``Dog myDog = new Dog(Bernie,beagle);``
    B. ``Dog myDog = new Dog("Bernie","beagle");``
-   C. ``Dog Bernie = new Dog("Bernie","beagle");``  
+   C. ``Dog Bernie = new Dog("Bernie","beagle");``
 
 .. ans: The correct answer is B.
