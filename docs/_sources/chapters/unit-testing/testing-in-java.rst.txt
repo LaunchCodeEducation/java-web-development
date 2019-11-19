@@ -69,7 +69,7 @@ Below are some best practices to keep in mind when writing unit tests, in any la
 
 #. The AAAs
 
-   The AAAs of of unit testing refers to the pattern to follow when 
+   The AAAs of unit testing refers to the pattern to follow when 
    writing your unit tests. 
 
    a. Arrange the variables your test requires
