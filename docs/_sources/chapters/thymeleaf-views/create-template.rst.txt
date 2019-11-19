@@ -8,7 +8,22 @@ Thymeleaf Dependency
 
 Lorem ipsum...
 
-Template Location
+Create a Template
 ------------------
 
 Lorem ipsum...
+
+Template Location
+^^^^^^^^^^^^^^^^^^
+
+Lorem ipsum...
+
+Thymeleaf, Naturally
+---------------------
+
+Lorem ipsum...
+
+Check Your Understanding
+-------------------------
+
+Questions go here...
