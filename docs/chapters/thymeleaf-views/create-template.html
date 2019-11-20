@@ -91,31 +91,86 @@ maintain a web-based project. Before you can dive into using templates,
 however, you need to take care of a little groundwork first.</p>
 <div class="section" id="thymeleaf">
 <h2>10.2.1. Thymeleaf<a class="headerlink" href="#thymeleaf" title="Permalink to this headline">¶</a></h2>
-<p>Some words about what TL is and what it does for us…</p>
+<p id="index-0">In combination with Java and Spring Boot, we will use a library called
+<strong>Thymeleaf</strong>. This set of tools helps simplify the creation of flexible,
+reusable templates for standalone projects and web-based applications.</p>
+<p>More information can be found on the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf" target="_blank">introduction page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+of the Thymeleaf website.</p>
+<div class="section" id="thymeleaf-naturally">
+<h3>10.2.1.1. Thymeleaf, Naturally<a class="headerlink" href="#thymeleaf-naturally" title="Permalink to this headline">¶</a></h3>
+<p>The developers behind Thymeleaf emphasize the idea of <em>natural templates</em>. This
+means that templates constructed with Thymeleaf look and operate just like
+regular HTML code. You can open any template in a browser and view it just
+like a static HTML file.</p>
+<p>Any logic we add to a template occurs inside the tags, which preserves the
+ability to open the file and display it correctly. This helps us as we
+develop the framework for presenting data on the screen.</p>
+</div>
 </div>
 <div class="section" id="thymeleaf-dependency">
 <h2>10.2.2. Thymeleaf Dependency<a class="headerlink" href="#thymeleaf-dependency" title="Permalink to this headline">¶</a></h2>
-<p>Throughout this chapter, you will construct a small practice project to help
-you learn how to implement Thymeleaf templates.</p>
-<blockquote>
-<div><p>Through start.spring.io…</p>
-<p>Through IJ to an existing project…</p>
-</div></blockquote>
+<p>In this chapter, you will construct a small practice project to help you learn
+how to implement Thymeleaf templates. To use the library, however, you need to
+provide IntelliJ with some information to make the IDE recognize Thymeleaf
+syntax and commands. You need to include in the proper <em>dependencies</em>, and
+there are two common ways to accomplish this.</p>
+<div class="section" id="during-setup-for-a-new-project">
+<h3>10.2.2.1. During Setup for a New Project<a class="headerlink" href="#during-setup-for-a-new-project" title="Permalink to this headline">¶</a></h3>
+<p>When you create a new Gradle project on the <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+website, search for and select the <em>Thymeleaf</em> dependency. For the practice
+projects you build in this class, be sure to add the <em>Spring Web</em> and
+<em>Spring Boot DevTools</em> dependencies as well.</p>
+<div class="figure">
+<img alt="Select the Thymeleaf dependency." src="../../_images/selectTLdependency.png" />
 </div>
-<div class="section" id="add-a-new-template">
-<h2>10.2.3. Add a New Template<a class="headerlink" href="#add-a-new-template" title="Permalink to this headline">¶</a></h2>
+<p>In IntelliJ, opening up the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file of the new project shows the
+dependencies you selected:</p>
+<div class="highlight-groovy notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+   <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-thymeleaf&#39;</span>
+   <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-web&#39;</span>
+   <span class="n">developmentOnly</span> <span class="s1">&#39;org.springframework.boot:spring-boot-devtools&#39;</span>
+   <span class="n">testImplementation</span><span class="o">(</span><span class="s1">&#39;org.springframework.boot:spring-boot-starter-test&#39;</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">exclude</span> <span class="nl">group:</span> <span class="s1">&#39;org.junit.vintage&#39;</span><span class="o">,</span> <span class="nl">module:</span> <span class="s1">&#39;junit-vintage-engine&#39;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lines 23 - 25 establish links to the thymeleaf, spring-boot-starter-web, and
+spring-boot-devtools libraries, respectively.</p>
+</div>
+<div class="section" id="add-to-an-existing-project">
+<h3>10.2.2.2. Add to an Existing Project<a class="headerlink" href="#add-to-an-existing-project" title="Permalink to this headline">¶</a></h3>
+<p>If you have an existing project that does not currently use Thymeleaf, you
+can add the functionality by updating the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file.</p>
+<div class="figure">
+<img alt="Open the ``build.gradle`` file." src="../../_images/buildGradleFileTree.png" />
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> block, just paste in the <code class="docutils literal notranslate"><span class="pre">implementation</span></code> statement
+seen in line 23 above. Also, be sure to include the Spring Boot libraries if
+the old project is missing those as well.</p>
+</div>
+</div>
+<div class="section" id="start-a-practice-project">
+<h2>10.2.3. Start a Practice Project<a class="headerlink" href="#start-a-practice-project" title="Permalink to this headline">¶</a></h2>
+<p>Rutabagas…</p>
+<div class="section" id="add-a-template">
+<h3>10.2.3.1. Add a Template<a class="headerlink" href="#add-a-template" title="Permalink to this headline">¶</a></h3>
 <p>Lorem ipsum…</p>
+</div>
 <div class="section" id="template-location">
-<h3>10.2.3.1. Template Location<a class="headerlink" href="#template-location" title="Permalink to this headline">¶</a></h3>
+<h3>10.2.3.2. Template Location<a class="headerlink" href="#template-location" title="Permalink to this headline">¶</a></h3>
 <p>Lorem ipsum…</p>
 </div>
-</div>
-<div class="section" id="thymeleaf-naturally">
-<h2>10.2.4. Thymeleaf, Naturally<a class="headerlink" href="#thymeleaf-naturally" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>10.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>10.2.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <p>Questions go here…</p>
 </div>
 </div>
