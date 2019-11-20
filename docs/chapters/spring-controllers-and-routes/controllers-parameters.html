@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10.3. Routes &#8212; Java Web Development  documentation</title>
+    <title>10.2. Controllers with Parameters &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.4. Create a Controller" href="controllers-walkthrough.html" />
-    <link rel="prev" title="10.2. Controllers with Parameters" href="controllers-parameters.html" />
+    <link rel="next" title="10.3. Routes" href="routes.html" />
+    <link rel="prev" title="10.1. Simple Controllers" href="controllers-simple.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">10. Controllers and Routing</a></li>
-    <li class="active">10.3. Routes</li>
+    <li class="active">10.2. Controllers with Parameters</li>
 </ol>
 
 
@@ -84,19 +84,16 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="routes">
-<h1>10.3. Routes<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="controllers-with-parameters">
+<span id="index-0"></span><h1>10.2. Controllers with Parameters<a class="headerlink" href="#controllers-with-parameters" title="Permalink to this headline">¶</a></h1>
+<p>Now that you kow the basics of a controller method, we can start to add some more variables into the mix. Some
+controller methods can take in parameters in the form of query strings or sections of the URL path. Passing
+this URL data to the controller is one step closer to more flexible web applications.</p>
 <p>A <strong>route</strong> is the mechanism by which a request path gets assigned to a
-controller within our application. In this section, we’ll explore routes
-and how data is transferred from a webpage to a specific controller.</p>
-<p>We’ll look at three different ways controller methods handle data from users:</p>
-<ol class="arabic simple">
-<li>Via a <code class="docutils literal notranslate"><span class="pre">GET</span></code> request and query parameters</li>
-<li>Via a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request and post parameters</li>
-<li>Via a URL segment and a path variable</li>
-</ol>
+controller within our application. We’ll explore routes
+and how data is transferred from a webpage with a given route to a specific controller.</p>
 <div class="section" id="query-strings-are-url-data">
-<h2>10.3.1. Query Strings are URL Data<a class="headerlink" href="#query-strings-are-url-data" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>10.2.1. Query Strings are URL Data<a class="headerlink" href="#query-strings-are-url-data" title="Permalink to this headline">¶</a></h2>
 <p>A brief refresher: Query strings are additional bits of information tacked onto the ends of urls.
 They contain data in key-value pairs.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>www.galaxyglossary.net?aKey<span class="o">=</span>aValue<span class="p">&amp;</span><span class="nv">anotherKey</span><span class="o">=</span>anotherValue<span class="p">&amp;</span><span class="nv">thirdKey</span><span class="o">=</span>thirdValue
@@ -112,35 +109,26 @@ for reviewing the concepts.</p>
 </div>
 </div>
 <div class="section" id="requestparam">
-<h2>10.3.2. <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code><a class="headerlink" href="#requestparam" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>10.2.2. <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code><a class="headerlink" href="#requestparam" title="Permalink to this headline">¶</a></h2>
 <p>We can pass <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> as an argument of a controller method. This annotation as an
-argument lets the handler method know about a given query parameter based on its own argument.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Responds to /hello?name=LaunchCode</span>
-<span class="kd">public</span> <span class="n">String</span> <span class="nf">hello</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-   <span class="k">return</span> <span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">;</span>
+argument lets the handler method know about a given query string based on its own argument.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Responds to get requests at /hello?coder=LaunchCoder</span>
+<span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;hello&quot;</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">hello</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">coder</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">coder</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>The controller method looks for the query string in the URL that matches its parameter, <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>The controller method looks for the query string in the URL that matches its parameter, <code class="docutils literal notranslate"><span class="pre">coder</span></code>, and puts
+the paired value of that <code class="docutils literal notranslate"><span class="pre">coder</span></code> key into the response text.</p>
 </div>
-<div class="section" id="getmapping-and-postmapping">
-<h2>10.3.3. <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code><a class="headerlink" href="#getmapping-and-postmapping" title="Permalink to this headline">¶</a></h2>
-<p>In addition to <code class="docutils literal notranslate"><span class="pre">value</span></code>, we can also give <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> another argument, <code class="docutils literal notranslate"><span class="pre">method</span></code>,
-where we declare which request type to use. This would look like:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
-</pre></div>
-</div>
-<p>An alternative is to use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> which declare the method type more directly.
-Of course, there are other annotations for the other request methods, but these are the two we will use in
-this class. These annotations behave just like <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code>, except that they cannot be applied to a
-whole class.</p>
-</div>
-<div class="section" id="data-transfer-by-url-segment">
-<h2>10.3.4. Data Transfer by URL Segment<a class="headerlink" href="#data-transfer-by-url-segment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pathvariable">
+<span id="index-3"></span><h2>10.2.3. <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code><a class="headerlink" href="#pathvariable" title="Permalink to this headline">¶</a></h2>
 <p>Another way to handle data with a controller is by accessing the data via a segment of the
 URL. This is done with <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code>. <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code> takes an argument that, if matching
 a portion of the URL, will deliver this data into the handler.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Responds to /hello/LaunchCode</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Responds to get requests at /hello/LaunchCode</span>
 <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;hello/{name}&quot;</span><span class="o">)</span>
 <span class="nd">@ResponseBody</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">helloAgain</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
@@ -149,6 +137,10 @@ a portion of the URL, will deliver this data into the handler.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
+<p>Above, <code class="docutils literal notranslate"><span class="pre">name</span></code> is a placeholder, indicating where in the URL segment to look for the <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code>. From
+the comment, we know that that the actual value is <code class="docutils literal notranslate"><span class="pre">LaunchCode</span></code>, but this can easily be changed. If we changed
+the value of this URL segment to <code class="docutils literal notranslate"><span class="pre">/hello/Ada</span></code>, then this controller would respond with <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">Ada</span></code> when a
+<code class="docutils literal notranslate"><span class="pre">GET</span></code> request is made.</p>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">Also know that you can redirect a user by removing the <code class="docutils literal notranslate"><span class="pre">&#64;ResponseBody</span></code>
@@ -164,10 +156,10 @@ annotation from the controller and returning
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="controllers-parameters.html"><span aria-hidden="true">&larr;</span> 10.2. Controllers with Parameters</a></li>
+        <li class="previous"><a href="controllers-simple.html"><span aria-hidden="true">&larr;</span> 10.1. Simple Controllers</a></li>
         
         
-        <li class="next"><a href="controllers-walkthrough.html">10.4. Create a Controller <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="routes.html">10.3. Routes <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
@@ -184,7 +176,7 @@ annotation from the controller and returning
         <br/>
         
 <div id="sourcelink">
-  <a href="../../_sources/chapters/spring-controllers-and-routes/routes.rst.txt"
+  <a href="../../_sources/chapters/spring-controllers-and-routes/controllers-parameters.rst.txt"
      rel="nofollow">Page Source</a>
 </div>
       

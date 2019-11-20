@@ -126,32 +126,32 @@ Let's put it all together:
 
 
 
-Check Your Understanding
-------------------------
+.. Check Your Understanding
+.. ------------------------
 
-.. admonition:: Question
+.. .. admonition:: Question
 
-   What is the name of the task to start a Spring Boot application?
+..    What is the name of the task to start a Spring Boot application?
  
-   a. Gradle
+..    a. Gradle
       
-   b. bootRun
+..    b. bootRun
 
-   c. run
+..    c. run
 
-   d. Maven
+..    d. Maven
 
-.. ans: b, bootRun
+.. .. ans: b, bootRun
 
-.. admonition:: Question
+.. .. admonition:: Question
 
-   True/False: All custom code in a Spring Boot application goes in the main method.
+..    True/False: All custom code in a Spring Boot application goes in the main method.
  
-   a. True
+..    a. True
 
-   b. False
+..    b. False
 
-.. ans: False, most features are developed outside of the main method.
+.. .. ans: False, most features are developed outside of the main method.
 
 
 .. use this 
