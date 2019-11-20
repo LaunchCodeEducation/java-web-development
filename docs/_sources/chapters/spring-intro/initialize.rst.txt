@@ -3,7 +3,7 @@ Initialize Spring
 
 Spring Boot is a framework used to build Java web applications that
 implement the
-:ref:`<mvc>` pattern. For more about Spring, check out `Spring
+:ref:`MVC <mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
 Initialize a Spring Boot Project
