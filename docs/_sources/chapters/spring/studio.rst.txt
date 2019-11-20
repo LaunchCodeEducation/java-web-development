@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Studio: Skills Tracker
 ======================
 
@@ -66,3 +67,7 @@ Bonus Missions
 
 #. Reformat your ``form`` page to use a table instead of an ordered list.
 #. Add a new path to the site to display the information from the completed form.
+=======
+Studio
+======
+>>>>>>> master

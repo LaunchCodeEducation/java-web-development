@@ -3,22 +3,23 @@ Classes for Java
 
 .. index:: ! classes, ! class, ! object, ! objects
 
-In previous programming studies, we have come across **classes** and **objects**. 
-Classes and objects in Java are similar to classes and objects in other languages.
+In previous programming studies, we have come across **classes** and
+**objects**. Classes and objects in Java are similar to classes and objects in
+other languages.
 
 A Minimal Class and Object
 --------------------------
 
 .. index:: ! fields, ! methods, ! members
 
-Classes may contain **fields** and **methods**.
-Fields contain our data for the class and methods define actions a class can take.
-We say that fields and methods are **members** of a class.
+Classes may contain **fields** and **methods**. Fields contain our data for the
+class and methods define actions a class can take. We say that fields and
+methods are **members** of a class.
 
 .. admonition:: Example
 
    Let's create a class called ``HelloWorld`` with one field, ``message``, and one method, ``sayHello()``.
-   ``message`` will be a string and have a value of ``"Hello World"``. 
+   ``message`` will be a string and have a value of ``"Hello World"``.
    ``sayHello()`` will not return a specific value and instead print out the value of ``message``.
 
    .. sourcecode:: java
@@ -26,17 +27,17 @@ We say that fields and methods are **members** of a class.
 
       public class HelloWorld {
 
-         String message = "Hello World";
+         public String message = "Hello World";
 
-         void sayHello() {
-               System.out.println(message);
+         public void sayHello() {
+            System.out.println(message);
          }
 
       }
 
-The only field in the ``HelloWorld`` class is the string ``message``, while the only
-method is ``sayHello``, which prints the value of the ``message`` field
-and doesn’t return anything. 
+The only field in the ``HelloWorld`` class is the string ``message``, while the
+only method is ``sayHello``, which prints the value of the ``message`` field
+and doesn’t return anything.
 
 .. note::
 
@@ -46,7 +47,8 @@ and doesn’t return anything.
 .. index:: ! instance
 
 To execute ``sayHello``, we’ll need to create an **instance** of the
-class ``HelloWorld``. We refer to an object created from a particular class as an instance of that class.
+class ``HelloWorld``. We refer to an object created from a particular class as
+an instance of that class.
 
 Here’s how this might look with our ``HelloWorld`` class:
 
@@ -110,12 +112,12 @@ this case, in order to refer to the field, we *must* use ``this``.
 
       public class HelloWorld {
 
-         String message = "Hello World";
+         public String message = "Hello World";
 
          public void sayHello() {
 
             String message = "Goodbye World";
-            
+
             // The line below prints "Goodbye World"
             System.out.println(message);
 
@@ -132,7 +134,7 @@ this case, in order to refer to the field, we *must* use ``this``.
    local variable **shadows** the field. Errors caused by shadowing can be
    tricky to spot, so it’s best to avoid doing this in your code.
 
-.. note:: 
+.. note::
 
    If you want to learn more about this subject, check out the Oracle Documentation on `using the this keyword <https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html>`_.
 
@@ -148,11 +150,11 @@ Check Your Understanding
 
       public class Greeting {
 
-         String name = "Jess"
+         public String name = "Jess"
 
          public void sayHello() {
             System.out.println("Hello " + here.name + "!");
-         
+
       }
 
    a. line 7
