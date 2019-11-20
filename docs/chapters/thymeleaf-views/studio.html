@@ -93,11 +93,12 @@ Instead of heading out to our favorite spa, let’s make an application for the 
 <ol class="arabic simple">
 <li>Display the user’s name and skin type under their customer profile.</li>
 <li>Display the appropriate facial treatments for their skin type.</li>
+<li>Display the description of the spa’s manicures or pedicures depending on the user’s interest.</li>
 </ol>
 <p>As always, read through the whole page before starting to code.</p>
 <div class="section" id="setup">
 <h2>10.3.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>Fork and clone the appropriate repository. Check out the project via Version Control.</p>
+<p>Fork and clone the appropriate repository. Check out the project via Version Control in IntelliJ.</p>
 </div>
 <div class="section" id="the-customer-profile">
 <h2>10.3.2. The Customer Profile<a class="headerlink" href="#the-customer-profile" title="Permalink to this headline">¶</a></h2>
@@ -107,13 +108,14 @@ Instead of heading out to our favorite spa, let’s make an application for the 
 <li>The <code class="docutils literal notranslate"><span class="pre">checkSkinType()</span></code> method. The owners gave us this method to help us figure out which facial treatments are appropriate for which skin type.</li>
 <li>The <code class="docutils literal notranslate"><span class="pre">spaMenu()</span></code> method, which we will use to bring in our Thymeleaf template, <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.</li>
 </ol>
-<p>In <code class="docutils literal notranslate"><span class="pre">templates</span></code>, we have one Thymeleaf template called <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.
-Inside <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>, there are two divs.
+<p>In <code class="docutils literal notranslate"><span class="pre">templates</span></code>, we have a Thymeleaf template called <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.
+Inside <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>, there are two main divs in the body.
 Let’s focus on the div with the id, <code class="docutils literal notranslate"><span class="pre">clientProfile</span></code>.</p>
 <ol class="arabic simple">
 <li>Add an <code class="docutils literal notranslate"><span class="pre">h2</span></code> that says “My profile”.</li>
 <li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> and using <code class="docutils literal notranslate"><span class="pre">th:text</span></code>, bring in the value of <code class="docutils literal notranslate"><span class="pre">name</span></code>.</li>
 <li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> and using <code class="docutils literal notranslate"><span class="pre">th:text</span></code>, bring in the value of <code class="docutils literal notranslate"><span class="pre">skintype</span></code>.</li>
+<li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> and using <code class="docutils literal notranslate"><span class="pre">th:text</span></code>, bring in the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code>.</li>
 </ol>
 <p>Run the application and head to <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> to see! Now we should see the form and when we fill it out, we should see a new page with the client profile at the top!</p>
 </div>
@@ -124,13 +126,22 @@ Now, we just need to use Thymeleaf to display the appropriate facial treatments 
 <p>Let’s head back to <code class="docutils literal notranslate"><span class="pre">menu.html</span></code> and checkout the empty div with the id, <code class="docutils literal notranslate"><span class="pre">servicesMenu</span></code>.</p>
 <p>Add a table and iteratively (using our <code class="docutils literal notranslate"><span class="pre">th:each</span></code> and <code class="docutils literal notranslate"><span class="pre">th:block</span></code> combo) add rows for the values in appropriateFacials.</p>
 </div>
-<div class="section" id="fragments">
-<h2>10.3.4. Fragments<a class="headerlink" href="#fragments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mani-or-pedi">
+<h2>10.3.4. Mani or Pedi?<a class="headerlink" href="#mani-or-pedi" title="Permalink to this headline">¶</a></h2>
+<p>One other thing the spa owners want to be cautious of is their treatment descriptions.
+Because the descriptions rarely change and are going to be used in multiple places on the site, the owners have written up the descriptions as Thymeleaf fragments.</p>
+<p>Checkout the file, <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>, in the <code class="docutils literal notranslate"><span class="pre">templates</span></code> directory.
+The owners have already written up the decription for their manicure in a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag and the description for their pedicure in a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag.</p>
+<p>We want to put the description in a div along with an <code class="docutils literal notranslate"><span class="pre">h3</span></code> stating that it is either a manicure or pedicure.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">th:if</span></code> to determine if the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is a <code class="docutils literal notranslate"><span class="pre">&quot;manicure&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;pedicure&quot;</span></code>.
+If the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;manicure&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">div</span></code> element containing the <code class="docutils literal notranslate"><span class="pre">h3</span></code> that says <code class="docutils literal notranslate"><span class="pre">&quot;Manicure&quot;</span></code> needs to be on the page and the <code class="docutils literal notranslate"><span class="pre">p</span></code> tag needs to be <em>replaced</em> with the fragment of the manicure description from <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.
+If the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;pedicure&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">div</span></code> element containing the <code class="docutils literal notranslate"><span class="pre">h3</span></code> that says <code class="docutils literal notranslate"><span class="pre">&quot;Pedicure&quot;</span></code> needs to be on the page and the <code class="docutils literal notranslate"><span class="pre">p</span></code> tag needs to be <em>replaced</em> with the fragment of the pedicure description from <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</p>
 </div>
 <div class="section" id="bonus-mission">
 <h2>10.3.5. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Modify <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to get some CSS practice!</li>
+<li>Modify the form to allow the user to select either a manicure or pedicure or <em>both</em>. If the user selects both, display both the manicure and pedicure descriptions on the <code class="docutils literal notranslate"><span class="pre">Spa</span> <span class="pre">Menu</span></code> page.</li>
 <li>Work with routes and paths to display the spa menu page on a separate route from the form.</li>
 </ol>
 </div>
