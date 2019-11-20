@@ -159,19 +159,64 @@ the old project is missing those as well.</p>
 </div>
 <div class="section" id="start-a-practice-project">
 <h2>10.2.3. Start a Practice Project<a class="headerlink" href="#start-a-practice-project" title="Permalink to this headline">¶</a></h2>
-<p>Rutabagas…</p>
-<div class="section" id="add-a-template">
-<h3>10.2.3.1. Add a Template<a class="headerlink" href="#add-a-template" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
-</div>
+<blockquote>
+<div>Intro text describing how to create the project the students will work on
+during the videos…</div></blockquote>
+<p>Here are couple of items to help get you started.</p>
 <div class="section" id="template-location">
-<h3>10.2.3.2. Template Location<a class="headerlink" href="#template-location" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<h3>10.2.3.1. Template Location<a class="headerlink" href="#template-location" title="Permalink to this headline">¶</a></h3>
+<p>In IntelliJ, store templates in the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder, which is within the
+<code class="docutils literal notranslate"><span class="pre">resources</span></code> directory. As you will see in the video, Thymeleaf streamlines
+finding required templates by using <code class="docutils literal notranslate"><span class="pre">resources/templates</span></code> as the default
+location.</p>
+<div class="figure">
+<img alt="Locate the ``templates`` folder." src="../../_images/templatesFolder.png" />
 </div>
 </div>
-<div class="section" id="check-your-understanding">
-<h2>10.2.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-<p>Questions go here…</p>
+<div class="section" id="add-a-template">
+<h3>10.2.3.2. Add a Template<a class="headerlink" href="#add-a-template" title="Permalink to this headline">¶</a></h3>
+<p>To create a new template, right-click on the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder and select
+<em>New –&gt; HTML file</em>. Give your template a descriptive name, and note that
+IntelliJ provides some boilerplate code:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>To tie in the Thymeleaf information, you need to add a URL inside the <code class="docutils literal notranslate"><span class="pre">html</span></code>
+tag on line 2:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;https://www.thymeleaf.org/&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xmlns:th</span></code> attribute pulls in information from <code class="docutils literal notranslate"><span class="pre">thymeleaf.org</span></code> about
+the tags that we will use with Thymeleaf. This allows IntelliJ properly apply
+syntax highlighting and error reporting.</p>
+<p>A side effect of the <code class="docutils literal notranslate"><span class="pre">xmlns:th</span></code> attribute is that it implements stricter
+requirements for closing HTML tags. In HTML5, we can get away with leaving out
+the <code class="docutils literal notranslate"><span class="pre">/</span></code> character in standalone tags like <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code>. However, with the
+xml format in Thymeleaf, we must include the character.</p>
+<p>For example, we need to update line 4 in the boilerplate HTML code to close
+the <code class="docutils literal notranslate"><span class="pre">meta</span></code> tag:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span> <span class="p">/&gt;</span> <span class="c">&lt;!-- Note the closing &#39;/&#39; character --&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

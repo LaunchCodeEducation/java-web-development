@@ -83,19 +83,62 @@ the old project is missing those as well.
 Start a Practice Project
 -------------------------
 
-Rutabagas...
+    Intro text describing how to create the project the students will work on
+    during the videos...
 
-Add a Template
-^^^^^^^^^^^^^^^
-
-Lorem ipsum...
+Here are couple of items to help get you started.
 
 Template Location
 ^^^^^^^^^^^^^^^^^^
 
-Lorem ipsum...
+In IntelliJ, store templates in the ``templates`` folder, which is within the
+``resources`` directory. As you will see in the video, Thymeleaf streamlines
+finding required templates by using ``resources/templates`` as the default
+location.
 
-Check Your Understanding
--------------------------
+.. figure:: ./figures/templatesFolder.png
+   :alt: Locate the ``templates`` folder.
 
-Questions go here...
+Add a Template
+^^^^^^^^^^^^^^^
+
+To create a new template, right-click on the ``templates`` folder and select
+*New --> HTML file*. Give your template a descriptive name, and note that
+IntelliJ provides some boilerplate code:
+
+.. sourcecode:: html
+   :linenos:
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+   </head>
+   <body>
+
+   </body>
+   </html>
+
+To tie in the Thymeleaf information, you need to add a URL inside the ``html``
+tag on line 2:
+
+.. sourcecode:: html
+
+   <html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+The ``xmlns:th`` attribute pulls in information from ``thymeleaf.org`` about
+the tags that we will use with Thymeleaf. This allows IntelliJ properly apply
+syntax highlighting and error reporting.
+
+A side effect of the ``xmlns:th`` attribute is that it implements stricter
+requirements for closing HTML tags. In HTML5, we can get away with leaving out
+the ``/`` character in standalone tags like ``<input>``. However, with the
+xml format in Thymeleaf, we must include the character.
+
+For example, we need to update line 4 in the boilerplate HTML code to close
+the ``meta`` tag:
+
+.. sourcecode:: html
+
+   <meta charset="UTF-8" /> <!-- Note the closing '/' character -->
