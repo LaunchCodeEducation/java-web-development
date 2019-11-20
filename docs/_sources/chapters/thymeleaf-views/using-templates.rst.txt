@@ -27,6 +27,9 @@ controller file into variables that can be accessed by the view (templates).
 Discuss how to access data passed in by the controller using the ``${}``
 syntax.
 
+Note that Thymeleaf commands appear (in most cases) as *attributes* within
+a standard HTML tag.
+
 The data in single-value variables like ``title`` can be displayed as text
 on the screen by using ``th:text = "${title}"``. This allows a webpage to
 *dynamically* display data within an HTML element...
@@ -79,10 +82,10 @@ into subfolders.
 
 For example, if we build a website for a zoo, we can help ourselves immensely
 by avoiding a ``templates`` folder with a single level of files for every
-animal or function of the site. A better approach would be to divide the
+animal or feature of the site. A better approach would be to divide the
 templates into related categories like ``feedingSchedules``, ``concessions``,
-``donations``, ``pachyderms``, etc. In turn, each of the subfolders can hold
-finer categories as needed.
+``donations``, ``pachyderms``, etc. Each subfolder can also hold finer
+categories as needed.
 
 The goal is to consolidate your files into related groups. That way, you only
 need to use a single file path in a given controller. This improves the

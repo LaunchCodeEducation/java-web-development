@@ -107,6 +107,8 @@ best-practices.</p>
 controller file into variables that can be accessed by the view (templates).</p>
 <p>Discuss how to access data passed in by the controller using the <code class="docutils literal notranslate"><span class="pre">${}</span></code>
 syntax.</p>
+<p>Note that Thymeleaf commands appear (in most cases) as <em>attributes</em> within
+a standard HTML tag.</p>
 <p>The data in single-value variables like <code class="docutils literal notranslate"><span class="pre">title</span></code> can be displayed as text
 on the screen by using <code class="docutils literal notranslate"><span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${title}&quot;</span></code>. This allows a webpage to
 <em>dynamically</em> display data within an HTML element…</p>
@@ -155,10 +157,10 @@ will increase. Instead of just throwing all of the files into the
 into subfolders.</p>
 <p>For example, if we build a website for a zoo, we can help ourselves immensely
 by avoiding a <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder with a single level of files for every
-animal or function of the site. A better approach would be to divide the
+animal or feature of the site. A better approach would be to divide the
 templates into related categories like <code class="docutils literal notranslate"><span class="pre">feedingSchedules</span></code>, <code class="docutils literal notranslate"><span class="pre">concessions</span></code>,
-<code class="docutils literal notranslate"><span class="pre">donations</span></code>, <code class="docutils literal notranslate"><span class="pre">pachyderms</span></code>, etc. In turn, each of the subfolders can hold
-finer categories as needed.</p>
+<code class="docutils literal notranslate"><span class="pre">donations</span></code>, <code class="docutils literal notranslate"><span class="pre">pachyderms</span></code>, etc. Each subfolder can also hold finer
+categories as needed.</p>
 <p>The goal is to consolidate your files into related groups. That way, you only
 need to use a single file path in a given controller. This improves the
 efficiency of your code, saves you from getting a headache trying to find and

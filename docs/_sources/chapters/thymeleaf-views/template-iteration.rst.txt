@@ -130,7 +130,7 @@ Lorem ipsum...
 Try It
 -------
 
-Video goes here?
+Video goes here...
 
 Check Your Understanding
 -------------------------

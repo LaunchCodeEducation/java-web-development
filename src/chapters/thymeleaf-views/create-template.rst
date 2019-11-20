@@ -142,3 +142,8 @@ the ``meta`` tag:
 .. sourcecode:: html
 
    <meta charset="UTF-8" /> <!-- Note the closing '/' character -->
+
+Check Your Understanding
+-------------------------
+
+Questions go here...

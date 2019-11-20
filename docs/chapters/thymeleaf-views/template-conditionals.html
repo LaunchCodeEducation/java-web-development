@@ -86,18 +86,72 @@
     
   <div class="section" id="conditionals-in-a-template">
 <h1>10.5. Conditionals in a Template<a class="headerlink" href="#conditionals-in-a-template" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p>In addition to iteration, Thymeleaf can also add or remove content on a
+webpage based on certain conditions. Going back to the coffee example, we could
+generate the ordered list ONLY IF <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> contains data. If the
+ArrayList is empty, then there is no need to include the <code class="docutils literal notranslate"><span class="pre">&lt;ol&gt;</span></code> element.
+Instead, the template could include a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element with text stating that
+there are no options to select.</p>
+<p>Just like the <code class="docutils literal notranslate"><span class="pre">for/each</span></code> syntax differs between Java and Thymeleaf, we need
+to examine how to include <em>conditionals</em> in our templates. The logic remains
+the same, but the implementation requires practice.</p>
 <div class="section" id="display-content-if">
 <h2>10.5.1. Display Content <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#display-content-if" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<p>The general syntax for including a conditional in Thymeleaf is:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${condition}&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">th:if</span></code> statement gets placed inside an HTML tag.</li>
+<li><code class="docutils literal notranslate"><span class="pre">condition</span></code> represents a boolean variable provided by the controller.</li>
+<li>Alternatively, <code class="docutils literal notranslate"><span class="pre">condition</span></code> could also be a comparison that evaluates to
+<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
+</ol>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">condition</span></code> could also represent a function call that returns a boolean.
+However, making this work properly is an advanced topic and is beyond the
+scope of this course.</p>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the HTML element gets added to
+the webpage, and the content gets displayed. If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>,
+then the element is NOT generated, and the content stays off the page.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>Assume that <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> and <code class="docutils literal notranslate"><span class="pre">userSelection</span></code> represent an ArrayList
+and String, respectively, that are passed in by the controller.</p>
+<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${coffeeOptions.size() &gt; 0}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&#39;${userSelection.equals(&quot;instant&quot;)}&#39;</span><span class="p">&gt;</span>You can do better!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><em>More words here…</em></p>
+<div class="section" id="adding-vs-displaying-hiding">
+<h3>10.5.1.1. Adding vs. Displaying/Hiding<a class="headerlink" href="#adding-vs-displaying-hiding" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">th:if</span></code> determines if content is <em>added or not added</em> to a page. This is
+different from deciding if content should be <em>displayed or hidden</em>.</p>
+<p><em>Hidden</em> content still occupies space on a page and requires some amount of
+memory. When <code class="docutils literal notranslate"><span class="pre">th:if</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, content remains absent from the
+page—requiring neither space on the page nor memory. This is an important
+consideration when including items like images or videos on your website.</p>
+</div>
 <div class="section" id="unless-instead-of-else">
-<h3>10.5.1.1. <code class="docutils literal notranslate"><span class="pre">unless</span></code> Instead of <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#unless-instead-of-else" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<h3>10.5.1.2. <code class="docutils literal notranslate"><span class="pre">unless</span></code> Instead of <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#unless-instead-of-else" title="Permalink to this headline">¶</a></h3>
+<p>In Java, we use an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> structure to have our code execute certain steps
+when the condition evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>. Thymeleaf provides a similar option,
+but</p>
 </div>
 </div>
 <div class="section" id="try-it">
 <h2>10.5.2. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
-<p>Code example…</p>
+<p>Video goes here…</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>10.5.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
