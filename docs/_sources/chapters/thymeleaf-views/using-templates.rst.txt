@@ -18,6 +18,11 @@ Setting Default Text
 
 Lorem ipsum...
 
+Try It!
+--------
+
+Video goes here?
+
 Check Your Understanding
 -------------------------
 

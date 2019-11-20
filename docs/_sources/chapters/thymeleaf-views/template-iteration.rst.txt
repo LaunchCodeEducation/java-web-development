@@ -135,4 +135,35 @@ Video goes here?
 Check Your Understanding
 -------------------------
 
-Questions go here...
+.. admonition:: Question
+
+   Given the HTML examples above, which one produces one heading, 4 ordered
+   lists, and 4 coffee names (each name labeled as "1")?
+
+   #. Option 1
+   #. Option 2
+   #. Option 3
+
+.. Answer = option 2
+
+.. admonition:: Question
+
+   Which option produces one heading, one ordered list, and 4 coffee names
+   (with the names labeled 1, 2, 3...)?
+
+   #. Option 1
+   #. Option 2
+   #. Option 3
+
+.. Answer = option 1
+
+.. admonition:: Question
+
+   Which option produces 4 headings, 4 ordered lists, and 4 coffee names
+   (each name labeled as "1")?
+
+   #. Option 1
+   #. Option 2
+   #. Option 3
+
+.. Answer = option 3
