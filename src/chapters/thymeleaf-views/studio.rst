@@ -2,7 +2,7 @@ Studio: Spa Day!
 ================
 
 After all of the hard work we have put into learning about Thymeleaf, it is time for a spa day!
-However, first, we need to put our knowledge of Thymeleaf to the test.
+First, we need to put our knowledge of Thymeleaf to the test.
 Instead of heading out to our favorite spa, let's make an application for the owners!
 
 Our application needs to do the following:
@@ -32,21 +32,21 @@ Inside ``menu.html``, there are two main divs in the body.
 Let's focus on the div with the id, ``clientProfile``.
 
 #. Add an ``h2`` that says "My profile".
-#. Add a ``p`` and using ``th:text``, bring in the value of ``name``.
-#. Add a ``p`` and using ``th:text``, bring in the value of ``skintype``.
-#. Add a ``p`` and using ``th:text``, bring in the value of ``manipedi``.
+#. Add a ``p`` tag and use ``th:text`` to bring in the value of ``name``.
+#. Add a ``p`` tag and use ``th:text`` to bring in the value of ``skintype``.
+#. Add a ``p`` tag and use ``th:text`` to bring in the value of ``manipedi``.
 
-Run the application and head to ``localhost:8080`` to see! Now we should see the form and when we fill it out, we should see a new page with the client profile at the top!
+Run the application and head to ``localhost:8080`` to see the results! When we fill out the form, we should see a new page with the client profile at the top!
 
 List All Appropriate Facial Treatments
 --------------------------------------
 
-Luckily for us, the spa owners gave us the ``checkSkinType()`` method in our ``SpaDayController`` and our teammates already set up code in our ``spaMenu()`` method to fill an ``ArrayList<String>`` with facial treatments that would work for the user's skin type.
+Luckily for us, the spa owners gave us the ``checkSkinType()`` method in our ``SpaDayController``. Also, our teammates already set up code in our ``spaMenu()`` method to fill an ``ArrayList<String>`` with facial treatments that would work for the user's skin type.
 Now, we just need to use Thymeleaf to display the appropriate facial treatments (stored in the ArrayList, ``appropriateFacials``)!
 
 Let's head back to ``menu.html`` and checkout the empty div with the id, ``servicesMenu``.
 
-Add a table and iteratively (using our ``th:each`` and ``th:block`` combo) add rows for the values in appropriateFacials.
+Add a table and iteratively (using our ``th:each`` and ``th:block`` combo) add rows for the values in ``appropriateFacials``.
 
 Mani or Pedi?
 -------------
@@ -55,13 +55,14 @@ One other thing the spa owners want to be cautious of is their treatment descrip
 Because the descriptions rarely change and are going to be used in multiple places on the site, the owners have written up the descriptions as Thymeleaf fragments.
 
 Checkout the file, ``fragments.html``, in the ``templates`` directory.
-The owners have already written up the decription for their manicure in a ``p`` tag and the description for their pedicure in a ``p`` tag.
+The owners have already written up the descriptions for their manicure and pedicure in separate ``p`` tags.
 
-We want to put the description in a div along with an ``h3`` stating that it is either a manicure or pedicure.
+We want to put the description in a ``div`` along with an ``h3`` stating that it is either a manicure or pedicure.
 
 Use ``th:if`` to determine if the value of ``manipedi`` is a ``"manicure"`` or ``"pedicure"``. 
-If the value of ``manipedi`` is ``"manicure"``, the ``div`` element containing the ``h3`` that says ``"Manicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the manicure description from ``fragments.html``.
-If the value of ``manipedi`` is ``"pedicure"``, the ``div`` element containing the ``h3`` that says ``"Pedicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the pedicure description from ``fragments.html``.
+
+#. If the value of ``manipedi`` is ``"manicure"``, the ``div`` element containing the ``h3`` that says ``"Manicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the manicure description from ``fragments.html``.
+#. If the value of ``manipedi`` is ``"pedicure"``, the ``div`` element containing the ``h3`` that says ``"Pedicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the pedicure description from ``fragments.html``.
 
 Bonus Mission
 -------------
