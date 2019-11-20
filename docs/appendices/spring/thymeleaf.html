@@ -85,28 +85,28 @@
     
   <div class="section" id="thymeleaf-commands">
 <span id="id1"></span><h1>Thymeleaf Commands<a class="headerlink" href="#thymeleaf-commands" title="Permalink to this headline">¶</a></h1>
-<p>Thymeleaf is a template engine and Thymeleaf templates make up the views of our MVC application.
-In order to create our templates, we use attributes to pass data through controllers to our views out of the model.</p>
+<p>Thymeleaf is a template engine, and Thymeleaf templates make up the views of our MVC application.
+In order to create our templates, we use attributes to pass data from the model, through the controllers, and to our views.</p>
 <div class="section" id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
 <p>Thymeleaf has many attributes that we could use. In this book, we focus on a few key ones.</p>
 <div class="section" id="displaying-data">
 <h3>Displaying Data<a class="headerlink" href="#displaying-data" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">th:text</span></code> dynamically populates the contents of an HTML element.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">&gt;</span>text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;Hello World!&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>If we want to pull in a value of a variable from the controller, we can use the <strong>variable expressions</strong> syntax, <code class="docutils literal notranslate"><span class="pre">${}</span></code>.
 Let’s say we want to pull in the value of a variable called <code class="docutils literal notranslate"><span class="pre">hello</span></code>.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${hello}&quot;</span><span class="p">&gt;</span>text<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${hello}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="conditionally-displaying-data">
 <h3>Conditionally Displaying Data<a class="headerlink" href="#conditionally-displaying-data" title="Permalink to this headline">¶</a></h3>
 <p>In order to conditionally display data, we need to use <code class="docutils literal notranslate"><span class="pre">th:if</span></code> and <code class="docutils literal notranslate"><span class="pre">th:unless</span></code>.
-<code class="docutils literal notranslate"><span class="pre">th:if</span></code> will display the value of the element if the expression evaluates to true.
-<code class="docutils literal notranslate"><span class="pre">th:unless</span></code> will display the value of the element if the expression evaluates to false.</p>
+<code class="docutils literal notranslate"><span class="pre">th:if</span></code> will display the value of the element if the expression evaluates to true. If the expression evaluates to false, then the value of the element is NOT displayed.
+<code class="docutils literal notranslate"><span class="pre">th:unless</span></code> will display the value of the element if the expression evaluates to false. If the expression evaluates to true, then the value of the element is NOT displayed.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Let’s say we want to conditionally display our grocery list. We do have a variable, <code class="docutils literal notranslate"><span class="pre">pantryStatus</span></code>, that is a String.
@@ -120,12 +120,12 @@ If <code class="docutils literal notranslate"><span class="pre">pantryStatus</sp
 6
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;ol id = &quot;groceryList&quot;&gt;
-   &lt;li th:if = &quot;${pantryStatus.equals(&quot;empty&quot;)}&quot;&gt;Flour&lt;/li&gt;
-   &lt;li th:if = &quot;${pantryStatus.equals(&quot;empty&quot;)}&quot;&gt;Sugar&lt;/li&gt;
-   &lt;li th:if = &quot;${pantryStatus.equals(&quot;empty&quot;)}&quot;&gt;Rice&lt;/li&gt;
-   &lt;li th:unless = &quot;${pantryStatus.equals(&quot;empty&quot;)}&quot;&gt;Bananas&lt;/li&gt;
-   &lt;li th:unless = &quot;${pantryStatus.equals(&quot;empty&quot;)}&quot;&gt;Strawberries&lt;/li&gt;
-   &lt;li th:unless = &quot;${pantryStatus.equals(&quot;empty&quot;)}&quot;&gt;Broccoli&lt;/li&gt;
+   &lt;li th:if = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Flour&lt;/li&gt;
+   &lt;li th:if = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Sugar&lt;/li&gt;
+   &lt;li th:if = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Rice&lt;/li&gt;
+   &lt;li th:unless = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Bananas&lt;/li&gt;
+   &lt;li th:unless = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Strawberries&lt;/li&gt;
+   &lt;li th:unless = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Broccoli&lt;/li&gt;
 &lt;/ol&gt;
 </pre></div>
 </td></tr></table></div>
@@ -135,14 +135,15 @@ If <code class="docutils literal notranslate"><span class="pre">pantryStatus</sp
 <h3>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h3>
 <p>What if our grocery list is large? Typing out each item would be frustrating and inefficient.
 Instead we could use Thymeleaf to print the values of our grocery list as we iterate through them.
-<code class="docutils literal notranslate"><span class="pre">th:each</span></code> used to iterate through items in an ArrayList.</p>
+<code class="docutils literal notranslate"><span class="pre">th:each</span></code> is used to iterate through items in an ArrayList.
+<code class="docutils literal notranslate"><span class="pre">th:block</span></code> is the command that creates an attribute container around the section we want to use the iteration for.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>Our grocery list is stored in an ArrayList called <code class="docutils literal notranslate"><span class="pre">groceries</span></code>. Each item in our list is an object of type <code class="docutils literal notranslate"><span class="pre">foodItem</span></code> and have a property called <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
+<p>Our grocery list is stored in an ArrayList called <code class="docutils literal notranslate"><span class="pre">groceries</span></code>. Each item in our list is an object of type <code class="docutils literal notranslate"><span class="pre">foodItem</span></code> and has a property called <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
 <div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">id </span><span class="o">=</span> <span class="s">&quot;groceryList&quot;</span> <span class="na">th:each </span><span class="o">=</span> <span class="s">&quot;item: ${groceries}&quot;</span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${item.name}</span><span class="p">&gt;</span>text<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${item.name}</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
@@ -150,8 +151,28 @@ Instead we could use Thymeleaf to print the values of our grocery list as we ite
 </div>
 <div class="section" id="template-fragments">
 <h3>Template Fragments<a class="headerlink" href="#template-fragments" title="Permalink to this headline">¶</a></h3>
-<p>A fragment in Thymeleaf is a section of HTML that is reusable. This could be a section of our site that includes the grocery store’s name, address, and phone number.</p>
+<p>A <em>fragment</em> in Thymeleaf is a section of HTML that is reusable. This could be a section of our site that includes the grocery store’s name, address, and phone number.</p>
 <p><code class="docutils literal notranslate"><span class="pre">th:fragment</span></code> defines template fragments. We can then use <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> to denote a piece of HTML to be replaced by the fragment.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>For the grocery store application, we may want to keep the grocery store’s info in a separate file, <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;groceryStoreInfo&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Cool Grocery Store<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>We are at 123 N. 4th Avenue<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Call us at (123) 456-7890<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>If we want to use the fragment, <code class="docutils literal notranslate"><span class="pre">groceryStoreInfo</span></code>, in a separate template, <code class="docutils literal notranslate"><span class="pre">index.html</span></code>, we could use <code class="docutils literal notranslate"><span class="pre">th:replace</span></code>.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:replace </span><span class="o">=</span> <span class="s">&quot;fragments :: groceryStoreInfo&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">th:replace</span></code> tells Thymeleaf to <em>replace</em> the <code class="docutils literal notranslate"><span class="pre">div</span></code> element in <code class="docutils literal notranslate"><span class="pre">index.html</span></code> with the one in <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> named <code class="docutils literal notranslate"><span class="pre">groceryStoreInfo</span></code>.</p>
+</div>
 </div>
 <div class="section" id="static-resources">
 <h3>Static Resources<a class="headerlink" href="#static-resources" title="Permalink to this headline">¶</a></h3>
