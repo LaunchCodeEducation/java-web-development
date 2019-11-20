@@ -6,6 +6,5 @@ Spring into MVC
 
    mvc
    initialize
-   studio
 
    

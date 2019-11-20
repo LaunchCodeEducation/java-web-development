@@ -7,5 +7,6 @@ Controllers and Routing
    controllers
    routes
    controllers-walkthrough
+   studio
 
    
