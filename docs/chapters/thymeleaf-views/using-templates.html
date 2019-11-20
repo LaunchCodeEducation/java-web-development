@@ -86,22 +86,84 @@
     
   <div class="section" id="using-a-template">
 <h1>10.3. Using a Template<a class="headerlink" href="#using-a-template" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
-<div class="section" id="organizing-templates">
-<h2>10.3.1. Organizing Templates<a class="headerlink" href="#organizing-templates" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<p>The video on this page provides you some live-coding practice with Thymeleaf
+templates. Be sure to code along as you watch the clip.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">This video and the others in the chapter walk you through building a small
+web-based project. DO NOT SKIP this practice, because the end of chapter
+exercises pick up where the tutorials end.</p>
+</div>
+<div class="section" id="let-s-get-started">
+<h2>10.3.1. Let’s Get Started!<a class="headerlink" href="#let-s-get-started" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Video goes here…</div></blockquote>
+<p>Now that your project is started, let’s review one skill and two
+best-practices.</p>
 </div>
 <div class="section" id="passing-data-to-a-template">
 <h2>10.3.2. Passing Data to a Template<a class="headerlink" href="#passing-data-to-a-template" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<p>Discuss how to use an instance of the <code class="docutils literal notranslate"><span class="pre">Model</span></code> class to collect data in the
+controller file into variables that can be accessed by the view (templates).</p>
+<p>Discuss how to access data passed in by the controller using the <code class="docutils literal notranslate"><span class="pre">${}</span></code>
+syntax.</p>
+<p>The data in single-value variables like <code class="docutils literal notranslate"><span class="pre">title</span></code> can be displayed as text
+on the screen by using <code class="docutils literal notranslate"><span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${title}&quot;</span></code>. This allows a webpage to
+<em>dynamically</em> display data within an HTML element…</p>
 <div class="section" id="setting-default-text">
 <h3>10.3.2.1. Setting Default Text<a class="headerlink" href="#setting-default-text" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<p>What if we want to view our template without running the program? As mentioned
+earlier in the chapter, Thymeleaf files can be opened in a browser and
+displayed as a webpage. With no data, however, opening a template shows blank
+spaces wherever information from the controller is expected. Fortunately, we
+can add some default text within the framework to give us an idea of what the
+page will look like when we start the program.</p>
+<p>To include default text in our template, simply include some <em>placeholder</em>
+information inside the elements that contain a Thymeleaf attribute.</p>
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${title}&quot;</span><span class="p">&gt;</span>Default Title<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${bookQuote}&quot;</span><span class="p">&gt;</span>Don&#39;t Panic<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${linkText}&quot;</span><span class="p">&gt;</span>LaunchCode<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The text <code class="docutils literal notranslate"><span class="pre">Default</span> <span class="pre">Title</span></code>, <code class="docutils literal notranslate"><span class="pre">Don't</span> <span class="pre">Panic</span></code>, and <code class="docutils literal notranslate"><span class="pre">LaunchCode</span></code> appear if we
+open the template file in a browser. When the program runs, however, these text
+samples will be replaced by the values stored in the <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">bookQuote</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">linkText</span></code> variables.</p>
+<p>In most cases, you will never see the default text in our live webpage.
+Including it helps, however, if you need to share the planned layout of the
+webpage before the project is completely finished.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Best-practice encourages us to include default text in our templates. This
+improves the readability of the code, and it gives an outside observer a
+better idea of the structure of the webpage as well as of what data will
+appear in different sections.</p>
 </div>
 </div>
-<div class="section" id="try-it">
-<h2>10.3.3. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
-<p>Video goes here?</p>
+</div>
+<div class="section" id="organizing-templates">
+<h2>10.3.3. Organizing Templates<a class="headerlink" href="#organizing-templates" title="Permalink to this headline">¶</a></h2>
+<p>As any project grows, the number of templates required to build the website
+will increase. Instead of just throwing all of the files into the
+<code class="docutils literal notranslate"><span class="pre">templates</span></code> folder, best-practice mandates that we place related items
+into subfolders.</p>
+<p>For example, if we build a website for a zoo, we can help ourselves immensely
+by avoiding a <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder with a single level of files for every
+animal or function of the site. A better approach would be to divide the
+templates into related categories like <code class="docutils literal notranslate"><span class="pre">feedingSchedules</span></code>, <code class="docutils literal notranslate"><span class="pre">concessions</span></code>,
+<code class="docutils literal notranslate"><span class="pre">donations</span></code>, <code class="docutils literal notranslate"><span class="pre">pachyderms</span></code>, etc. In turn, each of the subfolders can hold
+finer categories as needed.</p>
+<p>The goal is to consolidate your files into related groups. That way, you only
+need to use a single file path in a given controller. This improves the
+efficiency of your code, saves you from getting a headache trying to find and
+fix a specific file, and streamlines updates by reducing the lines of code
+that need to be modified.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>10.3.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
