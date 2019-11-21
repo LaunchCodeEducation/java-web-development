@@ -10,8 +10,8 @@ templates. Be sure to code along as you watch the clip.
    web-based project. DO NOT SKIP this practice, because the end of chapter
    exercises pick up where the tutorials end.
 
-Let's Get Started!
--------------------
+Try It!
+--------
 
    Video goes here...
 

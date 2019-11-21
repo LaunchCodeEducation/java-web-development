@@ -83,10 +83,12 @@ the old project is missing those as well.
 Start a Practice Project
 -------------------------
 
-    Intro text describing how to create the project the students will work on
-    during the videos...
+Open up your ``hello-spring`` project in IntelliJ and code along with the
+following video:
 
-Here are couple of items to help get you started.
+    Video goes here...
+
+After finishing this tutorial, here are couple of items for you to review.
 
 Template Location
 ^^^^^^^^^^^^^^^^^^
