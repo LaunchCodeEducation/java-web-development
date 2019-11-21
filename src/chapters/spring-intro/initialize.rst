@@ -1,5 +1,5 @@
-Install Spring
-==============
+Initialize Spring
+=================
 
 Spring Boot is a framework used to build Java web applications that
 implement the
@@ -143,24 +143,25 @@ To run the application, click on the Gradle icon on the side of your IntelliJ wi
 click the panel icon in the bottom left corner of your window and select *Gradle*.
 
 .. figure:: figures/panel-icon.png
-      :alt: Panel icon options expanded
+   :alt: Panel icon options expanded
 
-      Hovering over this icon opens options for panels to open.
+   Hovering over this icon opens options for panels to open.
 
 Once the Gradle panel is opened, go into *Tasks*. Here you'll find the various tasks that Gradle can do for your
 project. Inside *Tasks*, open *application* and double-click *bootRun*. This will run our Spring Boot application.
 
 .. figure:: figures/gradle-bootrun.png
-      :alt: Gradle panel view with bootRun selected
+   :scale: 50%
+   :alt: Gradle panel view with bootRun selected
 
-      Gradle panel view with bootRun selected.
+   Gradle panel view with bootRun selected.
 
 Once the ``bootRun`` task is executed, you should see a new panel with output similar to this:
 
 .. figure:: figures/bootrun-output.png
-      :alt: bootRun output
+   :alt: bootRun output
 
-      Output of the ``bootRun`` task.
+   Output of the ``bootRun`` task.
 
 .. admonition:: Note
 
@@ -187,7 +188,7 @@ your project preventing it from starting.
 
 You'll also notice a message above:
 
-.. sourcecode:: java
+.. sourcecode:: bash
 
    Tomcat started on port(s): 8080 ...
 
@@ -200,6 +201,33 @@ Now go ahead and stop the application by hitting the red square on the left side
 
    There is also a stop button up at the top right of the IntelliJ window.
 
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   What is the name of the task to start a Spring Boot application?
+ 
+   a. Gradle
+      
+   b. bootRun
+
+   c. run
+
+   d. Maven
+
+.. ans: b, bootRun
+
+.. admonition:: Question
+
+   True/False: All custom code ina  Spring Boot application goes in the main method.
+ 
+   a. True
+
+   b. False
+
+.. ans: False, most features are developed outside of the main method.
 
 
 
