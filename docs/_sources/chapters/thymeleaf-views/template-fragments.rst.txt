@@ -6,7 +6,7 @@ Lorem ipsum...
 Thymeleaf File Template
 ------------------------
 
-Lorem ipsum...
+   This section may be misplaced (re: hello-spring videos).
 
 Fragments DRY Your Code
 ------------------------

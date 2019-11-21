@@ -226,7 +226,7 @@ the values in an unordered list.
 
 .. admonition:: Question
 
-   Now you want to display ONLY the positive, odd values in the list. Which of
+   Now you want to display ONLY the positive, even values in the list. Which of
    the following should you add to the ``li`` tag?
 
    #. ``th:if = "${number > 0 and number%2 == 0}"``
