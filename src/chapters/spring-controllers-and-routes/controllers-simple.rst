@@ -125,68 +125,31 @@ Let's put it all together:
    }
 
 
+Check Your Understanding
+------------------------
 
-.. Check Your Understanding
-.. ------------------------
+.. admonition:: Question
 
-.. .. admonition:: Question
-
-..    What is the name of the task to start a Spring Boot application?
+   True/False: The ``@Controller`` annotation goes above a method to classify
+	it as a controller method.
  
-..    a. Gradle
+   a. True
       
-..    b. bootRun
+   b. False
 
-..    c. run
+.. ans: b, the annotation goes atop the class 
 
-..    d. Maven
+.. admonition:: Question
 
-.. .. ans: b, bootRun
-
-.. .. admonition:: Question
-
-..    True/False: All custom code in a Spring Boot application goes in the main method.
+   Which of the following is true about controllers?
  
-..    a. True
+   a. Controllers handle the data storage of an MVC app.
 
-..    b. False
+   b. Controllers manage what the user of an MVC application sees.
 
-.. .. ans: False, most features are developed outside of the main method.
+	c. Controllers relay the messages between data and views in an MVC application.
 
+	d. Controllers determine what information can be submitted in an online form.
 
-.. use this 
-.. ``@GetMapping`` annotation. You may use it to designate a base path for a given controller class, 
-.. but not every controller class needs a ``@RequestMapping`` annotation attached to it.
+.. ans: c, Controllers relay the messages between data and views in an MVC application.
 
-.. For example, say the URL of your Spring Boot application is ``galaxyglossary.net``. Your application 
-.. catalogs items of various planetary galaxies. Above a controller class called ``MilkyWayController``, 
-.. you have declared ``@RequestMapping(value="milkyway")``. Every method defined in this controller handles 
-.. requests related to data on the Milky Way galaxy. All methods located here map to a base path of 
-.. ``galaxyglossary.net/milkyway``. ``MilkyWayController`` contains a method called ``orionArm()`` that 
-.. is used to return data about the section of the Milky Way called Orion Arm. Above ``orionArm()`` is 
-.. another ``@RequestMapping``, this one defined as ``@RequestMapping(value="orionarm")``. This means that 
-.. anytime a user visits ``galaxyglossary.net/milkyway/orionarm``, the ``orionArm()`` method is used.
-
-
-.. .. index:: ! @RequestMapping
-
-.. ``@RequestMapping``
-.. -------------------
-
-.. ``@RequestMapping`` is another annotation used on both controller classes and methods. 
-.. ``@RequestMapping`` designates a controller action with a URL path. The path is defined with
-.. ``@RequestMapping(value="pathname")``. If the pathname value is null, then the path used is the 
-.. index path, or ``/``.
-
-.. For every controller method that you want to respond to a request, you will use this 
-.. ``@RequestMapping`` annotation. You may use it to designate a base path for a given controller class, 
-.. but not every controller class needs a ``@RequestMapping`` annotation attached to it.
-
-.. For example, say the URL of your Spring Boot application is ``galaxyglossary.net``. Your application 
-.. catalogs items of various planetary galaxies. Above a controller class called ``MilkyWayController``, 
-.. you have declared ``@RequestMapping(value="milkyway")``. Every method defined in this controller handles 
-.. requests related to data on the Milky Way galaxy. All methods located here map to a base path of 
-.. ``galaxyglossary.net/milkyway``. ``MilkyWayController`` contains a method called ``orionArm()`` that 
-.. is used to return data about the section of the Milky Way called Orion Arm. Above ``orionArm()`` is 
-.. another ``@RequestMapping``, this one defined as ``@RequestMapping(value="orionarm")``. This means that 
-.. anytime a user visits ``galaxyglossary.net/milkyway/orionarm``, the ``orionArm()`` method is used.
