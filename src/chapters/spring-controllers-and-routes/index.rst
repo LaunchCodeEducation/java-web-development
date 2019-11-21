@@ -6,6 +6,7 @@ Controllers and Routing
 
    controllers-simple
    controllers-parameters
+   controllers-forms
    routes
    controllers-walkthrough
    studio
