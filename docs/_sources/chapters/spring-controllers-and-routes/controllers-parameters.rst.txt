@@ -83,29 +83,56 @@ the value of this URL segment to ``/hello/Ada``, then this controller would resp
    ``"redirect:/DESIREDPATH"``.
 
 
-.. Check Your Understanding
-.. ------------------------
+Check Your Understanding
+------------------------
 
-.. .. admonition:: Question
+.. admonition:: Question
 
-..    What is the name of the task to start a Spring Boot application?
+   Your application is served at myfavoriteplanets.net. What is the path 
+   that this controller maps to?
+
+   .. sourcecode:: java
+
+      @GetMapping("venus")
+      @ResponseBody
+      public String venusSurface(@RequestParam String terrestrial) {
+      if (terrestrial == true) {
+         return "Venus is rocky."        
+      } else {
+         return "Venus is gaseous."
+      }
  
-..    a. Gradle
+   a. myfavoriteplanets.net/venus?terrestrial=true
       
-..    b. bootRun
+   b. net.myfavoriteplanets/venus?terrestrial=true
 
-..    c. run
+   c. myfavoriteplanets/venus?terrestrial=true
 
-..    d. Maven
+   c. myfavoriteplanets/venus/terrestrial
 
-.. .. ans: b, bootRun
+.. ans: a, myfavoriteplanets.net/venus?terrestrial=true
 
-.. .. admonition:: Question
+.. admonition:: Question
 
-..    True/False: All custom code in a Spring Boot application goes in the main method.
- 
-..    a. True
+   Your application is served at myfavoriteplanets.net. What URL do you 
+   need to hit so that the response is:
+   ``Akatsuki currently orbits Venus.``?
 
-..    b. False
+   .. sourcecode:: java
 
-.. .. ans: False, most features are developed outside of the main method.
+      @GetMapping("venus/{orbiter}")
+      @ResponseBody
+      public String venusOrbiter(@PathVariable String orbiter) {
+         return orbiter + " currently orbits Venus."
+      }
+
+   a. myfavoriteplanets.net/venus/{Akatsuki}
+
+   b. myfavoriteplanets.net/venus/orbiter=Akatsuki
+
+   c. myfavoriteplanets.net/venus/Akatsuki
+
+   d. myfavoriteplanets.net/venus/name=Akatsuki
+
+.. ans: c, myfavoriteplanets.net/venus/Akatsuki
+

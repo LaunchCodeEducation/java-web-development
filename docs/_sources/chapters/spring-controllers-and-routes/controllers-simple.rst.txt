@@ -131,7 +131,7 @@ Check Your Understanding
 .. admonition:: Question
 
    True/False: The ``@Controller`` annotation goes above a method to classify
-	it as a controller method.
+   it as a controller method.
  
    a. True
       
@@ -147,9 +147,9 @@ Check Your Understanding
 
    b. Controllers manage what the user of an MVC application sees.
 
-	c. Controllers relay the messages between data and views in an MVC application.
+   c. Controllers relay the messages between data and views in an MVC application.
 
-	d. Controllers determine what information can be submitted in an online form.
+   d. Controllers determine what information can be submitted in an online form.
 
 .. ans: c, Controllers relay the messages between data and views in an MVC application.
 

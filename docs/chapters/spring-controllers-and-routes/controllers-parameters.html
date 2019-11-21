@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.3. Routes" href="routes.html" />
+    <link rel="next" title="10.3. Controllers with Forms" href="controllers-forms.html" />
     <link rel="prev" title="10.1. Simple Controllers" href="controllers-simple.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -148,6 +148,51 @@ annotation from the controller and returning
 <code class="docutils literal notranslate"><span class="pre">&quot;redirect:/DESIREDPATH&quot;</span></code>.</p>
 </div>
 </div>
+<div class="section" id="check-your-understanding">
+<h2>10.2.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Your application is served at myfavoriteplanets.net. What is the path
+that this controller maps to?</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;venus&quot;</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">venusSurface</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">terrestrial</span><span class="o">)</span> <span class="o">{</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">terrestrial</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Venus is rocky.&quot;</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Venus is gaseous.&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ol class="loweralpha simple">
+<li>myfavoriteplanets.net/venus?terrestrial=true</li>
+<li>net.myfavoriteplanets/venus?terrestrial=true</li>
+<li>myfavoriteplanets/venus?terrestrial=true</li>
+</ol>
+<ol class="last loweralpha simple" start="3">
+<li>myfavoriteplanets/venus/terrestrial</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Your application is served at myfavoriteplanets.net. What URL do you
+need to hit so that the response is:
+<code class="docutils literal notranslate"><span class="pre">Akatsuki</span> <span class="pre">currently</span> <span class="pre">orbits</span> <span class="pre">Venus.</span></code>?</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;venus/{orbiter}&quot;</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">venusOrbiter</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">String</span> <span class="n">orbiter</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="n">orbiter</span> <span class="o">+</span> <span class="s">&quot; currently orbits Venus.&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ol class="last loweralpha simple">
+<li>myfavoriteplanets.net/venus/{Akatsuki}</li>
+<li>myfavoriteplanets.net/venus/orbiter=Akatsuki</li>
+<li>myfavoriteplanets.net/venus/Akatsuki</li>
+<li>myfavoriteplanets.net/venus/name=Akatsuki</li>
+</ol>
+</div>
+</div>
 </div>
 
 
@@ -159,7 +204,7 @@ annotation from the controller and returning
         <li class="previous"><a href="controllers-simple.html"><span aria-hidden="true">&larr;</span> 10.1. Simple Controllers</a></li>
         
         
-        <li class="next"><a href="routes.html">10.3. Routes <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="controllers-forms.html">10.3. Controllers with Forms <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
