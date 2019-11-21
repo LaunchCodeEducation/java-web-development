@@ -12,6 +12,18 @@ Just like the ``for/each`` syntax differs between Java and Thymeleaf, we need
 to examine how to include *conditionals* in our templates. The logic remains
 the same, but the implementation requires practice.
 
+Try It!
+--------
+
+Code along with the following video to gain more practice with Thymeleaf:
+
+   Video goes here...
+
+For your reference, here is an extension for some of the concepts presented
+in the clip. Note that the text is NOT intended as a replacement for the
+walkthrough. To get better at coding, you need to actually CODE instead of just
+reading about how to do it.
+
 Display Content ``if``
 -----------------------
 
@@ -45,11 +57,11 @@ off the page.
    .. sourcecode:: html
       :linenos:
 
-         <ol th:if = "${coffeeOptions.size() > 1}">
-            <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
-         </ol>
+      <ol th:if = "${coffeeOptions.size() > 1}">
+         <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
+      </ol>
 
-         <h2 th:if = '${userSelection.equals("instant")}'>You can do better!</h2>
+      <h2 th:if = '${userSelection.equals("instant")}'>You can do better!</h2>
 
 The conditional in line 1 checks that ``coffeeOptions`` contains more than one
 item. If ``true``, then the ordered list is rendered in the view. The
@@ -67,6 +79,22 @@ different from deciding if content should be *displayed or hidden*.
 memory. When ``th:if`` evaluates to ``false``, content remains absent from the
 page---requiring neither space on the page nor memory. This is an important
 consideration when including items like images or videos on your website.
+
+What is ``true``?
+^^^^^^^^^^^^^^^^^^
+
+The ``th:if = "${condition}"`` attribute can evaluate more than simple boolean
+variables and statements. It will also return ``true`` according to these
+rules:
+
+#. If ``condition`` is a boolean or statement and ``true``.
+#. If ``condition`` is a non-zero number or character.
+#. If ``condition`` is a string that is NOT ``"false"``, ``"off"``, or
+   ``"no"``.
+#. If ``condition`` is a data type other than a boolean, number, character, or
+   String.
+
+``th:if`` will evaluate to ``false`` whenever ``condition`` is ``null``.
 
 ``unless`` Instead of ``else``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,30 +118,28 @@ We could update our coffee code with an ``unless``:
    .. sourcecode:: html
       :linenos:
 
-         <ol th:if = "${coffeeOptions.size() > 1}">
-            <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
-         </ol>
+      <h2 th:unless = '${userSelection.equals("instant")}'>Excellent choice!</h2>
 
-         <h2 th:unless = '${userSelection.equals("instant")}'>Excellent choice!</h2>
+As long as ``userSelection`` is NOT ``"instant"``, the condition evaluates to
+``false``, and the ``h2`` element gets added to the view.
 
-As long as ``userSelection`` is NOT ``"instant"``, the condition in line 5
-evaluates to ``false``, and the ``h2`` element gets added to the view.
-
-If we want to set up a situation for *If true, do this. Otherwise, do this
-other thing*, we need to pair a ``th:if`` with a ``th:unless``.
+If we want to set up a situation like *If true, do this thing. Otherwise, do
+this other thing*, we need to pair a ``th:if`` with a ``th:unless``.
 
 .. admonition:: Example
 
    .. sourcecode:: html
       :linenos:
 
-         <ol th:if = "${coffeeOptions.size()}">
-            <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
-         </ol>
+      <ol th:if = "${coffeeOptions.size()}">
+         <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
+      </ol>
 
-         <p th:unless = "${coffeeOptions.size()}" th:text="${coffeeOptions.get(0)}"></p>
+      <p th:unless = "${coffeeOptions.size()}">No coffee brewed!</p>
 
-*More words here...*
+If ``coffeeOptions.size()`` evaluates to 0, then Thymeleaf considers it a
+``false`` result. In that case, it ignores the ``ol`` element and generates the
+``p`` element.
 
 Logical Operators
 ^^^^^^^^^^^^^^^^^^
@@ -142,28 +168,70 @@ syntax for these is as follows:
       th:if = "${!condition}"
       // Evaluates to true when condition is false
 
-What is ``true``?
-^^^^^^^^^^^^^^^^^^
+.. admonition:: Note
 
-The ``th:if = "${condition}"`` attribute can evaluate more than simple boolean
-variables and statements. It will also return ``true`` according to these
-rules:
+   Since ``th:unless`` looks for a ``false`` result, we can accomplish the same
+   thing by adding a ``not`` operator to a ``th:if`` statement.
 
-#. If ``condition`` is a boolean or statement and ``true``.
-#. If ``condition`` is a non-zero number or character.
-#. If ``condition`` is a string that is NOT ``"false"``, ``"off"``, or
-   ``"no"``.
-#. If ``condition`` is a data type other than a boolean, number, character, or
-   String.
+   The code:
 
-``th:if`` will evaluate to ``false`` whenever ``condition`` is ``null``.
+   .. sourcecode:: groovy
 
-Try It!
---------
+      <p th:unless = "${variableName == 5}">Value is NOT equal to 5.</p>
 
-Video goes here...
+   does the same thing as:
+
+   .. sourcecode:: groovy
+
+      <p th:if = "${variableName != 5}">Value is NOT equal to 5.</p>
 
 Check Your Understanding
 -------------------------
 
-Questions go here...
+Assume you have an ArrayList of integers called ``numbers``, and you display
+the values in an unordered list.
+
+.. sourcecode:: html
+   :linenos:
+
+   <ul>
+      <th:block th:each = "number : ${numbers}">
+         <li th:text = "${number}"></li>
+      </th:block>
+   </ul>
+
+.. admonition:: Question
+
+   You want to display the list only if ``numbers`` contains data. Which of the
+   following attributes should you add to the ``ul`` tag?
+
+   #. ``th:if = "${numbers.size()}"``
+   #. ``th:unless = "${numbers.size()}"``
+
+.. Answer = a
+
+.. admonition:: Question
+
+   Now you want to display ONLY the positive values in the list. Which of the
+   following attributes could you add to the ``li`` tag? Select ALL that work.
+
+   #. ``th:if = "${number}"``
+   #. ``th:if = "${number < 0}"``
+   #. ``th:if = "${number > 0}"``
+   #. ``th:unless = "${number}"``
+   #. ``th:unless = "${number >= 0}"``
+   #. ``th:unless = "${number <= 0}"``
+
+.. Answers = c and f
+
+.. admonition:: Question
+
+   Now you want to display ONLY the positive, odd values in the list. Which of
+   the following should you add to the ``li`` tag?
+
+   #. ``th:if = "${number > 0 and number%2 == 0}"``
+   #. ``th:if = "${number > 0 or number%2 == 0}"``
+   #. ``th:unless = "${number < 0 and number%2 == 0}"``
+   #. ``th:unless = "${number < 0 or number%2 == 0}"``
+
+.. Answer = a

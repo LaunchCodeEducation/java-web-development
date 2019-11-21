@@ -130,7 +130,10 @@ Lorem ipsum...
 Try It
 -------
 
-Video goes here...
+Return to your ``hello-spring`` project and code along to add iteration to the
+project.
+
+   Video goes here...
 
 Check Your Understanding
 -------------------------

@@ -139,4 +139,7 @@ into the template, the appearance of the page changes.
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   Why should we use a template to design a web page rather than just coding
+   the entire site with HTML and CSS?
