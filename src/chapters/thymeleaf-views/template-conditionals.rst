@@ -23,8 +23,8 @@ The general syntax for including a conditional in Thymeleaf is:
 
 #. The ``th:if`` statement gets placed inside an HTML tag.
 #. ``condition`` represents a boolean variable provided by the controller.
-#. Alternatively, ``condition`` could also be a comparison that evaluates to
-   ``true`` or ``false``.
+#. Alternatively, ``condition`` can be a statement that evaluates to ``true``
+   or ``false``.
 
 .. admonition:: Note
 
@@ -32,9 +32,10 @@ The general syntax for including a conditional in Thymeleaf is:
    However, making this work properly is an advanced topic and is beyond the
    scope of this course.
 
-If ``condition`` evaluates to ``true``, then the HTML element gets added to
-the webpage, and the content gets displayed. If ``condition`` is ``false``,
-then the element is NOT generated, and the content stays off the page.
+If ``condition`` evaluates to ``true``, then Thymeleaf adds the HTML element to
+the webpage, and the content gets displayed in the view. If ``condition`` is
+``false``, then Thymeleaf does NOT generate the element, and the content stays
+off the page.
 
 .. admonition:: Example
 
@@ -44,13 +45,17 @@ then the element is NOT generated, and the content stays off the page.
    .. sourcecode:: html
       :linenos:
 
-         <ol th:if = "${coffeeOptions.size() > 0}">
+         <ol th:if = "${coffeeOptions.size() > 1}">
             <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
          </ol>
 
          <h2 th:if = '${userSelection.equals("instant")}'>You can do better!</h2>
 
-*More words here...*
+The conditional in line 1 checks that ``coffeeOptions`` contains more than one
+item. If ``true``, then the ordered list is rendered in the view. The
+``th:if`` statement in line 5 compares a user's flavor choice to the string
+``"instant"``. If they match, then Thymeleaf adds the heading element to the
+view.
 
 Adding vs. Displaying/Hiding
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,8 +72,91 @@ consideration when including items like images or videos on your website.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In Java, we use an ``if/else`` structure to have our code execute certain steps
-when the condition evaluates to ``false``. Thymeleaf provides a similar option,
-but 
+when a variable or statement evaluates to ``true`` but a different set of steps
+for a ``false`` result. Thymeleaf provides a similar option with ``th:unless``:
+
+.. sourcecode:: groovy
+
+   th:unless = "${condition}"
+
+Just like ``th:if``, the ``th:unless`` attribute gets placed inside an HTML
+tag. In this case, however, Thymeleaf adds the HTML element to the webpage when
+``condition`` evaluates to ``false``.
+
+We could update our coffee code with an ``unless``:
+
+.. admonition:: Example
+
+   .. sourcecode:: html
+      :linenos:
+
+         <ol th:if = "${coffeeOptions.size() > 1}">
+            <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
+         </ol>
+
+         <h2 th:unless = '${userSelection.equals("instant")}'>Excellent choice!</h2>
+
+As long as ``userSelection`` is NOT ``"instant"``, the condition in line 5
+evaluates to ``false``, and the ``h2`` element gets added to the view.
+
+If we want to set up a situation for *If true, do this. Otherwise, do this
+other thing*, we need to pair a ``th:if`` with a ``th:unless``.
+
+.. admonition:: Example
+
+   .. sourcecode:: html
+      :linenos:
+
+         <ol th:if = "${coffeeOptions.size()}">
+            <li th:each="item : ${coffeeOptions}" th:text="${item}"></li>
+         </ol>
+
+         <p th:unless = "${coffeeOptions.size()}" th:text="${coffeeOptions.get(0)}"></p>
+
+*More words here...*
+
+Logical Operators
+^^^^^^^^^^^^^^^^^^
+
+We can use logical operators with ``th:if`` and ``th:unless``. The Thymeleaf
+syntax for these is as follows:
+
+#. Logical AND = ``and``,
+
+   .. sourcecode:: groovy
+
+      th:if = "${condition1 and condition2 and...}"
+      // Evaluates to true if ALL conditions are true
+
+#. Logical OR = ``or``,
+
+   .. sourcecode:: groovy
+
+      th:if = "${condition1 or condition2 or...}"
+      // Evaluates to true if ANY condition is true
+
+#. NOT = ``!``, ``not``.
+
+   .. sourcecode:: groovy
+
+      th:if = "${!condition}"
+      // Evaluates to true when condition is false
+
+What is ``true``?
+^^^^^^^^^^^^^^^^^^
+
+The ``th:if = "${condition}"`` attribute can evaluate more than simple boolean
+variables and statements. It will also return ``true`` according to these
+rules:
+
+#. If ``condition`` is a boolean or statement and ``true``.
+#. If ``condition`` is a non-zero number or character.
+#. If ``condition`` is a string that is NOT ``"false"``, ``"off"``, or
+   ``"no"``.
+#. If ``condition`` is a data type other than a boolean, number, character, or
+   String.
+
+``th:if`` will evaluate to ``false`` whenever ``condition`` is ``null``.
 
 Try It!
 --------

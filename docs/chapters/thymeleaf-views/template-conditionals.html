@@ -104,8 +104,8 @@ the same, but the implementation requires practice.</p>
 <ol class="arabic simple">
 <li>The <code class="docutils literal notranslate"><span class="pre">th:if</span></code> statement gets placed inside an HTML tag.</li>
 <li><code class="docutils literal notranslate"><span class="pre">condition</span></code> represents a boolean variable provided by the controller.</li>
-<li>Alternatively, <code class="docutils literal notranslate"><span class="pre">condition</span></code> could also be a comparison that evaluates to
-<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
+<li>Alternatively, <code class="docutils literal notranslate"><span class="pre">condition</span></code> can be a statement that evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>
+or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
 </ol>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
@@ -113,9 +113,10 @@ the same, but the implementation requires practice.</p>
 However, making this work properly is an advanced topic and is beyond the
 scope of this course.</p>
 </div>
-<p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the HTML element gets added to
-the webpage, and the content gets displayed. If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code>,
-then the element is NOT generated, and the content stays off the page.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, then Thymeleaf adds the HTML element to
+the webpage, and the content gets displayed in the view. If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is
+<code class="docutils literal notranslate"><span class="pre">false</span></code>, then Thymeleaf does NOT generate the element, and the content stays
+off the page.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Assume that <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> and <code class="docutils literal notranslate"><span class="pre">userSelection</span></code> represent an ArrayList
@@ -124,7 +125,7 @@ and String, respectively, that are passed in by the controller.</p>
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${coffeeOptions.size() &gt; 0}&quot;</span><span class="p">&gt;</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${coffeeOptions.size() &gt; 1}&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
    <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 
@@ -132,7 +133,11 @@ and String, respectively, that are passed in by the controller.</p>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p><em>More words here…</em></p>
+<p>The conditional in line 1 checks that <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> contains more than one
+item. If <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the ordered list is rendered in the view. The
+<code class="docutils literal notranslate"><span class="pre">th:if</span></code> statement in line 5 compares a user’s flavor choice to the string
+<code class="docutils literal notranslate"><span class="pre">&quot;instant&quot;</span></code>. If they match, then Thymeleaf adds the heading element to the
+view.</p>
 <div class="section" id="adding-vs-displaying-hiding">
 <h3>11.5.1.1. Adding vs. Displaying/Hiding<a class="headerlink" href="#adding-vs-displaying-hiding" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">th:if</span></code> determines if content is <em>added or not added</em> to a page. This is
@@ -145,8 +150,88 @@ consideration when including items like images or videos on your website.</p>
 <div class="section" id="unless-instead-of-else">
 <h3>11.5.1.2. <code class="docutils literal notranslate"><span class="pre">unless</span></code> Instead of <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#unless-instead-of-else" title="Permalink to this headline">¶</a></h3>
 <p>In Java, we use an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> structure to have our code execute certain steps
-when the condition evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>. Thymeleaf provides a similar option,
-but</p>
+when a variable or statement evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> but a different set of steps
+for a <code class="docutils literal notranslate"><span class="pre">false</span></code> result. Thymeleaf provides a similar option with <code class="docutils literal notranslate"><span class="pre">th:unless</span></code>:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="n">unless</span> <span class="o">=</span> <span class="s2">&quot;${condition}&quot;</span>
+</pre></div>
+</div>
+<p>Just like <code class="docutils literal notranslate"><span class="pre">th:if</span></code>, the <code class="docutils literal notranslate"><span class="pre">th:unless</span></code> attribute gets placed inside an HTML
+tag. In this case, however, Thymeleaf adds the HTML element to the webpage when
+<code class="docutils literal notranslate"><span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>We could update our coffee code with an <code class="docutils literal notranslate"><span class="pre">unless</span></code>:</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${coffeeOptions.size() &gt; 1}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">th:unless </span><span class="o">=</span> <span class="s">&#39;${userSelection.equals(&quot;instant&quot;)}&#39;</span><span class="p">&gt;</span>Excellent choice!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>As long as <code class="docutils literal notranslate"><span class="pre">userSelection</span></code> is NOT <code class="docutils literal notranslate"><span class="pre">&quot;instant&quot;</span></code>, the condition in line 5
+evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, and the <code class="docutils literal notranslate"><span class="pre">h2</span></code> element gets added to the view.</p>
+<p>If we want to set up a situation for <em>If true, do this. Otherwise, do this
+other thing</em>, we need to pair a <code class="docutils literal notranslate"><span class="pre">th:if</span></code> with a <code class="docutils literal notranslate"><span class="pre">th:unless</span></code>.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="p">&lt;</span><span class="nt">ol</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${coffeeOptions.size()}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${coffeeOptions}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:unless </span><span class="o">=</span> <span class="s">&quot;${coffeeOptions.size()}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${coffeeOptions.get(0)}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><em>More words here…</em></p>
+</div>
+<div class="section" id="logical-operators">
+<h3>11.5.1.3. Logical Operators<a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h3>
+<p>We can use logical operators with <code class="docutils literal notranslate"><span class="pre">th:if</span></code> and <code class="docutils literal notranslate"><span class="pre">th:unless</span></code>. The Thymeleaf
+syntax for these is as follows:</p>
+<ol class="arabic">
+<li><p class="first">Logical AND = <code class="docutils literal notranslate"><span class="pre">and</span></code>,</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${condition1 and condition2 and...}&quot;</span>
+<span class="c1">// Evaluates to true if ALL conditions are true</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Logical OR = <code class="docutils literal notranslate"><span class="pre">or</span></code>,</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${condition1 or condition2 or...}&quot;</span>
+<span class="c1">// Evaluates to true if ANY condition is true</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">NOT = <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${!condition}&quot;</span>
+<span class="c1">// Evaluates to true when condition is false</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="what-is-true">
+<h3>11.5.1.4. What is <code class="docutils literal notranslate"><span class="pre">true</span></code>?<a class="headerlink" href="#what-is-true" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${condition}&quot;</span></code> attribute can evaluate more than simple boolean
+variables and statements. It will also return <code class="docutils literal notranslate"><span class="pre">true</span></code> according to these
+rules:</p>
+<ol class="arabic simple">
+<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a boolean or statement and <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a non-zero number or character.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a string that is NOT <code class="docutils literal notranslate"><span class="pre">&quot;false&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code>.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a data type other than a boolean, number, character, or
+String.</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">th:if</span></code> will evaluate to <code class="docutils literal notranslate"><span class="pre">false</span></code> whenever <code class="docutils literal notranslate"><span class="pre">condition</span></code> is <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
 </div>
 </div>
 <div class="section" id="try-it">
