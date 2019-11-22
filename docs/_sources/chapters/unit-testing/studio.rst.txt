@@ -33,9 +33,9 @@ Getting Started
 
 .. note::
 
-   ``BalancedBrackets`` is essentially a wrapper class for a method.
-	And because it's only method is static, we don't need to create an instance
-	to test ``hasBalancedBrackets()``.
+   ``BalancedBrackets`` is essentially a wrapper class for a method. And 
+   because it's only method is static, we don't need to create an instance
+   to test ``hasBalancedBrackets()``.
    
 .. tip::
 
