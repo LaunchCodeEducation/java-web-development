@@ -8,8 +8,6 @@ Controllers and Routing
    controllers-parameters
    controllers-forms
    controllers-classes
-   routes
-   controllers-walkthrough
    studio
 
    
