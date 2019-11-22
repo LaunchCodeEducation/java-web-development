@@ -66,32 +66,25 @@ to both ``GET`` and ``POST``.
       return html;
    }
 
+Check Your Understanding
+------------------------
 
+.. admonition:: Question
 
-
-.. Check Your Understanding
-.. ------------------------
-
-.. .. admonition:: Question
-
-..    What is the name of the task to start a Spring Boot application?
+   True/False: No one controller method can handle several request types.
  
-..    a. Gradle
+   a. True
       
-..    b. bootRun
+   b. False
 
-..    c. run
+.. ans: b, A controller method annotated with @RequestMapping can handle multiple request types
 
-..    d. Maven
+.. admonition:: Question
 
-.. .. ans: b, bootRun
-
-.. .. admonition:: Question
-
-..    True/False: All custom code in a Spring Boot application goes in the main method.
+   If we add another input 
  
-..    a. True
+   a. True
 
-..    b. False
+   b. False
 
-.. .. ans: False, most features are developed outside of the main method.
+.. ans: False, most features are developed outside of the main method.
