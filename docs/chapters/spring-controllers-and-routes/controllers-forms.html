@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.4. Routes" href="routes.html" />
+    <link rel="next" title="10.4. Class Level Controller Annotations" href="controllers-classes.html" />
     <link rel="prev" title="10.2. Controllers with Parameters" href="controllers-parameters.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -147,22 +147,28 @@ to both <code class="docutils literal notranslate"><span class="pre">GET</span><
 <h2>10.3.1. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>True/False: No one controller method can handle several request types.</p>
+<p>From the list below, which annotations are applied above a controller class.</p>
 <ol class="last loweralpha simple">
-<li>True</li>
-<li>False</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;ResponseBody</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>We want the method <code class="docutils literal notranslate"><span class="pre">hello</span></code> to take another parameter, <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span> <span class="pre">String</span> <span class="pre">friend</span></code>, that will
-add a friend’s name to the returned greeting. The use should also be able to enter this name via
-a text field. What needs to be added to the form?</p>
+<p>From the list below, which annotations are applied above a controller method.</p>
 <ol class="last loweralpha simple">
-<li>Another <code class="docutils literal notranslate"><span class="pre">input</span></code> tag with a <code class="docutils literal notranslate"><span class="pre">friend</span></code> attribute.</li>
-<li>Another <code class="docutils literal notranslate"><span class="pre">input</span></code> tag with a <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute.</li>
-<li>Another <code class="docutils literal notranslate"><span class="pre">form</span></code> tag with a <code class="docutils literal notranslate"><span class="pre">method</span></code> attribute.</li>
-<li>Another <code class="docutils literal notranslate"><span class="pre">submit</span></code> tag with a <code class="docutils literal notranslate"><span class="pre">friend</span></code> value.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;ResponseBody</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code></li>
 </ol>
 </div>
 </div>
@@ -177,7 +183,7 @@ a text field. What needs to be added to the form?</p>
         <li class="previous"><a href="controllers-parameters.html"><span aria-hidden="true">&larr;</span> 10.2. Controllers with Parameters</a></li>
         
         
-        <li class="next"><a href="routes.html">10.4. Routes <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="controllers-classes.html">10.4. Class Level Controller Annotations <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

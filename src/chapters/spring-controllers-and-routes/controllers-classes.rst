@@ -37,3 +37,33 @@ In a related fashion, if you find that each of your methods in a controller clas
 use ``@ResponseBody`` to return plain text, this annotation may be added at the top 
 of the class, rather than at each method declaration.
 
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   True/False: No one controller method can handle several request types.
+ 
+   a. True
+      
+   b. False
+
+.. ans: b, A controller method annotated with @RequestMapping can handle multiple request types
+
+.. admonition:: Question
+
+   We want the method ``hello`` to take another parameter, ``@RequestParam String friend``, that will 
+   add a friend's name to the returned greeting. The use should also be able to enter this name via 
+   a text field. What needs to be added to the form?
+ 
+   a. Another ``input`` tag with a ``friend`` attribute.
+
+   b. Another ``input`` tag with a ``name`` attribute.
+
+   c. Another ``form`` tag with a ``method`` attribute.
+
+   d. Another ``submit`` tag with a ``friend`` value.
+
+.. ans:  b, Another ``input`` tag with a ``name`` attribute.
+
+

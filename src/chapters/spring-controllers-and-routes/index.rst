@@ -7,6 +7,7 @@ Controllers and Routing
    controllers-simple
    controllers-parameters
    controllers-forms
+   controllers-classes
    routes
    controllers-walkthrough
    studio

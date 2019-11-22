@@ -71,26 +71,40 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True/False: No one controller method can handle several request types.
+   From the list below, which annotations are applied above a controller class.
  
-   a. True
+   a. ``@Controller``
       
-   b. False
+   b. ``@GetMapping``
 
-.. ans: b, A controller method annotated with @RequestMapping can handle multiple request types
+   c. ``@PostMapping``
+
+   d. ``@RequestMapping``
+
+   e. ``@ResponseBody``
+
+   f. ``@RequestParam``
+
+   g. ``@PathVariable``
+
+.. ans: a, d, + e, controller, requestmapping, and responsebody
 
 .. admonition:: Question
 
-   We want the method ``hello`` to take another parameter, ``@RequestParam String friend``, that will 
-   add a friend's name to the returned greeting. The use should also be able to enter this name via 
-   a text field. What needs to be added to the form?
+   From the list below, which annotations are applied above a controller method.
  
-   a. Another ``input`` tag with a ``friend`` attribute.
+   a. ``@Controller``
+      
+   b. ``@GetMapping``
 
-   b. Another ``input`` tag with a ``name`` attribute.
+   c. ``@PostMapping``
 
-   c. Another ``form`` tag with a ``method`` attribute.
+   d. ``@RequestMapping``
 
-   d. Another ``submit`` tag with a ``friend`` value.
+   e. ``@ResponseBody``
 
-.. ans:  b, Another ``input`` tag with a ``name`` attribute.
+   f. ``@RequestParam``
+
+   g. ``@PathVariable``
+
+.. ans: b, c, d, + e, getmapping, postmapping, requestmapping, and responsebody
