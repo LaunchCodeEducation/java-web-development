@@ -118,11 +118,7 @@ Gradle manages the external dependencies in our project.
 Remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
 ``build.gradle`` file and you will see these items specified in a structure called ``dependencies``.
 
-<<<<<<< HEAD:docs/_sources/chapters/spring/spring-install.rst.txt
-.. sourcecode:: groovy
-=======
 .. sourcecode:: guess
->>>>>>> master:docs/_sources/chapters/spring-intro/initialize.rst.txt
    :lineno-start: 22
 
    dependencies {

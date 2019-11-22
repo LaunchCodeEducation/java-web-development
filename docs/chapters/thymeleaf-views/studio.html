@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10.3. Studio: Spa Day! &#8212; Java Web Development  documentation</title>
+    <title>11.3. Studio: Spa Day! &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Index" href="../../genindex.html" />
-    <link rel="prev" title="10.2. Exercises: Thymeleaf" href="exercises.html" />
+    <link rel="prev" title="11.2. Exercises: Thymeleaf" href="exercises.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">10. Thymeleaf Views</a></li>
-    <li class="active">10.3. Studio: Spa Day!</li>
+    <li><a href="index.html">11. Thymeleaf Views</a></li>
+    <li class="active">11.3. Studio: Spa Day!</li>
 </ol>
 
 
@@ -85,7 +85,7 @@
 
     
   <div class="section" id="studio-spa-day">
-<h1>10.3. Studio: Spa Day!<a class="headerlink" href="#studio-spa-day" title="Permalink to this headline">¶</a></h1>
+<h1>11.3. Studio: Spa Day!<a class="headerlink" href="#studio-spa-day" title="Permalink to this headline">¶</a></h1>
 <p>After all of the hard work we have put into learning about Thymeleaf, it is time for a spa day!
 First, we need to put our knowledge of Thymeleaf to the test.
 Instead of heading out to our favorite spa, let’s make an application for the owners!</p>
@@ -97,7 +97,7 @@ Instead of heading out to our favorite spa, let’s make an application for the 
 </ol>
 <p>As always, read through the whole page before starting to code.</p>
 <div class="section" id="setup">
-<h2>10.3.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>Fork and clone the appropriate <a class="reference external" href="https://github.com/LaunchCodeEducation/spa-day-starter-code" target="_blank">repository<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. Check out the project via Version Control in IntelliJ.</p>
 <p>When you open the project and run it using <code class="docutils literal notranslate"><span class="pre">bootRun</span></code>, go to <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> and you should see a form!</p>
 <div class="figure">
@@ -105,7 +105,7 @@ Instead of heading out to our favorite spa, let’s make an application for the 
 </div>
 </div>
 <div class="section" id="the-customer-profile">
-<h2>10.3.2. The Customer Profile<a class="headerlink" href="#the-customer-profile" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.2. The Customer Profile<a class="headerlink" href="#the-customer-profile" title="Permalink to this headline">¶</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">controllers</span></code>, we have one controller called <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code>. Inside <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code>, we have three methods.</p>
 <ol class="arabic simple">
 <li>The <code class="docutils literal notranslate"><span class="pre">checkSkinType()</span></code> method. The owners gave us this method to help us figure out which facial treatments are appropriate for which skin type.</li>
@@ -124,14 +124,14 @@ Let’s focus on the div with the id, <code class="docutils literal notranslate"
 <p>Run the application and head to <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> to see the results! When we fill out the form, we should see a new page with the client profile at the top!</p>
 </div>
 <div class="section" id="list-all-appropriate-facial-treatments">
-<h2>10.3.3. List All Appropriate Facial Treatments<a class="headerlink" href="#list-all-appropriate-facial-treatments" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.3. List All Appropriate Facial Treatments<a class="headerlink" href="#list-all-appropriate-facial-treatments" title="Permalink to this headline">¶</a></h2>
 <p>Luckily for us, the spa owners gave us the <code class="docutils literal notranslate"><span class="pre">checkSkinType()</span></code> method in our <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code>. Also, our teammates already set up code in our <code class="docutils literal notranslate"><span class="pre">spaMenu()</span></code> method to fill an <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code> with facial treatments that would work for the user’s skin type.
 Now, we just need to use Thymeleaf to display the appropriate facial treatments (stored in the ArrayList, <code class="docutils literal notranslate"><span class="pre">appropriateFacials</span></code>)!</p>
 <p>Let’s head back to <code class="docutils literal notranslate"><span class="pre">menu.html</span></code> and checkout the empty div with the id, <code class="docutils literal notranslate"><span class="pre">servicesMenu</span></code>.</p>
 <p>Add a table and iteratively (using our <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and <code class="docutils literal notranslate"><span class="pre">th:each</span></code> combo) add rows for the values in <code class="docutils literal notranslate"><span class="pre">appropriateFacials</span></code>.</p>
 </div>
 <div class="section" id="mani-or-pedi">
-<h2>10.3.4. Mani or Pedi?<a class="headerlink" href="#mani-or-pedi" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.4. Mani or Pedi?<a class="headerlink" href="#mani-or-pedi" title="Permalink to this headline">¶</a></h2>
 <p>One other thing the spa owners want to be cautious of is their treatment descriptions.
 Because the descriptions rarely change and are going to be used in multiple places on the site, the owners have written up the descriptions as Thymeleaf fragments.</p>
 <p>Checkout the file, <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>, in the <code class="docutils literal notranslate"><span class="pre">templates</span></code> directory.
@@ -145,7 +145,7 @@ This new <code class="docutils literal notranslate"><span class="pre">div</span>
 </ol>
 </div>
 <div class="section" id="end-result">
-<h2>10.3.5. End Result<a class="headerlink" href="#end-result" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.5. End Result<a class="headerlink" href="#end-result" title="Permalink to this headline">¶</a></h2>
 <p>After you are done with the studio, you should be able to fill out the form, click “Submit”, and see your profile page.</p>
 <div class="figure">
 <img alt="Form completed with the name, &quot;Yolanda&quot;, combination skin and a preference for pedicures." src="../../_images/completedform.png" />
@@ -155,7 +155,7 @@ This new <code class="docutils literal notranslate"><span class="pre">div</span>
 </div>
 </div>
 <div class="section" id="bonus-mission">
-<h2>10.3.6. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.6. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Modify <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to get some CSS practice! Try add a footer with square shaped <code class="docutils literal notranslate"><span class="pre">div</span></code> elements. Each square should be a different color for different available nail polishes.</li>
 <li>Modify the form to allow the user to select either a manicure or pedicure or <em>both</em>. If the user selects both, display both the manicure and pedicure descriptions on the <code class="docutils literal notranslate"><span class="pre">Spa</span> <span class="pre">Menu</span></code> page.</li>
@@ -170,7 +170,7 @@ This new <code class="docutils literal notranslate"><span class="pre">div</span>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 10.2. Exercises: Thymeleaf</a></li>
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 11.2. Exercises: Thymeleaf</a></li>
         
         
         <li class="next"><a href="../../genindex.html">Index <span aria-hidden="true">&rarr;</span></a></li>

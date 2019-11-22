@@ -17,7 +17,6 @@ Chapters
    chapters/spring-controllers-and-routes/index
    chapters/thymeleaf-views/index
 
-
 .. toctree::
 
    genindex

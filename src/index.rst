@@ -14,13 +14,9 @@ Chapters
    chapters/unit-testing/index
    chapters/inheritance/index
    chapters/interfaces-and-polymorphism/index
-<<<<<<< HEAD
-   chapters/spring/index
-   chapters/thymeleaf-views/index
-=======
    chapters/spring-intro/index
    chapters/spring-controllers-and-routes/index
->>>>>>> master
+   chapters/thymeleaf-views/index
 
 .. toctree::
 
@@ -40,12 +36,8 @@ Studios
    chapters/unit-testing/studio
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
-<<<<<<< HEAD
-   chapters/spring/studio
-   chapters/thymeleaf-views/studio
-=======
    chapters/spring-controllers-and-routes/studio
->>>>>>> master
+   chapters/thymeleaf-views/studio
 
 Assignments
 ------------
