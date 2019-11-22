@@ -91,31 +91,172 @@ Thymeleaf allows us to do something similar with HTML.</p>
 <p id="index-0"><strong>Fragments</strong> are blocks of HTML elements that we want to use across multiple
 templates. The fragments are stored in a separate file, and they can be
 accessed by using the keywords <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
+<div class="section" id="try-it">
+<h2>11.6.1. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<p>Code along with the following video to practice using fragments in your
+templates:</p>
+<blockquote>
+<div>Video goes here…</div></blockquote>
+<p>A summary of <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code> it given below, but remember that the
+text supports the video and is NOT intended as a replacement.</p>
+</div>
 <div class="section" id="thymeleaf-file-template">
-<h2>11.6.1. Thymeleaf File Template<a class="headerlink" href="#thymeleaf-file-template" title="Permalink to this headline">¶</a></h2>
+<h2>11.6.2. Thymeleaf File Template<a class="headerlink" href="#thymeleaf-file-template" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>This section may be misplaced (re: hello-spring videos).</div></blockquote>
 </div>
 <div class="section" id="fragments-dry-your-code">
-<h2>11.6.2. Fragments DRY Your Code<a class="headerlink" href="#fragments-dry-your-code" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<h2>11.6.3. Fragments DRY Your Code<a class="headerlink" href="#fragments-dry-your-code" title="Permalink to this headline">¶</a></h2>
+<p>Anythyme you find yourself typing identical code into different templates,
+little alarm bells should go of in your head, and you should think, <em>How can I
+streamline this?</em></p>
+<p>Never fear, coder. Fragments are the tool you need. The general syntax is:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="n">fragment</span> <span class="o">=</span> <span class="s2">&quot;fragmentName&quot;</span>
+<span class="nl">th:</span><span class="n">replace</span> <span class="o">=</span> <span class="s2">&quot;filePath :: fragmentName&quot;</span>
+</pre></div>
+</div>
 <div class="section" id="th-fragment">
-<h3>11.6.2.1. <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code><a class="headerlink" href="#th-fragment" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<h3>11.6.3.1. <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code><a class="headerlink" href="#th-fragment" title="Permalink to this headline">¶</a></h3>
+<p>Let’s assume that you want to add the same styled header and a set of links to
+multiple pages within your web project.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>The common header styled with CSS:</p>
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fancyTitle&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${title}</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The link list, which appears below a dividing line:</p>
+<div class="last highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.launchcode.org&quot;</span><span class="p">&gt;</span>LaunchCode<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.lego.com&quot;</span><span class="p">&gt;</span>Play Well<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.webelements.com&quot;</span><span class="p">&gt;</span>Other Building Blocks<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>Instead of pasting this code into every template, we will store the HTML in
+a separate file.</p>
+<ol class="arabic">
+<li><p class="first">Create a new html file inside the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder and give it a clear
+name (e.g. <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> is a common practice).</p>
+</li>
+<li><p class="first">Inside this file, use the <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code> attribute on each block of code
+that you want to reuse. Note that you must provide a different name for each
+sample.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">h1</span></code> element:</p>
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;styledHeader&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fancyTitle&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${title}</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>For multiple elements, we need to wrap them in another tag:</p>
+<div class="last highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;linkList&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.launchcode.org&quot;</span><span class="p">&gt;</span>LaunchCode<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.lego.com&quot;</span><span class="p">&gt;</span>Play Well<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.webelements.com&quot;</span><span class="p">&gt;</span>Other Building Blocks<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</li>
+</ol>
+<p>We can now pull either of the fragments—<code class="docutils literal notranslate"><span class="pre">styledHeader</span></code> or
+<code class="docutils literal notranslate"><span class="pre">linkList</span></code>–into any template in our project.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>What if we do not want to keep the link list inside its own <code class="docutils literal notranslate"><span class="pre">div</span></code> element?
+The attribute <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> allows us to selectively discard the wrapper tag,
+but not any of its children.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;linkList&quot;</span> <span class="na">th:remove </span><span class="o">=</span> <span class="s">&quot;tag&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p class="last">For a more detailed discussion of the different <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> options, consult
+the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#removing-template-fragments" target="_blank">Thymeleaf documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
 </div>
 <div class="section" id="th-replace">
-<h3>11.6.2.2. <code class="docutils literal notranslate"><span class="pre">th:replace</span></code><a class="headerlink" href="#th-replace" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<h3>11.6.3.2. <code class="docutils literal notranslate"><span class="pre">th:replace</span></code><a class="headerlink" href="#th-replace" title="Permalink to this headline">¶</a></h3>
+<p>This attribute does just what the name implies—it <em>replaces</em> the tag that
+contains it with the fragment. Thus, if the fragment is a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element, and
+the template contains <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;&gt;</span></code>, then the <code class="docutils literal notranslate"><span class="pre">div</span></code> in the
+template will be replaced with a <code class="docutils literal notranslate"><span class="pre">p</span></code>. Similarly, if the fragment contains
+multiple elements, the single template tag will be replaced with the entire
+code block.</p>
+<p>Take home lesson: The template tag that contains <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> does NOT have
+to match the HTML tags in the fragment.</p>
+<p>Now let’s see how to pull fragments into a template:</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<div class="last highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org/&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:fragment</span><span class="o">=</span><span class="s">&quot;head&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">/&gt;</span>
+   <span class="p">&lt;</span><span class="nt">title</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${pageTitle}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">th:replace </span><span class="o">=</span> <span class="s">&quot;fragments :: styledHeader&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+   <span class="c">&lt;!-- Specific template code here... --&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:replace </span><span class="o">=</span> <span class="s">&quot;fragments :: linkList&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
 </div>
+<p>When the code runs, the <code class="docutils literal notranslate"><span class="pre">h1</span></code> element in line 9 will be replaced by the
+<code class="docutils literal notranslate"><span class="pre">styledHeader</span></code> fragment. Also, the <code class="docutils literal notranslate"><span class="pre">p</span></code> element in line 13 will be replaced
+by the <code class="docutils literal notranslate"><span class="pre">&lt;hr&gt;</span></code> and three <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> elements defined in the <code class="docutils literal notranslate"><span class="pre">linkList</span></code>
+fragment.</p>
 </div>
-<div class="section" id="try-it">
-<h2>11.6.3. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>Video goes here…</div></blockquote>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>11.6.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-<p>Questions go here…</p>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>This is a relevant question…</p>
+<ol class="last arabic simple">
+<li>some answer</li>
+<li>some other answer</li>
+<li>option c</li>
+<li>option d</li>
+</ol>
+</div>
+<div class="admonition-bonus-question admonition">
+<p class="first admonition-title">Bonus Question</p>
+<p>Research <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> to answer this question. Which of the following does
+NOT remove the wrapper tag but does eliminate all of its children.</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;all&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;body&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;tag&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;all-but-first&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;none&quot;</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 
