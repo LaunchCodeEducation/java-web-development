@@ -38,12 +38,6 @@ The general syntax for including a conditional in Thymeleaf is:
 #. Alternatively, ``condition`` can be a statement that evaluates to ``true``
    or ``false``.
 
-.. admonition:: Note
-
-   ``condition`` could also represent a function call that returns a boolean.
-   However, making this work properly is an advanced topic and is beyond the
-   scope of this course.
-
 If ``condition`` evaluates to ``true``, then Thymeleaf adds the HTML element to
 the webpage, and the content gets displayed in the view. If ``condition`` is
 ``false``, then Thymeleaf does NOT generate the element, and the content stays

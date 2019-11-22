@@ -9,8 +9,8 @@ Thymeleaf Views
    why-templates
    create-template
    using-templates
-   template-iteration
    template-conditionals
+   template-iteration
    template-fragments
    src&href
    exercises

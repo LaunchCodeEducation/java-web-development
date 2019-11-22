@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="11.7. Static Resources and Forms" href="src&amp;href.html" />
-    <link rel="prev" title="11.5. Conditionals in a Template" href="template-conditionals.html" />
+    <link rel="prev" title="11.5. Iterating in a Template" href="template-iteration.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -86,7 +86,11 @@
     
   <div class="section" id="template-fragments">
 <h1>11.6. Template Fragments<a class="headerlink" href="#template-fragments" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p>Just like methods in Java provide us with the ability to reuse useful code,
+Thymeleaf allows us to do something similar with HTML.</p>
+<p id="index-0"><strong>Fragments</strong> are blocks of HTML elements that we want to use across multiple
+templates. The fragments are stored in a separate file, and they can be
+accessed by using the keywords <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
 <div class="section" id="thymeleaf-file-template">
 <h2>11.6.1. Thymeleaf File Template<a class="headerlink" href="#thymeleaf-file-template" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -121,7 +125,7 @@
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="template-conditionals.html"><span aria-hidden="true">&larr;</span> 11.5. Conditionals in a Template</a></li>
+        <li class="previous"><a href="template-iteration.html"><span aria-hidden="true">&larr;</span> 11.5. Iterating in a Template</a></li>
         
         
         <li class="next"><a href="src&amp;href.html">11.7. Static Resources and Forms <span aria-hidden="true">&rarr;</span></a></li>

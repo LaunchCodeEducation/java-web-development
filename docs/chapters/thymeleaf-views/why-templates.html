@@ -107,8 +107,11 @@ a way to automate the tasks required to build and maintain a website…</p>
 <h2>11.1.1. Templates are Frameworks<a class="headerlink" href="#templates-are-frameworks" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">A <strong>template</strong> provides the general structure for a web page. It identifies
 where different elements get placed on the page, but it does NOT fill them with
-content. Think of a template as an outline for what we want the page to look
-like. No details yet, just defined spaces where information needs to be added.</p>
+content.</p>
+<p>Think of a template as an outline for a web page. Any page made with a
+particular template includes its elements and follows its rules. If we add
+content to the template or modify it in some way, all pages made with that
+template will also reflect the changes.</p>
 <p>Let’s see how using a template makes our lives easier.</p>
 <div class="section" id="no-template">
 <h3>11.1.1.1. No Template<a class="headerlink" href="#no-template" title="Permalink to this headline">¶</a></h3>
@@ -158,9 +161,9 @@ becomes inefficient.</p>
 <div class="section" id="a-better-way">
 <h3>11.1.1.2. A Better Way<a class="headerlink" href="#a-better-way" title="Permalink to this headline">¶</a></h3>
 <p>Recall that a template represents a <em>view</em> in the MVC world. It sets up a
-structure to display the data delivered by the controller. The template itself
-contains <em>blanks</em> which get filled in by the data, and this information can
-change based on a user’s actions.</p>
+structure to display the data delivered by the controller, and the template
+guides where that information goes. This provides much more flexibility than
+hard-coding, since data can change based on a user’s actions.</p>
 <div class="highlight-guess notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -206,8 +209,15 @@ rows of 4 across the page. Whether the images are of giraffes, tractors, or
 balloons does not matter. The template sets the layout, and the code feeds in
 the data. If more photos are found, extra rows are produced on the page, but
 each row shows 4 images.</p>
-<p>Templates must be used anytime we create a web page that responds to a changing
-set of data.</p>
+<p>In the last lesson, you built a simple website that displayed a welcome message
+and responded to changing values for a user’s name. You did NOT apply a
+template for this page, and it is possible to create an interactive site
+without one. However, as your projects grow in size, templates make it MUCH
+easier to maintain your work.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Use templates when building a web-based project.</p>
+</div>
 </div>
 </div>
 <div class="section" id="templates-provide-structure-not-content">

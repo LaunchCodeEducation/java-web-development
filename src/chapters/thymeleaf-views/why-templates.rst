@@ -29,8 +29,12 @@ Templates are Frameworks
 
 A **template** provides the general structure for a web page. It identifies
 where different elements get placed on the page, but it does NOT fill them with
-content. Think of a template as an outline for what we want the page to look
-like. No details yet, just defined spaces where information needs to be added.
+content.
+
+Think of a template as an outline for a web page. Any page made with a
+particular template includes its elements and follows its rules. If we add
+content to the template or modify it in some way, all pages made with that
+template will also reflect the changes.
 
 Let's see how using a template makes our lives easier.
 
@@ -71,9 +75,9 @@ A Better Way
 ^^^^^^^^^^^^^
 
 Recall that a template represents a *view* in the MVC world. It sets up a
-structure to display the data delivered by the controller. The template itself
-contains *blanks* which get filled in by the data, and this information can
-change based on a user's actions.
+structure to display the data delivered by the controller, and the template
+guides where that information goes. This provides much more flexibility than
+hard-coding, since data can change based on a user's actions.
 
 .. sourcecode:: guess
    :linenos:
@@ -114,8 +118,15 @@ balloons does not matter. The template sets the layout, and the code feeds in
 the data. If more photos are found, extra rows are produced on the page, but
 each row shows 4 images.
 
-Templates must be used anytime we create a web page that responds to a changing
-set of data.
+In the last lesson, you built a simple website that displayed a welcome message
+and responded to changing values for a user's name. You did NOT apply a
+template for this page, and it is possible to create an interactive site
+without one. However, as your projects grow in size, templates make it MUCH
+easier to maintain your work.
+
+.. admonition:: Tip
+
+   Use templates when building a web-based project.
 
 Templates Provide Structure, Not Content
 -----------------------------------------
