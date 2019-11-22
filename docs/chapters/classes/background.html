@@ -86,13 +86,14 @@
     
   <div class="section" id="classes-for-java">
 <h1>4.1. Classes for Java<a class="headerlink" href="#classes-for-java" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">In previous programming studies, we have come across <strong>classes</strong> and <strong>objects</strong>.
-Classes and objects in Java are similar to classes and objects in other languages.</p>
+<p id="index-0">In previous programming studies, we have come across <strong>classes</strong> and
+<strong>objects</strong>. Classes and objects in Java are similar to classes and objects in
+other languages.</p>
 <div class="section" id="a-minimal-class-and-object">
 <h2>4.1.1. A Minimal Class and Object<a class="headerlink" href="#a-minimal-class-and-object" title="Permalink to this headline">¶</a></h2>
-<p id="index-1">Classes may contain <strong>fields</strong> and <strong>methods</strong>.
-Fields contain our data for the class and methods define actions a class can take.
-We say that fields and methods are <strong>members</strong> of a class.</p>
+<p id="index-1">Classes may contain <strong>fields</strong> and <strong>methods</strong>. Fields contain our data for the
+class and methods define actions a class can take. We say that fields and
+methods are <strong>members</strong> of a class.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Let’s create a class called <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> with one field, <code class="docutils literal notranslate"><span class="pre">message</span></code>, and one method, <code class="docutils literal notranslate"><span class="pre">sayHello()</span></code>.
@@ -108,18 +109,18 @@ We say that fields and methods are <strong>members</strong> of a class.</p>
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
 
-   <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
 
-   <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
-         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
    <span class="o">}</span>
 
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
 </div>
-<p>The only field in the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class is the string <code class="docutils literal notranslate"><span class="pre">message</span></code>, while the only
-method is <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>, which prints the value of the <code class="docutils literal notranslate"><span class="pre">message</span></code> field
+<p>The only field in the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class is the string <code class="docutils literal notranslate"><span class="pre">message</span></code>, while the
+only method is <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>, which prints the value of the <code class="docutils literal notranslate"><span class="pre">message</span></code> field
 and doesn’t return anything.</p>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
@@ -127,7 +128,8 @@ and doesn’t return anything.</p>
 Without it, we have to do some additional work to get our program to run!</p>
 </div>
 <p id="index-2">To execute <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>, we’ll need to create an <strong>instance</strong> of the
-class <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>. We refer to an object created from a particular class as an instance of that class.</p>
+class <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>. We refer to an object created from a particular class as
+an instance of that class.</p>
 <p>Here’s how this might look with our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class:</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
@@ -196,7 +198,7 @@ this case, in order to refer to the field, we <em>must</em> use <code class="doc
 14
 15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
 
-   <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
 
    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
 
@@ -237,7 +239,7 @@ tricky to spot, so it’s best to avoid doing this in your code.</p>
 7
 8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Greeting</span> <span class="o">{</span>
 
-   <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Jess&quot;</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Jess&quot;</span>
 
    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">()</span> <span class="o">{</span>
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">here</span><span class="o">.</span><span class="na">name</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">);</span>

@@ -13,16 +13,17 @@ the value of the field. For methods, the **access level** determines who can
 call the method. The access level of a class member is determined by an
 **access modifier**.
 
-We’ve encountered access modifiers so far in our code. 
-In our examples, you frequently see the keyword, ``public``.
-``public`` makes the field or method to be accessible by anyone working with our code.
-Another common access modifier is ``private``, which restricts access to fields or methods so they can only be used within the class.
-Two additional access modifiers are available in Java, though they are used much less often than
-``public`` and ``private``.
+We’ve encountered access modifiers so far in our code. In our examples, you
+frequently see the keyword, ``public``. ``public`` makes the field or method to
+be accessible by anyone working with our code. Another common access modifier
+is ``private``, which restricts access to fields or methods so they can only be
+used within the class. Two additional access modifiers are available in Java,
+though they are used much less often than ``public`` and ``private``.
 
 .. admonition:: Example
 
-   Let's take a look at our ``HelloWorld`` class again from the first section of this chapter.
+   Let's take another look at our ``HelloWorld`` class from the last section,
+   but with one small change.
 
    .. sourcecode:: java
       :linenos:
@@ -32,19 +33,26 @@ Two additional access modifiers are available in Java, though they are used much
          String message = "Hello World";
 
          void sayHello() {
-               System.out.println(message);
+            System.out.println(message);
          }
 
       }
 
-   In this HelloWorld class, we omit the access modifier, therefore implicitly giving the message field and the sayHello method **default access**.
+   In this ``HelloWorld`` class, we omit the ``public`` access modifier in lines
+   3 and 5. Doing this implicitly gives the message field and the ``sayHello``
+   method **default access**.
 
-We should avoid giving everything default access when creating classes in Java and instead think carefully about what level of access each field and method should have.
+We should avoid giving everything default access when creating classes in Java
+and instead think carefully about what level of access each field and method
+should have.
 
-The table below details whether or not information can be accessed at different levels based on the access modifier.
-For example, a field with the ``private`` access modifier can be accessed within the class, but cannot be accessed outside the class at the world-level.
-In Java, world-level is the level of the whole application and contains all of the packages and classes.
-While we will discuss later how to decide which access modifier to use for different scenarios, you should save this table now as reference for those conversations.
+The table below details whether or not information can be accessed at different
+levels based on the access modifier. For example, a field with the ``private``
+access modifier can be accessed within the class, but cannot be accessed
+outside the class at the world-level. In Java, world-level is the level of the
+whole application and contains all of the packages and classes. While we will
+discuss later how to decide which access modifier to use for different
+scenarios, you should save this table now as reference for those conversations.
 
 .. list-table:: Is information accessible at certain levels with certain access modifiers?
    :widths: auto
@@ -75,7 +83,8 @@ While we will discuss later how to decide which access modifier to use for diffe
 
    If you would like to learn more about access modifiers, you should check out the `Oracle documentation <https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html>`_ on the subject.
 
-Let's take a look at our ``HelloWorld`` class again and add some access modifiers.
+Let's take a look at our ``HelloWorld`` class again and add some access
+modifiers.
 
 .. admonition:: Example
 
@@ -92,10 +101,11 @@ Let's take a look at our ``HelloWorld`` class again and add some access modifier
 
       }
 
-Since ``message`` only needs to be used by ``sayHello``, we declare it to be ``private``.
-Since we want ``sayHello`` to be usable by anybody else, we declare it to be ``public``.
+Since ``message`` only needs to be used by ``sayHello``, we declare it to be
+``private``. Since we want ``sayHello`` to be usable by anybody else, we
+declare it to be ``public``.
 
-.. note::
+.. admonition:: Note
 
    In Java, you should always use the most restrictive access modifier
    possible. Minimizing access to class members allows code to be
@@ -109,9 +119,11 @@ Since we want ``sayHello`` to be usable by anybody else, we declare it to be ``p
    such members. The fewer public members, the more you can change your
    code without breaking stuff elsewhere.
 
-.. note::
+.. admonition:: Note
 
-   If you want to learn more about `controlling access to members of a class <https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html>`_.
+   If you want to learn more about controlling access to members of a class, check
+   out this information from
+   `Oracle <https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html>`__.
 
 Check Your Understanding
 ------------------------

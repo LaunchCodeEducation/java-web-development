@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9.1. Install Spring &#8212; Java Web Development  documentation</title>
+    <title>9.2. Initialize Spring &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Index" href="../../genindex.html" />
-    <link rel="prev" title="9. Spring Boot" href="index.html" />
+    <link rel="next" title="10. Controllers and Routing" href="../spring-controllers-and-routes/index.html" />
+    <link rel="prev" title="9.1. Design Patterns, MVC, and Spring, Oh My!" href="mvc.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">9. Spring Boot</a></li>
-    <li class="active">9.1. Install Spring</li>
+    <li><a href="index.html">9. Spring into MVC</a></li>
+    <li class="active">9.2. Initialize Spring</li>
 </ol>
 
 
@@ -84,14 +84,14 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="install-spring">
-<h1>9.1. Install Spring<a class="headerlink" href="#install-spring" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="initialize-spring">
+<h1>9.2. Initialize Spring<a class="headerlink" href="#initialize-spring" title="Permalink to this headline">¶</a></h1>
 <p>Spring Boot is a framework used to build Java web applications that
 implement the
-<span class="xref std std-ref">&lt;mvc&gt;</span> pattern. For more about Spring, check out <a class="reference external" href="https://spring.io/" target="_blank">Spring
+<a class="reference internal" href="mvc.html#mvc"><span class="std std-ref">MVC</span></a> pattern. For more about Spring, check out <a class="reference external" href="https://spring.io/" target="_blank">Spring
 IO<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <div class="section" id="initialize-a-spring-boot-project">
-<h2>9.1.1. Initialize a Spring Boot Project<a class="headerlink" href="#initialize-a-spring-boot-project" title="Permalink to this headline">¶</a></h2>
+<h2>9.2.1. Initialize a Spring Boot Project<a class="headerlink" href="#initialize-a-spring-boot-project" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Go to <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </li>
@@ -130,7 +130,7 @@ you would see in a URL.</p>
 </div>
 </div>
 <div class="section" id="spring-in-intellij">
-<h2>9.1.2. Spring in IntelliJ<a class="headerlink" href="#spring-in-intellij" title="Permalink to this headline">¶</a></h2>
+<h2>9.2.2. Spring in IntelliJ<a class="headerlink" href="#spring-in-intellij" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Move the downloaded unzipped folder from your downloads folder into
 another location such as <code class="docutils literal notranslate"><span class="pre">LC101</span></code> or your home directory.</p>
@@ -181,7 +181,7 @@ click <em>Update</em> on the side.</li>
 </div>
 </div>
 <div class="section" id="the-spring-project-structure">
-<h2>9.1.3. The Spring Project Structure<a class="headerlink" href="#the-spring-project-structure" title="Permalink to this headline">¶</a></h2>
+<h2>9.2.3. The Spring Project Structure<a class="headerlink" href="#the-spring-project-structure" title="Permalink to this headline">¶</a></h2>
 <p>The Spring Initializr gives us a number of helpful files and
 directories to get our Spring project up and running.</p>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory, you’ll find a familiar setup with both a <code class="docutils literal notranslate"><span class="pre">main</span></code> and
@@ -197,7 +197,7 @@ meant to hold your non-java code.</p>
 Spring expects to not be version controlled. These are files created by the IDE, the compiled
 code in the <code class="docutils literal notranslate"><span class="pre">.build</span></code> directory, and the gradle <code class="docutils literal notranslate"><span class="pre">.jar</span></code> and directory.</p>
 <div class="section" id="gradle">
-<span id="index-0"></span><h3>9.1.3.1. Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h3>
+<span id="index-0"></span><h3>9.2.3.1. Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h3>
 <p>Gradle is a Java tool that handles much of the work related to building and deploying software
 applications in Java. Your Spring project contains a file called <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>. As with most new
 tools, you do not need to know everything that this file does. For now, the takeaway is that
@@ -227,7 +227,7 @@ is a decentralized place for developers to post their code for others to use.</p
 </div>
 </div>
 <div class="section" id="running-a-spring-project">
-<span id="index-1"></span><h2>9.1.4. Running a Spring Project<a class="headerlink" href="#running-a-spring-project" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>9.2.4. Running a Spring Project<a class="headerlink" href="#running-a-spring-project" title="Permalink to this headline">¶</a></h2>
 <p>To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar,
 click the panel icon in the bottom left corner of your window and select <em>Gradle</em>.</p>
 <div class="figure" id="id3">
@@ -237,7 +237,7 @@ click the panel icon in the bottom left corner of your window and select <em>Gra
 <p>Once the Gradle panel is opened, go into <em>Tasks</em>. Here you’ll find the various tasks that Gradle can do for your
 project. Inside <em>Tasks</em>, open <em>application</em> and double-click <em>bootRun</em>. This will run our Spring Boot application.</p>
 <div class="figure" id="id4">
-<img alt="Gradle panel view with bootRun selected" src="../../_images/gradle-bootrun.png" />
+<a class="reference internal image-reference" href="../../_images/gradle-bootrun.png"><img alt="Gradle panel view with bootRun selected" src="../../_images/gradle-bootrun.png" style="width: 407.0px; height: 478.0px;" /></a>
 <p class="caption"><span class="caption-text">Gradle panel view with bootRun selected.</span></p>
 </div>
 <p>Once the <code class="docutils literal notranslate"><span class="pre">bootRun</span></code> task is executed, you should see a new panel with output similar to this:</p>
@@ -264,7 +264,7 @@ the one above.</p>
 Spring Boot started up successfully. You’ll see an error message or a stack trace if there is an issue with
 your project preventing it from starting.</p>
 <p>You’ll also notice a message above:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tomcat</span> <span class="n">started</span> <span class="n">on</span> <span class="nf">port</span><span class="o">(</span><span class="n">s</span><span class="o">):</span> <span class="mi">8080</span> <span class="o">...</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Tomcat started on port<span class="o">(</span>s<span class="o">)</span>: <span class="m">8080</span> ...
 </pre></div>
 </div>
 <p>Tomcat is the embedded web server within your Spring application. So this tells us that Tomcat is listening
@@ -276,6 +276,27 @@ Now go ahead and stop the application by hitting the red square on the left side
 <p class="last">There is also a stop button up at the top right of the IntelliJ window.</p>
 </div>
 </div>
+<div class="section" id="check-your-understanding">
+<h2>9.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>What is the name of the task to start a Spring Boot application?</p>
+<ol class="last loweralpha simple">
+<li>Gradle</li>
+<li>bootRun</li>
+<li>run</li>
+<li>Maven</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: All custom code ina  Spring Boot application goes in the main method.</p>
+<ol class="last loweralpha simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+</div>
 </div>
 
 
@@ -284,10 +305,10 @@ Now go ahead and stop the application by hitting the red square on the left side
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> 9. Spring Boot</a></li>
+        <li class="previous"><a href="mvc.html"><span aria-hidden="true">&larr;</span> 9.1. Design Patterns, MVC, and Spring, Oh My!</a></li>
         
         
-        <li class="next"><a href="../../genindex.html">Index <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="../spring-controllers-and-routes/index.html">10. Controllers and Routing <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
@@ -304,7 +325,7 @@ Now go ahead and stop the application by hitting the red square on the left side
         <br/>
         
 <div id="sourcelink">
-  <a href="../../_sources/chapters/spring/spring-install.rst.txt"
+  <a href="../../_sources/chapters/spring-intro/initialize.rst.txt"
      rel="nofollow">Page Source</a>
 </div>
       
