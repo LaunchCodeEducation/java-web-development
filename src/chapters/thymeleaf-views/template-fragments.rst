@@ -21,11 +21,6 @@ templates:
 A summary of ``fragment`` and ``replace`` it given below, but remember that the
 text supports the video and is NOT intended as a replacement.
 
-Thymeleaf File Template
-------------------------
-
-   This section may be misplaced (re: hello-spring videos).
-
 Fragments DRY Your Code
 ------------------------
 

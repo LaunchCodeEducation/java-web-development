@@ -1,8 +1,9 @@
 Using a Template
 =================
 
-The video on this page provides you some live-coding practice with Thymeleaf
-templates. Be sure to code along as you watch the clip.
+The video on this page provides you some more live-coding practice with
+Thymeleaf templates. Return to your ``hello-spring`` project and code along as
+you watch the clip.
 
 .. admonition:: Warning
 
@@ -15,27 +16,70 @@ Try It!
 
    Video goes here...
 
-Now that your project is started, let's review one skill and two
+Now that your project is growing, let's review one skill and two
 best-practices.
 
 Passing Data to a Template
 ---------------------------
 
-Discuss how to use an instance of the ``Model`` class to collect data in the
-controller file into variables that can be accessed by the view (templates).
+The controller class contains methods that send data to different templates.
+These methods have a structure similar to:
 
-Discuss how to access data passed in by the controller using the ``${}``
-syntax.
+.. sourcecode:: Java
+   :linenos:
 
-Note that Thymeleaf commands appear (in most cases) as *attributes* within
-a standard HTML tag.
+   public String methodName(Model model) {
+
+      // method code here
+
+      model.addAttribute("variableName", variableValue);
+
+      return "pathToTemplate";
+   }
+
+Each method that sends data to a template requires:
+
+#. A ``Model`` parameter (line 1). This object stores the variable names and
+   values that get passed into a template.
+#. One or more ``addAttribute`` statements that add data to the ``model``
+   object (line 5). ``variableName`` must be a string. ``variableValue`` can
+   be a variable of any type, a number, a 'character', or a "string".
+#. A ``return`` statement of type ``String``.
+#. The ``return`` string contains the path and file name for the desired
+   template (line 7). For example, if our ``templates`` folder contains a
+   subfolder called ``animals`` and a template called ``dogs.html``, then the
+   return statement would be ``return "animals/dogs";``.
+
+Accessing Data in a Template
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Thymeleaf commands appear (in most cases) as *attributes* within a standard
+HTML tag. Each keyword starts with the prefix ``th``.
+
+.. sourcecode:: html
+
+   <tag th:keyword = "..."></tag>
+
+The code inside the quotation marks will vary depending on the keyword.
+Usually, this will involve accessing data passed in from the controller.
+
+The data available to a template includes any variables and values stored in
+the ``model`` object, and this will be accessed with the syntax
+``${variableName}``.
+
+For example, in the video, we collected the value of the ``name`` variable
+like so:
+
+.. sourcecode:: html
+
+   <p th:text = "${name}"></p>
 
 The data in single-value variables like ``title`` can be displayed as text
 on the screen by using ``th:text = "${title}"``. This allows a webpage to
 *dynamically* display data within an HTML element...
 
 Setting Default Text
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 What if we want to view our template without running the program? As mentioned
 earlier in the chapter, Thymeleaf files can be opened in a browser and

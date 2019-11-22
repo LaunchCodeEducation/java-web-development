@@ -86,8 +86,9 @@
     
   <div class="section" id="using-a-template">
 <h1>11.3. Using a Template<a class="headerlink" href="#using-a-template" title="Permalink to this headline">¶</a></h1>
-<p>The video on this page provides you some live-coding practice with Thymeleaf
-templates. Be sure to code along as you watch the clip.</p>
+<p>The video on this page provides you some more live-coding practice with
+Thymeleaf templates. Return to your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project and code along as
+you watch the clip.</p>
 <div class="admonition-warning admonition">
 <p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p class="last">This video and the others in the chapter walk you through building a small
@@ -98,22 +99,67 @@ exercises pick up where the tutorials end.</p>
 <h2>11.3.1. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>Video goes here…</div></blockquote>
-<p>Now that your project is started, let’s review one skill and two
+<p>Now that your project is growing, let’s review one skill and two
 best-practices.</p>
 </div>
 <div class="section" id="passing-data-to-a-template">
 <h2>11.3.2. Passing Data to a Template<a class="headerlink" href="#passing-data-to-a-template" title="Permalink to this headline">¶</a></h2>
-<p>Discuss how to use an instance of the <code class="docutils literal notranslate"><span class="pre">Model</span></code> class to collect data in the
-controller file into variables that can be accessed by the view (templates).</p>
-<p>Discuss how to access data passed in by the controller using the <code class="docutils literal notranslate"><span class="pre">${}</span></code>
-syntax.</p>
-<p>Note that Thymeleaf commands appear (in most cases) as <em>attributes</em> within
-a standard HTML tag.</p>
+<p>The controller class contains methods that send data to different templates.
+These methods have a structure similar to:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">methodName</span><span class="o">(</span><span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+
+   <span class="c1">// method code here</span>
+
+   <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;variableName&quot;</span><span class="o">,</span> <span class="n">variableValue</span><span class="o">);</span>
+
+   <span class="k">return</span> <span class="s">&quot;pathToTemplate&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Each method that sends data to a template requires:</p>
+<ol class="arabic simple">
+<li>A <code class="docutils literal notranslate"><span class="pre">Model</span></code> parameter (line 1). This object stores the variable names and
+values that get passed into a template.</li>
+<li>One or more <code class="docutils literal notranslate"><span class="pre">addAttribute</span></code> statements that add data to the <code class="docutils literal notranslate"><span class="pre">model</span></code>
+object (line 5). <code class="docutils literal notranslate"><span class="pre">variableName</span></code> must be a string. <code class="docutils literal notranslate"><span class="pre">variableValue</span></code> can
+be a variable of any type, a number, a ‘character’, or a “string”.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">return</span></code> statement of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">return</span></code> string contains the path and file name for the desired
+template (line 7). For example, if our <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder contains a
+subfolder called <code class="docutils literal notranslate"><span class="pre">animals</span></code> and a template called <code class="docutils literal notranslate"><span class="pre">dogs.html</span></code>, then the
+return statement would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;animals/dogs&quot;;</span></code>.</li>
+</ol>
+<div class="section" id="accessing-data-in-a-template">
+<h3>11.3.2.1. Accessing Data in a Template<a class="headerlink" href="#accessing-data-in-a-template" title="Permalink to this headline">¶</a></h3>
+<p>Thymeleaf commands appear (in most cases) as <em>attributes</em> within a standard
+HTML tag. Each keyword starts with the prefix <code class="docutils literal notranslate"><span class="pre">th</span></code>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">tag</span> <span class="na">th:keyword </span><span class="o">=</span> <span class="s">&quot;...&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">tag</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The code inside the quotation marks will vary depending on the keyword.
+Usually, this will involve accessing data passed in from the controller.</p>
+<p>The data available to a template includes any variables and values stored in
+the <code class="docutils literal notranslate"><span class="pre">model</span></code> object, and this will be accessed with the syntax
+<code class="docutils literal notranslate"><span class="pre">${variableName}</span></code>.</p>
+<p>For example, in the video, we collected the value of the <code class="docutils literal notranslate"><span class="pre">name</span></code> variable
+like so:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
 <p>The data in single-value variables like <code class="docutils literal notranslate"><span class="pre">title</span></code> can be displayed as text
 on the screen by using <code class="docutils literal notranslate"><span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${title}&quot;</span></code>. This allows a webpage to
 <em>dynamically</em> display data within an HTML element…</p>
+</div>
+</div>
 <div class="section" id="setting-default-text">
-<h3>11.3.2.1. Setting Default Text<a class="headerlink" href="#setting-default-text" title="Permalink to this headline">¶</a></h3>
+<h2>11.3.3. Setting Default Text<a class="headerlink" href="#setting-default-text" title="Permalink to this headline">¶</a></h2>
 <p>What if we want to view our template without running the program? As mentioned
 earlier in the chapter, Thymeleaf files can be opened in a browser and
 displayed as a webpage. With no data, however, opening a template shows blank
@@ -148,9 +194,8 @@ better idea of the structure of the webpage as well as of what data will
 appear in different sections.</p>
 </div>
 </div>
-</div>
 <div class="section" id="organizing-templates">
-<h2>11.3.3. Organizing Templates<a class="headerlink" href="#organizing-templates" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.4. Organizing Templates<a class="headerlink" href="#organizing-templates" title="Permalink to this headline">¶</a></h2>
 <p>As any project grows, the number of templates required to build the website
 will increase. Instead of just throwing all of the files into the
 <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder, best-practice mandates that we place related items
@@ -168,7 +213,7 @@ fix a specific file, and streamlines updates by reducing the lines of code
 that need to be modified.</p>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>11.3.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <p>Questions go here…</p>
 </div>
 </div>

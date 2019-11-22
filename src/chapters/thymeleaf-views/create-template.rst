@@ -88,7 +88,8 @@ following video:
 
     Video goes here...
 
-After finishing this tutorial, here are couple of items for you to review.
+The sections below outline the main ideas presented in the video. However, the
+text is NOT a substitute for completing the work described in the clip.
 
 Template Location
 ^^^^^^^^^^^^^^^^^^
@@ -144,6 +145,37 @@ the ``meta`` tag:
 .. sourcecode:: html
 
    <meta charset="UTF-8" /> <!-- Note the closing '/' character -->
+
+Thymeleaf Template
+-------------------
+
+As described in the video, you can save yourself some time by creating your own
+boilerplate code for a Thymeleaf template. This will save you from having to
+make the edits described above every time you add a new base html file.
+
+#. Right-click on the ``templates`` folder (or any other directory), and select
+   *New --> Edit File Templates*.
+#. In the window that pops up, click the "+" icon to add a new file.
+
+   .. figure:: ./figures/createNewTemplate.png
+      :alt: Create a new template window.
+      :scale: 80%
+
+#. Name your template, then edit the starter code. This will be the boilerplate
+   HTML that appears anytime you select your custom template. For Thymeleaf,
+   the code should at least close the ``meta`` tag and include the ``xmlns``
+   attribute.
+
+   .. figure:: ./figures/thymeleafTemplateCode.png
+      :alt: Generic Thymeleaf starter code.
+
+   If you find yourself routinely using other code in your Thymeleaf files, you
+   can return to this window and edit the HTML as needed.
+#. To use your custom Thymeleaf template, right-click on the ``templates``
+   folder and select *New --> TemplateName*.
+
+   .. figure:: ./figures/selectThymeleafTemplate.png
+      :alt: Select custom Thymeleaf starter code.
 
 Check Your Understanding
 -------------------------
