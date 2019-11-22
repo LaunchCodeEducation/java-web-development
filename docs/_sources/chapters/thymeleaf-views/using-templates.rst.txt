@@ -61,10 +61,9 @@ HTML tag. Each keyword starts with the prefix ``th``.
    <tag th:keyword = "..."></tag>
 
 The code inside the quotation marks will vary depending on the keyword.
-Usually, this will involve accessing data passed in from the controller.
-
-The data available to a template includes any variables and values stored in
-the ``model`` object, and this will be accessed with the syntax
+Usually, this will involve the data passed in from the controller. The data
+available to a template includes any variables and values stored in the
+``model`` object, and these will be accessed with the syntax
 ``${variableName}``.
 
 For example, in the video, we collected the value of the ``name`` variable
@@ -74,9 +73,18 @@ like so:
 
    <p th:text = "${name}"></p>
 
-The data in single-value variables like ``title`` can be displayed as text
-on the screen by using ``th:text = "${title}"``. This allows a webpage to
-*dynamically* display data within an HTML element...
+In essence, ``th:text`` says, *Take the value of the variable inside the ${}
+and display it as the text for this element*. If ``name`` stores the string
+"Rutabaga", then when the program runs, the code interprets
+``<p th:text = "${name}"></p>`` in the same way as:
+
+.. sourcecode:: html
+
+   <p>Rutabaga</p>
+
+By using ``th:text = "${name}"``, we make our webpage *dynamically* display
+data within the ``p`` element. Changing the value of ``name`` leads to a
+corresponding change on the page after refreshing.
 
 Setting Default Text
 ---------------------

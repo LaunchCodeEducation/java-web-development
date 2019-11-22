@@ -144,18 +144,25 @@ HTML tag. Each keyword starts with the prefix <code class="docutils literal notr
 </pre></div>
 </div>
 <p>The code inside the quotation marks will vary depending on the keyword.
-Usually, this will involve accessing data passed in from the controller.</p>
-<p>The data available to a template includes any variables and values stored in
-the <code class="docutils literal notranslate"><span class="pre">model</span></code> object, and this will be accessed with the syntax
+Usually, this will involve the data passed in from the controller. The data
+available to a template includes any variables and values stored in the
+<code class="docutils literal notranslate"><span class="pre">model</span></code> object, and these will be accessed with the syntax
 <code class="docutils literal notranslate"><span class="pre">${variableName}</span></code>.</p>
 <p>For example, in the video, we collected the value of the <code class="docutils literal notranslate"><span class="pre">name</span></code> variable
 like so:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>The data in single-value variables like <code class="docutils literal notranslate"><span class="pre">title</span></code> can be displayed as text
-on the screen by using <code class="docutils literal notranslate"><span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${title}&quot;</span></code>. This allows a webpage to
-<em>dynamically</em> display data within an HTML element…</p>
+<p>In essence, <code class="docutils literal notranslate"><span class="pre">th:text</span></code> says, <em>Take the value of the variable inside the ${}
+and display it as the text for this element</em>. If <code class="docutils literal notranslate"><span class="pre">name</span></code> stores the string
+“Rutabaga”, then when the program runs, the code interprets
+<code class="docutils literal notranslate"><span class="pre">&lt;p</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${name}&quot;&gt;&lt;/p&gt;</span></code> in the same way as:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Rutabaga<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>By using <code class="docutils literal notranslate"><span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${name}&quot;</span></code>, we make our webpage <em>dynamically</em> display
+data within the <code class="docutils literal notranslate"><span class="pre">p</span></code> element. Changing the value of <code class="docutils literal notranslate"><span class="pre">name</span></code> leads to a
+corresponding change on the page after refreshing.</p>
 </div>
 </div>
 <div class="section" id="setting-default-text">
