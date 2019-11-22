@@ -35,10 +35,7 @@ Studios
    chapters/unit-testing/studio
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
-<<<<<<< HEAD
-=======
    chapters/spring-controllers-and-routes/studio
->>>>>>> master
 
 Assignments
 ------------
