@@ -17,7 +17,6 @@ Chapters
    chapters/spring-controllers-and-routes/index
    chapters/thymeleaf-views/index
 
-
 .. toctree::
 
    genindex
@@ -57,6 +56,8 @@ Appendices
 .. toctree::
    :maxdepth: 1
    :name: appendicestoc
+
+   appendices/spring/thymeleaf
 
 .. toctree::
    :hidden:

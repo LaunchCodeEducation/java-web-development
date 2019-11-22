@@ -58,6 +58,8 @@ Appendices
    :maxdepth: 1
    :name: appendicestoc
 
+   appendices/spring/thymeleaf
+
 .. toctree::
    :hidden:
 
