@@ -1,0 +1,4 @@
+Templates
+==========
+
+Lorem ipsum...
