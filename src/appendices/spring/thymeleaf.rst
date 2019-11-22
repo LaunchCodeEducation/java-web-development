@@ -31,8 +31,8 @@ Conditionally Displaying Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to conditionally display data, we need to use ``th:if`` and ``th:unless``.
-``th:if`` will display the value of the element if the expression evaluates to true. If the expression evaluates to false, then the value of the element is NOT displayed.
-``th:unless`` will display the value of the element if the expression evaluates to false. If the expression evaluates to true, then the value of the element is NOT displayed.
+``th:if`` will display the value of the element if the expression evaluates to ``true``. If the expression evaluates to ``false``, then the value of the element is NOT displayed.
+``th:unless`` will display the value of the element if the expression evaluates to ``false``. If the expression evaluates to ``true``, then the value of the element is NOT displayed.
 
 .. admonition:: Example
    
@@ -44,12 +44,12 @@ In order to conditionally display data, we need to use ``th:if`` and ``th:unless
       :linenos:
 
       <ol id = "groceryList">
-         <li th:if = "${pantryStatus == "empty"}">Flour</li>
-         <li th:if = "${pantryStatus == "empty"}">Sugar</li>
-         <li th:if = "${pantryStatus == "empty"}">Rice</li>
-         <li th:unless = "${pantryStatus == "empty"}">Bananas</li>
-         <li th:unless = "${pantryStatus == "empty"}">Strawberries</li>
-         <li th:unless = "${pantryStatus == "empty"}">Broccoli</li>
+         <li th:if = "${pantryStatus == 'empty'}">Flour</li>
+         <li th:if = "${pantryStatus == 'empty'}">Sugar</li>
+         <li th:if = "${pantryStatus == 'empty'}">Rice</li>
+         <li th:unless = "${pantryStatus == 'empty'}">Bananas</li>
+         <li th:unless = "${pantryStatus == 'empty'}">Strawberries</li>
+         <li th:unless = "${pantryStatus == 'empty'}">Broccoli</li>
       </ol>
 
 

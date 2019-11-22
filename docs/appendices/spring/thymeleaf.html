@@ -105,8 +105,8 @@ Let’s say we want to pull in the value of a variable called <code class="docut
 <div class="section" id="conditionally-displaying-data">
 <h3>Conditionally Displaying Data<a class="headerlink" href="#conditionally-displaying-data" title="Permalink to this headline">¶</a></h3>
 <p>In order to conditionally display data, we need to use <code class="docutils literal notranslate"><span class="pre">th:if</span></code> and <code class="docutils literal notranslate"><span class="pre">th:unless</span></code>.
-<code class="docutils literal notranslate"><span class="pre">th:if</span></code> will display the value of the element if the expression evaluates to true. If the expression evaluates to false, then the value of the element is NOT displayed.
-<code class="docutils literal notranslate"><span class="pre">th:unless</span></code> will display the value of the element if the expression evaluates to false. If the expression evaluates to true, then the value of the element is NOT displayed.</p>
+<code class="docutils literal notranslate"><span class="pre">th:if</span></code> will display the value of the element if the expression evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>. If the expression evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then the value of the element is NOT displayed.
+<code class="docutils literal notranslate"><span class="pre">th:unless</span></code> will display the value of the element if the expression evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>. If the expression evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the value of the element is NOT displayed.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Let’s say we want to conditionally display our grocery list. We do have a variable, <code class="docutils literal notranslate"><span class="pre">pantryStatus</span></code>, that is a String.
@@ -119,14 +119,14 @@ If <code class="docutils literal notranslate"><span class="pre">pantryStatus</sp
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;ol id = &quot;groceryList&quot;&gt;
-   &lt;li th:if = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Flour&lt;/li&gt;
-   &lt;li th:if = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Sugar&lt;/li&gt;
-   &lt;li th:if = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Rice&lt;/li&gt;
-   &lt;li th:unless = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Bananas&lt;/li&gt;
-   &lt;li th:unless = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Strawberries&lt;/li&gt;
-   &lt;li th:unless = &quot;${pantryStatus == &quot;empty&quot;}&quot;&gt;Broccoli&lt;/li&gt;
-&lt;/ol&gt;
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">id </span><span class="o">=</span> <span class="s">&quot;groceryList&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${pantryStatus == &#39;empty&#39;}&quot;</span><span class="p">&gt;</span>Flour<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${pantryStatus == &#39;empty&#39;}&quot;</span><span class="p">&gt;</span>Sugar<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:if </span><span class="o">=</span> <span class="s">&quot;${pantryStatus == &#39;empty&#39;}&quot;</span><span class="p">&gt;</span>Rice<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:unless </span><span class="o">=</span> <span class="s">&quot;${pantryStatus == &#39;empty&#39;}&quot;</span><span class="p">&gt;</span>Bananas<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:unless </span><span class="o">=</span> <span class="s">&quot;${pantryStatus == &#39;empty&#39;}&quot;</span><span class="p">&gt;</span>Strawberries<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:unless </span><span class="o">=</span> <span class="s">&quot;${pantryStatus == &#39;empty&#39;}&quot;</span><span class="p">&gt;</span>Broccoli<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
