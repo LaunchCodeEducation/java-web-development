@@ -16,7 +16,12 @@ As always, read through the whole page before starting to code.
 Setup
 -----
 
-Fork and clone the appropriate repository. Check out the project via Version Control in IntelliJ.
+Fork and clone the appropriate `repository <https://github.com/LaunchCodeEducation/spa-day-starter-code>`_. Check out the project via Version Control in IntelliJ.
+
+When you open the project and run it using ``bootRun``, go to ``localhost:8080`` and you should see a form!
+
+.. figure:: figures/startingform.png
+   :alt: Image showing an empty form with three fields for name, skin type, and whether the person wants a pedicure or manicure.
 
 The Customer Profile
 --------------------
@@ -64,9 +69,20 @@ Use ``th:if`` to determine if the value of ``manipedi`` is a ``"manicure"`` or `
 #. If the value of ``manipedi`` is ``"manicure"``, the ``div`` element containing the ``h3`` that says ``"Manicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the manicure description from ``fragments.html``.
 #. If the value of ``manipedi`` is ``"pedicure"``, the ``div`` element containing the ``h3`` that says ``"Pedicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the pedicure description from ``fragments.html``.
 
+End Result
+----------
+
+After you are done with the studio, you should be able to fill out the form, click "Submit", and see your profile page.
+
+.. figure:: figures/completedform.png
+   :alt: Form completed with the name, "Yolanda", combination skin and a preference for pedicures.
+
+.. figure:: figures/endresultprofilepage.png
+   :alt: Profile showing Yolanda's information, recommended facial treatments, and pedicure description.
+
 Bonus Mission
 -------------
 
-#. Modify ``styles.css`` to get some CSS practice!
+#. Modify ``styles.css`` to get some CSS practice! Try add a footer with square shaped ``div`` elements. Each square should be a different color for different available nail polishes.
 #. Modify the form to allow the user to select either a manicure or pedicure or *both*. If the user selects both, display both the manicure and pedicure descriptions on the ``Spa Menu`` page.
 #. Work with routes and paths to display the spa menu page on a separate route from the form.
