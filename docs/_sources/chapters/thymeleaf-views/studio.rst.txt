@@ -28,8 +28,8 @@ The Customer Profile
 
 In ``controllers``, we have one controller called ``SpaDayController``. Inside ``SpaDayController``, we have three methods.
 
-#. The ``customerForm()`` method, which looks very similar to what we did in the last lesson.
 #. The ``checkSkinType()`` method. The owners gave us this method to help us figure out which facial treatments are appropriate for which skin type.
+#. The ``customerForm()`` method, which looks very similar to what we did in the last lesson.
 #. The ``spaMenu()`` method, which we will use to bring in our Thymeleaf template, ``menu.html``.
 
 In ``templates``, we have a Thymeleaf template called ``menu.html``.
@@ -51,7 +51,7 @@ Now, we just need to use Thymeleaf to display the appropriate facial treatments 
 
 Let's head back to ``menu.html`` and checkout the empty div with the id, ``servicesMenu``.
 
-Add a table and iteratively (using our ``th:each`` and ``th:block`` combo) add rows for the values in ``appropriateFacials``.
+Add a table and iteratively (using our ``th:block`` and ``th:each`` combo) add rows for the values in ``appropriateFacials``.
 
 Mani or Pedi?
 -------------
@@ -63,6 +63,7 @@ Checkout the file, ``fragments.html``, in the ``templates`` directory.
 The owners have already written up the descriptions for their manicure and pedicure in separate ``p`` tags.
 
 We want to put the description in a ``div`` along with an ``h3`` stating that it is either a manicure or pedicure.
+This new ``div`` should be inside the ``servicesMenu`` div.
 
 Use ``th:if`` to determine if the value of ``manipedi`` is a ``"manicure"`` or ``"pedicure"``. 
 
