@@ -81,10 +81,16 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   If we add another input 
+   We want the method ``hello`` to take another parameter, ``@RequestParam String friend``, that will 
+   add a friend's name to the returned greeting. The use should also be able to enter this name via 
+   a text field. What needs to be added to the form?
  
-   a. True
+   a. Another ``input`` tag with a ``friend`` attribute.
 
-   b. False
+   b. Another ``input`` tag with a ``name`` attribute.
 
-.. ans: False, most features are developed outside of the main method.
+   c. Another ``form`` tag with a ``method`` attribute.
+
+   d. Another ``submit`` tag with a ``friend`` value.
+
+.. ans:  b, Another ``input`` tag with a ``name`` attribute.
