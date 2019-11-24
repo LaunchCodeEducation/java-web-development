@@ -96,10 +96,23 @@ We can now pull either of the fragments---``styledHeader`` or
 .. admonition:: Tip
 
    What if we do not want to keep the link list inside its own ``div`` element?
-   The attribute ``th:remove`` allows us to selectively discard the wrapper tag,
-   but not any of its children.
+   One option is to use ``th:block``:
+
+   .. sourcecode:: HTML
+      :linenos:
+
+      <th:block th:fragment = "linkList">
+         <hr>
+         <a href = "https://www.launchcode.org">LaunchCode</a>
+         <a href = "https://www.lego.com">Play Well</a>
+         <a href = "https://www.webelements.com">Other Building Blocks</a>
+      </th:block>
+
+   Another option is to use the attribute ``th:remove``, which allows us to
+   selectively discard the wrapper tag, but not any of its children.
 
    .. sourcecode:: html
+      :linenos:
 
       <div th:fragment = "linkList" th:remove = "tag">
 
@@ -110,11 +123,11 @@ We can now pull either of the fragments---``styledHeader`` or
 ^^^^^^^^^^^^^^^
 
 This attribute does just what the name implies---it *replaces* the tag that
-contains it with the fragment. Thus, if the fragment is a ``<p>`` element, and
-the template contains ``<div th:replace = "...">``, then the ``div`` in the
-template will be replaced with a ``p``. Similarly, if the fragment contains
-multiple elements, the single template tag will be replaced with the entire
-code block.
+contains it with the selected fragment. Thus, if the fragment is a ``<p>``
+element, and the template contains ``<div th:replace = "...">``, then the
+``div`` in the template will be replaced with a ``p``. Similarly, if the
+fragment contains multiple elements, the single template tag will be replaced
+with the entire code block.
 
 Take home lesson: The template tag that contains ``th:replace`` does NOT have
 to match the HTML tags in the fragment.
@@ -143,9 +156,9 @@ Now let's see how to pull fragments into a template:
       </body>
 
 When the code runs, the ``h1`` element in line 9 will be replaced by the
-``styledHeader`` fragment. Also, the ``p`` element in line 13 will be replaced
-by the ``<hr>`` and three ``<a>`` elements defined in the ``linkList``
-fragment.
+``styledHeader`` fragment stored in the ``fragments.html`` file. Also, the
+``p`` element in line 13 will be replaced by the ``<hr>`` and three ``<a>``
+elements defined in the ``linkList`` fragment.
 
 Check Your Understanding
 -------------------------

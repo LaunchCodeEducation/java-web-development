@@ -168,11 +168,25 @@ sample.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>What if we do not want to keep the link list inside its own <code class="docutils literal notranslate"><span class="pre">div</span></code> element?
-The attribute <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> allows us to selectively discard the wrapper tag,
-but not any of its children.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;linkList&quot;</span> <span class="na">th:remove </span><span class="o">=</span> <span class="s">&quot;tag&quot;</span><span class="p">&gt;</span>
+One option is to use <code class="docutils literal notranslate"><span class="pre">th:block</span></code>:</p>
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">th:block</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;linkList&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.launchcode.org&quot;</span><span class="p">&gt;</span>LaunchCode<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.lego.com&quot;</span><span class="p">&gt;</span>Play Well<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.webelements.com&quot;</span><span class="p">&gt;</span>Other Building Blocks<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">th:block</span><span class="p">&gt;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
+<p>Another option is to use the attribute <code class="docutils literal notranslate"><span class="pre">th:remove</span></code>, which allows us to
+selectively discard the wrapper tag, but not any of its children.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;linkList&quot;</span> <span class="na">th:remove </span><span class="o">=</span> <span class="s">&quot;tag&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
 <p class="last">For a more detailed discussion of the different <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> options, consult
 the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#removing-template-fragments" target="_blank">Thymeleaf documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
@@ -180,11 +194,11 @@ the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/
 <div class="section" id="th-replace">
 <h3>11.6.2.2. <code class="docutils literal notranslate"><span class="pre">th:replace</span></code><a class="headerlink" href="#th-replace" title="Permalink to this headline">¶</a></h3>
 <p>This attribute does just what the name implies—it <em>replaces</em> the tag that
-contains it with the fragment. Thus, if the fragment is a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element, and
-the template contains <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;&gt;</span></code>, then the <code class="docutils literal notranslate"><span class="pre">div</span></code> in the
-template will be replaced with a <code class="docutils literal notranslate"><span class="pre">p</span></code>. Similarly, if the fragment contains
-multiple elements, the single template tag will be replaced with the entire
-code block.</p>
+contains it with the selected fragment. Thus, if the fragment is a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>
+element, and the template contains <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;&gt;</span></code>, then the
+<code class="docutils literal notranslate"><span class="pre">div</span></code> in the template will be replaced with a <code class="docutils literal notranslate"><span class="pre">p</span></code>. Similarly, if the
+fragment contains multiple elements, the single template tag will be replaced
+with the entire code block.</p>
 <p>Take home lesson: The template tag that contains <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> does NOT have
 to match the HTML tags in the fragment.</p>
 <p>Now let’s see how to pull fragments into a template:</p>
@@ -223,9 +237,9 @@ to match the HTML tags in the fragment.</p>
 </td></tr></table></div>
 </div>
 <p>When the code runs, the <code class="docutils literal notranslate"><span class="pre">h1</span></code> element in line 9 will be replaced by the
-<code class="docutils literal notranslate"><span class="pre">styledHeader</span></code> fragment. Also, the <code class="docutils literal notranslate"><span class="pre">p</span></code> element in line 13 will be replaced
-by the <code class="docutils literal notranslate"><span class="pre">&lt;hr&gt;</span></code> and three <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> elements defined in the <code class="docutils literal notranslate"><span class="pre">linkList</span></code>
-fragment.</p>
+<code class="docutils literal notranslate"><span class="pre">styledHeader</span></code> fragment stored in the <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> file. Also, the
+<code class="docutils literal notranslate"><span class="pre">p</span></code> element in line 13 will be replaced by the <code class="docutils literal notranslate"><span class="pre">&lt;hr&gt;</span></code> and three <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>
+elements defined in the <code class="docutils literal notranslate"><span class="pre">linkList</span></code> fragment.</p>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
