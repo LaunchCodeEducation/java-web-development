@@ -92,7 +92,7 @@ you watch the clip.</p>
 <div class="admonition-warning admonition">
 <p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p class="last">This video and the others in the chapter walk you through building a small
-web-based project. DO NOT SKIP this practice, because the end of chapter
+web-based project. Do NOT skip this practice, because the end of chapter
 exercises pick up where the tutorials end.</p>
 </div>
 <div class="section" id="try-it">
@@ -133,13 +133,13 @@ be a variable of any type, a number, a ‘character’, or a “string”.</li>
 <li>A <code class="docutils literal notranslate"><span class="pre">return</span></code> statement of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.</li>
 <li>The <code class="docutils literal notranslate"><span class="pre">return</span></code> string contains the path and file name for the desired
 template (line 7). For example, if our <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder contains a
-subfolder called <code class="docutils literal notranslate"><span class="pre">animals</span></code> and a template called <code class="docutils literal notranslate"><span class="pre">dogs.html</span></code>, then the
-return statement would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;animals/dogs&quot;;</span></code>.</li>
+subfolder called <code class="docutils literal notranslate"><span class="pre">animals</span></code> that holds a template called <code class="docutils literal notranslate"><span class="pre">dogs.html</span></code>,
+then the return statement would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;animals/dogs&quot;;</span></code>.</li>
 </ol>
 <div class="section" id="accessing-data-in-a-template">
 <h3>11.3.2.1. Accessing Data in a Template<a class="headerlink" href="#accessing-data-in-a-template" title="Permalink to this headline">¶</a></h3>
 <p>Thymeleaf commands appear (in most cases) as <em>attributes</em> within a standard
-HTML tag. Each keyword starts with the prefix <code class="docutils literal notranslate"><span class="pre">th</span></code>.</p>
+HTML tag. Each command starts with the prefix <code class="docutils literal notranslate"><span class="pre">th</span></code>, followed by a keyword.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">tag</span> <span class="na">th:keyword </span><span class="o">=</span> <span class="s">&quot;...&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">tag</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -148,8 +148,8 @@ Usually, this will involve the data passed in from the controller. The data
 available to a template includes any variables and values stored in the
 <code class="docutils literal notranslate"><span class="pre">model</span></code> object, and these will be accessed with the syntax
 <code class="docutils literal notranslate"><span class="pre">${variableName}</span></code>.</p>
-<p>For example, in the video, we collected the value of the <code class="docutils literal notranslate"><span class="pre">name</span></code> variable
-like so:</p>
+<p>For example, if the controller stores data in the <code class="docutils literal notranslate"><span class="pre">name</span></code> variable, then the
+template can display that value like so:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -162,7 +162,7 @@ and display it as the text for this element</em>. If <code class="docutils liter
 </div>
 <p>By using <code class="docutils literal notranslate"><span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${name}&quot;</span></code>, we make our webpage <em>dynamically</em> display
 data within the <code class="docutils literal notranslate"><span class="pre">p</span></code> element. Changing the value of <code class="docutils literal notranslate"><span class="pre">name</span></code> leads to a
-corresponding change on the page after refreshing.</p>
+corresponding change in the text in the view after refreshing.</p>
 </div>
 </div>
 <div class="section" id="setting-default-text">
@@ -182,7 +182,7 @@ information inside the elements that contain a Thymeleaf attribute.</p>
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${title}&quot;</span><span class="p">&gt;</span>Default Title<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${bookQuote}&quot;</span><span class="p">&gt;</span>Don&#39;t Panic<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${linkText}&quot;</span><span class="p">&gt;</span>LaunchCode<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;someURL&quot;</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${linkText}&quot;</span><span class="p">&gt;</span>LaunchCode<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
@@ -190,15 +190,15 @@ information inside the elements that contain a Thymeleaf attribute.</p>
 open the template file in a browser. When the program runs, however, these text
 samples will be replaced by the values stored in the <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">bookQuote</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">linkText</span></code> variables.</p>
-<p>In most cases, you will never see the default text in our live webpage.
-Including it helps, however, if you need to share the planned layout of the
-webpage before the project is completely finished.</p>
+<p>In most cases, you will never see the default text in your live webpage.
+Including it helps, however, if you need to visualize your planned layout for
+the webpage before your project is completely finished.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">Best-practice encourages us to include default text in our templates. This
 improves the readability of the code, and it gives an outside observer a
-better idea of the structure of the webpage as well as of what data will
-appear in different sections.</p>
+better idea of the structure of the webpage. Default text also indicates what
+data will appear in different sections.</p>
 </div>
 </div>
 <div class="section" id="organizing-templates">
@@ -208,7 +208,7 @@ will increase. Instead of just throwing all of the files into the
 <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder, best-practice mandates that we place related items
 into subfolders.</p>
 <p>For example, if we build a website for a zoo, we can help ourselves immensely
-by avoiding a <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder with a single level of files for every
+if we avoid a <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder with a single level of files for every
 animal or feature of the site. A better approach would be to divide the
 templates into related categories like <code class="docutils literal notranslate"><span class="pre">feedingSchedules</span></code>, <code class="docutils literal notranslate"><span class="pre">concessions</span></code>,
 <code class="docutils literal notranslate"><span class="pre">donations</span></code>, <code class="docutils literal notranslate"><span class="pre">pachyderms</span></code>, etc. Each subfolder can also hold finer

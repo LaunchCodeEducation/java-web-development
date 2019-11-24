@@ -104,16 +104,16 @@ regular HTML code. You can open any template in a browser and view it just
 like a static HTML file.</p>
 <p>Any logic we add to a template occurs inside the tags, which preserves the
 ability to open the file and display it correctly. This helps us as we
-develop the framework for presenting data on the screen.</p>
+consider the best layout for presenting data on the screen.</p>
 </div>
 </div>
 <div class="section" id="thymeleaf-dependency">
 <h2>11.2.2. Thymeleaf Dependency<a class="headerlink" href="#thymeleaf-dependency" title="Permalink to this headline">¶</a></h2>
-<p>In this chapter, you will construct a small practice project to help you learn
-how to implement Thymeleaf templates. To use the library, however, you need to
-provide IntelliJ with some information to make the IDE recognize Thymeleaf
-syntax and commands. You need to include in the proper <em>dependencies</em>, and
-there are two common ways to accomplish this.</p>
+<p>In this chapter, you will construct some small practice projects to help you
+learn how to implement Thymeleaf templates. To use the library, however, you
+need to provide IntelliJ with some information to make the IDE recognize
+Thymeleaf syntax and commands. You need to include in the proper
+<em>dependencies</em>, and there are two common ways to accomplish this.</p>
 <div class="section" id="during-setup-for-a-new-project">
 <h3>11.2.2.1. During Setup for a New Project<a class="headerlink" href="#during-setup-for-a-new-project" title="Permalink to this headline">¶</a></h3>
 <p>When you create a new Gradle project on the <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -207,8 +207,8 @@ tag on line 2:</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">xmlns:th</span></code> attribute pulls in information from <code class="docutils literal notranslate"><span class="pre">thymeleaf.org</span></code> about
-the tags that we will use with Thymeleaf. This allows IntelliJ properly apply
-syntax highlighting and error reporting.</p>
+the keywords and methods that we will use with Thymeleaf. This allows IntelliJ
+to properly apply syntax highlighting and error reporting.</p>
 <p>A side effect of the <code class="docutils literal notranslate"><span class="pre">xmlns:th</span></code> attribute is that it implements stricter
 requirements for closing HTML tags. In HTML5, we can get away with leaving out
 the <code class="docutils literal notranslate"><span class="pre">/</span></code> character in standalone tags like <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code>. However, with the
@@ -242,7 +242,8 @@ attribute.</p>
 <img alt="Generic Thymeleaf starter code." src="../../_images/thymeleafTemplateCode.png" />
 </div>
 <p>If you find yourself routinely using other code in your Thymeleaf files, you
-can return to this window and edit the HTML as needed.</p>
+can return to this window and edit the HTML as needed. Don’t forget to save
+your changes.</p>
 </li>
 <li><p class="first">To use your custom Thymeleaf template, right-click on the <code class="docutils literal notranslate"><span class="pre">templates</span></code>
 folder and select <em>New –&gt; TemplateName</em>.</p>

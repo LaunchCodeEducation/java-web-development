@@ -27,16 +27,16 @@ like a static HTML file.
 
 Any logic we add to a template occurs inside the tags, which preserves the
 ability to open the file and display it correctly. This helps us as we
-develop the framework for presenting data on the screen.
+consider the best layout for presenting data on the screen.
 
 Thymeleaf Dependency
 ---------------------
 
-In this chapter, you will construct a small practice project to help you learn
-how to implement Thymeleaf templates. To use the library, however, you need to
-provide IntelliJ with some information to make the IDE recognize Thymeleaf
-syntax and commands. You need to include in the proper *dependencies*, and
-there are two common ways to accomplish this.
+In this chapter, you will construct some small practice projects to help you
+learn how to implement Thymeleaf templates. To use the library, however, you
+need to provide IntelliJ with some information to make the IDE recognize
+Thymeleaf syntax and commands. You need to include in the proper
+*dependencies*, and there are two common ways to accomplish this.
 
 During Setup for a New Project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -131,8 +131,8 @@ tag on line 2:
    <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 
 The ``xmlns:th`` attribute pulls in information from ``thymeleaf.org`` about
-the tags that we will use with Thymeleaf. This allows IntelliJ properly apply
-syntax highlighting and error reporting.
+the keywords and methods that we will use with Thymeleaf. This allows IntelliJ
+to properly apply syntax highlighting and error reporting.
 
 A side effect of the ``xmlns:th`` attribute is that it implements stricter
 requirements for closing HTML tags. In HTML5, we can get away with leaving out
@@ -170,7 +170,8 @@ make the edits described above every time you add a new base html file.
       :alt: Generic Thymeleaf starter code.
 
    If you find yourself routinely using other code in your Thymeleaf files, you
-   can return to this window and edit the HTML as needed.
+   can return to this window and edit the HTML as needed. Don't forget to save
+   your changes.
 #. To use your custom Thymeleaf template, right-click on the ``templates``
    folder and select *New --> TemplateName*.
 

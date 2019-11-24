@@ -8,7 +8,7 @@ you watch the clip.
 .. admonition:: Warning
 
    This video and the others in the chapter walk you through building a small
-   web-based project. DO NOT SKIP this practice, because the end of chapter
+   web-based project. Do NOT skip this practice, because the end of chapter
    exercises pick up where the tutorials end.
 
 Try It!
@@ -47,14 +47,14 @@ Each method that sends data to a template requires:
 #. A ``return`` statement of type ``String``.
 #. The ``return`` string contains the path and file name for the desired
    template (line 7). For example, if our ``templates`` folder contains a
-   subfolder called ``animals`` and a template called ``dogs.html``, then the
-   return statement would be ``return "animals/dogs";``.
+   subfolder called ``animals`` that holds a template called ``dogs.html``,
+   then the return statement would be ``return "animals/dogs";``.
 
 Accessing Data in a Template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Thymeleaf commands appear (in most cases) as *attributes* within a standard
-HTML tag. Each keyword starts with the prefix ``th``.
+HTML tag. Each command starts with the prefix ``th``, followed by a keyword.
 
 .. sourcecode:: html
 
@@ -66,8 +66,8 @@ available to a template includes any variables and values stored in the
 ``model`` object, and these will be accessed with the syntax
 ``${variableName}``.
 
-For example, in the video, we collected the value of the ``name`` variable
-like so:
+For example, if the controller stores data in the ``name`` variable, then the
+template can display that value like so:
 
 .. sourcecode:: html
 
@@ -84,7 +84,7 @@ and display it as the text for this element*. If ``name`` stores the string
 
 By using ``th:text = "${name}"``, we make our webpage *dynamically* display
 data within the ``p`` element. Changing the value of ``name`` leads to a
-corresponding change on the page after refreshing.
+corresponding change in the text in the view after refreshing.
 
 Setting Default Text
 ---------------------
@@ -105,7 +105,7 @@ information inside the elements that contain a Thymeleaf attribute.
    <h2 th:text = "${title}">Default Title</h2>
    <div>
       <p th:text = "${bookQuote}">Don't Panic</p>
-      <a th:text = "${linkText}">LaunchCode</a>
+      <a href = "someURL" th:text = "${linkText}">LaunchCode</a>
    </div>
 
 The text ``Default Title``, ``Don't Panic``, and ``LaunchCode`` appear if we
@@ -113,16 +113,16 @@ open the template file in a browser. When the program runs, however, these text
 samples will be replaced by the values stored in the ``title``, ``bookQuote``,
 and ``linkText`` variables.
 
-In most cases, you will never see the default text in our live webpage.
-Including it helps, however, if you need to share the planned layout of the
-webpage before the project is completely finished.
+In most cases, you will never see the default text in your live webpage.
+Including it helps, however, if you need to visualize your planned layout for
+the webpage before your project is completely finished.
 
 .. admonition:: Tip
 
    Best-practice encourages us to include default text in our templates. This
    improves the readability of the code, and it gives an outside observer a
-   better idea of the structure of the webpage as well as of what data will
-   appear in different sections.
+   better idea of the structure of the webpage. Default text also indicates what
+   data will appear in different sections.
 
 Organizing Templates
 ---------------------
@@ -133,7 +133,7 @@ will increase. Instead of just throwing all of the files into the
 into subfolders.
 
 For example, if we build a website for a zoo, we can help ourselves immensely
-by avoiding a ``templates`` folder with a single level of files for every
+if we avoid a ``templates`` folder with a single level of files for every
 animal or feature of the site. A better approach would be to divide the
 templates into related categories like ``feedingSchedules``, ``concessions``,
 ``donations``, ``pachyderms``, etc. Each subfolder can also hold finer
