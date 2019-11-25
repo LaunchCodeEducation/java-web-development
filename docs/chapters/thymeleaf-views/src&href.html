@@ -86,29 +86,75 @@
     
   <div class="section" id="static-resources">
 <h1>11.6. Static Resources<a class="headerlink" href="#static-resources" title="Permalink to this headline">¶</a></h1>
-<p>Up to now, we used templates to display data sent by the controller as text in
-the view. If we need to display an image or video, or if we want to create a
-link to a different file, then we need to move beyond a text output.</p>
+<p>Up to now, we used templates to display controller data as text in the view. If
+we need to display an image or video, or if we want to create a link to a
+different file, then we need to move beyond a text output.</p>
 <p>With Thymeleaf, we can set values for the HTML <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">href</span></code> attributes.
 Instead of hard-coding a file path or external URL inside a tag, <code class="docutils literal notranslate"><span class="pre">th:src</span></code> and
-<code class="docutils literal notranslate"><span class="pre">th:href</span></code> take advantage of a simpler <code class="docutils literal notranslate"><span class="pre">&#64;{filePath}</span></code> syntax.</p>
+<code class="docutils literal notranslate"><span class="pre">th:href</span></code> take advantage of a simpler syntax. You did this near the end of
+the last video when you referenced information stored in files other than the
+controller or the template.</p>
 <div class="section" id="accessing-resources">
 <h2>11.6.1. Accessing Resources<a class="headerlink" href="#accessing-resources" title="Permalink to this headline">¶</a></h2>
 <p>Inside the <code class="docutils literal notranslate"><span class="pre">resources</span></code> folder, there is another directory called <code class="docutils literal notranslate"><span class="pre">static</span></code>.
-This is the location where we can store files that our project needs to
-access—like images, CSS stylesheets, or JavaScript scripts.</p>
+By convention, this is the location where we store files that our project needs
+to access—like images, CSS stylesheets, JavaScript code, etc.</p>
+<div class="figure">
+<img alt="Resources folder file tree." src="../../_images/resourcesFolderFileTree.png" />
+</div>
 <div class="section" id="th-src">
 <h3>11.6.1.1. <code class="docutils literal notranslate"><span class="pre">th:src</span></code><a class="headerlink" href="#th-src" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<p>To access a file with the standard HTML <code class="docutils literal notranslate"><span class="pre">src</span></code> attribute, we need to provide
+either a detailed or relative file path in order to establish a link.
+<code class="docutils literal notranslate"><span class="pre">th:src</span></code> shortens this process by filling in most of the file path
+automatically (<code class="docutils literal notranslate"><span class="pre">.../project-name/src/main/resources/static</span></code>). All we
+need to do is fill in the last portion of the file path—everything after
+<code class="docutils literal notranslate"><span class="pre">/static</span></code>.</p>
+<p>The general syntax is:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="n">src</span> <span class="o">=</span> <span class="s2">&quot;@{filePath}&quot;</span>
+</pre></div>
+</div>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>If we have an image file called <code class="docutils literal notranslate"><span class="pre">familyPhoto1.jpg</span></code> stored in
+<code class="docutils literal notranslate"><span class="pre">static</span></code>, then we can display it in the view with an <code class="docutils literal notranslate"><span class="pre">img</span></code> tag as follows:</p>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">th:src </span><span class="o">=</span> <span class="s">&quot;@{familyPhoto1.jpg}&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
+<p>If the image is contained in an <code class="docutils literal notranslate"><span class="pre">images</span></code> folder inside <code class="docutils literal notranslate"><span class="pre">static</span></code>, then the
+syntax is:</p>
+<div class="last highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">th:src </span><span class="o">=</span> <span class="s">&quot;@{/images/familyPhoto1.jpg}&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Think of the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol as representing everything in the file path up to the
+<code class="docutils literal notranslate"><span class="pre">static</span></code> folder.</p>
 </div>
 <div class="section" id="th-href">
 <h3>11.6.1.2. <code class="docutils literal notranslate"><span class="pre">th:href</span></code><a class="headerlink" href="#th-href" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<p>The syntax for <code class="docutils literal notranslate"><span class="pre">th:href</span></code> is the same as that for <code class="docutils literal notranslate"><span class="pre">th:src</span></code>. For example, to
+link to a CSS stylesheet:</p>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel </span><span class="o">=</span> <span class="s">&quot;stylesheet&quot;</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/css/styles.css}&quot;</span> <span class="p">/&gt;</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>11.6.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-<p>Questions go here…</p>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Given the file tree shown below, which option displays the correct syntax
+for finding the image <code class="docutils literal notranslate"><span class="pre">fluffy.jpg</span></code>?</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/srcCcFileTree.png"><img alt="File tree for finding ``fluffy.jpg``." src="../../_images/srcCcFileTree.png" style="width: 296.1px; height: 379.8px;" /></a>
+</div>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/pets/cats/fluffy.jpg}&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/static/pets/cats/fluffy.jpg}&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/static/pets/cats/images/fluffy.jpg}&quot;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/pets/cats/images/fluffy.jpg}&quot;</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 
