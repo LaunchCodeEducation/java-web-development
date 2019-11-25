@@ -2,7 +2,7 @@ Iterating in a Template
 ========================
 
 Let's revisit part of the non-efficient HTML from the introduction, where we
-hard-coded the items in a list.
+hard-coded coffee options in a list.
 
 .. sourcecode:: html
    :linenos:
@@ -125,6 +125,8 @@ Which option produces:
    1, 2, 3...)?
 #. 4 headings, 4 ordered lists, and 4 coffee names (each name labeled as "1")?
 
+.. _th-block:
+
 ``th:block``
 -------------
 
@@ -241,14 +243,6 @@ attributes into separate tags.
             </th:block>
          </ul>
       </th:block>
-
-Try It
--------
-
-Return to your ``hello-spring`` project and code along to add iteration to the
-project.
-
-   Video goes here...
 
 Check Your Understanding
 -------------------------

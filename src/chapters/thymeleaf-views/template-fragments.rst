@@ -165,14 +165,27 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   This is a relevant question...
+   Given our code fragment in ``fragments.html``:
 
-   #. some answer
-   #. some other answer
-   #. option c
-   #. option d
+   .. sourcecode:: HTML
+      :linenos:
 
-.. Answer = TBD
+      <th:block th:fragment = "linkList">
+         <hr>
+         <a href = "https://www.launchcode.org">LaunchCode</a>
+         <a href = "https://www.lego.com">Play Well</a>
+         <a href = "https://www.webelements.com">Other Building Blocks</a>
+      </th:block>
+
+   Which of the following would place the ``linkList`` fragment inside a
+   ``<div>`` element in the template?
+
+   #. ``<div th:replace = "fragments :: linkList"></div>``
+   #. ``<div>${th:replace = "fragments :: linkList"}</div>``
+   #. ``<div><p th:replace = "fragments :: linkList"></p></div>``
+   #. ``<p><div th:replace = "fragments :: linkList"></div></p>``
+
+.. Answer = c
 
 .. admonition:: Bonus Question
 

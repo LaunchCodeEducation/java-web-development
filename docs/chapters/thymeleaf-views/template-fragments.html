@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>11.6. Template Fragments &#8212; Java Web Development  documentation</title>
+    <title>11.7. Template Fragments &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="11.7. Static Resources and Forms" href="src&amp;href.html" />
-    <link rel="prev" title="11.5. Iterating in a Template" href="template-iteration.html" />
+    <link rel="next" title="11.8. Exercises: Thymeleaf" href="exercises.html" />
+    <link rel="prev" title="11.6. Static Resources and Forms" href="src&amp;href.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">11. Thymeleaf Views</a></li>
-    <li class="active">11.6. Template Fragments</li>
+    <li class="active">11.7. Template Fragments</li>
 </ol>
 
 
@@ -85,14 +85,14 @@
 
     
   <div class="section" id="template-fragments">
-<h1>11.6. Template Fragments<a class="headerlink" href="#template-fragments" title="Permalink to this headline">¶</a></h1>
+<h1>11.7. Template Fragments<a class="headerlink" href="#template-fragments" title="Permalink to this headline">¶</a></h1>
 <p>Just like methods in Java provide us with the ability to reuse useful code,
 Thymeleaf allows us to do something similar with HTML.</p>
 <p id="index-0"><strong>Fragments</strong> are blocks of HTML elements that we want to use across multiple
 templates. The fragments are stored in a separate file, and they can be
 accessed by using the keywords <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
 <div class="section" id="try-it">
-<h2>11.6.1. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<h2>11.7.1. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
 <p>Code along with the following video to practice using fragments in your
 templates:</p>
 <blockquote>
@@ -101,7 +101,7 @@ templates:</p>
 text supports the video and is NOT intended as a replacement.</p>
 </div>
 <div class="section" id="fragments-dry-your-code">
-<h2>11.6.2. Fragments DRY Your Code<a class="headerlink" href="#fragments-dry-your-code" title="Permalink to this headline">¶</a></h2>
+<h2>11.7.2. Fragments DRY Your Code<a class="headerlink" href="#fragments-dry-your-code" title="Permalink to this headline">¶</a></h2>
 <p>Anythyme you find yourself typing identical code into different templates,
 little alarm bells should go of in your head, and you should think, <em>How can I
 streamline this?</em></p>
@@ -111,7 +111,7 @@ streamline this?</em></p>
 </pre></div>
 </div>
 <div class="section" id="th-fragment">
-<h3>11.6.2.1. <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code><a class="headerlink" href="#th-fragment" title="Permalink to this headline">¶</a></h3>
+<h3>11.7.2.1. <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code><a class="headerlink" href="#th-fragment" title="Permalink to this headline">¶</a></h3>
 <p>Let’s assume that you want to add the same styled header and a set of links to
 multiple pages within your web project.</p>
 <div class="admonition-examples admonition">
@@ -192,7 +192,7 @@ the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/
 </div>
 </div>
 <div class="section" id="th-replace">
-<h3>11.6.2.2. <code class="docutils literal notranslate"><span class="pre">th:replace</span></code><a class="headerlink" href="#th-replace" title="Permalink to this headline">¶</a></h3>
+<h3>11.7.2.2. <code class="docutils literal notranslate"><span class="pre">th:replace</span></code><a class="headerlink" href="#th-replace" title="Permalink to this headline">¶</a></h3>
 <p>This attribute does just what the name implies—it <em>replaces</em> the tag that
 contains it with the selected fragment. Thus, if the fragment is a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>
 element, and the template contains <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;&gt;</span></code>, then the
@@ -243,15 +243,30 @@ elements defined in the <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>11.6.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>11.7.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>This is a relevant question…</p>
+<p>Given our code fragment in <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>:</p>
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">th:block</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;linkList&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.launchcode.org&quot;</span><span class="p">&gt;</span>LaunchCode<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.lego.com&quot;</span><span class="p">&gt;</span>Play Well<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href </span><span class="o">=</span> <span class="s">&quot;https://www.webelements.com&quot;</span><span class="p">&gt;</span>Other Building Blocks<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">th:block</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Which of the following would place the <code class="docutils literal notranslate"><span class="pre">linkList</span></code> fragment inside a
+<code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> element in the template?</p>
 <ol class="last arabic simple">
-<li>some answer</li>
-<li>some other answer</li>
-<li>option c</li>
-<li>option d</li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/div&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;${th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;}&lt;/div&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;&lt;p</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/p&gt;&lt;/div&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;p&gt;&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/div&gt;&lt;/p&gt;</span></code></li>
 </ol>
 </div>
 <div class="admonition-bonus-question admonition">
@@ -275,10 +290,10 @@ NOT remove the wrapper tag but does eliminate all of its children.</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="template-iteration.html"><span aria-hidden="true">&larr;</span> 11.5. Iterating in a Template</a></li>
+        <li class="previous"><a href="src&amp;href.html"><span aria-hidden="true">&larr;</span> 11.6. Static Resources and Forms</a></li>
         
         
-        <li class="next"><a href="src&amp;href.html">11.7. Static Resources and Forms <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="exercises.html">11.8. Exercises: Thymeleaf <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

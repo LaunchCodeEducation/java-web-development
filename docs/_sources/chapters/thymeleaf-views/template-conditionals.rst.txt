@@ -15,14 +15,15 @@ the same, but the implementation requires practice.
 Try It!
 --------
 
-Code along with the following video to gain more practice with Thymeleaf:
+Code along with the following video to gain more practice with Thymeleaf
+iteration and conditionals:
 
    Video goes here...
 
-For your reference, here is an extension for some of the concepts presented
-in the clip. Note that the text is NOT intended as a replacement for the
-walkthrough. To get better at coding, you need to actually CODE instead of just
-reading about how to do it.
+The text on this page and the previous one provides details for some of the
+concepts presented in the clip. Note that these summaries are NOT intended as
+a replacement for the walkthrough. To get better at coding, you need to
+actually CODE instead of just reading about how to do it.
 
 Display Content ``if``
 -----------------------
