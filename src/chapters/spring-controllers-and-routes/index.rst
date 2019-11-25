@@ -6,6 +6,7 @@ Controllers and Routing
 
    controllers
    video-walkthrough
+   exercises
    studio
 
    
