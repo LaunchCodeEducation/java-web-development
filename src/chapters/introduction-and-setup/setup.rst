@@ -235,6 +235,9 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 This is just the start of your relationship with IntelliJ. Not that we know the fundamentals,
 let's return to Java basics so we can start writing more code.
 
+Check Your Understanding
+------------------------
+
 .. admonition:: Question
 
    Given the code below, which line is responsible for printing a message?
