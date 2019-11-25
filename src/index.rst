@@ -23,7 +23,7 @@ Chapters
    genindex
 
 Studios
---------
+-------
 
 .. toctree::
    :maxdepth: 1
