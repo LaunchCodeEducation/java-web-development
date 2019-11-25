@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9.2. Exercises: Bonjour Spring! &#8212; Java Web Development  documentation</title>
+    <title>9.2. Exercises: Controllers and Routing &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">9. Spring Boot</a></li>
-    <li class="active">9.2. Exercises: Bonjour Spring!</li>
+    <li class="active">9.2. Exercises: Controllers and Routing</li>
 </ol>
 
 
@@ -84,12 +84,12 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="exercises-bonjour-spring">
-<h1>9.2. Exercises: Bonjour Spring!<a class="headerlink" href="#exercises-bonjour-spring" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="exercises-controllers-and-routing">
+<h1>9.2. Exercises: Controllers and Routing<a class="headerlink" href="#exercises-controllers-and-routing" title="Permalink to this headline">¶</a></h1>
 <p>While reading the chapter, you created a
 basic Hello, World application using Spring Boot called <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code>. Open that project up
 in IntelliJ, and get ready to add some features!</p>
-<p>Modify your <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> class to display a form on <code class="docutils literal notranslate"><span class="pre">GET</span></code>
+<p>Modify your <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> class to display a form on a <code class="docutils literal notranslate"><span class="pre">GET</span></code>
 request that asks the user for both their name and the language they
 would like to be greeted in. It should look something like this:</p>
 <div class="figure" id="id1">
@@ -101,22 +101,19 @@ would like to be greeted in. It should look something like this:</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">The language is presented in a dropdown, more formally known
-as a <code class="docutils literal notranslate"><span class="pre">select</span></code> element. For more information about <code class="docutils literal notranslate"><span class="pre">select</span></code> elements and how it works, read the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select" target="_blank">MDN documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+as a <code class="docutils literal notranslate"><span class="pre">select</span></code> element. For more information about the <code class="docutils literal notranslate"><span class="pre">select</span></code> element and how it works, read the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select" target="_blank">MDN documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
-<p>When the user submits the form (a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request), they should be
+<p>When the user submits the form (via a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request), they should be
 greeted in the selected language. Your new feature should:</p>
 <ol class="arabic simple">
-<li>Include at least 5 languages, with English being the default. If you don’t speak 5 lanugages yourself, ask your friend <a class="reference external" href="http://pocketcultures.com/2008/10/30/say-hello-in-20-languages/" target="_blank">the Internet<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
+<li>Include at least 5 languages, with English being the default. If you don’t speak 5 languages yourself, ask your friend <a class="reference external" href="http://pocketcultures.com/2008/10/30/say-hello-in-20-languages/" target="_blank">the Internet<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
 <li>Include a new <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span></code> method, <code class="docutils literal notranslate"><span class="pre">createMessage</span></code>, in the <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> that takes a name as well as a language string. Based on the language string, you’ll display the proper greeting.</li>
 </ol>
-<div class="section" id="bonus-missions">
-<h2>9.2.1. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bonus-mission">
+<h2>9.2.1. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Instead of returning the greeting as plain text, add a bit of HTML to
 the response string so that the displayed message looks a bit nicer.</li>
-<li>Restructure your code so that the controller class doesn’t know
-anything about the specific languages available. In other words, it
-asks the model for available languages to present to the user.</li>
 </ol>
 </div>
 </div>

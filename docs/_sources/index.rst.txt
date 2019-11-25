@@ -34,7 +34,6 @@ Studios
    chapters/unit-testing/studio
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
-   chapters/spring/studio
 
 Assignments
 ------------
