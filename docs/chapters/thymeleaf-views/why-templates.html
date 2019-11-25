@@ -107,7 +107,7 @@ a way to automate the tasks required to build and maintain a website…</p>
 <h2>11.1.1. Templates are Frameworks<a class="headerlink" href="#templates-are-frameworks" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">A <strong>template</strong> provides the general structure for a web page. It identifies
 where different elements get placed on the page, but it does NOT fill them with
-content.</p>
+specific data.</p>
 <p>Think of a template as an outline for a web page. Any page made with a
 particular template includes its elements and follows its rules. If we add
 content to the template or modify it in some way, all pages made with that
@@ -225,16 +225,16 @@ easier to maintain your work.</p>
 <p>Templates allow us to decide how to display data in the view, even if we do
 not know exactly what that data will be. Information pulled from forms,
 APIs, or user input will be formatted to fit within our design.</p>
-<blockquote>
-<div>TODO: Add figure showing a generic template.</div></blockquote>
+<div class="figure">
+<img alt="Generic template." src="../../_images/ThymeleafTemplateDiagram.png" />
+</div>
 <p>In the figure, the black outlines represent different areas defined by the
 template—spaces for lists, images, links, etc. As the controller feeds data
 into the template, the appearance of the page changes.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">If the template expects data for a list, but the controller does not provide
-the information, that part of the screen remains empty. Later in this chapter,
-you will learn how to provide default data to avoid this situation.</p>
+the information, that part of the screen remains empty.</p>
 </div>
 </div>
 <div class="section" id="check-your-understanding">

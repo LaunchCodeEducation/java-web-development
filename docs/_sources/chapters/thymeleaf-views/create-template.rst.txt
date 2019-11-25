@@ -177,8 +177,3 @@ make the edits described above every time you add a new base html file.
 
    .. figure:: ./figures/selectThymeleafTemplate.png
       :alt: Select custom Thymeleaf starter code.
-
-Check Your Understanding
--------------------------
-
-Questions go here...

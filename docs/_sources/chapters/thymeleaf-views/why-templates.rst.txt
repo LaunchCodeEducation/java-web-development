@@ -29,7 +29,7 @@ Templates are Frameworks
 
 A **template** provides the general structure for a web page. It identifies
 where different elements get placed on the page, but it does NOT fill them with
-content.
+specific data.
 
 Think of a template as an outline for a web page. Any page made with a
 particular template includes its elements and follows its rules. If we add
@@ -135,7 +135,8 @@ Templates allow us to decide how to display data in the view, even if we do
 not know exactly what that data will be. Information pulled from forms,
 APIs, or user input will be formatted to fit within our design.
 
-   TODO: Add figure showing a generic template.
+.. figure:: ./figures/ThymeleafTemplateDiagram.png
+   :alt: Generic template.
 
 In the figure, the black outlines represent different areas defined by the
 template---spaces for lists, images, links, etc. As the controller feeds data
@@ -144,8 +145,7 @@ into the template, the appearance of the page changes.
 .. admonition:: Note
 
    If the template expects data for a list, but the controller does not provide
-   the information, that part of the screen remains empty. Later in this chapter,
-   you will learn how to provide default data to avoid this situation.
+   the information, that part of the screen remains empty.
 
 Check Your Understanding
 -------------------------

@@ -148,4 +148,35 @@ that need to be modified.
 Check Your Understanding
 -------------------------
 
-Questions go here...
+.. admonition:: Question
+
+   Given the code:
+
+   .. sourcecode:: html
+
+      <p th:text = "${name}">Name: Default</p>
+
+   What will be displayed on the screen if the controller sends in a ``name``
+   variable with a value of "Blake"?
+
+   #. Name: Default
+   #. Name: Blake
+   #. Blake: Default
+   #. Blake
+
+.. Answer = Blake (d)
+
+.. admonition:: Question
+
+   We want a list element to read, "Item name: ______, Price = ______", where
+   the blanks need to be filled in with ``name`` and ``price`` values sent from
+   the controller.
+
+   Which of the following will produce the desired result?
+
+   #. ``<li th:text = "${Item name: ${name}, Price = ${price}}"></li>``
+   #. ``<li th:text = "Item name: ${name}, Price = ${price}"></li>``
+   #. ``<li th:text = "${name}, ${price}">Item name: , Price = </li>``
+   #. ``<li>Item name: ${name}, Price = ${price}</li>``
+
+.. Answer = b

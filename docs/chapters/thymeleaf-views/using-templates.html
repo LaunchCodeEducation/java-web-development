@@ -221,7 +221,34 @@ that need to be modified.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>11.3.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-<p>Questions go here…</p>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Given the code:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${name}&quot;</span><span class="p">&gt;</span>Name: Default<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>What will be displayed on the screen if the controller sends in a <code class="docutils literal notranslate"><span class="pre">name</span></code>
+variable with a value of “Blake”?</p>
+<ol class="last arabic simple">
+<li>Name: Default</li>
+<li>Name: Blake</li>
+<li>Blake: Default</li>
+<li>Blake</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>We want a list element to read, “Item name: ______, Price = ______”, where
+the blanks need to be filled in with <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">price</span></code> values sent from
+the controller.</p>
+<p>Which of the following will produce the desired result?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${Item</span> <span class="pre">name:</span> <span class="pre">${name},</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">${price}}&quot;&gt;&lt;/li&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;Item</span> <span class="pre">name:</span> <span class="pre">${name},</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">${price}&quot;&gt;&lt;/li&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${name},</span> <span class="pre">${price}&quot;&gt;Item</span> <span class="pre">name:</span> <span class="pre">,</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">&lt;/li&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">&lt;li&gt;Item</span> <span class="pre">name:</span> <span class="pre">${name},</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">${price}&lt;/li&gt;</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 
