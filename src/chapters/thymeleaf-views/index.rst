@@ -12,6 +12,7 @@ Thymeleaf Views
    template-iteration
    template-conditionals
    src&href
+   template-forms
    template-fragments
    exercises
    studio

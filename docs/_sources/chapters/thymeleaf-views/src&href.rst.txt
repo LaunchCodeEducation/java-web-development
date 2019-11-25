@@ -1,31 +1,23 @@
-Static Resources and Forms
-===========================
+Static Resources
+=================
 
-Lorem ipsum...
+In addition to displaying data in the view, we can also use the information
+sent by the controller to complete HTML attributes.
 
 Accessing Resources
 --------------------
 
-Near the end of the last video, you added links to...
-
-A summary of these skills it given below, but remember that the text supports
-the video and is NOT intended as a replacement.
+In addition to
 
 ``th:href``
 ^^^^^^^^^^^^
 
+Lorem ipsum...
+
 ``th:src``
 ^^^^^^^^^^^
 
-Create a Form
---------------
-
-   Video goes here...
-
-Create a Form Handler
-^^^^^^^^^^^^^^^^^^^^^^
-
-More instructions here...
+Lorem ipsum...
 
 Check Your Understanding
 -------------------------
