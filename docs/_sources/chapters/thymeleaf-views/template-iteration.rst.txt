@@ -1,3 +1,5 @@
+.. _thymeleaf-iteration:
+
 Iterating in a Template
 ========================
 

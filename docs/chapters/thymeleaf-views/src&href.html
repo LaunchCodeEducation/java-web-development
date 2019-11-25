@@ -86,17 +86,23 @@
     
   <div class="section" id="static-resources">
 <h1>11.6. Static Resources<a class="headerlink" href="#static-resources" title="Permalink to this headline">¶</a></h1>
-<p>In addition to displaying data in the view, we can also use the information
-sent by the controller to complete HTML attributes.</p>
+<p>Up to now, we used templates to display data sent by the controller as text in
+the view. If we need to display an image or video, or if we want to create a
+link to a different file, then we need to move beyond a text output.</p>
+<p>With Thymeleaf, we can set values for the HTML <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">href</span></code> attributes.
+Instead of hard-coding a file path or external URL inside a tag, <code class="docutils literal notranslate"><span class="pre">th:src</span></code> and
+<code class="docutils literal notranslate"><span class="pre">th:href</span></code> take advantage of a simpler <code class="docutils literal notranslate"><span class="pre">&#64;{filePath}</span></code> syntax.</p>
 <div class="section" id="accessing-resources">
 <h2>11.6.1. Accessing Resources<a class="headerlink" href="#accessing-resources" title="Permalink to this headline">¶</a></h2>
-<p>In addition to</p>
-<div class="section" id="th-href">
-<h3>11.6.1.1. <code class="docutils literal notranslate"><span class="pre">th:href</span></code><a class="headerlink" href="#th-href" title="Permalink to this headline">¶</a></h3>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">resources</span></code> folder, there is another directory called <code class="docutils literal notranslate"><span class="pre">static</span></code>.
+This is the location where we can store files that our project needs to
+access—like images, CSS stylesheets, or JavaScript scripts.</p>
+<div class="section" id="th-src">
+<h3>11.6.1.1. <code class="docutils literal notranslate"><span class="pre">th:src</span></code><a class="headerlink" href="#th-src" title="Permalink to this headline">¶</a></h3>
 <p>Lorem ipsum…</p>
 </div>
-<div class="section" id="th-src">
-<h3>11.6.1.2. <code class="docutils literal notranslate"><span class="pre">th:src</span></code><a class="headerlink" href="#th-src" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="th-href">
+<h3>11.6.1.2. <code class="docutils literal notranslate"><span class="pre">th:href</span></code><a class="headerlink" href="#th-href" title="Permalink to this headline">¶</a></h3>
 <p>Lorem ipsum…</p>
 </div>
 </div>
