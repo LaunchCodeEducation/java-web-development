@@ -86,7 +86,21 @@
     
   <div class="section" id="exercises-thymeleaf">
 <h1>11.2. Exercises: Thymeleaf<a class="headerlink" href="#exercises-thymeleaf" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p>In the chapter, we started working on an application for tracking various coding events around town.</p>
+<p>Open up your <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project in IntelliJ.</p>
+<ol class="arabic simple">
+<li>In addition to names of events, we want to add descriptions as well.
+Use fragments to store the name and description of different coding events around town.
+Use <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> in your main template to bring in the descriptions and names for each event in the list.</li>
+<li>Using <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and <code class="docutils literal notranslate"><span class="pre">th:each</span></code>, put together the events and their descriptions in a table as opposed to an unordered list.</li>
+<li>Add some CSS to style your table to make it easier to read and center it on the page. We do have file for <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> that you can add to.
+Make sure to connect <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to the appropriate template with <code class="docutils literal notranslate"><span class="pre">th:src</span></code>.</li>
+</ol>
+<div class="section" id="bonus-mission">
+<h2>11.2.1. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
+<p>Try to add one more column to the table with pictures for each coding event.
+You need to use <code class="docutils literal notranslate"><span class="pre">th:href</span></code> to pull in pictures in the appropriate template.</p>
+</div>
 </div>
 
 
