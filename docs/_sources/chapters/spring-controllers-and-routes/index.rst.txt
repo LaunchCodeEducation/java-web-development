@@ -6,7 +6,10 @@ Controllers and Routing
 
    controllers
    video-walkthrough
+<<<<<<< HEAD
    exercises
+=======
+>>>>>>> master
    studio
 
    
