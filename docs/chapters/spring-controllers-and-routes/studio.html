@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>10.6. Studio: Skills Tracker &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11. Thymeleaf Views" href="../thymeleaf-views/index.html" />
+    <link rel="prev" title="10.5. Exercises: Controllers and Routing" href="exercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">10. Controllers and Routing</a></li>
+    <li class="active">10.6. Studio: Skills Tracker</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="studio-skills-tracker">
+<h1>10.6. Studio: Skills Tracker<a class="headerlink" href="#studio-skills-tracker" title="Permalink to this headline">¶</a></h1>
+<p>Wouldn’t it be nice to have a small tracker to show us what skills we have built and where we are at in learning them?
+Let’s build something that would let us do just that!</p>
+<p>As always, read through the whole studio before starting!</p>
+<p>At the end of the studio, your final project should be able to take input from a user via a form and post the information in a way that is easy to read.</p>
+<div class="section" id="start-up-spring">
+<h2>10.6.1. Start up Spring<a class="headerlink" href="#start-up-spring" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-spring-initializr">
+<h3>10.6.1.1. Using the Spring Initializr<a class="headerlink" href="#using-the-spring-initializr" title="Permalink to this headline">¶</a></h3>
+<p>Head to the <a class="reference external" href="https://start.spring.io/" target="_blank">Spring initializr<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to initialize a new Spring project.</p>
+<ol class="arabic simple">
+<li>For Project, select <em>Gradle Project</em>, for Language, select <em>Java</em>, and for Spring Boot, select <em>2.2.x</em> (whichever is the most recent release, that is NOT a snapshot).</li>
+<li>For Project Metadata, we can use <em>org.launchcode</em> as Group and <em>skills-tracker</em> as the artifact. Also, remember to expand <em>Options</em> so you can make sure that Java 13 is selected!</li>
+<li>Finally, we want to add <em>Spring Web</em> and <em>Spring DevTools</em> as our dependencies.</li>
+</ol>
+<p>Double check that everything is ready to go and click <em>Generate</em>!</p>
+</div>
+<div class="section" id="launching-intellij">
+<h3>10.6.1.2. Launching IntelliJ<a class="headerlink" href="#launching-intellij" title="Permalink to this headline">¶</a></h3>
+<p>Unzip the newly generated <code class="docutils literal notranslate"><span class="pre">skills-tracker.zip</span></code> and move the folder into the directory where you are keeping your homework for this class!</p>
+<p>Open IntelliJ and select <em>Import Project</em>. Double click <em>bootRun</em> and head to <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> to make sure there is nothing there.</p>
+<p>Now you are ready to start coding!</p>
+</div>
+</div>
+<div class="section" id="creating-controllers">
+<h2>10.6.2. Creating Controllers<a class="headerlink" href="#creating-controllers" title="Permalink to this headline">¶</a></h2>
+<p>In your <code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code> package, add another package called <code class="docutils literal notranslate"><span class="pre">controllers</span></code> and add a class called <code class="docutils literal notranslate"><span class="pre">SkillsController</span></code>.
+Inside <code class="docutils literal notranslate"><span class="pre">SkillsController</span></code>, you will add several methods to accomplish the followng:</p>
+<ol class="arabic simple">
+<li>At <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>, add text that states the three possible programming languages someone could be working on.
+You need to have an <code class="docutils literal notranslate"><span class="pre">h1</span></code> with the title “Skills Tracker”, an <code class="docutils literal notranslate"><span class="pre">h2</span></code>, and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> containing three programming languages of your choosing.</li>
+<li>At <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, add a form that lets the user enter their name and choose their favorite, second favorite, and third favorite programming languages on your list.
+Use <code class="docutils literal notranslate"><span class="pre">select</span></code> elements for each of the rankings. Just as with the exercises, we will use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping()</span></code>.</li>
+<li>Also at <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, use <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> to update the HTML with an <code class="docutils literal notranslate"><span class="pre">h1</span></code> stating the user’s name and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> showing the three programming languages in the order they chose.</li>
+</ol>
+</div>
+<div class="section" id="end-result">
+<h2>10.6.3. End Result<a class="headerlink" href="#end-result" title="Permalink to this headline">¶</a></h2>
+<p>At the end of the studio, when you navigate to <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>, you should see the following:</p>
+<div class="figure">
+<img alt="Image showing functioning home page." src="../../_images/studio-home-page.png" />
+</div>
+<p>When you navigate to <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, you should see a blank form that looks something like:</p>
+<div class="figure">
+<img alt="Image showing the blank form." src="../../_images/blank-studio-form.png" />
+</div>
+<p>If you fill out the form, your page may render like so:</p>
+<div class="figure">
+<img alt="Image showing the web page with information from the completed form." src="../../_images/completed-studio-form.png" />
+</div>
+</div>
+<div class="section" id="bonus-missions">
+<h2>10.6.4. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Reformat your <code class="docutils literal notranslate"><span class="pre">form</span></code> page to use a table instead of an ordered list.</li>
+<li>Add a new path to the site to display the information from the completed form.</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 10.5. Exercises: Controllers and Routing</a></li>
+        
+        
+        <li class="next"><a href="../thymeleaf-views/index.html">11. Thymeleaf Views <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-controllers-and-routes/studio.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

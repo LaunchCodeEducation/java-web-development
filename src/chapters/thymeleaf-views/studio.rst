@@ -16,15 +16,20 @@ As always, read through the whole page before starting to code.
 Setup
 -----
 
-Fork and clone the appropriate repository. Check out the project via Version Control in IntelliJ.
+Fork and clone the appropriate `repository <https://github.com/LaunchCodeEducation/spa-day-starter-code>`_. Check out the project via Version Control in IntelliJ.
+
+When you open the project and run it using ``bootRun``, go to ``localhost:8080`` and you should see a form!
+
+.. figure:: figures/startingform.png
+   :alt: Image showing an empty form with three fields for name, skin type, and whether the person wants a pedicure or manicure.
 
 The Customer Profile
 --------------------
 
 In ``controllers``, we have one controller called ``SpaDayController``. Inside ``SpaDayController``, we have three methods.
 
-#. The ``customerForm()`` method, which looks very similar to what we did in the last lesson.
 #. The ``checkSkinType()`` method. The owners gave us this method to help us figure out which facial treatments are appropriate for which skin type.
+#. The ``customerForm()`` method, which looks very similar to what we did in the last lesson.
 #. The ``spaMenu()`` method, which we will use to bring in our Thymeleaf template, ``menu.html``.
 
 In ``templates``, we have a Thymeleaf template called ``menu.html``.
@@ -46,7 +51,7 @@ Now, we just need to use Thymeleaf to display the appropriate facial treatments 
 
 Let's head back to ``menu.html`` and checkout the empty div with the id, ``servicesMenu``.
 
-Add a table and iteratively (using our ``th:each`` and ``th:block`` combo) add rows for the values in ``appropriateFacials``.
+Add a table and iteratively (using our ``th:block`` and ``th:each`` combo) add rows for the values in ``appropriateFacials``.
 
 Mani or Pedi?
 -------------
@@ -58,15 +63,27 @@ Checkout the file, ``fragments.html``, in the ``templates`` directory.
 The owners have already written up the descriptions for their manicure and pedicure in separate ``p`` tags.
 
 We want to put the description in a ``div`` along with an ``h3`` stating that it is either a manicure or pedicure.
+This new ``div`` should be inside the ``servicesMenu`` div.
 
 Use ``th:if`` to determine if the value of ``manipedi`` is a ``"manicure"`` or ``"pedicure"``. 
 
 #. If the value of ``manipedi`` is ``"manicure"``, the ``div`` element containing the ``h3`` that says ``"Manicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the manicure description from ``fragments.html``.
 #. If the value of ``manipedi`` is ``"pedicure"``, the ``div`` element containing the ``h3`` that says ``"Pedicure"`` needs to be on the page and the ``p`` tag needs to be *replaced* with the fragment of the pedicure description from ``fragments.html``.
 
+End Result
+----------
+
+After you are done with the studio, you should be able to fill out the form, click "Submit", and see your profile page.
+
+.. figure:: figures/completedform.png
+   :alt: Form completed with the name, "Yolanda", combination skin and a preference for pedicures.
+
+.. figure:: figures/endresultprofilepage.png
+   :alt: Profile showing Yolanda's information, recommended facial treatments, and pedicure description.
+
 Bonus Mission
 -------------
 
-#. Modify ``styles.css`` to get some CSS practice!
+#. Modify ``styles.css`` to get some CSS practice! Try add a footer with square shaped ``div`` elements. Each square should be a different color for different available nail polishes.
 #. Modify the form to allow the user to select either a manicure or pedicure or *both*. If the user selects both, display both the manicure and pedicure descriptions on the ``Spa Menu`` page.
 #. Work with routes and paths to display the spa menu page on a separate route from the form.
