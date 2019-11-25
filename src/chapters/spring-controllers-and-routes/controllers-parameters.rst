@@ -16,7 +16,7 @@ and how data is transferred from a webpage with a given route to a specific cont
 Query Strings are URL Data
 --------------------------
 
-A brief refresher: Query strings are additional bits of information tacked onto the ends of urls.
+A brief refresher: query strings are additional bits of information tacked onto the ends of urls.
 They contain data in key-value pairs.
 
 .. sourcecode:: bash
