@@ -30,7 +30,7 @@ Initialize a Spring Boot Project
 
 #. For *Project Metadata/Options/Java*, select *13*.
 #. For *Dependencies*, search for and add the following: *Spring Web*,
-   *Thymeleaf*,and *Spring Boot DevTools*.
+   and *Spring Boot DevTools*.
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
 
 .. figure:: figures/spring-initializr.png
@@ -78,7 +78,7 @@ Spring in IntelliJ
       open the *Preferences* (or *Settings* for Windows users) window to
       *Build, Execution, Deployment > Build Tools > Maven > Repositories* .
    2. Select the Maven repository (https://repo1.maven.org/maven2) and
-      click *Update* on the side.   
+      click *Update* on the side.
 
 .. warning::
 
@@ -118,15 +118,15 @@ Gradle manages the external dependencies in our project.
 Remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
 ``build.gradle`` file and you will see these items specified in a structure called ``dependencies``.
 
-.. sourcecode:: java
+.. sourcecode:: guess
    :lineno-start: 22
 
    dependencies {
-      implementation ‘org.springframework.boot:spring-boot-starter-thymeleaf’
-      implementation ‘org.springframework.boot:spring-boot-starter-web’
-      developmentOnly ‘org.springframework.boot:spring-boot-devtools’
-      testImplementation(‘org.springframework.boot:spring-boot-starter-test’) {
-         exclude group: ‘org.junit.vintage’, module: ‘junit-vintage-engine’
+      implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+      implementation 'org.springframework.boot:spring-boot-starter-web'
+      developmentOnly 'org.springframework.boot:spring-boot-devtools'
+      testImplementation('org.springframework.boot:spring-boot-starter-test') {
+         exclude group: 'org.junit.vintage’, module: ‘junit-vintage-engine'
       }
    }
 
@@ -136,11 +136,29 @@ is a decentralized place for developers to post their code for others to use.
 
 .. index:: ! bootRun
 
+Before Running a Spring Project
+-------------------------------
+
+Before running your project, we need to check the configuration of a few items. 
+
+#. In ``build,gradle``, locate an item called ``sourceCompatibility``. If it's value is not equal to 
+``13``, change it and save the file.
+
+#. In the ``gradle`` directory, open the subdirectory, ``wrapper``, and then the file 
+``gradle-wrapper.properties`` inside of it. Ensure that the ``distributionUrl`` includes a gradle 
+version of at least ``6.0``. 
+
+#. Open the test class, ``HelloSpringApplicationTests`` located in ``src/test/java/org.launchcode.hellospring``.
+   Run the single test. If you experience a JDK error, click on the ``Gradle Settings`` icon in the right-hand
+   gradle pane and ensure that the Gradle JVM is using Java 13.
+
+.. index:: ! bootRun
+
 Running a Spring Project
 ------------------------
 
-To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar, 
-click the panel icon in the bottom left corner of your window and select *Gradle*. 
+To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar,
+click the panel icon in the bottom left corner of your window and select *Gradle*.
 
 .. figure:: figures/panel-icon.png
    :alt: Panel icon options expanded
@@ -167,7 +185,7 @@ Once the ``bootRun`` task is executed, you should see a new panel with output si
 
    Also note that you may not see the same output in the Gradle panel as is
    shown above. You may see something that looks more like this:
-   
+
    .. figure:: figures/windows-bootrun.png
       :alt: Alternative bootrun view
 
@@ -182,9 +200,9 @@ Keep an eye out for a message that resembles:
 
    Started HelloSpringApplication in 1.739 seconds
 
-While this message will change depending on the application you are running, this message indicates that the 
+While this message will change depending on the application you are running, this message indicates that the
 Spring Boot started up successfully. You'll see an error message or a stack trace if there is an issue with
-your project preventing it from starting. 
+your project preventing it from starting.
 
 You'll also notice a message above:
 
@@ -193,8 +211,8 @@ You'll also notice a message above:
    Tomcat started on port(s): 8080 ...
 
 Tomcat is the embedded web server within your Spring application. So this tells us that Tomcat is listening
-for requests on local port 8080. You can then visit the corresponding web page at ``localhost:8080``. 
-Right now, you’ll see an error page, but we’ll fix that soon. 
+for requests on local port 8080. You can then visit the corresponding web page at ``localhost:8080``.
+Right now, you’ll see an error page, but we’ll fix that soon.
 Now go ahead and stop the application by hitting the red square on the left side of the *Run* pane.
 
 .. tip::

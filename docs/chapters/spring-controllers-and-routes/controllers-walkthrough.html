@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>10.5. Create a Controller &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10.6. Studio: Skills Tracker" href="studio.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">10. Controllers and Routing</a></li>
+    <li class="active">10.5. Create a Controller</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="create-a-controller">
+<h1>10.5. Create a Controller<a class="headerlink" href="#create-a-controller" title="Permalink to this headline">¶</a></h1>
+<p>Follow along with your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> application to create a controller class and two methods.
+One handles requests to our index path, <code class="docutils literal notranslate"><span class="pre">/</span></code>, another to a new path.</p>
+<ol class="arabic simple">
+<li>First, go to <em>src-&gt;main-&gt;java</em> and right click on your
+<code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code> package and then select <em>New-&gt;Package</em> and name
+your new package <code class="docutils literal notranslate"><span class="pre">controllers</span></code>.</li>
+<li>Add a <em>New-&gt;Java Class</em> to the package <code class="docutils literal notranslate"><span class="pre">controllers</span></code> and name it
+<code class="docutils literal notranslate"><span class="pre">HelloController</span></code>.</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p class="first">To tell the application that this class will function as a controller, add the annotation
+<code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> above the class definition for <code class="docutils literal notranslate"><span class="pre">HelloController</span></code>. As always, be sure to
+also add the corresponding class to your project.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloController</span> <span class="o">{</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Inside of the class, we want to write a method that will return a <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> message.</p>
+<p>Add this code to the body of your <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> class:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We’ve called this method <code class="docutils literal notranslate"><span class="pre">index</span></code> because it will be mapped to the index page, <code class="docutils literal notranslate"><span class="pre">/</span></code> of
+our application.</p>
+</li>
+</ol>
+<ol class="arabic" id="index-0" start="5">
+<li><p class="first">To specify which path this method is associated with, we add another annotation,
+<code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code>.</p>
+<p>Add the annotation above your method:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">value=&quot;&quot;</span></code> tells the controller that we are mapping this method to the default path, “”.</p>
+</li>
+</ol>
+<ol class="arabic" id="index-1" start="6">
+<li><p class="first">To return the text of our method, <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code>, we need to add one more annotation to this method,
+<code class="docutils literal notranslate"><span class="pre">&#64;ResponseBody</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">index</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="s">&quot;Hello World&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Soon, we’ll begin returning data in template contexts. Until then, we need the
+<code class="docutils literal notranslate"><span class="pre">&#64;ResponseBody</span></code> annotation to handle returning plain text.</p>
+</div>
+</li>
+<li><p class="first">Use Gradle to <em>bootRun</em> again and visit <em>localhost:8080</em>. You should
+see your message, “Hello World”.</p>
+</li>
+<li><p class="first">Now, lets add another controller method that maps to a non-default path.
+Anywhere inside your class, add:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">&quot;goodbye&quot;</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">goodbye</span><span class="o">(){</span>
+   <span class="k">return</span> <span class="s">&quot;Goodbye&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>In this method, the value on <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> is the path that this request is affiliated
+with. We’ve also named the method with the same name, but this equality is not necessary, just
+helpful.</p>
+</li>
+<li><p class="first">Run the application again and visit <code class="docutils literal notranslate"><span class="pre">localhost:8080/goodbye</span></code> and you
+should see “Goodbye”.</p>
+</li>
+</ol>
+<p>Congratulations! You can write controllers!</p>
+<div class="admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">IntelliJ has a lot of helpful keyboard shortcuts. Find out more
+<a class="reference external" href="https://www.jetbrains.com/help/idea/2017.1/keyboard-shortcuts-you-cannot-miss.html" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        
+        <li class="next"><a href="studio.html">10.6. Studio: Skills Tracker <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-controllers-and-routes/controllers-walkthrough.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
