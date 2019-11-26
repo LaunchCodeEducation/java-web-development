@@ -88,7 +88,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Your application is served at myfavoriteplanets.net. What is the path 
+   Your application is served at ``myfavoriteplanets.net``. What is the path 
    that this controller maps to?
 
    .. sourcecode:: java
@@ -102,19 +102,19 @@ Check Your Understanding
          return "Venus is gaseous."
       }
  
-   a. myfavoriteplanets.net/venus?terrestrial=true
+   a. ``myfavoriteplanets.net/venus?terrestrial=true``
       
-   b. net.myfavoriteplanets/venus?terrestrial=true
+   b. ``net.myfavoriteplanets/venus?terrestrial=true``
 
-   c. myfavoriteplanets/venus?terrestrial=true
+   c. ``myfavoriteplanets/venus?terrestrial=true``
 
-   c. myfavoriteplanets/venus/terrestrial
+   c. ``myfavoriteplanets/venus/terrestrial``
 
 .. ans: a, myfavoriteplanets.net/venus?terrestrial=true
 
 .. admonition:: Question
 
-   Your application is served at myfavoriteplanets.net. What URL do you 
+   Your application is served at ``myfavoriteplanets.net``. What URL do you 
    need to hit so that the response is:
    ``Akatsuki currently orbits Venus.``?
 
@@ -126,13 +126,13 @@ Check Your Understanding
          return orbiter + " currently orbits Venus."
       }
 
-   a. myfavoriteplanets.net/venus/{Akatsuki}
+   a. ``myfavoriteplanets.net/venus/{Akatsuki}``
 
-   b. myfavoriteplanets.net/venus/orbiter=Akatsuki
+   b. ``myfavoriteplanets.net/venus/orbiter=Akatsuki``
 
-   c. myfavoriteplanets.net/venus/Akatsuki
+   c. ``myfavoriteplanets.net/venus/Akatsuki``
 
-   d. myfavoriteplanets.net/venus/name=Akatsuki
+   d. ``myfavoriteplanets.net/venus/name=Akatsuki``
 
 .. ans: c, myfavoriteplanets.net/venus/Akatsuki
 

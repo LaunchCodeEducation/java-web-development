@@ -239,13 +239,13 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True/False: All custom code ina  Spring Boot application goes in the main method.
+   True/False: All custom code in a Spring Boot application is located in the ``main`` method.
  
    a. True
 
    b. False
 
-.. ans: False, most features are developed outside of the main method.
+.. ans: False, most features are developed outside of the ``main`` method in a Spring Boot application.
 
 
 
