@@ -18,7 +18,7 @@ Try It!
 Code along with the following video to gain more practice with Thymeleaf
 iteration and conditionals:
 
-   Video goes here...
+.. todo:: ``hello-spring`` video #3 goes here...
 
 The text on this page and the previous one provides details for some of the
 concepts presented in the clip. Note that these summaries are NOT intended as

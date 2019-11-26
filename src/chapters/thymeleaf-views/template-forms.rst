@@ -20,9 +20,9 @@ IntelliJ.
 
 Code along with the two videos below:
 
-   Video goes here...
+.. todo:: ``Coding Events App: Intro`` video goes here...
 
-   Second video goes here...
+.. todo:: ``Coding Events App: Render Add Event Form`` video goes here...
 
 A summary of Thymeleaf forms is given below, but remember that the text
 supports the videos and is NOT intended as a replacement.
@@ -38,7 +38,7 @@ Create a Form Handler
 Now that you have rendered the events form, you need to add some code to
 *handle* its submission. Code along with the video to add this functionality.
 
-    Third video goes here...
+.. todo:: ``Coding Events App: Process Add Event Form`` video goes here...
 
 As usual, the following summary outlines the ideas from the clip.
 

@@ -16,7 +16,10 @@ Try It!
 Code along with the following video to practice using fragments in your
 templates:
 
-   Video goes here...
+.. todo::
+
+   ``Coding Events App: Refactor Templates to Use Fragments`` video goes
+   here...
 
 A summary of ``fragment`` and ``replace`` it given below, but remember that the
 text supports the video and is NOT intended as a replacement.

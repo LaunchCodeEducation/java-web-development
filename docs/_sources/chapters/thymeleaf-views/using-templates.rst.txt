@@ -14,7 +14,7 @@ you watch the clip.
 Try It!
 --------
 
-   Video goes here...
+.. todo:: ``hello-spring`` video #2 goes here...
 
 Now that your project is growing, let's review one skill and two
 best-practices.

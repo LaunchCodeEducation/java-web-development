@@ -86,7 +86,7 @@ Start a Practice Project
 Open up your ``hello-spring`` project in IntelliJ and code along with the
 following video:
 
-    Video goes here...
+.. todo:: ``hello-spring`` video #1 goes here...
 
 The sections below outline the main ideas presented in the video. However, the
 text is NOT a substitute for completing the work described in the clip.
