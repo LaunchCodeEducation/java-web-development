@@ -6,6 +6,8 @@ implement the
 :ref:`MVC <mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
+.. _initialize-spring-boot-project:
+
 Initialize a Spring Boot Project
 --------------------------------
 

@@ -90,15 +90,34 @@
 can render that template with different labels and data. This allows a single
 form to serve different purposes, thereby saving you extra effort.</p>
 <p>Whenever possible, reuse existing templates!</p>
-<div class="section" id="try-it">
-<h2>11.7.1. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
-<p>You will build a new practice project so you can work with templates and forms.
+<div class="section" id="start-a-new-project">
+<h2>11.7.1. Start a New Project<a class="headerlink" href="#start-a-new-project" title="Permalink to this headline">¶</a></h2>
+<p>You will build a new project so you can practice with templates and forms.
 If you have not done so, commit and push any unsaved work from your
 <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project.</p>
-<p>Your new project will keep track of some fictional coding events. Start by
-forking and cloning the starter code (<em>TODO: INSERT LINK</em>), then open it in
-IntelliJ.</p>
-<p>Code along with the two videos below:</p>
+<p>Your new project will keep track of some fictional coding events.</p>
+<ol class="arabic">
+<li><p class="first">Use the <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> website to initialize
+your new project.</p>
+</li>
+<li><p class="first">Follow the steps you used to setup
+<a class="reference internal" href="../spring-intro/initialize.html#initialize-spring-boot-project"><span class="std std-ref">hello-spring</span></a>, but call the new
+project <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+</li>
+<li><p class="first">Be sure to add the <em>Thymeleaf</em> dependency in addition to <em>Spring Web</em>, and
+<em>Spring Boot DevTools</em>.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/codingEventsInit.png"><img alt="Initialize ``coding-events`` project." src="../../_images/codingEventsInit.png" style="width: 511.20000000000005px; height: 624.8000000000001px;" /></a>
+</div>
+</li>
+<li><p class="first"><em>Generate</em> the <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file and then import it into IntelliJ.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="try-it">
+<h2>11.7.2. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> up and running, add features to it by
+coding along with the videos below:</p>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last"><code class="docutils literal notranslate"><span class="pre">Coding</span> <span class="pre">Events</span> <span class="pre">App:</span> <span class="pre">Intro</span></code> video goes here…</p>
@@ -111,25 +130,127 @@ IntelliJ.</p>
 supports the videos and is NOT intended as a replacement.</p>
 </div>
 <div class="section" id="create-and-render-a-form">
-<h2>11.7.2. Create and Render a Form<a class="headerlink" href="#create-and-render-a-form" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<h2>11.7.3. Create and Render a Form<a class="headerlink" href="#create-and-render-a-form" title="Permalink to this headline">¶</a></h2>
+<p>A Thymeleaf form is simply a template that includes a <code class="docutils literal notranslate"><span class="pre">&lt;form&gt;</span></code> element inside
+the <code class="docutils literal notranslate"><span class="pre">body</span></code> of the HTML. The method for the form should be of type <code class="docutils literal notranslate"><span class="pre">post</span></code>.</p>
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+   <span class="c">&lt;!-- Other HTML --&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;inputName&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;submitButtonText&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+   <span class="c">&lt;!-- Other HTML --&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>You can include as many inputs as you need in the form, and these can be of
+different types (e.g. text, email, checkbox, etc.). However, each different
+piece of data you want to collect needs to have a unique <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute.</p>
+<p>To <em>render</em> the form in the view, add a method to the controller using the
+<code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code> annotation:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;formTemplateName&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">renderFormMethodName</span><span class="o">(</span><span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+
+   <span class="c1">// Method code...</span>
+
+   <span class="k">return</span> <span class="s">&quot;pathToTemplate&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Some points to note:</p>
+<ol class="arabic simple">
+<li>Line 1: The string parameter for <code class="docutils literal notranslate"><span class="pre">GetMapping</span></code> must be the name of the form
+template you want to use.</li>
+<li>Line 2: Declare a <code class="docutils literal notranslate"><span class="pre">Model</span></code> object to hold data that needs to be passed to
+the template.</li>
+<li>The method code performs any data manipulation required before rendering the
+form. The <code class="docutils literal notranslate"><span class="pre">model.addAttribute</span></code> statements would be included here.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">return</span></code> string specifies the path to the template. Recall that Spring
+automatically adds MOST of the file path—up through <code class="docutils literal notranslate"><span class="pre">.../templates</span></code>. You
+need to add any path details that follow.<ol class="loweralpha">
+<li>For example, if our <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder contains a subfolder called
+<code class="docutils literal notranslate"><span class="pre">events</span></code> that holds a template called <code class="docutils literal notranslate"><span class="pre">create.html</span></code>, then line 6
+would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;events/create&quot;;</span></code>.</li>
+</ol>
+</li>
+</ol>
 </div>
-<div class="section" id="create-a-form-handler">
-<h2>11.7.3. Create a Form Handler<a class="headerlink" href="#create-a-form-handler" title="Permalink to this headline">¶</a></h2>
-<p>Now that you have rendered the events form, you need to add some code to
-<em>handle</em> its submission. Code along with the video to add this functionality.</p>
+<div class="section" id="add-a-form-handler-method">
+<h2>11.7.4. Add a Form Handler Method<a class="headerlink" href="#add-a-form-handler-method" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have created and rendered a form in your <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>
+project, you need to add a method to the controller to <em>handle</em> its submission.
+Code along with the video below to add this functionality.</p>
 <div class="admonition-todo admonition" id="index-2">
 <p class="first admonition-title">Todo</p>
 <p class="last"><code class="docutils literal notranslate"><span class="pre">Coding</span> <span class="pre">Events</span> <span class="pre">App:</span> <span class="pre">Process</span> <span class="pre">Add</span> <span class="pre">Event</span> <span class="pre">Form</span></code> video goes here…</p>
 </div>
 <p>As usual, the following summary outlines the ideas from the clip.</p>
-<div class="section" id="title-tbd">
-<h3>11.7.3.1. Title TBD<a class="headerlink" href="#title-tbd" title="Permalink to this headline">¶</a></h3>
-<p>Lorem ipsum…</p>
+<div class="section" id="handle-form-submission">
+<h3>11.7.4.1. Handle Form Submission<a class="headerlink" href="#handle-form-submission" title="Permalink to this headline">¶</a></h3>
+<p>To <em>process</em> a form after the user clicks the <em>Submit</em> button, you need to add
+a method to the controller using the <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> annotation:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;formTemplateName&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processFormMethodName</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">Type</span> <span class="n">parameter1</span><span class="o">,</span> <span class="n">Type</span> <span class="n">parameter2</span><span class="o">,</span> <span class="o">...)</span> <span class="o">{</span>
+
+   <span class="c1">// Method code...</span>
+
+   <span class="k">return</span> <span class="s">&quot;redirect:templateName&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Some points to note:</p>
+<ol class="arabic">
+<li><p class="first">Line 1: The string parameter for <code class="docutils literal notranslate"><span class="pre">PostMapping</span></code> must be the name of the
+form template.</p>
+</li>
+<li><p class="first">Line 2: For each piece of data that needs to be retrieved from the form,
+declare a parameter of the appropriate type.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> matches the parameters to the submitted data. For this
+to work, the parameter names MUST match the <code class="docutils literal notranslate"><span class="pre">name</span></code> attributes used in
+each of the <code class="docutils literal notranslate"><span class="pre">input</span></code> elements.</p>
+</div>
+</li>
+<li><p class="first">The method code performs any data manipulation required after the
+information gets submitted.</p>
+</li>
+<li><p class="first">Line 6: Generally, we want to send the user to a different page after they
+successfully submit a form. Instead of re-rendering the form, the <code class="docutils literal notranslate"><span class="pre">return</span></code>
+string <em>redirects</em> the user to a method for a different template.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>11.7.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>11.7.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <p>Questions go here…</p>
 </div>
 </div>
