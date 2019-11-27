@@ -86,7 +86,11 @@ Start a Practice Project
 Open up your ``hello-spring`` project in IntelliJ and code along with the
 following video:
 
-.. todo:: ``hello-spring`` video #1 goes here...
+.. raw:: html
+
+   <div style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/UIetMLyDVjQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
 
 The sections below outline the main ideas presented in the video. However, the
 text is NOT a substitute for completing the work described in the clip.
@@ -94,10 +98,10 @@ text is NOT a substitute for completing the work described in the clip.
 Template Location
 ^^^^^^^^^^^^^^^^^^
 
-In IntelliJ, store templates in the ``templates`` folder, which is within the
-``resources`` directory. As you will see in the video, Thymeleaf streamlines
-finding required templates by using ``resources/templates`` as the default
-location.
+In IntelliJ, store templates in the ``templates`` folder, which you should
+place within the ``resources`` directory. As you will see in the video,
+Thymeleaf streamlines finding required templates by using
+``resources/templates`` as the default location.
 
 .. figure:: ./figures/templatesFolder.png
    :alt: Locate the ``templates`` folder.
@@ -161,10 +165,10 @@ make the edits described above every time you add a new base html file.
       :alt: Create a new template window.
       :scale: 80%
 
-#. Name your template, then edit the starter code. This will be the boilerplate
-   HTML that appears anytime you select your custom template. For Thymeleaf,
-   the code should at least close the ``meta`` tag and include the ``xmlns``
-   attribute.
+#. Name your template, set the extension as ``html``, then edit the starter
+   code. This will be the boilerplate HTML that appears anytime you select your
+   custom template. For Thymeleaf, the code should at least close the ``meta``
+   tag and include the ``xmlns`` attribute.
 
    .. figure:: ./figures/thymeleafTemplateCode.png
       :alt: Generic Thymeleaf starter code.
