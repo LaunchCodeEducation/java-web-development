@@ -85,7 +85,346 @@
     
   <div class="section" id="assignment-3-tech-jobs-mvc-edition">
 <span id="tech-jobs-mvc"></span><h1>Assignment #3: Tech Jobs (MVC Edition)<a class="headerlink" href="#assignment-3-tech-jobs-mvc-edition" title="Permalink to this headline">¶</a></h1>
-<p>Noting here yet!  Check back soon.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Your first two tasks as an apprentice went well! You, Blake, and Sally built
+the TechJobs console prototype and then refactored the code to move it to an
+object-oriented format.</p>
+<p>After demoing the project for the Company Team at LaunchCode, it received the
+green light to be fully built out as a web application.</p>
+<p>The first step in this process will be to quickly develop a <a class="reference external" href="https://en.wikipedia.org/wiki/Minimum_viable_product" target="_blank">minimum viable
+product<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>, or MVP. The
+goal is to get a functioning web app up and running with as little work as
+possible. Then additional feedback and testing can be done early in the
+development process. Then additional behind-the-scenes work will be carried out
+to fully develop the model and data side of the application.</p>
+<p>For this next step in the project, you’ll be working with Carly.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/LC-Carly.png"><img alt="Carly's LaunchCode avatar." src="../_images/LC-Carly.png" style="width: 187.00000000000003px; height: 545.0500000000001px;" /></a>
+</div>
+<p>Carly was once a LaunchCode apprentice as well, so she knows just what
+it’s like to be in your shoes. She’s done some initial work on the
+project and left you some TODOs that she knows you can handle.</p>
+</div>
+<div class="section" id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
+<p>In this project, you’ll show that you can:</p>
+<ol class="arabic simple">
+<li>Read and understand code written by others.</li>
+<li>Work within the controller and view portions of a Spring Boot application.</li>
+<li>Create new handler methods to process form submission.</li>
+<li>Use Thymeleaf syntax to display data within a view.</li>
+</ol>
+</div>
+<div class="section" id="techjobs-mvc-edition">
+<h2>TechJobs (MVC Edition)<a class="headerlink" href="#techjobs-mvc-edition" title="Permalink to this headline">¶</a></h2>
+<p>You’ll start with some code that Carly has written to get you started. The idea
+behind your current assignment is to quickly deliver a functioning Spring Boot
+application, so you’ll focus on the controllers and views.</p>
+<p>In order to do this, you’ll be reusing the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class and
+<code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code> file from the console app. You will eventually have to go back
+and rewrite the data portion of the application to make a true, database-backed
+model. However, using the existing <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class to provide some basic data
+functionality lets you focus on the views and controllers for now.</p>
+</div>
+<div class="section" id="your-assignment">
+<h2>Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
+<p>Carly has created a Spring Boot application and filled in some features. It has
+controllers and views for a home page, along with functionality for displaying
+lists of data values for each column/field of the data (<code class="docutils literal notranslate"><span class="pre">employer</span></code>,
+<code class="docutils literal notranslate"><span class="pre">location</span></code>, etc.). Carly also started working on the search functionality,
+but only got as far as writing the code to display the search form.</p>
+<p>She’s handed the project to you to finish the rest. You’ll add code to the
+controllers and views to process and display the search results, along with
+allowing users to see all jobs in the system via the <em>List</em> page.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Set up a local copy of the project:</p>
+<ol class="arabic simple">
+<li>Visit the <a class="reference external" href="https://github.com/LaunchCodeEducation/techjobs-mvc" target="_blank">repository page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+for this project. Fork the repository to create a copy under your own GitHub
+account.</li>
+<li>Back in IntelliJ, close any open projects (after saving and committing your
+work).</li>
+<li>From the welcome screen, click <em>Check out from Version Control</em>, select
+<em>Git</em>.</li>
+<li>Choose your fork from the repository dropdown, select the parent directory
+where you want to store your project, and hit <em>Clone</em>.</li>
+<li>In the screens that follow:<ol class="loweralpha">
+<li>Choose <em>Create Project From Existing Sources</em> on the first pane.</li>
+<li>Select <em>Auto Import</em> in the Gradle configuration pane.</li>
+<li>Use the defaults on all other panes.</li>
+</ol>
+</li>
+<li>Start up the application (via the Gradle pane, <em>Tasks &gt; Application &gt;
+bootRun</em>), so you can refer to both the code as well as the running app
+while we look at what’s in place already.</li>
+</ol>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">You’ll spend a lot of time reading and understanding the code that’s provided
+for you. This is OK! It’s an essential skill for a programmer to be
+able to read and understand code written by other developers.</p>
+</div>
+<div class="section" id="the-model">
+<h3>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">When referring to Java class locations, we’ll usually omit the leading
+path: <code class="docutils literal notranslate"><span class="pre">src/main/java/org/launchcode/</span></code>.</p>
+</div>
+<p>The “model” is contained in the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class, which is in the <code class="docutils literal notranslate"><span class="pre">models</span></code>
+package. We put “model” in quotes, since this class isn’t a model in the
+typical, MVC/object-oriented sense (maybe a better name for this assignment
+would be <em>TechJobs VC</em>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class is the exact same class that you used in the console app
+and TechJobs-OO update. The only modification is that Carly changed the path to
+the <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code> file so that it could be stored in the
+<code class="docutils literal notranslate"><span class="pre">src/main/resources</span></code> directory.</p>
+<p>You’ll use some of the static methods provided by <code class="docutils literal notranslate"><span class="pre">JobData</span></code> in your
+controller code. Since you’re already familiar with these, we’ll leave it to
+you to review their functionality as you go.</p>
+</div>
+<div class="section" id="the-controllers">
+<h3>The Controllers<a class="headerlink" href="#the-controllers" title="Permalink to this headline">¶</a></h3>
+<p>Expand the <code class="docutils literal notranslate"><span class="pre">controllers</span></code> package, and you’ll see that you have three
+controllers already in place. Let’s look at these one at a time.</p>
+<div class="section" id="homecontroller">
+<h4><code class="docutils literal notranslate"><span class="pre">HomeController</span></code><a class="headerlink" href="#homecontroller" title="Permalink to this headline">¶</a></h4>
+<p>This class has only one handler method, <code class="docutils literal notranslate"><span class="pre">index</span></code>, which displays the home page
+for the app. As you can see, this controller renders the <code class="docutils literal notranslate"><span class="pre">index.html</span></code>
+template (in <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code>).</p>
+<p>If you haven’t already, go to the app’s home page to see what this looks like.</p>
+</div>
+<div class="section" id="listcontroller">
+<h4><code class="docutils literal notranslate"><span class="pre">ListController</span></code><a class="headerlink" href="#listcontroller" title="Permalink to this headline">¶</a></h4>
+<p>This controller provides functionality for users to see lists of all values of
+a given data column: <code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, <code class="docutils literal notranslate"><span class="pre">skill</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">positionType</span></code>. If you look at the corresponding page at <code class="docutils literal notranslate"><span class="pre">/list</span></code> you’ll see
+there’s also an “All” option presented. That one doesn’t work yet, but you will
+fully implement that view in your work.</p>
+<p>At the top of <code class="docutils literal notranslate"><span class="pre">ListController</span></code> is a constructor that we use to populate
+<code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> with values. The <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> HashMap plays the same
+role as it did in the console app, which is to provide a centralized collection
+of the different list and search options presented throughout the user
+interface.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ListController</span></code> also has <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">listColumnValues</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> handler methods, with routes as annotated above
+the method definitions. The first of these simply displays the different types
+of lists that the user can view. The latter two display actual data obtained
+from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">listColumnValues</span></code> method, the controller uses the query parameter
+passed in as <code class="docutils literal notranslate"><span class="pre">column</span></code> to determine which values to fetch from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>. In
+the case of <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> it will fetch all job data, and then render the
+<code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code> view template. In all other cases, it fetches only the
+values for the given column and passes them to the <code class="docutils literal notranslate"><span class="pre">list-column.html</span></code> view
+template. We’ll explore these templates in a moment.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> method, we take in two query parameters:
+<code class="docutils literal notranslate"><span class="pre">column</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>. This has the net result of working similarly to the
+search functionality, in that we are “searching” for a particular value within
+a particular column and then displaying jobs that match. However, this is
+slightly different from the other way of searching in that the user will arrive
+at this handler method as a result of clicking on a link within one of our
+views, rather than via submitting a form. We’ll see where these links originate
+when we look at the views. Also note that the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code>
+method doesn’t deal with an “all” scenario; it only displays jobs matching a
+specific value in a specific column.</p>
+</div>
+</div>
+<div class="section" id="the-views">
+<h3>The Views<a class="headerlink" href="#the-views" title="Permalink to this headline">¶</a></h3>
+<p>Let’s turn our attention to the views.</p>
+<div class="section" id="fragments-html">
+<h4><code class="docutils literal notranslate"><span class="pre">fragments.html</span></code><a class="headerlink" href="#fragments-html" title="Permalink to this headline">¶</a></h4>
+<p>Open up the <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates/index.html</span></code> file in IntelliJ, and
+in your browser navigate to the site’s home page. You’ll notice that there is a
+fair amount of markup visible on the page that isn’t contained in
+<code class="docutils literal notranslate"><span class="pre">index.html</span></code>. This is because we’re using two fragments from
+<code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>—<code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">page-header</span></code>. These allow for some basic
+page structure and navigation to be shared across all of our views. Have a look
+at <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>, but know you won’t have to do any work within this file
+for this assignment.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>We use <a class="reference external" href="http://getbootstrap.com/" target="_blank">Twitter’s Bootstrap<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> CSS, HTML, and
+JS framework to provide some styling and functionality to our views. The
+appropriate files are included at the top of <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> and thus
+are included on every page of our app.</p>
+<p class="last">You won’t have to explicitly use Bootstrap at all in this assignment,
+but it’s a great way to make your sites look good with minimal work.
+Consider using it on your own projects!</p>
+</div>
+</div>
+<div class="section" id="list-views">
+<h4>List Views<a class="headerlink" href="#list-views" title="Permalink to this headline">¶</a></h4>
+<p>Turn your attention to <code class="docutils literal notranslate"><span class="pre">list.html</span></code>. This template displays the list options,
+using data from the <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> HashMap passed in via the model as
+<code class="docutils literal notranslate"><span class="pre">columns</span></code>. The only remarkable thing in this template is how we generate the
+links:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/list/values(column=${column.key})}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${column.value}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>We’ve seen the syntax <code class="docutils literal notranslate"><span class="pre">&#64;{/list/values}</span></code> to generate a link within a
+Thymleaf template, but we haven’t seen the other portion of the link:
+<code class="docutils literal notranslate"><span class="pre">(column=${column.key})</span></code>. This syntax will cause Thymeleaf to generate query
+parameters for our URL based on the key/value pairs specified.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">list.html</span></code>, we specify a query parameter named <code class="docutils literal notranslate"><span class="pre">column</span></code> by using
+<code class="docutils literal notranslate"><span class="pre">column=</span></code>. The value of the query parameter is determined dynamically based
+on the value of <code class="docutils literal notranslate"><span class="pre">${column.key}</span></code>. Since these values come from
+<code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> in the controller, they will be employer, location, etc. When
+the user clicks on these links, they will be routed to the <code class="docutils literal notranslate"><span class="pre">listColumnValues</span></code>
+handler in <code class="docutils literal notranslate"><span class="pre">ListController</span></code>, which looks for this parameter.</p>
+<p>In your browser, click on the <em>Location</em> link. This sends a request as we just
+outlined, resulting in a list of all of the locations in the data set. The page
+you’re seeing at <code class="docutils literal notranslate"><span class="pre">/list/values?column=location</span></code> is generated by the
+<code class="docutils literal notranslate"><span class="pre">list-column.html</span></code> template. It has a similar structure as <code class="docutils literal notranslate"><span class="pre">list.html</span></code>,
+with the exception that the various links are presented in a table, and their
+URLs have not one, but two, query parameter attributes—one for the column and
+one for the value. In the case of the locations list, these will result in URL
+paths like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/list/jobs?column<span class="o">=</span>location<span class="p">&amp;</span><span class="nv">value</span><span class="o">=</span>Kansas%20City
+</pre></div>
+</div>
+<p>Note that Thymeleaf inserts <code class="docutils literal notranslate"><span class="pre">%20</span></code> for us, to represent a space, and may
+actually be hidden in your browser’s address bar.</p>
+<p>Clicking on these links will display a list of jobs in the given location, via
+the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> handler method. However, that display isn’t
+working yet. While the handler method is fully implemented, as we noted above,
+the view template needs some additional work.</p>
+</div>
+<div class="section" id="search-view">
+<h4>Search View<a class="headerlink" href="#search-view" title="Permalink to this headline">¶</a></h4>
+<p>Finally, click on <em>Search</em> from the home page, or the navigation bar, and open
+up <code class="docutils literal notranslate"><span class="pre">search.html</span></code>. You’ll see a search form (in both the browser and template
+file) that gives the user the option of searching by a given column, or across
+all columns. This is an exact visual analog of our console application.</p>
+<p>This template will be used to display search results, in addition to rendering
+the form. This will give the nice user experience of easily searching multiple
+times in a row.</p>
+</div>
+</div>
+</div>
+<div class="section" id="your-tasks">
+<h2>Your Tasks<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h2>
+<p>Once you understand the controllers and views that are already in place, you’re
+ready to begin your work.</p>
+<p>In IntelliJ, select <em>View &gt; Tool Windows &gt; TODO</em> to pop open a small pane at
+the bottom of the window. This list is populated by any code comments that
+start with <code class="docutils literal notranslate"><span class="pre">TODO</span></code>. In particular, you’ll see your 3 tasks listed.</p>
+<blockquote>
+<div>TODO: Add task list figure here…</div></blockquote>
+<p>As you work on your tasks, refer to the
+<a class="reference external" href="http://techjobs-mvc.cfapps.io/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<div class="section" id="add-search-results-handler">
+<h3>Add Search Results Handler<a class="headerlink" href="#add-search-results-handler" title="Permalink to this headline">¶</a></h3>
+<p>Add another <code class="docutils literal notranslate"><span class="pre">results</span></code> handler method to <code class="docutils literal notranslate"><span class="pre">SearchController</span></code>, overloading the
+existing method. The method should take in two parameters, specifying the type
+of search and the search term. In order for the parameters to be properly
+passed in by Spring Boot, you’ll need to name them appropriately, based on the
+corresponding form field names. You’ll also need to use the correct annotations
+for the method and parameters. To configure the correct mapping route, refer to
+the form action in <code class="docutils literal notranslate"><span class="pre">search.html</span></code>.</p>
+<p>After looking up the search results via the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class, you’ll need to
+pass them into the <code class="docutils literal notranslate"><span class="pre">search.html</span></code> view via the model. You’ll also need to pass
+<code class="docutils literal notranslate"><span class="pre">ListController.columnChoices</span></code> to the view, as the existing <code class="docutils literal notranslate"><span class="pre">search</span></code>
+handler does.</p>
+</div>
+<div class="section" id="display-search-results">
+<h3>Display Search Results<a class="headerlink" href="#display-search-results" title="Permalink to this headline">¶</a></h3>
+<p>After you have your <code class="docutils literal notranslate"><span class="pre">search</span></code> handler above passing data to the view, you need
+to display the data. Open up <code class="docutils literal notranslate"><span class="pre">search.html</span></code> and create a loop to display each
+job passed in from the controller. You should put each job in its own table,
+with one job field per row.</p>
+<p>Add the CSS class <code class="docutils literal notranslate"><span class="pre">&quot;job-listing&quot;</span></code> to each of the tables to get some nice
+styling, courtesy of Carly’s work!</p>
+</div>
+<div class="section" id="display-list-of-all-jobs">
+<h3>Display List of All Jobs<a class="headerlink" href="#display-list-of-all-jobs" title="Permalink to this headline">¶</a></h3>
+<p>Recall that the page at the path <code class="docutils literal notranslate"><span class="pre">/list/values?column=all</span></code> doesn’t display
+any results yet. This page needs to show full job listings, just like the
+search results page. In fact, you can reuse the code you just wrote in
+<code class="docutils literal notranslate"><span class="pre">search.html</span></code> by defining a new fragment in that file, and then including the
+fragment in <code class="docutils literal notranslate"><span class="pre">list.jobs.html</span></code>.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">For the fragment to work properly in a different file, the data passed
+into the view via <code class="docutils literal notranslate"><span class="pre">model.addAttribute()</span></code> must have the same key in
+both places.</p>
+</div>
+</div>
+</div>
+<div class="section" id="sanity-check">
+<h2>Sanity Check<a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h2>
+<p>Before submitting, make sure that your application:</p>
+<ol class="arabic simple">
+<li>Allows a user at <code class="docutils literal notranslate"><span class="pre">/search</span></code> to search for jobs matching a specific search
+term, both within a specific column and across all columns.</li>
+<li>Displays search results at <code class="docutils literal notranslate"><span class="pre">/search/results</span></code>.</li>
+<li>Displays jobs with alternately white and gray backgrounds (this is provided
+by the <code class="docutils literal notranslate"><span class="pre">&quot;job-listing&quot;</span></code> class).</li>
+<li>Displays a listing of all 98 jobs in the system, when the user goes to the
+<em>List</em> page and selects “All”.</li>
+</ol>
+<p>Refer to the <a class="reference external" href="http://techjobs-mvc.cfapps.io/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to make sure your
+app behaves as expected.</p>
+</div>
+<div class="section" id="how-to-submit">
+<h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
+<p>To turn in your assignment and get credit, follow the
+<a class="reference internal" href="how-to-submit.html#how-to-submit-work"><span class="std std-ref">submission instructions</span></a>.</p>
+</div>
+<div class="section" id="bonus-missions">
+<h2>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<p>Here are some additional challenges, for those willing to take them on:</p>
+<ol class="arabic simple">
+<li>When searching, if we select a given field to search within and submit, our
+choice is forgotten. Modify the view template to keep the previous search
+field selected when displaying results.</li>
+<li>The field names in the tables displaying full job data are not capitalized.
+Fix this. (<em>Hint:</em> We capitalize the title string in multiple templates, so
+have a look around).</li>
+<li>In the search results listing and the listing of all jobs, make each value
+(except <code class="docutils literal notranslate"><span class="pre">name</span></code>) hyperlinked to the listing of all jobs with that value, as
+is done on the <code class="docutils literal notranslate"><span class="pre">/list/values</span></code> page.</li>
+</ol>
+<div class="section" id="super-bonus-mission">
+<h3>Super Bonus Mission<a class="headerlink" href="#super-bonus-mission" title="Permalink to this headline">¶</a></h3>
+<p>This is a big one! Prepare for a challenge!</p>
+<p>Notice that we went to the trouble of passing in the <code class="docutils literal notranslate"><span class="pre">actionChoices</span></code>
+HashMap to the view in the <code class="docutils literal notranslate"><span class="pre">HomeController.index</span></code> method. This puts the
+responsibility of which actions should be presented on the controller, and not
+the view. However, we didn’t go to such lengths for the navigation links
+displayed on every page of the site.</p>
+<p>In order to make the navigation links similarly detached, we’d need to pass
+<code class="docutils literal notranslate"><span class="pre">actionChoices</span></code> in to <em>every</em> view, since the nav links are generated in
+<code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>. We’d have to do something like the line below in every
+handler method, which would be a pain, not to mention error-prone and difficult
+to update.</p>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;actions&quot;</span><span class="o">,</span> <span class="n">actionChoices</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Let’s fix this.</p>
+<ol class="arabic simple">
+<li>Make a new controller, <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>. This new controller should
+have a static HashMap, <code class="docutils literal notranslate"><span class="pre">actionChoices</span></code>. The HashMap should be populated
+via a no-argument/default constructor, just like <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> is
+populated in <code class="docutils literal notranslate"><span class="pre">ListController</span></code>. You do NOT need to add the <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code>
+annotation to this class.</li>
+<li>Write a static method <code class="docutils literal notranslate"><span class="pre">getActionChoices</span></code> in <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code> that
+returns the <code class="docutils literal notranslate"><span class="pre">actions</span></code> HashMap.</li>
+<li>Add the annotation <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute(&quot;actions&quot;)</span></code> to this method. This
+annotation will cause the return value of the method to be set in the model
+with key <code class="docutils literal notranslate"><span class="pre">&quot;actions&quot;</span></code> for every controller that extends
+<code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</li>
+<li>Modify every one of your other controllers to extend <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</li>
+<li>Modify <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> to use the passed-in action choices to generate
+the navigation links.</li>
+<li>Finally, update your code so that <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> also lives in
+<code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</li>
+</ol>
+</div>
+</div>
 </div>
 
 
