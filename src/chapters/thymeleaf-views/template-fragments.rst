@@ -10,19 +10,9 @@ Thymeleaf allows us to do something similar with HTML.
 templates. The fragments are stored in a separate file, and they can be
 accessed by using the keywords ``fragment`` and ``replace``.
 
-Try It!
---------
-
-Code along with the following video to practice using fragments in your
-templates:
-
-.. todo::
-
-   ``Coding Events App: Refactor Templates to Use Fragments`` video goes
-   here...
-
-A summary of ``fragment`` and ``replace`` it given below, but remember that the
-text supports the video and is NOT intended as a replacement.
+A summary of these two keywords it given below, followed by another
+:ref:`video walkthrough <coding-events-fragments-vid>` to give you some more
+live-coding practice.
 
 Fragments DRY Your Code
 ------------------------
@@ -162,6 +152,22 @@ When the code runs, the ``h1`` element in line 9 will be replaced by the
 ``styledHeader`` fragment stored in the ``fragments.html`` file. Also, the
 ``p`` element in line 13 will be replaced by the ``<hr>`` and three ``<a>``
 elements defined in the ``linkList`` fragment.
+
+.. _coding-events-fragments-vid:
+
+Try It!
+--------
+
+Code along with the following video to practice using fragments in your
+templates:
+
+.. todo::
+
+   ``Coding Events App: Refactor Templates to Use Fragments`` video goes
+   here...
+
+Remember that the summary text for the ``fragment`` and ``replace`` keywords
+supports the video and is NOT intended as a replacement.
 
 Check Your Understanding
 -------------------------

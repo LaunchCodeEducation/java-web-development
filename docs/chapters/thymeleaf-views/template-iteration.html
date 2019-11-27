@@ -126,9 +126,9 @@ need to learn a different syntax.</p>
 collection.</li>
 <li>The <code class="docutils literal notranslate"><span class="pre">${}</span></code> specifies the data provided by the controller.</li>
 </ol>
-<p>We can think of a <code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement as, <em>For each item within
-collectionName, repeat this HTML tag, but use the current value of
-variableName</em>.</p>
+<p>We can think of a <code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement as saying, <em>“For each item within
+‘collectionName’, repeat this HTML tag, but use the current value of
+‘variableName’.”</em></p>
 <p>Let’s apply <code class="docutils literal notranslate"><span class="pre">th:each</span></code> to the HTML example above. Assume that we store each of
 the coffee names as a string in an ArrayList called <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code>.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -244,8 +244,8 @@ inside <code class="docutils literal notranslate"><span class="pre">th:block</sp
 <span class="p">&lt;/</span><span class="nt">th:block</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Set up this way, the code gets interpreted as, <em>Repeat the following HTML
-elements once for each item in ‘coffeeOptions’</em>. Each iteration of
+<p>Set up this way, the code gets interpreted as, <em>“Repeat the following HTML
+elements once for each item in ‘coffeeOptions’.”</em> Each iteration of
 the loop renders a heading/paragraph pair using a new <code class="docutils literal notranslate"><span class="pre">coffee</span></code> object from
 <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code>.</p>
 <div class="admonition-note admonition">

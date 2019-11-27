@@ -1,22 +1,11 @@
 Using a Template
 =================
 
-The video on this page provides you some more live-coding practice with
-Thymeleaf templates. Return to your ``hello-spring`` project and code along as
-you watch the clip.
+In the video at the :ref:`bottom of this page <hello-spring-vid2>`, you will
+extend your ``hello-spring`` project and practice using Thymeleaf templates as
+you code along with the clip.
 
-.. admonition:: Warning
-
-   This video and the others in the chapter walk you through building a small
-   web-based project. Do NOT skip this practice, because the end of chapter
-   exercises pick up where the tutorials end.
-
-Try It!
---------
-
-.. todo:: ``hello-spring`` video #2 goes here...
-
-Now that your project is growing, let's review one skill and two
+Before you get there, however, let's review one core skill and two
 best-practices.
 
 Passing Data to a Template
@@ -144,6 +133,26 @@ need to use a single file path in a given controller. This improves the
 efficiency of your code, saves you from getting a headache trying to find and
 fix a specific file, and streamlines updates by reducing the lines of code
 that need to be modified.
+
+.. _hello-spring-vid2:
+
+Try It!
+--------
+
+The video below provides you some live-coding practice with Thymeleaf
+templates. Return to your ``hello-spring`` project and code along as you watch
+the clip.
+
+.. admonition:: Warning
+
+   This video and the others in the chapter walk you through building a small
+   web-based project. Do NOT skip this practice, because the end of chapter
+   exercises pick up where the tutorials end.
+
+.. todo:: ``hello-spring`` video #2 goes here...
+
+Save, commit, and push your work. You will return to this project over the next
+couple of pages.
 
 Check Your Understanding
 -------------------------

@@ -86,26 +86,13 @@
     
   <div class="section" id="using-a-template">
 <h1>11.3. Using a Template<a class="headerlink" href="#using-a-template" title="Permalink to this headline">¶</a></h1>
-<p>The video on this page provides you some more live-coding practice with
-Thymeleaf templates. Return to your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project and code along as
-you watch the clip.</p>
-<div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">This video and the others in the chapter walk you through building a small
-web-based project. Do NOT skip this practice, because the end of chapter
-exercises pick up where the tutorials end.</p>
-</div>
-<div class="section" id="try-it">
-<h2>11.3.1. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> video #2 goes here…</p>
-</div>
-<p>Now that your project is growing, let’s review one skill and two
+<p>In the video at the <a class="reference internal" href="#hello-spring-vid2"><span class="std std-ref">bottom of this page</span></a>, you will
+extend your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project and practice using Thymeleaf templates as
+you code along with the clip.</p>
+<p>Before you get there, however, let’s review one core skill and two
 best-practices.</p>
-</div>
 <div class="section" id="passing-data-to-a-template">
-<h2>11.3.2. Passing Data to a Template<a class="headerlink" href="#passing-data-to-a-template" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.1. Passing Data to a Template<a class="headerlink" href="#passing-data-to-a-template" title="Permalink to this headline">¶</a></h2>
 <p>The controller class contains methods that send data to different templates.
 These methods have a structure similar to:</p>
 <div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -139,7 +126,7 @@ subfolder called <code class="docutils literal notranslate"><span class="pre">an
 then the return statement would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;animals/dogs&quot;;</span></code>.</li>
 </ol>
 <div class="section" id="accessing-data-in-a-template">
-<h3>11.3.2.1. Accessing Data in a Template<a class="headerlink" href="#accessing-data-in-a-template" title="Permalink to this headline">¶</a></h3>
+<h3>11.3.1.1. Accessing Data in a Template<a class="headerlink" href="#accessing-data-in-a-template" title="Permalink to this headline">¶</a></h3>
 <p>Thymeleaf commands appear (in most cases) as <em>attributes</em> within a standard
 HTML tag. Each command starts with the prefix <code class="docutils literal notranslate"><span class="pre">th</span></code>, followed by a keyword.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">tag</span> <span class="na">th:keyword </span><span class="o">=</span> <span class="s">&quot;...&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">tag</span><span class="p">&gt;</span>
@@ -168,7 +155,7 @@ corresponding change in the text in the view after refreshing.</p>
 </div>
 </div>
 <div class="section" id="setting-default-text">
-<h2>11.3.3. Setting Default Text<a class="headerlink" href="#setting-default-text" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.2. Setting Default Text<a class="headerlink" href="#setting-default-text" title="Permalink to this headline">¶</a></h2>
 <p>What if we want to view our template without running the program? As mentioned
 earlier in the chapter, Thymeleaf files can be opened in a browser and
 displayed as a webpage. With no data, however, opening a template shows blank
@@ -204,7 +191,7 @@ data will appear in different sections.</p>
 </div>
 </div>
 <div class="section" id="organizing-templates">
-<h2>11.3.4. Organizing Templates<a class="headerlink" href="#organizing-templates" title="Permalink to this headline">¶</a></h2>
+<h2>11.3.3. Organizing Templates<a class="headerlink" href="#organizing-templates" title="Permalink to this headline">¶</a></h2>
 <p>As any project grows, the number of templates required to build the website
 will increase. Instead of just throwing all of the files into the
 <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder, best-practice mandates that we place related items
@@ -220,6 +207,24 @@ need to use a single file path in a given controller. This improves the
 efficiency of your code, saves you from getting a headache trying to find and
 fix a specific file, and streamlines updates by reducing the lines of code
 that need to be modified.</p>
+</div>
+<div class="section" id="try-it">
+<span id="hello-spring-vid2"></span><h2>11.3.4. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<p>The video below provides you some live-coding practice with Thymeleaf
+templates. Return to your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project and code along as you watch
+the clip.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">This video and the others in the chapter walk you through building a small
+web-based project. Do NOT skip this practice, because the end of chapter
+exercises pick up where the tutorials end.</p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> video #2 goes here…</p>
+</div>
+<p>Save, commit, and push your work. You will return to this project over the next
+couple of pages.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>11.3.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>

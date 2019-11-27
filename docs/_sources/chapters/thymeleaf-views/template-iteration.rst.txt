@@ -47,9 +47,9 @@ The general syntax for iterating through a collection in Thymeleaf is:
    collection.
 #. The ``${}`` specifies the data provided by the controller.
 
-We can think of a ``th:each`` statement as, *For each item within
-collectionName, repeat this HTML tag, but use the current value of
-variableName*.
+We can think of a ``th:each`` statement as saying, *"For each item within
+'collectionName', repeat this HTML tag, but use the current value of
+'variableName'."*
 
 Let's apply ``th:each`` to the HTML example above. Assume that we store each of
 the coffee names as a string in an ArrayList called ``coffeeOptions``.
@@ -170,8 +170,8 @@ inside ``th:block``:
       <p th:text = "${coffee.description}">Info</p>
    </th:block>
 
-Set up this way, the code gets interpreted as, *Repeat the following HTML
-elements once for each item in 'coffeeOptions'*. Each iteration of
+Set up this way, the code gets interpreted as, *"Repeat the following HTML
+elements once for each item in 'coffeeOptions'."* Each iteration of
 the loop renders a heading/paragraph pair using a new ``coffee`` object from
 ``coffeeOptions``.
 

@@ -12,19 +12,6 @@ Just like the ``for/each`` syntax differs between Java and Thymeleaf, we need
 to examine how to include *conditionals* in our templates. The logic remains
 the same, but the implementation requires practice.
 
-Try It!
---------
-
-Code along with the following video to gain more practice with Thymeleaf
-iteration and conditionals:
-
-.. todo:: ``hello-spring`` video #3 goes here...
-
-The text on this page and the previous one provides details for some of the
-concepts presented in the clip. Note that these summaries are NOT intended as
-a replacement for the walkthrough. To get better at coding, you need to
-actually CODE instead of just reading about how to do it.
-
 Display Content ``if``
 -----------------------
 
@@ -118,7 +105,7 @@ We could update our coffee code with an ``unless``:
 As long as ``userSelection`` is NOT ``"instant"``, the condition evaluates to
 ``false``, and the ``h2`` element gets added to the view.
 
-If we want to set up a situation like *If true, do this thing. Otherwise, do
+If we want to set up a situation like *if true, do this thing. Otherwise, do
 this other thing*, we need to pair a ``th:if`` with a ``th:unless``.
 
 .. admonition:: Example
@@ -179,6 +166,20 @@ syntax for these is as follows:
    .. sourcecode:: groovy
 
       <p th:if = "${variableName != 5}">Value is NOT equal to 5.</p>
+
+
+Try It!
+--------
+
+Code along with the following video to gain more practice with Thymeleaf
+iteration and conditionals:
+
+.. todo:: ``hello-spring`` video #3 goes here...
+
+The text on this page and the previous one provides details for some of the
+concepts presented in the clip. Note that these summaries are NOT intended as
+a replacement for the walkthrough. To get better at coding, you need to
+actually CODE instead of just reading about how to do it.
 
 Check Your Understanding
 -------------------------

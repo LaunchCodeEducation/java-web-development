@@ -7,7 +7,7 @@ options at the bottom of the page, and 118 carefully colored boxes with
 links---one for each element on the periodic table. All of this content is
 very deliberately arranged and styled.
 
-Imagine if you were tasked by your boss to build this website. Setting up the
+Imagine your boss tasks you with creating this website. Setting up the
 HTML tags for the navigation bar would be straightforward, but what about the
 element boxes? You would need to make 118 similar structures, but with
 different text, links, and colors. Trying to make the table structure work
@@ -19,22 +19,20 @@ items in the HTML. Also, if that information appears in other areas of the
 website, then you need to modify that code as well.
 
 Whew! Changing the website rapidly becomes problematic, especially since it
-contains lots of data and consists of multiple pages. If only there was
-a way to automate the tasks required to build and maintain a website...
+contains lots of data and consists of multiple pages. This is where templates
+come in to play. They help automate the tasks required to build and maintain a
+website.
 
 Templates are Frameworks
 -------------------------
 
 .. index:: ! template
 
-A **template** provides the general structure for a web page. It identifies
-where different elements get placed on the page, but it does NOT fill them with
-specific data.
-
-Think of a template as an outline for a web page. Any page made with a
-particular template includes its elements and follows its rules. If we add
-content to the template or modify it in some way, all pages made with that
-template will also reflect the changes.
+A **template** provides the general structure for a web page. Templates outline
+for us and Spring where different elements get placed on the page. Any page
+made with a template includes its elements and follows its rules. If we add
+content to the template or modify it in some way, all pages made from that
+template will reflect the changes.
 
 Let's see how using a template makes our lives easier.
 

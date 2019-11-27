@@ -91,20 +91,11 @@ Thymeleaf allows us to do something similar with HTML.</p>
 <p id="index-0"><strong>Fragments</strong> are blocks of HTML elements that we want to use across multiple
 templates. The fragments are stored in a separate file, and they can be
 accessed by using the keywords <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
-<div class="section" id="try-it">
-<h2>11.8.1. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
-<p>Code along with the following video to practice using fragments in your
-templates:</p>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Todo</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">Coding</span> <span class="pre">Events</span> <span class="pre">App:</span> <span class="pre">Refactor</span> <span class="pre">Templates</span> <span class="pre">to</span> <span class="pre">Use</span> <span class="pre">Fragments</span></code> video goes
-here…</p>
-</div>
-<p>A summary of <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code> it given below, but remember that the
-text supports the video and is NOT intended as a replacement.</p>
-</div>
+<p>A summary of these two keywords it given below, followed by another
+<a class="reference internal" href="#coding-events-fragments-vid"><span class="std std-ref">video walkthrough</span></a> to give you some more
+live-coding practice.</p>
 <div class="section" id="fragments-dry-your-code">
-<h2>11.8.2. Fragments DRY Your Code<a class="headerlink" href="#fragments-dry-your-code" title="Permalink to this headline">¶</a></h2>
+<h2>11.8.1. Fragments DRY Your Code<a class="headerlink" href="#fragments-dry-your-code" title="Permalink to this headline">¶</a></h2>
 <p>Anythyme you find yourself typing identical code into different templates,
 little alarm bells should go of in your head, and you should think, <em>How can I
 streamline this?</em></p>
@@ -114,7 +105,7 @@ streamline this?</em></p>
 </pre></div>
 </div>
 <div class="section" id="th-fragment">
-<h3>11.8.2.1. <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code><a class="headerlink" href="#th-fragment" title="Permalink to this headline">¶</a></h3>
+<h3>11.8.1.1. <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code><a class="headerlink" href="#th-fragment" title="Permalink to this headline">¶</a></h3>
 <p>Let’s assume that you want to add the same styled header and a set of links to
 multiple pages within your web project.</p>
 <div class="admonition-examples admonition">
@@ -195,7 +186,7 @@ the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/
 </div>
 </div>
 <div class="section" id="th-replace">
-<h3>11.8.2.2. <code class="docutils literal notranslate"><span class="pre">th:replace</span></code><a class="headerlink" href="#th-replace" title="Permalink to this headline">¶</a></h3>
+<h3>11.8.1.2. <code class="docutils literal notranslate"><span class="pre">th:replace</span></code><a class="headerlink" href="#th-replace" title="Permalink to this headline">¶</a></h3>
 <p>This attribute does just what the name implies—it <em>replaces</em> the tag that
 contains it with the selected fragment. Thus, if the fragment is a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>
 element, and the template contains <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;...&quot;&gt;</span></code>, then the
@@ -244,6 +235,18 @@ to match the HTML tags in the fragment.</p>
 <code class="docutils literal notranslate"><span class="pre">p</span></code> element in line 13 will be replaced by the <code class="docutils literal notranslate"><span class="pre">&lt;hr&gt;</span></code> and three <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>
 elements defined in the <code class="docutils literal notranslate"><span class="pre">linkList</span></code> fragment.</p>
 </div>
+</div>
+<div class="section" id="try-it">
+<span id="coding-events-fragments-vid"></span><h2>11.8.2. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<p>Code along with the following video to practice using fragments in your
+templates:</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">Coding</span> <span class="pre">Events</span> <span class="pre">App:</span> <span class="pre">Refactor</span> <span class="pre">Templates</span> <span class="pre">to</span> <span class="pre">Use</span> <span class="pre">Fragments</span></code> video goes
+here…</p>
+</div>
+<p>Remember that the summary text for the <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code> keywords
+supports the video and is NOT intended as a replacement.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>11.8.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
