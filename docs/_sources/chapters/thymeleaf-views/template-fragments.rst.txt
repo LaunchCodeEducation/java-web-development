@@ -49,8 +49,8 @@ multiple pages within your web project.
       :linenos:
 
       <hr>
-      <a href = "https://www.launchcode.org">LaunchCode</a>
-      <a href = "https://www.lego.com">Play Well</a>
+      <a href = "https://www.launchcode.org">LaunchCode</a> <br/>
+      <a href = "https://www.lego.com">Play Well</a> <br/>
       <a href = "https://www.webelements.com">Other Building Blocks</a>
 
 Instead of pasting this code into every template, we will store the HTML in
@@ -78,8 +78,8 @@ a separate file.
 
          <div th:fragment = "linkList">
             <hr>
-            <a href = "https://www.launchcode.org">LaunchCode</a>
-            <a href = "https://www.lego.com">Play Well</a>
+            <a href = "https://www.launchcode.org">LaunchCode</a> <br/>
+            <a href = "https://www.lego.com">Play Well</a> <br/>
             <a href = "https://www.webelements.com">Other Building Blocks</a>
          </div>
 
@@ -96,8 +96,8 @@ We can now pull either of the fragments---``styledHeader`` or
 
       <th:block th:fragment = "linkList">
          <hr>
-         <a href = "https://www.launchcode.org">LaunchCode</a>
-         <a href = "https://www.lego.com">Play Well</a>
+         <a href = "https://www.launchcode.org">LaunchCode</a> <br/>
+         <a href = "https://www.lego.com">Play Well</a> <br/>
          <a href = "https://www.webelements.com">Other Building Blocks</a>
       </th:block>
 
@@ -181,8 +181,8 @@ Check Your Understanding
 
       <th:block th:fragment = "linkList">
          <hr>
-         <a href = "https://www.launchcode.org">LaunchCode</a>
-         <a href = "https://www.lego.com">Play Well</a>
+         <a href = "https://www.launchcode.org">LaunchCode</a> <br/>
+         <a href = "https://www.lego.com">Play Well</a> <br/>
          <a href = "https://www.webelements.com">Other Building Blocks</a>
       </th:block>
 
