@@ -36,4 +36,6 @@ We can also write and run apps quickly because of the embedded application serve
 Spring - Video Introduction
 ---------------------------
 
-.. TODO VIDEO .. Hello_Spring 1 Intro
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/V_yz_naA3_c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>

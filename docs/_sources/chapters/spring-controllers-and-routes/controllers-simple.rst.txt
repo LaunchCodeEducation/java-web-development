@@ -15,7 +15,9 @@ via controller methods.
 Controllers and Static Responses - Video
 ----------------------------------------
 
-.. TODO VIDEO .. Static Responses
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/attSxLlXkz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 Controllers and Static Responses - Intro
 ----------------------------------------
