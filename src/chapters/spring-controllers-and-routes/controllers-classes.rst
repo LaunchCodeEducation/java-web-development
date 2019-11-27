@@ -1,6 +1,15 @@
 Class Level Controller Annotations
 ==================================
 
+Controller Classes - Video
+--------------------------
+
+.. TODO VIDEO .. Controller Classes
+
+
+Controller Classes - Text
+--------------------------
+
 Once you have written several controller methods within a class, you may
 notice some similar behavior across handlers. This is an opportunity to 
 DRY your code. Some of the annotations we use at the method level can also 

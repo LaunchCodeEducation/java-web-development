@@ -32,3 +32,8 @@ For this class, we will be using **Spring Boot**, an extension of **Spring MVC**
 Spring Boot gives us easier configuration options than Spring MVC and is a framework that helps us write applications with the idea of convention over configuration.
 With Spring Boot's default settings and locations, we won't have to configure all of the paths and settings for our applications.
 We can also write and run apps quickly because of the embedded application server, **Tomcat**.
+
+Spring - Video Introduction
+---------------------------
+
+.. TODO VIDEO .. Hello_Spring 1 Intro
