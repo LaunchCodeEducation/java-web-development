@@ -33,6 +33,12 @@ Spring Boot gives us easier configuration options than Spring MVC and is a frame
 With Spring Boot's default settings and locations, we won't have to configure all of the paths and settings for our applications.
 We can also write and run apps quickly because of the embedded application server, **Tomcat**.
 
+How we Teach Spring
+-------------------
+
+The following section is the first of many videos we will be using to demonstrate coding a Spring Boot application. The video below introduces the role of 
+controllers. In subsequent videos, we ask you to code along for maximum absorption of the topics introduced. A summary of the content introduced will follow each video.
+
 Spring - Video Introduction
 ---------------------------
 
