@@ -6,8 +6,15 @@ implement the
 :ref:`MVC <mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
-Initialize a Spring Boot Project
---------------------------------
+Initialize a Spring Boot Project - Video Instructions
+-----------------------------------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/2B8c5l_J5nA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+Initialize a Spring Boot Project - Text Instructions
+----------------------------------------------------
 
 #. Go to `start.spring.io <https://start.spring.io/>`__.
 #. For *Project*, select *Gradle Project*.
