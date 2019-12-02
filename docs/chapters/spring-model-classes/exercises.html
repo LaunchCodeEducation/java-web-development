@@ -86,6 +86,71 @@
     
   <div class="section" id="exercises-model-classes">
 <h1>12.1. Exercises: Model Classes<a class="headerlink" href="#exercises-model-classes" title="Permalink to this headline">¶</a></h1>
+<p>Add edit functionality to the <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application by following
+these steps. It assumes that you’ve added all of the code from both of
+the models lessons.</p>
+<ol class="arabic">
+<li><p class="first">Stub out two handler methods in <code class="docutils literal notranslate"><span class="pre">CheeseController</span></code>. We’ll add code
+to these in a moment, so just put the method outline in place for
+now.</p>
+<ol class="arabic simple">
+<li>Create a method to display the form with this signature:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">java</span>&#160;&#160; <span class="pre">public</span> <span class="pre">String</span> <span class="pre">displayEditForm(Model</span> <span class="pre">model,</span> <span class="pre">&#64;PathVariable</span> <span class="pre">int</span> <span class="pre">cheeseId)</span></code></p>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Create a method to process the form with this signature:
+<code class="docutils literal notranslate"><span class="pre">java</span>&#160;&#160; <span class="pre">public</span> <span class="pre">String</span> <span class="pre">processEditForm(int</span> <span class="pre">cheeseId,</span> <span class="pre">String</span> <span class="pre">name,</span> <span class="pre">String</span> <span class="pre">description)</span></code></li>
+</ol>
+</li>
+<li><p class="first">Add the necessary annotations to these forms for them to both live
+at the path <code class="docutils literal notranslate"><span class="pre">/cheese/edit</span></code> (note that we’ve configured
+<code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> on the controller class already), and so that
+the first handles <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests, and the second <code class="docutils literal notranslate"><span class="pre">POST</span></code>
+requests. You’ll need to configure the route for <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code>
+to include the path variable, so that paths like <code class="docutils literal notranslate"><span class="pre">/cheese/edit/3</span></code>
+will work.</p>
+</li>
+<li><p class="first">Create an <code class="docutils literal notranslate"><span class="pre">edit.html</span></code> view template in
+<code class="docutils literal notranslate"><span class="pre">resources/templates/cheese</span></code>.</p>
+</li>
+<li><p class="first">Copy the code from <code class="docutils literal notranslate"><span class="pre">add.html</span></code> into <code class="docutils literal notranslate"><span class="pre">edit.html</span></code>. You can copy the
+entire file contents.</p>
+</li>
+<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, ask <code class="docutils literal notranslate"><span class="pre">CheeseData</span></code> for the
+object with the given <code class="docutils literal notranslate"><span class="pre">cheeseId</span></code> and put it in the <code class="docutils literal notranslate"><span class="pre">model</span></code>.
+Return the appropriate template string.</p>
+</li>
+<li><p class="first">Within the form fields in <code class="docutils literal notranslate"><span class="pre">edit.html</span></code>, get the name and
+description from the cheese that was passed in via the <code class="docutils literal notranslate"><span class="pre">model</span></code> and
+set them as the values of the form fields.</p>
+</li>
+<li><p class="first">Add another input to hold the id of the cheese being edited. This
+should be hidden from the user:
+<code class="docutils literal notranslate"><span class="pre">html</span>&#160; <span class="pre">&lt;input</span> <span class="pre">type=&quot;hidden&quot;</span> <span class="pre">th:value=&quot;${cheese.cheeseId}&quot;</span> <span class="pre">name=&quot;cheeseId&quot;</span> <span class="pre">/&gt;</span></code></p>
+</li>
+<li><p class="first">Add a heading at the top of <code class="docutils literal notranslate"><span class="pre">edit.html</span></code> that says “Edit Cheese
+NAME (id=ID)” where NAME and ID are replaced by the values of the
+given cheese.</p>
+</li>
+<li><p class="first">Back in <code class="docutils literal notranslate"><span class="pre">processEditForm</span></code>, query <code class="docutils literal notranslate"><span class="pre">CheeseData</span></code> for the cheese
+with the given id, and then update its name and description.
+Redirect the user to the home page.</p>
+</li>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">resources/templates/cheese/index.html</span></code>, add a link to edit the
+cheese:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{&#39;/cheese/edit/&#39; + ${cheese.cheeseId}}&quot;</span><span class="p">&gt;</span>edit<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>You can put this link in a third table column, or in one of the
+existing table cells.</p>
+</li>
+<li><p class="first">Test your code! With so many changes, it’s likely that you made an
+error somewhere. Be patient, use IntelliJ’s debugger, and read your
+error messages.</p>
+</li>
+</ol>
 </div>
 
 
