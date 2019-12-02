@@ -137,7 +137,7 @@ Check Your Understanding
       
    b. False
 
-.. ans: b, the annotation goes atop the class 
+.. ans: b, False the annotation goes atop the class 
 
 .. admonition:: Question
 

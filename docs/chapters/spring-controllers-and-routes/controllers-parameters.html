@@ -152,7 +152,7 @@ annotation from the controller and returning
 <h2>10.2.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Your application is served at myfavoriteplanets.net. What is the path
+<p>Your application is served at <code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net</span></code>. What is the path
 that this controller maps to?</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;venus&quot;</span><span class="o">)</span>
 <span class="nd">@ResponseBody</span>
@@ -165,17 +165,17 @@ that this controller maps to?</p>
 </pre></div>
 </div>
 <ol class="loweralpha simple">
-<li>myfavoriteplanets.net/venus?terrestrial=true</li>
-<li>net.myfavoriteplanets/venus?terrestrial=true</li>
-<li>myfavoriteplanets/venus?terrestrial=true</li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus?terrestrial=true</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">net.myfavoriteplanets/venus?terrestrial=true</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets/venus?terrestrial=true</span></code></li>
 </ol>
 <ol class="last loweralpha simple" start="3">
-<li>myfavoriteplanets/venus/terrestrial</li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets/venus/terrestrial</span></code></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Your application is served at myfavoriteplanets.net. What URL do you
+<p>Your application is served at <code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net</span></code>. What URL do you
 need to hit so that the response is:
 <code class="docutils literal notranslate"><span class="pre">Akatsuki</span> <span class="pre">currently</span> <span class="pre">orbits</span> <span class="pre">Venus.</span></code>?</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;venus/{orbiter}&quot;</span><span class="o">)</span>
@@ -186,10 +186,10 @@ need to hit so that the response is:
 </pre></div>
 </div>
 <ol class="last loweralpha simple">
-<li>myfavoriteplanets.net/venus/{Akatsuki}</li>
-<li>myfavoriteplanets.net/venus/orbiter=Akatsuki</li>
-<li>myfavoriteplanets.net/venus/Akatsuki</li>
-<li>myfavoriteplanets.net/venus/name=Akatsuki</li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/{Akatsuki}</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/orbiter=Akatsuki</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/Akatsuki</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/name=Akatsuki</span></code></li>
 </ol>
 </div>
 </div>

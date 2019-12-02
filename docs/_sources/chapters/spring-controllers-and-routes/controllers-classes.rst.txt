@@ -48,7 +48,7 @@ Check Your Understanding
       
    b. False
 
-.. ans: b, A controller method annotated with @RequestMapping can handle multiple request types
+.. ans: b, A controller method annotated with ``@RequestMapping`` can handle multiple request types.
 
 .. admonition:: Question
 

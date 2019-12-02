@@ -3,7 +3,7 @@ Exercises: Inheritance
 
 Work on these exercises in the IntelliJ ``java-web-dev-exercises`` project. Add a new package called ``technology`` to your ``exercises`` directory.
 
-1. **Class design:** Crete a new class called ``Computer``. Before you add any more code, know that you will need to add two additional classes: ``Laptop`` and ``SmartPhone``.
+1. **Class design:** Create a new class called ``Computer``. Before you add any more code, know that you will need to add two additional classes: ``Laptop`` and ``SmartPhone``.
    Before you start coding anything inside these classes, diagram how the three classes are going to be related to each other. 
    Remember to add properties and methods to your diagram!
 

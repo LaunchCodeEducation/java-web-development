@@ -28,13 +28,14 @@ Getting Started
 
             @Test
             public void onlyBracketsReturnsTrue() {
-               BalancedBrackets test_Class = new BalancedBrackets();
-               assertTrue(test_Class.hasBalancedBrackets("[]"));
+               assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
             }
 
 .. note::
 
-   ``BalancedBrackets`` is essentially a wrapper class for a method.
+   ``BalancedBrackets`` is essentially a wrapper class for a method. And 
+   because it's only method is static, we don't need to create an instance
+   to test ``hasBalancedBrackets()``.
    
 .. tip::
 

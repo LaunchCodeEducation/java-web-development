@@ -190,7 +190,7 @@ using the method defined in ``HouseCat``.
    HouseCat cheshireCat = new HouseCat("Cheshire", 12);
 
    System.out.println(plainCat.noise()); // prints "Meeeeeeooooowww!"
-   System.out.println(garfield.noise()); // prints "Hello, my name is Cheshire!"
+   System.out.println(cheshireCat.noise()); // prints "Hello, my name is Cheshire!"
 
 
 Similar to other :ref:`java-annotations`, the ``@Override`` annotation is 
