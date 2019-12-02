@@ -5,12 +5,12 @@ Add edit functionality to the ``coding-events`` application by following
 these steps. It assumes that you’ve added all of the code from both of
 the models lessons.
 
-#. Stub out two handler methods in ``CheeseController``. We’ll add code
+#. Stub out two handler methods in ``EventController``. We’ll add code
    to these in a moment, so just put the method outline in place for
    now.
 
    #.	Create a method to display the form with this signature:
-      ``java   public String displayEditForm(Model model, @PathVariable int cheeseId)``
+      ``java   public String displayEditForm(Model model, @PathVariable int eventId)``
    #. Create a method to process the form with this signature:
       ``java   public String processEditForm(int cheeseId, String name, String description)``
 
