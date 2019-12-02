@@ -214,14 +214,14 @@ Gradle manages the external dependencies in our project.</p>
 26
 27
 28
-29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="err">{</span>
-   <span class="k">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-thymeleaf&#39;</span>
-   <span class="k">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-web&#39;</span>
-   <span class="n">developmentOnly</span> <span class="s1">&#39;org.springframework.boot:spring-boot-devtools&#39;</span>
-   <span class="n">testImplementation</span><span class="p">(</span><span class="s1">&#39;org.springframework.boot:spring-boot-starter-test&#39;</span><span class="p">)</span> <span class="err">{</span>
-      <span class="n">exclude</span> <span class="k">group</span><span class="p">:</span> <span class="s1">&#39;org.junit.vintage’, module: ‘junit-vintage-engine&#39;</span>
-   <span class="err">}</span>
-<span class="err">}</span>
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span>dependencies {
+   implementation &#39;org.springframework.boot:spring-boot-starter-thymeleaf&#39;
+   implementation &#39;org.springframework.boot:spring-boot-starter-web&#39;
+   developmentOnly &#39;org.springframework.boot:spring-boot-devtools&#39;
+   testImplementation(&#39;org.springframework.boot:spring-boot-starter-test&#39;) {
+      exclude group: &#39;org.junit.vintage’, module: ‘junit-vintage-engine&#39;
+   }
+}
 </pre></div>
 </td></tr></table></div>
 <p>Gradle fetches these external packages from another location on the Internet so that we can use them

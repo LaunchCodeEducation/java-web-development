@@ -87,16 +87,16 @@ Create a Sorting Class
 Sorting the ``flavors`` ArrayList
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In ``Main``, we declare ``allItems`` that contains everything in the ``Case``
+In ``Main``, we declare ``menu`` that contains everything in the ``Case``
 as well as specific ``flavors`` and ``cones`` collections.
 
 .. sourcecode:: Java
    :lineno-start: 6
 
    public static void main(String[] args){
-      Case allItems = new Case();
-      ArrayList<Flavor> flavors = allItems.getFlavors();
-      ArrayList<Cone> cones = allItems.getCones();
+      Case menu = new Case();
+      ArrayList<Flavor> flavors = menu.getFlavors();
+      ArrayList<Cone> cones = menu.getCones();
 
    }
 
@@ -107,9 +107,9 @@ as well as specific ``flavors`` and ``cones`` collections.
       :lineno-start: 6
 
       public static void main(String[] args){
-         Case allItems = new Case();
-         ArrayList<Flavor> flavors = allItems.getFlavors();
-         ArrayList<Cone> cones = allItems.getCones();
+         Case menu = new Case();
+         ArrayList<Flavor> flavors = menu.getFlavors();
+         ArrayList<Cone> cones = menu.getCones();
          Comparator comparator = new FlavorComparator();
       }
 
@@ -120,9 +120,9 @@ as well as specific ``flavors`` and ``cones`` collections.
       :lineno-start: 6
 
       public static void main(String[] args){
-         Case allItems = new Case();
-         ArrayList<Flavor> flavors = allItems.getFlavors();
-         ArrayList<Cone> cones = allItems.getCones();
+         Case menu = new Case();
+         ArrayList<Flavor> flavors = menu.getFlavors();
+         ArrayList<Cone> cones = menu.getCones();
          Comparator comparator = new FlavorComparator();
 
          flavors.sort(comparator);
