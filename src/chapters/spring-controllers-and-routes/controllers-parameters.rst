@@ -32,6 +32,13 @@ They contain data in key-value pairs.
    Here's our `introduction to HTTP <https://education.launchcode.org/intro-to-professional-web-dev/chapters/http/index.html>`__ 
    for reviewing the concepts.
 
+Controllers and Query Parameters - Video
+-----------------------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/cXwlynCtZSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
 .. index:: ! @RequestParam
 
 ``@RequestParam``
@@ -51,6 +58,14 @@ argument lets the handler method know about a given query string based on its ow
 
 The controller method looks for the query string in the URL that matches its parameter, ``coder``, and puts
 the paired value of that ``coder`` key into the response text.
+
+
+Controllers and Path Parameters - Video
+---------------------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/lRNO0eAcSs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 .. index:: ! @PathVariable
 

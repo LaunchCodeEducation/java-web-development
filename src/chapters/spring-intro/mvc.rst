@@ -32,3 +32,16 @@ For this class, we will be using **Spring Boot**, an extension of **Spring MVC**
 Spring Boot gives us easier configuration options than Spring MVC and is a framework that helps us write applications with the idea of convention over configuration.
 With Spring Boot's default settings and locations, we won't have to configure all of the paths and settings for our applications.
 We can also write and run apps quickly because of the embedded application server, **Tomcat**.
+
+How we Teach Spring
+-------------------
+
+The following section is the first of many videos we will be using to demonstrate coding a Spring Boot application. The video below introduces the role of 
+controllers. In subsequent videos, we ask you to code along for maximum absorption of the topics introduced. A summary of the content introduced will follow each video.
+
+Spring - Video Introduction
+---------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/V_yz_naA3_c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
