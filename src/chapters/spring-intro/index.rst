@@ -1,4 +1,4 @@
-Spring into MVC
+Spring Into MVC
 ===============
 
 .. toctree::
