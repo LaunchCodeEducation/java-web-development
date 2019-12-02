@@ -10,15 +10,15 @@ Your first two tasks as an apprentice went well! You, Blake, and Sally built
 the TechJobs console prototype and then refactored the code to move it to an
 object-oriented format.
 
-After demoing the project for the Company Team at LaunchCode, it received the
-green light to be fully built out as a web application.
+After demonstrating the project for the Company Team at LaunchCode, it received
+the green light to be fully built out as a web application.
 
 The first step in this process will be to quickly develop a `minimum viable
 product <https://en.wikipedia.org/wiki/Minimum_viable_product>`__, or MVP. The
 goal is to get a functioning web app up and running with as little work as
-possible. Then additional feedback and testing can be done early in the
-development process. Then additional behind-the-scenes work will be carried out
-to fully develop the model and data side of the application.
+possible. That way, additional feedback and testing can be done early in the
+development process. After that, additional behind-the-scenes work will be
+carried out to fully develop the model and data side of the application.
 
 For this next step in the project, you’ll be working with Carly.
 
@@ -37,15 +37,15 @@ In this project, you’ll show that you can:
 
 #. Read and understand code written by others.
 #. Work within the controller and view portions of a Spring Boot application.
-#. Create new handler methods to process form submission.
 #. Use Thymeleaf syntax to display data within a view.
+#. Create new handler methods to process form submission.
 
 TechJobs (MVC Edition)
 ----------------------
 
-You’ll start with some code that Carly has written to get you started. The idea
-behind your current assignment is to quickly deliver a functioning Spring Boot
-application, so you’ll focus on the controllers and views.
+You’ll start with some code that Carly has provided. The idea behind your
+current assignment is to quickly deliver a functioning Spring Boot application,
+so you’ll focus on the controllers and views.
 
 In order to do this, you’ll be reusing the ``JobData`` class and
 ``job_data.csv`` file from the console app. You will eventually have to go back
@@ -56,14 +56,19 @@ functionality lets you focus on the views and controllers for now.
 Your Assignment
 ---------------
 
-Carly has created a Spring Boot application and filled in some features. It has
-controllers and views for a home page, along with functionality for displaying
-lists of data values for each column/field of the data (``employer``,
-``location``, etc.). Carly also started working on the search functionality,
-but only got as far as writing the code to display the search form.
+Carly created a Spring Boot application and filled in some features. She
+refactored ``JobData`` to generate an ArrayList of ``Job`` objects based on
+your TechJobs-OO work, and she added controllers and views for a home page.
+
+She also created some basic templates for displaying lists of jobs for each
+field of the data (``employer``, ``location``, etc.). You will need to add some
+details to these views to complete their functionality.
+
+Finally, Carly started working on the search feature, but only got as far as
+writing the code to display the search form.
 
 She’s handed the project to you to finish the rest. You’ll add code to the
-controllers and views to process and display the search results, along with
+controllers and views to process the display and search results, along with
 allowing users to see all jobs in the system via the *List* page.
 
 Getting Started
@@ -109,10 +114,11 @@ package. We put "model" in quotes, since this class isn’t a model in the
 typical, MVC/object-oriented sense (maybe a better name for this assignment
 would be *TechJobs VC*).
 
-The ``JobData`` class is the exact same class that you used in the console app
-and TechJobs-OO update. The only modification is that Carly changed the path to
-the ``job_data.csv`` file so that it could be stored in the
-``src/main/resources`` directory.
+The ``JobData`` class serves the same purpose as before---it reads data from
+the ``job_data.csv`` file and stores it in a format we can use (in this case,
+an ArrayList of ``Job`` objects). Note that Carly changed the path to the
+``job_data.csv`` file so that it could be stored in the ``src/main/resources``
+directory.
 
 You’ll use some of the static methods provided by ``JobData`` in your
 controller code. Since you’re already familiar with these, we’ll leave it to
@@ -128,10 +134,11 @@ controllers already in place. Let’s look at these one at a time.
 ~~~~~~~~~~~~~~~~~~~
 
 This class has only one handler method, ``index``, which displays the home page
-for the app. As you can see, this controller renders the ``index.html``
-template (in ``src/main/resources/templates``).
+for the app. The controller renders the ``index.html`` template (in
+``src/main/resources/templates``).
 
-If you haven’t already, go to the app’s home page to see what this looks like.
+If you haven’t done so already, launch the app and examine the home page to see
+what it looks like.
 
 ``ListController``
 ~~~~~~~~~~~~~~~~~~~

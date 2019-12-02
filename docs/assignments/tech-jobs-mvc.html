@@ -90,14 +90,14 @@
 <p>Your first two tasks as an apprentice went well! You, Blake, and Sally built
 the TechJobs console prototype and then refactored the code to move it to an
 object-oriented format.</p>
-<p>After demoing the project for the Company Team at LaunchCode, it received the
-green light to be fully built out as a web application.</p>
+<p>After demonstrating the project for the Company Team at LaunchCode, it received
+the green light to be fully built out as a web application.</p>
 <p>The first step in this process will be to quickly develop a <a class="reference external" href="https://en.wikipedia.org/wiki/Minimum_viable_product" target="_blank">minimum viable
 product<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>, or MVP. The
 goal is to get a functioning web app up and running with as little work as
-possible. Then additional feedback and testing can be done early in the
-development process. Then additional behind-the-scenes work will be carried out
-to fully develop the model and data side of the application.</p>
+possible. That way, additional feedback and testing can be done early in the
+development process. After that, additional behind-the-scenes work will be
+carried out to fully develop the model and data side of the application.</p>
 <p>For this next step in the project, you’ll be working with Carly.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../_images/LC-Carly.png"><img alt="Carly's LaunchCode avatar." src="../_images/LC-Carly.png" style="width: 187.00000000000003px; height: 545.0500000000001px;" /></a>
@@ -112,15 +112,15 @@ project and left you some TODOs that she knows you can handle.</p>
 <ol class="arabic simple">
 <li>Read and understand code written by others.</li>
 <li>Work within the controller and view portions of a Spring Boot application.</li>
-<li>Create new handler methods to process form submission.</li>
 <li>Use Thymeleaf syntax to display data within a view.</li>
+<li>Create new handler methods to process form submission.</li>
 </ol>
 </div>
 <div class="section" id="techjobs-mvc-edition">
 <h2>TechJobs (MVC Edition)<a class="headerlink" href="#techjobs-mvc-edition" title="Permalink to this headline">¶</a></h2>
-<p>You’ll start with some code that Carly has written to get you started. The idea
-behind your current assignment is to quickly deliver a functioning Spring Boot
-application, so you’ll focus on the controllers and views.</p>
+<p>You’ll start with some code that Carly has provided. The idea behind your
+current assignment is to quickly deliver a functioning Spring Boot application,
+so you’ll focus on the controllers and views.</p>
 <p>In order to do this, you’ll be reusing the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class and
 <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code> file from the console app. You will eventually have to go back
 and rewrite the data portion of the application to make a true, database-backed
@@ -129,13 +129,16 @@ functionality lets you focus on the views and controllers for now.</p>
 </div>
 <div class="section" id="your-assignment">
 <h2>Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
-<p>Carly has created a Spring Boot application and filled in some features. It has
-controllers and views for a home page, along with functionality for displaying
-lists of data values for each column/field of the data (<code class="docutils literal notranslate"><span class="pre">employer</span></code>,
-<code class="docutils literal notranslate"><span class="pre">location</span></code>, etc.). Carly also started working on the search functionality,
-but only got as far as writing the code to display the search form.</p>
+<p>Carly created a Spring Boot application and filled in some features. She
+refactored <code class="docutils literal notranslate"><span class="pre">JobData</span></code> to generate an ArrayList of <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects based on
+your TechJobs-OO work, and she added controllers and views for a home page.</p>
+<p>She also created some basic templates for displaying lists of jobs for each
+field of the data (<code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, etc.). You will need to add some
+details to these views to complete their functionality.</p>
+<p>Finally, Carly started working on the search feature, but only got as far as
+writing the code to display the search form.</p>
 <p>She’s handed the project to you to finish the rest. You’ll add code to the
-controllers and views to process and display the search results, along with
+controllers and views to process the display and search results, along with
 allowing users to see all jobs in the system via the <em>List</em> page.</p>
 </div>
 <div class="section" id="getting-started">
@@ -178,10 +181,11 @@ path: <code class="docutils literal notranslate"><span class="pre">src/main/java
 package. We put “model” in quotes, since this class isn’t a model in the
 typical, MVC/object-oriented sense (maybe a better name for this assignment
 would be <em>TechJobs VC</em>).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class is the exact same class that you used in the console app
-and TechJobs-OO update. The only modification is that Carly changed the path to
-the <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code> file so that it could be stored in the
-<code class="docutils literal notranslate"><span class="pre">src/main/resources</span></code> directory.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class serves the same purpose as before—it reads data from
+the <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code> file and stores it in a format we can use (in this case,
+an ArrayList of <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects). Note that Carly changed the path to the
+<code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code> file so that it could be stored in the <code class="docutils literal notranslate"><span class="pre">src/main/resources</span></code>
+directory.</p>
 <p>You’ll use some of the static methods provided by <code class="docutils literal notranslate"><span class="pre">JobData</span></code> in your
 controller code. Since you’re already familiar with these, we’ll leave it to
 you to review their functionality as you go.</p>
@@ -193,9 +197,10 @@ controllers already in place. Let’s look at these one at a time.</p>
 <div class="section" id="homecontroller">
 <h4><code class="docutils literal notranslate"><span class="pre">HomeController</span></code><a class="headerlink" href="#homecontroller" title="Permalink to this headline">¶</a></h4>
 <p>This class has only one handler method, <code class="docutils literal notranslate"><span class="pre">index</span></code>, which displays the home page
-for the app. As you can see, this controller renders the <code class="docutils literal notranslate"><span class="pre">index.html</span></code>
-template (in <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code>).</p>
-<p>If you haven’t already, go to the app’s home page to see what this looks like.</p>
+for the app. The controller renders the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> template (in
+<code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code>).</p>
+<p>If you haven’t done so already, launch the app and examine the home page to see
+what it looks like.</p>
 </div>
 <div class="section" id="listcontroller">
 <h4><code class="docutils literal notranslate"><span class="pre">ListController</span></code><a class="headerlink" href="#listcontroller" title="Permalink to this headline">¶</a></h4>
