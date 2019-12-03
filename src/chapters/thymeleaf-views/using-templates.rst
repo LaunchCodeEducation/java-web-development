@@ -183,9 +183,9 @@ Check Your Understanding
 
    Which of the following will produce the desired result?
 
-   #. ``<li th:text = "${Item name: ${name}, Price = ${price}}"></li>``
+   #. ``<li th:text = "${'Item name: ' + name + ', Price = ' + price}"></li>``
    #. ``<li th:text = "Item name: ${name}, Price = ${price}"></li>``
    #. ``<li th:text = "${name}, ${price}">Item name: , Price = </li>``
    #. ``<li>Item name: ${name}, Price = ${price}</li>``
 
-.. Answer = b
+.. Answer = a
