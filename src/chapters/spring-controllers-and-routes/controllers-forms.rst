@@ -1,6 +1,16 @@
 Controllers with Forms
 ======================
 
+Sending Form Data - Video
+-------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/LQxzrKPnUGY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+Sending Form Data - Text
+-------------------------
+
 What if we want to send over some form data? To send data via a simple form in Spring 
 Boot, we'll set things up like this:
 

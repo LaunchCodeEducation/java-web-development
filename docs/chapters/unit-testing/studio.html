@@ -108,8 +108,7 @@ When your tests fail, correct the class to pass your tests.</p>
 <p>Assert that brackets in the correct order, <code class="docutils literal notranslate"><span class="pre">&quot;[]&quot;</span></code>, return true.</p>
 <div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyBracketsReturnsTrue</span><span class="o">()</span> <span class="o">{</span>
-   <span class="n">BalancedBrackets</span> <span class="n">test_Class</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BalancedBrackets</span><span class="o">();</span>
-   <span class="n">assertTrue</span><span class="o">(</span><span class="n">test_Class</span><span class="o">.</span><span class="na">hasBalancedBrackets</span><span class="o">(</span><span class="s">&quot;[]&quot;</span><span class="o">));</span>
+   <span class="n">assertTrue</span><span class="o">(</span><span class="n">BalancedBrackets</span><span class="o">.</span><span class="na">hasBalancedBrackets</span><span class="o">(</span><span class="s">&quot;[]&quot;</span><span class="o">));</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -120,7 +119,9 @@ When your tests fail, correct the class to pass your tests.</p>
 </ol>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code> is essentially a wrapper class for a method.</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code> is essentially a wrapper class for a method. And
+because it’s only method is static, we don’t need to create an instance
+to test <code class="docutils literal notranslate"><span class="pre">hasBalancedBrackets()</span></code>.</p>
 </div>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>

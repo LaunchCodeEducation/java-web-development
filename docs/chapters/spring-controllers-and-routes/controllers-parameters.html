@@ -108,8 +108,11 @@ requires a foundational understanding of HTTP data transfer.</p>
 for reviewing the concepts.</p>
 </div>
 </div>
+<div class="section" id="controllers-and-query-parameters-video">
+<h2>10.2.2. Controllers and Query Parameters - Video<a class="headerlink" href="#controllers-and-query-parameters-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/cXwlynCtZSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
 <div class="section" id="requestparam">
-<span id="index-2"></span><h2>10.2.2. <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code><a class="headerlink" href="#requestparam" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>10.2.3. <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code><a class="headerlink" href="#requestparam" title="Permalink to this headline">¶</a></h2>
 <p>We can pass <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> as an argument of a controller method. This annotation as an
 argument lets the handler method know about a given query string based on its own argument.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Responds to get requests at /hello?coder=LaunchCoder</span>
@@ -123,8 +126,11 @@ argument lets the handler method know about a given query string based on its ow
 <p>The controller method looks for the query string in the URL that matches its parameter, <code class="docutils literal notranslate"><span class="pre">coder</span></code>, and puts
 the paired value of that <code class="docutils literal notranslate"><span class="pre">coder</span></code> key into the response text.</p>
 </div>
+<div class="section" id="controllers-and-path-parameters-video">
+<h2>10.2.4. Controllers and Path Parameters - Video<a class="headerlink" href="#controllers-and-path-parameters-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/lRNO0eAcSs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
 <div class="section" id="pathvariable">
-<span id="index-3"></span><h2>10.2.3. <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code><a class="headerlink" href="#pathvariable" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>10.2.5. <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code><a class="headerlink" href="#pathvariable" title="Permalink to this headline">¶</a></h2>
 <p>Another way to handle data with a controller is by accessing the data via a segment of the
 URL. This is done with <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code>. <code class="docutils literal notranslate"><span class="pre">&#64;PathVariable</span></code> takes an argument that, if matching
 a portion of the URL, will deliver this data into the handler.</p>
@@ -149,10 +155,10 @@ annotation from the controller and returning
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>10.2.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>10.2.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Your application is served at myfavoriteplanets.net. What is the path
+<p>Your application is served at <code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net</span></code>. What is the path
 that this controller maps to?</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;venus&quot;</span><span class="o">)</span>
 <span class="nd">@ResponseBody</span>
@@ -165,17 +171,17 @@ that this controller maps to?</p>
 </pre></div>
 </div>
 <ol class="loweralpha simple">
-<li>myfavoriteplanets.net/venus?terrestrial=true</li>
-<li>net.myfavoriteplanets/venus?terrestrial=true</li>
-<li>myfavoriteplanets/venus?terrestrial=true</li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus?terrestrial=true</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">net.myfavoriteplanets/venus?terrestrial=true</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets/venus?terrestrial=true</span></code></li>
 </ol>
 <ol class="last loweralpha simple" start="3">
-<li>myfavoriteplanets/venus/terrestrial</li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets/venus/terrestrial</span></code></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Your application is served at myfavoriteplanets.net. What URL do you
+<p>Your application is served at <code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net</span></code>. What URL do you
 need to hit so that the response is:
 <code class="docutils literal notranslate"><span class="pre">Akatsuki</span> <span class="pre">currently</span> <span class="pre">orbits</span> <span class="pre">Venus.</span></code>?</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;venus/{orbiter}&quot;</span><span class="o">)</span>
@@ -186,10 +192,10 @@ need to hit so that the response is:
 </pre></div>
 </div>
 <ol class="last loweralpha simple">
-<li>myfavoriteplanets.net/venus/{Akatsuki}</li>
-<li>myfavoriteplanets.net/venus/orbiter=Akatsuki</li>
-<li>myfavoriteplanets.net/venus/Akatsuki</li>
-<li>myfavoriteplanets.net/venus/name=Akatsuki</li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/{Akatsuki}</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/orbiter=Akatsuki</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/Akatsuki</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">myfavoriteplanets.net/venus/name=Akatsuki</span></code></li>
 </ol>
 </div>
 </div>

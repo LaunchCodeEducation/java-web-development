@@ -1,6 +1,17 @@
 Class Level Controller Annotations
 ==================================
 
+Controller Classes - Video
+--------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/DvEvhB20e2s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+
+Controller Classes - Text
+--------------------------
+
 Once you have written several controller methods within a class, you may
 notice some similar behavior across handlers. This is an opportunity to 
 DRY your code. Some of the annotations we use at the method level can also 
@@ -48,7 +59,7 @@ Check Your Understanding
       
    b. False
 
-.. ans: b, A controller method annotated with @RequestMapping can handle multiple request types
+.. ans: b, A controller method annotated with ``@RequestMapping`` can handle multiple request types.
 
 .. admonition:: Question
 
