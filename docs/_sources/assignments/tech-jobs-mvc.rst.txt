@@ -152,32 +152,35 @@ fully implement that view in your work.
 At the top of ``ListController`` is a constructor that we use to populate
 ``columnChoices`` with values. The ``columnChoices`` HashMap plays the same
 role as it did in the console app, which is to provide a centralized collection
-of the different list and search options presented throughout the user
+of the different *List* and *Search* options presented throughout the user
 interface.
 
-``ListController`` also has ``index``, ``listColumnValues``, and
-``listJobsByColumnAndValue`` handler methods, with routes as annotated above
-the method definitions. The first of these simply displays the different types
-of lists that the user can view. The latter two display actual data obtained
-from ``JobData``.
+``ListController`` also has ``list`` and ``listJobsByColumnAndValue`` handler
+methods, with routes as annotated above the method definitions. The first of
+these displays clickable links for the different job categories that the user
+can view. The second displays the information obtained from ``JobData`` that
+relates to a user's choice.
 
-In the ``listColumnValues`` method, the controller uses the query parameter
-passed in as ``column`` to determine which values to fetch from ``JobData``. In
-the case of ``"all"`` it will fetch all job data, and then render the
-``list-jobs.html`` view template. In all other cases, it fetches only the
-values for the given column and passes them to the ``list-column.html`` view
-template. We’ll explore these templates in a moment.
+In the ``listJobsByColumnAndValue`` method, the controller uses two query
+parameters passed in as ``column`` and ``value`` to determine what to fetch
+from ``JobData``. In the case of ``"all"`` it will fetch all job data,
+otherwise, it will retrieve a smaller set of information. The controller then
+renders the ``list-jobs.html`` view. We’ll explore the ``list.html`` and
+``list-jobs.html`` templates in a moment.
 
-In the ``listJobsByColumnAndValue`` method, we take in two query parameters:
-``column`` and ``value``. This has the net result of working similarly to the
-search functionality, in that we are "searching" for a particular value within
-a particular column and then displaying jobs that match. However, this is
-slightly different from the other way of searching in that the user will arrive
-at this handler method as a result of clicking on a link within one of our
-views, rather than via submitting a form. We’ll see where these links originate
-when we look at the views. Also note that the ``listJobsByColumnAndValue``
-method doesn’t deal with an "all" scenario; it only displays jobs matching a
-specific value in a specific column.
+``listJobsByColumnAndValue`` works similarly to the search functionality, in
+that we are "searching" for a particular value within a particular column and
+then displaying jobs that match. However, this is slightly different from the
+other way of searching in that the user will arrive at this handler method as a
+result of clicking on a link within the ``list`` view, rather than via
+submitting a form. We’ll see where these links originate when we look at the
+views. Also note that the ``listJobsByColumnAndValue`` method deals with an
+"all" scenario differently than if a user clicks one of the category links.
+
+``SearchController``
+~~~~~~~~~~~~~~~~~~~~~
+
+Lorem ipsum...
 
 The Views
 ^^^^^^^^^
@@ -189,9 +192,9 @@ Let’s turn our attention to the views.
 
 Open up the ``src/main/resources/templates/index.html`` file in IntelliJ, and
 in your browser navigate to the site’s home page. You’ll notice that there is a
-fair amount of markup visible on the page that isn’t contained in
+fair amount of content visible on the page that isn’t contained in
 ``index.html``. This is because we’re using two fragments from
-``fragments.html``---``head`` and ``page-header``. These allow for some basic
+``fragments.html`` (``head`` and ``page-header``). These allow for some basic
 page structure and navigation to be shared across all of our views. Have a look
 at ``fragments.html``, but know you won’t have to do any work within this file
 for this assignment.
@@ -210,42 +213,56 @@ for this assignment.
 List Views
 ~~~~~~~~~~~
 
-Turn your attention to ``list.html``. This template displays the list options,
-using data from the ``columnChoices`` HashMap passed in via the model as
-``columns``. The only remarkable thing in this template is how we generate the
-links:
+Turn your attention to ``list.html``. This page displays a table of links
+broken down into several categories. Data from ``columnChoices`` is used to
+fill in the header row, and data from the ArrayLists ``employers``,
+``locations``, etc. generates the link text.
+
+The only remarkable thing in this template is how we generate the links:
 
 .. sourcecode:: html
+   :lineno-start: 26
 
-   <a th:href="@{/list/values(column=${column.key})}" th:text="${column.value}"></a>
+   <td th:each="category : ${tableChoices}">
+      <li th:each="item : ${category.value}">
+         <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
+      </li>
+   </td>
 
-We’ve seen the syntax ``@{/list/values}`` to generate a link within a
+We’ve seen the syntax ``@{/list/jobs}`` to generate a link within a
 Thymleaf template, but we haven’t seen the other portion of the link:
-``(column=${column.key})``. This syntax will cause Thymeleaf to generate query
-parameters for our URL based on the key/value pairs specified.
+``(column=${category.key},value=${position})``. This syntax causes Thymeleaf to
+dynamically generate query parameters for our URL based on the variables
+specified.
 
-In ``list.html``, we specify a query parameter named ``column`` by using
-``column=``. The value of the query parameter is determined dynamically based
-on the value of ``${column.key}``. Since these values come from
-``columnChoices`` in the controller, they will be employer, location, etc. When
-the user clicks on these links, they will be routed to the ``listColumnValues``
-handler in ``ListController``, which looks for this parameter.
+In ``list.html``, we set these parameters by using ``column=`` and ``value=``.
+The values of these parameters are determined dynamically based on
+``${category.key}`` and ``${item}``. Since these values come from
+``tableChoices`` in the controller, the *keys* will be ``employer``
+``location``, etc. The *values* will be the individual elements from the
+related ArrayList. When the user clicks on these links, they will be routed to
+the ``listJobsByColumnAndValue`` handler in ``ListController``, which looks for
+these parameters.
 
-In your browser, click on the *Location* link. This sends a request as we just
-outlined, resulting in a list of all of the locations in the data set. The page
-you’re seeing at ``/list/values?column=location`` is generated by the
-``list-column.html`` template. It has a similar structure as ``list.html``,
-with the exception that the various links are presented in a table, and their
-URLs have not one, but two, query parameter attributes---one for the column and
-one for the value. In the case of the locations list, these will result in URL
-paths like:
+In your browser, click on one of the the *Position Type* links. This sends a
+request as we just outlined, resulting in a list of all of the jobs in the data
+set that match the selected location.
 
-.. sourcecode:: bash
+The page you see at ``/list/values?column=location&value=...`` is generated by
+the ``list-jobs.html`` template. It has a similar structure as ``list.html``,
+but the table consists of only one column.
 
-   /list/jobs?column=location&value=Kansas%20City
+.. admonition:: Note
 
-Note that Thymeleaf inserts ``%20`` for us, to represent a space, and may
-actually be hidden in your browser’s address bar.
+   Select "Kansas City" from the list of locations, and then check the address
+   bar of your browser:
+
+   .. sourcecode:: bash
+
+      /list/jobs?column=location&value=Kansas%20City
+
+   Note that Thymeleaf inserts ``%20`` for us, to represent a space, but this
+   may actually be hidden in your browser’s address bar.
 
 Clicking on these links will display a list of jobs in the given location, via
 the ``listJobsByColumnAndValue`` handler method. However, that display isn’t
@@ -279,32 +296,40 @@ start with ``TODO``. In particular, you’ll see your 3 tasks listed.
 As you work on your tasks, refer to the
 `demo app <http://techjobs-mvc.cfapps.io/>`__.
 
+   TODO: Update demo link.
+
 Add Search Results Handler
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add another ``results`` handler method to ``SearchController``, overloading the
-existing method. The method should take in two parameters, specifying the type
-of search and the search term. In order for the parameters to be properly
-passed in by Spring Boot, you’ll need to name them appropriately, based on the
-corresponding form field names. You’ll also need to use the correct annotations
-for the method and parameters. To configure the correct mapping route, refer to
-the form action in ``search.html``.
+Add a ``displaySearchResults`` handler method to ``SearchController``:
 
-After looking up the search results via the ``JobData`` class, you’ll need to
-pass them into the ``search.html`` view via the model. You’ll also need to pass
-``ListController.columnChoices`` to the view, as the existing ``search``
-handler does.
+#. Use the correct annotation for the method. To configure the correct mapping
+   type and mapping route, refer to the ``form`` tag in the ``search.html``
+   template.
+#. The ``displaySearchResults`` method should take in a ``Model`` parameter.
+#. The method should also take in two other parameters, specifying the type of
+   search and the search term.
+#. In order for these last two parameters to be properly passed in by Spring
+   Boot, you need to use the correct annotation. Also, you need to name them
+   appropriately, based on the corresponding form field names defined in
+   ``search.html``.
+#. Send the search information to the appropriate ``JobData`` method, and store
+   the results in a ``jobs`` ArrayList.
+#. Pass ``jobs`` into the ``search.html`` view via the ``model`` parameter.
+#. Pass ``ListController.columnChoices`` into the view, as the existing
+   ``search`` handler does.
 
 Display Search Results
 ^^^^^^^^^^^^^^^^^^^^^^
 
-After you have your ``search`` handler above passing data to the view, you need
-to display the data. Open up ``search.html`` and create a loop to display each
-job passed in from the controller. You should put each job in its own table,
-with one job field per row.
+Once you have your ``displaySearchResults`` handler passing information to the
+view, you need to display the data.
 
-Add the CSS class ``"job-listing"`` to each of the tables to get some nice
-styling, courtesy of Carly’s work!
+#. In ``search.html``, create a loop to display each job passed in from the
+   controller.
+#. You should put each job in its own table, with one job field per row.
+#. Add the CSS class ``"job-listing"`` to each of the tables to get some nice
+   styling, courtesy of Carly’s work!
 
 Display List of All Jobs
 ^^^^^^^^^^^^^^^^^^^^^^^^

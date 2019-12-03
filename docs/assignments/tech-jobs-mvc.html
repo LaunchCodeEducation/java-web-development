@@ -212,29 +212,31 @@ fully implement that view in your work.</p>
 <p>At the top of <code class="docutils literal notranslate"><span class="pre">ListController</span></code> is a constructor that we use to populate
 <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> with values. The <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> HashMap plays the same
 role as it did in the console app, which is to provide a centralized collection
-of the different list and search options presented throughout the user
+of the different <em>List</em> and <em>Search</em> options presented throughout the user
 interface.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ListController</span></code> also has <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">listColumnValues</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> handler methods, with routes as annotated above
-the method definitions. The first of these simply displays the different types
-of lists that the user can view. The latter two display actual data obtained
-from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>.</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">listColumnValues</span></code> method, the controller uses the query parameter
-passed in as <code class="docutils literal notranslate"><span class="pre">column</span></code> to determine which values to fetch from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>. In
-the case of <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> it will fetch all job data, and then render the
-<code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code> view template. In all other cases, it fetches only the
-values for the given column and passes them to the <code class="docutils literal notranslate"><span class="pre">list-column.html</span></code> view
-template. We’ll explore these templates in a moment.</p>
-<p>In the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> method, we take in two query parameters:
-<code class="docutils literal notranslate"><span class="pre">column</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code>. This has the net result of working similarly to the
-search functionality, in that we are “searching” for a particular value within
-a particular column and then displaying jobs that match. However, this is
-slightly different from the other way of searching in that the user will arrive
-at this handler method as a result of clicking on a link within one of our
-views, rather than via submitting a form. We’ll see where these links originate
-when we look at the views. Also note that the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code>
-method doesn’t deal with an “all” scenario; it only displays jobs matching a
-specific value in a specific column.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ListController</span></code> also has <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> handler
+methods, with routes as annotated above the method definitions. The first of
+these displays clickable links for the different job categories that the user
+can view. The second displays the information obtained from <code class="docutils literal notranslate"><span class="pre">JobData</span></code> that
+relates to a user’s choice.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> method, the controller uses two query
+parameters passed in as <code class="docutils literal notranslate"><span class="pre">column</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> to determine what to fetch
+from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>. In the case of <code class="docutils literal notranslate"><span class="pre">&quot;all&quot;</span></code> it will fetch all job data,
+otherwise, it will retrieve a smaller set of information. The controller then
+renders the <code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code> view. We’ll explore the <code class="docutils literal notranslate"><span class="pre">list.html</span></code> and
+<code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code> templates in a moment.</p>
+<p><code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> works similarly to the search functionality, in
+that we are “searching” for a particular value within a particular column and
+then displaying jobs that match. However, this is slightly different from the
+other way of searching in that the user will arrive at this handler method as a
+result of clicking on a link within the <code class="docutils literal notranslate"><span class="pre">list</span></code> view, rather than via
+submitting a form. We’ll see where these links originate when we look at the
+views. Also note that the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> method deals with an
+“all” scenario differently than if a user clicks one of the category links.</p>
+</div>
+<div class="section" id="searchcontroller">
+<h4><code class="docutils literal notranslate"><span class="pre">SearchController</span></code><a class="headerlink" href="#searchcontroller" title="Permalink to this headline">¶</a></h4>
+<p>Lorem ipsum…</p>
 </div>
 </div>
 <div class="section" id="the-views">
@@ -244,9 +246,9 @@ specific value in a specific column.</p>
 <h4><code class="docutils literal notranslate"><span class="pre">fragments.html</span></code><a class="headerlink" href="#fragments-html" title="Permalink to this headline">¶</a></h4>
 <p>Open up the <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates/index.html</span></code> file in IntelliJ, and
 in your browser navigate to the site’s home page. You’ll notice that there is a
-fair amount of markup visible on the page that isn’t contained in
+fair amount of content visible on the page that isn’t contained in
 <code class="docutils literal notranslate"><span class="pre">index.html</span></code>. This is because we’re using two fragments from
-<code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>—<code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">page-header</span></code>. These allow for some basic
+<code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> (<code class="docutils literal notranslate"><span class="pre">head</span></code> and <code class="docutils literal notranslate"><span class="pre">page-header</span></code>). These allow for some basic
 page structure and navigation to be shared across all of our views. Have a look
 at <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>, but know you won’t have to do any work within this file
 for this assignment.</p>
@@ -263,36 +265,51 @@ Consider using it on your own projects!</p>
 </div>
 <div class="section" id="list-views">
 <h4>List Views<a class="headerlink" href="#list-views" title="Permalink to this headline">¶</a></h4>
-<p>Turn your attention to <code class="docutils literal notranslate"><span class="pre">list.html</span></code>. This template displays the list options,
-using data from the <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> HashMap passed in via the model as
-<code class="docutils literal notranslate"><span class="pre">columns</span></code>. The only remarkable thing in this template is how we generate the
-links:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/list/values(column=${column.key})}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${column.value}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<p>Turn your attention to <code class="docutils literal notranslate"><span class="pre">list.html</span></code>. This page displays a table of links
+broken down into several categories. Data from <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> is used to
+fill in the header row, and data from the ArrayLists <code class="docutils literal notranslate"><span class="pre">employers</span></code>,
+<code class="docutils literal notranslate"><span class="pre">locations</span></code>, etc. generates the link text.</p>
+<p>The only remarkable thing in this template is how we generate the links:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;category : ${tableChoices}&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;item : ${category.value}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/list/jobs(column=${category.key},value=${item})}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${item}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
 </pre></div>
-</div>
-<p>We’ve seen the syntax <code class="docutils literal notranslate"><span class="pre">&#64;{/list/values}</span></code> to generate a link within a
+</td></tr></table></div>
+<p>We’ve seen the syntax <code class="docutils literal notranslate"><span class="pre">&#64;{/list/jobs}</span></code> to generate a link within a
 Thymleaf template, but we haven’t seen the other portion of the link:
-<code class="docutils literal notranslate"><span class="pre">(column=${column.key})</span></code>. This syntax will cause Thymeleaf to generate query
-parameters for our URL based on the key/value pairs specified.</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">list.html</span></code>, we specify a query parameter named <code class="docutils literal notranslate"><span class="pre">column</span></code> by using
-<code class="docutils literal notranslate"><span class="pre">column=</span></code>. The value of the query parameter is determined dynamically based
-on the value of <code class="docutils literal notranslate"><span class="pre">${column.key}</span></code>. Since these values come from
-<code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> in the controller, they will be employer, location, etc. When
-the user clicks on these links, they will be routed to the <code class="docutils literal notranslate"><span class="pre">listColumnValues</span></code>
-handler in <code class="docutils literal notranslate"><span class="pre">ListController</span></code>, which looks for this parameter.</p>
-<p>In your browser, click on the <em>Location</em> link. This sends a request as we just
-outlined, resulting in a list of all of the locations in the data set. The page
-you’re seeing at <code class="docutils literal notranslate"><span class="pre">/list/values?column=location</span></code> is generated by the
-<code class="docutils literal notranslate"><span class="pre">list-column.html</span></code> template. It has a similar structure as <code class="docutils literal notranslate"><span class="pre">list.html</span></code>,
-with the exception that the various links are presented in a table, and their
-URLs have not one, but two, query parameter attributes—one for the column and
-one for the value. In the case of the locations list, these will result in URL
-paths like:</p>
+<code class="docutils literal notranslate"><span class="pre">(column=${category.key},value=${position})</span></code>. This syntax causes Thymeleaf to
+dynamically generate query parameters for our URL based on the variables
+specified.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">list.html</span></code>, we set these parameters by using <code class="docutils literal notranslate"><span class="pre">column=</span></code> and <code class="docutils literal notranslate"><span class="pre">value=</span></code>.
+The values of these parameters are determined dynamically based on
+<code class="docutils literal notranslate"><span class="pre">${category.key}</span></code> and <code class="docutils literal notranslate"><span class="pre">${item}</span></code>. Since these values come from
+<code class="docutils literal notranslate"><span class="pre">tableChoices</span></code> in the controller, the <em>keys</em> will be <code class="docutils literal notranslate"><span class="pre">employer</span></code>
+<code class="docutils literal notranslate"><span class="pre">location</span></code>, etc. The <em>values</em> will be the individual elements from the
+related ArrayList. When the user clicks on these links, they will be routed to
+the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> handler in <code class="docutils literal notranslate"><span class="pre">ListController</span></code>, which looks for
+these parameters.</p>
+<p>In your browser, click on one of the the <em>Position Type</em> links. This sends a
+request as we just outlined, resulting in a list of all of the jobs in the data
+set that match the selected location.</p>
+<p>The page you see at <code class="docutils literal notranslate"><span class="pre">/list/values?column=location&amp;value=...</span></code> is generated by
+the <code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code> template. It has a similar structure as <code class="docutils literal notranslate"><span class="pre">list.html</span></code>,
+but the table consists of only one column.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Select “Kansas City” from the list of locations, and then check the address
+bar of your browser:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/list/jobs?column<span class="o">=</span>location<span class="p">&amp;</span><span class="nv">value</span><span class="o">=</span>Kansas%20City
 </pre></div>
 </div>
-<p>Note that Thymeleaf inserts <code class="docutils literal notranslate"><span class="pre">%20</span></code> for us, to represent a space, and may
-actually be hidden in your browser’s address bar.</p>
+<p class="last">Note that Thymeleaf inserts <code class="docutils literal notranslate"><span class="pre">%20</span></code> for us, to represent a space, but this
+may actually be hidden in your browser’s address bar.</p>
+</div>
 <p>Clicking on these links will display a list of jobs in the given location, via
 the <code class="docutils literal notranslate"><span class="pre">listJobsByColumnAndValue</span></code> handler method. However, that display isn’t
 working yet. While the handler method is fully implemented, as we noted above,
@@ -321,28 +338,40 @@ start with <code class="docutils literal notranslate"><span class="pre">TODO</sp
 <div>TODO: Add task list figure here…</div></blockquote>
 <p>As you work on your tasks, refer to the
 <a class="reference external" href="http://techjobs-mvc.cfapps.io/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<blockquote>
+<div>TODO: Update demo link.</div></blockquote>
 <div class="section" id="add-search-results-handler">
 <h3>Add Search Results Handler<a class="headerlink" href="#add-search-results-handler" title="Permalink to this headline">¶</a></h3>
-<p>Add another <code class="docutils literal notranslate"><span class="pre">results</span></code> handler method to <code class="docutils literal notranslate"><span class="pre">SearchController</span></code>, overloading the
-existing method. The method should take in two parameters, specifying the type
-of search and the search term. In order for the parameters to be properly
-passed in by Spring Boot, you’ll need to name them appropriately, based on the
-corresponding form field names. You’ll also need to use the correct annotations
-for the method and parameters. To configure the correct mapping route, refer to
-the form action in <code class="docutils literal notranslate"><span class="pre">search.html</span></code>.</p>
-<p>After looking up the search results via the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class, you’ll need to
-pass them into the <code class="docutils literal notranslate"><span class="pre">search.html</span></code> view via the model. You’ll also need to pass
-<code class="docutils literal notranslate"><span class="pre">ListController.columnChoices</span></code> to the view, as the existing <code class="docutils literal notranslate"><span class="pre">search</span></code>
-handler does.</p>
+<p>Add a <code class="docutils literal notranslate"><span class="pre">displaySearchResults</span></code> handler method to <code class="docutils literal notranslate"><span class="pre">SearchController</span></code>:</p>
+<ol class="arabic simple">
+<li>Use the correct annotation for the method. To configure the correct mapping
+type and mapping route, refer to the <code class="docutils literal notranslate"><span class="pre">form</span></code> tag in the <code class="docutils literal notranslate"><span class="pre">search.html</span></code>
+template.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">displaySearchResults</span></code> method should take in a <code class="docutils literal notranslate"><span class="pre">Model</span></code> parameter.</li>
+<li>The method should also take in two other parameters, specifying the type of
+search and the search term.</li>
+<li>In order for these last two parameters to be properly passed in by Spring
+Boot, you need to use the correct annotation. Also, you need to name them
+appropriately, based on the corresponding form field names defined in
+<code class="docutils literal notranslate"><span class="pre">search.html</span></code>.</li>
+<li>Send the search information to the appropriate <code class="docutils literal notranslate"><span class="pre">JobData</span></code> method, and store
+the results in a <code class="docutils literal notranslate"><span class="pre">jobs</span></code> ArrayList.</li>
+<li>Pass <code class="docutils literal notranslate"><span class="pre">jobs</span></code> into the <code class="docutils literal notranslate"><span class="pre">search.html</span></code> view via the <code class="docutils literal notranslate"><span class="pre">model</span></code> parameter.</li>
+<li>Pass <code class="docutils literal notranslate"><span class="pre">ListController.columnChoices</span></code> into the view, as the existing
+<code class="docutils literal notranslate"><span class="pre">search</span></code> handler does.</li>
+</ol>
 </div>
 <div class="section" id="display-search-results">
 <h3>Display Search Results<a class="headerlink" href="#display-search-results" title="Permalink to this headline">¶</a></h3>
-<p>After you have your <code class="docutils literal notranslate"><span class="pre">search</span></code> handler above passing data to the view, you need
-to display the data. Open up <code class="docutils literal notranslate"><span class="pre">search.html</span></code> and create a loop to display each
-job passed in from the controller. You should put each job in its own table,
-with one job field per row.</p>
-<p>Add the CSS class <code class="docutils literal notranslate"><span class="pre">&quot;job-listing&quot;</span></code> to each of the tables to get some nice
-styling, courtesy of Carly’s work!</p>
+<p>Once you have your <code class="docutils literal notranslate"><span class="pre">displaySearchResults</span></code> handler passing information to the
+view, you need to display the data.</p>
+<ol class="arabic simple">
+<li>In <code class="docutils literal notranslate"><span class="pre">search.html</span></code>, create a loop to display each job passed in from the
+controller.</li>
+<li>You should put each job in its own table, with one job field per row.</li>
+<li>Add the CSS class <code class="docutils literal notranslate"><span class="pre">&quot;job-listing&quot;</span></code> to each of the tables to get some nice
+styling, courtesy of Carly’s work!</li>
+</ol>
 </div>
 <div class="section" id="display-list-of-all-jobs">
 <h3>Display List of All Jobs<a class="headerlink" href="#display-list-of-all-jobs" title="Permalink to this headline">¶</a></h3>
