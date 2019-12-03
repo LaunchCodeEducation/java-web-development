@@ -76,9 +76,7 @@ Getting Started
 
 Set up a local copy of the project:
 
-   TODO: Add updated GitHub link.
-
-#. Visit the `repository page <https://github.com/LaunchCodeEducation/techjobs-mvc>`__
+#. Visit the `repository page <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-mvc>`__
    for this project. Fork the repository to create a copy under your own GitHub
    account.
 #. Back in IntelliJ, close any open projects (after saving and committing your
@@ -318,9 +316,11 @@ ready to begin your work.
 
 In IntelliJ, select *View > Tool Windows > TODO* to pop open a small pane at
 the bottom of the window. This list is populated by any code comments that
-start with ``TODO``. In particular, you’ll see your 3 tasks listed.
+start with ``TODO``. You’ll see your tasks listed, and clicking on any one will
+open the relevant file.
 
-   TODO: Add task list figure here...
+.. figure:: figures/techJobsTodos.png
+   :alt: TechJobs MVC TODO list.
 
 As you work on your tasks, refer to the
 `demo app <http://techjobs-mvc.cfapps.io/>`__.
