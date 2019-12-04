@@ -92,7 +92,7 @@ the TechJobs console prototype and then refactored the code to move it to an
 object-oriented format.</p>
 <p>After demonstrating the prototype for the Company Team at LaunchCode, it
 received the green light to be fully built out as a web application.</p>
-<p>The first step in this process will be to quickly develop a <a class="reference external" href="https://en.wikipedia.org/wiki/Minimum_viable_product" target="_blank">minimum viable
+<p id="index-0">The first step in this process will be to quickly develop a <a class="reference external" href="https://en.wikipedia.org/wiki/Minimum_viable_product" target="_blank">minimum viable
 product<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>, or MVP. The
 goal is to get a functioning web app up and running with as little work as
 possible. That way, additional feedback and testing can be done early in the
@@ -154,29 +154,26 @@ for this project. Fork the repository to create a copy under your own GitHub
 account.</li>
 <li>Back in IntelliJ, close any open projects (after saving and committing your
 work).</li>
-<li>From the welcome screen, click <em>Check out from Version Control</em>, select
-<em>Git</em>.</li>
-<li>Choose your fork from the repository dropdown, select the parent directory
-where you want to store your project, and hit <em>Clone</em>.</li>
-<li>In the screens that follow:<ol class="loweralpha">
-<li>Choose <em>Create Project From Existing Sources</em> on the first pane.</li>
-<li>Select <em>Auto Import</em> in the Gradle configuration pane.</li>
-<li>Use the defaults on all other panes.</li>
-</ol>
-</li>
-<li>Start up the application (via the Gradle pane, <em>Tasks &gt; Application &gt;
+<li>From the welcome screen, click <em>Get From Version Control</em> and then select
+the <em>Git</em> option.</li>
+<li>In the next panel, enter the URL for your fork, and then select the parent
+directory where you want to store your project. Hit <em>Clone</em>.</li>
+<li>Launch the application (via the Gradle pane, <em>Tasks &gt; Application &gt;
 bootRun</em>), so you can refer to both the code as well as the running app
-while we look at what’s in place already.</li>
+as you complete the assignment.</li>
 </ol>
-<div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You’ll spend a lot of time reading and understanding the code that’s provided
-for you. This is OK! It’s an essential skill for a programmer to be
-able to read and understand code written by other developers.</p>
-</div>
 </div>
 <div class="section" id="review-the-code">
 <h2>1) Review the Code<a class="headerlink" href="#review-the-code" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>One essential programming skill that you will develop is the ability to read
+and understand someone else’s code. This assignment begins with you
+practicing exactly that. Make sure you carefully examine the provided code
+BEFORE you start changing things.</p>
+<p class="last">Trying to “fix” a code sample before understanding how it works leads to
+confusion, frustration, and a broken program. DO NOT SKIP the code review!</p>
+</div>
 <p>Carly created a Spring Boot application and filled in some features. She
 refactored <code class="docutils literal notranslate"><span class="pre">JobData</span></code> to generate an ArrayList of <code class="docutils literal notranslate"><span class="pre">Job</span></code> objects based on
 your TechJobs-OO work, and she added controllers and views for a Home, List and
@@ -210,9 +207,10 @@ controllers already in place. Let’s look at these one at a time.</p>
 <h4>The <code class="docutils literal notranslate"><span class="pre">HomeController</span></code><a class="headerlink" href="#the-homecontroller" title="Permalink to this headline">¶</a></h4>
 <p>This class has only one handler method, <code class="docutils literal notranslate"><span class="pre">index</span></code>, which displays the home page
 for the app. The controller renders the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> template (in
-<code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code>).</p>
-<p>If you haven’t done so already, launch the app and examine the home page to see
-what it looks like.</p>
+<code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code>) and provides a fairly simple view.</p>
+<div class="figure">
+<img alt="TechJobs MVC home screen." src="../_images/techJobsMvcHome.png" />
+</div>
 </div>
 <div class="section" id="the-listcontroller">
 <h4>The <code class="docutils literal notranslate"><span class="pre">ListController</span></code><a class="headerlink" href="#the-listcontroller" title="Permalink to this headline">¶</a></h4>
@@ -279,7 +277,7 @@ appropriate files are included at the top of <code class="docutils literal notra
 are included on every page of our app.</p>
 <p class="last">You won’t have to explicitly use Bootstrap at all in this assignment,
 but it’s a great way to make your sites look good with minimal work.
-Consider using it on your own projects!</p>
+Consider using it in your own projects!</p>
 </div>
 </div>
 <div class="section" id="the-list-views">

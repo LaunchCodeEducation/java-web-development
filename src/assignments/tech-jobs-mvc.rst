@@ -13,6 +13,8 @@ object-oriented format.
 After demonstrating the prototype for the Company Team at LaunchCode, it
 received the green light to be fully built out as a web application.
 
+.. index:: ! minimum viable product
+
 The first step in this process will be to quickly develop a `minimum viable
 product <https://en.wikipedia.org/wiki/Minimum_viable_product>`__, or MVP. The
 goal is to get a functioning web app up and running with as little work as
@@ -81,28 +83,26 @@ Set up a local copy of the project:
    account.
 #. Back in IntelliJ, close any open projects (after saving and committing your
    work).
-#. From the welcome screen, click *Check out from Version Control*, select
-   *Git*.
-#. Choose your fork from the repository dropdown, select the parent directory
-   where you want to store your project, and hit *Clone*.
-#. In the screens that follow:
-
-   a. Choose *Create Project From Existing Sources* on the first pane.
-   b. Select *Auto Import* in the Gradle configuration pane.
-   c. Use the defaults on all other panes.
-
-#. Start up the application (via the Gradle pane, *Tasks > Application >
+#. From the welcome screen, click *Get From Version Control* and then select
+   the *Git* option.
+#. In the next panel, enter the URL for your fork, and then select the parent
+   directory where you want to store your project. Hit *Clone*.
+#. Launch the application (via the Gradle pane, *Tasks > Application >
    bootRun*), so you can refer to both the code as well as the running app
-   while we look at what’s in place already.
-
-.. admonition:: Note
-
-   You’ll spend a lot of time reading and understanding the code that’s provided
-   for you. This is OK! It’s an essential skill for a programmer to be
-   able to read and understand code written by other developers.
+   as you complete the assignment.
 
 1) Review the Code
 -------------------
+
+.. admonition:: Tip
+
+   One essential programming skill that you will develop is the ability to read
+   and understand someone else's code. This assignment begins with you
+   practicing exactly that. Make sure you carefully examine the provided code
+   BEFORE you start changing things.
+
+   Trying to "fix" a code sample before understanding how it works leads to
+   confusion, frustration, and a broken program. DO NOT SKIP the code review!
 
 Carly created a Spring Boot application and filled in some features. She
 refactored ``JobData`` to generate an ArrayList of ``Job`` objects based on
@@ -144,10 +144,10 @@ The ``HomeController``
 
 This class has only one handler method, ``index``, which displays the home page
 for the app. The controller renders the ``index.html`` template (in
-``src/main/resources/templates``).
+``src/main/resources/templates``) and provides a fairly simple view.
 
-If you haven’t done so already, launch the app and examine the home page to see
-what it looks like.
+.. figure:: figures/techJobsMvcHome.png
+   :alt: TechJobs MVC home screen.
 
 The ``ListController``
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -227,7 +227,7 @@ any work within this file for this assignment.
 
    You won’t have to explicitly use Bootstrap at all in this assignment,
    but it’s a great way to make your sites look good with minimal work.
-   Consider using it on your own projects!
+   Consider using it in your own projects!
 
 The List Views
 ~~~~~~~~~~~~~~~
