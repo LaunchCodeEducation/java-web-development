@@ -86,18 +86,109 @@
     
   <div class="section" id="updating-past-work">
 <h1>12.3. Updating Past Work<a class="headerlink" href="#updating-past-work" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p>As you complete more and more projects, at some point you will look back at
+your early work and think, <em>Whoa! There is SUCH a better way to do that!</em> You
+will spot places where your old code is inefficient, fragile, or contains a
+bug.</p>
+<p>No worries! This happens to all developers as our skills advance. We spot
+places where our old code could be streamlined or strengthened.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>Assume your past-self created a method to check if every integer in an
+ArrayList is identical. Later, your more experienced self tackles the same
+problem.</p>
+<p><strong>Earlier self</strong>:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">checkIdentical</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arr</span><span class="o">){</span>
+   <span class="kt">int</span> <span class="n">firstNum</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+   <span class="kt">boolean</span> <span class="n">identical</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">num</span> <span class="o">:</span> <span class="n">arr</span><span class="o">){</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">!=</span> <span class="n">firstNum</span><span class="o">){</span>
+         <span class="n">identical</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+
+   <span class="k">return</span> <span class="n">identical</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This code compares the first number in the array to every other value. It
+works, but it’s not very efficient.</p>
+<p><strong>Current self</strong>:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">checkIdentical</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arr</span><span class="o">){</span>
+
+   <span class="k">return</span> <span class="n">Collections</span><span class="o">.</span><span class="na">min</span><span class="o">(</span><span class="n">arr</span><span class="o">)</span> <span class="o">==</span> <span class="n">Collections</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">arr</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last">Bam! One line, no loop. You rock!</p>
+</div>
 <div class="section" id="refactoring-code">
 <h2>12.3.1. Refactoring Code<a class="headerlink" href="#refactoring-code" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<p>Rather than feeling sheepish about the earliest code you generated, you can
+always go back and make updates.</p>
+<p id="index-0"><strong>Refactoring</strong> occurs when you improve your old work without adding any new
+features. This process is NOT the same as debugging, since your old code runs
+just fine. Instead, refactoring makes your code shorter, more efficient, more
+flexible, more robust, or more pretty.</p>
+<p>One simple example of refactoring involves changing the appearance of a view.
+Altering the font, text size, table formatting, or background color does not
+make the page behave any differently. However, it would make the view more
+appealing to look at.</p>
+<p>(If this seems like a trivial change, speak to your nearest marketing person).</p>
 </div>
 <div class="section" id="bootstrap">
 <h2>12.3.2. Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h2>
 <p>Text here…</p>
+<p>Image of standard HTML buttons (boring).</p>
+<p>Same buttons with Bootstrap classes.</p>
+<p>Image of standard HTML table (boring).</p>
+<p>Sample tables with different Bootstrap styling.</p>
+<p>Link to Bootstrap documentation.</p>
+<p>Adding Bootstrap to your templates. (Best place is in head fragment).</p>
+<p>In the video, the Bootstrap classes <code class="docutils literal notranslate"><span class="pre">container</span></code>, <code class="docutils literal notranslate"><span class="pre">form-group</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">form-control</span></code> are used to improve the look and feel of the views.</p>
 </div>
 <div class="section" id="adding-generic-code">
 <h2>12.3.3. Adding Generic Code<a class="headerlink" href="#adding-generic-code" title="Permalink to this headline">¶</a></h2>
-<p>Words here…</p>
+<p id="index-1">From time to time, you will see the term <strong>boilerplate code</strong>. This refers to
+generic, ready-made code that you can paste into just about any class or
+template. Usually, you quickly modify this code to better fit your project,
+but the boilerplate statements fill in some of the tedious structure and
+routine commands. This saves you some time time and allows you to focus on the
+more interesting parts of your work.</p>
+<p>Recall using the <em>Generate</em> option in IJ to create getters, setters, and
+custom methods.  (Internal link).</p>
+<p>Can also use <em>Generate</em> to quickly add a constructor in a class.</p>
+<div class="section" id="adding-a-default-constructor">
+<h3>12.3.3.1. Adding a Default Constructor<a class="headerlink" href="#adding-a-default-constructor" title="Permalink to this headline">¶</a></h3>
+<p>Lorem ipsum…</p>
+</div>
+</div>
+<div class="section" id="try-it">
+<h2>12.3.4. Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
+<p>Code along with the video below as you refactor your <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project
+to add a model.</p>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">Add model video #1 here…</p>
+</div>
 </div>
 </div>
 

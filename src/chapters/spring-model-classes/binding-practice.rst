@@ -21,7 +21,7 @@ Lorem ipsum...
 Try It!
 --------
 
-Embed video here...
+.. todo:: Add model video #3 here, if it exists.
 
 Check Your Understanding
 -------------------------
