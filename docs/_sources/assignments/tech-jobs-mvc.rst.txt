@@ -323,9 +323,7 @@ open the relevant file.
    :alt: TechJobs MVC TODO list.
 
 As you work on your tasks, refer to the
-`demo app <http://techjobs-mvc.cfapps.io/>`__.
-
-   TODO: Update demo link.
+`demo app <https://java-web-dev-techjobs-mvc.cfapps.io/>`__.
 
 2) Complete the List Views
 ---------------------------
@@ -433,8 +431,6 @@ view, you need to display the data.
 Sanity Check
 -------------
 
-   TODO: Add gifs or video clip demonstrating the expected behavior of the app.
-
 Before submitting, make sure that your application:
 
 #. Displays all 98 jobs in the system when the user goes to the ``/list`` page
@@ -447,6 +443,9 @@ Before submitting, make sure that your application:
 #. Allows a user at ``/search`` to search for jobs matching a specific search
    term, both within a specific category and across all categories.
 #. Displays search results below the form at ``/search/results``.
+
+Feel free to compare your project's behavior to that of the
+`demo app <https://java-web-dev-techjobs-mvc.cfapps.io/>`__.
 
 How to Submit
 --------------
