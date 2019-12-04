@@ -1,54 +1,103 @@
-Exercises: Model Classes
-========================
+Exercises: Edit Model Classes
+=============================
 
 Add edit functionality to the ``coding-events`` application by following
-these steps. It assumes that you’ve added all of the code from both of
-the models lessons.
+these steps. It assumes that you’ve added all of the code from this section of the book and your 
+application resembles this `branch <https://github.com/LaunchCodeEducation/coding-events/tree/video-models-pt2-end>`__.
 
-#. Stub out two handler methods in ``EventController``. We’ll add code
+The edit form will resemble the form used to create an event.
+
+.. admonition:: Tip 
+
+   As you work through these steps, test your code along the way! 
+   With each change you apply to your code, ask yourself what you expect to see when the application
+   is run. You may not find that all of the steps result in observable changes, though.
+   Use IntelliJ’s debugger and read your error messages if you run into issues after applying all of
+   the changes.
+
+#. Create the two handler methods listed below in ``EventController``. We’ll add code
    to these in a moment, so just put the method outline in place for
    now.
 
-   #.	Create a method to display the form with this signature:
-      ``java   public String displayEditForm(Model model, @PathVariable int eventId)``
-   #. Create a method to process the form with this signature:
-      ``java   public String processEditForm(int cheeseId, String name, String description)``
+   #. Create a method to display an edit form with this signature:
 
-#. Add the necessary annotations to these forms for them to both live
-   at the path ``/cheese/edit`` (note that we’ve configured
-   ``@RequestMapping`` on the controller class already), and so that
-   the first handles ``GET`` requests, and the second ``POST``
-   requests. You’ll need to configure the route for ``displayEditForm``
-   to include the path variable, so that paths like ``/cheese/edit/3``
-   will work.
+      .. sourcecode:: java
+         :linenos:
+
+         public String displayEditForm(Model model, @PathVariable int eventId) {
+            // controller code will go here
+         }
+
+   #. Create a method to process the form with this signature:
+
+      .. sourcecode:: java
+         :linenos:
+
+         public String processEditForm(int eventId, String name, String description) {
+            // controller code will go here
+         }
+
+#. Add the necessary annotations to these methods for them to both live
+   at the path ``/events/edit``.
+    
+   #. Judging by the names of the handlers, which should handle ``GET`` requests and which should 
+      handle ``POST`` requests?
+   
+   #. Remember, we’ve configured ``@RequestMapping`` with a URL segment on the controller class already.
+
+   #. You’ll need to configure the route for ``displayEditForm`` to include the path variable ``eventId``, 
+      so that paths like ``/events/edit/3`` will work.
+
 #. Create an ``edit.html`` view template in
-   ``resources/templates/cheese``.
-#. Copy the code from ``add.html`` into ``edit.html``. You can copy the
-   entire file contents.
-#. Back in the ``displayEditForm`` handler, ask ``CheeseData`` for the
-   object with the given ``cheeseId`` and put it in the ``model``.
-   Return the appropriate template string.
-#. Within the form fields in ``edit.html``, get the name and
-   description from the cheese that was passed in via the ``model`` and
-   set them as the values of the form fields.
-#. Add another input to hold the id of the cheese being edited. This
+   ``resources/templates/events``.
+
+#. Copy the code from ``create.html`` into ``edit.html``. 
+
+   #. You'll want to update the text of the submit button to reflect the edit functionality.
+
+#. Back in the ``displayEditForm`` handler, round out the controller method.
+
+   #. Use an ``EventData`` method to find the event object with the given ``eventId``.
+   
+   #. Put the event object in the ``model`` with ``.addAttribute()``.
+
+   #. Return the appropriate template string.
+
+#. Within the form fields in ``edit.html``, 
+
+   #. Get the name and description from the event that was passed in via the ``model`` and
+      set them as the values of the form fields.
+   
+   #. Add ``th:action="@{/events/edit}"`` to the ``form`` tag.
+
+#. Add another input to hold the id of the event being edited. This
    should be hidden from the user:
-   ``html  <input type="hidden" th:value="${cheese.cheeseId}" name="cheeseId" />``
-#. Add a heading at the top of ``edit.html`` that says “Edit Cheese
-   NAME (id=ID)” where NAME and ID are replaced by the values of the
-   given cheese.
-#. Back in ``processEditForm``, query ``CheeseData`` for the cheese
-   with the given id, and then update its name and description.
-   Redirect the user to the home page.
-#. In ``resources/templates/cheese/index.html``, add a link to edit the
-   cheese:
 
    .. sourcecode:: html
 
-      <a th:href="@{'/cheese/edit/' + ${cheese.cheeseId}}">edit</a>
+      <input type="hidden" th:value="${event.eventId}" name="eventId" />
 
-   You can put this link in a third table column, or in one of the
-   existing table cells.
-#. Test your code! With so many changes, it’s likely that you made an
-   error somewhere. Be patient, use IntelliJ’s debugger, and read your
-   error messages.
+#. Back in the ``displayEditForm`` handler, add a title that reads “Edit Event
+   NAME (id=ID)” where NAME and ID are replaced by the values of the
+   given event. 
+
+#. In ``processEditForm``, 
+
+   #. Query ``EventData`` for the event being edited with the given id parameter. 
+   
+   #. Update the name and description of the event with the appropriate model setter methods.
+
+   #. Redirect the user to the home page.
+
+#. To access event editing, the user will have an edit option in the list of event data.
+
+   #. In ``resources/templates/events/index.html``, add a link to a new table column to edit the 
+      event:
+
+      .. sourcecode:: html
+         :linenos:
+
+         <td>
+            <a th:href="@{/events/edit/{id}(id=${event.eventId})}">Edit</a>
+         </td>
+

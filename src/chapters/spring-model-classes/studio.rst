@@ -1,18 +1,19 @@
 Studio: User Signup
 ===================
-For this studio you will add functionality to allow users to “sign up”
-for your ``cheese-mvc`` app.
+For this studio you will add functionality to allow users to sign up
+for your ``coding-events`` app.
 
 Getting Ready
 -------------
 
-Within ``cheese-mvc`` create the following files.. - Create a
-``UserController`` in ``org.launchcode.controllers``. Add the
-``@Controller`` annotation, along with ``@RequestMapping("user")`` to
-configure routes into the controller. - Create a new folder, ``user/``
-within ``resources/templates`` - Create ``index.html`` and ``add.html``
-templates within\ ``resources/templates/user/`` - Create a ``User``
-class within ``org.launchcode.models``
+Within ``coding-events`` create the following files. 
+
+#. Create a ``UserController`` in ``org.launchcode.controllers``. Add the
+	``@Controller`` annotation, along with ``@RequestMapping("user")`` to
+	configure routes into the controller. 
+#. Create a new folder, ``user/`` within ``resources/templates`` 
+#. Create ``index.html`` and ``add.html`` templates within ``resources/templates/user/`` 
+#. Create a ``User`` class within ``org.launchcode.models``
 
 Creating the Model
 ------------------
@@ -47,7 +48,7 @@ Handling Form Submission
 
 Within the controller, create a handler method with signature:
 
-.. code:: java
+.. sourcecode:: java
 
    public String add(Model model, @ModelAttribute User user, String verify);
 
@@ -67,20 +68,20 @@ lesson video, check out the Bonus Missions below.
 Bonus Missions
 --------------
 
-1. Add a ``userId`` field to ``User``, along with accessor methods (with
+#. Add a ``userId`` field to ``User``, along with accessor methods (with
    appropriate access level). Create a ``UserData`` class within
    ``org.launchcode.models`` that provides access to a list of users via
    ``add``, ``getAll``, and ``getById``.
-2. Add additional validation within
+#. Add additional validation within
    ``UserController.add(Model, User, String)`` to make sure that the
    username and email are not empty, that the username is between 5 and
    15 characters long, and the username contains only letters. If any of
    these checks fails, render the form again with an appropriate
    message. When doing so, make sure that any inputs that *did* validate
    are populated with the value the user provided the first time.
-3. This builds on 1. In the ``user/index.html`` view, display a list of
+#. This builds on 1. In the ``user/index.html`` view, display a list of
    all users by username. Each username should have a link that takes
    you to a detail page that lists the user’s username and email.
-4. Add a ``Date`` field in ``User``, and initialize it to the time the
+#. Add a ``Date`` field in ``User``, and initialize it to the time the
    user joined (i.e. when the ``User`` object was created). Display the
    value of this property in the user detail view.
