@@ -1,19 +1,23 @@
-Studio: User Signup
-===================
+Studio: Spa User Signup
+=======================
+
 For this studio you will add functionality to allow users to sign up
-for your ``coding-events`` app.
+for your ``spa-day`` app. 
+
+The starter code has been modified from where you left off last class. Grab the refactored code 
+on this `branch <https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-starter>`__.
 
 Getting Ready
 -------------
 
-Within ``coding-events`` create the following files. 
+Within ``spa-day``, create the following files. 
 
-#. Create a ``UserController`` in ``org.launchcode.controllers``. Add the
+#. Create a ``UserController`` in ``org.launchcode.spaday.controllers``. Add the
 	``@Controller`` annotation, along with ``@RequestMapping("user")`` to
 	configure routes into the controller. 
 #. Create a new folder, ``user/`` within ``resources/templates`` 
 #. Create ``index.html`` and ``add.html`` templates within ``resources/templates/user/`` 
-#. Create a ``User`` class within ``org.launchcode.models``
+#. Create a ``User`` class within ``org.launchcode.spaday.models``
 
 Creating the Model
 ------------------
@@ -28,7 +32,7 @@ default constructor (which can be empty).
 Rendering the Add User Form
 ---------------------------
 
-Within the controller, create a handler method ``add(Model model)`` to
+Within the controller, create a handler method ``displayAddUserForm(Model model)`` to
 render the form. This handler should correspond to the path
 ``/user/add``, and for now, it can just return the path to the
 ``add.html`` template.
@@ -46,7 +50,7 @@ some basic client-side validation.
 Handling Form Submission
 ------------------------
 
-Within the controller, create a handler method with signature:
+Within the controller, create a handler method with this signature:
 
 .. sourcecode:: java
 
