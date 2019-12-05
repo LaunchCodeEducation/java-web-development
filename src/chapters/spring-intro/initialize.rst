@@ -8,8 +8,15 @@ IO <https://spring.io/>`__.
 
 .. _initialize-spring-boot-project:
 
-Initialize a Spring Boot Project
---------------------------------
+Initialize a Spring Boot Project - Video Instructions
+-----------------------------------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/Z_exRQyLwOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+Initialize a Spring Boot Project - Text Instructions
+----------------------------------------------------
 
 #. Go to `start.spring.io <https://start.spring.io/>`__.
 #. For *Project*, select *Gradle Project*.
@@ -36,9 +43,9 @@ Initialize a Spring Boot Project
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
 
 .. figure:: figures/spring-initializr.png
-   :alt: Spring initializr with options
+   :alt: Spring initializer with options
 
-   Spring Initializr with desired options selected.
+   Spring Initializer with desired options selected.
 
 Spring in IntelliJ
 ------------------
@@ -241,13 +248,13 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True/False: All custom code ina  Spring Boot application goes in the main method.
+   True/False: All custom code in a Spring Boot application is located in the ``main`` method.
  
    a. True
 
    b. False
 
-.. ans: False, most features are developed outside of the main method.
+.. ans: False, most features are developed outside of the ``main`` method in a Spring Boot application.
 
 
 

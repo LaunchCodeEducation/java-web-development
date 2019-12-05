@@ -12,10 +12,20 @@ via controller methods.
 
       MVC flow
 
+Controllers and Static Responses - Video
+----------------------------------------
+
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/attSxLlXkz8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+Controllers and Static Responses - Intro
+----------------------------------------
+
 .. index:: ! @Controller
 
 ``@Controller``
----------------
+^^^^^^^^^^^^^^^
 
 In the Spring Boot context, we'll organize controller code into a controller package. Remember when we 
 mentioned that the framework works by convention over configuration? This is what we mean. It's not required 
@@ -38,7 +48,7 @@ its work by adding context to your code.
 .. index:: ! @GetMapping, ! @PostMapping, ! @RequestMapping
 
 Controllers Map to Requests
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``@GetMapping`` is another critical annotation used on controller methods. 
 ``@GetMapping`` designates a controller action with a URL path. For every ``GET`` request made to the provided 
@@ -100,7 +110,7 @@ essentially designates a base path that all methods in the class start with.
 .. index:: ! @ResponseBody
 
 ``@ResponseBody``
------------------
+^^^^^^^^^^^^^^^^^
 
 ``@ResponseBody`` is yet another annotations used in the Spring controller context to return plain text
 from a controller method. This annotation we will only need to use for a short while, before we start
@@ -137,7 +147,7 @@ Check Your Understanding
       
    b. False
 
-.. ans: b, the annotation goes atop the class 
+.. ans: b, False the annotation goes atop the class 
 
 .. admonition:: Question
 

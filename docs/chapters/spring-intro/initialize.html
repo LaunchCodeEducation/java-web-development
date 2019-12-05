@@ -90,8 +90,11 @@
 implement the
 <a class="reference internal" href="mvc.html#mvc"><span class="std std-ref">MVC</span></a> pattern. For more about Spring, check out <a class="reference external" href="https://spring.io/" target="_blank">Spring
 IO<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<div class="section" id="initialize-a-spring-boot-project">
-<span id="initialize-spring-boot-project"></span><h2>9.2.1. Initialize a Spring Boot Project<a class="headerlink" href="#initialize-a-spring-boot-project" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialize-a-spring-boot-project-video-instructions">
+<span id="initialize-spring-boot-project"></span><h2>9.2.1. Initialize a Spring Boot Project - Video Instructions<a class="headerlink" href="#initialize-a-spring-boot-project-video-instructions" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/Z_exRQyLwOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+<div class="section" id="initialize-a-spring-boot-project-text-instructions">
+<h2>9.2.2. Initialize a Spring Boot Project - Text Instructions<a class="headerlink" href="#initialize-a-spring-boot-project-text-instructions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Go to <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </li>
@@ -125,12 +128,12 @@ and <em>Spring Boot DevTools</em>.</p>
 </li>
 </ol>
 <div class="figure" id="id1">
-<img alt="Spring initializr with options" src="../../_images/spring-initializr.png" />
-<p class="caption"><span class="caption-text">Spring Initializr with desired options selected.</span></p>
+<img alt="Spring initializer with options" src="../../_images/spring-initializr.png" />
+<p class="caption"><span class="caption-text">Spring Initializer with desired options selected.</span></p>
 </div>
 </div>
 <div class="section" id="spring-in-intellij">
-<h2>9.2.2. Spring in IntelliJ<a class="headerlink" href="#spring-in-intellij" title="Permalink to this headline">¶</a></h2>
+<h2>9.2.3. Spring in IntelliJ<a class="headerlink" href="#spring-in-intellij" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Move the downloaded unzipped folder from your downloads folder into
 another location such as <code class="docutils literal notranslate"><span class="pre">LC101</span></code> or your home directory.</p>
@@ -181,7 +184,7 @@ click <em>Update</em> on the side.</li>
 </div>
 </div>
 <div class="section" id="the-spring-project-structure">
-<h2>9.2.3. The Spring Project Structure<a class="headerlink" href="#the-spring-project-structure" title="Permalink to this headline">¶</a></h2>
+<h2>9.2.4. The Spring Project Structure<a class="headerlink" href="#the-spring-project-structure" title="Permalink to this headline">¶</a></h2>
 <p>The Spring Initializr gives us a number of helpful files and
 directories to get our Spring project up and running.</p>
 <p>Within the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory, you’ll find a familiar setup with both a <code class="docutils literal notranslate"><span class="pre">main</span></code> and
@@ -197,7 +200,7 @@ meant to hold your non-java code.</p>
 Spring expects to not be version controlled. These are files created by the IDE, the compiled
 code in the <code class="docutils literal notranslate"><span class="pre">.build</span></code> directory, and the gradle <code class="docutils literal notranslate"><span class="pre">.jar</span></code> and directory.</p>
 <div class="section" id="gradle">
-<span id="index-0"></span><h3>9.2.3.1. Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h3>
+<span id="index-0"></span><h3>9.2.4.1. Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h3>
 <p>Gradle is a Java tool that handles much of the work related to building and deploying software
 applications in Java. Your Spring project contains a file called <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>. As with most new
 tools, you do not need to know everything that this file does. For now, the takeaway is that
@@ -227,7 +230,7 @@ is a decentralized place for developers to post their code for others to use.</p
 </div>
 </div>
 <div class="section" id="before-running-a-spring-project">
-<span id="index-1"></span><h2>9.2.4. Before Running a Spring Project<a class="headerlink" href="#before-running-a-spring-project" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>9.2.5. Before Running a Spring Project<a class="headerlink" href="#before-running-a-spring-project" title="Permalink to this headline">¶</a></h2>
 <p>Before running your project, we need to check the configuration of a few items.</p>
 <p>#. In <code class="docutils literal notranslate"><span class="pre">build,gradle</span></code>, locate an item called <code class="docutils literal notranslate"><span class="pre">sourceCompatibility</span></code>. If it’s value is not equal to
 <code class="docutils literal notranslate"><span class="pre">13</span></code>, change it and save the file.</p>
@@ -241,7 +244,7 @@ gradle pane and ensure that the Gradle JVM is using Java 13.</li>
 </ol>
 </div>
 <div class="section" id="running-a-spring-project">
-<span id="index-2"></span><h2>9.2.5. Running a Spring Project<a class="headerlink" href="#running-a-spring-project" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>9.2.6. Running a Spring Project<a class="headerlink" href="#running-a-spring-project" title="Permalink to this headline">¶</a></h2>
 <p>To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar,
 click the panel icon in the bottom left corner of your window and select <em>Gradle</em>.</p>
 <div class="figure" id="id3">
@@ -291,7 +294,7 @@ Now go ahead and stop the application by hitting the red square on the left side
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>9.2.6. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>9.2.7. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What is the name of the task to start a Spring Boot application?</p>
@@ -304,7 +307,7 @@ Now go ahead and stop the application by hitting the red square on the left side
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>True/False: All custom code ina  Spring Boot application goes in the main method.</p>
+<p>True/False: All custom code in a Spring Boot application is located in the <code class="docutils literal notranslate"><span class="pre">main</span></code> method.</p>
 <ol class="last loweralpha simple">
 <li>True</li>
 <li>False</li>
