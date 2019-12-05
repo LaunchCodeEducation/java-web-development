@@ -88,16 +88,44 @@
 <h1>11.2. Exercises: Thymeleaf<a class="headerlink" href="#exercises-thymeleaf" title="Permalink to this headline">¶</a></h1>
 <p>In the chapter, we started working on an application for tracking various coding events around town.</p>
 <p>Open up your <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project in IntelliJ.</p>
-<ol class="arabic simple">
-<li>In addition to names of events, we want to add descriptions as well.
-Use fragments to store the name and description of different coding events around town.
-Use <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> in your main template to bring in the descriptions and names for each event in the list.</li>
-<li>Using <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and <code class="docutils literal notranslate"><span class="pre">th:each</span></code>, put together the events and their descriptions in a table as opposed to an unordered list.</li>
-<li>Add some CSS to style your table to make it easier to read and center it on the page. We do have file for <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> that you can add to.
-Make sure to connect <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to the appropriate template with <code class="docutils literal notranslate"><span class="pre">th:src</span></code>.</li>
+<div class="section" id="getting-started">
+<h2>11.2.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Checkout a new branch off of <code class="docutils literal notranslate"><span class="pre">master</span></code> called <code class="docutils literal notranslate"><span class="pre">my-exercises-solution</span></code>.</p>
+<p>Now for some Git magic! We are going to go back in time to when our templates were still using data from a static event list.</p>
+<ol class="arabic">
+<li><p class="first">Use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> command. Go through the logs until you find the commit where you finished creating a static event list.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">If you were not making commits after each video, that is fine. You can fork and clone this <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events" target="_blank">repo<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to get started.</p>
+</div>
+</li>
+<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">&lt;commit&gt;</span></code> to go back to that moment.</p>
+</li>
 </ol>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">Before you reset to an older commit, make sure you are on a separate branch! This will reset your repo to a previous state!</p>
+</div>
+<p>Now, let’s add descriptions to our events!</p>
+</div>
+<div class="section" id="expanding-our-events-schedule">
+<h2>11.2.2. Expanding our Events Schedule<a class="headerlink" href="#expanding-our-events-schedule" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Comment out your previous code in the <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code> method.</li>
+<li>In the videos, we learned how to use templates to display the elements in a static list called <code class="docutils literal notranslate"><span class="pre">events</span></code>. Let’s make our <code class="docutils literal notranslate"><span class="pre">events</span></code> list a HashMap!
+This enables us to add descriptions to our events.</li>
+<li>Fill your <code class="docutils literal notranslate"><span class="pre">events</span></code> HashMap with the names and descriptions of 3 coding events around town.</li>
+<li>Using <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and <code class="docutils literal notranslate"><span class="pre">th:each</span></code>, put together the events and their descriptions in a table as opposed to an unordered list.</li>
+<li>Use fragments to store the address of the new tech hub where all of the programmers are hanging out.
+Use <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> in your main template to bring in the address as a third column in your table.
+You may need to create a new <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</li>
+<li>Add some CSS to style your table to make it easier to read and center it on the page.
+You may need to create a new <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> as well.
+Make sure to connect <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to the appropriate template with <code class="docutils literal notranslate"><span class="pre">th:href</span></code>.</li>
+</ol>
+</div>
 <div class="section" id="bonus-mission">
-<h2>11.2.1. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
+<h2>11.2.3. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
 <p>Try to add one more column to the table with pictures for each coding event.
 You need to use <code class="docutils literal notranslate"><span class="pre">th:href</span></code> to pull in pictures in the appropriate template.</p>
 </div>
