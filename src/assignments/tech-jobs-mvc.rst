@@ -111,7 +111,7 @@ your TechJobs-OO work, and she added controllers and views for a "Home",
 ``Location``, ``PositionType``, and ``CoreCompetency`` objects.
 
 The Model
-^^^^^^^^^^
+^^^^^^^^^
 
 .. admonition:: Note
 
@@ -359,7 +359,7 @@ This page needs to show full job listings---ID, employer, location, etc.
    d. Etc.
 
 Add ``View All`` Link
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 Open the ``list.html`` template. This file builds the table to display all of
 the links for the different ``Job`` fields. However, the link for the ``All``
@@ -368,7 +368,8 @@ column is missing.
 .. figure:: figures/listTableOptions.png
    :alt: Image of the ``/list`` table.
 
-You can fix this several different ways, but the options include:
+You can fix this several different ways, but two options are presented below.
+Note that you only need to implement ONE option, not both.
 
 #. Modify ``tableChoices`` in ``ListController`` to include another key/value
    pair. Check the method that renders the template to help identify the name
@@ -377,13 +378,8 @@ You can fix this several different ways, but the options include:
    link. Check ``ListController`` to help identify the data to pass in for the
    query parameters.
 
-   .. admonition:: Warning
-
-      This is an either/or situation. You only need to implement ONE option, not
-      both.
-
-#. Be sure to test your code by clicking your view all link in the table. There
-   are 98 jobs in the data file.
+Be sure to test your code by clicking your new *View All* link in the table.
+There are 98 jobs in the data file.
 
 3) Complete the Search Functionality
 -------------------------------------

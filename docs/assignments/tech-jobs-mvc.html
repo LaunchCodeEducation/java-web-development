@@ -412,25 +412,18 @@ column is missing.</p>
 <div class="figure">
 <img alt="Image of the ``/list`` table." src="../_images/listTableOptions.png" />
 </div>
-<p>You can fix this several different ways, but the options include:</p>
-<ol class="arabic">
-<li><p class="first">Modify <code class="docutils literal notranslate"><span class="pre">tableChoices</span></code> in <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to include another key/value
+<p>You can fix this several different ways, but two options are presented below.
+Note that you only need to implement ONE option, not both.</p>
+<ol class="arabic simple">
+<li>Modify <code class="docutils literal notranslate"><span class="pre">tableChoices</span></code> in <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to include another key/value
 pair. Check the method that renders the template to help identify the name
-to use for the key.</p>
-</li>
-<li><p class="first">Modify <code class="docutils literal notranslate"><span class="pre">list.html</span></code> to fill in the empty table cell with the necessary
+to use for the key.</li>
+<li>Modify <code class="docutils literal notranslate"><span class="pre">list.html</span></code> to fill in the empty table cell with the necessary
 link. Check <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to help identify the data to pass in for the
-query parameters.</p>
-<div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">This is an either/or situation. You only need to implement ONE option, not
-both.</p>
-</div>
-</li>
-<li><p class="first">Be sure to test your code by clicking your view all link in the table. There
-are 98 jobs in the data file.</p>
-</li>
+query parameters.</li>
 </ol>
+<p>Be sure to test your code by clicking your new <em>View All</em> link in the table.
+There are 98 jobs in the data file.</p>
 </div>
 </div>
 <div class="section" id="complete-the-search-functionality">
