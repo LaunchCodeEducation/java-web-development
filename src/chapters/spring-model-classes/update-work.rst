@@ -98,13 +98,21 @@ From time to time, you will see the term **boilerplate code**. This refers to
 generic, ready-made code that you can paste into just about any class or
 template. Usually, you quickly modify this code to better fit your project,
 but the boilerplate statements fill in some of the tedious structure and
-routine commands. This saves you some time time and allows you to focus on the
-more interesting parts of your work.
+routine commands. This saves you time and allows you to focus on the more
+interesting parts of your work.
 
-Recall using the *Generate* option in IJ to create getters, setters, and
-custom methods.  (Internal link).
+In the second :ref:`Classes and Objects chapter <equals-shortcut>` as well as
+in :ref:`Assignment #2 <generator-shortcut>`, you used the IntelliJ *Generate*
+shortcut to insert getters, setters, and custom methods into your Java classes.
 
-Can also use *Generate* to quickly add a constructor in a class.
+The *Generate* shortcut can also be used to quickly format class constructors,
+which is especially useful if you have declared many field variables.
+
+.. figure:: figures/generateConstructorMenu.png
+   :alt: Generate menu options.
+
+Note that when you select *Generate --> Constructor*, you will be able to
+select which fields to add to the constructor.
 
 Adding a Default Constructor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -114,7 +122,12 @@ Lorem ipsum...
 Try It!
 --------
 
-Code along with the video below as you refactor your ``coding-events`` project
-to add a model.
+Code along with the video below as you refactor your ``coding-events`` project.
+You will add a model to deal with the event data, and you will revise the
+templates to work with event objects.
 
 .. todo:: Add model video #1 here...
+
+Remember that the reading in this chapter supports the work you complete as you
+watch the videos. The text is NOT meant as a replacement for that practice
+time.

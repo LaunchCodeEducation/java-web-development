@@ -86,14 +86,66 @@
     
   <div class="section" id="models-in-mvc">
 <h1>12.2. Models in MVC<a class="headerlink" href="#models-in-mvc" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p>In the previous chapters, you learned about <em>views</em>, which display data and an
+interface for a user, and <em>controllers</em> which determine what data to send the
+the views. However, this data needs to come from some source.</p>
+<p>We are now ready to take a closer look at the remaining part of the MVC
+structure—models.</p>
 <div class="section" id="what-is-a-model">
 <h2>12.2.1. What is a Model?<a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<p id="index-0">A <em>model</em> represents a collection of data and the logic for accessing or
+storing the data. That’s it. This is what makes models a fabulous idea.
+Properly constructed, they do NOT depend on any controllers or views, which
+makes models easy to reuse without modification.</p>
+<p>Consider a physical address book (a model). It stores names, addresses, phone
+numbers, etc. on its pages. Anyone (a controller) can pick up the book,
+retrieve the information, and then write some of the data on a separate piece
+of paper (a view). The model itself does not depend on who picks it up or how
+neatly the data gets printed on the scrap of paper. The book just provides
+storage space and organization.</p>
+<div class="section" id="quick-recap">
+<h3>12.2.1.1. Quick Recap<a class="headerlink" href="#quick-recap" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>The <em>view</em> displays data in a way that the user can understand. It also
+provides options for the user to interact with the program (e.g. buttons or
+forms). The view communicates with the controller but not the model.</li>
+<li>The <em>model</em> is the data. Full stop.</li>
+<li>The <em>controller</em> directs the flow of information between the view and the
+model. It does not store the data or determine how to display it for the
+user. However, it can manipulate data retrieved from the model or the view.</li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Need further review? Check out <a class="reference external" href="https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488" target="_blank">this article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
+</div>
 </div>
 <div class="section" id="model-vs-controller">
 <h2>12.2.2. Model vs. Controller<a class="headerlink" href="#model-vs-controller" title="Permalink to this headline">¶</a></h2>
-<p>What belongs where?</p>
+<p>One tricky part of using the MVC structure is deciding what code belongs in the
+model and what belongs in the controller.</p>
+<ol class="arabic simple">
+<li>Controller:<ol class="loweralpha">
+<li>Processing requests from the user,</li>
+<li>Rendering a view,</li>
+<li>Sending data to a view,</li>
+<li>Requesting data,</li>
+<li>Manipulating data,</li>
+<li>…</li>
+</ol>
+</li>
+<li>Model:<ol class="loweralpha">
+<li>Storing and retrieving data,</li>
+<li>Organizing data,</li>
+<li>SOP involving the data,</li>
+<li>…</li>
+</ol>
+</li>
+</ol>
+<p>Controller = Please give me this info, please store this, please delete this,
+please show this to the user, please change this.</p>
+<p>Model = How to store the data, how to retrieve data, how to organize data, how
+to manipulate data independent of controller and view actions.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>12.2.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
