@@ -109,7 +109,7 @@ storage space and organization.</p>
 <li>The <em>view</em> displays data in a way that the user can understand. It also
 provides options for the user to interact with the program (e.g. buttons or
 forms). The view communicates with the controller but not the model.</li>
-<li>The <em>model</em> is the data. Full stop.</li>
+<li>The <em>model</em> stores and maintains the data. Full stop.</li>
 <li>The <em>controller</em> directs the flow of information between the view and the
 model. It does not store the data or determine how to display it for the
 user. However, it can manipulate data retrieved from the model or the view.</li>
@@ -123,29 +123,35 @@ user. However, it can manipulate data retrieved from the model or the view.</li>
 <div class="section" id="model-vs-controller">
 <h2>12.2.2. Model vs. Controller<a class="headerlink" href="#model-vs-controller" title="Permalink to this headline">¶</a></h2>
 <p>One tricky part of using the MVC structure is deciding what code belongs in the
-model and what belongs in the controller.</p>
+model and what belongs in the controller. In general, any code that deals with
+data transfer or responding to user actions belong in the controller. Code that
+involves retrieving, storing, organizing, or maintaining data belongs with the
+model.</p>
+<p>Data manipulation can occur in either the model or controller, so we need to
+make a distinction between these actions. For any manipulations that must occur
+regardless of a user’s actions, that code belongs in the model. For changes
+that vary depending on a user’s request (e.g. multiplying vs. adding a set of
+numbers), that code belongs in the controller.</p>
+<p>Model code defines the logic for processes that the user never needs to see.
+These include:</p>
 <ol class="arabic simple">
-<li>Controller:<ol class="loweralpha">
-<li>Processing requests from the user,</li>
-<li>Rendering a view,</li>
-<li>Sending data to a view,</li>
-<li>Requesting data,</li>
-<li>Manipulating data,</li>
-<li>…</li>
+<li>The mechanics for storing data,</li>
+<li>The mechanics for retrieving data,</li>
+<li>The mechanics for organizing data,</li>
+<li>Updating or manipulating the data independent of any controller or view
+actions.</li>
 </ol>
-</li>
-<li>Model:<ol class="loweralpha">
-<li>Storing and retrieving data,</li>
-<li>Organizing data,</li>
-<li>SOP involving the data,</li>
-<li>…</li>
+<p>Controller code handles <em>requests</em> made by the user. These include:</p>
+<ol class="arabic simple">
+<li>“Please retrieve this information from the model”,</li>
+<li>“Please store this in the model”,</li>
+<li>“Please delete this”,</li>
+<li>“Please change this”,</li>
+<li>“Please display this”,</li>
+<li>“Please modify this data in a novel way”.</li>
 </ol>
-</li>
-</ol>
-<p>Controller = Please give me this info, please store this, please delete this,
-please show this to the user, please change this.</p>
-<p>Model = How to store the data, how to retrieve data, how to organize data, how
-to manipulate data independent of controller and view actions.</p>
+<p>Note that a controller does not permanently store data. Instead, it sends the
+information to the model, which uses its own code to preserve the data.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>12.2.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
