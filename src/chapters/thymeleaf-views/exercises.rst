@@ -10,9 +10,14 @@ Getting Started
 
 Checkout a new branch off of ``master`` called ``my-exercises-solution``.
 
-Now for some Git magic! We are going to go back in time to when our templates were using data from a static event list.
+Now for some Git magic! We are going to go back in time to when our templates were still using data from a static event list.
 
-#. Enter our ``git log`` command. Go through the logs until you find the commit where you finished creating a static event list.
+#. Use the ``git log`` command. Go through the logs until you find the commit where you finished creating a static event list.
+
+   .. admonition:: Note
+
+      If you were not making commits after each video, that is fine. You can fork and clone this `repo <https://github.com/LaunchCodeEducation/coding-events>`_ to get started.
+
 #. Use ``git reset --hard <commit>`` to go back to that moment.
 
 .. admonition:: Warning
@@ -25,7 +30,7 @@ Expanding our Events Schedule
 -----------------------------
 
 #. Comment out your previous code in the ``displayAllEvents`` method.
-#. In the videos, wwe learned how to use templates to display the elements in a static list called ``events``. Let's make our ``events`` list a HashMap!
+#. In the videos, we learned how to use templates to display the elements in a static list called ``events``. Let's make our ``events`` list a HashMap!
    This enables us to add descriptions to our events.
 #. Fill your ``events`` HashMap with the names and descriptions of 3 coding events around town.
 #. Using ``th:block`` and ``th:each``, put together the events and their descriptions in a table as opposed to an unordered list.
