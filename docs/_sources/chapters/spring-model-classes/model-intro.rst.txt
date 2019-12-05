@@ -73,10 +73,46 @@ Controller code handles *requests* made by the user. These include:
 #. "Please display this",
 #. "Please modify this data in a novel way".
 
-Note that a controller does not permanently store data. Instead, it sends the
-information to the model, which uses its own code to preserve the data.
+Note that a controller does not permanently store data. Instead, it either
+sends the information to the model, which uses its own code to preserve the
+data, or it sends the content to the view for display.
 
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   If we use a bakery as an analogy for an MVC project, which of the
+   following items best represents a *model*?
+
+   a. The store menu.
+   b. The display case.
+   c. The ingredients pantry.
+   d. The oven.
+
+.. Answer: c
+
+.. admonition:: Question
+
+   Would the baker in the store above represent a model, view, or controller?
+
+   a. Model.
+   b. View.
+   c. Controller.
+
+.. Answer: c
+
+.. admonition:: Question
+
+   Your boss wants an alphabetical list of all employees who have worked at the
+   company for at least 5 years, have a college degree, and are parents
+   interested in starting a savings plan for their kids.
+
+   Where should you add the code to accomplish this?
+
+   a. In a controller.
+   b. In the model.
+   c. In a view.
+   d. Wherever you want.
+
+.. Answer: a
