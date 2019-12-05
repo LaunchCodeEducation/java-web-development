@@ -30,7 +30,7 @@ For this next step in the project, you’ll be working with Carly.
 
 Carly was once a LaunchCode apprentice as well, so she knows just what
 it’s like to be in your shoes. She’s done some initial work on the
-project and left you some TODOs that she knows you can handle.
+project and left you some ``TODO`` tasks that she knows you can handle.
 
 Learning Objectives
 -------------------
@@ -106,8 +106,8 @@ Set up a local copy of the project:
 
 Carly created a Spring Boot application and filled in some features. She
 refactored ``JobData`` to generate an ArrayList of ``Job`` objects based on
-your TechJobs-OO work, and she added controllers and views for a Home, List and
-Search page. ``JobData`` now also builds ArrayLists for the ``Employer``,
+your TechJobs-OO work, and she added controllers and views for a "Home",
+"List", and "Search" page. ``JobData`` now also builds ArrayLists for the ``Employer``,
 ``Location``, ``PositionType``, and ``CoreCompetency`` objects.
 
 The Model
