@@ -1,4 +1,0 @@
-Adding Generic Code
-====================
-
-Lorem ipsum...
