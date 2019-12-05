@@ -119,6 +119,8 @@ Adding a Default Constructor
 
 Lorem ipsum...
 
+Not sure if this section should go here or in the Apply Model Binding page.
+
 Try It!
 --------
 
