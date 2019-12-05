@@ -36,9 +36,17 @@ Try It!
 Now that you have ``coding-events`` up and running, add features to it by
 coding along with the videos below:
 
-.. todo:: ``Coding Events App: Intro`` video goes here...
+.. raw:: html
 
-.. todo:: ``Coding Events App: Render Add Event Form`` video goes here...
+   <div style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/hmgxMOf51JU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
+
+.. raw:: html
+
+   <div style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/lgT962si4eQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
 
 A summary of Thymeleaf forms is given below, but remember that the text
 supports the videos and is NOT intended as a replacement.
@@ -106,7 +114,11 @@ Now that you have created and rendered a form in your ``coding-events``
 project, you need to add a method to the controller to *handle* its submission.
 Code along with the video below to add this functionality.
 
-.. todo:: ``Coding Events App: Process Add Event Form`` video goes here...
+.. raw:: html
+
+   <div style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/LnpJcq33uoM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
 
 As usual, the following summary outlines the ideas from the clip.
 

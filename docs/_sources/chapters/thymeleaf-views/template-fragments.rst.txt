@@ -161,10 +161,11 @@ Try It!
 Code along with the following video to practice using fragments in your
 templates:
 
-.. todo::
+.. raw:: html
 
-   ``Coding Events App: Refactor Templates to Use Fragments`` video goes
-   here...
+   <div style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/rbIyV6OoS-o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
 
 Remember that the summary text for the ``fragment`` and ``replace`` keywords
 supports the video and is NOT intended as a replacement.

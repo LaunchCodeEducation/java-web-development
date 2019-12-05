@@ -167,16 +167,28 @@ syntax for these is as follows:
 
       <p th:if = "${variableName != 5}">Value is NOT equal to 5.</p>
 
+.. _hello-spring-vid2:
 
 Try It!
 --------
 
-Code along with the following video to gain more practice with Thymeleaf
-iteration and conditionals:
+The video below provides you some live-coding practice with Thymeleaf
+templates. Return to your ``hello-spring`` project and code along as you watch
+the clip.
 
-.. todo:: ``hello-spring`` video #3 goes here...
+.. admonition:: Warning
 
-The text on this page and the previous one provides details for some of the
+   This video and the others in the chapter walk you through building a small
+   web-based project. Do NOT skip this practice, because the end of chapter
+   exercises pick up where the tutorials end.
+
+.. raw:: html
+
+   <div style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/bT5Zt9xZYSU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
+
+The text on this page and the previous two provides details for some of the
 concepts presented in the clip. Note that these summaries are NOT intended as
 a replacement for the walkthrough. To get better at coding, you need to
 actually CODE instead of just reading about how to do it.
