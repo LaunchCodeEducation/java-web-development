@@ -95,7 +95,7 @@ following video.
 .. raw:: html
 
    <div style="text-align:center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/UIetMLyDVjQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/UIetMLyDVjQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
 The sections below outline the main ideas presented in the video. However, the

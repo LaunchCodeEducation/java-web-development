@@ -75,7 +75,7 @@ Code along with this final video to practice adding static resources to your
 .. raw:: html
 
    <div style="text-align:center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/syzOmHnTnmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/syzOmHnTnmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
 Check Your Understanding

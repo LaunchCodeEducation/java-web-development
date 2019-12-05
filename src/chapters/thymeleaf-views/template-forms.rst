@@ -39,13 +39,13 @@ coding along with the videos below:
 .. raw:: html
 
    <div style="text-align:center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/hmgxMOf51JU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/hmgxMOf51JU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
 .. raw:: html
 
    <div style="text-align:center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/lgT962si4eQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/lgT962si4eQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
 Before moving on, be sure to commit and push your changes. Do this after each
@@ -121,7 +121,7 @@ Code along with the video below to add this functionality.
 .. raw:: html
 
    <div style="text-align:center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/LnpJcq33uoM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/LnpJcq33uoM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
 As usual, the following summary outlines the ideas from the clip.

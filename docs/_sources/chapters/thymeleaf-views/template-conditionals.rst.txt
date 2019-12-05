@@ -179,7 +179,7 @@ the clip.
 .. raw:: html
 
    <div style="text-align:center;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/bT5Zt9xZYSU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="800" height="450" src="https://www.youtube.com/embed/bT5Zt9xZYSU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
 The text on this page and the previous two provides details for some of the
