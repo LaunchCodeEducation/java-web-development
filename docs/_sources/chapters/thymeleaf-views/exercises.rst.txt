@@ -27,12 +27,14 @@ Expanding our Events Schedule
 #. Comment out your previous code in the ``displayAllEvents`` method.
 #. In the videos, wwe learned how to use templates to display the elements in a static list called ``events``. Let's make our ``events`` list a HashMap!
    This enables us to add descriptions to our events.
-#. Fill your ``events`` HashMap with the names and descriptions of events around town.
+#. Fill your ``events`` HashMap with the names and descriptions of 3 coding events around town.
 #. Using ``th:block`` and ``th:each``, put together the events and their descriptions in a table as opposed to an unordered list.
 #. Use fragments to store the address of the new tech hub where all of the programmers are hanging out.
    Use ``th:replace`` in your main template to bring in the address as a third column in your table.
-#. Add some CSS to style your table to make it easier to read and center it on the page. We do have file for ``styles.css`` that you can add to.
-   Make sure to connect ``styles.css`` to the appropriate template with ``th:src``.
+   You may need to create a new ``fragments.html``.
+#. Add some CSS to style your table to make it easier to read and center it on the page.
+   You may need to create a new ``styles.css`` as well.
+   Make sure to connect ``styles.css`` to the appropriate template with ``th:href``.
 
 Bonus Mission
 -------------
