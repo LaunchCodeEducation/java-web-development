@@ -5,10 +5,32 @@ In the chapter, we started working on an application for tracking various coding
 
 Open up your ``coding-events`` project in IntelliJ.
 
-#. In addition to names of events, we want to add descriptions as well.
-   Use fragments to store the name and description of different coding events around town.
-   Use ``th:replace`` in your main template to bring in the descriptions and names for each event in the list.
+Getting Started
+---------------
+
+Checkout a new branch off of ``master`` called ``my-exercises-solution``.
+
+Now for some Git magic! We are going to go back in time to when our templates were using data from a static event list.
+
+#. Enter our ``git log`` command. Go through the logs until you find the commit where you finished creating a static event list.
+#. Use ``git reset --hard <commit>`` to go back to that moment.
+
+.. admonition:: Warning
+
+   Before you reset to an older commit, make sure you are on a separate branch! This will reset your repo to a previous state!
+
+Now, let's add descriptions to our events!
+
+Expanding our Events Schedule
+-----------------------------
+
+#. Comment out your previous code in the ``displayAllEvents`` method.
+#. In the videos, wwe learned how to use templates to display the elements in a static list called ``events``. Let's make our ``events`` list a HashMap!
+   This enables us to add descriptions to our events.
+#. Fill your ``events`` HashMap with the names and descriptions of events around town.
 #. Using ``th:block`` and ``th:each``, put together the events and their descriptions in a table as opposed to an unordered list.
+#. Use fragments to store the address of the new tech hub where all of the programmers are hanging out.
+   Use ``th:replace`` in your main template to bring in the address as a third column in your table.
 #. Add some CSS to style your table to make it easier to read and center it on the page. We do have file for ``styles.css`` that you can add to.
    Make sure to connect ``styles.css`` to the appropriate template with ``th:src``.
 
