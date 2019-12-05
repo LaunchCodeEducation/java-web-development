@@ -26,7 +26,7 @@ Never fear, coder. Fragments are the tool you need. The general syntax is:
 .. sourcecode:: groovy
 
    th:fragment = "fragmentName"
-   th:replace = "filePath :: fragmentName"
+   th:replace = "fileName :: fragmentName"
 
 ``th:fragment``
 ^^^^^^^^^^^^^^^^

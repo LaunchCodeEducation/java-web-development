@@ -176,12 +176,6 @@ The video below provides you some live-coding practice with Thymeleaf
 templates. Return to your ``hello-spring`` project and code along as you watch
 the clip.
 
-.. admonition:: Warning
-
-   This video and the others in the chapter walk you through building a small
-   web-based project. Do NOT skip this practice, because the end of chapter
-   exercises pick up where the tutorials end.
-
 .. raw:: html
 
    <div style="text-align:center;">

@@ -157,3 +157,8 @@ Some points to note:
 #. Line 6: Generally, we want to send the user to a different page after they
    successfully submit a form. Instead of re-rendering the form, the ``return``
    string *redirects* the user to a method that handles a different template.
+
+Resources
+----------
+
+#. Coding events `starter code <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`__.

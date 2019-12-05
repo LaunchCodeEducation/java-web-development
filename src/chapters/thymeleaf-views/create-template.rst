@@ -84,7 +84,13 @@ Start a Practice Project
 -------------------------
 
 Open up your ``hello-spring`` project in IntelliJ and code along with the
-following video:
+following video.
+
+.. admonition:: Warning
+
+   This video and the others in the chapter walk you through building small
+   web-based projects. Do NOT skip this practice, because the end of chapter
+   exercises pick up where the tutorials end.
 
 .. raw:: html
 

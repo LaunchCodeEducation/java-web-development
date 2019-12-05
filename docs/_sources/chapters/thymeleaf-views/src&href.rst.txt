@@ -35,7 +35,7 @@ The general syntax is:
 
 .. sourcecode:: groovy
 
-   th:src = "@{filePath}"
+   th:src = "@{/filePath}"
 
 .. admonition:: Examples
 
@@ -44,7 +44,7 @@ The general syntax is:
 
    .. sourcecode:: HTML
 
-      <img th:src = "@{familyPhoto1.jpg}" />
+      <img th:src = "@{/familyPhoto1.jpg}" />
 
    If the image is contained in an ``images`` folder inside ``static``, then the
    syntax is:
@@ -65,6 +65,18 @@ link to a CSS stylesheet:
 .. sourcecode:: HTML
 
    <link rel = "stylesheet" th:href="@{/css/styles.css}" />
+
+Try It!
+--------
+
+Code along with this final video to practice adding static resources to your
+``coding-events`` project:
+
+.. raw:: html
+
+   <div style="text-align:center;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/syzOmHnTnmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
 
 Check Your Understanding
 -------------------------
