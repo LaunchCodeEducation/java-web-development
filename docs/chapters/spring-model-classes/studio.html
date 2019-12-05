@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12.2. Studio: Spa User Signup &#8212; Java Web Development  documentation</title>
+    <title>12.1. Studio: Spa User Signup &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -22,7 +22,6 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Index" href="../../genindex.html" />
-    <link rel="prev" title="12.1. Exercises: Edit Model Classes" href="exercises.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -74,7 +73,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">12. Model Classes</a></li>
-    <li class="active">12.2. Studio: Spa User Signup</li>
+    <li class="active">12.1. Studio: Spa User Signup</li>
 </ol>
 
 
@@ -85,7 +84,7 @@
 
     
   <div class="section" id="studio-spa-user-signup">
-<h1>12.2. Studio: Spa User Signup<a class="headerlink" href="#studio-spa-user-signup" title="Permalink to this headline">¶</a></h1>
+<h1>12.1. Studio: Spa User Signup<a class="headerlink" href="#studio-spa-user-signup" title="Permalink to this headline">¶</a></h1>
 <p>For this studio you will add functionality to allow users to sign up
 for your <code class="docutils literal notranslate"><span class="pre">spa-day</span></code> app.</p>
 <p>The starter code has been modified from where you left off last class. Grab the refactored code
@@ -97,7 +96,7 @@ moved data into a <code class="docutils literal notranslate"><span class="pre">C
 appear redundant, but in the future as you develop your spa application, you may find a scenario where
 a user is logging in who is not also <code class="docutils literal notranslate"><span class="pre">Client</span></code>.</p>
 <div class="section" id="getting-ready">
-<h2>12.2.1. Getting Ready<a class="headerlink" href="#getting-ready" title="Permalink to this headline">¶</a></h2>
+<h2>12.1.1. Getting Ready<a class="headerlink" href="#getting-ready" title="Permalink to this headline">¶</a></h2>
 <p>Within <code class="docutils literal notranslate"><span class="pre">spa-day</span></code>, create the following files.</p>
 <ol class="arabic simple">
 <li>Create a <code class="docutils literal notranslate"><span class="pre">UserController</span></code> in <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.controllers</span></code>. Add the
@@ -109,7 +108,7 @@ configure routes into the controller.</li>
 </ol>
 </div>
 <div class="section" id="creating-the-model">
-<h2>12.2.2. Creating the Model<a class="headerlink" href="#creating-the-model" title="Permalink to this headline">¶</a></h2>
+<h2>12.1.2. Creating the Model<a class="headerlink" href="#creating-the-model" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Your <code class="docutils literal notranslate"><span class="pre">User</span></code> class should have a few private fields with getters and
 setters: <code class="docutils literal notranslate"><span class="pre">username</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, <code class="docutils literal notranslate"><span class="pre">password</span></code>. These should each be
@@ -118,7 +117,7 @@ default constructor (which can be empty).</li>
 </ol>
 </div>
 <div class="section" id="rendering-the-add-user-form">
-<h2>12.2.3. Rendering the Add User Form<a class="headerlink" href="#rendering-the-add-user-form" title="Permalink to this headline">¶</a></h2>
+<h2>12.1.3. Rendering the Add User Form<a class="headerlink" href="#rendering-the-add-user-form" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>In the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method <code class="docutils literal notranslate"><span class="pre">getAddUserForm()</span></code> to
 render the form. This handler should correspond to the path
@@ -135,7 +134,7 @@ in the next studio.</li>
 </ol>
 </div>
 <div class="section" id="processing-form-submission">
-<h2>12.2.4. Processing Form Submission<a class="headerlink" href="#processing-form-submission" title="Permalink to this headline">¶</a></h2>
+<h2>12.1.4. Processing Form Submission<a class="headerlink" href="#processing-form-submission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Within the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method with this signature:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">postAddUserForm</span><span class="o">(</span><span class="n">Model</span> <span class="n">model</span><span class="o">,</span> <span class="nd">@ModelAttribute</span> <span class="n">User</span> <span class="n">user</span><span class="o">,</span> <span class="n">String</span> <span class="n">verify</span><span class="o">)</span> <span class="o">{</span>
@@ -154,7 +153,7 @@ username. If the passwords don’t match, render the form again.</p>
 </ol>
 </div>
 <div class="section" id="refining-form-submission">
-<h2>12.2.5. Refining Form Submission<a class="headerlink" href="#refining-form-submission" title="Permalink to this headline">¶</a></h2>
+<h2>12.1.5. Refining Form Submission<a class="headerlink" href="#refining-form-submission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Once registered, we want the user to access the form selecting their spa services.<ol class="arabic">
 <li>In <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code>, add a <code class="docutils literal notranslate"><span class="pre">th:href</span></code> element to take the user back to <code class="docutils literal notranslate"><span class="pre">/</span></code> of the app,
@@ -188,7 +187,7 @@ want to keep track of users using the method we employed in the models
 lesson video, check out the Bonus Missions below.</p>
 </div>
 <div class="section" id="bonus-missions">
-<h2>12.2.6. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<h2>12.1.6. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Add a <code class="docutils literal notranslate"><span class="pre">userId</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with accessor methods (with
 appropriate access level). Create a <code class="docutils literal notranslate"><span class="pre">UserData</span></code> class within
@@ -211,8 +210,6 @@ value of this property in the user detail view.</li>
     
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
-        
-        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 12.1. Exercises: Edit Model Classes</a></li>
         
         
         <li class="next"><a href="../../genindex.html">Index <span aria-hidden="true">&rarr;</span></a></li>
