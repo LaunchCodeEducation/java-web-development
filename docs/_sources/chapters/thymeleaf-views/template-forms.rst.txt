@@ -48,6 +48,10 @@ coding along with the videos below:
       <iframe width="560" height="315" src="https://www.youtube.com/embed/lgT962si4eQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
 
+Before moving on, be sure to commit and push your changes. Do this after each
+video to create a fallback position just in case disaster strikes your project
+in the future.
+
 A summary of Thymeleaf forms is given below, but remember that the text
 supports the videos and is NOT intended as a replacement.
 
