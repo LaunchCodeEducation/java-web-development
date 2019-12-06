@@ -74,9 +74,15 @@ Bootstrap
 
 Text here...
 
-Image of standard HTML buttons (boring).
+Image of standard HTML buttons (boring):
 
-Same buttons with Bootstrap classes.
+.. figure:: figures/htmlDefaultButtons.png
+   :alt: Standard HTML buttons.
+
+Same buttons with Bootstrap:
+
+.. figure:: figures/bootstrapButtonOptions.png
+   :alt: Some simple Bootstrap buttons.
 
 Image of standard HTML table (boring).
 
