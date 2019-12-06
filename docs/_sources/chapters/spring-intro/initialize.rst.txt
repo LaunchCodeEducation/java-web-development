@@ -6,6 +6,8 @@ implement the
 :ref:`MVC <mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
+.. _initialize-spring-boot-project:
+
 Initialize a Spring Boot Project - Video Instructions
 -----------------------------------------------------
 
@@ -41,9 +43,9 @@ Initialize a Spring Boot Project - Text Instructions
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
 
 .. figure:: figures/spring-initializr.png
-   :alt: Spring initializr with options
+   :alt: Spring initializer with options
 
-   Spring Initializr with desired options selected.
+   Spring Initializer with desired options selected.
 
 Spring in IntelliJ
 ------------------
