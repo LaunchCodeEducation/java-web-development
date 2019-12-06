@@ -142,15 +142,16 @@ dependencies you selected:</p>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Lines 23 - 25 establish links to the thymeleaf, spring-boot-starter-web, and
-spring-boot-devtools libraries, respectively.</p>
+<p>Lines 23 - 25 establish links to the <code class="docutils literal notranslate"><span class="pre">thymeleaf</span></code>,
+<code class="docutils literal notranslate"><span class="pre">spring-boot-starter-web</span></code>, and <code class="docutils literal notranslate"><span class="pre">spring-boot-devtools</span></code> libraries,
+respectively.</p>
 </div>
 <div class="section" id="add-to-an-existing-project">
 <h3>11.2.2.2. Add to an Existing Project<a class="headerlink" href="#add-to-an-existing-project" title="Permalink to this headline">¶</a></h3>
 <p>If you have an existing project that does not currently use Thymeleaf, you
 can add the functionality by updating the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file.</p>
 <div class="figure">
-<img alt="Open the ``build.gradle`` file." src="../../_images/buildGradleFileTree.png" />
+<img alt="build.gradle file in the src directory." src="../../_images/buildGradleFileTree.png" />
 </div>
 <p>In the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> block, just paste in the <code class="docutils literal notranslate"><span class="pre">implementation</span></code> statement
 seen in line 23 above. Also, be sure to include the Spring Boot libraries if
@@ -163,9 +164,9 @@ the old project is missing those as well.</p>
 following video.</p>
 <div class="admonition-warning admonition">
 <p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">This video and the others in the chapter walk you through building small
-web-based projects. Do NOT skip this practice, because the end of chapter
-exercises pick up where the tutorials end.</p>
+<p class="last">This videos in this chapter walk you through building small web-based
+projects. Do NOT skip this practice, because the end of chapter exercises
+pick up where the tutorials end.</p>
 </div>
 <div style="text-align:center;">
    <iframe width="800" height="450" src="https://www.youtube.com/embed/UIetMLyDVjQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -173,12 +174,12 @@ exercises pick up where the tutorials end.</p>
 text is NOT a substitute for completing the work described in the clip.</p>
 <div class="section" id="template-location">
 <h3>11.2.3.1. Template Location<a class="headerlink" href="#template-location" title="Permalink to this headline">¶</a></h3>
-<p>In IntelliJ, store templates in the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder, which you should
-place within the <code class="docutils literal notranslate"><span class="pre">resources</span></code> directory. As you will see in the video,
-Thymeleaf streamlines finding required templates by using
+<p>In IntelliJ, create a <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder inside the <code class="docutils literal notranslate"><span class="pre">resources</span></code> directory.
+All of your templates should be put in the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder. As you saw in
+the video, Thymeleaf streamlines finding required files by using
 <code class="docutils literal notranslate"><span class="pre">resources/templates</span></code> as the default location.</p>
 <div class="figure">
-<img alt="Locate the ``templates`` folder." src="../../_images/templatesFolder.png" />
+<img alt="File tree location for the templates folder." src="../../_images/templatesFolder.png" />
 </div>
 </div>
 <div class="section" id="add-a-template">
@@ -237,7 +238,7 @@ make the edits described above every time you add a new base html file.</p>
 </li>
 <li><p class="first">In the window that pops up, click the “+” icon to add a new file.</p>
 <div class="figure">
-<a class="reference internal image-reference" href="../../_images/createNewTemplate.png"><img alt="Create a new template window." src="../../_images/createNewTemplate.png" style="width: 575.2px; height: 453.6px;" /></a>
+<a class="reference internal image-reference" href="../../_images/createNewTemplate.png"><img alt="Icon to click to create a new Thymeleaf template." src="../../_images/createNewTemplate.png" style="width: 575.2px; height: 453.6px;" /></a>
 </div>
 </li>
 <li><p class="first">Name your template, set the extension as <code class="docutils literal notranslate"><span class="pre">html</span></code>, then edit the starter
@@ -245,7 +246,7 @@ code. This will be the boilerplate HTML that appears anytime you select your
 custom template. For Thymeleaf, the code should at least close the <code class="docutils literal notranslate"><span class="pre">meta</span></code>
 tag and include the <code class="docutils literal notranslate"><span class="pre">xmlns</span></code> attribute.</p>
 <div class="figure">
-<img alt="Generic Thymeleaf starter code." src="../../_images/thymeleafTemplateCode.png" />
+<img alt="Editor pane for setting Thymeleaf template code." src="../../_images/thymeleafTemplateCode.png" />
 </div>
 <p>If you find yourself routinely using other code in your Thymeleaf files, you
 can return to this window and edit the HTML as needed. Don’t forget to save
@@ -254,7 +255,7 @@ your changes.</p>
 <li><p class="first">To use your custom Thymeleaf template, right-click on the <code class="docutils literal notranslate"><span class="pre">templates</span></code>
 folder and select <em>New –&gt; TemplateName</em>.</p>
 <div class="figure">
-<img alt="Select custom Thymeleaf starter code." src="../../_images/selectThymeleafTemplate.png" />
+<img alt="Menu options for selecting a custom Thymeleaf template." src="../../_images/selectThymeleafTemplate.png" />
 </div>
 </li>
 </ol>

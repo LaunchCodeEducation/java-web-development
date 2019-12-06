@@ -64,8 +64,9 @@ dependencies you selected:
       }
    }
 
-Lines 23 - 25 establish links to the thymeleaf, spring-boot-starter-web, and
-spring-boot-devtools libraries, respectively.
+Lines 23 - 25 establish links to the ``thymeleaf``,
+``spring-boot-starter-web``, and ``spring-boot-devtools`` libraries,
+respectively.
 
 Add to an Existing Project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,7 +75,7 @@ If you have an existing project that does not currently use Thymeleaf, you
 can add the functionality by updating the ``build.gradle`` file.
 
 .. figure:: ./figures/buildGradleFileTree.png
-   :alt: Open the ``build.gradle`` file.
+   :alt: build.gradle file in the src directory.
 
 In the ``dependencies`` block, just paste in the ``implementation`` statement
 seen in line 23 above. Also, be sure to include the Spring Boot libraries if
@@ -88,9 +89,9 @@ following video.
 
 .. admonition:: Warning
 
-   This video and the others in the chapter walk you through building small
-   web-based projects. Do NOT skip this practice, because the end of chapter
-   exercises pick up where the tutorials end.
+   This videos in this chapter walk you through building small web-based
+   projects. Do NOT skip this practice, because the end of chapter exercises
+   pick up where the tutorials end.
 
 .. raw:: html
 
@@ -104,13 +105,13 @@ text is NOT a substitute for completing the work described in the clip.
 Template Location
 ^^^^^^^^^^^^^^^^^^
 
-In IntelliJ, store templates in the ``templates`` folder, which you should
-place within the ``resources`` directory. As you will see in the video,
-Thymeleaf streamlines finding required templates by using
+In IntelliJ, create a ``templates`` folder inside the ``resources`` directory.
+All of your templates should be put in the ``templates`` folder. As you saw in
+the video, Thymeleaf streamlines finding required files by using
 ``resources/templates`` as the default location.
 
 .. figure:: ./figures/templatesFolder.png
-   :alt: Locate the ``templates`` folder.
+   :alt: File tree location for the templates folder.
 
 Add a Template
 ^^^^^^^^^^^^^^^
@@ -168,7 +169,7 @@ make the edits described above every time you add a new base html file.
 #. In the window that pops up, click the "+" icon to add a new file.
 
    .. figure:: ./figures/createNewTemplate.png
-      :alt: Create a new template window.
+      :alt: Icon to click to create a new Thymeleaf template.
       :scale: 80%
 
 #. Name your template, set the extension as ``html``, then edit the starter
@@ -177,7 +178,7 @@ make the edits described above every time you add a new base html file.
    tag and include the ``xmlns`` attribute.
 
    .. figure:: ./figures/thymeleafTemplateCode.png
-      :alt: Generic Thymeleaf starter code.
+      :alt: Editor pane for setting Thymeleaf template code.
 
    If you find yourself routinely using other code in your Thymeleaf files, you
    can return to this window and edit the HTML as needed. Don't forget to save
@@ -186,4 +187,4 @@ make the edits described above every time you add a new base html file.
    folder and select *New --> TemplateName*.
 
    .. figure:: ./figures/selectThymeleafTemplate.png
-      :alt: Select custom Thymeleaf starter code.
+      :alt: Menu options for selecting a custom Thymeleaf template.

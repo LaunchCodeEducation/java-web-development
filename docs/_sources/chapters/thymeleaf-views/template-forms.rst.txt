@@ -1,9 +1,9 @@
 Thymeleaf Forms
 ================
 
-Another fine use for a template is to use it to build a generic form. Then you
-can render that template with different labels and data. This allows a single
-form to serve different purposes, thereby saving you extra effort.
+Templates allow you to build generic forms. This lets you reuse the structure
+by rendering the same template with different labels and data. Thus, a single
+form can serve different purposes, saving you extra effort.
 
 Whenever possible, reuse existing templates!
 

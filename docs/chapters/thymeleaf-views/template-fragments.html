@@ -91,14 +91,13 @@ Thymeleaf allows us to do something similar with HTML.</p>
 <p id="index-0"><strong>Fragments</strong> are blocks of HTML elements that we want to use across multiple
 templates. The fragments are stored in a separate file, and they can be
 accessed by using the keywords <code class="docutils literal notranslate"><span class="pre">fragment</span></code> and <code class="docutils literal notranslate"><span class="pre">replace</span></code>.</p>
-<p>A summary of these two keywords it given below, followed by another
+<p>A summary of these two keywords is given below, followed by another
 <a class="reference internal" href="#coding-events-fragments-vid"><span class="std std-ref">video walkthrough</span></a> to give you some more
 live-coding practice.</p>
 <div class="section" id="fragments-dry-your-code">
 <h2>11.7.1. Fragments DRY Your Code<a class="headerlink" href="#fragments-dry-your-code" title="Permalink to this headline">¶</a></h2>
 <p>Anythyme you find yourself typing identical code into different templates,
-little alarm bells should go of in your head, and you should think, <em>How can I
-streamline this?</em></p>
+you should consider ways to streamline your work.</p>
 <p>Never fear, coder. Fragments are the tool you need. The general syntax is:</p>
 <div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="n">fragment</span> <span class="o">=</span> <span class="s2">&quot;fragmentName&quot;</span>
 <span class="nl">th:</span><span class="n">replace</span> <span class="o">=</span> <span class="s2">&quot;fileName :: fragmentName&quot;</span>

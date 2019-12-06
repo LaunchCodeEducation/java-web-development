@@ -10,7 +10,7 @@ Thymeleaf allows us to do something similar with HTML.
 templates. The fragments are stored in a separate file, and they can be
 accessed by using the keywords ``fragment`` and ``replace``.
 
-A summary of these two keywords it given below, followed by another
+A summary of these two keywords is given below, followed by another
 :ref:`video walkthrough <coding-events-fragments-vid>` to give you some more
 live-coding practice.
 
@@ -18,8 +18,7 @@ Fragments DRY Your Code
 ------------------------
 
 Anythyme you find yourself typing identical code into different templates,
-little alarm bells should go of in your head, and you should think, *How can I
-streamline this?*
+you should consider ways to streamline your work.
 
 Never fear, coder. Fragments are the tool you need. The general syntax is:
 

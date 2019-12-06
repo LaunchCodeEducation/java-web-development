@@ -134,7 +134,7 @@ not know exactly what that data will be. Information pulled from forms,
 APIs, or user input will be formatted to fit within our design.
 
 .. figure:: ./figures/ThymeleafTemplateDiagram.png
-   :alt: Generic template.
+   :alt: Templates define where data gets displayed on a webpage.
 
 In the figure, the black outlines represent different areas defined by the
 template---spaces for lists, images, links, etc. As the controller feeds data
