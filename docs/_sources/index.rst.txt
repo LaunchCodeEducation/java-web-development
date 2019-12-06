@@ -59,6 +59,7 @@ Appendices
    :name: appendicestoc
 
    appendices/spring/thymeleaf
+   appendices/sql-install
 
 .. toctree::
    :hidden:
