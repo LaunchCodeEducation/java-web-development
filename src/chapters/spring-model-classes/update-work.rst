@@ -1,13 +1,13 @@
 Updating Past Work
 ===================
 
-As you complete more and more projects, at some point you will look back at
+As you write more coding projects, at some point you will look back at
 your early work and think, *Whoa! There is SUCH a better way to do that!* You
 will spot places where your old code is inefficient, fragile, or contains a
 bug.
 
-No worries! This happens to all developers as our skills advance. We spot
-places where our old code could be streamlined or strengthened.
+This happens to all developers as our skills advance. We spot
+places where our old code could be streamlined and strengthened.
 
 .. admonition:: Examples
 
@@ -33,8 +33,10 @@ places where our old code could be streamlined or strengthened.
          return identical;
       }
 
-   This code compares the first number in the array to every other value. It
+   This code compares the first number in the list to every other value. It
    works, but it's not very efficient.
+
+	TODO: does this not only check max and min? 
 
    **Current self**:
 
@@ -58,16 +60,18 @@ always go back and make updates.
 .. index:: ! refactor
 
 **Refactoring** occurs when you improve your old work without adding any new
-features. This process is NOT the same as debugging, since your old code runs
-just fine. Instead, refactoring makes your code shorter, more efficient, more
-flexible, more robust, or more pretty.
+features. This process is not the same as debugging, since your old code runs
+just fine. Instead, refactoring makes your code shorter, dry-er, more efficient, more
+flexible, sturdier, or more legible.
+
+TODO: this isnt really refactoring? find use the example above
 
 One simple example of refactoring involves changing the appearance of a view.
 Altering the font, text size, table formatting, or background color does not
 make the page behave any differently. However, it would make the view more
 appealing to look at.
 
-(If this seems like a trivial change, speak to your nearest marketing person).
+TODO: look into how much to get into bootstrap inside the models section?!?
 
 Bootstrap
 ----------
@@ -141,5 +145,5 @@ templates to work with event objects.
 .. todo:: Add model video #1 here...
 
 Remember that the reading in this chapter supports the work you complete as you
-watch the videos. The text is NOT meant as a replacement for that practice
+watch the videos. The text is not meant as a replacement for that practice
 time.
