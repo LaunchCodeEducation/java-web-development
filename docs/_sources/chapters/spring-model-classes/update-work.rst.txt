@@ -84,11 +84,15 @@ Same buttons with Bootstrap:
 .. figure:: figures/bootstrapButtonOptions.png
    :alt: Some simple Bootstrap buttons.
 
-Image of standard HTML table (boring).
+Image of zebra-striped table (for example)...
 
-Sample tables with different Bootstrap styling.
+Compare code for HTML5 vs. Bootstrap to accomplish the table.
 
-Link to Bootstrap documentation.
+Useful links to Bootstrap documentation:
+
+#. `Getting Started <https://getbootstrap.com/docs/4.0/getting-started/introduction/>`__,
+#. `Components menu, buttons <https://getbootstrap.com/docs/4.0/components/buttons/>`__,
+#. `Content menu, tables <https://getbootstrap.com/docs/4.0/content/tables/>`__.
 
 Adding Bootstrap to your templates. (Best place is in head fragment).
 
