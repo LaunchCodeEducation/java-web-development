@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>11.2. Creating a Template &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="11.3. Using a Template" href="using-templates.html" />
+    <link rel="prev" title="11.1. Templates" href="why-templates.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">11. Thymeleaf Views</a></li>
+    <li class="active">11.2. Creating a Template</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="creating-a-template">
+<h1>11.2. Creating a Template<a class="headerlink" href="#creating-a-template" title="Permalink to this headline">¶</a></h1>
+<p>Using templates is a useful way to reduce the effort required to create and
+maintain a web-based project. Before you can dive into using templates,
+however, you need to take care of a little groundwork first.</p>
+<div class="section" id="thymeleaf">
+<h2>11.2.1. Thymeleaf<a class="headerlink" href="#thymeleaf" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">In combination with Java and Spring Boot, we will use a library called
+<strong>Thymeleaf</strong>. This set of tools helps simplify the creation of flexible,
+reusable templates for standalone projects and web-based applications.</p>
+<p>More information can be found on the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf" target="_blank">introduction page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+of the Thymeleaf website.</p>
+<div class="section" id="thymeleaf-naturally">
+<h3>11.2.1.1. Thymeleaf, Naturally<a class="headerlink" href="#thymeleaf-naturally" title="Permalink to this headline">¶</a></h3>
+<p>The developers behind Thymeleaf emphasize the idea of <em>natural templates</em>. This
+means that templates constructed with Thymeleaf look and operate just like
+regular HTML code. You can open any template in a browser and view it just
+like a static HTML file.</p>
+<p>Any logic we add to a template occurs inside the tags, which preserves the
+ability to open the file and display it correctly. This helps us as we
+consider the best layout for presenting data on the screen.</p>
+</div>
+</div>
+<div class="section" id="thymeleaf-dependency">
+<h2>11.2.2. Thymeleaf Dependency<a class="headerlink" href="#thymeleaf-dependency" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter, you will construct some small practice projects to help you
+learn how to implement Thymeleaf templates. To use the library, however, you
+need to provide IntelliJ with some information to make the IDE recognize
+Thymeleaf syntax and commands. You need to include in the proper
+<em>dependencies</em>, and there are two common ways to accomplish this.</p>
+<div class="section" id="during-setup-for-a-new-project">
+<h3>11.2.2.1. During Setup for a New Project<a class="headerlink" href="#during-setup-for-a-new-project" title="Permalink to this headline">¶</a></h3>
+<p>When you create a new Gradle project on the <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+website, search for and select the <em>Thymeleaf</em> dependency. For the practice
+projects you build in this class, be sure to add the <em>Spring Web</em> and
+<em>Spring Boot DevTools</em> dependencies as well.</p>
+<div class="figure">
+<img alt="Select the Thymeleaf dependency." src="../../_images/selectTLdependency.png" />
+</div>
+<p>In IntelliJ, opening up the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file of the new project shows the
+dependencies you selected:</p>
+<div class="highlight-groovy notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+   <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-thymeleaf&#39;</span>
+   <span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-web&#39;</span>
+   <span class="n">developmentOnly</span> <span class="s1">&#39;org.springframework.boot:spring-boot-devtools&#39;</span>
+   <span class="n">testImplementation</span><span class="o">(</span><span class="s1">&#39;org.springframework.boot:spring-boot-starter-test&#39;</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">exclude</span> <span class="nl">group:</span> <span class="s1">&#39;org.junit.vintage&#39;</span><span class="o">,</span> <span class="nl">module:</span> <span class="s1">&#39;junit-vintage-engine&#39;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lines 23 - 25 establish links to the <code class="docutils literal notranslate"><span class="pre">thymeleaf</span></code>,
+<code class="docutils literal notranslate"><span class="pre">spring-boot-starter-web</span></code>, and <code class="docutils literal notranslate"><span class="pre">spring-boot-devtools</span></code> libraries,
+respectively.</p>
+</div>
+<div class="section" id="add-to-an-existing-project">
+<h3>11.2.2.2. Add to an Existing Project<a class="headerlink" href="#add-to-an-existing-project" title="Permalink to this headline">¶</a></h3>
+<p>If you have an existing project that does not currently use Thymeleaf, you
+can add the functionality by updating the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file.</p>
+<div class="figure">
+<img alt="build.gradle file in the src directory." src="../../_images/buildGradleFileTree.png" />
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> block, just paste in the <code class="docutils literal notranslate"><span class="pre">implementation</span></code> statement
+seen in line 23 above. Also, be sure to include the Spring Boot libraries if
+the old project is missing those as well.</p>
+</div>
+</div>
+<div class="section" id="start-a-practice-project">
+<h2>11.2.3. Start a Practice Project<a class="headerlink" href="#start-a-practice-project" title="Permalink to this headline">¶</a></h2>
+<p>Open up your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project in IntelliJ and code along with the
+following video.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">This videos in this chapter walk you through building small web-based
+projects. Do NOT skip this practice, because the end of chapter exercises
+pick up where the tutorials end.</p>
+</div>
+<div style="text-align:center;">
+   <iframe width="800" height="450" src="https://www.youtube.com/embed/UIetMLyDVjQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div><p>The sections below outline the main ideas presented in the video. However, the
+text is NOT a substitute for completing the work described in the clip.</p>
+<div class="section" id="template-location">
+<h3>11.2.3.1. Template Location<a class="headerlink" href="#template-location" title="Permalink to this headline">¶</a></h3>
+<p>In IntelliJ, create a <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder inside the <code class="docutils literal notranslate"><span class="pre">resources</span></code> directory.
+All of your templates should be put in the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder. As you saw in
+the video, Thymeleaf streamlines finding required files by using
+<code class="docutils literal notranslate"><span class="pre">resources/templates</span></code> as the default location.</p>
+<div class="figure">
+<img alt="File tree location for the templates folder." src="../../_images/templatesFolder.png" />
+</div>
+</div>
+<div class="section" id="add-a-template">
+<h3>11.2.3.2. Add a Template<a class="headerlink" href="#add-a-template" title="Permalink to this headline">¶</a></h3>
+<p>To create a new template, right-click on the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder and select
+<em>New –&gt; HTML file</em>. Give your template a descriptive name, and note that
+IntelliJ provides some boilerplate code:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>To tie in the Thymeleaf information, you need to add a URL inside the <code class="docutils literal notranslate"><span class="pre">html</span></code>
+tag on line 2:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;https://www.thymeleaf.org/&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xmlns:th</span></code> attribute pulls in information from <code class="docutils literal notranslate"><span class="pre">thymeleaf.org</span></code> about
+the keywords and methods that we will use with Thymeleaf. This allows IntelliJ
+to properly apply syntax highlighting and error reporting.</p>
+<p>A side effect of the <code class="docutils literal notranslate"><span class="pre">xmlns:th</span></code> attribute is that it implements stricter
+requirements for closing HTML tags. In HTML5, we can get away with leaving out
+the <code class="docutils literal notranslate"><span class="pre">/</span></code> character in standalone tags like <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code>. However, with the
+xml format in Thymeleaf, we must include the character.</p>
+<p>For example, we need to update line 4 in the boilerplate HTML code to close
+the <code class="docutils literal notranslate"><span class="pre">meta</span></code> tag:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span> <span class="p">/&gt;</span> <span class="c">&lt;!-- Note the closing &#39;/&#39; character --&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="thymeleaf-template">
+<h2>11.2.4. Thymeleaf Template<a class="headerlink" href="#thymeleaf-template" title="Permalink to this headline">¶</a></h2>
+<p>As described in the video, you can save yourself some time by creating your own
+boilerplate code for a Thymeleaf template. This will save you from having to
+make the edits described above every time you add a new base html file.</p>
+<ol class="arabic">
+<li><p class="first">Right-click on the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder (or any other directory), and select
+<em>New –&gt; Edit File Templates</em>.</p>
+</li>
+<li><p class="first">In the window that pops up, click the “+” icon to add a new file.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/createNewTemplate.png"><img alt="Icon to click to create a new Thymeleaf template." src="../../_images/createNewTemplate.png" style="width: 575.2px; height: 453.6px;" /></a>
+</div>
+</li>
+<li><p class="first">Name your template, set the extension as <code class="docutils literal notranslate"><span class="pre">html</span></code>, then edit the starter
+code. This will be the boilerplate HTML that appears anytime you select your
+custom template. For Thymeleaf, the code should at least close the <code class="docutils literal notranslate"><span class="pre">meta</span></code>
+tag and include the <code class="docutils literal notranslate"><span class="pre">xmlns</span></code> attribute.</p>
+<div class="figure">
+<img alt="Editor pane for setting Thymeleaf template code." src="../../_images/thymeleafTemplateCode.png" />
+</div>
+<p>If you find yourself routinely using other code in your Thymeleaf files, you
+can return to this window and edit the HTML as needed. Don’t forget to save
+your changes.</p>
+</li>
+<li><p class="first">To use your custom Thymeleaf template, right-click on the <code class="docutils literal notranslate"><span class="pre">templates</span></code>
+folder and select <em>New –&gt; TemplateName</em>.</p>
+<div class="figure">
+<img alt="Menu options for selecting a custom Thymeleaf template." src="../../_images/selectThymeleafTemplate.png" />
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="why-templates.html"><span aria-hidden="true">&larr;</span> 11.1. Templates</a></li>
+        
+        
+        <li class="next"><a href="using-templates.html">11.3. Using a Template <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/thymeleaf-views/create-template.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
