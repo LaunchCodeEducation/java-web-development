@@ -11,7 +11,7 @@ places where our old code could be streamlined and strengthened.
 
 .. admonition:: Examples
 
-   Assume your past-self created a method to check if every integer in an
+   Assume your past-self created a method to check if every integer in a single
    ArrayList is identical. Later, your more experienced self tackles the same
    problem.
 
@@ -36,8 +36,6 @@ places where our old code could be streamlined and strengthened.
    This code compares the first number in the list to every other value. It
    works, but it's not very efficient.
 
-	TODO: does this not only check max and min? 
-
    **Current self**:
 
    .. sourcecode:: Java
@@ -57,40 +55,59 @@ Refactoring Code
 Rather than feeling sheepish about the earliest code you generated, you can
 always go back and make updates.
 
-.. index:: ! refactor
+.. index:: refactor
 
 **Refactoring** occurs when you improve your old work without adding any new
 features. This process is not the same as debugging, since your old code runs
 just fine. Instead, refactoring makes your code shorter, dry-er, more efficient, more
 flexible, sturdier, or more legible.
 
-TODO: this isnt really refactoring? find use the example above
-
-One simple example of refactoring involves changing the appearance of a view.
-Altering the font, text size, table formatting, or background color does not
-make the page behave any differently. However, it would make the view more
-appealing to look at.
-
-TODO: look into how much to get into bootstrap inside the models section?!?
+We've mentioned refactoring several times before, and even have given you explicit instructions
+to refactor with the Tech Jobs Assignments. We bring it up here to emphasize how commonplace the 
+practice of refactoring is, not just in the context of learning, but always. 
 
 Bootstrap
 ----------
 
-Text here...
+You'll notice in this section, not only are we updating our ``coding-events`` application to use models, but we've also
+added some Bootstrap styling. Bootstrap is a commonly-used style library. It allows users to quickly apply its CSS style rules 
+with class selectors. Style updates can add features or improve the usability of an application are therefore not refactoring.
 
-Image of standard HTML buttons (boring):
+For example, Bootstrap, and other styling libraries for tha matter, use a standardized color scheme for items like clickable
+buttons. As the implementer of the helper library, you can apply the ``btn btn-primary`` classes to a button on your page and 
+Bootstrap works behind the CSS scenes to render a blue button with white text in a legible font. For more customization, you 
+could also choose which color you want all of a the buttons labelled with ``btn-primary`` on your web page to be. 
+
+Straight out of the box, Bootstrap helps developers to get their web apps well styled without needing to spend much time writing
+custom CSS rules. The library also does some of the work of applying user-experience best-practices. The button class ``btn-danger``
+for example, is defaulted to appear red, a color most associated with danger. 
+
+Image of standard HTML buttons without CSS:
 
 .. figure:: figures/htmlDefaultButtons.png
    :alt: Standard HTML buttons.
+
+HTML buttons without styling.
 
 Same buttons with Bootstrap:
 
 .. figure:: figures/bootstrapButtonOptions.png
    :alt: Some simple Bootstrap buttons.
 
-Image of zebra-striped table (for example)...
+Buttons styled with Bootstrap.
 
-Compare code for HTML5 vs. Bootstrap to accomplish the table.
+TODO: add instructions to add bootstrap to spring boot project.
+
+Apart from adding the library to your Spring Boot project, we won't focus much time on the individual Bootstrap updates to 
+``coding-events`` but we want you to know what they are and where they come from.
+
+Adding Bootstrap to ``coding-events``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+your templates. (Best place is in head fragment).
+
+In the video, the Bootstrap classes ``container``, ``form-group``, and
+``form-control`` are used to improve the look and feel of the views.
 
 Useful links to Bootstrap documentation:
 
@@ -98,10 +115,7 @@ Useful links to Bootstrap documentation:
 #. `Components menu, buttons <https://getbootstrap.com/docs/4.0/components/buttons/>`__,
 #. `Content menu, tables <https://getbootstrap.com/docs/4.0/content/tables/>`__.
 
-Adding Bootstrap to your templates. (Best place is in head fragment).
 
-In the video, the Bootstrap classes ``container``, ``form-group``, and
-``form-control`` are used to improve the look and feel of the views.
 
 Adding Generic Code
 --------------------

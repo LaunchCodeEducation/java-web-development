@@ -108,6 +108,10 @@ turns it into something useful for a particular application.</p>
 </div>
 <div class="section" id="mvc-putting-it-together">
 <h2>12.2.2. MVC: Putting it Together<a class="headerlink" href="#mvc-putting-it-together" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/mvcOverviewDetail1.png"><img alt="MVC Summary" src="../../_images/mvcOverviewDetail1.png" style="width: 900.0px; height: 600.0px;" /></a>
+<p class="caption"><span class="caption-text">Each MVC node carries its own responsibilities.</span></p>
+</div>
 <div class="section" id="model">
 <h3>12.2.2.1. Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
 <p>Shapes data to fit the needs of an application.</p>
@@ -123,7 +127,6 @@ data. The view communicates with the controller but not the model.</p>
 model. It does not store the data or determine how to display it for the
 user. It passes information retrieved from the view to update the model.
 And it passes information retrieved from the model to update the view.</p>
-<p>TODO: MVC FIGURE?</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">Need further review? Check out <a class="reference external" href="https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488" target="_blank">this article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
@@ -165,41 +168,29 @@ actions.</li>
 A controller does not permanently store data. Instead, it either
 sends the information to the model, which uses its own code to preserve the
 data, or it sends the content to the view for display.</p>
-<p>TODO: review these questions</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>12.2.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>If we use a bakery as an analogy for an MVC project, which of the
+<p>If we use baking as an analogy for an MVC project, which of the
 following items best represents a <em>model</em>?</p>
 <ol class="last loweralpha simple">
-<li>The store menu.</li>
-<li>The display case.</li>
-<li>The ingredients pantry.</li>
-<li>The oven.</li>
+<li>The bread ingredients: flour, water, yeast, salt</li>
+<li>Mixing and kneading the ingredients together</li>
+<li>Shaping and baking the loaves into the final product</li>
+<li>Eating the bread</li>
 </ol>
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Would the baker in the store above represent a model, view, or controller?</p>
+<p>If we use a library as an analogy for an MVC project, which of the
+following items best represents a <em>model</em>?</p>
 <ol class="last loweralpha simple">
-<li>Model.</li>
-<li>View.</li>
-<li>Controller.</li>
-</ol>
-</div>
-<div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Your boss wants an alphabetical list of all employees who have worked at the
-company for at least 5 years, have a college degree, and are parents
-interested in starting a savings plan for their kids.</p>
-<p>Where should you add the code to accomplish this?</p>
-<ol class="last loweralpha simple">
-<li>In a controller.</li>
-<li>In the model.</li>
-<li>In a view.</li>
-<li>Wherever you want.</li>
+<li>The books on the shelves</li>
+<li>The Dewey Decimal storage system</li>
+<li>The librarians</li>
+<li>The book readers</li>
 </ol>
 </div>
 </div>

@@ -94,7 +94,7 @@ bug.</p>
 places where our old code could be streamlined and strengthened.</p>
 <div class="admonition-examples admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
-<p>Assume your past-self created a method to check if every integer in an
+<p>Assume your past-self created a method to check if every integer in a single
 ArrayList is identical. Later, your more experienced self tackles the same
 problem.</p>
 <p><strong>Earlier self</strong>:</p>
@@ -125,8 +125,6 @@ problem.</p>
 </td></tr></table></div>
 <p>This code compares the first number in the list to every other value. It
 works, but it’s not very efficient.</p>
-<blockquote>
-<div>TODO: does this not only check max and min?</div></blockquote>
 <p><strong>Current self</strong>:</p>
 <div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -149,35 +147,47 @@ always go back and make updates.</p>
 features. This process is not the same as debugging, since your old code runs
 just fine. Instead, refactoring makes your code shorter, dry-er, more efficient, more
 flexible, sturdier, or more legible.</p>
-<p>TODO: this isnt really refactoring? find use the example above</p>
-<p>One simple example of refactoring involves changing the appearance of a view.
-Altering the font, text size, table formatting, or background color does not
-make the page behave any differently. However, it would make the view more
-appealing to look at.</p>
-<p>TODO: look into how much to get into bootstrap inside the models section?!?</p>
+<p>We’ve mentioned refactoring several times before, and even have given you explicit instructions
+to refactor with the Tech Jobs Assignments. We bring it up here to emphasize how commonplace the
+practice of refactoring is, not just in the context of learning, but always.</p>
 </div>
 <div class="section" id="bootstrap">
 <h2>12.3.2. Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h2>
-<p>Text here…</p>
-<p>Image of standard HTML buttons (boring):</p>
+<p>You’ll notice in this section, not only are we updating our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application to use models, but we’ve also
+added some Bootstrap styling. Bootstrap is a commonly-used style library. It allows users to quickly apply its CSS style rules
+with class selectors. Style updates can add features or improve the usability of an application are therefore not refactoring.</p>
+<p>For example, Bootstrap, and other styling libraries for tha matter, use a standardized color scheme for items like clickable
+buttons. As the implementer of the helper library, you can apply the <code class="docutils literal notranslate"><span class="pre">btn</span> <span class="pre">btn-primary</span></code> classes to a button on your page and
+Bootstrap works behind the CSS scenes to render a blue button with white text in a legible font. For more customization, you
+could also choose which color you want all of a the buttons labelled with <code class="docutils literal notranslate"><span class="pre">btn-primary</span></code> on your web page to be.</p>
+<p>Straight out of the box, Bootstrap helps developers to get their web apps well styled without needing to spend much time writing
+custom CSS rules. The library also does some of the work of applying user-experience best-practices. The button class <code class="docutils literal notranslate"><span class="pre">btn-danger</span></code>
+for example, is defaulted to appear red, a color most associated with danger.</p>
+<p>Image of standard HTML buttons without CSS:</p>
 <div class="figure">
 <img alt="Standard HTML buttons." src="../../_images/htmlDefaultButtons.png" />
 </div>
+<p>HTML buttons without styling.</p>
 <p>Same buttons with Bootstrap:</p>
 <div class="figure">
 <img alt="Some simple Bootstrap buttons." src="../../_images/bootstrapButtonOptions.png" />
 </div>
-<p>Image of zebra-striped table (for example)…</p>
-<p>Compare code for HTML5 vs. Bootstrap to accomplish the table.</p>
+<p>Buttons styled with Bootstrap.</p>
+<p>TODO: add instructions to add bootstrap to spring boot project.</p>
+<p>Apart from adding the library to your Spring Boot project, we won’t focus much time on the individual Bootstrap updates to
+<code class="docutils literal notranslate"><span class="pre">coding-events</span></code> but we want you to know what they are and where they come from.</p>
+<div class="section" id="adding-bootstrap-to-coding-events">
+<h3>12.3.2.1. Adding Bootstrap to <code class="docutils literal notranslate"><span class="pre">coding-events</span></code><a class="headerlink" href="#adding-bootstrap-to-coding-events" title="Permalink to this headline">¶</a></h3>
+<p>your templates. (Best place is in head fragment).</p>
+<p>In the video, the Bootstrap classes <code class="docutils literal notranslate"><span class="pre">container</span></code>, <code class="docutils literal notranslate"><span class="pre">form-group</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">form-control</span></code> are used to improve the look and feel of the views.</p>
 <p>Useful links to Bootstrap documentation:</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/" target="_blank">Getting Started<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,</li>
 <li><a class="reference external" href="https://getbootstrap.com/docs/4.0/components/buttons/" target="_blank">Components menu, buttons<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,</li>
 <li><a class="reference external" href="https://getbootstrap.com/docs/4.0/content/tables/" target="_blank">Content menu, tables<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
 </ol>
-<p>Adding Bootstrap to your templates. (Best place is in head fragment).</p>
-<p>In the video, the Bootstrap classes <code class="docutils literal notranslate"><span class="pre">container</span></code>, <code class="docutils literal notranslate"><span class="pre">form-group</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">form-control</span></code> are used to improve the look and feel of the views.</p>
+</div>
 </div>
 <div class="section" id="adding-generic-code">
 <h2>12.3.3. Adding Generic Code<a class="headerlink" href="#adding-generic-code" title="Permalink to this headline">¶</a></h2>

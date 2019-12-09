@@ -30,6 +30,12 @@ turns it into something useful for a particular application.
 MVC: Putting it Together
 ------------------------
 
+.. figure:: figures/mvcOverviewDetail.png
+   :scale: 50%
+   :alt: MVC Summary
+
+   Each MVC node carries its own responsibilities.
+
 Model
 ~~~~~
 Shapes data to fit the needs of an application.
@@ -45,8 +51,6 @@ Directs the flow of information between the view and the
 model. It does not store the data or determine how to display it for the
 user. It passes information retrieved from the view to update the model. 
 And it passes information retrieved from the model to update the view.
-
-TODO: MVC FIGURE?
 
 .. admonition:: Tip
 
@@ -91,44 +95,30 @@ A controller does not permanently store data. Instead, it either
 sends the information to the model, which uses its own code to preserve the
 data, or it sends the content to the view for display.
 
-TODO: review these questions
-
 Check Your Understanding
 ------------------------
 
 .. admonition:: Question
 
-   If we use a bakery as an analogy for an MVC project, which of the
+   If we use baking as an analogy for an MVC project, which of the
    following items best represents a *model*?
 
-   a. The store menu.
-   b. The display case.
-   c. The ingredients pantry.
-   d. The oven.
+   a. The bread ingredients: flour, water, yeast, salt
+   b. Mixing and kneading the ingredients together
+   c. Shaping and baking the loaves into the final product
+   d. Eating the bread
 
-.. Answer: c
-
-.. admonition:: Question
-
-   Would the baker in the store above represent a model, view, or controller?
-
-   a. Model.
-   b. View.
-   c. Controller.
-
-.. Answer: c
+.. Answer: b, Mixing and kneading the ingredients together
 
 .. admonition:: Question
 
-   Your boss wants an alphabetical list of all employees who have worked at the
-   company for at least 5 years, have a college degree, and are parents
-   interested in starting a savings plan for their kids.
+   If we use a library as an analogy for an MVC project, which of the
+   following items best represents a *model*?
 
-   Where should you add the code to accomplish this?
+   a. The books on the shelves
+   b. The Dewey Decimal storage system
+   c. The librarians
+   d. The book readers
 
-   a. In a controller.
-   b. In the model.
-   c. In a view.
-   d. Wherever you want.
+.. Answer: b, The Dewey Decimal storage system
 
-.. Answer: a
