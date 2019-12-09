@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12.2. Studio: Databases, Part 1 &#8212; Java Web Development  documentation</title>
+    <title>12.6. Studio: Databases, Part 1 &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Index" href="../../genindex.html" />
-    <link rel="prev" title="12.1. Exercises: SQL, Part 1" href="exercises.html" />
+    <link rel="prev" title="12.5. Exercises: SQL, Part 1" href="exercises.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">12. SQL Part 1</a></li>
-    <li class="active">12.2. Studio: Databases, Part 1</li>
+    <li class="active">12.6. Studio: Databases, Part 1</li>
 </ol>
 
 
@@ -85,10 +85,10 @@
 
     
   <div class="section" id="studio-databases-part-1">
-<h1>12.2. Studio: Databases, Part 1<a class="headerlink" href="#studio-databases-part-1" title="Permalink to this headline">¶</a></h1>
+<h1>12.6. Studio: Databases, Part 1<a class="headerlink" href="#studio-databases-part-1" title="Permalink to this headline">¶</a></h1>
 <p>Lorem ipsum…</p>
 <div class="section" id="old-content">
-<h2>12.2.1. Old Content<a class="headerlink" href="#old-content" title="Permalink to this headline">¶</a></h2>
+<h2>12.6.1. Old Content<a class="headerlink" href="#old-content" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>From old LC101 Unit 2: Web Fundamentals.</div></blockquote>
 <p>This studio has two parts, corresponding to what you’ll learn in SQL classes
@@ -99,13 +99,13 @@ and database tables.</p>
 it to perform SQL queries through <em>MySQLWorkbench</em>.</p>
 </div>
 <div class="section" id="walkthrough">
-<h2>12.2.2. Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
+<h2>12.6.2. Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
 <p>Let’s relate what you’ve been learning about SQL and databases to your work on
 a fictional model. We’ll start with a database called <code class="docutils literal notranslate"><span class="pre">movie-buff</span></code> and create
 two tables in it, <code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code>. Let’s think about what kind of
 columns we want in our tables.</p>
 <div class="section" id="movies-table">
-<h3>12.2.2.1. Movies Table<a class="headerlink" href="#movies-table" title="Permalink to this headline">¶</a></h3>
+<h3>12.6.2.1. Movies Table<a class="headerlink" href="#movies-table" title="Permalink to this headline">¶</a></h3>
 <p>For the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table, it makes sense to have columns for the <code class="docutils literal notranslate"><span class="pre">title</span></code> of
 the movie, the <code class="docutils literal notranslate"><span class="pre">year</span></code> it was released, and the <code class="docutils literal notranslate"><span class="pre">director</span></code>. We’re also going
 to want to have a unique <code class="docutils literal notranslate"><span class="pre">movie_id</span></code> column as the primary key, since there
@@ -137,7 +137,7 @@ further in the class on <em>Object-Relational Mapping</em> (ORM).</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="directors-table">
-<h3>12.2.2.2. Directors Table<a class="headerlink" href="#directors-table" title="Permalink to this headline">¶</a></h3>
+<h3>12.6.2.2. Directors Table<a class="headerlink" href="#directors-table" title="Permalink to this headline">¶</a></h3>
 <p>Next, let’s consider the properties we’d want for a <code class="docutils literal notranslate"><span class="pre">director</span></code> object in
 Java. These could include a <code class="docutils literal notranslate"><span class="pre">first</span></code> name, a <code class="docutils literal notranslate"><span class="pre">last</span></code> name, and maybe the
 <code class="docutils literal notranslate"><span class="pre">country</span></code> where the director was born.</p>
@@ -159,7 +159,7 @@ command to create the <code class="docutils literal notranslate"><span class="pr
 </td></tr></table></div>
 </div>
 <div class="section" id="relating-the-tables">
-<h3>12.2.2.3. Relating the Tables<a class="headerlink" href="#relating-the-tables" title="Permalink to this headline">¶</a></h3>
+<h3>12.6.2.3. Relating the Tables<a class="headerlink" href="#relating-the-tables" title="Permalink to this headline">¶</a></h3>
 <p>Before we go further, let’s take a moment to think about how these two tables
 relate to each other, and whether we may want to modify the column <code class="docutils literal notranslate"><span class="pre">director</span></code>
 in the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table. Understanding the common one-to-many relationship that
@@ -226,7 +226,7 @@ the solution.</p>
 </div>
 </div>
 <div class="section" id="your-assignment">
-<h2>12.2.3. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
+<h2>12.6.3. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
 <p>For this studio, you’ll practice writing SQL queries to perform various data
 retrieval and manipulation tasks.</p>
 <p>Even though our database does not have entries in it, we can imagine that it
@@ -273,9 +273,9 @@ This data is not particularly helpful to a user, since they probably want to
 see the director names instead. Use an <em>inner join</em> in your SQL command to
 display a list of movie titles, years released, and director last names.</p>
 </li>
-<li><p class="first">List the countries of origin for the director of <em>Roma</em> and the director of
-<em>The Incredibles</em>. You could do this using either a join or a sub-query,
-but for this step please use a join.</p>
+<li><p class="first">List the last names and countries of origin for the director of <em>Roma</em> and
+the director of <em>The Incredibles</em>. You could do this using either a join or
+a sub-query, but for this step please use a join.</p>
 </li>
 <li><p class="first">List all the movies in the database along with each movie’s director,
 ordered by the director’s last name in ascending order. (<em>Hint:</em> You’ll want
@@ -292,7 +292,7 @@ to use a join and choose the columns <code class="docutils literal notranslate">
 </div>
 </div>
 <div class="section" id="bonus-missions">
-<h2>12.2.4. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<h2>12.6.4. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Note that SQL <em>aliases</em> give a table or column a temporary name. Assign
 aliases in at least 3 of the items above to make the columns names different
@@ -308,7 +308,7 @@ and/or more readable in the output.</li>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 12.1. Exercises: SQL, Part 1</a></li>
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 12.5. Exercises: SQL, Part 1</a></li>
         
         
         <li class="next"><a href="../../genindex.html">Index <span aria-hidden="true">&rarr;</span></a></li>

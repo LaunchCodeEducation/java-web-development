@@ -196,9 +196,9 @@ step, compare your answers with a partner.
    see the director names instead. Use an *inner join* in your SQL command to
    display a list of movie titles, years released, and director last names.
 
-#. List the countries of origin for the director of *Roma* and the director of
-   *The Incredibles*. You could do this using either a join or a sub-query,
-   but for this step please use a join.
+#. List the last names and countries of origin for the director of *Roma* and
+   the director of *The Incredibles*. You could do this using either a join or
+   a sub-query, but for this step please use a join.
 
 #. List all the movies in the database along with each movie's director,
    ordered by the director's last name in ascending order. (*Hint:* You'll want
