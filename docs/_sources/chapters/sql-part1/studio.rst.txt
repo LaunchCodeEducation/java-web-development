@@ -196,13 +196,16 @@ step, compare your answers with a partner.
    see the director names instead. Use an *inner join* in your SQL command to
    display a list of movie titles, years released, and director last names.
 
-#. List the countries of origin for the director of *Roma* and the director of
-   *The Incredibles*. You could do this using either a join or a sub-query,
-   but for this step please use a join.
+#. List all the movies in the database along with the first and last name of
+   the director. Order the list alphabetically by the director's last name.
 
-#. List all the movies in the database along with each movie's director,
-   ordered by the director's last name in ascending order. (*Hint:* You'll want
-   to use a join and choose the columns ``title``, ``first``, and ``last``).
+#. List the first and last name and for the director of *The Incredibles*. You
+   can do this with either a join or a ``WHERE`` command, but for this step
+   please use ``WHERE``.
+
+#. List the last name and country of origin for the director of *Roma*. You
+   can do this using either a join or a ``WHERE`` command, but for this
+   step please use a join.
 
 .. admonition:: Tip
 
@@ -211,6 +214,12 @@ step, compare your answers with a partner.
    #. `Inner joins <https://www.w3schools.com/sql/sql_join_inner.asp>`__,
    #. `Joins <https://www.w3schools.com/sql/sql_join.asp>`__.
 
+#. Delete a movie title from the ``movies`` table. What consequence does this
+   have on ``directors``?
+
+#. Delete a person from the ``directors`` table, then re-run step 8. What
+   consequence does removing a director have on ``movies``?
+
 Bonus Missions
 ---------------
 
@@ -218,3 +227,10 @@ Bonus Missions
    aliases in at least 3 of the items above to make the columns names different
    and/or more readable in the output.
 #. List all of the movies in the database directed by Peter Jackson.
+#. `Add another column <https://www.w3schools.com/sql/sql_alter.asp>`__ to the
+   ``movies`` table that holds the amount of money earned by each film. Next,
+   use ``UPDATE`` to enter the values for each movie in the database.
+
+   a. Generate a list that ranks the earnings of the movies.
+   b. Generate a list that only shows films that earned above (or below) a
+      certain amount.

@@ -273,13 +273,16 @@ This data is not particularly helpful to a user, since they probably want to
 see the director names instead. Use an <em>inner join</em> in your SQL command to
 display a list of movie titles, years released, and director last names.</p>
 </li>
-<li><p class="first">List the countries of origin for the director of <em>Roma</em> and the director of
-<em>The Incredibles</em>. You could do this using either a join or a sub-query,
-but for this step please use a join.</p>
+<li><p class="first">List all the movies in the database along with the first and last name of
+the director. Order the list alphabetically by the director’s last name.</p>
 </li>
-<li><p class="first">List all the movies in the database along with each movie’s director,
-ordered by the director’s last name in ascending order. (<em>Hint:</em> You’ll want
-to use a join and choose the columns <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">first</span></code>, and <code class="docutils literal notranslate"><span class="pre">last</span></code>).</p>
+<li><p class="first">List the first and last name and for the director of <em>The Incredibles</em>. You
+can do this with either a join or a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> command, but for this step
+please use <code class="docutils literal notranslate"><span class="pre">WHERE</span></code>.</p>
+</li>
+<li><p class="first">List the last name and country of origin for the director of <em>Roma</em>. You
+can do this using either a join or a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> command, but for this
+step please use a join.</p>
 </li>
 </ol>
 <div class="admonition-tip admonition">
@@ -290,6 +293,12 @@ to use a join and choose the columns <code class="docutils literal notranslate">
 <li><a class="reference external" href="https://www.w3schools.com/sql/sql_join.asp" target="_blank">Joins<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
 </ol>
 </div>
+<ol class="arabic simple">
+<li>Delete a movie title from the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table. What consequence does this
+have on <code class="docutils literal notranslate"><span class="pre">directors</span></code>?</li>
+<li>Delete a person from the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table, then re-run step 8. What
+consequence does removing a director have on <code class="docutils literal notranslate"><span class="pre">movies</span></code>?</li>
+</ol>
 </div>
 <div class="section" id="bonus-missions">
 <h2>12.2.4. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
@@ -298,6 +307,14 @@ to use a join and choose the columns <code class="docutils literal notranslate">
 aliases in at least 3 of the items above to make the columns names different
 and/or more readable in the output.</li>
 <li>List all of the movies in the database directed by Peter Jackson.</li>
+<li><a class="reference external" href="https://www.w3schools.com/sql/sql_alter.asp" target="_blank">Add another column<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to the
+<code class="docutils literal notranslate"><span class="pre">movies</span></code> table that holds the amount of money earned by each film. Next,
+use <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> to enter the values for each movie in the database.<ol class="loweralpha">
+<li>Generate a list that ranks the earnings of the movies.</li>
+<li>Generate a list that only shows films that earned above (or below) a
+certain amount.</li>
+</ol>
+</li>
 </ol>
 </div>
 </div>
