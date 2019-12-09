@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>12.2. Studio: Databases, Part 1 &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Index" href="../../genindex.html" />
+    <link rel="prev" title="12.1. Exercises: SQL, Part 1" href="exercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">12. SQL Part 1</a></li>
+    <li class="active">12.2. Studio: Databases, Part 1</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="studio-databases-part-1">
+<h1>12.2. Studio: Databases, Part 1<a class="headerlink" href="#studio-databases-part-1" title="Permalink to this headline">¶</a></h1>
+<p>Lorem ipsum…</p>
+<div class="section" id="old-content">
+<h2>12.2.1. Old Content<a class="headerlink" href="#old-content" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>From old LC101 Unit 2: Web Fundamentals.</div></blockquote>
+<p>This studio has two parts, corresponding to what you’ll learn in SQL classes
+part 1 and part 2, respectively. In the first part of this studio, we’ll create
+and manipulate tables, as well as explore the parallels between Java objects
+and database tables.</p>
+<p>In the second part of this studio, we’ll make a real database locally and use
+it to perform SQL queries through <em>MySQLWorkbench</em>.</p>
+</div>
+<div class="section" id="walkthrough">
+<h2>12.2.2. Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
+<p>Let’s relate what you’ve been learning about SQL and databases to your work on
+a fictional model. We’ll start with a database called <code class="docutils literal notranslate"><span class="pre">movie-buff</span></code> and create
+two tables in it, <code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code>. Let’s think about what kind of
+columns we want in our tables.</p>
+<div class="section" id="movies-table">
+<h3>12.2.2.1. Movies Table<a class="headerlink" href="#movies-table" title="Permalink to this headline">¶</a></h3>
+<p>For the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table, it makes sense to have columns for the <code class="docutils literal notranslate"><span class="pre">title</span></code> of
+the movie, the <code class="docutils literal notranslate"><span class="pre">year</span></code> it was released, and the <code class="docutils literal notranslate"><span class="pre">director</span></code>. We’re also going
+to want to have a unique <code class="docutils literal notranslate"><span class="pre">movie_id</span></code> column as the primary key, since there
+can be more than one movie with the same title.</p>
+<p>Take the time now to think about what data types you might use for these
+columns (<code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>, <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code>, <code class="docutils literal notranslate"><span class="pre">DATE</span></code>, etc.), then go ahead and write (or
+type) the SQL statement to create this table.</p>
+<p>As you consider which data types to use for your <code class="docutils literal notranslate"><span class="pre">movies</span></code> columns, you might
+find yourself thinking, <em>If this were a property of a Java object, what data
+type would I use?</em></p>
+<p>For example, if the <code class="docutils literal notranslate"><span class="pre">movie</span></code> object has a <code class="docutils literal notranslate"><span class="pre">title</span></code> and a <code class="docutils literal notranslate"><span class="pre">director</span></code> field,
+you would expect both of these data types to be <code class="docutils literal notranslate"><span class="pre">String</span></code>. Similarly the year
+the movie was released would be stored as an integer. This conceptual overlap
+between databases and Java objects is very useful, and we will explore this
+further in the class on <em>Object-Relational Mapping</em> (ORM).</p>
+<p>Here’s how our <code class="docutils literal notranslate"><span class="pre">movies</span></code> table could be created:</p>
+<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">movies</span> <span class="p">(</span>
+   <span class="n">movie_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="n">title</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
+   <span class="k">year</span> <span class="nb">INTEGER</span><span class="p">,</span>
+   <span class="n">director</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="directors-table">
+<h3>12.2.2.2. Directors Table<a class="headerlink" href="#directors-table" title="Permalink to this headline">¶</a></h3>
+<p>Next, let’s consider the properties we’d want for a <code class="docutils literal notranslate"><span class="pre">director</span></code> object in
+Java. These could include a <code class="docutils literal notranslate"><span class="pre">first</span></code> name, a <code class="docutils literal notranslate"><span class="pre">last</span></code> name, and maybe the
+<code class="docutils literal notranslate"><span class="pre">country</span></code> where the director was born.</p>
+<p>Once we identify the data types for these properties, we can write the SQL
+command to create the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table. Also, we should include a
+<code class="docutils literal notranslate"><span class="pre">director_id</span></code> column in order to create a valid primary key.</p>
+<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">directors</span> <span class="p">(</span>
+   <span class="n">director_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="k">first</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
+   <span class="k">last</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
+   <span class="n">country</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="relating-the-tables">
+<h3>12.2.2.3. Relating the Tables<a class="headerlink" href="#relating-the-tables" title="Permalink to this headline">¶</a></h3>
+<p>Before we go further, let’s take a moment to think about how these two tables
+relate to each other, and whether we may want to modify the column <code class="docutils literal notranslate"><span class="pre">director</span></code>
+in the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table. Understanding the common one-to-many relationship that
+exists between database tables helps us set up the best design for <code class="docutils literal notranslate"><span class="pre">movies</span></code>
+and <code class="docutils literal notranslate"><span class="pre">directors</span></code>. A director may direct multiple movies, but each movie may
+only have one director.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">It may be useful to review <a class="reference external" href="http://www.databaseprimer.com/pages/relationship_1tox/" target="_blank">this article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+to refresh your memory on the one-to-many concept.</p>
+</div>
+<p>In order to reflect a one-to-many relationship in the table definitions, let’s
+modify the <code class="docutils literal notranslate"><span class="pre">director</span></code> column in <code class="docutils literal notranslate"><span class="pre">movies</span></code> to become <code class="docutils literal notranslate"><span class="pre">director_id</span></code>. It
+should therefore be an <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> we used earlier
+when we thought the <code class="docutils literal notranslate"><span class="pre">director</span></code> column would hold the name of a person.</p>
+<p>We also will want to make the <code class="docutils literal notranslate"><span class="pre">director_id</span></code> column in <code class="docutils literal notranslate"><span class="pre">movies</span></code> a
+<em>foreign key</em>, so that it links directly to the <code class="docutils literal notranslate"><span class="pre">director_id</span></code> column in the
+<code class="docutils literal notranslate"><span class="pre">directors</span></code> table. Go ahead and write the SQL to drop the old <code class="docutils literal notranslate"><span class="pre">movies</span></code>
+table, and then write the SQL command to create a new table with these changes.</p>
+<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">movies</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">movies</span> <span class="p">(</span>
+   <span class="n">movie_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="n">title</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
+   <span class="k">year</span> <span class="nb">INTEGER</span><span class="p">,</span>
+   <span class="n">director_id</span> <span class="nb">INTEGER</span><span class="p">,</span>
+   <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">director_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">directors</span><span class="p">(</span><span class="n">director_id</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If needed, here is a set of review articles:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://www.w3schools.com/sql/sql_drop_table.asp" target="_blank">SQL Drop Table<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,</li>
+<li><a class="reference external" href="https://www.w3schools.com/sql/sql_create_table.asp" target="_blank">SQL Create Table<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,</li>
+<li><a class="reference external" href="https://www.w3schools.com/sql/sql_foreignkey.asp" target="_blank">SQL Foreign Key<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
+</ol>
+<p class="last">Follow the MySQL syntax instructions when there is a syntax variation
+between the major databases.</p>
+</div>
+<p>This kind of table structure keeps our database clean. It keeps data specific
+to directors in the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table, and data specific to each movie in the
+<code class="docutils literal notranslate"><span class="pre">movies</span></code> table, and it provides a link between the two tables.</p>
+<p>Setting up our two tables this way keeps our design <em>clean</em>. Data such as the
+director’s country is NOT an attribute of a movie, so there is no need to
+clutter a <code class="docutils literal notranslate"><span class="pre">movie</span></code> object or the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table with that information.
+Instead, a country name is an attribute of the director, so that data should be
+stored in <code class="docutils literal notranslate"><span class="pre">directors</span></code> table.</p>
+<p>Still, we may want to know that information for a given movie (e.g. we may want
+to find all the movies since 2010 that have French directors). So we need to
+have a way of filtering movies based on attributes from <code class="docutils literal notranslate"><span class="pre">directors</span></code> without
+cluttering up the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table. Solving this challenge is what relational
+databases are all about, and <code class="docutils literal notranslate"><span class="pre">Foreign</span> <span class="pre">Keys</span></code> are the <em>key</em> (pun intended) to
+the solution.</p>
+</div>
+</div>
+<div class="section" id="your-assignment">
+<h2>12.2.3. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
+<p>For this studio, you’ll practice writing SQL queries to perform various data
+retrieval and manipulation tasks.</p>
+<p>Even though our database does not have entries in it, we can imagine that it
+does, and query it accordingly! Referencing the table definitions above, write
+the SQL commands to carry out each of the queries described below.</p>
+<p>Write your answers on paper or in a text/code editor. As you complete each
+step, compare your answers with a partner.</p>
+<ol class="arabic">
+<li><p class="first">List all the titles of the <code class="docutils literal notranslate"><span class="pre">movies</span></code> in the database.</p>
+</li>
+<li><p class="first">List all the titles of the <code class="docutils literal notranslate"><span class="pre">movies</span></code> in the database in <em>DESCENDING</em> order
+of the year they were released.</p>
+</li>
+<li><p class="first">Insert a new record into the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table for Rob Reiner, an
+American film director.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Recall that the column for <code class="docutils literal notranslate"><span class="pre">director_id</span></code> is auto incremented, so you
+don’t need to put in a value for that column.</p>
+</div>
+</li>
+<li><p class="first">List the <code class="docutils literal notranslate"><span class="pre">director_id</span></code> for Rob Reiner.</p>
+</li>
+<li><p class="first">Insert a new record into the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table for <em>The Princess Bride</em> which
+was released in 1987 and directed by Rob Reiner.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">movie_id</span></code> is also auto incremented, so you don’t need to put in a
+value for that column. However, you <em>will</em> need to provide a value for
+the foreign key, <code class="docutils literal notranslate"><span class="pre">director_id</span></code>, to link the movie to the proper
+director.</p>
+</div>
+</li>
+<li><p class="first">List all columns for all records of the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table in ascending
+alphabetical order of the director’s country of origin.</p>
+</li>
+<li><p class="first">List the country of origin for the director of <em>Roma</em> and the director of
+<em>The Incredibles</em>. You could do this using either a <em>join</em> or a <em>sub-query</em>,
+but for this step please use a join.</p>
+</li>
+<li><p class="first">List all the movies in the database along with each movie’s director,
+ordered by the director’s last name in ascending order. (<em>Hint:</em> You’ll want
+to use a join and choose the columns <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">first</span></code>, and <code class="docutils literal notranslate"><span class="pre">last</span></code>).</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 12.1. Exercises: SQL, Part 1</a></li>
+        
+        
+        <li class="next"><a href="../../genindex.html">Index <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/sql-part1/studio.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

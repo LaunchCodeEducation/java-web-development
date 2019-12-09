@@ -17,6 +17,7 @@ Chapters
    chapters/spring-intro/index
    chapters/spring-controllers-and-routes/index
    chapters/thymeleaf-views/index
+   chapters/sql-part1/index
 
 .. toctree::
 
@@ -38,6 +39,7 @@ Studios
    chapters/interfaces-and-polymorphism/studio
    chapters/spring-controllers-and-routes/studio
    chapters/thymeleaf-views/studio
+   chapters/sql-part1/studio
 
 Assignments
 ------------
