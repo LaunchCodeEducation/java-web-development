@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12. Models, Part 1 &#8212; Java Web Development  documentation</title>
+    <title>12. Models and Model Binding &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -73,7 +73,7 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li class="active">12. Models, Part 1</li>
+    <li class="active">12. Models and Model Binding</li>
 </ol>
 
 
@@ -83,8 +83,8 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="models-part-1">
-<span id="models-in-mvc"></span><h1>12. Models, Part 1<a class="headerlink" href="#models-part-1" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="models-and-model-binding">
+<span id="models-in-mvc"></span><h1>12. Models and Model Binding<a class="headerlink" href="#models-and-model-binding" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ol>
 <li class="toctree-l1"><a class="reference internal" href="intro.html">12.1. Old Content Notes</a><ol>
@@ -142,6 +142,16 @@
 <li class="toctree-l1"><a class="reference internal" href="studio.html">12.7. Studio: Spa Day Models</a></li>
 </ol>
 </div>
+<p>pojos - plain, console app, nothing inherenet to a spring thing. just an object like we’re seen beofre
+making distinct objects
+move data operations our of the controller
+auto create models with model binding</p>
+<p>going from hashmap storage to model class</p>
+<p>this.name vs. aName - ij generate uses this.notation. meaning the field of the class, not the arg of the constructor</p>
+<p>refactor controller to use the model, rather than strings
+refactor templates based on changes to controller
+thymeleaf - event.name calls the getter behind the scenes</p>
+<p>remove does not work before model binding. because it just acts on a string name</p>
 </div>
 
 

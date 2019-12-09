@@ -96,25 +96,47 @@ Same buttons with Bootstrap:
 
 Buttons styled with Bootstrap.
 
-TODO: add instructions to add bootstrap to spring boot project.
-
-Apart from adding the library to your Spring Boot project, we won't focus much time on the individual Bootstrap updates to 
-``coding-events`` but we want you to know what they are and where they come from.
-
 Adding Bootstrap to ``coding-events``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-your templates. (Best place is in head fragment).
+Apart from adding the library to your Spring Boot project, we won't focus much time on the individual 
+Bootstrap updates to ``coding-events`` but we want you to know what they are and where they come from.
+Feel free to add as much or as little Bootstrap styling to your own version.
+
+.. index:: ! cdn, content delivery network
+
+You'll see from the `Getting Started <https://getbootstrap.com/docs/4.0/getting-started/introduction/>`__ page 
+that there are few ways to incorporate Bootstrap as a dependency in your project. One method is with a link to 
+a **content delivery network**, or **CDN** for short. Linking to a CDN allows you to take advantage of the publicly
+available library without downloading the entire codebase yourself. Think of the practice like using a web address 
+of an image hosted somewhere else on the web. Unlike downloading the image and including it directly in your 
+own repository, you are not the steward of the image's longevity. The path to an externally hosted image may 
+get moved at some point, or even removed entirely. The same is true with CDNs. So when you use a dependency from 
+a CDN, know that you may need to update the link at some point in your project's lifetime.
+
+From `Bootstrap CDN <https://www.bootstrapcdn.com/>`__, copy the *Complete CSS* and *Complete JavaScript* addresses
+and drop them into the head tag of ``fragments.html`` in your ``coding-events`` project.
+
+.. sourcecode:: html
+   :linenos:
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+.. admonition:: Note
+
+   The addresses you find at `Bootstrap CDN <https://www.bootstrapcdn.com/>`__ may be different from those 
+   above.
+
 
 In the video, the Bootstrap classes ``container``, ``form-group``, and
 ``form-control`` are used to improve the look and feel of the views.
+bootstrap classes to highlight - container, table, form-group, form-control
 
 Useful links to Bootstrap documentation:
 
-#. `Getting Started <https://getbootstrap.com/docs/4.0/getting-started/introduction/>`__,
 #. `Components menu, buttons <https://getbootstrap.com/docs/4.0/components/buttons/>`__,
 #. `Content menu, tables <https://getbootstrap.com/docs/4.0/content/tables/>`__.
-
 
 
 Adding Generic Code
@@ -139,6 +161,8 @@ which is especially useful if you have declared many field variables.
 .. figure:: figures/generateConstructorMenu.png
    :alt: Generate menu options.
 
+Generate menu options.
+
 Note that when you select *Generate --> Constructor*, you will be able to
 select which fields to add to the constructor.
 
@@ -157,7 +181,3 @@ You will add a model to deal with the event data, and you will revise the
 templates to work with event objects.
 
 .. todo:: Add model video #1 here...
-
-Remember that the reading in this chapter supports the work you complete as you
-watch the videos. The text is not meant as a replacement for that practice
-time.
