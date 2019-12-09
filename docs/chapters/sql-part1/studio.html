@@ -248,7 +248,7 @@ American film director.</p>
 don’t need to put in a value for that column.</p>
 </div>
 </li>
-<li><p class="first">List the <code class="docutils literal notranslate"><span class="pre">director_id</span></code> for Rob Reiner.</p>
+<li><p class="first">List the last name and <code class="docutils literal notranslate"><span class="pre">director_id</span></code> for Rob Reiner.</p>
 </li>
 <li><p class="first">Insert a new record into the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table for <em>The Princess Bride</em> which
 was released in 1987 and directed by Rob Reiner.</p>
@@ -261,16 +261,43 @@ director.</p>
 </div>
 </li>
 <li><p class="first">List all columns for all records of the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table in ascending
-alphabetical order of the director’s country of origin.</p>
+alphabetical order based on the director’s country of origin.</p>
 </li>
-<li><p class="first">List the country of origin for the director of <em>Roma</em> and the director of
-<em>The Incredibles</em>. You could do this using either a <em>join</em> or a <em>sub-query</em>,
+<li><p class="first">List all columns for all records of the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table in ascending
+alphabetical order first by the director’s country of origin and then by
+the director’s last name.</p>
+</li>
+<li><p class="first">If you list all of the data from the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table
+(<code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">movies;</span></code>), you will see a column of director ID numbers.
+This data is not particularly helpful to a user, since they probably want to
+see the director names instead. Use an <em>inner join</em> in your SQL command to
+display a list of movie titles, years released, and director last names.</p>
+</li>
+<li><p class="first">List the countries of origin for the director of <em>Roma</em> and the director of
+<em>The Incredibles</em>. You could do this using either a join or a sub-query,
 but for this step please use a join.</p>
 </li>
 <li><p class="first">List all the movies in the database along with each movie’s director,
 ordered by the director’s last name in ascending order. (<em>Hint:</em> You’ll want
 to use a join and choose the columns <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">first</span></code>, and <code class="docutils literal notranslate"><span class="pre">last</span></code>).</p>
 </li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>For more join practice, take advantage of these resources at W3 Schools:</p>
+<ol class="last arabic simple">
+<li><a class="reference external" href="https://www.w3schools.com/sql/sql_join_inner.asp" target="_blank">Inner joins<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,</li>
+<li><a class="reference external" href="https://www.w3schools.com/sql/sql_join.asp" target="_blank">Joins<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="bonus-missions">
+<h2>12.2.4. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Note that SQL <em>aliases</em> give a table or column a temporary name. Assign
+aliases in at least 3 of the items above to make the columns names different
+and/or more readable in the output.</li>
+<li>List all of the movies in the database directed by Peter Jackson.</li>
 </ol>
 </div>
 </div>

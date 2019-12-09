@@ -171,7 +171,7 @@ step, compare your answers with a partner.
       Recall that the column for ``director_id`` is auto incremented, so you
       don't need to put in a value for that column.
 
-#. List the ``director_id`` for Rob Reiner.
+#. List the last name and ``director_id`` for Rob Reiner.
 
 #. Insert a new record into the ``movies`` table for *The Princess Bride* which
    was released in 1987 and directed by Rob Reiner.
@@ -184,12 +184,37 @@ step, compare your answers with a partner.
       director.
 
 #. List all columns for all records of the ``directors`` table in ascending
-   alphabetical order of the director's country of origin.
+   alphabetical order based on the director's country of origin.
 
-#. List the country of origin for the director of *Roma* and the director of
-   *The Incredibles*. You could do this using either a *join* or a *sub-query*,
+#. List all columns for all records of the ``directors`` table in ascending
+   alphabetical order first by the director's country of origin and then by
+   the director's last name.
+
+#. If you list all of the data from the ``movies`` table
+   (``SELECT * FROM movies;``), you will see a column of director ID numbers.
+   This data is not particularly helpful to a user, since they probably want to
+   see the director names instead. Use an *inner join* in your SQL command to
+   display a list of movie titles, years released, and director last names.
+
+#. List the countries of origin for the director of *Roma* and the director of
+   *The Incredibles*. You could do this using either a join or a sub-query,
    but for this step please use a join.
 
 #. List all the movies in the database along with each movie's director,
    ordered by the director's last name in ascending order. (*Hint:* You'll want
    to use a join and choose the columns ``title``, ``first``, and ``last``).
+
+.. admonition:: Tip
+
+   For more join practice, take advantage of these resources at W3 Schools:
+
+   #. `Inner joins <https://www.w3schools.com/sql/sql_join_inner.asp>`__,
+   #. `Joins <https://www.w3schools.com/sql/sql_join.asp>`__.
+
+Bonus Missions
+---------------
+
+#. Note that SQL *aliases* give a table or column a temporary name. Assign
+   aliases in at least 3 of the items above to make the columns names different
+   and/or more readable in the output.
+#. List all of the movies in the database directed by Peter Jackson.
