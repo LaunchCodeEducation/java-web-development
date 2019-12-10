@@ -8,6 +8,7 @@ Models and Model Binding
 
    intro
    model-intro
+   bootstrap
    update-work
    model-binding
    binding-practice
