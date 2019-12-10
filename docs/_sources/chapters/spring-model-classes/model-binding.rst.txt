@@ -1,3 +1,8 @@
+## Model Binding
+- Modify `processCreateEventForm` to take `@ModelAttribute Event newEvent` parameter
+- Update `events/create` so form fields match object property names 
+- Test 
+
 Model-Binding
 ==============
 

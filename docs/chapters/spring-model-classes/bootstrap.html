@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12.3. Bootstrap - Video &#8212; Java Web Development  documentation</title>
+    <title>12.3. Bootstrap &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12.5. Updating Past Work" href="update-work.html" />
+    <link rel="next" title="12.4. Model-Binding" href="model-binding.html" />
     <link rel="prev" title="12.2. Models in MVC" href="model-intro.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">12. Models and Model Binding</a></li>
-    <li class="active">12.3. Bootstrap - Video</li>
+    <li class="active">12.3. Bootstrap</li>
 </ol>
 
 
@@ -84,25 +84,21 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="bootstrap-video">
-<h1>12.3. Bootstrap - Video<a class="headerlink" href="#bootstrap-video" title="Permalink to this headline">¶</a></h1>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">Add model video #1, adding bootstrap here…</p>
-</div>
-</div>
-<div class="section" id="bootstrap-text">
-<h1>12.4. Bootstrap - Text<a class="headerlink" href="#bootstrap-text" title="Permalink to this headline">¶</a></h1>
-<p>You’ll notice in this section, not only are we updating our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application to use models, but we’ve also
-added some Bootstrap styling. Bootstrap is a commonly-used style library. It allows users to quickly apply its CSS style rules
-with class selectors. Style updates can add features or improve the usability of an application are therefore not refactoring.</p>
-<p>For example, Bootstrap, and other styling libraries for tha matter, use a standardized color scheme for items like clickable
-buttons. As the implementer of the helper library, you can apply the <code class="docutils literal notranslate"><span class="pre">btn</span> <span class="pre">btn-primary</span></code> classes to a button on your page and
-Bootstrap works behind the CSS scenes to render a blue button with white text in a legible font. For more customization, you
-could also choose which color you want all of a the buttons labelled with <code class="docutils literal notranslate"><span class="pre">btn-primary</span></code> on your web page to be.</p>
-<p>Straight out of the box, Bootstrap helps developers to get their web apps well styled without needing to spend much time writing
-custom CSS rules. The library also does some of the work of applying user-experience best-practices. The button class <code class="docutils literal notranslate"><span class="pre">btn-danger</span></code>
-for example, is defaulted to appear red, a color most associated with danger.</p>
+  <div class="section" id="bootstrap">
+<h1>12.3. Bootstrap<a class="headerlink" href="#bootstrap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>12.3.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Bootstrap is a commonly-used style library. It allows users to quickly apply its CSS style rules
+with class selectors. Style updates can add features or improve the usability of an application. For example,
+Bootstrap, and other styling libraries for that matter, use a standardized color scheme for items like clickable
+buttons. As the implementer of the helper library, you can apply the <code class="docutils literal notranslate"><span class="pre">btn</span> <span class="pre">btn-primary</span></code> classes to a button
+on your page and Bootstrap works behind the CSS scenes to render a blue button with white text in a legible
+font. For more customization, you could also choose which color you want all of a the buttons labelled with
+<code class="docutils literal notranslate"><span class="pre">btn-primary</span></code> on your web page to be.</p>
+<p>Straight out of the box, Bootstrap helps developers to get their web apps well-styled without needing to spend
+much time writing custom CSS rules. The library also does some of the work of applying user-experience
+best-practices. The button class <code class="docutils literal notranslate"><span class="pre">btn-danger</span></code> for example, is defaulted to appear red, a color most
+associated with danger.</p>
 <p>Image of standard HTML buttons without CSS:</p>
 <div class="figure">
 <img alt="Standard HTML buttons." src="../../_images/htmlDefaultButtons.png" />
@@ -113,8 +109,15 @@ for example, is defaulted to appear red, a color most associated with danger.</p
 <img alt="Some simple Bootstrap buttons." src="../../_images/bootstrapButtonOptions.png" />
 </div>
 <p>Buttons styled with Bootstrap.</p>
+</div>
 <div class="section" id="adding-bootstrap-to-coding-events">
-<h2>12.4.1. Adding Bootstrap to <code class="docutils literal notranslate"><span class="pre">coding-events</span></code><a class="headerlink" href="#adding-bootstrap-to-coding-events" title="Permalink to this headline">¶</a></h2>
+<h2>12.3.2. Adding Bootstrap to <code class="docutils literal notranslate"><span class="pre">coding-events</span></code><a class="headerlink" href="#adding-bootstrap-to-coding-events" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bootstrap-video">
+<h3>12.3.2.1. Bootstrap - Video<a class="headerlink" href="#bootstrap-video" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Add video adding bootstrap to coding-events repo here…</p>
+</div>
 <p>Apart from adding the library to your Spring Boot project, we won’t focus much time on the individual
 Bootstrap updates to <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> but we want you to know what they are and where they come from.
 Feel free to add as much or as little Bootstrap styling to your own version.</p>
@@ -138,35 +141,30 @@ and drop them into the head tag of <code class="docutils literal notranslate"><s
 <p class="last">The addresses you find at <a class="reference external" href="https://www.bootstrapcdn.com/" target="_blank">Bootstrap CDN<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> may be different from those
 above.</p>
 </div>
-<p>In the video, the Bootstrap classes <code class="docutils literal notranslate"><span class="pre">container</span></code>, <code class="docutils literal notranslate"><span class="pre">form-group</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">form-control</span></code> are used to improve the look and feel of the views.
-bootstrap classes to highlight - container, table, form-group, form-control</p>
 </div>
 <div class="section" id="bootstrap-layout">
-<h2>12.4.2. Bootstrap Layout<a class="headerlink" href="#bootstrap-layout" title="Permalink to this headline">¶</a></h2>
-<p>QA lot of what makes Bootstrap a powerfully helpful and time-saving UI framework is the layout logic it contains.
+<h3>12.3.2.2. Bootstrap Layout<a class="headerlink" href="#bootstrap-layout" title="Permalink to this headline">¶</a></h3>
+<p>Much of what makes Bootstrap a powerfully helpful and time-saving style library is the layout logic it contains.
 In brief, Bootstrap uses a grid system of elements labelled <em>containers</em> and <em>rows</em> that respond dynamically to the
-state of a web page. The grid elements are given a size label. The size dictates when an item will shift or change
+state of a web page. Grid elements are given a size label that dictates when an item will shift or change
 how it is rendered. Broadly speaking, the grid system helps developers write applications that work well on screens
-of various sizes. But once you play around with it, you’ll find that the grid layout can help you write apps that
+of various sizes. Once you play around with it, you’ll find that the grid layout can help you write apps that
 respond to more than just changes in window size.</p>
-<p>TODO: find a good container/row example.</p>
-<p><a class="reference external" href="https://getbootstrap.com/docs/4.4/layout/overview/#containers" target="_blank">Containers<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<p>Add a <code class="docutils literal notranslate"><span class="pre">class=container</span></code> to the body tag in <code class="docutils literal notranslate"><span class="pre">templates/index.html</span></code>.</p>
+<p><a class="reference external" href="https://getbootstrap.com/docs/4.4/layout/grid/" target="_blank">Bootstrap Grid<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 <div class="section" id="bootstrap-tables">
-<h2>12.4.3. Bootstrap Tables<a class="headerlink" href="#bootstrap-tables" title="Permalink to this headline">¶</a></h2>
+<h3>12.3.2.3. Bootstrap Tables<a class="headerlink" href="#bootstrap-tables" title="Permalink to this headline">¶</a></h3>
 <p>Bootstrap gives us some table styling that we can use to display events in <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>. Some table styling is
 customizable, so read around Bootstrap’s site and explore adding different options to your table.</p>
-<p>TODO: find a good table example.</p>
-<p><a class="reference external" href="https://getbootstrap.com/docs/4.4/layout/overview/#containers" target="_blank">Containers<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p><a class="reference external" href="https://getbootstrap.com/docs/4.4/content/tables/" target="_blank">Bootstrap Tables<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 <div class="section" id="bootstrap-forms">
-<h2>12.4.4. Bootstrap Forms<a class="headerlink" href="#bootstrap-forms" title="Permalink to this headline">¶</a></h2>
-<p>Bootstrap offers a number of classes meant to decorate form elements. <code class="docutils literal notranslate"><span class="pre">form-group</span></code> helps classify items within
-a form. <code class="docutils literal notranslate"><span class="pre">form-control</span></code> does something else I don’t remember yet.</p>
-<p>TODO: find a good form example. update the link with the form component</p>
-<p><a class="reference external" href="https://getbootstrap.com/docs/4.4/layout/overview/#containers" target="_blank">Containers<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<h3>12.3.2.4. Bootstrap Forms<a class="headerlink" href="#bootstrap-forms" title="Permalink to this headline">¶</a></h3>
+<p>Bootstrap offers a number of classes meant to decorate form elements. <code class="docutils literal notranslate"><span class="pre">form-group</span></code> helps organize items
+within a form so that inputs and corresponding labels stay visually connected. <code class="docutils literal notranslate"><span class="pre">form-control</span></code> can be applied
+to any type of form input to give it the Bootstrap style and look.</p>
+<p><a class="reference external" href="https://getbootstrap.com/docs/4.4/components/forms/" target="_blank">Bootstrap Forms<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
 </div>
 </div>
 
@@ -179,7 +177,7 @@ a form. <code class="docutils literal notranslate"><span class="pre">form-contro
         <li class="previous"><a href="model-intro.html"><span aria-hidden="true">&larr;</span> 12.2. Models in MVC</a></li>
         
         
-        <li class="next"><a href="update-work.html">12.5. Updating Past Work <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="model-binding.html">12.4. Model-Binding <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

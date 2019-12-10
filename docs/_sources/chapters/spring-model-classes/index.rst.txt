@@ -9,11 +9,47 @@ Models and Model Binding
    intro
    model-intro
    bootstrap
-   update-work
-   model-binding
+   model-class
+	model-binding
    binding-practice
    exercises
    studio
+
+
+## Create Model Class
+- Create `models` package 
+- Create `Event` class
+- Refactor `processCreateEventForm` to create `Event` object
+- Refactor `events/index` template to reference `Event` fields
+- Test
+
+## Add Class Property
+- Add `description` property to class
+- Update `events/create` template to include description field
+- Update `processCreateEventForm` to create object w/ description 
+- Update `events/index` template to display description 
+
+## Add Unique Identifier
+- Add `id` property to `Event`
+- Add static counter to class
+- Update constructor to set `id` 
+- Refactor to use no-arg constructor 
+
+## Create Data Layer
+- Create `data` package
+- Create `EventData` class w/ static members
+	- `Map` field to store events
+	- `add` method
+	- `getById` method
+	- `getAll` method w/ `Collection` return type
+	- `remove` method 
+- Refactor controller to use `EventData` 
+
+## Deleting Events
+- Create `renderDeleteEventForm` handler
+- Create `events/delete` template w/ form that references IDs
+- Create `processDeleteEventForm` handler w/ redirect
+- Add link to header fragment 
 
 pojos - plain, console app, nothing inherenet to a spring thing. just an object like we're seen beofre
 making distinct objects
