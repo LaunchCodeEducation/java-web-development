@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data Layer &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li class="active">Data Layer</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="data-layer">
+<h1>Data Layer<a class="headerlink" href="#data-layer" title="Permalink to this headline">¶</a></h1>
+<p>In order to work with data, we need to add another element to our MVC application. Say for example,
+we want to do things like remove an event from our list. Well, if two events both have the same name,
+how might we identify which of those items to delete? We can’t yet. So we need to add a data layer. We call
+this layer to emphasize encapsulating this information, away from the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model.</p>
+<div class="section" id="add-a-unique-id-video">
+<h2>Add a Unique Id - Video<a class="headerlink" href="#add-a-unique-id-video" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">video adding a unique id generator</p>
+</div>
+</div>
+<div class="section" id="add-a-unique-id-text">
+<h2>Add a Unique Id - Text<a class="headerlink" href="#add-a-unique-id-text" title="Permalink to this headline">¶</a></h2>
+<p>Identifying data by a string <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a sustainable or scalable method
+of handling data in most situations. Consider the address book example. How can
+we distinguish between two contact entries with the same name field? It is a frequent
+practice to add a unique id field to a class responsible for modelling data. This ensures
+that our address book can contain two separate entries for our friends who have the same
+name as one another.</p>
+<p>Add an <code class="docutils literal notranslate"><span class="pre">id</span></code> field to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model class. Create a static counter method that will increase the value
+of the event field each time a new instaqnce is created, thus producing a unique id for each <code class="docutils literal notranslate"><span class="pre">Event</span></code> object.
+Create a constructor that sets <code class="docutils literal notranslate"><span class="pre">id</span></code> using this method and calls the default, no-arg constructor.</p>
+</div>
+<div class="section" id="create-a-data-layer-video">
+<h2>Create a Data Layer - Video<a class="headerlink" href="#create-a-data-layer-video" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">video showing creation of EventData class</p>
+</div>
+</div>
+<div class="section" id="create-a-data-layer-text">
+<h2>Create a Data Layer - Text<a class="headerlink" href="#create-a-data-layer-text" title="Permalink to this headline">¶</a></h2>
+<p>Now that we’ve begun building a model, it’s a good time to remind ourselves that models are not designed to be
+data storage containers. Rather, models are meant to shape the data stored in another location into objects that
+can be used in our application. As we work our way into learning about database usage and service calls, however,
+we’ll use a model to store some data temporarily.</p>
+<p>Create a new package called <code class="docutils literal notranslate"><span class="pre">data</span></code> and add a class <code class="docutils literal notranslate"><span class="pre">EventData</span></code>. Whereas <code class="docutils literal notranslate"><span class="pre">Event</span></code> is responsible for organizing
+user-inputted information into a Java object, <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is responsible for maintaining those objects once they
+are created. <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is itself a Java class that stores events via a <code class="docutils literal notranslate"><span class="pre">Map</span></code> method, it can add events with an
+<code class="docutils literal notranslate"><span class="pre">add</span></code> method, <code class="docutils literal notranslate"><span class="pre">getById</span></code>, <code class="docutils literal notranslate"><span class="pre">getAll</span></code>, and <code class="docutils literal notranslate"><span class="pre">remove</span></code>.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">EventData</span></code> managing event data, we must once again refactor <code class="docutils literal notranslate"><span class="pre">EventController</span></code> to update the items stored in
+<code class="docutils literal notranslate"><span class="pre">EventData</span></code>.</p>
+</div>
+<div class="section" id="delete-an-event-video">
+<h2>Delete an Event - Video<a class="headerlink" href="#delete-an-event-video" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">video showing event deletion</p>
+</div>
+</div>
+<div class="section" id="delete-an-event-text">
+<h2>Delete an Event - Text<a class="headerlink" href="#delete-an-event-text" title="Permalink to this headline">¶</a></h2>
+<p>To delete an event object from storage, we’ll grab the event’s id and use that
+information to call the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method.
+Since the delete event is user-initiated, a controller will be involved to pass
+the information from the user-accessible view to the data layer. So our first step
+with this task is to create a controller method to get a view to delete events.
+Thus, we’ll also be creating a new view by adding a new template, <code class="docutils literal notranslate"><span class="pre">events/delete.html</span></code>.
+This view will need to reference event IDs in order to do its job.</p>
+<p>We also need a POST handler to take care of what to do when the delete event information
+is submitted by the user. We’ll have this post handler redirect the user back to the home
+page once they have selected which event or events to remove from storage.
+Like the rest of the templates, the delete form view should include the header fragment.</p>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<p>Questions here…</p>
+<ul class="simple">
+<li>Create <cite>data</cite> package</li>
+<li><dl class="first docutils">
+<dt>Create <cite>EventData</cite> class w/ static members</dt>
+<dd><ul class="first last">
+<li><cite>Map</cite> field to store events</li>
+<li><cite>add</cite> method</li>
+<li><cite>getById</cite> method</li>
+<li><cite>getAll</cite> method w/ <cite>Collection</cite> return type</li>
+<li><cite>remove</cite> method</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Refactor controller to use <cite>EventData</cite></li>
+</ul>
+<ul class="simple">
+<li>Add <cite>id</cite> property to <cite>Event</cite></li>
+<li>Add static counter to class</li>
+<li>Update constructor to set <cite>id</cite></li>
+<li>Refactor to use no-arg constructor</li>
+</ul>
+<ul class="simple">
+<li>Create <cite>renderDeleteEventForm</cite> handler</li>
+<li>Create <cite>events/delete</cite> template w/ form that references IDs</li>
+<li>Create <cite>processDeleteEventForm</cite> handler w/ redirect</li>
+<li>Add link to header fragment</li>
+</ul>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-classes/data-layer.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

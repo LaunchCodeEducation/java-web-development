@@ -1,29 +1,36 @@
-## Model Binding
-- Modify `processCreateEventForm` to take `@ModelAttribute Event newEvent` parameter
-- Update `events/create` so form fields match object property names 
-- Test 
-
 Model-Binding
-==============
+=============
 
-Lorem ipsum...
+With a separate data layer implemented and items being tracked with unique
+identifiers, we have the elements in place to auto-create model instances
+with a technique called **model-binding**.
 
-Why Use Model-Binding?
------------------------
+Remember how we want to be able to remove an event? With model binding we will
+know be able to make it happen.
 
-Justification here...
-
-How to Model-Bind
-------------------
-
-Instructions here...
-
-Try It!
---------
+How to Use Model-Binding - Video
+--------------------------------
 
 .. todo:: Add model video #2 here...
+
+How to Use Model-Binding - Text
+--------------------------------
+
+With ``Event`` model in place, we can incorporate another annotation, ``@ModelAttribute``
+When submitting the event creation information, rather than passing in each field used to 
+instantiate a model, we can instead pass in ``@ModelAttribute Event newEvent`` as a parameter 
+of the controller method. This techniquie is called model binding. The Model instance is created
+on form submission. 
+
+With this in mind, we need to return to the create form HTML and update the form fields to
+match the event object property names. 
 
 Check Your Understanding
 -------------------------
 
 Questions here...
+
+.. ## Model Binding
+- Modify `processCreateEventForm` to take `@ModelAttribute Event newEvent` parameter
+- Update `events/create` so form fields match object property names 
+- Test 
