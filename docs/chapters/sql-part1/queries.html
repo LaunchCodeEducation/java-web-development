@@ -86,7 +86,108 @@
     
   <div class="section" id="sql-queries">
 <h1>12.2. SQL Queries<a class="headerlink" href="#sql-queries" title="Permalink to this headline">¶</a></h1>
-<p>Perform CRUD (Create, Read, Update, Delete) operations using SQL queries</p>
+<p>We want to be able to perform CRUD operations (Create, Read, Update, Delete) on a database and now we know that SQL can do that.
+Let’s dive into writing SQL queries to get the information we need.</p>
+<div class="section" id="create">
+<h2>12.2.1. Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
+<p>When we talk about creating something in SQL, we could want to perform several operations.</p>
+<div class="section" id="creating-a-table">
+<h3>12.2.1.1. Creating a Table<a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say that we are working on our events database. We have a table with our guests for one event. But, we are working with a company that hosts dozens of events a month!
+Now, Mary has asked us to add a table containing all of the guest information for the Li wedding.</p>
+<p>To add a table to our database, we need to use the <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> command.</p>
+<div class="highlight-mysql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">LiWedding</span> <span class="p">(</span>
+   <span class="n">GuestID</span> <span class="kt">int</span><span class="p">,</span>
+   <span class="n">LastName</span> <span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+   <span class="n">FirstName</span> <span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+   <span class="n">Attending</span> <span class="n">boolean</span><span class="p">,</span>
+   <span class="n">Diet</span> <span class="kt">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>This creates an empty table with all of the spaces we need for guest info.</p>
+<p>We can also create a table from another table. When doing so, the new table will also include any existing data.</p>
+<p>Mary is also managing the second wedding of Mr. and Mrs. Johnson (it’s a long story).
+Since the Johnsons haven’t made any new friends in the past 5 years, they want the guest list to be the exact same.
+A good place to start would be to create a table called <code class="docutils literal notranslate"><span class="pre">JohnsonWedding2</span></code> from the table called <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code>.
+Mr. and Mrs. Johnson will also be avoiding inviting anyone who didn’t show up for the first wedding.</p>
+<div class="highlight-mysql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">JohnsonWedding2</span>
+<span class="k">AS</span> <span class="n">GuestID</span><span class="p">,</span> <span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span><span class="p">,</span> <span class="n">Attending</span><span class="p">,</span> <span class="n">Diet</span>
+<span class="k">FROM</span> <span class="n">JohnsonWedding</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">Attending</span> <span class="o">==</span> <span class="no">TRUE</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="adding-a-row">
+<h3>12.2.1.2. Adding a Row<a class="headerlink" href="#adding-a-row" title="Permalink to this headline">¶</a></h3>
+<p>When we create a table from scratch, we have no data in it. We need to use an <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement to add a row of data.</p>
+<p>In the case of the Johnsons, we may need to add a row for their niece, who is now old enough to attend the wedding.
+Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed that she will be in attendance.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">JohnsonWedding2</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="mi">185</span><span class="p">,</span> <span class="ss">`Johnson`</span><span class="p">,</span> <span class="ss">`Eliza`</span><span class="p">,</span> <span class="no">TRUE</span><span class="p">,</span> <span class="ss">`Vegan`</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-a-column">
+<h3>12.2.1.3. Adding a column<a class="headerlink" href="#adding-a-column" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes, we may also need to add a column to our table. Some of the caterers Mary works with have asked that she confirm how many people are of drinking age.
+We may now want to add a column to our <code class="docutils literal notranslate"><span class="pre">LiWedding</span></code> table that contains either <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> depending on whether the guest is legally old enough to drink.</p>
+<p>To add a column, we need to start with an <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement. <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> can be used to perform different operations, so in our case, we will also need to specify that we want to <code class="docutils literal notranslate"><span class="pre">ADD</span></code> a column.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">LiWedding</span>
+<span class="k">ADD</span> <span class="n">CanDrink</span> <span class="n">boolean</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="read">
+<h2>12.2.2. Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
+<p>In order to get information from a table, we need to use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.</p>
+<p>If Mary wants to get the information of all of the guests who are vegetarian at the Li wedding, we need to use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement to pull the first and last names of guests who will be in attendance and are vegetarian.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="ss">`LastName`</span><span class="p">,</span> <span class="ss">`FirstName`</span>
+<span class="k">FROM</span> <span class="n">LiWedding</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">Attending</span> <span class="o">==</span> <span class="no">TRUE</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">Diet</span> <span class="o">==</span> <span class="s2">&quot;vegetarian&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If Mary just wants all of the guests for the Li wedding, we need to modify our <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">LiWedding</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update">
+<h2>12.2.3. Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p>Updating a table is something that we want to be cautious when doing.
+We cannot go back from updating a table.</p>
+<p>Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the <code class="docutils literal notranslate"><span class="pre">JohnsonWedding2</span></code> table.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">JohnsonWedding2</span>
+<span class="kt">SET</span> <span class="n">Diet</span><span class="o">=</span><span class="ss">`Vegetarian`</span>
+<span class="k">WHERE</span> <span class="n">GuestID</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now if we use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement, we can confirm that we have properly updated the record.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">JohnsonWedding2</span>
+<span class="k">WHERE</span> <span class="n">GuestID</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete">
+<h2>12.2.4. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<p>Our final operation we may want to perform on a table is to delete something.</p>
+<p>Mr. Johnson’s great-uncle, Frank, died and won’t be in attendance. Since he was in attendance at their first wedding, when we created <code class="docutils literal notranslate"><span class="pre">JohnsonWedding2</span></code> from <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code>, Frank’s record needs to be removed.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">JohnsonWedding2</span> <span class="k">WHERE</span> <span class="n">GuestID</span><span class="o">==</span><span class="mi">107</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

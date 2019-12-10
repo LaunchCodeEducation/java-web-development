@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12.4. Table Relationships" href="relationships.html" />
+    <link rel="next" title="12.4. Exercises: SQL, Part 1" href="exercises.html" />
     <link rel="prev" title="12.2. SQL Queries" href="queries.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -73,7 +73,7 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">12. SQL Part 1</a></li>
+    <li><a href="index.html">12. Databases and SQL</a></li>
     <li class="active">12.3. Joins</li>
 </ol>
 
@@ -86,9 +86,40 @@
     
   <div class="section" id="joins">
 <h1>12.3. Joins<a class="headerlink" href="#joins" title="Permalink to this headline">¶</a></h1>
-<p>Explain what joins are used for
-Describe the difference between the four types of joins: inner, left outer, right outer, and full outer
-Write queries using joins</p>
+<p>A <strong>join</strong> combines two tables into one. We can use joins to pull results across two tables, which might prove helpful when reviewing the guests of the Johnsons.</p>
+<p>In SQL, there are four different types of joins:</p>
+<ol class="arabic simple">
+<li>Inner Join</li>
+<li>Left Outer Join</li>
+<li>Right Outer Join</li>
+<li>Full Outer Join</li>
+</ol>
+<div class="section" id="inner-join">
+<h2>12.3.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h2>
+<p>If we join table <code class="docutils literal notranslate"><span class="pre">A</span></code> and table <code class="docutils literal notranslate"><span class="pre">B</span></code> on an inner join, our result set will include values that match in both tables.</p>
+</div>
+<div class="section" id="left-outer-join">
+<h2>12.3.2. Left Outer Join<a class="headerlink" href="#left-outer-join" title="Permalink to this headline">¶</a></h2>
+<p>If we join table <code class="docutils literal notranslate"><span class="pre">A</span></code> and table <code class="docutils literal notranslate"><span class="pre">B</span></code> on a left outer join, our result set will include all values in the left table and any matching records from the right table.</p>
+</div>
+<div class="section" id="right-outer-join">
+<h2>12.3.3. Right Outer Join<a class="headerlink" href="#right-outer-join" title="Permalink to this headline">¶</a></h2>
+<p>If we join table <code class="docutils literal notranslate"><span class="pre">A</span></code> and table <code class="docutils literal notranslate"><span class="pre">B</span></code> on a right outer join, our result set will include all values in the right table and any matching records from the left table.</p>
+</div>
+<div class="section" id="full-outer-join">
+<h2>12.3.4. Full Outer Join<a class="headerlink" href="#full-outer-join" title="Permalink to this headline">¶</a></h2>
+<p>If we join table <code class="docutils literal notranslate"><span class="pre">A</span></code> and table <code class="docutils literal notranslate"><span class="pre">B</span></code> on a full outer join, our result set will include all records from both tables</p>
+</div>
+<div class="section" id="using-joins-in-our-queries">
+<h2>12.3.5. Using Joins in our Queries<a class="headerlink" href="#using-joins-in-our-queries" title="Permalink to this headline">¶</a></h2>
+<p>If we want to pull together two tables with a join as part o a query, we can do so like this:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span>
+<span class="k">FROM</span> <span class="n">JohnsonWedding2</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">JohnsonWedding</span> <span class="k">ON</span> <span class="n">JohnsonWedding2</span><span class="p">.</span><span class="n">GuestID</span> <span class="o">==</span> <span class="n">JohnsonWedding</span><span class="p">.</span><span class="n">GuestID</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Here we specify that we want to retrieve the first and last names of the guests from who are in both weddings.</p>
+</div>
 </div>
 
 
@@ -100,7 +131,7 @@ Write queries using joins</p>
         <li class="previous"><a href="queries.html"><span aria-hidden="true">&larr;</span> 12.2. SQL Queries</a></li>
         
         
-        <li class="next"><a href="relationships.html">12.4. Table Relationships <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="exercises.html">12.4. Exercises: SQL, Part 1 <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

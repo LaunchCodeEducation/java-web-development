@@ -1,7 +1,7 @@
 .. _sql-part1:
 
-SQL Part 1
-===========
+Databases and SQL
+=================
 
 .. toctree::
    :maxdepth: 3
@@ -9,6 +9,5 @@ SQL Part 1
    background
    queries
    joins
-   relationships
    exercises
    studio
