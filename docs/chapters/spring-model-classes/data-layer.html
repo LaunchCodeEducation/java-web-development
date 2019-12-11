@@ -101,20 +101,85 @@ ourselves for decoupling data from model classes.</p>
 </div>
 </div>
 <div class="section" id="add-a-unique-id-text">
-<h2>12.3.2. Add a Unique Id - Text<a class="headerlink" href="#add-a-unique-id-text" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>12.3.2. Add a Unique Id - Text<a class="headerlink" href="#add-a-unique-id-text" title="Permalink to this headline">¶</a></h2>
 <p>Identifying data by a string <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a sustainable or scalable method
 of handling data in most situations. Consider the address book example. How can
 we distinguish between two contact entries with the same name field? It is a frequent
-practice to add a unique id field to a class responsible for modelling data. This ensures
-that our address book can contain two separate entries for our friends who have the same
-name as one another.</p>
-<p>Add an <code class="docutils literal notranslate"><span class="pre">id</span></code> field to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model class. Create a static counter method that will increase the value
-of the event field each time a new instance is created, thus producing a unique id for each <code class="docutils literal notranslate"><span class="pre">Event</span></code> object.
-Create a constructor that sets <code class="docutils literal notranslate"><span class="pre">id</span></code> using this method and calls the default, no-arg constructor.</p>
+practice to add a <strong>unique identifier</strong> field (sometimes called, or even labelled, <strong>uid</strong>) to a class
+responsible for modelling data. This ensures that our address book can contain two separate entries for
+our contacts who have the same name as one another.</p>
+<p>To accomplish the same data clarity with events, we’ll add a few things to the event model class:</p>
+<ol class="arabic simple">
+<li>A private <code class="docutils literal notranslate"><span class="pre">id</span></code> field .</li>
+<li>A static counter variable, <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</li>
+<li>A no-arg constructor that:<ol class="loweralpha">
+<li>Sets the <code class="docutils literal notranslate"><span class="pre">id</span></code> field to the <code class="docutils literal notranslate"><span class="pre">nextId</span></code> value.</li>
+<li>Increments <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</li>
+</ol>
+</li>
+<li>A call to the default constructor in all other constructors.</li>
+<li>A getter method for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
+</ol>
+<p>The result in <code class="docutils literal notranslate"><span class="pre">models/Event,java</span></code>:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nextId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">();</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">private</span> <span class="nf">Event</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">nextId</span><span class="o">;</span>
+      <span class="n">nextId</span><span class="o">++;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="c1">// ... other getters and setters ... //</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>With these additions, every time a new event object is created, the default constructor is used, therefore
+lending all event instances with their own unique identifier property, <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
 </div>
 <div class="section" id="create-a-data-layer-video">
 <h2>12.3.3. Create a Data Layer - Video<a class="headerlink" href="#create-a-data-layer-video" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-1">
+<div class="admonition-todo admonition" id="index-2">
 <p class="first admonition-title">Todo</p>
 <p class="last">video showing creation of EventData class</p>
 </div>
@@ -134,7 +199,7 @@ maintaining the event data.</p>
 </div>
 <div class="section" id="delete-an-event-video">
 <h2>12.3.5. Delete an Event - Video<a class="headerlink" href="#delete-an-event-video" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-2">
+<div class="admonition-todo admonition" id="index-3">
 <p class="first admonition-title">Todo</p>
 <p class="last">video showing event deletion</p>
 </div>

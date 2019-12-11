@@ -15,19 +15,64 @@ Add a Unique Id - Video
 
 .. todo:: video adding a unique id generator
 
+.. index:: ! uid
+
 Add a Unique Id - Text
 -----------------------
 
 Identifying data by a string ``name`` is not a sustainable or scalable method
 of handling data in most situations. Consider the address book example. How can
 we distinguish between two contact entries with the same name field? It is a frequent
-practice to add a unique id field to a class responsible for modelling data. This ensures
-that our address book can contain two separate entries for our friends who have the same 
-name as one another. 
+practice to add a **unique identifier** field (sometimes called, or even labelled, **uid**) to a class 
+responsible for modelling data. This ensures that our address book can contain two separate entries for 
+our contacts who have the same name as one another. 
 
-Add an ``id`` field to the ``Event`` model class. Create a static counter method that will increase the value
-of the event field each time a new instance is created, thus producing a unique id for each ``Event`` object.
-Create a constructor that sets ``id`` using this method and calls the default, no-arg constructor.
+To accomplish the same data clarity with events, we'll add a few things to the event model class:
+
+#. A private ``id`` field .
+#. A static counter variable, ``nextId``.
+#. A no-arg constructor that:
+   
+   a. Sets the ``id`` field to the ``nextId`` value.
+   b. Increments ``nextId``.
+
+#. A call to the default constructor in all other constructors.
+#. A getter method for the ``id`` field.
+
+The result in ``models/Event,java``:
+
+.. sourcecode:: Java
+   :lineno-start: 6
+
+   public class Event {
+
+      private int id;
+      private static int nextId = 1;
+
+      private String name;
+      private String description;
+
+      public Event(String name, String description) {
+         this();
+         this.name = name;
+         this.description = description;
+      }
+
+      private Event() {
+         this.id = nextId;
+         nextId++;
+      }
+
+      public int getId() {
+         return id;
+      }
+
+      // ... other getters and setters ... //
+
+   }
+
+With these additions, every time a new event object is created, the default constructor is used, therefore 
+lending all event instances with their own unique identifier property, ``id``.
 
 Create a Data Layer - Video
 ---------------------------
