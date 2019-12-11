@@ -112,7 +112,7 @@ essentially designates a base path that all methods in the class start with.
 ``@ResponseBody``
 ^^^^^^^^^^^^^^^^^
 
-``@ResponseBody`` is yet another annotations used in the Spring controller context to return plain text
+``@ResponseBody`` is yet another annotation used in the Spring controller context to return plain text
 from a controller method. This annotation we will only need to use for a short while, before we start
 to work with templates. Spring Boot's default action when responding to a controller method is to return 
 a template. Since we aren't doing that yet however, we need to tell the framework to return plain text by 
