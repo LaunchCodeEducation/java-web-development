@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="12.2. SQL Queries" href="queries.html" />
-    <link rel="prev" title="12. SQL Part 1" href="index.html" />
+    <link rel="prev" title="12. Databases and SQL" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,7 +73,7 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">12. SQL Part 1</a></li>
+    <li><a href="index.html">12. Databases and SQL</a></li>
     <li class="active">12.1. What is SQL?</li>
 </ol>
 
@@ -87,18 +87,21 @@
   <div class="section" id="what-is-sql">
 <h1>12.1. What is SQL?<a class="headerlink" href="#what-is-sql" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">Previously, we learned about how we use the model in our MVC applications to handle data.
-Models in MVC applications can only handle data, but as the amount of data increases, the practicality of using a model to store it decreases.
+Now, we want to attach a <em>persistent</em> data source that will sit on a server waiting for the model to perform actions.
 This is where a relational database comes in.</p>
-<p><strong>Relational databases</strong> store data in tables.
-Tables contain columns and rows of information with each row having a unique key.
-Tables can then be connected to other tables in a variety of different ways to form a database.
+<p><strong>Relational databases</strong> store data in tables, which are connected to each other in a variety of different ways to form a database.
+Tables contain columns and rows of information with each row having a unique key and each column specifying the data type of the information within.
 Relational databases provide flexibility for both expansion of the database and modification of the relations as things change.</p>
-<p>A table can in many ways look like a HashMap in Java.
-HashMaps store a value for each key in the structure.
-A table stores values for each key in the strucutre.</p>
 <p>In order to access our information, we need to use a tool that can talk to a relational database.
 <strong>Structured Query Language</strong> or <strong>SQL</strong> is the main tool used by programmers to work with these data structures.
-Programmers designed SQL so they could ask questions of a database. We can use SQL to determine how many people are coming to an event, how many people are vegans, and how many people who we invited are unable to make it.</p>
+SQL is a <strong>Relational Database Management System</strong> or <strong>RDMS</strong>.
+We can use SQL to perform CRUD operations on a database, combine two tables, and many other important operations.</p>
+<div class="section" id="mysql">
+<h2>12.1.1. MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<p>There are many different types of SQL. For this class, we will be using <a class="reference external" href="https://dev.mysql.com/" target="_blank">MySQL<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+MySQL is open-source and user-friendly.</p>
+<p>To get started with the chapter, you need to install MySQL and the appropriate tooling.</p>
+</div>
 </div>
 
 
@@ -107,7 +110,7 @@ Programmers designed SQL so they could ask questions of a database. We can use S
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> 12. SQL Part 1</a></li>
+        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> 12. Databases and SQL</a></li>
         
         
         <li class="next"><a href="queries.html">12.2. SQL Queries <span aria-hidden="true">&rarr;</span></a></li>

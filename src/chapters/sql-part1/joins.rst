@@ -1,7 +1,11 @@
 Joins
 =====
 
-A **join** combines two tables into one. We can use joins to pull results across two tables, which might prove helpful when reviewing the guests of the Johnsons.
+.. index:: ! join
+
+A **join** combines two tables into one result set.
+We can use joins when wanting to query two tables at the same time. 
+Whenever we join two tables, we have to specify the condition upon which the tables need to be joined.
 
 In SQL, there are four different types of joins:
 
@@ -10,35 +14,98 @@ In SQL, there are four different types of joins:
 #. Right Outer Join
 #. Full Outer Join
 
+.. index:: ! inner join
+
 Inner Join
 ----------
 
-If we join table ``A`` and table ``B`` on an inner join, our result set will include values that match in both tables.
+Joining two tables on an inner join produces a result set that only includes the values that match in both tables.
+
+.. TODO: Add a diagram to demonstrate what result set looks like.
+
+.. admonition:: Example
+
+   If we use an inner join to combine ``JohnsonWedding`` and ``JohnsonVowRenewal`` in a query, we can see what guests are going to both the vow renewal and the wedding.
+
+   .. sourcecode:: mysql
+
+      SELECT LastName, FirstName
+      FROM JohnsonVowRenewal
+      INNER JOIN JohnsonWedding ON JohnsonVowRenewal.GuestID == JohnsonWedding.GuestID;
+
+   This query will give us a result set of the first and last names of the guests from the ``JohnsonVowRenewal`` table that are also in the ``JohnsonWedding`` table.
 
 Left Outer Join
 ---------------
 
-If we join table ``A`` and table ``B`` on a left outer join, our result set will include all values in the left table and any matching records from the right table.
+Joining two tables on a left outer join gives us a result set will include all values in the left table and any matching records from the right table.
+
+.. TODO: Add a diagram to demonstrate what result set looks like.
+
+.. admonition:: Example 
+
+   If we use a left inner join to combine ``JohnsonWedding`` and ``JohnsonVowRenewal`` in a query, we can see what all of the guests that were invited to the wedding and any guests who were also invited to the vow renewal.
+
+   .. sourcecode:: mysql
+
+      SELECT LastName, FirstName
+      FROM JohnsonWedding
+      LEFT OUTER JOIN JohnsonVowRenewal ON JohnsonWedding.GuestID == JohnsonVowRenewal.GuestID;
+
 
 Right Outer Join
 ----------------
 
-If we join table ``A`` and table ``B`` on a right outer join, our result set will include all values in the right table and any matching records from the left table.
+Joining two tables on a right outer join gives us a result set that includes all values in the right table and any matching records from the left table.
+
+.. TODO: Add a diagram to demonstrate what result set looks like.
+
+.. admonition:: Example 
+
+   If we use a right inner join to combine ``JohnsonWedding`` and ``JohnsonVowRenewal`` in a query, we can see what all of the guests that were invited to the vow renewal and any guests who were also invited to the wedding.
+
+   .. sourcecode:: mysql
+
+      SELECT LastName, FirstName
+      FROM JohnsonWedding
+      RIGHT OUTER JOIN JohnsonVowRenewal ON JohnsonWedding.GuestID == JohnsonVowRenewal.GuestID;
+
 
 Full Outer Join
 ---------------
 
-If we join table ``A`` and table ``B`` on a full outer join, our result set will include all records from both tables
+Joining two tables on a full outer join gives us a result set that includes all records from both tables
 
-Using Joins in our Queries
---------------------------
+.. TODO: Add a diagram to demonstrate what result set looks like.
 
-If we want to pull together two tables with a join as part o a query, we can do so like this:
+.. admonition:: Example
 
-.. sourcecode:: mysql
+   Now that another event planner has joined Mary's company, to get all of the events run by the company in August, we can use a full outer join to combine ``MaryEvents`` and ``LeahEvents``.
 
-   SELECT LastName, FirstName
-   FROM JohnsonWedding2
-   INNER JOIN JohnsonWedding ON JohnsonWedding2.GuestID == JohnsonWedding.GuestID;
+   .. sourcecode:: mysql
 
-Here we specify that we want to retrieve the first and last names of the guests from who are in both weddings.
+      SELECT *
+      FROM MaryEvents
+      FULL OUTER JOIN LeahEvents ON MaryEvents.Month == LeahEvents.Month
+      WHERE MaryEvents.Month == 08;
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   True or false, an inneer join gives all of the records in both tables
+
+.. ans: false!
+
+.. admonition:: Question
+
+   What bugs are in this SQL query?
+
+   .. sourcecode:: mysql
+
+      SELECT 
+      FROM JohnsonVowRenewal
+      OUTER JOIN JohnsonWeding ON JohnsonVowRenewal.GuestID == JohnsonWedding.GuestID
+
+.. ans: Nothing specified for select, outer join not specified, table name spelled wrong, no semicolon!
