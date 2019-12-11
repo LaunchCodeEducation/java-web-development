@@ -169,7 +169,7 @@ whether <code class="docutils literal notranslate"><span class="pre">Flavor</spa
 </div>
 <div class="section" id="sorting-the-flavors-arraylist">
 <h3>8.6.2.2. Sorting the <code class="docutils literal notranslate"><span class="pre">flavors</span></code> ArrayList<a class="headerlink" href="#sorting-the-flavors-arraylist" title="Permalink to this headline">¶</a></h3>
-<p>In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, we declare <code class="docutils literal notranslate"><span class="pre">allItems</span></code> that contains everything in the <code class="docutils literal notranslate"><span class="pre">Case</span></code>
+<p>In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, we declare <code class="docutils literal notranslate"><span class="pre">menu</span></code> that contains everything in the <code class="docutils literal notranslate"><span class="pre">Case</span></code>
 as well as specific <code class="docutils literal notranslate"><span class="pre">flavors</span></code> and <code class="docutils literal notranslate"><span class="pre">cones</span></code> collections.</p>
 <div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
  7
@@ -177,9 +177,9 @@ as well as specific <code class="docutils literal notranslate"><span class="pre"
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-   <span class="n">Case</span> <span class="n">allItems</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
-   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
-   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
+   <span class="n">Case</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
 
 <span class="o">}</span>
 </pre></div>
@@ -193,9 +193,9 @@ object.</p>
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-   <span class="n">Case</span> <span class="n">allItems</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
-   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
-   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
+   <span class="n">Case</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
    <span class="n">Comparator</span> <span class="n">comparator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FlavorComparator</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
@@ -211,9 +211,9 @@ object as the argument.</p>
 11
 12
 13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
-   <span class="n">Case</span> <span class="n">allItems</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
-   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
-   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">allItems</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
+   <span class="n">Case</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Case</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="n">flavors</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">getFlavors</span><span class="o">();</span>
+   <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="n">cones</span> <span class="o">=</span> <span class="n">menu</span><span class="o">.</span><span class="na">getCones</span><span class="o">();</span>
    <span class="n">Comparator</span> <span class="n">comparator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FlavorComparator</span><span class="o">();</span>
 
    <span class="n">flavors</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">comparator</span><span class="o">);</span>

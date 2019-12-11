@@ -55,7 +55,7 @@ Spring in IntelliJ
 #. Start IntelliJ.
 #. Select *Import Project* and browse to where you put the downloaded
    project.
-#. Select *Create project from existing sources* and all other defaults
+#. Select *Import project from external model* and pick *Gradle*. Select all other defaults
    as you create the project.
 
    .. note::
