@@ -6,9 +6,9 @@ we want to do things like remove an event from our list. Well, if two events bot
 how might we identify which of those items to delete? We can't yet. So we need to tweak how we store
 event data. 
 
-In ``coding-events``, we add a unique identifier field to ``Events`` to better handle distinct ``Event`` 
-instances. We'll also create another model class called ``EventData`` to encapsulate data storage and prepare
-ourselves for decoupling data from model classes.
+In ``coding-events``, we add a unique identifier field to ``Events`` to better handle and track distinct 
+``Event`` instances. We'll also create another model class called ``EventData`` to encapsulate data storage 
+and prepare ourselves for decoupling data from model classes.
 
 Add a Unique Id - Video
 -----------------------
@@ -20,7 +20,7 @@ Add a Unique Id - Video
 Add a Unique Id - Text
 -----------------------
 
-Identifying data by a string ``name`` is not a sustainable or scalable method
+Identifying data by a user-defined string called ``name`` is not a sustainable or scalable method
 of handling data in most situations. Consider the address book example. How can
 we distinguish between two contact entries with the same name field? It is a frequent
 practice to add a **unique identifier** field (sometimes called, or even labelled, **uid**) to a class 
@@ -150,7 +150,7 @@ Delete an Event - Text
 
 Now that we've refined our events storage method, we are able to tackle the task of deleting an object. 
 To delete an event object from storage, we'll grab the event's id and use that
-information to call the ``remove`` method.
+information to call the ``remove`` method of ``EventData``.
 Since the delete event is user-initiated, a controller will be involved to pass
 the information from the user-accessible view to the data layer. So our first step
 with this task is to create a controller method to get a view to delete events.
@@ -228,3 +228,15 @@ Check Your Understanding
    #. ``EventData.getAll()`` 
 
 .. ans: d, ``EventData.getAll()``
+
+.. admonition:: Question
+
+   Breaking up the event storage from the ``Event`` model is an example of which object-oriented
+   concept?
+
+   #. Inheritance
+   #. Polymorphism
+   #. Encapsulation 
+   #. MVC design
+
+.. ans: c, encapsulation

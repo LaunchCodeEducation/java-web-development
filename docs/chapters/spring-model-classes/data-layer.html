@@ -90,9 +90,9 @@
 we want to do things like remove an event from our list. Well, if two events both have the same name,
 how might we identify which of those items to delete? We can’t yet. So we need to tweak how we store
 event data.</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, we add a unique identifier field to <code class="docutils literal notranslate"><span class="pre">Events</span></code> to better handle distinct <code class="docutils literal notranslate"><span class="pre">Event</span></code>
-instances. We’ll also create another model class called <code class="docutils literal notranslate"><span class="pre">EventData</span></code> to encapsulate data storage and prepare
-ourselves for decoupling data from model classes.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, we add a unique identifier field to <code class="docutils literal notranslate"><span class="pre">Events</span></code> to better handle and track distinct
+<code class="docutils literal notranslate"><span class="pre">Event</span></code> instances. We’ll also create another model class called <code class="docutils literal notranslate"><span class="pre">EventData</span></code> to encapsulate data storage
+and prepare ourselves for decoupling data from model classes.</p>
 <div class="section" id="add-a-unique-id-video">
 <h2>12.3.1. Add a Unique Id - Video<a class="headerlink" href="#add-a-unique-id-video" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-0">
@@ -102,7 +102,7 @@ ourselves for decoupling data from model classes.</p>
 </div>
 <div class="section" id="add-a-unique-id-text">
 <span id="index-1"></span><h2>12.3.2. Add a Unique Id - Text<a class="headerlink" href="#add-a-unique-id-text" title="Permalink to this headline">¶</a></h2>
-<p>Identifying data by a string <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a sustainable or scalable method
+<p>Identifying data by a user-defined string called <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a sustainable or scalable method
 of handling data in most situations. Consider the address book example. How can
 we distinguish between two contact entries with the same name field? It is a frequent
 practice to add a <strong>unique identifier</strong> field (sometimes called, or even labelled, <strong>uid</strong>) to a class
@@ -265,7 +265,7 @@ of events at the top of the class. Consequently, for the <code class="docutils l
 <h2>12.3.6. Delete an Event - Text<a class="headerlink" href="#delete-an-event-text" title="Permalink to this headline">¶</a></h2>
 <p>Now that we’ve refined our events storage method, we are able to tackle the task of deleting an object.
 To delete an event object from storage, we’ll grab the event’s id and use that
-information to call the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method.
+information to call the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method of <code class="docutils literal notranslate"><span class="pre">EventData</span></code>.
 Since the delete event is user-initiated, a controller will be involved to pass
 the information from the user-accessible view to the data layer. So our first step
 with this task is to create a controller method to get a view to delete events.</p>
@@ -361,6 +361,17 @@ page once they have selected which event, or events, to remove from storage.</p>
 <li><code class="docutils literal notranslate"><span class="pre">EventData.getEvery()</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">Event.getAll()</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">EventData.getAll()</span></code></li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Breaking up the event storage from the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model is an example of which object-oriented
+concept?</p>
+<ol class="last arabic simple">
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Encapsulation</li>
+<li>MVC design</li>
 </ol>
 </div>
 </div>
