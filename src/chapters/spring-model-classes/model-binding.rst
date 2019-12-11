@@ -9,8 +9,7 @@ with a technique called **model binding**. Model binding takes place when a whol
 model object is created on form submission. This saves us the effort, and the code, to 
 pass in each form field to a controller. 
 
-Remember how we want to be able to remove an event? With model binding we will
-now be able to make it happen. Model binding reduces the amount of code we need to 
+Model binding reduces the amount of code we need to 
 write to create an object and it helps with validation (which we’ll explore further in the next
 section). Because we use the ``@ModelAttribute`` annotation, Spring Boot
 will create an ``Event`` object for us when it gets the ``POST``
@@ -24,14 +23,46 @@ How to Use Model-Binding - Video
 How to Use Model-Binding - Text
 --------------------------------
 
+.. index:: ! @ModelAttribute
+
 With ``Event`` model in place, we can incorporate another annotation, ``@ModelAttribute``
 When submitting the event creation information, rather than passing in each field used to 
 instantiate a model, we can instead pass in ``@ModelAttribute Event newEvent`` as a parameter 
-of the controller method. This technique is called model binding. The Model instance is created
-on form submission. 
+of the controller method. 
 
-With this in mind, we need to return to the create form HTML and update the form fields to
-match the event object property names. 
+Revised ``processCreateEventForm`` in ``EventController``:
+
+.. sourcecode:: java
+   :lineno-start: 32
+
+   @PostMapping("create")
+   public String processCreateEventForm(@ModelAttribute Event newEvent) {
+      EventData.add(newEvent);
+      return "redirect:";
+   }
+
+This is the essence of model binding. The model instance is created
+on form submission. With only two fields needed to create an event, the value of this data binding may not be
+particularly apparent right now. You can imagine, though, with a larger form, that ``@ModelAttribute`` is quite an 
+efficient annotation.
+
+Another benefit of model binding is that we can use the model field names as the form field names. So back in 
+the create form HTML, we will update the form fields to match the event fields. 
+
+``events/create.html``:
+
+.. sourcecode:: html
+   :lineno-start: 9
+
+   <div class="form-group">
+      <label>Name
+         <input type="text" name="name" class="form-control">
+      </label>
+      <label>
+         Description
+         <input type="text" name="description"  class="form-control">
+      </label>
+   </div>   
 
 Check Your Understanding
 -------------------------

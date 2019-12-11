@@ -91,8 +91,7 @@ identifiers, we have the elements in place to auto-create model instances
 with a technique called <strong>model binding</strong>. Model binding takes place when a whole
 model object is created on form submission. This saves us the effort, and the code, to
 pass in each form field to a controller.</p>
-<p>Remember how we want to be able to remove an event? With model binding we will
-now be able to make it happen. Model binding reduces the amount of code we need to
+<p>Model binding reduces the amount of code we need to
 write to create an object and it helps with validation (which we’ll explore further in the next
 section). Because we use the <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code> annotation, Spring Boot
 will create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object for us when it gets the <code class="docutils literal notranslate"><span class="pre">POST</span></code>
@@ -106,13 +105,48 @@ request from <code class="docutils literal notranslate"><span class="pre">/creat
 </div>
 <div class="section" id="how-to-use-model-binding-text">
 <h2>12.4.2. How to Use Model-Binding - Text<a class="headerlink" href="#how-to-use-model-binding-text" title="Permalink to this headline">¶</a></h2>
-<p>With <code class="docutils literal notranslate"><span class="pre">Event</span></code> model in place, we can incorporate another annotation, <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code>
+<p id="index-2">With <code class="docutils literal notranslate"><span class="pre">Event</span></code> model in place, we can incorporate another annotation, <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code>
 When submitting the event creation information, rather than passing in each field used to
 instantiate a model, we can instead pass in <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span> <span class="pre">Event</span> <span class="pre">newEvent</span></code> as a parameter
-of the controller method. This technique is called model binding. The Model instance is created
-on form submission.</p>
-<p>With this in mind, we need to return to the create form HTML and update the form fields to
-match the event object property names.</p>
+of the controller method.</p>
+<p>Revised <code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newEvent</span><span class="o">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This is the essence of model binding. The model instance is created
+on form submission. With only two fields needed to create an event, the value of this data binding may not be
+particularly apparent right now. You can imagine, though, with a larger form, that <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code> is quite an
+efficient annotation.</p>
+<p>Another benefit of model binding is that we can use the model field names as the form field names. So back in
+the create form HTML, we will update the form fields to match the event fields.</p>
+<p><code class="docutils literal notranslate"><span class="pre">events/create.html</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Name
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;name&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+      Description
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span>  <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>12.4.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
