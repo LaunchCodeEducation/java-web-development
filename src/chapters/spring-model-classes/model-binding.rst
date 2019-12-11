@@ -25,7 +25,7 @@ How to Use Model-Binding - Text
 
 .. index:: ! @ModelAttribute
 
-With ``Event`` model in place, we can incorporate another annotation, ``@ModelAttribute``
+With ``Event`` model in place, we can incorporate another annotation, ``@ModelAttribute``.
 When submitting the event creation information, rather than passing in each field used to 
 instantiate a model, we can instead pass in ``@ModelAttribute Event newEvent`` as a parameter 
 of the controller method. 
@@ -77,3 +77,15 @@ Check Your Understanding
    #. All of the above. 
 
 .. ans: d, all of the above.
+
+.. admonition:: Question
+
+   We add an additional private field, ``numberOfAttendees``, to the ``Event`` class. What other change must we 
+	make to ensure the user of our application can determine this value?
+
+   #. Pass in a ``numberOfAttendees`` parameter to the form submission handler.
+   #. Add another input element to the create event form with a ``name=numberOfAttendees`` attribute.
+   #. Add a ``getAttendees`` method to ``EventData``.
+   #. All of the above. 
+
+.. ans: b, Add another input element to the create event form with a ``name=numberOfAttendees`` attribute.

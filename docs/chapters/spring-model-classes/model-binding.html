@@ -105,7 +105,7 @@ request from <code class="docutils literal notranslate"><span class="pre">/creat
 </div>
 <div class="section" id="how-to-use-model-binding-text">
 <h2>12.4.2. How to Use Model-Binding - Text<a class="headerlink" href="#how-to-use-model-binding-text" title="Permalink to this headline">¶</a></h2>
-<p id="index-2">With <code class="docutils literal notranslate"><span class="pre">Event</span></code> model in place, we can incorporate another annotation, <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code>
+<p id="index-2">With <code class="docutils literal notranslate"><span class="pre">Event</span></code> model in place, we can incorporate another annotation, <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code>.
 When submitting the event creation information, rather than passing in each field used to
 instantiate a model, we can instead pass in <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span> <span class="pre">Event</span> <span class="pre">newEvent</span></code> as a parameter
 of the controller method.</p>
@@ -157,6 +157,19 @@ the create form HTML, we will update the form fields to match the event fields.<
 <li>requires <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code> annotation.</li>
 <li>helps with form validation.</li>
 <li>reduces controller code.</li>
+<li>All of the above.</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<dl class="docutils">
+<dt>We add an additional private field, <code class="docutils literal notranslate"><span class="pre">numberOfAttendees</span></code>, to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class. What other change must we</dt>
+<dd>make to ensure the user of our application can determine this value?</dd>
+</dl>
+<ol class="last arabic simple">
+<li>Pass in a <code class="docutils literal notranslate"><span class="pre">numberOfAttendees</span></code> parameter to the form submission handler.</li>
+<li>Add another input element to the create event form with a <code class="docutils literal notranslate"><span class="pre">name=numberOfAttendees</span></code> attribute.</li>
+<li>Add a <code class="docutils literal notranslate"><span class="pre">getAttendees</span></code> method to <code class="docutils literal notranslate"><span class="pre">EventData</span></code>.</li>
 <li>All of the above.</li>
 </ol>
 </div>
