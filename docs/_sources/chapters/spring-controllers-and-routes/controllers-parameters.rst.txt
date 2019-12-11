@@ -3,7 +3,7 @@
 Controllers with Parameters
 ===========================
 
-Now that you kow the basics of a controller method, we can start to add some more variables into the mix. Some 
+Now that you know the basics of a controller method, we can start to add some more variables into the mix. Some 
 controller methods can take in parameters in the form of query strings or sections of the URL path. Passing
 this URL data to the controller is one step closer to more flexible web applications. 
 
