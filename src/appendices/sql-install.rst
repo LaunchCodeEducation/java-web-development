@@ -30,24 +30,24 @@ This option should also be at least 300 MB.
 
       Once you create a password for the root user, you cannot change it! Be careful when typing out the password.
 
-Now that we have MySQL installed, we want to use it!
+Now that you have MySQL installed, you want to use it!
 You can setup MySQL for use in the terminal, however, many don't actually like it.
-When working with MySQL in the terminal, all commands are final and you can't use any fun tools to visualize the tables.
-Sounds like we should use a desktop client at first to practice! For these reasons, we will be using MySQL Workbench as our GUI client to work with our databases.
+When working with MySQL in the terminal, you can't use any fun tools to visualize the tables.
+Sounds like you should use a desktop client at first to practice! For these reasons, we will be using MySQL Workbench as our GUI client to work with our databases.
 
 The `MySQL Workbench 8.0.18 download page <https://dev.mysql.com/downloads/workbench/>`_ has a dropdown menu for the operating system. Make sure MacOS is selected before downloading.
 
 Once you have downloaded MySQL workbench, double-click on the disk image to launch the installer.
 Agree to the terms and conditions and install.
 
-Now, we can use MySQL workbench to access databases and practice commands!
+Now, you can use MySQL workbench to access databases and practice commands!
 When you first open MySQL workbench, you will see your local MySQL server on the homepage.
 Double-click to access the server, enter the password, and you're ready to start querying away!
 
 Windows Users
 -------------
 
-Windows users have a MySQL Installer available and that is what we will be using to install MySQL!
+Windows users have a MySQL Installer available and that is what you will be using to install MySQL!
 The `Installer download page <https://dev.mysql.com/downloads/installer/>`_ has a couple options available.
 You want to download the version called ``"Windows (x86, 32-bit), MSI Installer"`` that specifies it is the ``"(mysql-installer-community-8.0.18.0.msi)"``.
 This should also be the version that uses at least 400 MB.
@@ -63,5 +63,5 @@ Make sure you have selected the correct option before clicking *Download*!
       Once you create a password for the root user, you cannot change it! Be careful when typing out the password.
    
 
-The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now we can open up MySQL Workbench.
+The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now you can open up MySQL Workbench.
 MySQL Workbench will automatically scan for available MySQL servers. Your local server should appear on the home screen. Double click and enter your password to get going!
