@@ -32,7 +32,7 @@ Of course, we'll also like some constructors and getters and setters.
 
 In ``models/Event.java``:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :lineno-start: 6
 
    public class Event {
@@ -57,7 +57,7 @@ Now that we're working to move the data handling out from the controller classes
 we'll need to update the ``POST`` handler that creates new events. Update the ``.add()`` method inside of 
 ``processCreateEventForm`` to add a new Event instance:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :linenos: 36
 
    @PostMapping("create")
@@ -68,7 +68,7 @@ we'll need to update the ``POST`` handler that creates new events. Update the ``
    
 And you'll notice, we're adding a different type of data to the ArrayList, so we'll have to update that too:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :linenos: 21
 
    private static List<Event> events = new ArrayList<>();
@@ -98,7 +98,7 @@ To round out the ``Event`` class, we'll add a ``description`` field to showcase 
 
 Updates to ``models/Event.java``:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :lineno-start: 6
 
    public class Event {
@@ -161,7 +161,7 @@ value into the creation of the Event object.
 
 ``EventController``:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :lineno-start: 36
 
    @PostMapping("create")

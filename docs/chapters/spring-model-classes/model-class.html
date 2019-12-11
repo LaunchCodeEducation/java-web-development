@@ -111,7 +111,7 @@ models are <strong>plain old Java objects</strong>, or <strong>POJOs</strong>.</
 <p>To create a model to shape event data, we’d want to include a field for <code class="docutils literal notranslate"><span class="pre">name</span></code>.
 Of course, we’ll also like some constructors and getters and setters.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
-<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
  7
  8
  9
@@ -169,7 +169,7 @@ simply strings.</p>
 <h2>12.2.4. Add a Model Property - Text<a class="headerlink" href="#add-a-model-property-text" title="Permalink to this headline">¶</a></h2>
 <p>To round out the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, we’ll add a <code class="docutils literal notranslate"><span class="pre">description</span></code> field to showcase what our events are all about.</p>
 <p>Updates to <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
-<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
  7
  8
  9
@@ -246,7 +246,7 @@ description field and to display that description along with the event’s name.
 <code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> to handle the form submission and pass the description
 value into the creation of the Event object.</p>
 <p><code class="docutils literal notranslate"><span class="pre">EventController</span></code>:</p>
-<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>36
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>36
 37
 38
 39

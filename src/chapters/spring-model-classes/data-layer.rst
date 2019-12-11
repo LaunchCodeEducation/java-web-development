@@ -41,7 +41,7 @@ To accomplish the same data clarity with events, we'll add a few things to the e
 
 The result in ``models/Event,java``:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :lineno-start: 6
 
    public class Event {
@@ -91,6 +91,11 @@ Create a new package called ``data`` and add a class ``EventData``. Whereas ``Ev
 user-inputted information into a Java object, ``EventData`` is responsible for maintaining those objects once they 
 are created. ``EventData`` is itself a Java class that stores events. It contains several methods for managing and 
 maintaining the event data.
+
+The contents of ``data/EventData.java``:
+
+.. sourcecode:: java
+
 
 With ``EventData`` managing event data, we must once again refactor ``EventController`` to update the items stored in 
 ``EventData``.
