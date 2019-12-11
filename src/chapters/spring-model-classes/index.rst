@@ -6,7 +6,6 @@ Models and Model Binding
 .. toctree::
    :maxdepth: 3
 
-   intro
    model-intro
    bootstrap
    model-class

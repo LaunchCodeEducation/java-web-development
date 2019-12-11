@@ -1,10 +1,14 @@
-Data Layer
+Model Data 
 ==========
 
 In order to work with data, we need to add another element to our MVC application. Say for example,
 we want to do things like remove an event from our list. Well, if two events both have the same name, 
-how might we identify which of those items to delete? We can't yet. So we need to add a data layer. We call
-this layer to emphasize encapsulating this information, away from the ``Event`` model. 
+how might we identify which of those items to delete? We can't yet. So we need to tweak how we store
+event data. 
+
+In ``coding-events``, we add a unique identifier field to ``Events`` to better handle distinct ``Event`` 
+instances. We'll also create another model class called ``EventData`` to encapsulate data storage and prepare
+ourselves for decoupling data from model classes.
 
 Add a Unique Id - Video
 -----------------------
@@ -22,9 +26,8 @@ that our address book can contain two separate entries for our friends who have 
 name as one another. 
 
 Add an ``id`` field to the ``Event`` model class. Create a static counter method that will increase the value
-of the event field each time a new instaqnce is created, thus producing a unique id for each ``Event`` object.
+of the event field each time a new instance is created, thus producing a unique id for each ``Event`` object.
 Create a constructor that sets ``id`` using this method and calls the default, no-arg constructor.
-
 
 Create a Data Layer - Video
 ---------------------------
@@ -41,7 +44,7 @@ we'll use a model to store some data temporarily.
 
 Create a new package called ``data`` and add a class ``EventData``. Whereas ``Event`` is responsible for organizing
 user-inputted information into a Java object, ``EventData`` is responsible for maintaining those objects once they 
-are created. ``EventData`` is itself a Java class that stores events via a ``Map`` method, it can add events with an
+are created. ``EventData`` is itself a Java class that stores events. It can add events with an
 ``add`` method, ``getById``, ``getAll``, and ``remove``. 
 
 With ``EventData`` managing event data, we must once again refactor ``EventController`` to update the items stored in 
@@ -55,6 +58,7 @@ Delete an Event - Video
 Delete an Event - Text
 ----------------------
 
+Now that we've refined our events storage method, we are able to tackle the task of deleting an object. 
 To delete an event object from storage, we'll grab the event's id and use that
 information to call the ``remove`` method.
 Since the delete event is user-initiated, a controller will be involved to pass
@@ -73,26 +77,3 @@ Check Your Understanding
 -------------------------
 
 Questions here...
-
-.. ## Create Data Layer
-- Create `data` package
-- Create `EventData` class w/ static members
-   - `Map` field to store events
-   - `add` method
-   - `getById` method
-   - `getAll` method w/ `Collection` return type
-   - `remove` method 
-- Refactor controller to use `EventData` 
-
-
-.. ## Add Unique Identifier
-- Add `id` property to `Event`
-- Add static counter to class
-- Update constructor to set `id` 
-- Refactor to use no-arg constructor 
-
-.. ## Deleting Events
-- Create `renderDeleteEventForm` handler
-- Create `events/delete` template w/ form that references IDs
-- Create `processDeleteEventForm` handler w/ redirect
-- Add link to header fragment 

@@ -1,8 +1,11 @@
 Create a Model
 ==============
 
-The first step to moving data out of controller classes is to actually create a model class.
-As we discussed on the previous page, the controller class is not responsible for holding data.
+In the next several pages, we will be making updates to ``coding-events`` to demonstrate model creation,
+how models relate to data, and the practice of model biding. The first of these steps is to move data 
+handling out of our controller classes and into a model class. As we discussed on the previous page, the 
+controller class is not responsible for holding data.
+
 In ``coding-events``, we'll remove the HashMap data from ``EventController`` and create a proper 
 Java class to deal with event items. We'll then update our controller methods to take
 advantage of the new model and it's properties, rather than the strings stored in the HashMap.
@@ -32,7 +35,7 @@ need to update the post handler that creates new event objects.
 
 Back in the ``events/index.html`` template, update the HTML to use the ``Event`` object's fields, rather than simply strings.
 
-.. admonition:: .. note:: 
+.. admonition:: Note
 
 	The syntax ``event.fieldName`` runs a getter method behind the scenes in order to access a field name.
 
@@ -44,9 +47,10 @@ Add a Model Property - Video
 Add a Model Property - Text
 ---------------------------
 
-Add a ``description`` field to the ``Event`` model class. Update both the ``events/create.html`` and ``events/index.html``
-templates to create an event object with a description field and to display that description along with the event's 
-name. Lastly, add a parameter to the ``processCreateEventForm`` to handle the form submission and pass the description
+To round out the ``Event`` class, we add a ``description`` field to the model. Update both the 
+``events/create.html`` and ``events/index.html`` templates to create an event object with a description field 
+and to display that description along with the event's name. Lastly, add a parameter to the 
+``processCreateEventForm`` to handle the form submission and pass the description
 value into the creation of the Event object.
 
 
@@ -54,17 +58,4 @@ Check Your Understanding
 -------------------------
 
 Questions here...
-
-.. ## Create Model Class
-- Create `models` package 
-- Create `Event` class
-- Refactor `processCreateEventForm` to create `Event` object
-- Refactor `events/index` template to reference `Event` fields
-- Test
-
-.. ## Add Class Property
-.. - Add `description` property to class
-.. - Update `events/create` template to include description field
-.. - Update `processCreateEventForm` to create object w/ description 
-.. - Update `events/index` template to display description 
 

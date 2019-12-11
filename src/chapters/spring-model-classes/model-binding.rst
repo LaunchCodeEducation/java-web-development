@@ -6,7 +6,11 @@ identifiers, we have the elements in place to auto-create model instances
 with a technique called **model-binding**.
 
 Remember how we want to be able to remove an event? With model binding we will
-know be able to make it happen.
+know be able to make it happen. Model binding reduces the amount of code we need to 
+write to create an object and it helps with validation (which we’ll explore further in a future
+lesson). Because we use the ``@ModelAttribute`` annotation, Spring Boot
+will create an ``Event`` object for us when it gets the ``POST``
+request from ``/add``.
 
 How to Use Model-Binding - Video
 --------------------------------

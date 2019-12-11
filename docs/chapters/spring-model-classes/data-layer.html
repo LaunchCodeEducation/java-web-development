@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Data Layer &#8212; Java Web Development  documentation</title>
+    <title>Model Data &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -71,7 +71,7 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li class="active">Data Layer</li>
+    <li class="active">Model Data</li>
 </ol>
 
 
@@ -81,12 +81,15 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="data-layer">
-<h1>Data Layer<a class="headerlink" href="#data-layer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="model-data">
+<h1>Model Data<a class="headerlink" href="#model-data" title="Permalink to this headline">¶</a></h1>
 <p>In order to work with data, we need to add another element to our MVC application. Say for example,
 we want to do things like remove an event from our list. Well, if two events both have the same name,
-how might we identify which of those items to delete? We can’t yet. So we need to add a data layer. We call
-this layer to emphasize encapsulating this information, away from the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model.</p>
+how might we identify which of those items to delete? We can’t yet. So we need to tweak how we store
+event data.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, we add a unique identifier field to <code class="docutils literal notranslate"><span class="pre">Events</span></code> to better handle distinct <code class="docutils literal notranslate"><span class="pre">Event</span></code>
+instances. We’ll also create another model class called <code class="docutils literal notranslate"><span class="pre">EventData</span></code> to encapsulate data storage and prepare
+ourselves for decoupling data from model classes.</p>
 <div class="section" id="add-a-unique-id-video">
 <h2>Add a Unique Id - Video<a class="headerlink" href="#add-a-unique-id-video" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-0">
@@ -103,7 +106,7 @@ practice to add a unique id field to a class responsible for modelling data. Thi
 that our address book can contain two separate entries for our friends who have the same
 name as one another.</p>
 <p>Add an <code class="docutils literal notranslate"><span class="pre">id</span></code> field to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model class. Create a static counter method that will increase the value
-of the event field each time a new instaqnce is created, thus producing a unique id for each <code class="docutils literal notranslate"><span class="pre">Event</span></code> object.
+of the event field each time a new instance is created, thus producing a unique id for each <code class="docutils literal notranslate"><span class="pre">Event</span></code> object.
 Create a constructor that sets <code class="docutils literal notranslate"><span class="pre">id</span></code> using this method and calls the default, no-arg constructor.</p>
 </div>
 <div class="section" id="create-a-data-layer-video">
@@ -121,7 +124,7 @@ can be used in our application. As we work our way into learning about database 
 we’ll use a model to store some data temporarily.</p>
 <p>Create a new package called <code class="docutils literal notranslate"><span class="pre">data</span></code> and add a class <code class="docutils literal notranslate"><span class="pre">EventData</span></code>. Whereas <code class="docutils literal notranslate"><span class="pre">Event</span></code> is responsible for organizing
 user-inputted information into a Java object, <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is responsible for maintaining those objects once they
-are created. <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is itself a Java class that stores events via a <code class="docutils literal notranslate"><span class="pre">Map</span></code> method, it can add events with an
+are created. <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is itself a Java class that stores events. It can add events with an
 <code class="docutils literal notranslate"><span class="pre">add</span></code> method, <code class="docutils literal notranslate"><span class="pre">getById</span></code>, <code class="docutils literal notranslate"><span class="pre">getAll</span></code>, and <code class="docutils literal notranslate"><span class="pre">remove</span></code>.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">EventData</span></code> managing event data, we must once again refactor <code class="docutils literal notranslate"><span class="pre">EventController</span></code> to update the items stored in
 <code class="docutils literal notranslate"><span class="pre">EventData</span></code>.</p>
@@ -135,7 +138,8 @@ are created. <code class="docutils literal notranslate"><span class="pre">EventD
 </div>
 <div class="section" id="delete-an-event-text">
 <h2>Delete an Event - Text<a class="headerlink" href="#delete-an-event-text" title="Permalink to this headline">¶</a></h2>
-<p>To delete an event object from storage, we’ll grab the event’s id and use that
+<p>Now that we’ve refined our events storage method, we are able to tackle the task of deleting an object.
+To delete an event object from storage, we’ll grab the event’s id and use that
 information to call the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method.
 Since the delete event is user-initiated, a controller will be involved to pass
 the information from the user-accessible view to the data layer. So our first step
@@ -150,34 +154,6 @@ Like the rest of the templates, the delete form view should include the header f
 <div class="section" id="check-your-understanding">
 <h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <p>Questions here…</p>
-<ul class="simple">
-<li>Create <cite>data</cite> package</li>
-<li><dl class="first docutils">
-<dt>Create <cite>EventData</cite> class w/ static members</dt>
-<dd><ul class="first last">
-<li><cite>Map</cite> field to store events</li>
-<li><cite>add</cite> method</li>
-<li><cite>getById</cite> method</li>
-<li><cite>getAll</cite> method w/ <cite>Collection</cite> return type</li>
-<li><cite>remove</cite> method</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>Refactor controller to use <cite>EventData</cite></li>
-</ul>
-<ul class="simple">
-<li>Add <cite>id</cite> property to <cite>Event</cite></li>
-<li>Add static counter to class</li>
-<li>Update constructor to set <cite>id</cite></li>
-<li>Refactor to use no-arg constructor</li>
-</ul>
-<ul class="simple">
-<li>Create <cite>renderDeleteEventForm</cite> handler</li>
-<li>Create <cite>events/delete</cite> template w/ form that references IDs</li>
-<li>Create <cite>processDeleteEventForm</cite> handler w/ redirect</li>
-<li>Add link to header fragment</li>
-</ul>
 </div>
 </div>
 
