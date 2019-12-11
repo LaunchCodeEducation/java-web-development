@@ -6,9 +6,9 @@ how models relate to data, and the practice of model biding. The first of these 
 handling out of our controller classes and into a model class. As we discussed on the previous page, the 
 controller class is not responsible for holding data.
 
-In ``coding-events``, we'll remove the HashMap data from ``EventController`` and create a proper 
+In ``coding-events``, we'll remove the ArrayList data from ``EventController`` and create a proper 
 Java class to deal with event items. We'll then update our controller methods to take
-advantage of the new model and it's properties, rather than the strings stored in the HashMap.
+advantage of the new model and it's properties, rather than the strings stored in the list.
 Lastly, because the controller is updating, the template variables it relies upon will also need to
 change to reflect the model properties.
 
@@ -25,9 +25,9 @@ Create a Model Class - Text
 Like controllers, model classes are conventionally located in a ``models``
 package. Structurally, model classes most closely resemble the kinds of classes we practiced
 making at the start of this course, before introducing Spring Boot. In other words,
-models are *plain old Java objects*, or POJOs.
+models are **plain old Java objects**, or **POJOs**.
 
-To create a model to shape event data, we'd want to include fields for the ``name`` and ``description``.
+To create a model to shape event data, we'd want to include a field for ``name``.
 Of course, we'll also like some constructors and getters and setters. 
 
 Now that we're working to move the data handling out from the controller classes and into a class of its own, we'll
@@ -37,7 +37,7 @@ Back in the ``events/index.html`` template, update the HTML to use the ``Event``
 
 .. admonition:: Note
 
-	The syntax ``event.fieldName`` runs a getter method behind the scenes in order to access a field name.
+   The syntax ``event.fieldName`` runs a getter method behind the scenes in order to access a field name.
 
 Add a Model Property - Video
 ----------------------------
@@ -47,9 +47,12 @@ Add a Model Property - Video
 Add a Model Property - Text
 ---------------------------
 
-To round out the ``Event`` class, we add a ``description`` field to the model. Update both the 
-``events/create.html`` and ``events/index.html`` templates to create an event object with a description field 
-and to display that description along with the event's name. Lastly, add a parameter to the 
+To round out the ``Event`` class, we add a ``description`` field to the model. Now that our data is object-oriented,
+it's quick and easy to add a new property affiliated with an event. Before, with events stored as strings, we 
+would need to overhaul our storage type in order to add an additional event field.
+
+Update both the ``events/create.html`` and ``events/index.html`` templates to create an event object with a 
+description field and to display that description along with the event's name. Lastly, add a parameter to the 
 ``processCreateEventForm`` to handle the form submission and pass the description
 value into the creation of the Event object.
 
@@ -57,5 +60,12 @@ value into the creation of the Event object.
 Check Your Understanding
 -------------------------
 
-Questions here...
+.. admonition:: Question
+
+   True/False: Model code is framework dependent.
+
+   #. True
+   #. False
+
+.. ans: false, models are just java objects
 

@@ -102,3 +102,15 @@ to any type of form input to give it the Bootstrap style and look.
 
 
 `Bootstrap Forms <https://getbootstrap.com/docs/4.4/components/forms/>`__.
+
+Check Your Understanding
+-------------------------
+
+.. admonition:: Question
+
+   True/False: Style updates are considered refactoring, since they add no new features to a project, only make it look better.
+
+   #. True
+   #. False
+
+.. ans: false, style contributes to user interaction and experience and updates are therefore not refactoring

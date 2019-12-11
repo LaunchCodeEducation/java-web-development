@@ -1,5 +1,5 @@
-Model Data 
-==========
+Models and Data 
+===============
 
 In order to work with data, we need to add another element to our MVC application. Say for example,
 we want to do things like remove an event from our list. Well, if two events both have the same name, 
@@ -44,8 +44,8 @@ we'll use a model to store some data temporarily.
 
 Create a new package called ``data`` and add a class ``EventData``. Whereas ``Event`` is responsible for organizing
 user-inputted information into a Java object, ``EventData`` is responsible for maintaining those objects once they 
-are created. ``EventData`` is itself a Java class that stores events. It can add events with an
-``add`` method, ``getById``, ``getAll``, and ``remove``. 
+are created. ``EventData`` is itself a Java class that stores events. It contains several methods for managing and 
+maintaining the event data.
 
 With ``EventData`` managing event data, we must once again refactor ``EventController`` to update the items stored in 
 ``EventData``.
@@ -76,4 +76,13 @@ Like the rest of the templates, the delete form view should include the header f
 Check Your Understanding
 -------------------------
 
-Questions here...
+.. admonition:: Question
+
+   Which method can we call to list every event object?
+
+   #. ``Events.get()`` 
+   #. ``EventData.getEvery()`` 
+   #. ``Event.getAll()`` 
+   #. ``EventData.getAll()`` 
+
+.. ans: d, ``EventData.getAll()``

@@ -7,10 +7,9 @@ Models and Model Binding
    :maxdepth: 3
 
    model-intro
-   bootstrap
    model-class
-	data-layer
-	model-binding
+   data-layer
+   model-binding
    exercises
    studio
 

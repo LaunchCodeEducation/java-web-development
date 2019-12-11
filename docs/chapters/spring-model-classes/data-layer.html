@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Model Data &#8212; Java Web Development  documentation</title>
+    <title>12.3. Models and Data &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,6 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.4. Model-Binding" href="model-binding.html" />
+    <link rel="prev" title="12.2. Create a Model" href="model-class.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -71,7 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li class="active">Model Data</li>
+    <li><a href="index.html">12. Models and Model Binding</a></li>
+    <li class="active">12.3. Models and Data</li>
 </ol>
 
 
@@ -81,8 +84,8 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="model-data">
-<h1>Model Data<a class="headerlink" href="#model-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="models-and-data">
+<h1>12.3. Models and Data<a class="headerlink" href="#models-and-data" title="Permalink to this headline">¶</a></h1>
 <p>In order to work with data, we need to add another element to our MVC application. Say for example,
 we want to do things like remove an event from our list. Well, if two events both have the same name,
 how might we identify which of those items to delete? We can’t yet. So we need to tweak how we store
@@ -91,14 +94,14 @@ event data.</p>
 instances. We’ll also create another model class called <code class="docutils literal notranslate"><span class="pre">EventData</span></code> to encapsulate data storage and prepare
 ourselves for decoupling data from model classes.</p>
 <div class="section" id="add-a-unique-id-video">
-<h2>Add a Unique Id - Video<a class="headerlink" href="#add-a-unique-id-video" title="Permalink to this headline">¶</a></h2>
+<h2>12.3.1. Add a Unique Id - Video<a class="headerlink" href="#add-a-unique-id-video" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">video adding a unique id generator</p>
 </div>
 </div>
 <div class="section" id="add-a-unique-id-text">
-<h2>Add a Unique Id - Text<a class="headerlink" href="#add-a-unique-id-text" title="Permalink to this headline">¶</a></h2>
+<h2>12.3.2. Add a Unique Id - Text<a class="headerlink" href="#add-a-unique-id-text" title="Permalink to this headline">¶</a></h2>
 <p>Identifying data by a string <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a sustainable or scalable method
 of handling data in most situations. Consider the address book example. How can
 we distinguish between two contact entries with the same name field? It is a frequent
@@ -110,34 +113,34 @@ of the event field each time a new instance is created, thus producing a unique 
 Create a constructor that sets <code class="docutils literal notranslate"><span class="pre">id</span></code> using this method and calls the default, no-arg constructor.</p>
 </div>
 <div class="section" id="create-a-data-layer-video">
-<h2>Create a Data Layer - Video<a class="headerlink" href="#create-a-data-layer-video" title="Permalink to this headline">¶</a></h2>
+<h2>12.3.3. Create a Data Layer - Video<a class="headerlink" href="#create-a-data-layer-video" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">Todo</p>
 <p class="last">video showing creation of EventData class</p>
 </div>
 </div>
 <div class="section" id="create-a-data-layer-text">
-<h2>Create a Data Layer - Text<a class="headerlink" href="#create-a-data-layer-text" title="Permalink to this headline">¶</a></h2>
+<h2>12.3.4. Create a Data Layer - Text<a class="headerlink" href="#create-a-data-layer-text" title="Permalink to this headline">¶</a></h2>
 <p>Now that we’ve begun building a model, it’s a good time to remind ourselves that models are not designed to be
 data storage containers. Rather, models are meant to shape the data stored in another location into objects that
 can be used in our application. As we work our way into learning about database usage and service calls, however,
 we’ll use a model to store some data temporarily.</p>
 <p>Create a new package called <code class="docutils literal notranslate"><span class="pre">data</span></code> and add a class <code class="docutils literal notranslate"><span class="pre">EventData</span></code>. Whereas <code class="docutils literal notranslate"><span class="pre">Event</span></code> is responsible for organizing
 user-inputted information into a Java object, <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is responsible for maintaining those objects once they
-are created. <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is itself a Java class that stores events. It can add events with an
-<code class="docutils literal notranslate"><span class="pre">add</span></code> method, <code class="docutils literal notranslate"><span class="pre">getById</span></code>, <code class="docutils literal notranslate"><span class="pre">getAll</span></code>, and <code class="docutils literal notranslate"><span class="pre">remove</span></code>.</p>
+are created. <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is itself a Java class that stores events. It contains several methods for managing and
+maintaining the event data.</p>
 <p>With <code class="docutils literal notranslate"><span class="pre">EventData</span></code> managing event data, we must once again refactor <code class="docutils literal notranslate"><span class="pre">EventController</span></code> to update the items stored in
 <code class="docutils literal notranslate"><span class="pre">EventData</span></code>.</p>
 </div>
 <div class="section" id="delete-an-event-video">
-<h2>Delete an Event - Video<a class="headerlink" href="#delete-an-event-video" title="Permalink to this headline">¶</a></h2>
+<h2>12.3.5. Delete an Event - Video<a class="headerlink" href="#delete-an-event-video" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-todo admonition" id="index-2">
 <p class="first admonition-title">Todo</p>
 <p class="last">video showing event deletion</p>
 </div>
 </div>
 <div class="section" id="delete-an-event-text">
-<h2>Delete an Event - Text<a class="headerlink" href="#delete-an-event-text" title="Permalink to this headline">¶</a></h2>
+<h2>12.3.6. Delete an Event - Text<a class="headerlink" href="#delete-an-event-text" title="Permalink to this headline">¶</a></h2>
 <p>Now that we’ve refined our events storage method, we are able to tackle the task of deleting an object.
 To delete an event object from storage, we’ll grab the event’s id and use that
 information to call the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method.
@@ -152,8 +155,17 @@ page once they have selected which event or events to remove from storage.
 Like the rest of the templates, the delete form view should include the header fragment.</p>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
-<p>Questions here…</p>
+<h2>12.3.7. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which method can we call to list every event object?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">Events.get()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">EventData.getEvery()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Event.getAll()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">EventData.getAll()</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -163,6 +175,10 @@ Like the rest of the templates, the delete form view should include the header f
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
+        <li class="previous"><a href="model-class.html"><span aria-hidden="true">&larr;</span> 12.2. Create a Model</a></li>
+        
+        
+        <li class="next"><a href="model-binding.html">12.4. Model-Binding <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
