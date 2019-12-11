@@ -27,8 +27,8 @@ package. Structurally, model classes most closely resemble the kinds of classes 
 making at the start of this course, before introducing Spring Boot. In other words,
 models are **plain old Java objects**, or **POJOs**.
 
-To create a model to shape event data, we'd want to include a field for ``name``.
-Of course, we'll also like some constructors and getters and setters. 
+To create a model to shape event data, we include a field for ``name``.
+Of course, we'll also like at least one constructor and some getters and setters. 
 
 In ``models/Event.java``:
 
@@ -176,10 +176,22 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True/False: Model code is framework dependent.
+   True/False: Model code is framework independent.
 
    #. True
    #. False
 
-.. ans: false, models are just java objects
+.. ans: true, models are just java objects
+
+.. admonition:: Question
+
+   If we add a field to the ``Event`` model to record the date of the event, which of the methods in 
+   ``EventController`` will need to be updated? 
+
+   #. ``displayAllEvents``
+   #. ``displayCreateEventForm``
+   #. ``processCreateEventForm``
+   #. no controller methods need to be updated
+
+.. ans: d, no controller methods need to be updated
 

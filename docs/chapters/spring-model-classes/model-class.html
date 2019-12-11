@@ -108,8 +108,8 @@ change to reflect the model properties.</p>
 package. Structurally, model classes most closely resemble the kinds of classes we practiced
 making at the start of this course, before introducing Spring Boot. In other words,
 models are <strong>plain old Java objects</strong>, or <strong>POJOs</strong>.</p>
-<p>To create a model to shape event data, we’d want to include a field for <code class="docutils literal notranslate"><span class="pre">name</span></code>.
-Of course, we’ll also like some constructors and getters and setters.</p>
+<p>To create a model to shape event data, we include a field for <code class="docutils literal notranslate"><span class="pre">name</span></code>.
+Of course, we’ll also like at least one constructor and some getters and setters.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
  7
@@ -262,10 +262,21 @@ value into the creation of the Event object.</p>
 <h2>12.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>True/False: Model code is framework dependent.</p>
+<p>True/False: Model code is framework independent.</p>
 <ol class="last arabic simple">
 <li>True</li>
 <li>False</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>If we add a field to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model to record the date of the event, which of the methods in
+<code class="docutils literal notranslate"><span class="pre">EventController</span></code> will need to be updated?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">displayCreateEventForm</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code></li>
+<li>no controller methods need to be updated</li>
 </ol>
 </div>
 </div>
