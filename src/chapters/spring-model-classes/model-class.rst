@@ -30,10 +30,57 @@ models are **plain old Java objects**, or **POJOs**.
 To create a model to shape event data, we'd want to include a field for ``name``.
 Of course, we'll also like some constructors and getters and setters. 
 
-Now that we're working to move the data handling out from the controller classes and into a class of its own, we'll
-need to update the post handler that creates new event objects. 
+In ``models/Event.java``:
 
-Back in the ``events/index.html`` template, update the HTML to use the ``Event`` object's fields, rather than simply strings.
+.. sourcecode:: Java
+   :lineno-start: 6
+
+   public class Event {
+
+      private String name;
+
+      public Event(String name) {
+         this.name = name;
+      }
+
+      public String getName() {
+         return name;
+      }
+
+      public void setName(String name) {
+         this.name = name;
+      }
+   }
+
+
+Now that we're working to move the data handling out from the controller classes and into a class of its own, 
+we'll need to update the ``POST`` handler that creates new events. Update the ``.add()`` method inside of 
+``processCreateEventForm`` to add a new Event instance:
+
+.. sourcecode:: Java
+   :linenos: 36
+
+   @PostMapping("create")
+   public String processCreateEventForm(@RequestParam String eventName) {
+      events.add(new Event(eventName));
+      return "redirect:";
+   }
+   
+And you'll notice, we're adding a different type of data to the ArrayList, so we'll have to update that too:
+
+.. sourcecode:: Java
+   :linenos: 21
+
+   private static List<Event> events = new ArrayList<>();
+
+
+Back in the ``events/index.html`` template, update the HTML to use the ``Event`` object's fields, rather than 
+simply strings.
+
+.. sourcecode:: html
+   :lineno-start: 15
+
+   <td th:text="${event.name}"></td>
 
 .. admonition:: Note
 
@@ -47,14 +94,81 @@ Add a Model Property - Video
 Add a Model Property - Text
 ---------------------------
 
-To round out the ``Event`` class, we add a ``description`` field to the model. Now that our data is object-oriented,
-it's quick and easy to add a new property affiliated with an event. Before, with events stored as strings, we 
-would need to overhaul our storage type in order to add an additional event field.
+To round out the ``Event`` class, we'll add a ``description`` field to showcase what our events are all about.
+
+Updates to ``models/Event.java``:
+
+.. sourcecode:: Java
+   :lineno-start: 6
+
+   public class Event {
+
+      private String name;
+      private String description;
+
+      public Event(String name, String description) {
+         this.name = name;
+         this.description = description;
+      }
+
+      public String getName() {
+         return name;
+      }
+
+      public void setName(String name) {
+         this.name = name;
+      }
+
+      public String getDescription() {
+         return description;
+      }
+
+      public void setDescription(String description) {
+         this.description = description;
+      }
+   }
+
+Now that our data is object-oriented, it's quick and easy to add a new property affiliated with an event. If after 
+this, we decide to add a ``date`` or ``location`` field, we would simply follow the pattern established. Before, 
+with events stored as name strings, we would have had more changes to make in order to add other information fields
+to the shape of the data.
 
 Update both the ``events/create.html`` and ``events/index.html`` templates to create an event object with a 
-description field and to display that description along with the event's name. Lastly, add a parameter to the 
+description field and to display that description along with the event's name. 
+
+
+``events/create.html``:
+
+.. sourcecode:: html
+   :lineno-start: 13
+
+   <label>
+      Description
+      <input type="text" name="eventDescription"  class="form-control">
+   </label>
+
+
+``events/index.html``:
+
+.. sourcecode:: html
+   :lineno-start: 17
+
+   <td th:text="${event.description}"></td>
+
+Lastly, add a parameter to the 
 ``processCreateEventForm`` to handle the form submission and pass the description
 value into the creation of the Event object.
+
+``EventController``:
+
+.. sourcecode:: Java
+   :lineno-start: 36
+
+   @PostMapping("create")
+   public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription) {
+      events.add(new Event(eventName, eventDescription));
+      return "redirect:";
+   }
 
 
 Check Your Understanding

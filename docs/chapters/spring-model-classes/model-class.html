@@ -110,9 +110,49 @@ making at the start of this course, before introducing Spring Boot. In other wor
 models are <strong>plain old Java objects</strong>, or <strong>POJOs</strong>.</p>
 <p>To create a model to shape event data, we’d want to include a field for <code class="docutils literal notranslate"><span class="pre">name</span></code>.
 Of course, we’ll also like some constructors and getters and setters.</p>
-<p>Now that we’re working to move the data handling out from the controller classes and into a class of its own, we’ll
-need to update the post handler that creates new event objects.</p>
-<p>Back in the <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> template, update the HTML to use the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object’s fields, rather than simply strings.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now that we’re working to move the data handling out from the controller classes and into a class of its own,
+we’ll need to update the <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler that creates new events. Update the <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method inside of
+<code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> to add a new Event instance:</p>
+<p>And you’ll notice, we’re adding a different type of data to the ArrayList, so we’ll have to update that too:</p>
+<p>Back in the <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> template, update the HTML to use the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object’s fields, rather than
+simply strings.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">The syntax <code class="docutils literal notranslate"><span class="pre">event.fieldName</span></code> runs a getter method behind the scenes in order to access a field name.</p>
@@ -127,13 +167,96 @@ need to update the post handler that creates new event objects.</p>
 </div>
 <div class="section" id="add-a-model-property-text">
 <h2>12.2.4. Add a Model Property - Text<a class="headerlink" href="#add-a-model-property-text" title="Permalink to this headline">¶</a></h2>
-<p>To round out the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, we add a <code class="docutils literal notranslate"><span class="pre">description</span></code> field to the model. Now that our data is object-oriented,
-it’s quick and easy to add a new property affiliated with an event. Before, with events stored as strings, we
-would need to overhaul our storage type in order to add an additional event field.</p>
+<p>To round out the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, we’ll add a <code class="docutils literal notranslate"><span class="pre">description</span></code> field to showcase what our events are all about.</p>
+<p>Updates to <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getDescription</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescription</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now that our data is object-oriented, it’s quick and easy to add a new property affiliated with an event. If after
+this, we decide to add a <code class="docutils literal notranslate"><span class="pre">date</span></code> or <code class="docutils literal notranslate"><span class="pre">location</span></code> field, we would simply follow the pattern established. Before,
+with events stored as name strings, we would have had more changes to make in order to add other information fields
+to the shape of the data.</p>
 <p>Update both the <code class="docutils literal notranslate"><span class="pre">events/create.html</span></code> and <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> templates to create an event object with a
-description field and to display that description along with the event’s name. Lastly, add a parameter to the
+description field and to display that description along with the event’s name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">events/create.html</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+   Description
+   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;eventDescription&quot;</span>  <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">events/index.html</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.description}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lastly, add a parameter to the
 <code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> to handle the form submission and pass the description
 value into the creation of the Event object.</p>
+<p><code class="docutils literal notranslate"><span class="pre">EventController</span></code>:</p>
+<div class="highlight-Java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">eventName</span><span class="o">,</span> <span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">eventDescription</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="n">eventName</span><span class="o">,</span> <span class="n">eventDescription</span><span class="o">));</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>12.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
