@@ -90,15 +90,55 @@ we'll use a model to store some data temporarily.
 Create a new package called ``data`` and add a class ``EventData``. Whereas ``Event`` is responsible for organizing
 user-inputted information into a Java object, ``EventData`` is responsible for maintaining those objects once they 
 are created. ``EventData`` is itself a Java class that stores events. It contains several methods for managing and 
-maintaining the event data.
+maintaining the event data that simply extend built-in HashMap methods.
 
 The contents of ``data/EventData.java``:
 
 .. sourcecode:: java
+   :lineno-start: 12
+
+   public class EventData {
+
+      private static Map<Integer, Event> events = new HashMap<>();
+
+      public static Collection<Event> getAll() {
+         return events.values();
+      }
+
+      public static void add(Event event) {
+         events.put(event.getId(), event);
+      }
+
+      public static Event getById(Integer id) {
+         return events.get(id);
+      }
+
+      public static void remove(Integer id) {
+         if (events.containsKey(id)) {
+            events.remove(id);
+         }
+      }
+
+   }
 
 
 With ``EventData`` managing event data, we must once again refactor ``EventController`` to update the items stored in 
-``EventData``.
+``EventData``. In keeping with the objective to remove data handling from the controller, we'll remove the list 
+of events at the top of the class. Consequently, for the ``displayAllEvents`` handler, we'll now use events from 
+``EventData`` in ``addAttribute()``:
+
+.. sourcecode:: java
+   :lineno-start: 25
+
+   model.addAttribute("events", EventData.getAll());
+
+And back to ``processCreateEventForm``, we'll make use of the ``.add()`` method from ``EventData``:
+
+.. sourcecode:: java
+   :lineno-start: 37
+
+   EventData.add(new Event(eventName, eventDescription));
+
 
 Delete an Event - Video
 -----------------------
@@ -114,13 +154,65 @@ information to call the ``remove`` method.
 Since the delete event is user-initiated, a controller will be involved to pass
 the information from the user-accessible view to the data layer. So our first step
 with this task is to create a controller method to get a view to delete events.
-Thus, we'll also be creating a new view by adding a new template, ``events/delete.html``.
-This view will need to reference event IDs in order to do its job. 
 
-We also need a POST handler to take care of what to do when the delete event information
+Onto the end of ``EventController``, add the following method:
+
+.. sourcecode:: java
+   :lineno-start: 41
+
+   @GetMapping("delete")
+   public String renderDeleteEventForm(Model model) {
+      model.addAttribute("title", "Delete Event");
+      model.addAttribute("events", EventData.getAll());
+      return "events/delete";
+   }
+
+We'll now need to create a new view for the path mapped in the method above. Add a new template, 
+``events/delete.html``. This view will reference event id fields in order to distinguish which items the user 
+will request to delete via checkbox inputs. 
+
+.. sourcecode:: html
+   :linenos:
+
+   <!DOCTYPE html>
+   <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+      <head th:replace="fragments :: head"></head>
+      <body class="container">
+
+         <header th:replace="fragments :: header"></header>
+
+         <form method="post">
+            <div th:each="event : ${events}" class="form-group">
+               <label>
+                  <input type="checkbox" th:value="${event.id}" name="eventIds" class="form-control">
+                  <span th:text="${event.name}"></span>
+               </label>
+            </div>
+
+            <input type="submit" value="Delete Selected Events" class="btn btn-danger">
+         </form>
+
+      </body>
+   </html>
+
+We also need a ``POST`` handler to take care of what to do when the delete event information
 is submitted by the user. We'll have this post handler redirect the user back to the home 
-page once they have selected which event or events to remove from storage.
-Like the rest of the templates, the delete form view should include the header fragment.
+page once they have selected which event, or events, to remove from storage.
+
+In ``EventController``, add another controller method:
+
+.. sourcecode:: java
+   :lineno-start: 48
+
+   @PostMapping("delete")
+   public String processDeleteEventForm(@RequestParam int[] eventIds) {
+
+      for (int eventId : eventIds) {
+         EventData.remove(eventId);
+      }
+
+      return "redirect:";
+   }
 
 
 Check Your Understanding
