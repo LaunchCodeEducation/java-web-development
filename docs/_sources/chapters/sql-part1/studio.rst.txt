@@ -3,9 +3,9 @@ Studio: Databases Part 1
 
 A database fills the role of the model in an MVC structure.
 
-In this studio, you will use *MySQLWorkbench* to practice writing SQL queries
-to retrieve or modify information stored in an established database. You will
-also explore the parallels between Java objects and database tables.
+In this studio, you will use space in *MySQLWorkbench* to practice writing SQL
+queries to retrieve or modify information stored in an established database.
+You will also explore the parallels between Java objects and database tables.
 
 Walkthrough
 ------------
