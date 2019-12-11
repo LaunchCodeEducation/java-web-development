@@ -274,7 +274,7 @@ step, compare your SQL code and the output with a partner.
    ``directors``? List the contents of both tables to find out.
 
 #. Delete one person from the ``directors`` table, then re-run your SQL command
-   from step 8. What consequence does removing a director have on ``movies``?
+   from step 8. What consequence results from trying to remove a director?
 
 Bonus Missions
 ---------------
