@@ -16,10 +16,11 @@ For this class, we will be using MySQL version 8.0.18, the most current version.
 Mac Users
 ---------
 
-First, we need to install MySQL itself.
+First, you need to install MySQL itself.
 The `Community Server 8.0.18 download page <https://dev.mysql.com/downloads/mysql/>`_ has a dropdown menu for the operating system you need.
 Make sure you have selected MacOS before clicking *Download*!
-You want to download the version called "macOS 10.14 (x86, 64-bit), DMG Archive" that specifies it is the "(mysql-8.0.18-macos10.14-x86_64.dmg)". This option should also be at least 300 MB.
+You want to download the version called ``"macOS 10.14 (x86, 64-bit), DMG Archive"`` that specifies it is the ``"(mysql-8.0.18-macos10.14-x86_64.dmg)"``.
+This option should also be at least 300 MB.
 
 #. When MySQL is done downloading, double-click on the disk image to launch the installer.
 #. Click through the windows to install MySQL and agree to the terms and conditions.
@@ -36,17 +37,20 @@ Sounds like we should use a desktop client at first to practice! For these reaso
 
 The `MySQL Workbench 8.0.18 download page <https://dev.mysql.com/downloads/workbench/>`_ has a dropdown menu for the operating system. Make sure MacOS is selected before downloading.
 
-Once you have MySQL workbench installed, double-click on the disk image to launch the installer.
+Once you have downloaded MySQL workbench, double-click on the disk image to launch the installer.
 Agree to the terms and conditions and install.
 
-Now, we can use MySQL workbench to access our databases and practice our commands! When you first open MySQL workbench, you will see your local MySQL server on the homepage. Double-click to access it, enter the password, and you are ready to start querying away!
+Now, we can use MySQL workbench to access databases and practice commands!
+When you first open MySQL workbench, you will see your local MySQL server on the homepage.
+Double-click to access the server, enter the password, and you're ready to start querying away!
 
 Windows Users
 -------------
 
 Windows users have a MySQL Installer available and that is what we will be using to install MySQL!
 The `Installer download page <https://dev.mysql.com/downloads/installer/>`_ has a couple options available.
-You want to download the version called "Windows (x86, 32-bit), MSI Installer" that specifies it is the "(mysql-installer-community-8.0.18.0.msi)". This should also be the version that uses at least 400 MB.
+You want to download the version called ``"Windows (x86, 32-bit), MSI Installer"`` that specifies it is the ``"(mysql-installer-community-8.0.18.0.msi)"``.
+This should also be the version that uses at least 400 MB.
 Make sure you have selected the correct option before clicking *Download*!
 
 #. When MySQL is done downloading, open the installer.
@@ -60,4 +64,4 @@ Make sure you have selected the correct option before clicking *Download*!
    
 
 The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now we can open up MySQL Workbench.
-MySQL Workbench will automatically scan for available MySQL servers. Yours should appear on the home screen. Double click and enter your password to get going!
+MySQL Workbench will automatically scan for available MySQL servers. Your local server should appear on the home screen. Double click and enter your password to get going!
