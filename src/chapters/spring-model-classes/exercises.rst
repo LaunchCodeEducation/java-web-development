@@ -1,9 +1,11 @@
 Exercises: Edit Model Classes
 =============================
 
-Add edit functionality to the ``coding-events`` application by following
-these steps. It assumes that you’ve added all of the code from this section of the book and your 
+Add functionality to edit event objects in the ``coding-events`` application. 
+These exercises assume that you have added all of the code from this section of the book and your 
 application resembles this `branch <https://github.com/LaunchCodeEducation/coding-events/tree/video-models-pt2-end>`__.
+
+. todo: update the branch name when new updates are pushed!
 
 The edit form will resemble the form used to create an event.
 
