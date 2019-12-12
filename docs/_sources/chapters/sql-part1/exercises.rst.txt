@@ -142,34 +142,56 @@ Open up a new query tab for the SQL commands you code in this section.
    command.
 #. List a single entry based on its ``seed_id`` value.
 
-Bonus Read
-^^^^^^^^^^
-
-#. Use logical operators (``AND``, ``OR``, ``NOT``) in ``WHERE`` statements.
-#. Do you have several entries with the same ``crop`` value? If so, you can
-   display a list that avoids repeats by using the `SELECT DISTINCT <https://www.w3schools.com/sql/sql_distinct.asp>`__
-   keywords.
-
 Update
 ------
 
 Open up a new query tab for the SQL commands you code in this section.
 
-#. Update a single record based on ID.
-#. Update a set of records based on a more general condition.
-#. Add a new column to the table.
-#. (Bonus) Experiment with changing the data type of a column (link).
+.. admonition:: Warning
+
+   The general syntax for a SQL update is:
+
+   .. sourcecode:: bash
+
+      UPDATE table_name
+      SET column1 = newValue1, column2 = newValue2, ...
+      WHERE condition;
+
+   If you leave out the ``WHERE`` clause, then *ALL* records in the table will
+   be updated!
+
+
+#. Update a single record based on its ``seed_id``.
+
+   a. The first entry we added in the Create section has ``seed_id`` = 1. Use
+      ``UPDATE ... SET ... WHERE`` to change the ``useBy`` date for this entry
+      to 2024.
+   b. Use a single ``UPDATE`` statement to change two columns for the entry
+      with ``seed_id`` = 4.
+
+#. Use ``ALTER TABLE`` to add a new column, called ``expired``, to the table.
+   Set the data type to ``boolean``.
+#. With a single ``UPDATE`` command, set the ``expired`` value to ``true`` for
+   all entries that have a ``useBy`` of this year or earlier.
+
+Be sure to list the ``seeds`` table to confirm your changes.
 
 Delete
 ------
 
 Open up a new query tab for the SQL commands you code in this section.
 
-WARNINGS!!!!
+.. admonition:: Warning
 
-#. Delete a single record from the table.
-#. Delete a set of records from the table.
-#. DROP table vs. DELETE FROM table.
+   If you leave out the ``WHERE`` clause in the ``DELETE FROM`` command, then
+   *ALL* records in the table will be lost!
+
+   There is no undo option after running ``DELETE``.
+
+#. Delete a single record from the table. Be sure to use its ``seed_id`` rather
+   than any other column value in the ``WHERE`` clause.
+#. Use a single ``DELETE`` command to remove any seeds from the table that have
+   expired.
 
 Joins
 -----
@@ -203,3 +225,21 @@ Full Join
 
 #. Do this (provide syntax).
 #. Compare result with original tables.
+
+Bonus Exercises
+---------------
+
+These are not difficult, but they do go above and beyond the basic SQL
+commands.
+
+#. Change any ``crop`` value of "Tomato" to "Tomahto", but make the update
+   case-insensitive (e.g. tomato, TOMATO, and Tomato would all be changed to
+   Tomahto).
+#. Use logical operators (``AND``, ``OR``, ``NOT``) in ``WHERE`` statements.
+#. Do you have several entries with the same ``crop`` value? If so, you can
+   display a list that avoids repeats by using the `SELECT DISTINCT <https://www.w3schools.com/sql/sql_distinct.asp>`__
+   keywords.
+#. Experiment with `changing the data type <https://www.w3schools.com/sql/sql_alter.asp>`__
+   of a column.
+#. Explore the difference between ``DROP DATABASE table_name`` vs.
+   ``DELETE FROM table_name``.

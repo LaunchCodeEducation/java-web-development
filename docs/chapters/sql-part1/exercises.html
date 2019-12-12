@@ -221,34 +221,51 @@ column is not <code class="docutils literal notranslate"><span class="pre">null<
 command.</li>
 <li>List a single entry based on its <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> value.</li>
 </ol>
-<div class="section" id="bonus-read">
-<h3>12.1.3.1. Bonus Read<a class="headerlink" href="#bonus-read" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>Use logical operators (<code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code>) in <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> statements.</li>
-<li>Do you have several entries with the same <code class="docutils literal notranslate"><span class="pre">crop</span></code> value? If so, you can
-display a list that avoids repeats by using the <a class="reference external" href="https://www.w3schools.com/sql/sql_distinct.asp" target="_blank">SELECT DISTINCT<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-keywords.</li>
-</ol>
-</div>
 </div>
 <div class="section" id="update">
 <h2>12.1.4. Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
 <p>Open up a new query tab for the SQL commands you code in this section.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>The general syntax for a SQL update is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>UPDATE table_name
+SET <span class="nv">column1</span> <span class="o">=</span> newValue1, <span class="nv">column2</span> <span class="o">=</span> newValue2, ...
+WHERE condition<span class="p">;</span>
+</pre></div>
+</div>
+<p class="last">If you leave out the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause, then <em>ALL</em> records in the table will
+be updated!</p>
+</div>
 <ol class="arabic simple">
-<li>Update a single record based on ID.</li>
-<li>Update a set of records based on a more general condition.</li>
-<li>Add a new column to the table.</li>
-<li>(Bonus) Experiment with changing the data type of a column (link).</li>
+<li>Update a single record based on its <code class="docutils literal notranslate"><span class="pre">seed_id</span></code>.<ol class="loweralpha">
+<li>The first entry we added in the Create section has <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> = 1. Use
+<code class="docutils literal notranslate"><span class="pre">UPDATE</span> <span class="pre">...</span> <span class="pre">SET</span> <span class="pre">...</span> <span class="pre">WHERE</span></code> to change the <code class="docutils literal notranslate"><span class="pre">useBy</span></code> date for this entry
+to 2024.</li>
+<li>Use a single <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> statement to change two columns for the entry
+with <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> = 4.</li>
 </ol>
+</li>
+<li>Use <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> to add a new column, called <code class="docutils literal notranslate"><span class="pre">expired</span></code>, to the table.
+Set the data type to <code class="docutils literal notranslate"><span class="pre">boolean</span></code>.</li>
+<li>With a single <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> command, set the <code class="docutils literal notranslate"><span class="pre">expired</span></code> value to <code class="docutils literal notranslate"><span class="pre">true</span></code> for
+all entries that have a <code class="docutils literal notranslate"><span class="pre">useBy</span></code> of this year or earlier.</li>
+</ol>
+<p>Be sure to list the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table to confirm your changes.</p>
 </div>
 <div class="section" id="delete">
 <h2>12.1.5. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
 <p>Open up a new query tab for the SQL commands you code in this section.</p>
-<p>WARNINGS!!!!</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>If you leave out the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause in the <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">FROM</span></code> command, then
+<em>ALL</em> records in the table will be lost!</p>
+<p class="last">There is no undo option after running <code class="docutils literal notranslate"><span class="pre">DELETE</span></code>.</p>
+</div>
 <ol class="arabic simple">
-<li>Delete a single record from the table.</li>
-<li>Delete a set of records from the table.</li>
-<li>DROP table vs. DELETE FROM table.</li>
+<li>Delete a single record from the table. Be sure to use its <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> rather
+than any other column value in the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause.</li>
+<li>Use a single <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> command to remove any seeds from the table that have
+expired.</li>
 </ol>
 </div>
 <div class="section" id="joins">
@@ -284,6 +301,24 @@ keywords.</li>
 <li>Compare result with original tables.</li>
 </ol>
 </div>
+</div>
+<div class="section" id="bonus-exercises">
+<h2>12.1.7. Bonus Exercises<a class="headerlink" href="#bonus-exercises" title="Permalink to this headline">¶</a></h2>
+<p>These are not difficult, but they do go above and beyond the basic SQL
+commands.</p>
+<ol class="arabic simple">
+<li>Change any <code class="docutils literal notranslate"><span class="pre">crop</span></code> value of “Tomato” to “Tomahto”, but make the update
+case-insensitive (e.g. tomato, TOMATO, and Tomato would all be changed to
+Tomahto).</li>
+<li>Use logical operators (<code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code>) in <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> statements.</li>
+<li>Do you have several entries with the same <code class="docutils literal notranslate"><span class="pre">crop</span></code> value? If so, you can
+display a list that avoids repeats by using the <a class="reference external" href="https://www.w3schools.com/sql/sql_distinct.asp" target="_blank">SELECT DISTINCT<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+keywords.</li>
+<li>Experiment with <a class="reference external" href="https://www.w3schools.com/sql/sql_alter.asp" target="_blank">changing the data type<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+of a column.</li>
+<li>Explore the difference between <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">DATABASE</span> <span class="pre">table_name</span></code> vs.
+<code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">FROM</span> <span class="pre">table_name</span></code>.</li>
+</ol>
 </div>
 </div>
 
