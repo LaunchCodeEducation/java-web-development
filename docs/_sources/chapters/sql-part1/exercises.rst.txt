@@ -37,33 +37,123 @@ exercises in the *Query* tab of MySQLWorkbench.
    If you have questions about how to use MySQLWorkbench, do not hesitate to
    reference `the documentation <https://dev.mysql.com/doc/workbench/en/wb-home.html>`__.
 
+Table Setup
+-----------
+
+For these exercises, we will use a ``seeds`` table to store information for our
+garden hopes. The table will have 4 columns:
+
+#. ``seed_id``: This is a unique number assigned to each row in the ``seeds``
+   table.
+#. ``crop``: Identifies what the seeds grow (e.g. yellow bell peppers).
+#. ``encourages``: Identifies the benefits of planting the crop (e.g. nitrogen
+   fixation, attracts bees, etc.)
+#. ``useBy``: The year the seeds expire.
+
+The the ``crop`` and ``encourages`` columns will hold string data types,
+``seed_id`` and ``useBy`` will be integers.
+
+Paste the following script into the query tab, then run it.
+
+.. sourcecode:: SQL
+   :linenos:
+
+   CREATE TABLE seeds (
+      seed_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+      crop VARCHAR(40),
+      encourages VARCHAR(80),
+      useBy INTEGER
+   );
+
+Note that the SQL syntax for string data types is ``VARCHAR``, and it includes
+a parameter that specifies the maximum length of the string.
+
+Properly done, you should now see the ``seeds`` table within your database.
+
+.. figure:: ./figures/seedsTableFileTree.png
+   :alt: File tree for the seeds table.
+
 Create
 ------
 
-Add 3 - 4 new entries to the table with INSERT INTO.
+Open up a new query tab for the SQL commands you code in this section.
 
-#. Using values for all fields (syntax 1),
-#. Using values for only specific fields (syntax 2).
-#. Paste code sample to include additional data.
+.. admonition:: Tip
+
+   MySQLWorkbench allows you to run one SQL command, a set of commands, or all
+   of the commands listed in the editor pane. Hover over each lightning bolt
+   icon in the panel to see these options.
+
+   .. figure:: ./figures/workbenchBoltIcons.png
+      :alt: Lightning bold icons in MySQLWorkbench.
+
+#. Use the following SQL command to add a new entry to the ``seeds`` table.
+
+   .. sourcecode:: SQL
+      :linenos:
+
+      INSERT INTO seeds (crop, encourages, useBy)
+      VALUES ("Agastache", "bees & hummingbirds", 2020);
+
+   Notice that you do NOT need to provide a value for ``seed_id``, since it is
+   set up to auto-increment every time a new record is created.
+
+   .. admonition:: Tip
+
+      At any time, you can confirm that a table contains data by clicking on
+      the table icon next to its name.
+
+      .. figure:: ./figures/seedsTableCheck.png
+         :alt: View table contents button.
+
+#. Add another new entry to the ``seeds`` table, choosing your own values for
+   the columns.
+#. To add values to only *some* of the columns of the table, simply omit those
+   column names and values from the SQL command.
+
+   .. sourcecode:: SQL
+      :linenos:
+
+      INSERT INTO seeds (crop, useBy)
+      VALUES ("Sun Gold Tomato", 2022);
+
+#. Add 3 - 5 more records to the ``seeds`` table.
+
+Note that ``null`` gets stored in a column whenever a value for that field is
+not supplied.
 
 Read
 ----
 
-Open up a new query tab...
+Open up a new query tab for the SQL commands you code in this section.
 
-Perform several list actions.
+#. Use ``SELECT ... FROM ...`` to list all of the data for all of the columns
+   in the ``seeds`` table. (*Hint*: Use the ``*`` wildcard instead of typing
+   out all of the column names).
+#. List ONLY the ``crop`` data from the table.
+#. List the ``crop`` and ``useBy`` data, and use ``ORDER BY`` to organize
+   the information in *DECREASING* order by year.
 
-#. List all data in table, including repeats.
-#. List all data in table, excluding repeats.
-#. List specific columns from the table.
-#. List all columns by ID request.
-#. Provide conditions using WHERE and logical operators.
-#. Practice using ORDER BY.
+   a. *Bonus*: For entries with matching ``useBy`` values, order first by
+      year and then alphabetically by crop name.
+
+#. List the complete records for the seeds, but only if the ``encourages``
+   column is not ``null``. You will need to include a ``WHERE`` in your SQL
+   command.
+#. List a single entry based on its ``seed_id`` value.
+
+Bonus Read
+^^^^^^^^^^
+
+#. Use logical operators (``AND``, ``OR``, ``NOT``) in ``WHERE`` statements.
+#. Do you have several entries with the same ``crop`` value? If so, you can
+   display a list that avoids repeats by using the `SELECT DISTINCT <https://www.w3schools.com/sql/sql_distinct.asp>`__
+   keywords.
 
 Update
 ------
 
-Open up a new query tab...
+Open up a new query tab for the SQL commands you code in this section.
 
 #. Update a single record based on ID.
 #. Update a set of records based on a more general condition.
@@ -73,7 +163,7 @@ Open up a new query tab...
 Delete
 ------
 
-Open up a new query tab...
+Open up a new query tab for the SQL commands you code in this section.
 
 WARNINGS!!!!
 
@@ -84,7 +174,7 @@ WARNINGS!!!!
 Joins
 -----
 
-Open up a new query tab...
+Open up a new query tab for the SQL commands you code in this section.
 
 Create a new table with foreign key linked to 1st table.
 

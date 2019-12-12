@@ -120,31 +120,120 @@ exercises in the <em>Query</em> tab of MySQLWorkbench.</p>
 <p class="last">If you have questions about how to use MySQLWorkbench, do not hesitate to
 reference <a class="reference external" href="https://dev.mysql.com/doc/workbench/en/wb-home.html" target="_blank">the documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
-<div class="section" id="create">
-<h2>12.1.1. Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
-<p>Add 3 - 4 new entries to the table with INSERT INTO.</p>
+<div class="section" id="table-setup">
+<h2>12.1.1. Table Setup<a class="headerlink" href="#table-setup" title="Permalink to this headline">¶</a></h2>
+<p>For these exercises, we will use a <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table to store information for our
+garden hopes. The table will have 4 columns:</p>
 <ol class="arabic simple">
-<li>Using values for all fields (syntax 1),</li>
-<li>Using values for only specific fields (syntax 2).</li>
-<li>Paste code sample to include additional data.</li>
+<li><code class="docutils literal notranslate"><span class="pre">seed_id</span></code>: This is a unique number assigned to each row in the <code class="docutils literal notranslate"><span class="pre">seeds</span></code>
+table.</li>
+<li><code class="docutils literal notranslate"><span class="pre">crop</span></code>: Identifies what the seeds grow (e.g. yellow bell peppers).</li>
+<li><code class="docutils literal notranslate"><span class="pre">encourages</span></code>: Identifies the benefits of planting the crop (e.g. nitrogen
+fixation, attracts bees, etc.)</li>
+<li><code class="docutils literal notranslate"><span class="pre">useBy</span></code>: The year the seeds expire.</li>
 </ol>
+<p>The the <code class="docutils literal notranslate"><span class="pre">crop</span></code> and <code class="docutils literal notranslate"><span class="pre">encourages</span></code> columns will hold string data types,
+<code class="docutils literal notranslate"><span class="pre">seed_id</span></code> and <code class="docutils literal notranslate"><span class="pre">useBy</span></code> will be integers.</p>
+<p>Paste the following script into the query tab, then run it.</p>
+<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">seeds</span> <span class="p">(</span>
+   <span class="n">seed_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="n">crop</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+   <span class="n">encourages</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">),</span>
+   <span class="n">useBy</span> <span class="nb">INTEGER</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that the SQL syntax for string data types is <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code>, and it includes
+a parameter that specifies the maximum length of the string.</p>
+<p>Properly done, you should now see the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table within your database.</p>
+<div class="figure">
+<img alt="File tree for the seeds table." src="../../_images/seedsTableFileTree.png" />
+</div>
+</div>
+<div class="section" id="create">
+<h2>12.1.2. Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
+<p>Open up a new query tab for the SQL commands you code in this section.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>MySQLWorkbench allows you to run one SQL command, a set of commands, or all
+of the commands listed in the editor pane. Hover over each lightning bolt
+icon in the panel to see these options.</p>
+<div class="last figure">
+<img alt="Lightning bold icons in MySQLWorkbench." src="../../_images/workbenchBoltIcons.png" />
+</div>
+</div>
+<ol class="arabic">
+<li><p class="first">Use the following SQL command to add a new entry to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table.</p>
+<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">seeds</span> <span class="p">(</span><span class="n">crop</span><span class="p">,</span> <span class="n">encourages</span><span class="p">,</span> <span class="n">useBy</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Agastache&quot;</span><span class="p">,</span> <span class="ss">&quot;bees &amp; hummingbirds&quot;</span><span class="p">,</span> <span class="mi">2020</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Notice that you do NOT need to provide a value for <code class="docutils literal notranslate"><span class="pre">seed_id</span></code>, since it is
+set up to auto-increment every time a new record is created.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>At any time, you can confirm that a table contains data by clicking on
+the table icon next to its name.</p>
+<div class="last figure">
+<img alt="View table contents button." src="../../_images/seedsTableCheck.png" />
+</div>
+</div>
+</li>
+<li><p class="first">Add another new entry to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table, choosing your own values for
+the columns.</p>
+</li>
+<li><p class="first">To add values to only <em>some</em> of the columns of the table, simply omit those
+column names and values from the SQL command.</p>
+<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">seeds</span> <span class="p">(</span><span class="n">crop</span><span class="p">,</span> <span class="n">useBy</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Sun Gold Tomato&quot;</span><span class="p">,</span> <span class="mi">2022</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Add 3 - 5 more records to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table.</p>
+</li>
+</ol>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">null</span></code> gets stored in a column whenever a value for that field is
+not supplied.</p>
 </div>
 <div class="section" id="read">
-<h2>12.1.2. Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
-<p>Open up a new query tab…</p>
-<p>Perform several list actions.</p>
+<h2>12.1.3. Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
+<p>Open up a new query tab for the SQL commands you code in this section.</p>
 <ol class="arabic simple">
-<li>List all data in table, including repeats.</li>
-<li>List all data in table, excluding repeats.</li>
-<li>List specific columns from the table.</li>
-<li>List all columns by ID request.</li>
-<li>Provide conditions using WHERE and logical operators.</li>
-<li>Practice using ORDER BY.</li>
+<li>Use <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">...</span> <span class="pre">FROM</span> <span class="pre">...</span></code> to list all of the data for all of the columns
+in the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table. (<em>Hint</em>: Use the <code class="docutils literal notranslate"><span class="pre">*</span></code> wildcard instead of typing
+out all of the column names).</li>
+<li>List ONLY the <code class="docutils literal notranslate"><span class="pre">crop</span></code> data from the table.</li>
+<li>List the <code class="docutils literal notranslate"><span class="pre">crop</span></code> and <code class="docutils literal notranslate"><span class="pre">useBy</span></code> data, and use <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> to organize
+the information in <em>DECREASING</em> order by year.<ol class="loweralpha">
+<li><em>Bonus</em>: For entries with matching <code class="docutils literal notranslate"><span class="pre">useBy</span></code> values, order first by
+year and then alphabetically by crop name.</li>
+</ol>
+</li>
+<li>List the complete records for the seeds, but only if the <code class="docutils literal notranslate"><span class="pre">encourages</span></code>
+column is not <code class="docutils literal notranslate"><span class="pre">null</span></code>. You will need to include a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> in your SQL
+command.</li>
+<li>List a single entry based on its <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> value.</li>
+</ol>
+<div class="section" id="bonus-read">
+<h3>12.1.3.1. Bonus Read<a class="headerlink" href="#bonus-read" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Use logical operators (<code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code>) in <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> statements.</li>
+<li>Do you have several entries with the same <code class="docutils literal notranslate"><span class="pre">crop</span></code> value? If so, you can
+display a list that avoids repeats by using the <a class="reference external" href="https://www.w3schools.com/sql/sql_distinct.asp" target="_blank">SELECT DISTINCT<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+keywords.</li>
 </ol>
 </div>
+</div>
 <div class="section" id="update">
-<h2>12.1.3. Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
-<p>Open up a new query tab…</p>
+<h2>12.1.4. Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p>Open up a new query tab for the SQL commands you code in this section.</p>
 <ol class="arabic simple">
 <li>Update a single record based on ID.</li>
 <li>Update a set of records based on a more general condition.</li>
@@ -153,8 +242,8 @@ reference <a class="reference external" href="https://dev.mysql.com/doc/workbenc
 </ol>
 </div>
 <div class="section" id="delete">
-<h2>12.1.4. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
-<p>Open up a new query tab…</p>
+<h2>12.1.5. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<p>Open up a new query tab for the SQL commands you code in this section.</p>
 <p>WARNINGS!!!!</p>
 <ol class="arabic simple">
 <li>Delete a single record from the table.</li>
@@ -163,33 +252,33 @@ reference <a class="reference external" href="https://dev.mysql.com/doc/workbenc
 </ol>
 </div>
 <div class="section" id="joins">
-<h2>12.1.5. Joins<a class="headerlink" href="#joins" title="Permalink to this headline">¶</a></h2>
-<p>Open up a new query tab…</p>
+<h2>12.1.6. Joins<a class="headerlink" href="#joins" title="Permalink to this headline">¶</a></h2>
+<p>Open up a new query tab for the SQL commands you code in this section.</p>
 <p>Create a new table with foreign key linked to 1st table.</p>
 <p>Populate new table with data (paste in SQL script).</p>
 <div class="section" id="inner-join">
-<h3>12.1.5.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h3>
+<h3>12.1.6.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Do this (provide syntax).</li>
 <li>Compare result with original tables.</li>
 </ol>
 </div>
 <div class="section" id="left-join">
-<h3>12.1.5.2. Left Join<a class="headerlink" href="#left-join" title="Permalink to this headline">¶</a></h3>
+<h3>12.1.6.2. Left Join<a class="headerlink" href="#left-join" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Do this (provide syntax).</li>
 <li>Compare result with original tables.</li>
 </ol>
 </div>
 <div class="section" id="right-join">
-<h3>12.1.5.3. Right Join<a class="headerlink" href="#right-join" title="Permalink to this headline">¶</a></h3>
+<h3>12.1.6.3. Right Join<a class="headerlink" href="#right-join" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Do this (provide syntax).</li>
 <li>Compare result with original tables.</li>
 </ol>
 </div>
 <div class="section" id="full-join">
-<h3>12.1.5.4. Full Join<a class="headerlink" href="#full-join" title="Permalink to this headline">¶</a></h3>
+<h3>12.1.6.4. Full Join<a class="headerlink" href="#full-join" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Do this (provide syntax).</li>
 <li>Compare result with original tables.</li>

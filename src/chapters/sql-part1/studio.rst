@@ -201,15 +201,6 @@ OK! Your model is ready to accept queries.
 Task List
 ^^^^^^^^^
 
-.. admonition:: Tip
-
-   MySQLWorkbench allows you to run one SQL command, a set of commands, or all
-   of the commands listed in the editor pane. Hover over each lightning bolt
-   icon in the panel to see these options.
-
-   .. figure:: ./figures/workbenchBoltIcons.png
-      :alt: Lightning bold icons in MySQLWorkbench.
-
 Open up a new *Query* tab in MySQLWorkbench. In that tab, write the SQL
 commands to carry out each of the queries described below. As you complete each
 step, compare your SQL code and the output with a partner.
