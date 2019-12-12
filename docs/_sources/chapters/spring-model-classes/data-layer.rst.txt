@@ -220,7 +220,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Which method can we call to list every event object?
+   In ``coding-events``, which method can we call to list every event object?
 
    #. ``Events.get()`` 
    #. ``EventData.getEvery()`` 
@@ -231,7 +231,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Breaking up the event storage from the ``Event`` model is an example of which object-oriented
+   In ``coding-events``, breaking up the event storage from the ``Event`` model is an example of which object-oriented
    concept?
 
    #. Inheritance
