@@ -90,9 +90,9 @@
 how models relate to data, and the practice of model biding. The first of these steps is to move data
 handling out of our controller classes and into a model class. As we discussed on the previous page, the
 controller class is not responsible for holding data.</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, we’ll remove the ArrayList data from <code class="docutils literal notranslate"><span class="pre">EventController</span></code> and create a proper
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, we’ll remove the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> data from <code class="docutils literal notranslate"><span class="pre">EventController</span></code> and create a proper
 Java class to deal with event items. We’ll then update our controller methods to take
-advantage of the new model and it’s properties, rather than the strings stored in the list.
+advantage of the new model and its properties, rather than the strings stored in the list.
 Lastly, because the controller is updating, the template variables it relies upon will also need to
 change to reflect the model properties.</p>
 <div class="section" id="create-a-model-class-video">
@@ -146,8 +146,22 @@ Of course, we’ll also like at least one constructor and some getters and sette
 </td></tr></table></div>
 <p>Now that we’re working to move the data handling out from the controller classes and into a class of its own,
 we’ll need to update the <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler that creates new events. Update the <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method inside of
-<code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> to add a new Event instance:</p>
-<p>And you’ll notice, we’re adding a different type of data to the ArrayList, so we’ll have to update that too:</p>
+<code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> to add a new <code class="docutils literal notranslate"><span class="pre">Event</span></code> instance:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">eventName</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="n">eventName</span><span class="o">));</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>And you’ll notice, we’re adding a different type of data to the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>, so we’ll have to update that too:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</pre></div>
+</td></tr></table></div>
 <p>Back in the <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> template, update the HTML to use the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object’s fields, rather than
 simply strings.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
@@ -155,7 +169,7 @@ simply strings.</p>
 </td></tr></table></div>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The syntax <code class="docutils literal notranslate"><span class="pre">event.fieldName</span></code> runs a getter method behind the scenes in order to access a field name.</p>
+<p class="last">The syntax <code class="docutils literal notranslate"><span class="pre">event.fieldName</span></code> runs a getter method behind the scenes in order to access a field.</p>
 </div>
 </div>
 <div class="section" id="add-a-model-property-video">

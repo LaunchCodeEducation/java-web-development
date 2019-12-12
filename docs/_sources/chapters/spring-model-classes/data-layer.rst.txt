@@ -8,7 +8,7 @@ event data.
 
 In ``coding-events``, we add a unique identifier field to ``Events`` to better handle and track distinct 
 ``Event`` instances. We'll also create another model class called ``EventData`` to encapsulate data storage 
-and prepare ourselves for decoupling data from model classes.
+and prepare ourselves for decoupling data from controller classes.
 
 Add a Unique Id - Video
 -----------------------
@@ -31,12 +31,11 @@ To accomplish the same data clarity with events, we'll add a few things to the e
 
 #. A private ``id`` field .
 #. A static counter variable, ``nextId``.
-#. A no-arg constructor that:
+#. Additional constructor code that:
    
    a. Sets the ``id`` field to the ``nextId`` value.
    b. Increments ``nextId``.
 
-#. A call to the default constructor in all other constructors.
 #. A getter method for the ``id`` field.
 
 The result in ``models/Event,java``:
@@ -53,12 +52,8 @@ The result in ``models/Event,java``:
       private String description;
 
       public Event(String name, String description) {
-         this();
          this.name = name;
          this.description = description;
-      }
-
-      private Event() {
          this.id = nextId;
          nextId++;
       }
@@ -71,8 +66,7 @@ The result in ``models/Event,java``:
 
    }
 
-With these additions, every time a new event object is created, the default constructor is used, therefore 
-lending all event instances with their own unique identifier property, ``id``.
+With these additions, every time a new event object is created it is assigned a unique integer to its ``id`` field.
 
 Create a Data Layer - Video
 ---------------------------
@@ -85,7 +79,7 @@ Create a Data Layer - Text
 Now that we've begun building a model, it's a good time to remind ourselves that models are not designed to be 
 data storage containers. Rather, models are meant to shape the data stored in another location into objects that 
 can be used in our application. As we work our way into learning about database usage and service calls, however, 
-we'll use a model to store some data temporarily. 
+we'll use a Java class to store some data temporarily. 
 
 Create a new package called ``data`` and add a class ``EventData``. Whereas ``Event`` is responsible for organizing
 user-inputted information into a Java object, ``EventData`` is responsible for maintaining those objects once they 
@@ -182,12 +176,15 @@ will request to delete via checkbox inputs.
          <header th:replace="fragments :: header"></header>
 
          <form method="post">
-            <div th:each="event : ${events}" class="form-group">
+
+            <th:block th:each="event : ${events}">
+               <div class="form-group">
                <label>
-                  <input type="checkbox" th:value="${event.id}" name="eventIds" class="form-control">
-                  <span th:text="${event.name}"></span>
+                     <span th:text="${event.name}"></span>
+                     <input type="checkbox" name="eventIds" th:value="${event.id}" class="form-control">
                </label>
-            </div>
+               </div>
+            </th:block>
 
             <input type="submit" value="Delete Selected Events" class="btn btn-danger">
          </form>
@@ -202,18 +199,21 @@ page once they have selected which event, or events, to remove from storage.
 In ``EventController``, add another controller method:
 
 .. sourcecode:: java
-   :lineno-start: 48
+   :lineno-start: 50
 
    @PostMapping("delete")
-   public String processDeleteEventForm(@RequestParam int[] eventIds) {
+   public String processDeleteEventsForm(@RequestParam(required = false) int[] eventIds) {
 
-      for (int eventId : eventIds) {
-         EventData.remove(eventId);
-      }
+        if (eventIds != null) {
+            for (int id : eventIds) {
+                EventData.remove(id);
+            }
+        }
 
-      return "redirect:";
+        return "redirect:";
    }
 
+This handler method uses the ``required = false`` parameter of ``@RequestParam`` to make this parameter optional. This allows the user to submit the form without any events selected. Once ``eventIds`` is optional, we must also check that it is not ``null`` before entering the loop. 
 
 Check Your Understanding
 -------------------------

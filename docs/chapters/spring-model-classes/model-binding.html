@@ -86,11 +86,9 @@
     
   <div class="section" id="model-binding">
 <h1>12.4. Model-Binding<a class="headerlink" href="#model-binding" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">With a separate data layer implemented and items being tracked with unique
-identifiers, we have the elements in place to auto-create model instances
-with a technique called <strong>model binding</strong>. Model binding takes place when a whole
-model object is created on form submission. This saves us the effort, and the code, to
-pass in each form field to a controller.</p>
+<p id="index-0">We now introduce a useful technique to auto-create model instances,
+called <strong>model binding</strong>. Model binding takes place when a whole
+model object is created by the Spring framework on form submission. This saves us the effort, and the code, needed to pass in each form field to a controller.</p>
 <p>Model binding reduces the amount of code we need to
 write to create an object and it helps with validation (which we’ll explore further in the next
 section). Because we use the <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code> annotation, Spring Boot
@@ -105,7 +103,7 @@ request from <code class="docutils literal notranslate"><span class="pre">/creat
 </div>
 <div class="section" id="how-to-use-model-binding-text">
 <h2>12.4.2. How to Use Model-Binding - Text<a class="headerlink" href="#how-to-use-model-binding-text" title="Permalink to this headline">¶</a></h2>
-<p id="index-2">With <code class="docutils literal notranslate"><span class="pre">Event</span></code> model in place, we can incorporate another annotation, <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code>.
+<p id="index-2">With the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model in place, we can incorporate another annotation, <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code>.
 When submitting the event creation information, rather than passing in each field used to
 instantiate a model, we can instead pass in <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span> <span class="pre">Event</span> <span class="pre">newEvent</span></code> as a parameter
 of the controller method.</p>
@@ -123,10 +121,10 @@ of the controller method.</p>
 </td></tr></table></div>
 <p>This is the essence of model binding. The model instance is created
 on form submission. With only two fields needed to create an event, the value of this data binding may not be
-particularly apparent right now. You can imagine, though, with a larger form, that <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code> is quite an
+particularly apparent right now. You can imagine, though, with a larger form and class, that <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code> is quite an
 efficient annotation.</p>
-<p>Another benefit of model binding is that we can use the model field names as the form field names. So back in
-the create form HTML, we will update the form fields to match the event fields.</p>
+<p>For binding to take place, we must use the model field names as the form field names. So back in
+the create form HTML, we update the form fields to match the event fields.</p>
 <p><code class="docutils literal notranslate"><span class="pre">events/create.html</span></code>:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
 10
@@ -147,6 +145,7 @@ the create form HTML, we will update the form fields to match the event fields.<
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
+<p>If a form field name does NOT match up with a model field, then binding will fail for that piece of data. It is critically important to ensure these names match up.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>12.4.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
@@ -164,7 +163,7 @@ the create form HTML, we will update the form fields to match the event fields.<
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <dl class="docutils">
 <dt>We add an additional private field, <code class="docutils literal notranslate"><span class="pre">numberOfAttendees</span></code>, to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class. What other change must we</dt>
-<dd>make to ensure the user of our application can determine this value?</dd>
+<dd>make to ensure the user of our application can determine this value? (Assume we are using model binding to process form submission.)</dd>
 </dl>
 <ol class="last arabic simple">
 <li>Pass in a <code class="docutils literal notranslate"><span class="pre">numberOfAttendees</span></code> parameter to the form submission handler.</li>

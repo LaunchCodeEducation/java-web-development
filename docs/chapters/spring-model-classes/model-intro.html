@@ -129,7 +129,7 @@ user. It passes information retrieved from the view to update the model.
 And it passes information retrieved from the model to update the view.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Need further review? Check out <a class="reference external" href="https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488" target="_blank">this article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p class="last">Need further review? Check out <a class="reference external" href="https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488" target="_blank">MVC for Noobs<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 </div>
 </div>
@@ -137,10 +137,10 @@ And it passes information retrieved from the model to update the view.</p>
 <h2>12.1.3. Model vs. Controller<a class="headerlink" href="#model-vs-controller" title="Permalink to this headline">¶</a></h2>
 <p>One tricky part of using the MVC structure is deciding what code belongs in the
 model and what belongs in the controller. In general, any code that deals with
-data transfer or responding to user actions belong in the controller. Code that
+data transfer or responding to user actions belongs in the controller. Code that
 involves retrieving data from a database or service or organizing that data belongs
 with the model.</p>
-<p>In our <cite>coding-events</cite> application thus far, we’ve done all data handling inside of
+<p>In our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application thus far, we’ve done all data handling inside of
 controller classes. However, most data manipulation should occur in model classes.
 So we need to make a distinction between these actions. For any manipulations that must occur
 regardless of a user’s actions, that code belongs in the model. For changes
@@ -164,7 +164,7 @@ actions.</li>
 <li>“Please display this.”,</li>
 <li>“Please modify this data in a novel way”.</li>
 </ol>
-<p>Remember, the controllers are the traffic cops, directly information from one place to another.
+<p>Remember, the controllers are the traffic cops, directing information from one place to another.
 A controller does not permanently store data. Instead, it either
 sends the information to the model, which uses its own code to preserve the
 data, or it sends the content to the view for display.</p>

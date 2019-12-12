@@ -54,18 +54,18 @@ And it passes information retrieved from the model to update the view.
 
 .. admonition:: Tip
 
-   Need further review? Check out `this article <https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488>`__.
+   Need further review? Check out `MVC for Noobs <https://code.tutsplus.com/tutorials/mvc-for-noobs--net-10488>`__.
 
 Model vs. Controller
 --------------------
 
 One tricky part of using the MVC structure is deciding what code belongs in the
 model and what belongs in the controller. In general, any code that deals with
-data transfer or responding to user actions belong in the controller. Code that
+data transfer or responding to user actions belongs in the controller. Code that
 involves retrieving data from a database or service or organizing that data belongs 
 with the model. 
 
-In our `coding-events` application thus far, we've done all data handling inside of 
+In our ``coding-events`` application thus far, we've done all data handling inside of 
 controller classes. However, most data manipulation should occur in model classes.
 So we need to make a distinction between these actions. For any manipulations that must occur
 regardless of a user's actions, that code belongs in the model. For changes
@@ -90,7 +90,7 @@ Controller code handles *requests* made by the user. These include:
 #. "Please display this.",
 #. "Please modify this data in a novel way".
 
-Remember, the controllers are the traffic cops, directly information from one place to another. 
+Remember, the controllers are the traffic cops, directing information from one place to another. 
 A controller does not permanently store data. Instead, it either
 sends the information to the model, which uses its own code to preserve the
 data, or it sends the content to the view for display.

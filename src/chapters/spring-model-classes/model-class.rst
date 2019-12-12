@@ -6,9 +6,9 @@ how models relate to data, and the practice of model biding. The first of these 
 handling out of our controller classes and into a model class. As we discussed on the previous page, the 
 controller class is not responsible for holding data.
 
-In ``coding-events``, we'll remove the ArrayList data from ``EventController`` and create a proper 
+In ``coding-events``, we'll remove the ``ArrayList`` data from ``EventController`` and create a proper 
 Java class to deal with event items. We'll then update our controller methods to take
-advantage of the new model and it's properties, rather than the strings stored in the list.
+advantage of the new model and its properties, rather than the strings stored in the list.
 Lastly, because the controller is updating, the template variables it relies upon will also need to
 change to reflect the model properties.
 
@@ -55,10 +55,10 @@ In ``models/Event.java``:
 
 Now that we're working to move the data handling out from the controller classes and into a class of its own, 
 we'll need to update the ``POST`` handler that creates new events. Update the ``.add()`` method inside of 
-``processCreateEventForm`` to add a new Event instance:
+``processCreateEventForm`` to add a new ``Event`` instance:
 
 .. sourcecode:: java
-   :linenos: 36
+   :lineno-start: 36
 
    @PostMapping("create")
    public String processCreateEventForm(@RequestParam String eventName) {
@@ -66,10 +66,10 @@ we'll need to update the ``POST`` handler that creates new events. Update the ``
       return "redirect:";
    }
    
-And you'll notice, we're adding a different type of data to the ArrayList, so we'll have to update that too:
+And you'll notice, we're adding a different type of data to the ``ArrayList``, so we'll have to update that too:
 
 .. sourcecode:: java
-   :linenos: 21
+   :lineno-start: 21
 
    private static List<Event> events = new ArrayList<>();
 
@@ -84,7 +84,7 @@ simply strings.
 
 .. admonition:: Note
 
-   The syntax ``event.fieldName`` runs a getter method behind the scenes in order to access a field name.
+   The syntax ``event.fieldName`` runs a getter method behind the scenes in order to access a field.
 
 Add a Model Property - Video
 ----------------------------
