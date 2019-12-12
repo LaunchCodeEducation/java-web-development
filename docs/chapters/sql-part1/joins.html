@@ -87,7 +87,7 @@
   <div class="section" id="joins">
 <h1>12.3. Joins<a class="headerlink" href="#joins" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">A <strong>join</strong> combines two tables into one result set.
-We can use joins when wanting to query two tables at the same time.
+We can use joins when we want to query two tables at the same time.
 Whenever we join two tables, we have to specify the condition upon which the tables need to be joined.</p>
 <p>In SQL, there are four different types of joins:</p>
 <ol class="arabic simple">
@@ -154,16 +154,24 @@ Whenever we join two tables, we have to specify the condition upon which the tab
 <h2>12.3.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True or false, an inneer join gives all of the records in both tables</p>
+<p class="last">True or false, an inner join gives all of the records in both tables</p>
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>What bugs are in this SQL query?</p>
-<div class="last highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
+<p>What bugs are in this SQL query? Select all that apply.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
 <span class="k">FROM</span> <span class="n">JohnsonVowRenewal</span>
 <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonWeding</span> <span class="k">ON</span> <span class="n">JohnsonVowRenewal</span><span class="p">.</span><span class="n">GuestID</span> <span class="o">==</span> <span class="n">JohnsonWedding</span><span class="p">.</span><span class="n">GuestID</span>
 </pre></div>
 </div>
+<ol class="last loweralpha simple">
+<li>Nothing specified after <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> is spelled wrong.</li>
+<li>The type of join is not specified.</li>
+<li><code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code> is spelled wrong.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ON</span></code> is in the wrong place.</li>
+<li>There isn’t a semicolon on the end of the SQL query.</li>
+</ol>
 </div>
 </div>
 </div>

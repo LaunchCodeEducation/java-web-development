@@ -4,7 +4,7 @@ Joins
 .. index:: ! join
 
 A **join** combines two tables into one result set.
-We can use joins when wanting to query two tables at the same time. 
+We can use joins when we want to query two tables at the same time. 
 Whenever we join two tables, we have to specify the condition upon which the tables need to be joined.
 
 In SQL, there are four different types of joins:
@@ -94,13 +94,13 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True or false, an inneer join gives all of the records in both tables
+   True or false, an inner join gives all of the records in both tables
 
 .. ans: false!
 
 .. admonition:: Question
 
-   What bugs are in this SQL query?
+   What bugs are in this SQL query? Select all that apply.
 
    .. sourcecode:: mysql
 
@@ -108,4 +108,11 @@ Check Your Understanding
       FROM JohnsonVowRenewal
       OUTER JOIN JohnsonWeding ON JohnsonVowRenewal.GuestID == JohnsonWedding.GuestID
 
-.. ans: Nothing specified for select, outer join not specified, table name spelled wrong, no semicolon!
+   a. Nothing specified after ``SELECT``.
+   b. ``JohnsonVowRenewal`` is spelled wrong.
+   c. The type of join is not specified.
+   d. ``JohnsonWedding`` is spelled wrong.
+   e. ``ON`` is in the wrong place.
+   f. There isn't a semicolon on the end of the SQL query.
+
+.. ans: a, c, d, f
