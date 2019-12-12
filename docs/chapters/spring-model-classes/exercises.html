@@ -88,15 +88,14 @@
 <h1>12.1. Exercises: Edit Model Classes<a class="headerlink" href="#exercises-edit-model-classes" title="Permalink to this headline">¶</a></h1>
 <p>Add functionality to edit event objects in the <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application.
 These exercises assume that you have added all of the code from this section of the book and your
-application resembles this <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/video-models-pt2-end" target="_blank">branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<p>. todo: update the branch name when new updates are pushed!</p>
+application resembles the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/model-binding" target="_blank">model-binding branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <p>The edit form will resemble the form used to create an event.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">As you work through these steps, test your code along the way!
 With each change you apply to your code, ask yourself what you expect to see when the application
 is run. You may not find that all of the steps result in observable changes, though.
-Use IntelliJ’s debugger and read your error messages if you run into issues after applying all of
+Use IntelliJ’s debugger and read your error messages if you run into issues after applying any of
 the changes.</p>
 </div>
 <ol class="arabic">
@@ -158,29 +157,29 @@ set them as the values of the form fields.</li>
 </li>
 <li><p class="first">Add another input to hold the id of the event being edited. This
 should be hidden from the user:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">th:value</span><span class="o">=</span><span class="s">&quot;${event.eventId}&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;eventId&quot;</span> <span class="p">/&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">th:value</span><span class="o">=</span><span class="s">&quot;${event.id}&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;eventId&quot;</span> <span class="p">/&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, add a title that reads “Edit Event
-NAME (id=ID)” where NAME and ID are replaced by the values of the
+<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, add a title to <code class="docutils literal notranslate"><span class="pre">model</span></code> that reads “Edit Event
+NAME (id=ID)” where NAME and ID are replaced by the values for the
 given event.</p>
 </li>
 <li><p class="first">In <code class="docutils literal notranslate"><span class="pre">processEditForm</span></code>,</p>
 <ol class="arabic simple">
 <li>Query <code class="docutils literal notranslate"><span class="pre">EventData</span></code> for the event being edited with the given id parameter.</li>
 <li>Update the name and description of the event with the appropriate model setter methods.</li>
-<li>Redirect the user to the home page.</li>
+<li>Redirect the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code> (the event listing page).</li>
 </ol>
 </li>
-<li><p class="first">To access event editing, the user will have an edit option in the list of event data.</p>
+<li><p class="first">To access event editing, the user will need an edit option in the list of event data.</p>
 <ol class="arabic">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">resources/templates/events/index.html</span></code>, add a link to a new table column to edit the
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">resources/templates/events/index.html</span></code>, add a link in a new table column to edit the
 event:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/events/edit/{id}(id=${event.eventId})}&quot;</span><span class="p">&gt;</span>Edit<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">a</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;@{/events/edit/{id}(id=${event.id})}&quot;</span><span class="p">&gt;</span>Edit<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>

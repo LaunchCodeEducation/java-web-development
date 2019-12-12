@@ -3,9 +3,7 @@ Exercises: Edit Model Classes
 
 Add functionality to edit event objects in the ``coding-events`` application. 
 These exercises assume that you have added all of the code from this section of the book and your 
-application resembles this `branch <https://github.com/LaunchCodeEducation/coding-events/tree/video-models-pt2-end>`__.
-
-. todo: update the branch name when new updates are pushed!
+application resembles the `model-binding branch <https://github.com/LaunchCodeEducation/coding-events/tree/model-binding>`__.
 
 The edit form will resemble the form used to create an event.
 
@@ -14,7 +12,7 @@ The edit form will resemble the form used to create an event.
    As you work through these steps, test your code along the way! 
    With each change you apply to your code, ask yourself what you expect to see when the application
    is run. You may not find that all of the steps result in observable changes, though.
-   Use IntelliJ’s debugger and read your error messages if you run into issues after applying all of
+   Use IntelliJ’s debugger and read your error messages if you run into issues after applying any of
    the changes.
 
 #. Create the two handler methods listed below in ``EventController``. We’ll add code
@@ -77,10 +75,10 @@ The edit form will resemble the form used to create an event.
 
    .. sourcecode:: html
 
-      <input type="hidden" th:value="${event.eventId}" name="eventId" />
+      <input type="hidden" th:value="${event.id}" name="eventId" />
 
-#. Back in the ``displayEditForm`` handler, add a title that reads “Edit Event
-   NAME (id=ID)” where NAME and ID are replaced by the values of the
+#. Back in the ``displayEditForm`` handler, add a title to ``model`` that reads “Edit Event
+   NAME (id=ID)” where NAME and ID are replaced by the values for the
    given event. 
 
 #. In ``processEditForm``, 
@@ -89,17 +87,17 @@ The edit form will resemble the form used to create an event.
    
    #. Update the name and description of the event with the appropriate model setter methods.
 
-   #. Redirect the user to the home page.
+   #. Redirect the user to ``/events`` (the event listing page).
 
-#. To access event editing, the user will have an edit option in the list of event data.
+#. To access event editing, the user will need an edit option in the list of event data.
 
-   #. In ``resources/templates/events/index.html``, add a link to a new table column to edit the 
+   #. In ``resources/templates/events/index.html``, add a link in a new table column to edit the 
       event:
 
       .. sourcecode:: html
          :linenos:
 
          <td>
-            <a th:href="@{/events/edit/{id}(id=${event.eventId})}">Edit</a>
+            <a th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a>
          </td>
 
