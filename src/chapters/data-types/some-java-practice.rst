@@ -229,7 +229,7 @@ easily reactivate it by removing the ``//`` token from the line.
 
 .. admonition:: Example
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       import java.util.Scanner;

@@ -361,7 +361,7 @@ Check Your Understanding
 
    Assume that we declare the following Java array:
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
 
       String[] someWords = new String[5];
 
