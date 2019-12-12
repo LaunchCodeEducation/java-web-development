@@ -104,11 +104,11 @@ Check Your Understanding
    following items best represents a *model*?
 
    a. The bread ingredients: flour, water, yeast, salt
-   b. Mixing and kneading the ingredients together
-   c. Shaping and baking the loaves into the final product
+   b. Mixing and shaping the ingredients together
+   c. Baking the loaves into the final product
    d. Eating the bread
 
-.. Answer: b, Mixing and kneading the ingredients together
+.. Answer: b, Mixing and shaping the ingredients together
 
 .. admonition:: Question
 
