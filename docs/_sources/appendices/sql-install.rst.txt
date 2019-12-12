@@ -1,3 +1,5 @@
+.. _sql-installation:
+
 Installing SQL
 ==============
 
