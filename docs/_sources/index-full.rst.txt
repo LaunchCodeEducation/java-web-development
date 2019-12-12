@@ -17,6 +17,7 @@ Chapters
    chapters/spring-controllers-and-routes/index
    chapters/thymeleaf-views/index
    chapters/spring-model-classes/index
+   chapters/enums/index
 
 .. toctree::
 
