@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12.4. Model-Binding &#8212; Java Web Development  documentation</title>
+    <title>15. Model-Binding &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12.5. Exercises: Models, Part 1" href="exercises.html" />
-    <link rel="prev" title="12.3. Models and Data" href="data-layer.html" />
+    <link rel="next" title="16. Lorem ipsum…" href="exercises.html" />
+    <link rel="prev" title="14. Models and Data" href="data-layer.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">12. Models and Model Binding</a></li>
-    <li class="active">12.4. Model-Binding</li>
+    <li><a href="index.html">&lt;no title&gt;</a></li>
+    <li class="active">15. Model-Binding</li>
 </ol>
 
 
@@ -85,7 +85,7 @@
 
     
   <div class="section" id="model-binding">
-<h1>12.4. Model-Binding<a class="headerlink" href="#model-binding" title="Permalink to this headline">¶</a></h1>
+<h1>15. Model-Binding<a class="headerlink" href="#model-binding" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">We now introduce a useful technique to auto-create model instances,
 called <strong>model binding</strong>. Model binding takes place when a whole
 model object is created by the Spring framework on form submission. This saves us the effort, and the code, needed to pass in each form field to a controller.</p>
@@ -95,11 +95,11 @@ section). Because we use the <code class="docutils literal notranslate"><span cl
 will create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object for us when it gets the <code class="docutils literal notranslate"><span class="pre">POST</span></code>
 request from <code class="docutils literal notranslate"><span class="pre">/create</span></code>.</p>
 <div class="section" id="how-to-use-model-binding-video">
-<h2>12.4.1. How to Use Model-Binding - Video<a class="headerlink" href="#how-to-use-model-binding-video" title="Permalink to this headline">¶</a></h2>
+<h2>15.1. How to Use Model-Binding - Video<a class="headerlink" href="#how-to-use-model-binding-video" title="Permalink to this headline">¶</a></h2>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/gzk__EWfvaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/model-binding" target="_blank">model-binding branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
 </div>
 <div class="section" id="how-to-use-model-binding-text">
-<h2>12.4.2. How to Use Model-Binding - Text<a class="headerlink" href="#how-to-use-model-binding-text" title="Permalink to this headline">¶</a></h2>
+<h2>15.2. How to Use Model-Binding - Text<a class="headerlink" href="#how-to-use-model-binding-text" title="Permalink to this headline">¶</a></h2>
 <p id="index-1">With the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model in place, we can incorporate another annotation, <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span></code>.
 When submitting the event creation information, rather than passing in each field used to
 instantiate a model, we can instead pass in <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute</span> <span class="pre">Event</span> <span class="pre">newEvent</span></code> as a parameter
@@ -145,7 +145,7 @@ the create form HTML, we update the form fields to match the event fields.</p>
 <p>If a form field name does NOT match up with a model field, then binding will fail for that piece of data. It is critically important to ensure these names match up.</p>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>12.4.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>15.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Complete this sentence: Model binding …</p>
@@ -175,10 +175,10 @@ the create form HTML, we update the form fields to match the event fields.</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="data-layer.html"><span aria-hidden="true">&larr;</span> 12.3. Models and Data</a></li>
+        <li class="previous"><a href="data-layer.html"><span aria-hidden="true">&larr;</span> 14. Models and Data</a></li>
         
         
-        <li class="next"><a href="exercises.html">12.5. Exercises: Models, Part 1 <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="exercises.html">16. Lorem ipsum… <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

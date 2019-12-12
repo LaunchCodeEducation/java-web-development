@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12.2. Create a Model &#8212; Java Web Development  documentation</title>
+    <title>13. Create a Model &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12.3. Models and Data" href="data-layer.html" />
-    <link rel="prev" title="12.1. Models in MVC" href="model-intro.html" />
+    <link rel="next" title="14. Models and Data" href="data-layer.html" />
+    <link rel="prev" title="12. Models in MVC" href="model-intro.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">12. Models and Model Binding</a></li>
-    <li class="active">12.2. Create a Model</li>
+    <li><a href="index.html">&lt;no title&gt;</a></li>
+    <li class="active">13. Create a Model</li>
 </ol>
 
 
@@ -85,7 +85,7 @@
 
     
   <div class="section" id="create-a-model">
-<h1>12.2. Create a Model<a class="headerlink" href="#create-a-model" title="Permalink to this headline">¶</a></h1>
+<h1>13. Create a Model<a class="headerlink" href="#create-a-model" title="Permalink to this headline">¶</a></h1>
 <p>In the next several pages, we will be making updates to <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> to demonstrate model creation,
 how models relate to data, and the practice of model biding. The first of these steps is to move data
 handling out of our controller classes and into a model class. As we discussed on the previous page, the
@@ -96,11 +96,11 @@ advantage of the new model and its properties, rather than the strings stored in
 Lastly, because the controller is updating, the template variables it relies upon will also need to
 change to reflect the model properties.</p>
 <div class="section" id="create-a-model-class-video">
-<h2>12.2.1. Create a Model Class - Video<a class="headerlink" href="#create-a-model-class-video" title="Permalink to this headline">¶</a></h2>
+<h2>13.1. Create a Model Class - Video<a class="headerlink" href="#create-a-model-class-video" title="Permalink to this headline">¶</a></h2>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/tDfwNJ3Nk_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/create-model" target="_blank">create-model branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
 </div>
 <div class="section" id="create-a-model-class-text">
-<h2>12.2.2. Create a Model Class - Text<a class="headerlink" href="#create-a-model-class-text" title="Permalink to this headline">¶</a></h2>
+<h2>13.2. Create a Model Class - Text<a class="headerlink" href="#create-a-model-class-text" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">Like controllers, model classes are conventionally located in a <code class="docutils literal notranslate"><span class="pre">models</span></code>
 package. Structurally, model classes most closely resemble the kinds of classes we practiced
 making at the start of this course, before introducing Spring Boot. In other words,
@@ -180,11 +180,11 @@ simply strings.</p>
 </div>
 </div>
 <div class="section" id="add-a-model-property-video">
-<h2>12.2.3. Add a Model Property - Video<a class="headerlink" href="#add-a-model-property-video" title="Permalink to this headline">¶</a></h2>
+<h2>13.3. Add a Model Property - Video<a class="headerlink" href="#add-a-model-property-video" title="Permalink to this headline">¶</a></h2>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/5dtyojtADbk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-property" target="_blank">add-property branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
 </div>
 <div class="section" id="add-a-model-property-text">
-<h2>12.2.4. Add a Model Property - Text<a class="headerlink" href="#add-a-model-property-text" title="Permalink to this headline">¶</a></h2>
+<h2>13.4. Add a Model Property - Text<a class="headerlink" href="#add-a-model-property-text" title="Permalink to this headline">¶</a></h2>
 <p>To round out the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, we’ll add a <code class="docutils literal notranslate"><span class="pre">description</span></code> field to showcase what our events are all about.</p>
 <p>Updates to <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
@@ -287,7 +287,7 @@ value into the creation of the Event object.</p>
 </td></tr></table></div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>12.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>13.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>True/False: Model code is framework independent.</p>
@@ -316,10 +316,10 @@ value into the creation of the Event object.</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="model-intro.html"><span aria-hidden="true">&larr;</span> 12.1. Models in MVC</a></li>
+        <li class="previous"><a href="model-intro.html"><span aria-hidden="true">&larr;</span> 12. Models in MVC</a></li>
         
         
-        <li class="next"><a href="data-layer.html">12.3. Models and Data <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="data-layer.html">14. Models and Data <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>
