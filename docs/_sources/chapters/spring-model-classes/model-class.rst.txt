@@ -15,7 +15,11 @@ change to reflect the model properties.
 Create a Model Class - Video
 ----------------------------
 
-.. todo:: video showing model creation
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/tDfwNJ3Nk_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+The final code from this video is in the `create-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-model>`__ of ``coding-events``.
 
 Create a Model Class - Text
 ---------------------------
@@ -49,6 +53,11 @@ In ``models/Event.java``:
 
       public void setName(String name) {
          this.name = name;
+      }
+
+      @Override
+      public String toString() {
+         return name;
       }
    }
 
@@ -89,7 +98,11 @@ simply strings.
 Add a Model Property - Video
 ----------------------------
 
-.. todo:: video adding a property to the model class
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/5dtyojtADbk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+The final code from this video is in the `add-property branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-property>`__ of ``coding-events``.
 
 Add a Model Property - Text
 ---------------------------
@@ -125,6 +138,11 @@ Updates to ``models/Event.java``:
 
       public void setDescription(String description) {
          this.description = description;
+      }
+
+      @Override
+      public String toString() {
+         return name;
       }
    }
 

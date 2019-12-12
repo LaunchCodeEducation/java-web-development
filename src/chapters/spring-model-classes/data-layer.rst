@@ -13,7 +13,11 @@ and prepare ourselves for decoupling data from controller classes.
 Add a Unique Id - Video
 -----------------------
 
-.. todo:: video adding a unique id generator
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/ijnIgreiNHU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+The final code from this video is in the `add-id branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-id>`__ of ``coding-events``.
 
 .. index:: ! uid
 
@@ -71,7 +75,11 @@ With these additions, every time a new event object is created it is assigned a 
 Create a Data Layer - Video
 ---------------------------
 
-.. todo:: video showing creation of EventData class
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/8AQtYZ_q57M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+The final code from this video is in the `create-data-layer branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer>`__ of ``coding-events``.
 
 Create a Data Layer - Text
 --------------------------
@@ -137,7 +145,11 @@ And back to ``processCreateEventForm``, we'll make use of the ``.add()`` method 
 Delete an Event - Video
 -----------------------
 
-.. todo:: video showing event deletion
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/orsBBbDaJMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+The final code from this video is in the `delete-events branch <https://github.com/LaunchCodeEducation/coding-events/tree/delete-events>`__ of ``coding-events``.
 
 Delete an Event - Text
 ----------------------

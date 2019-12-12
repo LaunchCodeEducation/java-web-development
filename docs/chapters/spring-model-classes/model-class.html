@@ -97,14 +97,11 @@ Lastly, because the controller is updating, the template variables it relies upo
 change to reflect the model properties.</p>
 <div class="section" id="create-a-model-class-video">
 <h2>12.2.1. Create a Model Class - Video<a class="headerlink" href="#create-a-model-class-video" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">video showing model creation</p>
-</div>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/tDfwNJ3Nk_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/create-model" target="_blank">create-model branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
 </div>
 <div class="section" id="create-a-model-class-text">
 <h2>12.2.2. Create a Model Class - Text<a class="headerlink" href="#create-a-model-class-text" title="Permalink to this headline">¶</a></h2>
-<p id="index-1">Like controllers, model classes are conventionally located in a <code class="docutils literal notranslate"><span class="pre">models</span></code>
+<p id="index-0">Like controllers, model classes are conventionally located in a <code class="docutils literal notranslate"><span class="pre">models</span></code>
 package. Structurally, model classes most closely resemble the kinds of classes we practiced
 making at the start of this course, before introducing Spring Boot. In other words,
 models are <strong>plain old Java objects</strong>, or <strong>POJOs</strong>.</p>
@@ -126,7 +123,12 @@ Of course, we’ll also like at least one constructor and some getters and sette
 18
 19
 20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
 
    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
 
@@ -140,6 +142,11 @@ Of course, we’ll also like at least one constructor and some getters and sette
 
    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
       <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
    <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
@@ -174,10 +181,7 @@ simply strings.</p>
 </div>
 <div class="section" id="add-a-model-property-video">
 <h2>12.2.3. Add a Model Property - Video<a class="headerlink" href="#add-a-model-property-video" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Todo</p>
-<p class="last">video adding a property to the model class</p>
-</div>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/5dtyojtADbk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-property" target="_blank">add-property branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
 </div>
 <div class="section" id="add-a-model-property-text">
 <h2>12.2.4. Add a Model Property - Text<a class="headerlink" href="#add-a-model-property-text" title="Permalink to this headline">¶</a></h2>
@@ -208,7 +212,12 @@ simply strings.</p>
 28
 29
 30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
 
    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
    <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
@@ -232,6 +241,11 @@ simply strings.</p>
 
    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescription</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
       <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
    <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
