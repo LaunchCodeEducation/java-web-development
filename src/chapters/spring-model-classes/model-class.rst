@@ -203,7 +203,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   If we add a field to the ``Event`` model to record the date of the event, which of the methods in 
+   In ``coding-events``, if we add a field to the ``Event`` model to record the date of the event, which of the methods in 
    ``EventController`` will need to be updated? 
 
    #. ``displayAllEvents``

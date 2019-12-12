@@ -75,17 +75,16 @@ Check Your Understanding
 
    Complete this sentence: Model binding ...
 
-   #. requires ``@ModelAttribute`` annotation.
+   #. requires an ``@ModelAttribute`` annotation.
    #. helps with form validation.
    #. reduces controller code.
-   #. All of the above. 
+   #. is useful for all of the reasons above.
 
 .. ans: d, all of the above.
 
 .. admonition:: Question
 
-   We add an additional private field, ``numberOfAttendees``, to the ``Event`` class. What other change must we 
-	make to ensure the user of our application can determine this value? (Assume we are using model binding to process form submission.) 
+   In ``coding-events``, we add an additional private field, ``numberOfAttendees``, to the ``Event`` class. What other change must we make to ensure the user of our application can determine this value? (Assume we are using model binding to process form submission.) 
 
    #. Pass in a ``numberOfAttendees`` parameter to the form submission handler.
    #. Add another input element to the create event form with a ``name=numberOfAttendees`` attribute.
