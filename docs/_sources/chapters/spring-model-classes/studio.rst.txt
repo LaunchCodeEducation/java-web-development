@@ -5,9 +5,9 @@ For this studio you will add functionality to allow users to sign up
 for your ``spa-day`` app. 
 
 The starter code has been modified from where you left off last class. Grab the refactored code 
-on this `branch <https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-starter>`__.
+on the `user-signup-starter branch <https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-starter>`__. 
 
-You'll notice in this branch, the name field has been removed from the service selection form. Once we
+You'll notice in this branch that the name field has been removed from the service selection form. Once we
 implement user-signup functionality, we can use a given user's name to identify the spa client. We've also 
 moved data into a ``Client`` model and out of the ``SpaDayController`` class.
 
@@ -30,10 +30,8 @@ Within ``spa-day``, create the following files.
 Creating the Model
 ------------------
 
-#. Your ``User`` class should have a few private fields with getters and
-   setters: ``username``, ``email``, ``password``. These should each be
-   strings. If you create a non-default constructor, be sure to also create a
-   default constructor (which can be empty).
+Your ``User`` class should have a few private fields with getters and
+setters: ``username``, ``email``, ``password``. 
 
 Rendering the Add User Form
 ---------------------------
@@ -51,7 +49,7 @@ Rendering the Add User Form
    to ensure the passwords are not visible when being typed into the form.
    You can also set ``type="email"`` on the email input, which will enable
    some basic client-side validation. We'll tackle validation in more detail 
-   in the next studio.
+   in the next studio. 
 
 Processing Form Submission
 --------------------------
@@ -69,7 +67,7 @@ Processing Form Submission
 
 #. Check that the ``verify`` parameter matches the
    password within the ``user`` object. If it does, render the
-   ``index.html`` view template with a message that welcomes the user by 
+   ``user/index.html`` view template with a message that welcomes the user by 
    username. If the passwords don’t match, render the form again.
 
 Refining Form Submission
@@ -77,8 +75,7 @@ Refining Form Submission
 
 #. Once registered, we want the user to access the form selecting their spa services. 
 
-   #. In ``user/index.html``, add a ``th:href`` element to take the user back to ``/`` of the app, 
-      where the ``serviceSelection`` template will be rendered.
+   #. In ``user/index.html``, add a ``th:href`` element to take the user back to the root path, ``/``, of the app, where the ``serviceSelection`` template will be rendered.
 
    #. To greet the user by their username, add a query string to the href path: ``(username=${user.username})``.
       Then on the service selection form and spa menu page, add an element to greet the user with the username.
@@ -91,8 +88,7 @@ Refining Form Submission
 
 #. If the form is re-rendered when a password is not verified, we should let the user know that their form
    was not properly submitted. Use ``model.addAttribute`` to add an ``error`` attribute, letting the user know 
-   that their passwords should match. This model attribute will need to correspond to an element attached to
-   the form that will only render the error text when the passwords do not match.
+   that their passwords should match. This model attribute will need to correspond to an element in the template that will only render the error text when the passwords do not match.
 
 #. If we send a user back to re-populate the form, it would be nice to not clear their previous 
    submission. We won't need to save the password entries in this fashion.
@@ -111,9 +107,9 @@ lesson video, check out the Bonus Missions below.
 Bonus Missions
 --------------
 
-#. Add a ``userId`` field to ``User``, along with accessor methods (with
+#. Add an ``id`` field to ``User``, along with accessor methods (with
    appropriate access level). Create a ``UserData`` class within
-   ``org.launchcode.spaday.models`` that provides access to a list of users via
+   ``org.launchcode.spaday.data`` that provides access to a list of users via
    ``add``, ``getAll``, and ``getById``.
 
    #. In the ``user/index.html`` view, display a list of

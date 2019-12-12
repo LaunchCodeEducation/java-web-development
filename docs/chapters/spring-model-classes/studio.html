@@ -89,8 +89,8 @@
 <p>For this studio you will add functionality to allow users to sign up
 for your <code class="docutils literal notranslate"><span class="pre">spa-day</span></code> app.</p>
 <p>The starter code has been modified from where you left off last class. Grab the refactored code
-on this <a class="reference external" href="https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-starter" target="_blank">branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<p>You’ll notice in this branch, the name field has been removed from the service selection form. Once we
+on the <a class="reference external" href="https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-starter" target="_blank">user-signup-starter branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p>You’ll notice in this branch that the name field has been removed from the service selection form. Once we
 implement user-signup functionality, we can use a given user’s name to identify the spa client. We’ve also
 moved data into a <code class="docutils literal notranslate"><span class="pre">Client</span></code> model and out of the <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code> class.</p>
 <p>In this studio, we’ll ask you to write another model, <code class="docutils literal notranslate"><span class="pre">User</span></code>. <code class="docutils literal notranslate"><span class="pre">User</span></code> and <code class="docutils literal notranslate"><span class="pre">Client</span></code> may at first
@@ -110,12 +110,8 @@ configure routes into the controller.</li>
 </div>
 <div class="section" id="creating-the-model">
 <h2>12.1.2. Creating the Model<a class="headerlink" href="#creating-the-model" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Your <code class="docutils literal notranslate"><span class="pre">User</span></code> class should have a few private fields with getters and
-setters: <code class="docutils literal notranslate"><span class="pre">username</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, <code class="docutils literal notranslate"><span class="pre">password</span></code>. These should each be
-strings. If you create a non-default constructor, be sure to also create a
-default constructor (which can be empty).</li>
-</ol>
+<p>Your <code class="docutils literal notranslate"><span class="pre">User</span></code> class should have a few private fields with getters and
+setters: <code class="docutils literal notranslate"><span class="pre">username</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, <code class="docutils literal notranslate"><span class="pre">password</span></code>.</p>
 </div>
 <div class="section" id="rendering-the-add-user-form">
 <h2>12.1.3. Rendering the Add User Form<a class="headerlink" href="#rendering-the-add-user-form" title="Permalink to this headline">¶</a></h2>
@@ -148,7 +144,7 @@ pass it into your handler method.</p>
 </li>
 <li><p class="first">Check that the <code class="docutils literal notranslate"><span class="pre">verify</span></code> parameter matches the
 password within the <code class="docutils literal notranslate"><span class="pre">user</span></code> object. If it does, render the
-<code class="docutils literal notranslate"><span class="pre">index.html</span></code> view template with a message that welcomes the user by
+<code class="docutils literal notranslate"><span class="pre">user/index.html</span></code> view template with a message that welcomes the user by
 username. If the passwords don’t match, render the form again.</p>
 </li>
 </ol>
@@ -157,8 +153,7 @@ username. If the passwords don’t match, render the form again.</p>
 <h2>12.1.5. Refining Form Submission<a class="headerlink" href="#refining-form-submission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Once registered, we want the user to access the form selecting their spa services.<ol class="arabic">
-<li>In <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code>, add a <code class="docutils literal notranslate"><span class="pre">th:href</span></code> element to take the user back to <code class="docutils literal notranslate"><span class="pre">/</span></code> of the app,
-where the <code class="docutils literal notranslate"><span class="pre">serviceSelection</span></code> template will be rendered.</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code>, add a <code class="docutils literal notranslate"><span class="pre">th:href</span></code> element to take the user back to the root path, <code class="docutils literal notranslate"><span class="pre">/</span></code>, of the app, where the <code class="docutils literal notranslate"><span class="pre">serviceSelection</span></code> template will be rendered.</li>
 <li>To greet the user by their username, add a query string to the href path: <code class="docutils literal notranslate"><span class="pre">(username=${user.username})</span></code>.
 Then on the service selection form and spa menu page, add an element to greet the user with the username.</li>
 <li>If not signed in, we want to direct the user to do so, rather than accessing the services form directly.<ol class="arabic">
@@ -171,8 +166,7 @@ add it as a model attribute so the user will be greeted.</li>
 </li>
 <li>If the form is re-rendered when a password is not verified, we should let the user know that their form
 was not properly submitted. Use <code class="docutils literal notranslate"><span class="pre">model.addAttribute</span></code> to add an <code class="docutils literal notranslate"><span class="pre">error</span></code> attribute, letting the user know
-that their passwords should match. This model attribute will need to correspond to an element attached to
-the form that will only render the error text when the passwords do not match.</li>
+that their passwords should match. This model attribute will need to correspond to an element in the template that will only render the error text when the passwords do not match.</li>
 <li>If we send a user back to re-populate the form, it would be nice to not clear their previous
 submission. We won’t need to save the password entries in this fashion.<ol class="arabic">
 <li>In the form submission handler, add the <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">email</span></code> fields of the submitted user as
@@ -190,9 +184,9 @@ lesson video, check out the Bonus Missions below.</p>
 <div class="section" id="bonus-missions">
 <h2>12.1.6. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Add a <code class="docutils literal notranslate"><span class="pre">userId</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with accessor methods (with
+<li>Add an <code class="docutils literal notranslate"><span class="pre">id</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with accessor methods (with
 appropriate access level). Create a <code class="docutils literal notranslate"><span class="pre">UserData</span></code> class within
-<code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.models</span></code> that provides access to a list of users via
+<code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.data</span></code> that provides access to a list of users via
 <code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">getAll</span></code>, and <code class="docutils literal notranslate"><span class="pre">getById</span></code>.<ol class="arabic">
 <li>In the <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code> view, display a list of
 all users by username. Each username should have a link that takes
