@@ -87,22 +87,22 @@
   <div class="section" id="sql-queries">
 <h1>12.2. SQL Queries<a class="headerlink" href="#sql-queries" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">When we want to perform an operation on a database, we write a SQL <strong>query</strong>.
-Queries can vary widely in complexity and purpose depending on the operation that we need to perform.
-Each query produces a <strong>result set</strong> containing the data we need.
-Ultimately, we can boil down each query’s purpose to fall into one of the following four categories:</p>
+Queries can vary widely in complexity and purpose depending on the operation we need to perform.
+Each query produces a <strong>result set</strong> containing the requested data.
+Ultimately, we can boil down each query’s purpose into one of the following four categories:</p>
 <ol class="arabic simple">
 <li>Create</li>
 <li>Read</li>
 <li>Update</li>
 <li>Delete</li>
 </ol>
-<p><strong>CRUD</strong> or Create, Read, Update, Delete represents the four major operations we perform when we are working with data.
+<p><strong>CRUD</strong> or <em>Create</em>, <em>Read</em>, <em>Update</em>, <em>Delete</em> represents the four major operations we perform when we work with data.
 Let’s see how we can do this with SQL!</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">Throughout the rest of the chapter, we will be using an example of an events database.
 Our event planner, Mary, has a database storing the guest info of every event she has ever planned, as well as event info about each event.
-Each table of guest info is named after the event itself.</p>
+She named each table of guest info after the event itself.</p>
 </div>
 <div class="section" id="create">
 <h2>12.2.1. Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
@@ -139,7 +139,7 @@ When we use <code class="docutils literal notranslate"><span class="pre">CREATE<
 <div class="section" id="creating-a-table-from-another-table">
 <h4>12.2.1.1.2. Creating a Table from Another Table<a class="headerlink" href="#creating-a-table-from-another-table" title="Permalink to this headline">¶</a></h4>
 <p>We can also create a table from another table.
-When doing so, the new table will also include any existing data from the origin table.</p>
+When doing so, the new table will also include any existing data from the original table.</p>
 <p>Mary is also planning a vow renewal for Mr. and Mrs. Johnson.
 Since the Johnsons haven’t made any new friends in the past 5 years, they want the guest list to be the exact same.
 A good place to start would be to create a table called <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> from the table called <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code>.
@@ -165,7 +165,7 @@ To do so, we need to use an <code class="docutils literal notranslate"><span cla
 <p>In the case of the Johnsons, we may need to add a row for their niece, who is now old enough to attend the vow renewal.
 Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed that she will be in attendance.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">JohnsonVowRenewal</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="mi">185</span><span class="p">,</span> <span class="ss">`Johnson`</span><span class="p">,</span> <span class="ss">`Eliza`</span><span class="p">,</span> <span class="no">TRUE</span><span class="p">,</span> <span class="ss">`Vegan`</span><span class="p">);</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="mi">185</span><span class="p">,</span> <span class="s2">&quot;Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Eliza&quot;</span><span class="p">,</span> <span class="no">TRUE</span><span class="p">,</span> <span class="s2">&quot;Vegan&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>This query adds a row for Eliza to the <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> table in our database.</p>
@@ -179,7 +179,7 @@ We may now want to add a column to our <code class="docutils literal notranslate
 <span class="k">ADD</span> <span class="n">CanDrink</span> <span class="n">boolean</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>This adds a column to the <code class="docutils literal notranslate"><span class="pre">LiWedding</span></code> table, but it does <em>not</em> fill that column with values. We will need to update each guest’s entry in the table once we confirm how old they are.</p>
+<p>This adds the <code class="docutils literal notranslate"><span class="pre">CanDrink</span></code> column to the <code class="docutils literal notranslate"><span class="pre">LiWedding</span></code> table, but it does <em>not</em> fill that column with values. We will need to update each guest’s entry in the table once we confirm how old they are.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">For more on the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement and how many different ways it can be used, check out <a class="reference external" href="https://www.w3schools.com/sql/sql_alter.asp" target="_blank">w3schools<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
@@ -192,10 +192,10 @@ We may now want to add a column to our <code class="docutils literal notranslate
 In order to get information from a table, we need to use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.</p>
 <p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statements have a few different components to them. We need to know what we are selecting, which table the information is in, and we can also use <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> to apply a conditional.</p>
 <p>If Mary wants to get the information of all of the guests who are vegetarian at the Li wedding, we need to use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement to pull the first and last names of guests who will be in attendance and are vegetarian.
-So, we will <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> the <code class="docutils literal notranslate"><span class="pre">LastName</span></code> and <code class="docutils literal notranslate"><span class="pre">FirstName</span></code> columns <code class="docutils literal notranslate"><span class="pre">FROM</span></code> the <code class="docutils literal notranslate"><span class="pre">LiWedding</span></code> table <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> the value of <code class="docutils literal notranslate"><span class="pre">Attending</span></code> is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> and the value of <code class="docutils literal notranslate"><span class="pre">Diet</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;vegetarian</span></code>.</p>
+So, we will <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> the <code class="docutils literal notranslate"><span class="pre">LastName</span></code> and <code class="docutils literal notranslate"><span class="pre">FirstName</span></code> columns <code class="docutils literal notranslate"><span class="pre">FROM</span></code> the <code class="docutils literal notranslate"><span class="pre">LiWedding</span></code> table <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> the value of <code class="docutils literal notranslate"><span class="pre">Attending</span></code> is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> and the value of <code class="docutils literal notranslate"><span class="pre">Diet</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;vegetarian&quot;</span></code>.</p>
 <div class="highlight-mysql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="ss">`LastName`</span><span class="p">,</span> <span class="ss">`FirstName`</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span>
 <span class="k">FROM</span> <span class="n">LiWedding</span>
 <span class="k">WHERE</span> <span class="p">(</span><span class="n">Attending</span> <span class="o">==</span> <span class="no">TRUE</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">Diet</span> <span class="o">==</span> <span class="s2">&quot;vegetarian&quot;</span><span class="p">);</span>
 </pre></div>
@@ -215,9 +215,9 @@ We won’t apply a <code class="docutils literal notranslate"><span class="pre">
 <p class="last">Updating a table is something that we want to be cautious when doing.
 We cannot go back from updating a table.</p>
 </div>
-<p>Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the <code class="docutils literal notranslate"><span class="pre">JohnsonWedding2</span></code> table.</p>
+<p>Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> table.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">JohnsonVowRenewal</span>
-<span class="kt">SET</span> <span class="n">Diet</span><span class="o">=</span><span class="ss">`vegetarian`</span>
+<span class="kt">SET</span> <span class="n">Diet</span><span class="o">=</span><span class="s2">&quot;vegetarian&quot;</span>
 <span class="k">WHERE</span> <span class="n">GuestID</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -287,7 +287,7 @@ Does the following query accomplish this task?</p>
 <span class="p">);</span>
 
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">LeahEvents</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="ss">`SmithWedding`</span><span class="p">,</span> <span class="mi">08</span><span class="p">,</span> <span class="mi">08</span><span class="p">,</span> <span class="mi">2021</span><span class="p">);</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="s2">&quot;SmithWedding&quot;</span><span class="p">,</span> <span class="mi">08</span><span class="p">,</span> <span class="mi">08</span><span class="p">,</span> <span class="mi">2021</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 </div>

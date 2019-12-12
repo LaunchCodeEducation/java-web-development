@@ -4,23 +4,23 @@ SQL Queries
 .. index:: ! query, ! CRUD, ! result set
 
 When we want to perform an operation on a database, we write a SQL **query**.
-Queries can vary widely in complexity and purpose depending on the operation that we need to perform.
-Each query produces a **result set** containing the data we need.
-Ultimately, we can boil down each query's purpose to fall into one of the following four categories:
+Queries can vary widely in complexity and purpose depending on the operation we need to perform.
+Each query produces a **result set** containing the requested data.
+Ultimately, we can boil down each query's purpose into one of the following four categories:
 
 #. Create
 #. Read
 #. Update
 #. Delete
 
-**CRUD** or Create, Read, Update, Delete represents the four major operations we perform when we are working with data.
+**CRUD** or *Create*, *Read*, *Update*, *Delete* represents the four major operations we perform when we work with data.
 Let's see how we can do this with SQL!
 
 .. admonition:: Note
 
    Throughout the rest of the chapter, we will be using an example of an events database.
    Our event planner, Mary, has a database storing the guest info of every event she has ever planned, as well as event info about each event.
-   Each table of guest info is named after the event itself.
+   She named each table of guest info after the event itself.
 
 Create
 ------
@@ -60,7 +60,7 @@ Creating a Table from Another Table
 """""""""""""""""""""""""""""""""""
 
 We can also create a table from another table.
-When doing so, the new table will also include any existing data from the origin table.
+When doing so, the new table will also include any existing data from the original table.
 
 Mary is also planning a vow renewal for Mr. and Mrs. Johnson.
 Since the Johnsons haven't made any new friends in the past 5 years, they want the guest list to be the exact same.
@@ -91,7 +91,7 @@ Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed t
 .. sourcecode:: mysql
 
    INSERT INTO JohnsonVowRenewal
-   VALUES (185, `Johnson`, `Eliza`, TRUE, `Vegan`);
+   VALUES (185, "Johnson", "Eliza", TRUE, "Vegan");
 
 This query adds a row for Eliza to the ``JohnsonVowRenewal`` table in our database.
 
@@ -108,7 +108,7 @@ To add a column, we need to start with an ``ALTER TABLE`` statement. ``ALTER TAB
    ALTER TABLE LiWedding
    ADD CanDrink boolean;
 
-This adds a column to the ``LiWedding`` table, but it does *not* fill that column with values. We will need to update each guest's entry in the table once we confirm how old they are.
+This adds the ``CanDrink`` column to the ``LiWedding`` table, but it does *not* fill that column with values. We will need to update each guest's entry in the table once we confirm how old they are.
 
 .. admonition:: Note
 
@@ -123,12 +123,12 @@ In order to get information from a table, we need to use a ``SELECT`` statement.
 ``SELECT`` statements have a few different components to them. We need to know what we are selecting, which table the information is in, and we can also use ``WHERE`` to apply a conditional.
 
 If Mary wants to get the information of all of the guests who are vegetarian at the Li wedding, we need to use a ``SELECT`` statement to pull the first and last names of guests who will be in attendance and are vegetarian.
-So, we will ``SELECT`` the ``LastName`` and ``FirstName`` columns ``FROM`` the ``LiWedding`` table ``WHERE`` the value of ``Attending`` is ``TRUE`` and the value of ``Diet`` is ``"vegetarian``.
+So, we will ``SELECT`` the ``LastName`` and ``FirstName`` columns ``FROM`` the ``LiWedding`` table ``WHERE`` the value of ``Attending`` is ``TRUE`` and the value of ``Diet`` is ``"vegetarian"``.
 
 .. sourcecode:: mysql
    :linenos:
 
-   SELECT `LastName`, `FirstName`
+   SELECT LastName, FirstName
    FROM LiWedding
    WHERE (Attending == TRUE) AND (Diet == "vegetarian");
 
@@ -150,12 +150,12 @@ Now that we can add data and see what our data actually is, let's start changing
    Updating a table is something that we want to be cautious when doing.
    We cannot go back from updating a table.
 
-Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the ``JohnsonWedding2`` table.
+Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the ``JohnsonVowRenewal`` table.
 
 .. sourcecode:: mysql 
 
    UPDATE JohnsonVowRenewal
-   SET Diet=`vegetarian`
+   SET Diet="vegetarian"
    WHERE GuestID==185;
 
 Now if we use a ``SELECT`` statement, we can confirm that we have properly updated the record.
@@ -228,6 +228,6 @@ Check Your Understanding
       );
 
       INSERT INTO LeahEvents
-      VALUES (256, `SmithWedding`, 08, 08, 2021);
+      VALUES (256, "SmithWedding", 08, 08, 2021);
 
 .. ans: Yes, it does!
