@@ -23,3 +23,42 @@ There are many different types of SQL. For this class, we will be using `MySQL <
 MySQL is open-source and user-friendly.
 
 To get started with the chapter, you need to :ref:`install MySQL <sql-installation>` and the appropriate tooling.
+
+MySQL has many of the data types we are already familiar with from working with Java. However, what we may think of as a string, possibly has a different name in MySQL.
+
+Numbers
+^^^^^^^
+
+For integers, we will be using the ``INT`` data type. As you grow in your career, you may see others such as ``BIGINT`` or ``MEDIUMINT`` in MySQL databases.
+The `MySQL documentation <https://dev.mysql.com/doc/refman/8.0/en/integer-types.html>`_ offers a full breakdown of these different integer types.
+
+MySQL also has a ``DOUBLE`` data type that is similar to what we have already worked with in Java. 
+
+Strings
+^^^^^^^
+
+There is no ``STRING`` type in MySQL.
+Instead, we use the ``VARCHAR`` type.
+``VARCHAR`` produces a string of variable length, however, we have to tell MySQL how long the string will be *at a maximum*.
+Therefore, when we use ``VARCHAR`` in a declaration, we add the maximum number of characters like so: ``VARCHAR(250)``. That declaration specifies that the string will be, at a maximum, 250 characters.
+
+Boolean
+^^^^^^^
+
+MySQL does not officially support boolean values such as ``TRUE`` or ``FALSE``. To make things a little easier for us and other SQL developers, they do have data types called ``BOOL`` and ``BOOLEAN``.
+``BOOL`` and ``BOOLEAN`` are synonyms for the ``TINYINT`` type, with 0 counting as ``FALSE`` and non-zero values (such as 1) counting as ``TRUE``.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Which of the following are supported data types in MySQL? Select all that are correct.
+
+   A. ``TINYINT``
+   B. ``INTEGER``
+   C. ``DOUBLE``
+   D. ``VARCHAR``
+   E. ``BOOLEAN``
+   F. ``STRING``
+

@@ -101,6 +101,40 @@ We can use SQL to perform CRUD operations on a database, combine two tables, and
 <p>There are many different types of SQL. For this class, we will be using <a class="reference external" href="https://dev.mysql.com/" target="_blank">MySQL<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 MySQL is open-source and user-friendly.</p>
 <p>To get started with the chapter, you need to <a class="reference internal" href="../../appendices/sql-install.html#sql-installation"><span class="std std-ref">install MySQL</span></a> and the appropriate tooling.</p>
+<p>MySQL has many of the data types we are already familiar with from working with Java. However, what we may think of as a string, possibly has a different name in MySQL.</p>
+<div class="section" id="numbers">
+<h3>12.1.1.1. Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+<p>For integers, we will be using the <code class="docutils literal notranslate"><span class="pre">INT</span></code> data type. As you grow in your career, you may see others such as <code class="docutils literal notranslate"><span class="pre">BIGINT</span></code> or <code class="docutils literal notranslate"><span class="pre">MEDIUMINT</span></code> in MySQL databases.
+The <a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/integer-types.html" target="_blank">MySQL documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> offers a full breakdown of these different integer types.</p>
+<p>MySQL also has a <code class="docutils literal notranslate"><span class="pre">DOUBLE</span></code> data type that is similar to what we have already worked with in Java.</p>
+</div>
+<div class="section" id="strings">
+<h3>12.1.1.2. Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<p>There is no <code class="docutils literal notranslate"><span class="pre">STRING</span></code> type in MySQL.
+Instead, we use the <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> type.
+<code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> produces a string of variable length, however, we have to tell MySQL how long the string will be <em>at a maximum</em>.
+Therefore, when we use <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> in a declaration, we add the maximum number of characters like so: <code class="docutils literal notranslate"><span class="pre">VARCHAR(250)</span></code>. That declaration specifies that the string will be, at a maximum, 250 characters.</p>
+</div>
+<div class="section" id="boolean">
+<h3>12.1.1.3. Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
+<p>MySQL does not officially support boolean values such as <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>. To make things a little easier for us and other SQL developers, they do have data types called <code class="docutils literal notranslate"><span class="pre">BOOL</span></code> and <code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code>.
+<code class="docutils literal notranslate"><span class="pre">BOOL</span></code> and <code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code> are synonyms for the <code class="docutils literal notranslate"><span class="pre">TINYINT</span></code> type, with 0 counting as <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> and non-zero values (such as 1) counting as <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>12.1.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which of the following are supported data types in MySQL? Select all that are correct.</p>
+<ol class="last upperalpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">TINYINT</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">INTEGER</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">DOUBLE</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">STRING</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 

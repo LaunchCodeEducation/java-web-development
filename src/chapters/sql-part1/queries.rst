@@ -73,10 +73,11 @@ Due to some wedding drama, Mr. and Mrs. Johnson will also be avoiding inviting a
    CREATE TABLE JohnsonVowRenewal
    AS GuestID, LastName, FirstName, Attending, Diet
    FROM JohnsonWedding
-   WHERE (Attending == TRUE);
+   WHERE (Attending == 1);
 
 This query creates the ``JohnsonVowRenewal`` table with the same columns as ``JohnsonWedding``.
-The ``WHERE`` condition in the query specifies that we only want the rows from ``JohnsonWedding`` in ``JohnsonVowRenewal`` *where* the guest was in attendance (or ``Attending == TRUE``).
+We use ``AS`` to specify the columns that will be carried over from the ``JohnsonWedding`` table to the ``JohnsonVowRenewal``.
+The ``WHERE`` condition in the query specifies that we only want the rows from ``JohnsonWedding`` in ``JohnsonVowRenewal`` *where* the guest was in attendance (or ``Attending == 1``).
 If we did *not* add a ``WHERE`` condition, then we would have copied over all of the data from ``JohnsonWedding``.
 
 Adding a Row
@@ -91,15 +92,30 @@ Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed t
 .. sourcecode:: mysql
 
    INSERT INTO JohnsonVowRenewal
-   VALUES (185, "Johnson", "Eliza", TRUE, "Vegan");
+   VALUES (185, "Johnson", "Eliza", 1, "Vegan");
 
 This query adds a row for Eliza to the ``JohnsonVowRenewal`` table in our database.
+
+If we wanted to add a row, but only add values to specific columns in the table, we can do so! We simply need to add the names of the columns that we will be adding data to.
+
+In the case of inviting people the Johnson's vow renewal, we may want to invite Eliza's sister, Felicity, as well. However, we do not have confirmed Felicity's dietary preferences or whether or not she is coming.
+
+.. sourcecode:: mysql
+
+   INSERT INTO JohnsonVowRenewal (GuestID, LastName, FirstName)
+   VALUES (186, "Johnson", "Felicity");
+
+By adding the column names in parantheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: ``GuestID``, ``LastName``, and ``FirstName``.
+
+.. admonition:: Note
+
+   When we use this method, any column that doesn't have a specified value for the new row will have a ``null`` value. 
 
 Adding a column
 ^^^^^^^^^^^^^^^
 
 Sometimes, we may also need to add a column to our table. Some of the caterers Mary works with have asked that she confirm how many people are of drinking age.
-We may now want to add a column to our ``LiWedding`` table that contains either ``TRUE`` or ``FALSE`` depending on whether the guest is legally old enough to drink.
+We may now want to add a column to our ``LiWedding`` table that contains either ``1`` or ``0`` depending on whether the guest is legally old enough to drink.
 
 To add a column, we need to start with an ``ALTER TABLE`` statement. ``ALTER TABLE`` can be used to perform different operations, so in our case, we will also need to specify that we want to ``ADD`` a column.
 
@@ -120,7 +136,14 @@ Read
 When reading data, we don't want to modify anything, we just want to know what is there. 
 In order to get information from a table, we need to use a ``SELECT`` statement. 
 
-``SELECT`` statements have a few different components to them. We need to know what we are selecting, which table the information is in, and we can also use ``WHERE`` to apply a conditional.
+``SELECT`` statements have a few different components to them. We need to know what we are selecting, which table the information is in, and if necessary, we can also use ``WHERE`` to apply a conditional.
+In general, ``SELECT`` statements look like the following:
+
+.. sourcecode:: mysql
+
+   SELECT ColumnName1, ColumnName2, ...
+   FROM TableName
+   WHERE some conditional is true.
 
 If Mary wants to get the information of all of the guests who are vegetarian at the Li wedding, we need to use a ``SELECT`` statement to pull the first and last names of guests who will be in attendance and are vegetarian.
 So, we will ``SELECT`` the ``LastName`` and ``FirstName`` columns ``FROM`` the ``LiWedding`` table ``WHERE`` the value of ``Attending`` is ``TRUE`` and the value of ``Diet`` is ``"vegetarian"``.
@@ -130,7 +153,7 @@ So, we will ``SELECT`` the ``LastName`` and ``FirstName`` columns ``FROM`` the `
 
    SELECT LastName, FirstName
    FROM LiWedding
-   WHERE (Attending == TRUE) AND (Diet == "vegetarian");
+   WHERE (Attending == 0) AND (Diet == "vegetarian");
 
 If Mary just wants all of the guests for the Li wedding, we need to modify our ``SELECT`` statement.
 We won't apply a ``WHERE`` condition to our query and we will use a ``*`` to denote that we want all columns.
@@ -148,7 +171,7 @@ Now that we can add data and see what our data actually is, let's start changing
 .. admonition:: Warning
 
    Updating a table is something that we want to be cautious when doing.
-   We cannot go back from updating a table.
+   We cannot simply click *Edit* > *Undo* if we make a mistake!
 
 Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the ``JohnsonVowRenewal`` table.
 
