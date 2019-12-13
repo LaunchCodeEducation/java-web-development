@@ -4,5 +4,7 @@ Model Validation
 .. toctree::
    :maxdepth: 3
 
+   server-side-validation
    validation-annotations
-   validation-errors
+   validation-controller
+   thymeleaf-form-tools

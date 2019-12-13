@@ -1,6 +1,9 @@
 Validation Annotations
 ======================
 
-- Use Java Validation API annotations (from ``javax.validation.constraints``) on model classes, including ``@Min``, ``@Max``, ``@Size``, ``@Email``, ``@NotBlank``, and ``@NotNull``
-- Use ``@Valid`` on model objects in a controller to check for validation errors
-- Explain how and when Spring validates model objects that are bound during a request
+1. Java Validation Annotations
+2. Common annotations: `@Size`, `@Min`, `@Max`, `@NotNull`, `@NotBlank`, `@Email`
+3. Custom message using `message` parameter
+4. Docs - https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/
+5. Bonus Mission: `@Pattern` and regular expressions 
+6. Video - Add Validation Annotations
