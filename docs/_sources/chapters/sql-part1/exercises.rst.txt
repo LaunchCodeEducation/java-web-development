@@ -48,10 +48,10 @@ garden hopes. The table will have 4 columns:
 #. ``crop``: Identifies what the seeds grow (e.g. yellow bell peppers).
 #. ``encourages``: Identifies the benefits of planting the crop (e.g. nitrogen
    fixation, attracts bees, etc.)
-#. ``useBy``: The year the seeds expire.
+#. ``use_by``: The year the seeds expire.
 
 The the ``crop`` and ``encourages`` columns will hold string data types,
-``seed_id`` and ``useBy`` will be integers.
+``seed_id`` and ``use_by`` will be integers.
 
 Paste the following script into the query tab, then run it.
 
@@ -62,7 +62,7 @@ Paste the following script into the query tab, then run it.
       seed_id INTEGER PRIMARY KEY AUTO_INCREMENT,
       crop VARCHAR(40),
       encourages VARCHAR(80),
-      useBy INTEGER
+      use_by INTEGER
    );
 
 Note that the SQL syntax for string data types is ``VARCHAR``, and it includes
@@ -92,7 +92,7 @@ Open up a new query tab for the SQL commands you code in this section.
    .. sourcecode:: SQL
       :linenos:
 
-      INSERT INTO seeds (crop, encourages, useBy)
+      INSERT INTO seeds (crop, encourages, use_by)
       VALUES ("Agastache", "bees & hummingbirds", 2020);
 
    Notice that you do NOT need to provide a value for ``seed_id``, since it is
@@ -114,7 +114,7 @@ Open up a new query tab for the SQL commands you code in this section.
    .. sourcecode:: SQL
       :linenos:
 
-      INSERT INTO seeds (crop, useBy)
+      INSERT INTO seeds (crop, use_by)
       VALUES ("Sun Gold Tomato", 2022);
 
 #. Add 3 - 5 more records to the ``seeds`` table.
@@ -131,10 +131,10 @@ Open up a new query tab for the SQL commands you code in this section.
    in the ``seeds`` table. (*Hint*: Use the ``*`` wildcard instead of typing
    out all of the column names).
 #. List ONLY the ``crop`` data from the table.
-#. List the ``crop`` and ``useBy`` data, and use ``ORDER BY`` to organize
+#. List the ``crop`` and ``use_by`` data, and use ``ORDER BY`` to organize
    the information in *DECREASING* order by year.
 
-   a. *Bonus*: For entries with matching ``useBy`` values, order first by
+   a. *Bonus*: For entries with matching ``use_by`` values, order first by
       year and then alphabetically by crop name.
 
 #. List the complete records for the seeds, but only if the ``encourages``
@@ -164,7 +164,7 @@ Open up a new query tab for the SQL commands you code in this section.
 #. Update a single record based on its ``seed_id``.
 
    a. The first entry we added in the Create section has ``seed_id`` = 1. Use
-      ``UPDATE ... SET ... WHERE`` to change the ``useBy`` date for this entry
+      ``UPDATE ... SET ... WHERE`` to change the ``use_by`` date for this entry
       to 2024.
    b. Use a single ``UPDATE`` statement to change two columns for the entry
       with ``seed_id`` = 4.
@@ -172,7 +172,7 @@ Open up a new query tab for the SQL commands you code in this section.
 #. Use ``ALTER TABLE`` to add a new column, called ``expired``, to the table.
    Set the data type to ``boolean``.
 #. With a single ``UPDATE`` command, set the ``expired`` value to ``true`` for
-   all entries that have a ``useBy`` of this year or earlier.
+   all entries that have a ``use_by`` of this year or earlier.
 
 Be sure to list the ``seeds`` table to confirm your changes.
 
@@ -196,41 +196,113 @@ Open up a new query tab for the SQL commands you code in this section.
 Joins
 -----
 
-Open up a new query tab for the SQL commands you code in this section.
+In order to complete the ``JOIN`` practice, you will need two new tables in
+your database. Paste and run the following SQL script in a new query tab. It
+will create and populate both tables.
 
-Create a new table with foreign key linked to 1st table.
+.. sourcecode:: sql
+   :linenos:
 
-Populate new table with data (paste in SQL script).
+   CREATE TABLE seed_storage (
+      seed_storage INTEGER PRIMARY KEY AUTO_INCREMENT,
+      number_of_seeds INTEGER,
+      drawer_number INTEGER,
+      reorder BOOLEAN
+   );
+
+   CREATE TABLE veggie (
+      veggie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+      veggie_name VARCHAR(40),
+      companion_plant VARCHAR(80),
+      seed_storage INTEGER,
+      FOREIGN KEY (seed_storage) REFERENCES seed_storage(seed_storage)
+   );
+
+   INSERT INTO seed_storage (number_of_seeds, drawer_number, reorder)
+   VALUES (150, 22, number_of_seeds <= 25);
+
+   INSERT INTO seed_storage (number_of_seeds, drawer_number,reorder)
+   VALUES (500, 3, number_of_seeds <= 25);
+
+   INSERT INTO seed_storage (number_of_seeds, drawer_number, reorder)
+   VALUES (25, 18, number_of_seeds <= 25);
+
+   INSERT INTO seed_storage (number_of_seeds, drawer_number, reorder)
+   VALUES (5, 7, number_of_seeds <= 25);
+
+   INSERT INTO veggie (veggie_name, companion_plant)
+   VALUES ("Broccoli", "Celery");
+
+   INSERT INTO veggie (veggie_name, companion_plant, seed_storage)
+   VALUES ("Carrot", "Radishes & Tomatoes", 1);
+
+   INSERT INTO veggie (veggie_name, companion_plant)
+   VALUES ("Green Beans", "Spinach, Corn & Peas");
+
+   INSERT INTO veggie (veggie_name, companion_plant, seed_storage)
+   VALUES ("Rutabaga", "Dill & Sage", 3);
+
+
+Note that the ``veggie`` table has a *foreign key* linked to ``seed_storage``.
 
 Inner Join
 ^^^^^^^^^^
 
-#. Do this (provide syntax).
-#. Compare result with original tables.
+#. Run this SQL command in a new query tab.
+
+   .. sourcecode:: sql
+      :linenos:
+
+      SELECT *
+      FROM veggie
+      INNER JOIN seed_storage ON seed_storage.seed_storage = veggie.seed_storage;
+
+#. Note that the output shows only two results, even though the ``veggie`` and
+   ``seed_storage`` tables each contain four records.
+#. Summarize what ``INNER JOIN`` does.
+
+.. admonition:: Note
+
+   You can list specific columns by replacing ``*`` with a set of column names
+   (e.g. ``SELECT veggie_name, drawer_number, number_of_seeds``).
 
 Left Join
 ^^^^^^^^^
 
-#. Do this (provide syntax).
-#. Compare result with original tables.
+#. Run this SQL command in the same JOIN query tab.
+
+   .. sourcecode:: sql
+      :linenos:
+
+      SELECT *
+      FROM veggie
+      LEFT JOIN seed_storage ON veggie.seed_storage = seed_storage.seed_storage;
+
+#. Compare the output to the contents of the original ``veggie`` and
+   ``seed_storage`` tables, then summarize what ``LEFT JOIN`` does.
 
 Right Join
 ^^^^^^^^^^
 
-#. Do this (provide syntax).
-#. Compare result with original tables.
+#. Run this SQL command in the same JOIN query tab.
 
-Full Join
-^^^^^^^^^
+   .. sourcecode:: sql
+      :linenos:
 
-#. Do this (provide syntax).
-#. Compare result with original tables.
+      SELECT *
+      FROM veggie
+      RIGHT JOIN seed_storage ON veggie.seed_storage = seed_storage.seed_storage;
+
+#. Compare the output to the contents of the original ``veggie`` and
+   ``seed_storage`` tables, then summarize what ``RIGHT JOIN`` does.
 
 Bonus Exercises
 ---------------
 
-These are not difficult, but they do go above and beyond the basic SQL
-commands.
+Whew! You made it through all the exercises. Nice work!
+
+Take a quick break and, if you wish, try these additional tasks that go above
+and beyond the basic SQL commands.
 
 #. Change any ``crop`` value of "Tomato" to "Tomahto", but make the update
    case-insensitive (e.g. tomato, TOMATO, and Tomato would all be changed to
