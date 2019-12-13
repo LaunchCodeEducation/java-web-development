@@ -1,3 +1,5 @@
+.. _sql-part1-exercises:
+
 Exercises: SQL, Part 1
 ======================
 

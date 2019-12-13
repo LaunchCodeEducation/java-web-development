@@ -11,22 +11,10 @@ Walkthrough
 ------------
 
 Let's relate what you've learned about SQL to interact with a database called
-``movie-buff``. We'll start by creating a new schema and then adding two tables
-to it, ``movies`` and ``directors``.
+``movie-buff`` that contains two tables---``movies`` and ``directors``.
 
-#. In MySQLWorkbench, click on the *Create New Schema* button and name the new
-   model ``movie-buff``.
-
-   .. figure:: ./figures/createNewSchema.png
-      :alt: Create new schema button, then assign name.
-      :scale: 60%
-
-#. Click *Apply*, and accept all of the default options when prompted.
-#. Your new schema is now ready to use! You should see it when you click the
-   *Schemas* tab.
-
-   .. figure:: ./figures/movie-buffSchema.png
-      :alt: movie-buff schema in the file tree.
+Just as you did in the :ref:`exercises <sql-part1-exercises>` create the new
+``movie-buff`` schema.
 
 Before we create the ``movies`` and ``directors`` tables, let's think about
 what kind of columns we want in each one.
@@ -155,16 +143,6 @@ a way to filter the movies based on attributes from ``directors``. Solving this
 challenge is what relational databases are all about, and ``Foreign Keys``
 offer the solution.
 
-Your Assignment
----------------
-
-For this studio, you'll practice writing SQL queries to perform various data
-retrieval and manipulation tasks. You will be using the ``movies`` and
-``directors`` tables described :ref:`above <directors-table>`, so if you still
-need to ``CREATE`` them, please do so now.
-
-The tables contain no data yet, so let's fix that.
-
 ``INSERT`` Data From File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -197,6 +175,14 @@ speed up the process.
       :alt: Select table contents button.
 
 OK! Your model is ready to accept queries.
+
+Your Assignment
+---------------
+
+For this studio, you'll practice writing SQL queries to perform various data
+retrieval and manipulation tasks. You will be using the ``movies`` and
+``directors`` tables described :ref:`above <directors-table>`, so if you still
+need to ``CREATE`` them, please do so now.
 
 Task List
 ^^^^^^^^^

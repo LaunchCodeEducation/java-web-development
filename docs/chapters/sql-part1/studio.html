@@ -93,24 +93,9 @@ You will also explore the parallels between Java objects and database tables.</p
 <div class="section" id="walkthrough">
 <h2>12.2.1. Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
 <p>Let’s relate what you’ve learned about SQL to interact with a database called
-<code class="docutils literal notranslate"><span class="pre">movie-buff</span></code>. We’ll start by creating a new schema and then adding two tables
-to it, <code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code>.</p>
-<ol class="arabic">
-<li><p class="first">In MySQLWorkbench, click on the <em>Create New Schema</em> button and name the new
-model <code class="docutils literal notranslate"><span class="pre">movie-buff</span></code>.</p>
-<div class="figure">
-<a class="reference internal image-reference" href="../../_images/createNewSchema.png"><img alt="Create new schema button, then assign name." src="../../_images/createNewSchema.png" style="width: 751.1999999999999px; height: 296.4px;" /></a>
-</div>
-</li>
-<li><p class="first">Click <em>Apply</em>, and accept all of the default options when prompted.</p>
-</li>
-<li><p class="first">Your new schema is now ready to use! You should see it when you click the
-<em>Schemas</em> tab.</p>
-<div class="figure">
-<img alt="movie-buff schema in the file tree." src="../../_images/movie-buffSchema.png" />
-</div>
-</li>
-</ol>
+<code class="docutils literal notranslate"><span class="pre">movie-buff</span></code> that contains two tables—<code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code>.</p>
+<p>Just as you did in the <a class="reference internal" href="exercises.html#sql-part1-exercises"><span class="std std-ref">exercises</span></a> create the new
+<code class="docutils literal notranslate"><span class="pre">movie-buff</span></code> schema.</p>
 <p>Before we create the <code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code> tables, let’s think about
 what kind of columns we want in each one.</p>
 <div class="section" id="movies-table">
@@ -233,16 +218,8 @@ a way to filter the movies based on attributes from <code class="docutils litera
 challenge is what relational databases are all about, and <code class="docutils literal notranslate"><span class="pre">Foreign</span> <span class="pre">Keys</span></code>
 offer the solution.</p>
 </div>
-</div>
-<div class="section" id="your-assignment">
-<h2>12.2.2. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
-<p>For this studio, you’ll practice writing SQL queries to perform various data
-retrieval and manipulation tasks. You will be using the <code class="docutils literal notranslate"><span class="pre">movies</span></code> and
-<code class="docutils literal notranslate"><span class="pre">directors</span></code> tables described <a class="reference internal" href="#id1"><span class="std std-ref">above</span></a>, so if you still
-need to <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> them, please do so now.</p>
-<p>The tables contain no data yet, so let’s fix that.</p>
 <div class="section" id="insert-data-from-file">
-<h3>12.2.2.1. <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> Data From File<a class="headerlink" href="#insert-data-from-file" title="Permalink to this headline">¶</a></h3>
+<h3>12.2.1.4. <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> Data From File<a class="headerlink" href="#insert-data-from-file" title="Permalink to this headline">¶</a></h3>
 <p>Rather than adding entries line by line, you will use a prepared SQL file to
 speed up the process.</p>
 <ol class="arabic">
@@ -276,8 +253,15 @@ each name.</p>
 </ol>
 <p>OK! Your model is ready to accept queries.</p>
 </div>
+</div>
+<div class="section" id="your-assignment">
+<h2>12.2.2. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
+<p>For this studio, you’ll practice writing SQL queries to perform various data
+retrieval and manipulation tasks. You will be using the <code class="docutils literal notranslate"><span class="pre">movies</span></code> and
+<code class="docutils literal notranslate"><span class="pre">directors</span></code> tables described <a class="reference internal" href="#id1"><span class="std std-ref">above</span></a>, so if you still
+need to <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> them, please do so now.</p>
 <div class="section" id="task-list">
-<h3>12.2.2.2. Task List<a class="headerlink" href="#task-list" title="Permalink to this headline">¶</a></h3>
+<h3>12.2.2.1. Task List<a class="headerlink" href="#task-list" title="Permalink to this headline">¶</a></h3>
 <p>Open up a new <em>Query</em> tab in MySQLWorkbench. In that tab, write the SQL
 commands to carry out each of the queries described below. As you complete each
 step, compare your SQL code and the output with a partner.</p>
