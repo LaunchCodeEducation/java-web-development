@@ -36,14 +36,18 @@ setters: ``username``, ``email``, ``password``.
 Rendering the Add User Form
 ---------------------------
 
-#. In the ``UserController``, create a handler method ``getAddUserForm()`` to
+#. In the ``UserController``, create a handler method ``displayAddUserForm()`` to
    render the form. This handler should correspond to the path
    ``/user/add``, and for now, it can just return the path to the
    ``add.html`` template.
 
+   .. admonition:: Tip
+
+      Don't forget to add ``/user/add`` to your path when you test your new features. 
+
 #. Within the ``add.html`` template, create a form that accepts inputs for
    each of the ``User`` class properties. Include an additional password input field to verify 
-   the password input. The form should be set up to ``POST`` to the same path where it is displayed. 
+   the password input. The form should be set up to ``POST`` to ``/user``. 
 
 #. Be sure to set ``type="password"`` for the password and verify inputs,
    to ensure the passwords are not visible when being typed into the form.
@@ -58,12 +62,19 @@ Processing Form Submission
 
    .. sourcecode:: java
 
-      public String postAddUserForm(Model model, @ModelAttribute User user, String verify) {
+      public String processAddUserForm(Model model, @ModelAttribute User user, String verify) {
          // add form submission handling code here
       }
 
    This will use model binding to create a new user object, ``user``, and
    pass it into your handler method. 
+
+   .. admonition :: Note
+   
+      You don’t need to store the ``User`` object anywhere for this studio.
+      We’re focusing on form handling and validation in this exercise. If you
+      want to keep track of users using the method we employed in the models
+      lesson video, check out the Bonus Missions below.
 
 #. Check that the ``verify`` parameter matches the
    password within the ``user`` object. If it does, render the
@@ -75,16 +86,7 @@ Refining Form Submission
 
 #. Once registered, we want the user to access the form selecting their spa services. 
 
-   #. In ``user/index.html``, add a ``th:href`` element to take the user back to the root path, ``/``, of the app, where the ``serviceSelection`` template will be rendered.
-
-   #. To greet the user by their username, add a query string to the href path: ``(username=${user.username})``.
-      Then on the service selection form and spa menu page, add an element to greet the user with the username.
-
-   #. If not signed in, we want to direct the user to do so, rather than accessing the services form directly.
-
-      #. Back on the ``customerForm`` controller method, add a username parameter to the method. If the username is
-         ``null``, you'll want to redirect them to the add user path. If the parameter is not ``null``, 
-         add it as a model attribute so the user will be greeted.
+   a. In ``user/index.html``, add a ``th:href`` element to take the user back to the root path, ``/``, of the app, where the ``serviceSelection`` template will be rendered.
 
 #. If the form is re-rendered when a password is not verified, we should let the user know that their form
    was not properly submitted. Use ``model.addAttribute`` to add an ``error`` attribute, letting the user know 
@@ -93,16 +95,11 @@ Refining Form Submission
 #. If we send a user back to re-populate the form, it would be nice to not clear their previous 
    submission. We won't need to save the password entries in this fashion.
    
-   #. In the form submission handler, add the ``username`` and ``email`` fields of the submitted user as 
+   a. In the form submission handler, add the ``username`` and ``email`` fields of the submitted user as 
       model attributes. 
    
    #. Back in the form, add a value attribute to these form fields and make them equal to the
       model attributes. 
-
-You don’t need to store the ``User`` object anywhere for this studio.
-We’re focusing on form handling and validation in this exercise. If you
-want to keep track of users using the method we employed in the models
-lesson video, check out the Bonus Missions below.
 
 Bonus Missions
 --------------
@@ -112,7 +109,7 @@ Bonus Missions
    ``org.launchcode.spaday.data`` that provides access to a list of users via
    ``add``, ``getAll``, and ``getById``.
 
-   #. In the ``user/index.html`` view, display a list of
+   a. In the ``user/index.html`` view, display a list of
       all users by username. Each username should have a link that takes
       you to a detail page that lists the user’s username and email.
 
