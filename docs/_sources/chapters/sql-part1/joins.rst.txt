@@ -21,8 +21,6 @@ Inner Join
 
 Joining two tables on an inner join produces a result set that only includes the values that match in both tables.
 
-.. TODO: Add a diagram to demonstrate what result set looks like.
-
 .. admonition:: Example
 
    If we use an inner join to combine ``JohnsonWedding`` and ``JohnsonVowRenewal`` in a query, we can see what guests are going to both the vow renewal and the wedding.
@@ -35,12 +33,15 @@ Joining two tables on an inner join produces a result set that only includes the
 
    This query will give us a result set of the first and last names of the guests from the ``JohnsonVowRenewal`` table that are also in the ``JohnsonWedding`` table.
 
+
+.. figure:: figures/innerjoin.png
+   :alt: Venn diagram highlighting just the center where the two circles meet.
+
+
 Left Outer Join
 ---------------
 
 Joining two tables on a left outer join gives us a result set will include all values in the left table and any matching records from the right table.
-
-.. TODO: Add a diagram to demonstrate what result set looks like.
 
 .. admonition:: Example 
 
@@ -52,13 +53,14 @@ Joining two tables on a left outer join gives us a result set will include all v
       FROM JohnsonWedding
       LEFT OUTER JOIN JohnsonVowRenewal ON JohnsonWedding.GuestID == JohnsonVowRenewal.GuestID;
 
+.. figure:: figures/leftouterjoin.png
+   :alt: Venn diagram highlighting the center and entirety of left circle.
+
 
 Right Outer Join
 ----------------
 
 Joining two tables on a right outer join gives us a result set that includes all values in the right table and any matching records from the left table.
-
-.. TODO: Add a diagram to demonstrate what result set looks like.
 
 .. admonition:: Example 
 
@@ -70,13 +72,13 @@ Joining two tables on a right outer join gives us a result set that includes all
       FROM JohnsonWedding
       RIGHT OUTER JOIN JohnsonVowRenewal ON JohnsonWedding.GuestID == JohnsonVowRenewal.GuestID;
 
+.. figure:: figures/rightouterjoin.png 
+   :alt: Venn diagram highlighting the center and entirety of right circle. 
 
 Full Outer Join
 ---------------
 
 Joining two tables on a full outer join gives us a result set that includes all records from both tables
-
-.. TODO: Add a diagram to demonstrate what result set looks like.
 
 .. admonition:: Example
 
@@ -88,6 +90,9 @@ Joining two tables on a full outer join gives us a result set that includes all 
       FROM MaryEvents
       FULL OUTER JOIN LeahEvents ON MaryEvents.Month == LeahEvents.Month
       WHERE MaryEvents.Month == 08;
+
+.. figure:: figures/fullouterjoin.png
+   :alt: Venn diagram with the entirety of both circles highlighted.
 
 Check Your Understanding
 ------------------------

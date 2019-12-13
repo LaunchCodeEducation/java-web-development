@@ -109,6 +109,9 @@ Whenever we join two tables, we have to specify the condition upon which the tab
 </div>
 <p class="last">This query will give us a result set of the first and last names of the guests from the <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> table that are also in the <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code> table.</p>
 </div>
+<div class="figure">
+<img alt="Venn diagram highlighting just the center where the two circles meet." src="../../_images/innerjoin.png" />
+</div>
 </div>
 <div class="section" id="left-outer-join">
 <h2>12.3.2. Left Outer Join<a class="headerlink" href="#left-outer-join" title="Permalink to this headline">¶</a></h2>
@@ -121,6 +124,9 @@ Whenever we join two tables, we have to specify the condition upon which the tab
 <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonVowRenewal</span> <span class="k">ON</span> <span class="n">JohnsonWedding</span><span class="p">.</span><span class="n">GuestID</span> <span class="o">==</span> <span class="n">JohnsonVowRenewal</span><span class="p">.</span><span class="n">GuestID</span><span class="p">;</span>
 </pre></div>
 </div>
+</div>
+<div class="figure">
+<img alt="Venn diagram highlighting the center and entirety of left circle." src="../../_images/leftouterjoin.png" />
 </div>
 </div>
 <div class="section" id="right-outer-join">
@@ -135,6 +141,9 @@ Whenever we join two tables, we have to specify the condition upon which the tab
 </pre></div>
 </div>
 </div>
+<div class="figure">
+<img alt="Venn diagram highlighting the center and entirety of right circle." src="../../_images/rightouterjoin.png" />
+</div>
 </div>
 <div class="section" id="full-outer-join">
 <h2>12.3.4. Full Outer Join<a class="headerlink" href="#full-outer-join" title="Permalink to this headline">¶</a></h2>
@@ -148,6 +157,9 @@ Whenever we join two tables, we have to specify the condition upon which the tab
 <span class="k">WHERE</span> <span class="n">MaryEvents</span><span class="p">.</span><span class="n">Month</span> <span class="o">==</span> <span class="mi">08</span><span class="p">;</span>
 </pre></div>
 </div>
+</div>
+<div class="figure">
+<img alt="Venn diagram with the entirety of both circles highlighted." src="../../_images/fullouterjoin.png" />
 </div>
 </div>
 <div class="section" id="check-your-understanding">
