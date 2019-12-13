@@ -1,4 +1,4 @@
 Enums in Model Classes
 ======================
 
-- Represent enum data in a view using a ``<select>`` element
+ Video - Enum Types in Models
