@@ -103,7 +103,7 @@ start building!
 #. Add a method signature for each of the behaviors you identified for the
    interface. For example:
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
 
       void spinDisc();
 
@@ -147,7 +147,7 @@ then run each of the behaviors you and your partner identified.
 
 .. admonition:: Example
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       myCd.spinDisc();

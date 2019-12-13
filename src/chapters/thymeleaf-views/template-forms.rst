@@ -84,7 +84,7 @@ piece of data you want to collect needs to have a unique ``name`` attribute.
 To *render* the form in the view, add a method to the controller using the
 ``@GetMapping`` annotation:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :linenos:
 
    @GetMapping("formTemplateName")
@@ -132,7 +132,7 @@ Handle Form Submission
 To *process* a form after the user clicks the *Submit* button, you need to add
 a method to the controller using the ``@PostMapping`` annotation:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :linenos:
 
    @PostMapping("formTemplateName")

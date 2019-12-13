@@ -1,3 +1,5 @@
+.. _controllers:
+
 Controllers and Routing
 =======================
 

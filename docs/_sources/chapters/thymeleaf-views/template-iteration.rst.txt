@@ -23,7 +23,7 @@ way to streamline the process.
 In Java, we use ``for/each`` loops to iterate through the items in a data
 collection.
 
-.. sourcecode:: Java
+.. sourcecode:: java
 
    for (Type item : collectionName) {
       // Code to repeat...
@@ -218,7 +218,7 @@ attributes into separate tags.
    The second format more closely mimics the appearance of a Java ``for/each``
    loop, which improves the clarity of your code.
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       for (Coffee item : coffeeOptions) {
