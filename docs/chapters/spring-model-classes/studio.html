@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>12.6. Studio: Spa User Signup &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="13. SQL Part 1" href="../sql-part1/index.html" />
+    <link rel="prev" title="12.5. Exercises: Edit Model Classes" href="exercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">12. Models and Model Binding</a></li>
+    <li class="active">12.6. Studio: Spa User Signup</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="studio-spa-user-signup">
+<h1>12.6. Studio: Spa User Signup<a class="headerlink" href="#studio-spa-user-signup" title="Permalink to this headline">¶</a></h1>
+<p>For this studio you will add functionality to allow users to sign up
+for your <code class="docutils literal notranslate"><span class="pre">spa-day</span></code> app.</p>
+<p>The starter code has been modified from where you left off last class. Grab the refactored code
+on the <a class="reference external" href="https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-starter" target="_blank">user-signup-starter branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p>You’ll notice in this branch that the name field has been removed from the service selection form. Once we
+implement user-signup functionality, we can use a given user’s name to identify the spa client. We’ve also
+moved data into a <code class="docutils literal notranslate"><span class="pre">Client</span></code> model and out of the <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code> class.</p>
+<p>In this studio, we’ll ask you to write another model, <code class="docutils literal notranslate"><span class="pre">User</span></code>. <code class="docutils literal notranslate"><span class="pre">User</span></code> and <code class="docutils literal notranslate"><span class="pre">Client</span></code> may at first
+appear redundant, but in the future as you develop your spa application, you may find a scenario where
+a user is logging in who is not also <code class="docutils literal notranslate"><span class="pre">Client</span></code>.</p>
+<div class="section" id="getting-ready">
+<h2>12.6.1. Getting Ready<a class="headerlink" href="#getting-ready" title="Permalink to this headline">¶</a></h2>
+<p>Within <code class="docutils literal notranslate"><span class="pre">spa-day</span></code>, create the following files.</p>
+<ol class="arabic simple">
+<li>Create a <code class="docutils literal notranslate"><span class="pre">UserController</span></code> in <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.controllers</span></code>. Add the
+<code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> annotation, along with <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping(&quot;user&quot;)</span></code> to
+configure routes into the controller.</li>
+<li>Create a new folder, <code class="docutils literal notranslate"><span class="pre">user/</span></code> within <code class="docutils literal notranslate"><span class="pre">resources/templates</span></code></li>
+<li>Create <code class="docutils literal notranslate"><span class="pre">index.html</span></code> and <code class="docutils literal notranslate"><span class="pre">add.html</span></code> templates within <code class="docutils literal notranslate"><span class="pre">resources/templates/user/</span></code></li>
+<li>Create a <code class="docutils literal notranslate"><span class="pre">User</span></code> class within <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.models</span></code></li>
+</ol>
+</div>
+<div class="section" id="creating-the-model">
+<h2>12.6.2. Creating the Model<a class="headerlink" href="#creating-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Your <code class="docutils literal notranslate"><span class="pre">User</span></code> class should have a few private fields with getters and
+setters: <code class="docutils literal notranslate"><span class="pre">username</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, <code class="docutils literal notranslate"><span class="pre">password</span></code>.</p>
+</div>
+<div class="section" id="rendering-the-add-user-form">
+<h2>12.6.3. Rendering the Add User Form<a class="headerlink" href="#rendering-the-add-user-form" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method <code class="docutils literal notranslate"><span class="pre">displayAddUserForm()</span></code> to
+render the form. This handler should correspond to the path
+<code class="docutils literal notranslate"><span class="pre">/user/add</span></code>, and for now, it can just return the path to the
+<code class="docutils literal notranslate"><span class="pre">add.html</span></code> template.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Don’t forget to add <code class="docutils literal notranslate"><span class="pre">/user/add</span></code> to your path when you test your new features.</p>
+</div>
+</li>
+<li><p class="first">Within the <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template, create a form that accepts inputs for
+each of the <code class="docutils literal notranslate"><span class="pre">User</span></code> class properties. Include an additional password input field to verify
+the password input. The form should be set up to <code class="docutils literal notranslate"><span class="pre">POST</span></code> to <code class="docutils literal notranslate"><span class="pre">/user</span></code>.</p>
+</li>
+<li><p class="first">Be sure to set <code class="docutils literal notranslate"><span class="pre">type=&quot;password&quot;</span></code> for the password and verify inputs,
+to ensure the passwords are not visible when being typed into the form.
+You can also set <code class="docutils literal notranslate"><span class="pre">type=&quot;email&quot;</span></code> on the email input, which will enable
+some basic client-side validation. We’ll tackle validation in more detail
+in the next studio.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="processing-form-submission">
+<h2>12.6.4. Processing Form Submission<a class="headerlink" href="#processing-form-submission" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Within the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method with this signature:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">processAddUserForm</span><span class="o">(</span><span class="n">Model</span> <span class="n">model</span><span class="o">,</span> <span class="nd">@ModelAttribute</span> <span class="n">User</span> <span class="n">user</span><span class="o">,</span> <span class="n">String</span> <span class="n">verify</span><span class="o">)</span> <span class="o">{</span>
+   <span class="c1">// add form submission handling code here</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This will use model binding to create a new user object, <code class="docutils literal notranslate"><span class="pre">user</span></code>, and
+pass it into your handler method.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">You don’t need to store the <code class="docutils literal notranslate"><span class="pre">User</span></code> object anywhere for this studio.
+We’re focusing on form handling and validation in this exercise. If you
+want to keep track of users using the method we employed in the models
+lesson video, check out the Bonus Missions below.</p>
+</div>
+</li>
+<li><p class="first">Check that the <code class="docutils literal notranslate"><span class="pre">verify</span></code> parameter matches the
+password within the <code class="docutils literal notranslate"><span class="pre">user</span></code> object. If it does, render the
+<code class="docutils literal notranslate"><span class="pre">user/index.html</span></code> view template with a message that welcomes the user by
+username. If the passwords don’t match, render the form again.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="refining-form-submission">
+<h2>12.6.5. Refining Form Submission<a class="headerlink" href="#refining-form-submission" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Once registered, we want the user to access the form selecting their spa services.<ol class="loweralpha">
+<li>In <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code>, add a <code class="docutils literal notranslate"><span class="pre">th:href</span></code> element to take the user back to the root path, <code class="docutils literal notranslate"><span class="pre">/</span></code>, of the app, where the <code class="docutils literal notranslate"><span class="pre">serviceSelection</span></code> template will be rendered.</li>
+</ol>
+</li>
+<li>If the form is re-rendered when a password is not verified, we should let the user know that their form
+was not properly submitted. Use <code class="docutils literal notranslate"><span class="pre">model.addAttribute</span></code> to add an <code class="docutils literal notranslate"><span class="pre">error</span></code> attribute, letting the user know
+that their passwords should match. This model attribute will need to correspond to an element in the template that will only render the error text when the passwords do not match.</li>
+<li>If we send a user back to re-populate the form, it would be nice to not clear their previous
+submission. We won’t need to save the password entries in this fashion.<ol class="loweralpha">
+<li>In the form submission handler, add the <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">email</span></code> fields of the submitted user as
+model attributes.</li>
+<li>Back in the form, add a value attribute to these form fields and make them equal to the
+model attributes.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="bonus-missions">
+<h2>12.6.6. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Add an <code class="docutils literal notranslate"><span class="pre">id</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with accessor methods (with
+appropriate access level). Create a <code class="docutils literal notranslate"><span class="pre">UserData</span></code> class within
+<code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.data</span></code> that provides access to a list of users via
+<code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">getAll</span></code>, and <code class="docutils literal notranslate"><span class="pre">getById</span></code>.<ol class="loweralpha">
+<li>In the <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code> view, display a list of
+all users by username. Each username should have a link that takes
+you to a detail page that lists the user’s username and email.</li>
+</ol>
+</li>
+<li>Add a <code class="docutils literal notranslate"><span class="pre">Date</span></code> field in <code class="docutils literal notranslate"><span class="pre">User</span></code>, and initialize it to the time the
+user joined (i.e.&nbsp;when the <code class="docutils literal notranslate"><span class="pre">User</span></code> object was created). Display the
+value of this property in the user detail view.</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 12.5. Exercises: Edit Model Classes</a></li>
+        
+        
+        <li class="next"><a href="../sql-part1/index.html">13. SQL Part 1 <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-classes/studio.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
