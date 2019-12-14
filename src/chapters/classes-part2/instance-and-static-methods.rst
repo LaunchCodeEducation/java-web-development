@@ -110,7 +110,7 @@ Static Methods
 We’ve already used static methods quite a bit in this course, all the way back
 to our first Java method:
 
-.. sourcecode:: Java
+.. sourcecode:: java
 
    public static void main(String[] args) {}
 

@@ -40,6 +40,7 @@ Studios
    chapters/interfaces-and-polymorphism/studio
    chapters/spring-controllers-and-routes/studio
    chapters/thymeleaf-views/studio
+   chapters/spring-model-classes/studio
    chapters/spring-model-validation/studio
 
 Assignments
