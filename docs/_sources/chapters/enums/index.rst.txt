@@ -6,3 +6,5 @@ Enum Types
 
    intro
    enums-in-models
+   exercises
+   
