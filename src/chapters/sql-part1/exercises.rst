@@ -4,8 +4,7 @@ Exercises: SQL, Part 1
 ======================
 
 In order to practice SQL commands, you must first set up a new database (model)
-on your computer. In the MySQLWorkbench program, each new model is called a
-*schema*.
+in MySQLWorkbench. In the program, each new model is called a *schema*.
 
 #. Open MySQLWorkbench and open a connection. You may be prompted once or twice
    for passwords, depending on how you set up your root.
@@ -42,8 +41,9 @@ exercises in the *Query* tab of MySQLWorkbench.
 Table Setup
 -----------
 
-For these exercises, we will use a ``seeds`` table to store information for our
-garden hopes. The table will have 4 columns:
+Imagine that you want to apply your new SQL skills to bring some order to your
+garden. For these exercises, you will use a ``seeds`` table to store
+information for your garden hopes. The table will have 4 columns:
 
 #. ``seed_id``: This is a unique number assigned to each row in the ``seeds``
    table.
@@ -52,7 +52,8 @@ garden hopes. The table will have 4 columns:
    fixation, attracts bees, etc.)
 #. ``use_by``: The year the seeds expire.
 
-The the ``crop`` and ``encourages`` columns will hold string data types,
+The ``crop`` and ``encourages`` columns will hold ``VARCHAR`` data types, and
+each must include a parameter that specifies the maximum number of characters.
 ``seed_id`` and ``use_by`` will be integers.
 
 Paste the following script into the query tab, then run it.
@@ -67,8 +68,9 @@ Paste the following script into the query tab, then run it.
       use_by INTEGER
    );
 
-Note that the SQL syntax for string data types is ``VARCHAR``, and it includes
-a parameter that specifies the maximum length of the string.
+Line 2 establishes ``seed_id`` as the unique identifier---the
+``PRIMARY KEY``---for each record in the table. ``AUTO_INCREMENT`` assigns
+every new entry a different integer value.
 
 Properly done, you should now see the ``seeds`` table within your database.
 
@@ -130,8 +132,7 @@ Read
 Open up a new query tab for the SQL commands you code in this section.
 
 #. Use ``SELECT ... FROM ...`` to list all of the data for all of the columns
-   in the ``seeds`` table. (*Hint*: Use the ``*`` wildcard instead of typing
-   out all of the column names).
+   in the ``seeds`` table.
 #. List ONLY the ``crop`` data from the table.
 #. List the ``crop`` and ``use_by`` data, and use ``ORDER BY`` to organize
    the information in *DECREASING* order by year.

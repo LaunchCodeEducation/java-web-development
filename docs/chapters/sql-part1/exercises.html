@@ -87,8 +87,7 @@
   <div class="section" id="exercises-sql-part-1">
 <span id="sql-part1-exercises"></span><h1>13.1. Exercises: SQL, Part 1<a class="headerlink" href="#exercises-sql-part-1" title="Permalink to this headline">¶</a></h1>
 <p>In order to practice SQL commands, you must first set up a new database (model)
-on your computer. In the MySQLWorkbench program, each new model is called a
-<em>schema</em>.</p>
+in MySQLWorkbench. In the program, each new model is called a <em>schema</em>.</p>
 <ol class="arabic">
 <li><p class="first">Open MySQLWorkbench and open a connection. You may be prompted once or twice
 for passwords, depending on how you set up your root.</p>
@@ -122,8 +121,9 @@ reference <a class="reference external" href="https://dev.mysql.com/doc/workbenc
 </div>
 <div class="section" id="table-setup">
 <h2>13.1.1. Table Setup<a class="headerlink" href="#table-setup" title="Permalink to this headline">¶</a></h2>
-<p>For these exercises, we will use a <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table to store information for our
-garden hopes. The table will have 4 columns:</p>
+<p>Imagine that you want to apply your new SQL skills to bring some order to your
+garden. For these exercises, you will use a <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table to store
+information for your garden hopes. The table will have 4 columns:</p>
 <ol class="arabic simple">
 <li><code class="docutils literal notranslate"><span class="pre">seed_id</span></code>: This is a unique number assigned to each row in the <code class="docutils literal notranslate"><span class="pre">seeds</span></code>
 table.</li>
@@ -132,7 +132,8 @@ table.</li>
 fixation, attracts bees, etc.)</li>
 <li><code class="docutils literal notranslate"><span class="pre">use_by</span></code>: The year the seeds expire.</li>
 </ol>
-<p>The the <code class="docutils literal notranslate"><span class="pre">crop</span></code> and <code class="docutils literal notranslate"><span class="pre">encourages</span></code> columns will hold string data types,
+<p>The <code class="docutils literal notranslate"><span class="pre">crop</span></code> and <code class="docutils literal notranslate"><span class="pre">encourages</span></code> columns will hold <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> data types, and
+each must include a parameter that specifies the maximum number of characters.
 <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> and <code class="docutils literal notranslate"><span class="pre">use_by</span></code> will be integers.</p>
 <p>Paste the following script into the query tab, then run it.</p>
 <div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -148,8 +149,9 @@ fixation, attracts bees, etc.)</li>
 <span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<p>Note that the SQL syntax for string data types is <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code>, and it includes
-a parameter that specifies the maximum length of the string.</p>
+<p>Line 2 establishes <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> as the unique identifier—the
+<code class="docutils literal notranslate"><span class="pre">PRIMARY</span> <span class="pre">KEY</span></code>—for each record in the table. <code class="docutils literal notranslate"><span class="pre">AUTO_INCREMENT</span></code> assigns
+every new entry a different integer value.</p>
 <p>Properly done, you should now see the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table within your database.</p>
 <div class="figure">
 <img alt="File tree for the seeds table." src="../../_images/seedsTableFileTree.png" />
@@ -207,8 +209,7 @@ not supplied.</p>
 <p>Open up a new query tab for the SQL commands you code in this section.</p>
 <ol class="arabic simple">
 <li>Use <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">...</span> <span class="pre">FROM</span> <span class="pre">...</span></code> to list all of the data for all of the columns
-in the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table. (<em>Hint</em>: Use the <code class="docutils literal notranslate"><span class="pre">*</span></code> wildcard instead of typing
-out all of the column names).</li>
+in the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table.</li>
 <li>List ONLY the <code class="docutils literal notranslate"><span class="pre">crop</span></code> data from the table.</li>
 <li>List the <code class="docutils literal notranslate"><span class="pre">crop</span></code> and <code class="docutils literal notranslate"><span class="pre">use_by</span></code> data, and use <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> to organize
 the information in <em>DECREASING</em> order by year.<ol class="loweralpha">
