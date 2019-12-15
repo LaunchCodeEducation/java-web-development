@@ -113,7 +113,8 @@ name in the file tree.</p>
 </li>
 </ol>
 <p>Good. You are set up for this lesson’s practice. Complete the following
-exercises in the <em>Query</em> tab of MySQLWorkbench.</p>
+exercises in the <em>Query</em> tab of MySQLWorkbench. If no query tab is currently
+open in the editor, select <em>File –&gt; New Query Tab</em>.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">If you have questions about how to use MySQLWorkbench, do not hesitate to
@@ -269,164 +270,19 @@ than any other column value in the <code class="docutils literal notranslate"><s
 expired.</li>
 </ol>
 </div>
-<div class="section" id="joins">
-<h2>13.1.6. Joins<a class="headerlink" href="#joins" title="Permalink to this headline">¶</a></h2>
-<p>In order to complete the <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> practice, you will need two new tables in
-your database. Paste and run the following SQL script in a new query tab. It
-will create and populate both tables.</p>
-<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">seed_storage</span> <span class="p">(</span>
-   <span class="n">seed_storage</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-   <span class="n">number_of_seeds</span> <span class="nb">INTEGER</span><span class="p">,</span>
-   <span class="n">drawer_number</span> <span class="nb">INTEGER</span><span class="p">,</span>
-   <span class="n">reorder</span> <span class="nb">BOOLEAN</span>
-<span class="p">);</span>
-
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">veggie</span> <span class="p">(</span>
-   <span class="n">veggie_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-   <span class="n">veggie_name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
-   <span class="n">companion_plant</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">),</span>
-   <span class="n">seed_storage</span> <span class="nb">INTEGER</span><span class="p">,</span>
-   <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">seed_storage</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">seed_storage</span><span class="p">(</span><span class="n">seed_storage</span><span class="p">)</span>
-<span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">seed_storage</span> <span class="p">(</span><span class="n">number_of_seeds</span><span class="p">,</span> <span class="n">drawer_number</span><span class="p">,</span> <span class="n">reorder</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">number_of_seeds</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">seed_storage</span> <span class="p">(</span><span class="n">number_of_seeds</span><span class="p">,</span> <span class="n">drawer_number</span><span class="p">,</span><span class="n">reorder</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">number_of_seeds</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">seed_storage</span> <span class="p">(</span><span class="n">number_of_seeds</span><span class="p">,</span> <span class="n">drawer_number</span><span class="p">,</span> <span class="n">reorder</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="n">number_of_seeds</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">seed_storage</span> <span class="p">(</span><span class="n">number_of_seeds</span><span class="p">,</span> <span class="n">drawer_number</span><span class="p">,</span> <span class="n">reorder</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">number_of_seeds</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">veggie</span> <span class="p">(</span><span class="n">veggie_name</span><span class="p">,</span> <span class="n">companion_plant</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Broccoli&quot;</span><span class="p">,</span> <span class="ss">&quot;Celery&quot;</span><span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">veggie</span> <span class="p">(</span><span class="n">veggie_name</span><span class="p">,</span> <span class="n">companion_plant</span><span class="p">,</span> <span class="n">seed_storage</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Carrot&quot;</span><span class="p">,</span> <span class="ss">&quot;Radishes &amp; Tomatoes&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">veggie</span> <span class="p">(</span><span class="n">veggie_name</span><span class="p">,</span> <span class="n">companion_plant</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Green Beans&quot;</span><span class="p">,</span> <span class="ss">&quot;Spinach, Corn &amp; Peas&quot;</span><span class="p">);</span>
-
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">veggie</span> <span class="p">(</span><span class="n">veggie_name</span><span class="p">,</span> <span class="n">companion_plant</span><span class="p">,</span> <span class="n">seed_storage</span><span class="p">)</span>
-<span class="k">VALUES</span> <span class="p">(</span><span class="ss">&quot;Rutabaga&quot;</span><span class="p">,</span> <span class="ss">&quot;Dill &amp; Sage&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-</pre></div>
-</td></tr></table></div>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">veggie</span></code> table has a <em>foreign key</em> linked to <code class="docutils literal notranslate"><span class="pre">seed_storage</span></code>.</p>
-<div class="section" id="inner-join">
-<h3>13.1.6.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic">
-<li><p class="first">Run this SQL command in a new query tab.</p>
-<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="n">veggie</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">seed_storage</span> <span class="k">ON</span> <span class="n">seed_storage</span><span class="p">.</span><span class="n">seed_storage</span> <span class="o">=</span> <span class="n">veggie</span><span class="p">.</span><span class="n">seed_storage</span><span class="p">;</span>
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Note that the output shows only two results, even though the <code class="docutils literal notranslate"><span class="pre">veggie</span></code> and
-<code class="docutils literal notranslate"><span class="pre">seed_storage</span></code> tables each contain four records.</p>
-</li>
-<li><p class="first">Summarize what <code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code> does.</p>
-</li>
-</ol>
-<div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You can list specific columns by replacing <code class="docutils literal notranslate"><span class="pre">*</span></code> with a set of column names
-(e.g. <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">veggie_name,</span> <span class="pre">drawer_number,</span> <span class="pre">number_of_seeds</span></code>).</p>
-</div>
-</div>
-<div class="section" id="left-join">
-<h3>13.1.6.2. Left Join<a class="headerlink" href="#left-join" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic">
-<li><p class="first">Run this SQL command in the same JOIN query tab.</p>
-<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="n">veggie</span>
-<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">seed_storage</span> <span class="k">ON</span> <span class="n">veggie</span><span class="p">.</span><span class="n">seed_storage</span> <span class="o">=</span> <span class="n">seed_storage</span><span class="p">.</span><span class="n">seed_storage</span><span class="p">;</span>
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Compare the output to the contents of the original <code class="docutils literal notranslate"><span class="pre">veggie</span></code> and
-<code class="docutils literal notranslate"><span class="pre">seed_storage</span></code> tables, then summarize what <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">JOIN</span></code> does.</p>
-</li>
-</ol>
-</div>
-<div class="section" id="right-join">
-<h3>13.1.6.3. Right Join<a class="headerlink" href="#right-join" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic">
-<li><p class="first">Run this SQL command in the same JOIN query tab.</p>
-<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="n">veggie</span>
-<span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">seed_storage</span> <span class="k">ON</span> <span class="n">veggie</span><span class="p">.</span><span class="n">seed_storage</span> <span class="o">=</span> <span class="n">seed_storage</span><span class="p">.</span><span class="n">seed_storage</span><span class="p">;</span>
-</pre></div>
-</td></tr></table></div>
-</li>
-<li><p class="first">Compare the output to the contents of the original <code class="docutils literal notranslate"><span class="pre">veggie</span></code> and
-<code class="docutils literal notranslate"><span class="pre">seed_storage</span></code> tables, then summarize what <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">JOIN</span></code> does.</p>
-</li>
-</ol>
-</div>
-</div>
 <div class="section" id="bonus-exercises">
-<h2>13.1.7. Bonus Exercises<a class="headerlink" href="#bonus-exercises" title="Permalink to this headline">¶</a></h2>
+<h2>13.1.6. Bonus Exercises<a class="headerlink" href="#bonus-exercises" title="Permalink to this headline">¶</a></h2>
 <p>Whew! You made it through all the exercises. Nice work!</p>
 <p>Take a quick break and, if you wish, try these additional tasks that go above
 and beyond the basic SQL commands.</p>
 <ol class="arabic simple">
-<li>Change any <code class="docutils literal notranslate"><span class="pre">crop</span></code> value of “Tomato” to “Tomahto”, but make the update
-case-insensitive (e.g. tomato, TOMATO, and Tomato would all be changed to
-Tomahto).</li>
 <li>Use logical operators (<code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code>) in <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> statements.</li>
 <li>Do you have several entries with the same <code class="docutils literal notranslate"><span class="pre">crop</span></code> value? If so, you can
 display a list that avoids repeats by using the <a class="reference external" href="https://www.w3schools.com/sql/sql_distinct.asp" target="_blank">SELECT DISTINCT<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 keywords.</li>
 <li>Experiment with <a class="reference external" href="https://www.w3schools.com/sql/sql_alter.asp" target="_blank">changing the data type<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 of a column.</li>
-<li>Explore the difference between <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">DATABASE</span> <span class="pre">table_name</span></code> vs.
+<li>Research the difference between <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">DATABASE</span> <span class="pre">table_name</span></code> vs.
 <code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">FROM</span> <span class="pre">table_name</span></code>.</li>
 </ol>
 </div>

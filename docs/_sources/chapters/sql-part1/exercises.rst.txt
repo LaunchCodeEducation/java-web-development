@@ -31,7 +31,8 @@ in MySQLWorkbench. In the program, each new model is called a *schema*.
    name in the file tree.
 
 Good. You are set up for this lesson's practice. Complete the following
-exercises in the *Query* tab of MySQLWorkbench.
+exercises in the *Query* tab of MySQLWorkbench. If no query tab is currently
+open in the editor, select *File --> New Query Tab*.
 
 .. admonition:: Tip
 
@@ -196,109 +197,6 @@ Open up a new query tab for the SQL commands you code in this section.
 #. Use a single ``DELETE`` command to remove any seeds from the table that have
    expired.
 
-Joins
------
-
-In order to complete the ``JOIN`` practice, you will need two new tables in
-your database. Paste and run the following SQL script in a new query tab. It
-will create and populate both tables.
-
-.. sourcecode:: sql
-   :linenos:
-
-   CREATE TABLE seed_storage (
-      seed_storage INTEGER PRIMARY KEY AUTO_INCREMENT,
-      number_of_seeds INTEGER,
-      drawer_number INTEGER,
-      reorder BOOLEAN
-   );
-
-   CREATE TABLE veggie (
-      veggie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-      veggie_name VARCHAR(40),
-      companion_plant VARCHAR(80),
-      seed_storage INTEGER,
-      FOREIGN KEY (seed_storage) REFERENCES seed_storage(seed_storage)
-   );
-
-   INSERT INTO seed_storage (number_of_seeds, drawer_number, reorder)
-   VALUES (150, 22, number_of_seeds <= 25);
-
-   INSERT INTO seed_storage (number_of_seeds, drawer_number,reorder)
-   VALUES (500, 3, number_of_seeds <= 25);
-
-   INSERT INTO seed_storage (number_of_seeds, drawer_number, reorder)
-   VALUES (25, 18, number_of_seeds <= 25);
-
-   INSERT INTO seed_storage (number_of_seeds, drawer_number, reorder)
-   VALUES (5, 7, number_of_seeds <= 25);
-
-   INSERT INTO veggie (veggie_name, companion_plant)
-   VALUES ("Broccoli", "Celery");
-
-   INSERT INTO veggie (veggie_name, companion_plant, seed_storage)
-   VALUES ("Carrot", "Radishes & Tomatoes", 1);
-
-   INSERT INTO veggie (veggie_name, companion_plant)
-   VALUES ("Green Beans", "Spinach, Corn & Peas");
-
-   INSERT INTO veggie (veggie_name, companion_plant, seed_storage)
-   VALUES ("Rutabaga", "Dill & Sage", 3);
-
-
-Note that the ``veggie`` table has a *foreign key* linked to ``seed_storage``.
-
-Inner Join
-^^^^^^^^^^
-
-#. Run this SQL command in a new query tab.
-
-   .. sourcecode:: sql
-      :linenos:
-
-      SELECT *
-      FROM veggie
-      INNER JOIN seed_storage ON seed_storage.seed_storage = veggie.seed_storage;
-
-#. Note that the output shows only two results, even though the ``veggie`` and
-   ``seed_storage`` tables each contain four records.
-#. Summarize what ``INNER JOIN`` does.
-
-.. admonition:: Note
-
-   You can list specific columns by replacing ``*`` with a set of column names
-   (e.g. ``SELECT veggie_name, drawer_number, number_of_seeds``).
-
-Left Join
-^^^^^^^^^
-
-#. Run this SQL command in the same JOIN query tab.
-
-   .. sourcecode:: sql
-      :linenos:
-
-      SELECT *
-      FROM veggie
-      LEFT JOIN seed_storage ON veggie.seed_storage = seed_storage.seed_storage;
-
-#. Compare the output to the contents of the original ``veggie`` and
-   ``seed_storage`` tables, then summarize what ``LEFT JOIN`` does.
-
-Right Join
-^^^^^^^^^^
-
-#. Run this SQL command in the same JOIN query tab.
-
-   .. sourcecode:: sql
-      :linenos:
-
-      SELECT *
-      FROM veggie
-      RIGHT JOIN seed_storage ON veggie.seed_storage = seed_storage.seed_storage;
-
-#. Compare the output to the contents of the original ``veggie`` and
-   ``seed_storage`` tables, then summarize what ``RIGHT JOIN`` does.
-
 Bonus Exercises
 ---------------
 
@@ -307,14 +205,11 @@ Whew! You made it through all the exercises. Nice work!
 Take a quick break and, if you wish, try these additional tasks that go above
 and beyond the basic SQL commands.
 
-#. Change any ``crop`` value of "Tomato" to "Tomahto", but make the update
-   case-insensitive (e.g. tomato, TOMATO, and Tomato would all be changed to
-   Tomahto).
 #. Use logical operators (``AND``, ``OR``, ``NOT``) in ``WHERE`` statements.
 #. Do you have several entries with the same ``crop`` value? If so, you can
    display a list that avoids repeats by using the `SELECT DISTINCT <https://www.w3schools.com/sql/sql_distinct.asp>`__
    keywords.
 #. Experiment with `changing the data type <https://www.w3schools.com/sql/sql_alter.asp>`__
    of a column.
-#. Explore the difference between ``DROP DATABASE table_name`` vs.
+#. Research the difference between ``DROP DATABASE table_name`` vs.
    ``DELETE FROM table_name``.
