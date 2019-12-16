@@ -19,6 +19,7 @@ Chapters
    chapters/thymeleaf-views/index
    chapters/spring-model-classes/index
    chapters/sql-part1/index
+   chapters/sql-part2/index
 
 .. toctree::
 
