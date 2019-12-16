@@ -118,9 +118,9 @@ operating environment.</p>
 </div>
 <p>If the response returns a version 13 or higher, you can move on to the section below,
 <a class="reference internal" href="#terminal-java"><span class="std std-ref">Java in the Terminal</span></a>.</p>
-<p>If you do not have a version of Java at 13 or higher, you can download
+<p>If you do not have a version of Java at 13 or higher or the command does not work, you can download
 it <a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk13-downloads-5672538.html" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
-The relevant install link is on the bottom of the page:</p>
+The relevant install link for your operating system is on the bottom of the page:</p>
 <div class="figure" id="id2">
 <img alt="Install Java" src="../../_images/installJava.png" />
 <p class="caption"><span class="caption-text">Install Java</span></p>
@@ -130,16 +130,17 @@ the file type options for your operating system.</p>
 <div class="admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <ul class="last simple">
-<li>Mac users, we reccommend the <code class="docutils literal notranslate"><span class="pre">.dmg</span></code> option</li>
-<li>Windows users, we reccommend the <code class="docutils literal notranslate"><span class="pre">.exe</span></code> option</li>
+<li>Mac users, we recommend the <code class="docutils literal notranslate"><span class="pre">.dmg</span></code> option</li>
+<li>Windows users, we recommend the <code class="docutils literal notranslate"><span class="pre">.exe</span></code> option</li>
 </ul>
 </div>
 <p>Once you have completed the
-installation steps, return to your terminal and enter <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-version</span></code> again to
-ensure Java has been installed.</p>
+installation steps, move onto the next section.</p>
 </div>
 <div class="section" id="java-in-the-terminal">
 <span id="terminal-java"></span><h2>1.2.3. Java in the Terminal<a class="headerlink" href="#java-in-the-terminal" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mac-users">
+<h3>1.2.3.1. Mac Users<a class="headerlink" href="#mac-users" title="Permalink to this headline">¶</a></h3>
 <p>Let’s write a simple “Hello, World” program and watch the JDK in action.</p>
 <p>In the future, we’ll be doing most of our Java coding with the IntelliJ IDE.
 IntelliJ contains many features to help us write Java properly and easily,
@@ -175,6 +176,61 @@ open a terminal window and navigate to the parent directory of your new file. Ru
 the capability to compile single-file Java programs without explicitly running a command to compile. If our
 <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World</span></code> program were more complex and contained another file, we would need to first run
 <code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">HelloWorld.java</span></code>, to compile, followed by <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">HelloWorld.java</span></code>.</p>
+</div>
+<div class="section" id="windows-users">
+<h3>1.2.3.2. Windows Users<a class="headerlink" href="#windows-users" title="Permalink to this headline">¶</a></h3>
+<p>Let’s write a simple “Hello, World” program and watch the JDK in action.</p>
+<p>In the future, we’ll be doing most of our Java coding with the IntelliJ IDE.
+IntelliJ contains many features to help us write Java properly and easily,
+including its own compiler. For now though, we’ll use a simpler text editor
+so we can demonstrate what we get with the JDK.</p>
+<p>In the text editor of your choice, create and save a file called
+<code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code> and include the code below:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, World&quot;</span><span class="o">);</span>
+   <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We’ll discuss the syntax of this program soon, but you can likely trust your gut
+that this program has an expected output of “Hello, World”.</p>
+<p>To test this hypothesis, open a terminal window and navigate to the parent directory of your new file.
+In a separate window, navigate to the Java Development Kit to get the file path. Copy the file path.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">When locating the file path for the Java Development Kit, make sure that it is pointing to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder.</p>
+</div>
+<p>Run the following command, replacing the <code class="docutils literal notranslate"><span class="pre">{filepath}</span></code> with the file path to your JDK that you just copied:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="nv">path</span><span class="o">=</span>%path%<span class="p">;</span><span class="o">{</span>filepath<span class="o">}</span>
+</pre></div>
+</div>
+<p>This command sets a path in our system for <code class="docutils literal notranslate"><span class="pre">java</span></code> so that we can compile and run Java programs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java HelloWorld.java
+</pre></div>
+</div>
+<p>You should see your greeting printed!</p>
+<p>Recall from the walk-through <a class="reference internal" href="#compiling-java"><span class="std std-ref">above</span></a>, Java needs to be be compiled before executing. Java version 11 introduced
+the capability to compile single-file Java programs without explicitly running a command to compile. If our
+<code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World</span></code> program were more complex and contained another file, we would need to first run
+<code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">HelloWorld.java</span></code>, to compile, followed by <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">HelloWorld.java</span></code>.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">These steps change the path in just that directory.
+While this is sufficient to get us through the rest of the course, you may want change the system path for your whole system.
+Check out these <a class="reference external" href="https://www.java.com/en/download/help/path.xml" target="_blank">instructions<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to change the path globally.</p>
+</div>
+</div>
 </div>
 <div class="section" id="install-intellij">
 <span id="index-2"></span><span id="id1"></span><h2>1.2.4. Install IntelliJ<a class="headerlink" href="#install-intellij" title="Permalink to this headline">¶</a></h2>
