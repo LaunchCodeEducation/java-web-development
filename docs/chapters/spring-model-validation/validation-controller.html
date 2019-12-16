@@ -87,22 +87,49 @@
   <div class="section" id="validating-models-in-a-controller">
 <span id="validating-models"></span><h1>13.3. Validating Models in a Controller<a class="headerlink" href="#validating-models-in-a-controller" title="Permalink to this headline">¶</a></h1>
 <p>Validation involves both model and controller components of an MVC application. After we have defined validation rules using annotations on the model, we must also update the controller to ensure that the rules are checked and appropriate action is taken when validation fails.</p>
-<div class="section" id="checking-request-data">
-<h2>13.3.1. Checking Request Data<a class="headerlink" href="#checking-request-data" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Using <cite>&#64;Valid</cite> in conjunction with model binding
-1. Validation flow
-2. View server error</li>
-</ol>
+<div class="section" id="validation-flow">
+<h2>13.3.1. Validation Flow<a class="headerlink" href="#validation-flow" title="Permalink to this headline">¶</a></h2>
+<p>Before diving into the details of the code, let’s consider the logical flow of control for validating data in a request. Recall our <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler from the previous chapter, which used model binding to create new <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects from form submissions.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newEvent</span><span class="o">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
 </div>
-<div class="section" id="using-the-errors-object">
-<h2>13.3.2. Using the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> Object<a class="headerlink" href="#using-the-errors-object" title="Permalink to this headline">¶</a></h2>
+<p>The flow of this request can be visualized like this:</p>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">create initial flow diagram</p>
+</div>
+<p>The request creates an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object using data from the incoming request. Regardless of what the data looks like, the new object is “saved” to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> and save it. Similarly, a user could submit the full text of the massive novel “War and Peace” as the description. This isn’t great.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Technically, submitting a request containing “War and Peace” would fail with most applications. This is because web servers typically set a limit on the maximum size of a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request. However, our application code is willing to take requests of any size, at this point.</p>
+</div>
+<p>Some modest validation rules for a new <code class="docutils literal notranslate"><span class="pre">Event</span></code> object might be:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">name</span></code> field must contain between 3 and 20 characters, and</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">description</span></code> field may be empty, but may contain no more than 500 characters.</li>
+</ul>
+<p>With these rules in place, conceptually, the flow of our controller code should look more like this:</p>
+<div class="admonition-todo admonition" id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">create flow diagram with validation</p>
+</div>
+<p>Let’s look at how we can practically do this within Spring Boot.</p>
 </div>
 <div class="section" id="handling-validation-errors-video">
-<h2>13.3.3. Handling Validation Errors - Video<a class="headerlink" href="#handling-validation-errors-video" title="Permalink to this headline">¶</a></h2>
+<h2>13.3.2. Handling Validation Errors - Video<a class="headerlink" href="#handling-validation-errors-video" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="handling-validation-errors-text">
-<h2>13.3.4. Handling Validation Errors - Text<a class="headerlink" href="#handling-validation-errors-text" title="Permalink to this headline">¶</a></h2>
+<h2>13.3.3. Handling Validation Errors - Text<a class="headerlink" href="#handling-validation-errors-text" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-valid">
+<h3>13.3.3.1. Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code><a class="headerlink" href="#using-valid" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="using-the-errors-object">
+<h3>13.3.3.2. Using the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> Object<a class="headerlink" href="#using-the-errors-object" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 

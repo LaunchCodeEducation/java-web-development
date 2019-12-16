@@ -86,14 +86,24 @@
     
   <div class="section" id="thymeleaf-form-tools">
 <h1>13.4. Thymeleaf Form Tools<a class="headerlink" href="#thymeleaf-form-tools" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="using-th-field-and-th-errors">
-<h2>13.4.1. Using <code class="docutils literal notranslate"><span class="pre">th:field</span></code> and <code class="docutils literal notranslate"><span class="pre">th:errors</span></code><a class="headerlink" href="#using-th-field-and-th-errors" title="Permalink to this headline">¶</a></h2>
-</div>
+<p>Thymeleaf provides some handy attributes for working with form fields. They make use of the fact that, when using model binding, each model field contains a lot of information about the corresponding form input needed. In particular, the model field and its annotations often determine:</p>
+<ol class="arabic simple">
+<li>The name of the form field (that is, the value of its <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute).</li>
+<li>The input type, based on the data type of the field.</li>
+<li>The validation rules and corresponding error messages for the field.</li>
+</ol>
+<p>For example, a <code class="docutils literal notranslate"><span class="pre">String</span></code> field such as <code class="docutils literal notranslate"><span class="pre">description</span></code> often uses an <code class="docutils literal notranslate"><span class="pre">input</span></code> of <code class="docutils literal notranslate"><span class="pre">type=text</span></code>. Thymeleaf provides some convenient attributes to make wiring up a form much easier and cleaner.</p>
 <div class="section" id="display-validation-errors-for-a-field-video">
-<h2>13.4.2. Display Validation Errors for a Field - Video<a class="headerlink" href="#display-validation-errors-for-a-field-video" title="Permalink to this headline">¶</a></h2>
+<h2>13.4.1. Display Validation Errors for a Field - Video<a class="headerlink" href="#display-validation-errors-for-a-field-video" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="display-validation-errors-for-a-field-text">
-<h2>13.4.3. Display Validation Errors for a Field - Text<a class="headerlink" href="#display-validation-errors-for-a-field-text" title="Permalink to this headline">¶</a></h2>
+<h2>13.4.2. Display Validation Errors for a Field - Text<a class="headerlink" href="#display-validation-errors-for-a-field-text" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-th-field">
+<h3>13.4.2.1. Using <code class="docutils literal notranslate"><span class="pre">th:field</span></code><a class="headerlink" href="#using-th-field" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="using-th-errors">
+<h3>13.4.2.2. Using <code class="docutils literal notranslate"><span class="pre">th:errors</span></code><a class="headerlink" href="#using-th-errors" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
