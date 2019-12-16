@@ -144,10 +144,8 @@ Open up a new query tab for the SQL commands you code in this section.
    a. *Bonus*: For entries with matching ``use_by`` values, order first by
       year and then alphabetically by crop name.
 
-#. List the complete records for the seeds, but only if the ``encourages``
-   column is not ``null``. You will need to include a ``WHERE`` in your SQL
-   command.
-#. List a single entry based on its ``seed_id`` value.
+#. List a single entry based on its ``seed_id`` value. You will need to
+   include a ``WHERE`` in your SQL command.
 
 Update
 ------
@@ -209,6 +207,8 @@ Take a quick break and, if you wish, try these additional tasks that go above
 and beyond the basic SQL commands.
 
 #. Use logical operators (``AND``, ``OR``, ``NOT``) in ``WHERE`` statements.
+#. List the complete records for the seeds, but only if the ``encourages``
+   column ``IS NOT null``.
 #. Do you have several entries with the same ``crop`` value? If so, you can
    display a list that avoids repeats by using the `SELECT DISTINCT <https://www.w3schools.com/sql/sql_distinct.asp>`__
    keywords.

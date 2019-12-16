@@ -219,10 +219,8 @@ the information in <em>DECREASING</em> order by year.<ol class="loweralpha">
 year and then alphabetically by crop name.</li>
 </ol>
 </li>
-<li>List the complete records for the seeds, but only if the <code class="docutils literal notranslate"><span class="pre">encourages</span></code>
-column is not <code class="docutils literal notranslate"><span class="pre">null</span></code>. You will need to include a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> in your SQL
-command.</li>
-<li>List a single entry based on its <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> value.</li>
+<li>List a single entry based on its <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> value. You will need to
+include a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> in your SQL command.</li>
 </ol>
 </div>
 <div class="section" id="update">
@@ -278,6 +276,8 @@ expired.</li>
 and beyond the basic SQL commands.</p>
 <ol class="arabic simple">
 <li>Use logical operators (<code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code>) in <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> statements.</li>
+<li>List the complete records for the seeds, but only if the <code class="docutils literal notranslate"><span class="pre">encourages</span></code>
+column <code class="docutils literal notranslate"><span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">null</span></code>.</li>
 <li>Do you have several entries with the same <code class="docutils literal notranslate"><span class="pre">crop</span></code> value? If so, you can
 display a list that avoids repeats by using the <a class="reference external" href="https://www.w3schools.com/sql/sql_distinct.asp" target="_blank">SELECT DISTINCT<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 keywords.</li>
