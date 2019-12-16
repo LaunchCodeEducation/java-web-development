@@ -1,107 +1,74 @@
 Studio: Spa User Validation
 ===========================
 
-We’ll build on the `User Signup <../user-signup/>`__ studio from last
+We’ll build on the :ref:`User Signup <user-signup-studio>` studio from last
 class, adding in model validation.
 
 Getting Started
 ---------------
 
-Open up your ``cheese-mvc`` application and navigate to the ``User``
-model class.
+Open up your ``spa-day`` application and checkout the `user-signup-pt2 <git@github.com:LaunchCodeEducation/spa-day-starter-code.git>`__ branch. 
 
 Add Validation Annotations
 --------------------------
 
-Let’s take our first steps toward enabling validation. Add `validation
-annotations <http://docs.oracle.com/javaee/6/tutorial/doc/gircz.html>`__
+Navigate to the ``User`` model class. Add `validation
+annotations <https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/>`__
 to ensure these conditions are satisfied:
 
--  Username, password, and verify are required (they can’t be empty)
--  Username is between 5 and 15 characters
--  Email is optional
--  If provided, the email has the format of a valid email address.
-
-   **How to do this**: The Java Validation API doesn’t provide an
-   annotation to validate an email address. However, one is provided by
-   the `Hibernate
-   Validator <https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#validator-defineconstraints-hv-constraints>`__
-   library. This library is already in your project, since it’s included
-   in the ``spring-boot-starter-web`` dependency that’s part of our
-   Gradle configuration. You can use any of these annotations in the
-   same way you’ve been using the Java Validation API annotations.
--  The password and verify fields match.
-
-   **How to do this**: Your ``verify`` parameter in the form handler is
-   not part of the user class, so checking that the ``User`` object’s
-   password matches the ``verify`` isn’t possible using validation
-   annotations. We’ll walk through these details on how to manually
-   conduct this check below.
--  The password is at least 6 characters long
+#.  Username, password, and verify are required (they can’t be empty)
+#.  Username is between 5 and 15 characters
+#.  Email is optional
+#.  If provided, the email has the format of a valid email address.
+#.  The password is at least 6 characters long
 
 Using the Model to Render the Form
 ----------------------------------
 
 In the ``UserController``, modify the ``add`` method that displays the
-form so that it passes in an “empty” ``User`` object with:
+form so that it passes in an empty ``User`` object with:
 
-.. code:: java
+.. sourcecode:: java
 
    model.addAttribute(new User());
 
 This object will be accessible in the template, by name, as ``user``.
-Within the template, use this object within the form by adding
-``th:object="${user}"`` to the form element. Then you can use the
-``th:for``, ``th:field`` and ``th:errors`` tags within the form as
-outlined in the `lesson on
-validation <../../videos/intro-to-spring-boot-model-validation>`__.
 
-While you’re in the ``add.html`` template, make sure that the password
-and verify fields have ``type="password"`` in the form markup, and that
-the email field has ``type="email"``.
+.. admonition:: Tip
 
-.. raw:: html
+   Now that you're passing in an empty ``User`` object, you may notice some redundant code
+   in your ``processAddUserForm`` controller. Remove the model attribute additions
+   and update the ``user/add`` template to make use of the model fields (eg. ``user.username``).
 
-   <aside class="aside-pro-tip">
-
-This last item will provide some client-side validation on the email
-field, but we shouldn’t consider that sufficient. Even with client-side
+While you’re in the ``add.html`` template remove the ``type="email"`` designation from the email 
+input. The last studio had you add this type to provide some client-side validation on the email
+field, but we shouldn’t consider that sufficient. Now that we know how to use model validation to 
+validate an email field, we'll favor this technique over client-side validation. Even with client-side 
 validation (that is, in the browser), you should always validate data on
 the server as well. You might want to provide constraints in addition to
 or beyond what the browser does, and it’s also possible for a clever
-(or, more often, malicious) user to bypass the browser’s validation.
+(or, more often, malicious) user to bypass the browser’s validation. For this studio, we'll remove the 
+input type to make it easier to test the server-side validation.
 
-.. raw:: html
-
-   </aside>
 
 Validating Form Submission Data
 -------------------------------
 
-.. raw:: html
-
-   <aside class="aside-warning">
-
-If you did any of the Bonus Missions in the previous studio, you’ll be
-tearing out some of that code, since we’ll now have the framework handle
-validation. Don’t worry, it’ll be worth it!
-
-.. raw:: html
-
-   </aside>
-
 Now that you have your form set up, go back to ``UserController`` and
 add validation on form submission by adding the ``@Valid`` annotation to
 the ``User`` parameter that is bound, along with an additional
-parameter: ``Errors errors``. **You must put this parameter directly
-after the ``User`` parameter in the method definition for it to work
-properly.**
+parameter: ``Errors errors``. 
 
-Within the ``add`` handler, check for errors configured by the
+.. admonition:: Warning 
+
+   Remember, you must put this parameter directly
+   after the ``User`` parameter in the method definition for it to work
+   properly.
+
+Within the ``processAddUserForm`` handler, check for errors configured by the
 validation annotation using ``errors.hasErrors()``. If this returns
-``true``, return the user to the form. Be sure to add the ``user``
-object to the ``model`` in this case: ``model.addAttribute(user)``. The
-``user`` object contains the error messages associated with validation.
+``true``, return the user to the form. 
+
 
 Validating That Passwords Match
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -111,44 +78,24 @@ machinery to validate that the two password fields match given the setup
 we have here. Checking ``errors.hasErrors()`` will only tell us if there
 are errors in other form data fields.
 
-To check that the two password fields match, you’ll need to manually
-compare them. At this point, our method signature is:
-
-.. code:: java
-
-   public String add(Model model, @ModelAttribute @Valid User user,
-                         Errors errors, String verify)
-
-We can access the primary password field by using
-``user.getPassword()``. Make sure that neither this value nor the
-``verify`` variable are null, and then compare them with ``.equals()``.
-If one of them is null, or if they don’t match, then add a custom error
-message to ``model`` and clear the password field so it isn’t displayed
-when we return the form: ``user.setPassword("")``. Finally, return the
-form, and manually add markup in ``add.html`` to display this error.
-
+Last studio, we added some validation checks to make sure the password fields match.
 Now we have two validation sections: one for the annotation-configured
 validation (which checks ``errors.hasErrors()``), and one that checks
 that the password fields match. Make sure they work in-sync with each
 other to properly return to the form if any of the validation conditions
 fail.
 
-.. raw:: html
+.. admonition:: Tip
 
-   <aside class="aside-pro-tip">
+   You can, in fact, validate that passwords match using annotations by
+   taking a slightly more difficult approach than we’ve done here. We
+   outline how to do so in the Bonus Mission section.
 
-You can, in fact, validate that passwords match using annotations by
-taking a slightly more difficult approach than we’ve done here. We
-outline how to do so in the Bonus Mission section.
-
-.. raw:: html
-
-   </aside>
 
 Test, Test, Test!
 -----------------
 
-You made a lot of changes! Be sure to throughly test them to make sure
+You made a lot of changes! Be sure to thoroughly test them to make sure
 everything works as expected.
 
 Bonus Mission
@@ -163,7 +110,7 @@ fields match using annotations.
    ``password`` and ``verifyPassword``. If neither is ``null`` and they
    don’t match, then set ``verifyPassword = null``.
 3. In both ``setPassword`` and ``setVerifyPassword``, call
-   ``checkPassword`` **after** setting the given field.
+   ``checkPassword`` *after* setting the given field.
 4. Add ``@NotNull`` to the ``verifyPassword`` field with the error
    message: “Passwords do not match”.
 5. Refactor the controller and ``add.html`` template to use the
