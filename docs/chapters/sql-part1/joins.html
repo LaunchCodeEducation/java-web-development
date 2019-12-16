@@ -99,71 +99,71 @@ Whenever we join two tables, we have to specify the condition upon which the tab
 <p>No matter which join you are working with, the general syntax for the query looks like so:</p>
 <div class="highlight-mysql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">ColumnName1</span><span class="p">,</span> <span class="n">ColumnName2</span><span class="p">,</span> <span class="p">....</span>
-<span class="k">FROM</span> <span class="n">TableA</span>
-<span class="n">TYPEOFJOIN</span> <span class="k">JOIN</span> <span class="n">TableB</span> <span class="k">ON</span> <span class="n">TableA</span><span class="p">.</span><span class="n">ColumnName1</span> <span class="o">==</span> <span class="n">TableB</span><span class="p">.</span><span class="n">ColumnName1</span><span class="p">;</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">column_name_1</span><span class="p">,</span> <span class="n">column_name_2</span><span class="p">,</span> <span class="p">....</span>
+<span class="k">FROM</span> <span class="n">table_a</span>
+<span class="n">TYPEOFJOIN</span> <span class="k">JOIN</span> <span class="n">table_b</span> <span class="k">ON</span> <span class="n">table_a</span><span class="p">.</span><span class="n">column_name_1</span> <span class="o">==</span> <span class="n">table_b</span><span class="p">.</span><span class="n">column_name_1</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 <p>In this general query, we specified what columns we want (or we could have used the <code class="docutils literal notranslate"><span class="pre">*</span></code> to read data from all columns).
-We have also specified that <code class="docutils literal notranslate"><span class="pre">TableA</span></code> is the <em>left</em> table and that <code class="docutils literal notranslate"><span class="pre">TableB</span></code> is the <em>right</em> table.
+We have also specified that <code class="docutils literal notranslate"><span class="pre">table_a</span></code> is the <em>left</em> table and that <code class="docutils literal notranslate"><span class="pre">table_b</span></code> is the <em>right</em> table.
 On line 3, we need to include the type of join as part of our query with the <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> keyword and the condition upon which we are joining the tables.
 Our condition follows the <code class="docutils literal notranslate"><span class="pre">ON</span></code> keyword and tells MySQL what we believe to be matching records.
 This may mean we want to join on matching customer ids or matching dollar amounts or matching dates depending on the tables we are working with and what questions we need to answer.</p>
 <div class="section" id="inner-join">
 <span id="index-1"></span><h2>12.3.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h2>
-<p>Joining two tables on an <strong>inner join</strong> produces a result set that only includes the values that match in both tables.</p>
+<p>Joining two tables with an <strong>inner join</strong> produces a result set that only includes the values that are present in <em>both</em> tables.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>If we use an inner join to combine <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code> and <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> in a query, we can see what guests are going to both the vow renewal and the wedding.</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span>
-<span class="k">FROM</span> <span class="n">JohnsonVowRenewal</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">JohnsonWedding</span> <span class="k">ON</span> <span class="n">JohnsonVowRenewal</span><span class="p">.</span><span class="n">GuestID</span> <span class="o">==</span> <span class="n">JohnsonWedding</span><span class="p">.</span><span class="n">GuestID</span><span class="p">;</span>
+<p>If we use an inner join to combine <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> and <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> in a query, we can see what guests are going to both the vow renewal and the wedding.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
+<span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">johnson_wedding</span> <span class="k">ON</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>This query will give us a result set of the first and last names of the guests from the <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> table that are also in the <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code> table.</p>
+<p>This query will give us a result set of the first and last names of the guests from the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> table that are also in the <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> table.</p>
 <div class="figure">
 <img alt="Venn diagram highlighting just the center where the two circles meet." src="../../_images/innerjoin.png" />
 </div>
-<p class="last">The venn diagram above shows the result set highlighted in blue.</p>
+<p class="last">The Venn diagram above shows the result set highlighted in blue.</p>
 </div>
 </div>
 <div class="section" id="left-outer-join">
 <span id="index-2"></span><h2>12.3.2. Left Outer Join<a class="headerlink" href="#left-outer-join" title="Permalink to this headline">¶</a></h2>
-<p>Joining two tables on a <strong>left outer join</strong> gives us a result set will include all values in the left table and any matching records from the right table.</p>
+<p>Joining two tables with a <strong>left outer join</strong> gives us a result set which includes all values in the left table and any matching records from the right table.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>If we use a left inner join to combine <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code> and <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> in a query, we can see what all of the guests that were invited to the wedding and any guests who were also invited to the vow renewal.</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span>
-<span class="k">FROM</span> <span class="n">JohnsonWedding</span>
-<span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonVowRenewal</span> <span class="k">ON</span> <span class="n">JohnsonWedding</span><span class="p">.</span><span class="n">GuestID</span> <span class="o">==</span> <span class="n">JohnsonVowRenewal</span><span class="p">.</span><span class="n">GuestID</span><span class="p">;</span>
+<p>If we use a left outer join to combine <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> and <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> in a query, the result set includes all of the guests invited to the wedding and any guests who were also invited to the vow renewal.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
+<span class="k">FROM</span> <span class="n">johnson_wedding</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">johnson_vow_renewal</span> <span class="k">ON</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="Venn diagram highlighting the center and entirety of left circle." src="../../_images/leftouterjoin.png" />
 </div>
-<p class="last">The venn diagram above shows the result set highlighted in blue.</p>
+<p class="last">The Venn diagram above shows the result set highlighted in blue.</p>
 </div>
 </div>
 <div class="section" id="right-outer-join">
 <span id="index-3"></span><h2>12.3.3. Right Outer Join<a class="headerlink" href="#right-outer-join" title="Permalink to this headline">¶</a></h2>
-<p>Joining two tables on a <strong>right outer join</strong> gives us a result set that includes all values in the right table and any matching records from the left table.</p>
+<p>Joining two tables with a <strong>right outer join</strong> gives us a result set that includes all values in the right table and any matching records from the left table.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>If we use a right inner join to combine <code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code> and <code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> in a query, we can see what all of the guests that were invited to the vow renewal and any guests who were also invited to the wedding.</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">LastName</span><span class="p">,</span> <span class="n">FirstName</span>
-<span class="k">FROM</span> <span class="n">JohnsonWedding</span>
-<span class="k">RIGHT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonVowRenewal</span> <span class="k">ON</span> <span class="n">JohnsonWedding</span><span class="p">.</span><span class="n">GuestID</span> <span class="o">==</span> <span class="n">JohnsonVowRenewal</span><span class="p">.</span><span class="n">GuestID</span><span class="p">;</span>
+<p>If we use a right inner join to combine <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> and <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> in a query, the result set includes all of the guests that were invited to the vow renewal and any guests who were also invited to the wedding.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
+<span class="k">FROM</span> <span class="n">johnson_wedding</span>
+<span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">johnson_vow_renewal</span> <span class="k">ON</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="figure">
 <img alt="Venn diagram highlighting the center and entirety of right circle." src="../../_images/rightouterjoin.png" />
 </div>
-<p class="last">The venn diagram above shows the result set highlighted in blue.</p>
+<p class="last">The Venn diagram above shows the result set highlighted in blue.</p>
 </div>
 </div>
 <div class="section" id="full-outer-join">
 <span id="index-4"></span><h2>12.3.4. Full Outer Join<a class="headerlink" href="#full-outer-join" title="Permalink to this headline">¶</a></h2>
-<p>Joining two tables on a <strong>full outer join</strong> gives us a result set that includes all records from both tables.
+<p>Joining two tables with a <strong>full outer join</strong> gives us a result set that includes all records from both tables.
 Full outer joins are important to SQL, but the syntax is not supported in MySQL.
 Instead, to achieve a full outer join, you have to work with a left outer join and a right outer join.
 To show what a full outer join looks like in other types of SQL, we have simulated some possible syntax below.</p>
@@ -179,7 +179,18 @@ To show what a full outer join looks like in other types of SQL, we have simulat
 <div class="figure">
 <img alt="Venn diagram with the entirety of both circles highlighted." src="../../_images/fullouterjoin.png" />
 </div>
-<p class="last">The venn diagram above shows the result set highlighted in blue.</p>
+<p class="last">The Venn diagram above shows the result set highlighted in blue.</p>
+</div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If you do want to try out a full outer join, the syntax to simulate it looks some like this:</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">table_a</span> <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">table_b</span> <span class="k">ON</span> <span class="n">table_a</span><span class="p">.</span><span class="n">column_name_1</span> <span class="o">=</span> <span class="n">table_b</span><span class="p">.</span><span class="n">column_name_1</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">table_a</span> <span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">table_b</span> <span class="k">ON</span> <span class="n">table_a</span><span class="p">.</span><span class="n">column_name_1</span> <span class="o">=</span> <span class="n">table_b</span><span class="p">.</span><span class="n">column_name_2</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">UNION</span></code> is used to bring together the result sets of 2 <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> queries.
+Check out the <a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/union.html" target="_blank">documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for more information on how <code class="docutils literal notranslate"><span class="pre">UNION</span></code> works.</p>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
@@ -192,15 +203,15 @@ To show what a full outer join looks like in other types of SQL, we have simulat
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What bugs are in this SQL query? Select all that apply.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
-<span class="k">FROM</span> <span class="n">JohnsonVowRenewal</span>
-<span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonWeding</span> <span class="k">ON</span> <span class="n">JohnsonVowRenewal</span><span class="p">.</span><span class="n">GuestID</span> <span class="o">==</span> <span class="n">JohnsonWedding</span><span class="p">.</span><span class="n">GuestID</span>
+<span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
+<span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonWeding</span> <span class="k">ON</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span>
 </pre></div>
 </div>
 <ol class="last loweralpha simple">
 <li>Nothing specified after <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">JohnsonVowRenewal</span></code> is spelled wrong.</li>
+<li><code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> is spelled wrong.</li>
 <li>The type of join is not specified.</li>
-<li><code class="docutils literal notranslate"><span class="pre">JohnsonWedding</span></code> is spelled wrong.</li>
+<li><code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> is spelled wrong.</li>
 <li><code class="docutils literal notranslate"><span class="pre">ON</span></code> is in the wrong place.</li>
 <li>There isn’t a semicolon on the end of the SQL query.</li>
 </ol>

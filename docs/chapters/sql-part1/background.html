@@ -95,13 +95,13 @@ Relational databases provide flexibility for both expansion of the database and 
 <p>In order to access our information, we need to use a tool that can talk to a relational database.
 <strong>Structured Query Language</strong> or <strong>SQL</strong> is the main tool used by programmers to work with these data structures.
 SQL is a <strong>Relational Database Management System</strong> or <strong>RDMS</strong>.
-We can use SQL to perform CRUD operations on a database, combine two tables, and many other important operations.</p>
+We can use SQL to perform many essential operations on a database, such as adding and removing data.</p>
 <div class="section" id="mysql">
 <h2>12.1.1. MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
 <p>There are many different types of SQL. For this class, we will be using <a class="reference external" href="https://dev.mysql.com/" target="_blank">MySQL<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 MySQL is open-source and user-friendly.</p>
 <p>To get started with the chapter, you need to <a class="reference internal" href="../../appendices/sql-install.html#sql-installation"><span class="std std-ref">install MySQL</span></a> and the appropriate tooling.</p>
-<p>MySQL has many of the data types we are already familiar with from working with Java. However, what we may think of as a string, possibly has a different name in MySQL.</p>
+<p>MySQL has many of the same data types as Java. However, some of the types, like <code class="docutils literal notranslate"><span class="pre">String</span></code>, have a different name in MySQL.</p>
 <div class="section" id="numbers">
 <h3>12.1.1.1. Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
 <p>For integers, we will be using the <code class="docutils literal notranslate"><span class="pre">INT</span></code> data type. As you grow in your career, you may see others such as <code class="docutils literal notranslate"><span class="pre">BIGINT</span></code> or <code class="docutils literal notranslate"><span class="pre">MEDIUMINT</span></code> in MySQL databases.
@@ -112,7 +112,7 @@ The <a class="reference external" href="https://dev.mysql.com/doc/refman/8.0/en/
 <h3>12.1.1.2. Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
 <p>There is no <code class="docutils literal notranslate"><span class="pre">STRING</span></code> type in MySQL.
 Instead, we use the <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> type.
-<code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> produces a string of variable length, however, we have to tell MySQL how long the string will be <em>at a maximum</em>.
+<code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> produces a string of variable length, but we have to tell MySQL how long the string will be <em>at a maximum</em>.
 Therefore, when we use <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> in a declaration, we add the maximum number of characters like so: <code class="docutils literal notranslate"><span class="pre">VARCHAR(250)</span></code>. That declaration specifies that the string will be, at a maximum, 250 characters.</p>
 </div>
 <div class="section" id="boolean">
@@ -125,7 +125,7 @@ Therefore, when we use <code class="docutils literal notranslate"><span class="p
 <h2>12.1.2. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Which of the following are supported data types in MySQL? Select all that are correct.</p>
+<p>Which of the following are supported data types in MySQL? Select ALL that are correct.</p>
 <ol class="last upperalpha simple">
 <li><code class="docutils literal notranslate"><span class="pre">TINYINT</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">INTEGER</span></code></li>

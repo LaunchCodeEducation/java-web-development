@@ -14,7 +14,7 @@ Relational databases provide flexibility for both expansion of the database and 
 In order to access our information, we need to use a tool that can talk to a relational database. 
 **Structured Query Language** or **SQL** is the main tool used by programmers to work with these data structures.
 SQL is a **Relational Database Management System** or **RDMS**. 
-We can use SQL to perform CRUD operations on a database, combine two tables, and many other important operations.
+We can use SQL to perform many essential operations on a database, such as adding and removing data.
 
 MySQL
 -----
@@ -24,7 +24,7 @@ MySQL is open-source and user-friendly.
 
 To get started with the chapter, you need to :ref:`install MySQL <sql-installation>` and the appropriate tooling.
 
-MySQL has many of the data types we are already familiar with from working with Java. However, what we may think of as a string, possibly has a different name in MySQL.
+MySQL has many of the same data types as Java. However, some of the types, like ``String``, have a different name in MySQL.
 
 Numbers
 ^^^^^^^
@@ -39,7 +39,7 @@ Strings
 
 There is no ``STRING`` type in MySQL.
 Instead, we use the ``VARCHAR`` type.
-``VARCHAR`` produces a string of variable length, however, we have to tell MySQL how long the string will be *at a maximum*.
+``VARCHAR`` produces a string of variable length, but we have to tell MySQL how long the string will be *at a maximum*.
 Therefore, when we use ``VARCHAR`` in a declaration, we add the maximum number of characters like so: ``VARCHAR(250)``. That declaration specifies that the string will be, at a maximum, 250 characters.
 
 Boolean
@@ -53,7 +53,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Which of the following are supported data types in MySQL? Select all that are correct.
+   Which of the following are supported data types in MySQL? Select ALL that are correct.
 
    A. ``TINYINT``
    B. ``INTEGER``

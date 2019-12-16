@@ -25,8 +25,7 @@ Let's see how we can do this with SQL!
 Create
 ------
 
-When we talk about creating something in SQL, we could want to perform several operations.
-We may want to create a table, add a row, or add a column.
+When we talk about creating something in SQL, we could want to create a table, add a row, or add a column.
 
 Creating a Table
 ^^^^^^^^^^^^^^^^
@@ -45,15 +44,15 @@ To add a table to our database for the Li wedding, we need to use the ``CREATE T
 .. sourcecode:: mysql
    :linenos:
 
-   CREATE TABLE LiWedding (
-      GuestID int,
-      LastName varchar(255),
-      FirstName varchar(255),
-      Attending BOOL,
-      Diet varchar(255)  
+   CREATE TABLE li_wedding (
+      guest_id INT,
+      last_name VARCHAR(255),
+      first_name VARCHAR(255),
+      attending BOOL,
+      diet VARCHAR(255)  
    );
 
-This query creates a new table in our database called ``LiWedding``. This table contains five columns: ``GuestID`` of type ``int``, ``LastName`` of type ``varchar(255)``, ``FirstName`` of type ``varchar(255)``, ``Attending`` of type ``BOOL``, ``Diet`` of type ``varchar(255)``.
+This query creates a new table in our database called ``li_wedding``. This table contains five columns: ``guest_id`` of type ``INT``, ``last_name`` of type ``VARCHAR(255)``, ``first_name`` of type ``VARCHAR(255)``, ``attending`` of type ``BOOL``, ``diet`` of type ``VARCHAR(255)``.
 When we use ``CREATE TABLE`` to create a table from scratch, we will end up with an empty table. We will learn how to add to a table a little further down the page.
 
 Creating a Table from Another Table
@@ -64,21 +63,21 @@ When doing so, the new table will also include any existing data from the origin
 
 Mary is also planning a vow renewal for Mr. and Mrs. Johnson.
 Since the Johnsons haven't made any new friends in the past 5 years, they want the guest list to be the exact same.
-A good place to start would be to create a table called ``JohnsonVowRenewal`` from the table called ``JohnsonWedding``.
+A good place to start would be to create a table called ``johnson_vow_renewal`` from the table called ``johnson_wedding``.
 Due to some wedding drama, Mr. and Mrs. Johnson will also be avoiding inviting anyone who didn't show up for the first wedding.
 
 .. sourcecode:: mysql
    :linenos:
 
-   CREATE TABLE JohnsonVowRenewal
-   AS GuestID, LastName, FirstName, Attending, Diet
-   FROM JohnsonWedding
-   WHERE (Attending == 1);
+   CREATE TABLE johnson_vow_renewal
+   AS guest_id, last_name, first_name, attending, diet
+   FROM johnson_wedding
+   WHERE (attending == 1);
 
-This query creates the ``JohnsonVowRenewal`` table with the same columns as ``JohnsonWedding``.
-We use ``AS`` to specify the columns that will be carried over from the ``JohnsonWedding`` table to the ``JohnsonVowRenewal``.
-The ``WHERE`` condition in the query specifies that we only want the rows from ``JohnsonWedding`` in ``JohnsonVowRenewal`` *where* the guest was in attendance (or ``Attending == 1``).
-If we did *not* add a ``WHERE`` condition, then we would have copied over all of the data from ``JohnsonWedding``.
+This query creates the ``johnson_vow_renewal`` table with the same columns as ``johnson_wedding``.
+We use ``AS`` to specify the columns that will be carried over from the ``johnson_wedding`` table to the ``johnson_vow_renewal``.
+The ``WHERE`` condition in the query specifies that we only want the rows from ``johnson_wedding`` in ``johnson_vow_renewal`` *where* the guest was in attendance (or ``attending == 1``).
+If we did *not* add a ``WHERE`` condition, then we would have copied over all of the data from ``johnson_wedding``.
 
 Adding a Row
 ^^^^^^^^^^^^
@@ -91,21 +90,21 @@ Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed t
 
 .. sourcecode:: mysql
 
-   INSERT INTO JohnsonVowRenewal
+   INSERT INTO johnson_vow_renewal
    VALUES (185, "Johnson", "Eliza", 1, "Vegan");
 
-This query adds a row for Eliza to the ``JohnsonVowRenewal`` table in our database.
+This query adds a row for Eliza to the ``johnson_vow_renewal`` table in our database.
 
 If we wanted to add a row, but only add values to specific columns in the table, we can do so! We simply need to add the names of the columns that we will be adding data to.
 
-In the case of inviting people the Johnson's vow renewal, we may want to invite Eliza's sister, Felicity, as well. However, we do not have confirmed Felicity's dietary preferences or whether or not she is coming.
+In the case of inviting people the Johnson's vow renewal, we may want to invite Eliza's sister, Felicity, as well. However, we have not confirmed Felicity's dietary preferences or whether or not she is coming.
 
 .. sourcecode:: mysql
 
-   INSERT INTO JohnsonVowRenewal (GuestID, LastName, FirstName)
+   INSERT INTO johnson_vow_renewal (guest_id, last_name, first_name)
    VALUES (186, "Johnson", "Felicity");
 
-By adding the column names in parantheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: ``GuestID``, ``LastName``, and ``FirstName``.
+By adding the column names in parantheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: ``guest_id``, ``last_name``, and ``first_name``.
 
 .. admonition:: Note
 
@@ -115,16 +114,16 @@ Adding a column
 ^^^^^^^^^^^^^^^
 
 Sometimes, we may also need to add a column to our table. Some of the caterers Mary works with have asked that she confirm how many people are of drinking age.
-We may now want to add a column to our ``LiWedding`` table that contains either ``1`` or ``0`` depending on whether the guest is legally old enough to drink.
+We may now want to add a column to our ``li_wedding`` table that contains either ``1`` or ``0`` depending on whether the guest is legally old enough to drink.
 
 To add a column, we need to start with an ``ALTER TABLE`` statement. ``ALTER TABLE`` can be used to perform different operations, so in our case, we will also need to specify that we want to ``ADD`` a column.
 
 .. sourcecode:: mysql
 
-   ALTER TABLE LiWedding
-   ADD CanDrink boolean;
+   ALTER TABLE li_wedding
+   ADD can_drink boolean;
 
-This adds the ``CanDrink`` column to the ``LiWedding`` table, but it does *not* fill that column with values. We will need to update each guest's entry in the table once we confirm how old they are.
+This adds the ``can_drink`` column to the ``li_wedding`` table, but it does *not* fill that column with values. We will need to update each guest's entry in the table once we confirm how old they are.
 
 .. admonition:: Note
 
@@ -141,19 +140,19 @@ In general, ``SELECT`` statements look like the following:
 
 .. sourcecode:: mysql
 
-   SELECT ColumnName1, ColumnName2, ...
-   FROM TableName
+   SELECT column_name_1, column_name_2, ...
+   FROM table_name
    WHERE some conditional is true.
 
 If Mary wants to get the information of all of the guests who are vegetarian at the Li wedding, we need to use a ``SELECT`` statement to pull the first and last names of guests who will be in attendance and are vegetarian.
-So, we will ``SELECT`` the ``LastName`` and ``FirstName`` columns ``FROM`` the ``LiWedding`` table ``WHERE`` the value of ``Attending`` is ``TRUE`` and the value of ``Diet`` is ``"vegetarian"``.
+So, we will ``SELECT`` the ``last_name`` and ``first_name`` columns ``FROM`` the ``li_wedding`` table ``WHERE`` the value of ``attending`` is ``TRUE`` and the value of ``diet`` is ``"vegetarian"``.
 
 .. sourcecode:: mysql
    :linenos:
 
-   SELECT LastName, FirstName
-   FROM LiWedding
-   WHERE (Attending == 0) AND (Diet == "vegetarian");
+   SELECT last_name, first_name
+   FROM li_wedding
+   WHERE (attending == 1) AND (diet == "vegetarian");
 
 If Mary just wants all of the guests for the Li wedding, we need to modify our ``SELECT`` statement.
 We won't apply a ``WHERE`` condition to our query and we will use a ``*`` to denote that we want all columns.
@@ -161,7 +160,7 @@ We won't apply a ``WHERE`` condition to our query and we will use a ``*`` to den
 .. sourcecode:: mysql
 
    SELECT *
-   FROM LiWedding;
+   FROM li_wedding;
 
 Update
 ------
@@ -173,21 +172,33 @@ Now that we can add data and see what our data actually is, let's start changing
    Updating a table is something that we want to be cautious when doing.
    We cannot simply click *Edit* > *Undo* if we make a mistake!
 
-Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the ``JohnsonVowRenewal`` table.
+Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the ``johnson_vow_renewal`` table.
 
 .. sourcecode:: mysql 
 
-   UPDATE JohnsonVowRenewal
-   SET Diet="vegetarian"
-   WHERE GuestID==185;
+   UPDATE johnson_vow_renewal
+   SET diet="vegetarian"
+   WHERE guest_id==185;
 
 Now if we use a ``SELECT`` statement, we can confirm that we have properly updated the record.
 
 .. sourcecode:: mysql
 
    SELECT *
-   FROM JohnsonVowRenewal
-   WHERE GuestID==185;
+   FROM johnson_vow_renewal
+   WHERE guest_id==185;
+
+If we wanted to update another column in Eliza's record, such as the ``first_name`` value to ``Elizabeth``, we would add that information to ``SET``.
+
+.. sourcecode:: mysql
+
+   UPDATE johnson_vow_renewal
+   SET diet="vegetarian", first_name="Elizabeth"
+   WHERE guest_id==185;
+
+.. admonition:: Warning
+
+   If you do not include a condition with ``WHERE``, all records in the table will be updated!
 
 Delete
 ------
@@ -199,19 +210,19 @@ Our final operation we may want to perform on a table is to delete something.
    Deleting a record permanently removes it from the table!
    Proceed with caution with removing records!
 
-Mr. Johnson's great-uncle, Frank, died and won't be in attendance for the vow renewal. Since he was in attendance at their wedding, when we created ``JohnsonVowRenewal`` from ``JohnsonWedding``, Frank's record needs to be removed.
+Mr. Johnson's great-uncle, Frank, died and won't be in attendance for the vow renewal. Since he was in attendance at their wedding, when we created ``johnson_vow_renewal`` from ``johnson_wedding``, Frank's record needs to be removed.
 
 .. sourcecode:: mysql
 
-   DELETE FROM JohnsonVowRenewal WHERE GuestID==107;
+   DELETE FROM johnson_vow_renewal WHERE guest_id==107;
 
 We can then use a ``SELECT`` statement to confirm that Uncle Frank's record has been removed.
 
 .. sourcecode:: mysql
 
    SELECT *
-   FROM JohnsonVowRenewal
-   WHERE GuestID==107;
+   FROM johnson_vow_renewal
+   WHERE guest_id==107;
 
 Check Your Understanding
 ------------------------
