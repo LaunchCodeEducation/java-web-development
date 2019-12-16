@@ -86,6 +86,62 @@
     
   <div class="section" id="exercises-enum-practice">
 <h1>13.3. Exercises: Enum Practice<a class="headerlink" href="#exercises-enum-practice" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Fork and clone <a class="reference external" href="https://github.com/LaunchCodeEducation/enumerable-planets" target="_blank">enumerable-planets<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</li>
+<li><p class="first">In the project, navigate to the data package.</p>
+</li>
+<li><p class="first">Create a new public enum called <code class="docutils literal notranslate"><span class="pre">Planets</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Planets</span> <span class="o">{</span>
+   <span class="c1">// list the planets here.</span>
+   <span class="c1">// Mercury, Venus, Earth, Mars, Jupiter,</span>
+   <span class="c1">// Saturn, Uranus, Neptune</span>
+   <span class="c1">// Don&#39;t forget to capitalization convention and enum</span>
+   <span class="c1">// syntax to separate value and end the list</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Before adding any other fields to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>, go to <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code>
+and update the index handler to pass in a model argument.</p>
+</li>
+<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">.addAttribute</span></code> to add the planet values to the model.</p>
+</li>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a list element and use the template
+variable you have just defined in the controller to list all of the
+planet values on the page.</p>
+</li>
+<li><p class="first">Add a <code class="docutils literal notranslate"><span class="pre">name</span></code> field to the planets.</p>
+<ol class="loweralpha simple">
+<li>Create a name property to display a non-capitalized version of each of the planet names.</li>
+<li>Add a constructor for with the name field and a getter for the field.</li>
+</ol>
+</li>
+<li><p class="first">Update the template to display the planet names.</p>
+</li>
+<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">Planets</span></code> enum, add a new field called <code class="docutils literal notranslate"><span class="pre">yearLength</span></code>.</p>
+<ol class="arabic">
+<li><p class="first">The value of each <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> should be the number of earth days of a year on the given planet.</p>
+<p>TODO: list the values</p>
+</li>
+<li><p class="first">Update the constructor and add a getter for this field.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Change the index template to display a table of each planet name and its year in earth days.</p>
+<ol class="arabic simple">
+<li>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a table element and add the appropriate bootstrap class.</li>
+<li>The table can be style to your liking and add a message to let the users know what data you are displaying
+with the <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> field.</li>
+</ol>
+</li>
+<li><p class="first">If you wish, add another field to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>. You can find plenty of information on <a class="reference external" href="https://solarsystem.nasa.gov/planets/overview/" target="_blank">NASA’s web site<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<ol class="arabic simple">
+<li>Update the enum with the new field, including changing the constructor and adding a getter method.</li>
+<li>Add the field to display in the table, with a message if helpful to convey the information or units of measure.</li>
+</ol>
+</li>
+</ol>
 </div>
 
 
