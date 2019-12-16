@@ -15,7 +15,7 @@ a. What will you call your field?
 Event information to add:
 
 #. Add a field to collect information about where the event will take place. This field should not be 
-   null or blank. Things to consider:
+   null or blank. 
 
 #. Add a field to collect information about whether an attendee must register for the event or not. For 
    the purposes of validation practice, make this field only able to be marked as true. 
