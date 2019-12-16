@@ -87,12 +87,12 @@
   <div class="section" id="exercises-sql-part-1">
 <span id="sql-part1-exercises"></span><h1>13.1. Exercises: SQL, Part 1<a class="headerlink" href="#exercises-sql-part-1" title="Permalink to this headline">¶</a></h1>
 <p>In order to practice SQL commands, you must first set up a new database (model)
-in MySQLWorkbench. In the program, each new model is called a <em>schema</em>.</p>
+in MySQL Workbench. In the program, each new model is called a <em>schema</em>.</p>
 <ol class="arabic">
-<li><p class="first">Open MySQLWorkbench and open a connection. You may be prompted once or twice
-for passwords, depending on how you set up your root.</p>
+<li><p class="first">Open MySQL Workbench and open a connection. You may be prompted once or
+twice for passwords, depending on how you set up your root.</p>
 <div class="figure">
-<a class="reference internal image-reference" href="../../_images/mswHomeScreen.png"><img alt="MySQLWorkbench home screen." src="../../_images/mswHomeScreen.png" style="width: 672.0px; height: 300.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/mswHomeScreen.png"><img alt="MySQL Workbench home screen." src="../../_images/mswHomeScreen.png" style="width: 672.0px; height: 300.0px;" /></a>
 </div>
 </li>
 <li><p class="first">Click on the <em>Create New Schema</em> button and give the database a distinctive
@@ -113,18 +113,18 @@ name in the file tree.</p>
 </li>
 </ol>
 <p>Good. You are set up for this lesson’s practice. Complete the following
-exercises in the <em>Query</em> tab of MySQLWorkbench. If no query tab is currently
+exercises in the <em>Query</em> tab of MySQL Workbench. If no query tab is currently
 open in the editor, select <em>File –&gt; New Query Tab</em>.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">If you have questions about how to use MySQLWorkbench, do not hesitate to
+<p class="last">If you have questions about how to use MySQL Workbench, do not hesitate to
 reference <a class="reference external" href="https://dev.mysql.com/doc/workbench/en/wb-home.html" target="_blank">the documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 <div class="section" id="table-setup">
 <h2>13.1.1. Table Setup<a class="headerlink" href="#table-setup" title="Permalink to this headline">¶</a></h2>
 <p>Imagine that you want to apply your new SQL skills to bring some order to your
-garden. For these exercises, you will use a <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table to store
-information for your garden hopes. The table will have 4 columns:</p>
+garden. For these exercises, you will use a <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table to store some
+information. The table will have 4 columns:</p>
 <ol class="arabic simple">
 <li><code class="docutils literal notranslate"><span class="pre">seed_id</span></code>: This is a unique number assigned to each row in the <code class="docutils literal notranslate"><span class="pre">seeds</span></code>
 table.</li>
@@ -137,7 +137,7 @@ fixation, attracts bees, etc.)</li>
 each must include a parameter that specifies the maximum number of characters.
 <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> and <code class="docutils literal notranslate"><span class="pre">use_by</span></code> will be integers.</p>
 <p>Paste the following script into the query tab, then run it.</p>
-<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-SQL notranslate" id="primary-key"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -163,11 +163,11 @@ every new entry a different integer value.</p>
 <p>Open up a new query tab for the SQL commands you code in this section.</p>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p>MySQLWorkbench allows you to run one SQL command, a set of commands, or all
+<p>MySQL Workbench allows you to run one SQL command, a set of commands, or all
 of the commands listed in the editor pane. Hover over each lightning bolt
 icon in the panel to see these options.</p>
 <div class="last figure">
-<img alt="Lightning bold icons in MySQLWorkbench." src="../../_images/workbenchBoltIcons.png" />
+<img alt="Lightning bold icons in MySQL Workbench." src="../../_images/workbenchBoltIcons.png" />
 </div>
 </div>
 <ol class="arabic">
@@ -199,7 +199,8 @@ column names and values from the SQL command.</p>
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Add 3 - 5 more records to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table.</p>
+<li><p class="first">Add 3 - 5 more records to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table. At least one of these entries
+should include values for all of the columns.</p>
 </li>
 </ol>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">null</span></code> gets stored in a column whenever a value for that field is

@@ -4,13 +4,13 @@ Exercises: SQL, Part 1
 ======================
 
 In order to practice SQL commands, you must first set up a new database (model)
-in MySQLWorkbench. In the program, each new model is called a *schema*.
+in MySQL Workbench. In the program, each new model is called a *schema*.
 
-#. Open MySQLWorkbench and open a connection. You may be prompted once or twice
-   for passwords, depending on how you set up your root.
+#. Open MySQL Workbench and open a connection. You may be prompted once or
+   twice for passwords, depending on how you set up your root.
 
    .. figure:: ./figures/mswHomeScreen.png
-      :alt: MySQLWorkbench home screen.
+      :alt: MySQL Workbench home screen.
       :scale: 60%
 
 #. Click on the *Create New Schema* button and give the database a distinctive
@@ -31,20 +31,20 @@ in MySQLWorkbench. In the program, each new model is called a *schema*.
    name in the file tree.
 
 Good. You are set up for this lesson's practice. Complete the following
-exercises in the *Query* tab of MySQLWorkbench. If no query tab is currently
+exercises in the *Query* tab of MySQL Workbench. If no query tab is currently
 open in the editor, select *File --> New Query Tab*.
 
 .. admonition:: Tip
 
-   If you have questions about how to use MySQLWorkbench, do not hesitate to
+   If you have questions about how to use MySQL Workbench, do not hesitate to
    reference `the documentation <https://dev.mysql.com/doc/workbench/en/wb-home.html>`__.
 
 Table Setup
 -----------
 
 Imagine that you want to apply your new SQL skills to bring some order to your
-garden. For these exercises, you will use a ``seeds`` table to store
-information for your garden hopes. The table will have 4 columns:
+garden. For these exercises, you will use a ``seeds`` table to store some
+information. The table will have 4 columns:
 
 #. ``seed_id``: This is a unique number assigned to each row in the ``seeds``
    table.
@@ -58,6 +58,8 @@ each must include a parameter that specifies the maximum number of characters.
 ``seed_id`` and ``use_by`` will be integers.
 
 Paste the following script into the query tab, then run it.
+
+.. _primary-key:
 
 .. sourcecode:: SQL
    :linenos:
@@ -85,12 +87,12 @@ Open up a new query tab for the SQL commands you code in this section.
 
 .. admonition:: Tip
 
-   MySQLWorkbench allows you to run one SQL command, a set of commands, or all
+   MySQL Workbench allows you to run one SQL command, a set of commands, or all
    of the commands listed in the editor pane. Hover over each lightning bolt
    icon in the panel to see these options.
 
    .. figure:: ./figures/workbenchBoltIcons.png
-      :alt: Lightning bold icons in MySQLWorkbench.
+      :alt: Lightning bold icons in MySQL Workbench.
 
 #. Use the following SQL command to add a new entry to the ``seeds`` table.
 
@@ -122,7 +124,8 @@ Open up a new query tab for the SQL commands you code in this section.
       INSERT INTO seeds (crop, use_by)
       VALUES ("Sun Gold Tomato", 2022);
 
-#. Add 3 - 5 more records to the ``seeds`` table.
+#. Add 3 - 5 more records to the ``seeds`` table. At least one of these entries
+   should include values for all of the columns.
 
 Note that ``null`` gets stored in a column whenever a value for that field is
 not supplied.
