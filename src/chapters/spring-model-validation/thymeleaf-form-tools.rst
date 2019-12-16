@@ -1,5 +1,11 @@
 Thymeleaf Form Tools
 ====================
 
-1. Using `th:field` and `th:errors`
-2. Video - Display Validation Errors for a Field
+Using ``th:field`` and ``th:errors``
+------------------------------------
+
+Display Validation Errors for a Field - Video
+----------------------------------------------
+
+Display Validation Errors for a Field - Text
+--------------------------------------------

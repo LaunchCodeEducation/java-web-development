@@ -86,12 +86,18 @@
     
   <div class="section" id="server-side-validation">
 <h1>13.1. Server-Side Validation<a class="headerlink" href="#server-side-validation" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li>What is it?</li>
-<li>Why do it?</li>
-<li>Server-side vs. client-side validation</li>
-<li>Responsibility of the model AND controller</li>
-</ol>
+<p id="index-0">Web applications work under the client-server model. We have been focusing on the server portion, using Spring Boot and Java to create server-side application code. A critical component of any well-made web application is <strong>validation</strong>, which is the process of checking that data conforms to certain criteria. Validation ensures that the application only stores meaningful data.</p>
+<div class="admonition-example admonition" id="validation-example">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>Consider a user registration form on a web site. Effective validation rules might require that:</p>
+<ul class="last simple">
+<li>The username is between 3 and 12 characters long, and</li>
+<li>The password is at least 6 characters long.</li>
+</ul>
+</div>
+<p id="index-1">Web applications should validate <em>all</em> data submitted by users. This ensures that data remains well-structure and unexpected errors don’t occur. Validation that occurs in the browser—using JavaScript or HTML attributes—is <strong>client-side validation</strong>. Validation that occurs on the web server is <strong>server-side validation</strong>.</p>
+<p>Even if client-side validation is done, it is still critical to validate data on the server. This is because client-side validation can often be bypassed by a savvy user. For example, such a user might modify HTML using a browser’s developer tools, or disable JavaScript.</p>
+<p>Server-side validation involves both the model and controller. The model is responsible for <em>defining</em> validation rules, while the controller is responsible for <em>checking</em> validation rules when data is submitted to the server.</p>
 </div>
 
 

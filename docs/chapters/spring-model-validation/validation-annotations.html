@@ -86,14 +86,87 @@
     
   <div class="section" id="validation-annotations">
 <h1>13.2. Validation Annotations<a class="headerlink" href="#validation-annotations" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li>Java Validation Annotations</li>
-<li>Common annotations: <cite>&#64;Size</cite>, <cite>&#64;Min</cite>, <cite>&#64;Max</cite>, <cite>&#64;NotNull</cite>, <cite>&#64;NotBlank</cite>, <cite>&#64;Email</cite></li>
-<li>Custom message using <cite>message</cite> parameter</li>
-<li>Docs - <a class="reference external" href="https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/" target="_blank">https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li>Bonus Mission: <cite>&#64;Pattern</cite> and regular expressions</li>
-<li>Video - Add Validation Annotations</li>
-</ol>
+<p>Within the model of a Java web application, we can define validation rules using annotations from the <code class="docutils literal notranslate"><span class="pre">javax.validation.constraints</span></code> package. This package provides a variety of annotations that are useful in common circumstances, and which can be applied to model fields.</p>
+<div class="section" id="common-annotations">
+<h2>13.2.1. Common Annotations<a class="headerlink" href="#common-annotations" title="Permalink to this headline">¶</a></h2>
+<p>We’ll use only a few of these annotations, but you can find a full list in the <a class="reference external" href="https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/" target="_blank">package documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Common Validation Annotations</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Annotation</th>
+<th class="head">Description</th>
+<th class="head">Syntax</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code></td>
+<td>Specifies minimum and/or maximum length for a string.</td>
+<td><code class="docutils literal notranslate"><span class="pre">&#64;Size(min</span> <span class="pre">=</span> <span class="pre">3,</span> <span class="pre">max</span> <span class="pre">=</span> <span class="pre">12)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Min</span></code></td>
+<td>Specifies the minimum value of a numeric field.</td>
+<td><code class="docutils literal notranslate"><span class="pre">&#64;Min(0)</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Max</span></code></td>
+<td>Specifies the maximum value of a numeric field.</td>
+<td><code class="docutils literal notranslate"><span class="pre">&#64;Max(365)</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Email</span></code></td>
+<td>Specifies that a string field should conform to email formatting standards.</td>
+<td><code class="docutils literal notranslate"><span class="pre">&#64;Email</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code></td>
+<td>Specifies that a field may not be <code class="docutils literal notranslate"><span class="pre">null</span></code>.</td>
+<td><code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code></td>
+<td>Specifies that a string field contains at least one non-whitespace character.</td>
+<td><code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>To apply the validation rules of the <a class="reference internal" href="server-side-validation.html#validation-example"><span class="std std-ref">example on the previous page</span></a> to the fields of a <code class="docutils literal notranslate"><span class="pre">User</span></code> model class, we can use <code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code>.</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span>
+<span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">12</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
+
+<span class="nd">@NotBlank</span>
+<span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">6</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="defining-validation-messages">
+<h2>13.2.2. Defining Validation Messages<a class="headerlink" href="#defining-validation-messages" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">Each of these annotations takes and optional <code class="docutils literal notranslate"><span class="pre">message</span></code> parameter that allows you to define a user-friendly description to be used when validation fails.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span>
+<span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">12</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Username must be between 3 and 12 characters long&quot;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
+
+<span class="nd">@NotBlank</span>
+<span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">6</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Sorry, but the given password is too short. Passwords must be at least 6 characters long.&quot;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<p>We will see how to ensure these messages are properly displayed in the next section, <a class="reference internal" href="validation-controller.html#validating-models"><span class="std std-ref">Validating Models in a Controller</span></a>.</p>
+</div>
+<div class="section" id="applying-validation-annotations-video">
+<h2>13.2.3. Applying Validation Annotations - Video<a class="headerlink" href="#applying-validation-annotations-video" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="applying-validation-annotations-text">
+<h2>13.2.4. Applying Validation Annotations - Text<a class="headerlink" href="#applying-validation-annotations-text" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
