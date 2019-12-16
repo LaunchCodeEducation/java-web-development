@@ -11,7 +11,7 @@ right-click within your class file and select
 
 Let's use a ``Course`` class to demonstrate:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :linenos:
 
    public class Course {
@@ -52,7 +52,7 @@ Let's use a ``Course`` class to demonstrate:
 
 #. Click *Finish*. IntelliJ generates the ``equals`` and ``hashCode`` methods:
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       import java.util.Objects;

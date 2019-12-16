@@ -14,7 +14,7 @@ Passing Data to a Template
 The controller class contains methods that send data to different templates.
 These methods have a structure similar to:
 
-.. sourcecode:: Java
+.. sourcecode:: java
    :linenos:
 
    public String methodName(Model model) {
