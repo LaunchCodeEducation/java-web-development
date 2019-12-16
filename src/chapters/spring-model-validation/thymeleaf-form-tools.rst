@@ -12,6 +12,12 @@ For example, a ``String`` field such as ``description`` often uses an ``input`` 
 Display Validation Errors for a Field - Video
 ----------------------------------------------
 
+.. raw:: html
+
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/yc-bSDSDuKg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+The final code from this video is in the `display-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/display-errors>`__ of ``coding-events``.
+
 Display Validation Errors for a Field - Text
 --------------------------------------------
 
