@@ -483,7 +483,7 @@ In order to make the navigation links similarly detached, we’d need to pass
 handler method, which would be a pain, not to mention error-prone and difficult
 to update.
 
-.. sourcecode:: Java
+.. sourcecode:: java
 
    model.addAttribute("actions", actionChoices);
 

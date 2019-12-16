@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>12.3. Models and Data &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.4. Model-Binding" href="model-binding.html" />
+    <link rel="prev" title="12.2. Create a Model" href="model-class.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">12. Models and Model Binding</a></li>
+    <li class="active">12.3. Models and Data</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="models-and-data">
+<h1>12.3. Models and Data<a class="headerlink" href="#models-and-data" title="Permalink to this headline">¶</a></h1>
+<p>In order to work with data, we need to add another element to our MVC application. Say for example,
+we want to do things like remove an event from our list. Well, if two events both have the same name,
+how might we identify which of those items to delete? We can’t yet. So we need to tweak how we store
+event data.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, we add a unique identifier field to <code class="docutils literal notranslate"><span class="pre">Events</span></code> to better handle and track distinct
+<code class="docutils literal notranslate"><span class="pre">Event</span></code> instances. We’ll also create another model class called <code class="docutils literal notranslate"><span class="pre">EventData</span></code> to encapsulate data storage
+and prepare ourselves for decoupling data from controller classes.</p>
+<div class="section" id="add-a-unique-id-video">
+<h2>12.3.1. Add a Unique Id - Video<a class="headerlink" href="#add-a-unique-id-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/ijnIgreiNHU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-id" target="_blank">add-id branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+</div>
+<div class="section" id="add-a-unique-id-text">
+<span id="index-0"></span><h2>12.3.2. Add a Unique Id - Text<a class="headerlink" href="#add-a-unique-id-text" title="Permalink to this headline">¶</a></h2>
+<p>Identifying data by a user-defined string called <code class="docutils literal notranslate"><span class="pre">name</span></code> is not a sustainable or scalable method
+of handling data in most situations. Consider the address book example. How can
+we distinguish between two contact entries with the same name field? It is a frequent
+practice to add a <strong>unique identifier</strong> field (sometimes called, or even labelled, <strong>uid</strong>) to a class
+responsible for modelling data. This ensures that our address book can contain two separate entries for
+our contacts who have the same name as one another.</p>
+<p>To accomplish the same data clarity with events, we’ll add a few things to the event model class:</p>
+<ol class="arabic simple">
+<li>A private <code class="docutils literal notranslate"><span class="pre">id</span></code> field .</li>
+<li>A static counter variable, <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</li>
+<li>Additional constructor code that:<ol class="loweralpha">
+<li>Sets the <code class="docutils literal notranslate"><span class="pre">id</span></code> field to the <code class="docutils literal notranslate"><span class="pre">nextId</span></code> value.</li>
+<li>Increments <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</li>
+</ol>
+</li>
+<li>A getter method for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
+</ol>
+<p>The result in <code class="docutils literal notranslate"><span class="pre">models/Event,java</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nextId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">nextId</span><span class="o">;</span>
+      <span class="n">nextId</span><span class="o">++;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="c1">// ... other getters and setters ... //</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>With these additions, every time a new event object is created it is assigned a unique integer to its <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</p>
+</div>
+<div class="section" id="create-a-data-layer-video">
+<h2>12.3.3. Create a Data Layer - Video<a class="headerlink" href="#create-a-data-layer-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/8AQtYZ_q57M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer" target="_blank">create-data-layer branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+</div>
+<div class="section" id="create-a-data-layer-text">
+<h2>12.3.4. Create a Data Layer - Text<a class="headerlink" href="#create-a-data-layer-text" title="Permalink to this headline">¶</a></h2>
+<p>Now that we’ve begun building a model, it’s a good time to remind ourselves that models are not designed to be
+data storage containers. Rather, models are meant to shape the data stored in another location into objects that
+can be used in our application. As we work our way into learning about database usage and service calls, however,
+we’ll use a Java class to store some data temporarily.</p>
+<p>Create a new package called <code class="docutils literal notranslate"><span class="pre">data</span></code> and add a class <code class="docutils literal notranslate"><span class="pre">EventData</span></code>. Whereas <code class="docutils literal notranslate"><span class="pre">Event</span></code> is responsible for organizing
+user-inputted information into a Java object, <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is responsible for maintaining those objects once they
+are created. <code class="docutils literal notranslate"><span class="pre">EventData</span></code> is itself a Java class that stores events. It contains several methods for managing and
+maintaining the event data that simply extend built-in HashMap methods.</p>
+<p>The contents of <code class="docutils literal notranslate"><span class="pre">data/EventData.java</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EventData</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="kd">static</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Event</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="nf">getAll</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">events</span><span class="o">.</span><span class="na">values</span><span class="o">();</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">Event</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">events</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">event</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span> <span class="n">event</span><span class="o">);</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="n">Event</span> <span class="nf">getById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">events</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">events</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">id</span><span class="o">))</span> <span class="o">{</span>
+         <span class="n">events</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>With <code class="docutils literal notranslate"><span class="pre">EventData</span></code> managing event data, we must once again refactor <code class="docutils literal notranslate"><span class="pre">EventController</span></code> to update the items stored in
+<code class="docutils literal notranslate"><span class="pre">EventData</span></code>. In keeping with the objective to remove data handling from the controller, we’ll remove the list
+of events at the top of the class. Consequently, for the <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code> handler, we’ll now use events from
+<code class="docutils literal notranslate"><span class="pre">EventData</span></code> in <code class="docutils literal notranslate"><span class="pre">addAttribute()</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;events&quot;</span><span class="o">,</span> <span class="n">EventData</span><span class="o">.</span><span class="na">getAll</span><span class="o">());</span>
+</pre></div>
+</td></tr></table></div>
+<p>And back to <code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code>, we’ll make use of the <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method from <code class="docutils literal notranslate"><span class="pre">EventData</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="n">eventName</span><span class="o">,</span> <span class="n">eventDescription</span><span class="o">));</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="delete-an-event-video">
+<h2>12.3.5. Delete an Event - Video<a class="headerlink" href="#delete-an-event-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/orsBBbDaJMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/delete-events" target="_blank">delete-events branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+</div>
+<div class="section" id="delete-an-event-text">
+<h2>12.3.6. Delete an Event - Text<a class="headerlink" href="#delete-an-event-text" title="Permalink to this headline">¶</a></h2>
+<p>Now that we’ve refined our events storage method, we are able to tackle the task of deleting an object.
+To delete an event object from storage, we’ll grab the event’s id and use that
+information to call the <code class="docutils literal notranslate"><span class="pre">remove</span></code> method of <code class="docutils literal notranslate"><span class="pre">EventData</span></code>.
+Since the delete event is user-initiated, a controller will be involved to pass
+the information from the user-accessible view to the data layer. So our first step
+with this task is to create a controller method to get a view to delete events.</p>
+<p>Onto the end of <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, add the following method:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;delete&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">renderDeleteEventForm</span><span class="o">(</span><span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;title&quot;</span><span class="o">,</span> <span class="s">&quot;Delete Event&quot;</span><span class="o">);</span>
+   <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;events&quot;</span><span class="o">,</span> <span class="n">EventData</span><span class="o">.</span><span class="na">getAll</span><span class="o">());</span>
+   <span class="k">return</span> <span class="s">&quot;events/delete&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We’ll now need to create a new view for the path mapped in the method above. Add a new template,
+<code class="docutils literal notranslate"><span class="pre">events/delete.html</span></code>. This view will reference event id fields in order to distinguish which items the user
+will request to delete via checkbox inputs.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org/&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:replace</span><span class="o">=</span><span class="s">&quot;fragments :: head&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+
+      <span class="p">&lt;</span><span class="nt">header</span> <span class="na">th:replace</span><span class="o">=</span><span class="s">&quot;fragments :: header&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+
+      <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+
+         <span class="p">&lt;</span><span class="nt">th:block</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;event : ${events}&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;eventIds&quot;</span> <span class="na">th:value</span><span class="o">=</span><span class="s">&quot;${event.id}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+         <span class="p">&lt;/</span><span class="nt">th:block</span><span class="p">&gt;</span>
+
+         <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Delete Selected Events&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-danger&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>We also need a <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler to take care of what to do when the delete event information
+is submitted by the user. We’ll have this post handler redirect the user back to the home
+page once they have selected which event, or events, to remove from storage.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, add another controller method:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;delete&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processDeleteEventsForm</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">eventIds</span><span class="o">)</span> <span class="o">{</span>
+
+     <span class="k">if</span> <span class="o">(</span><span class="n">eventIds</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">id</span> <span class="o">:</span> <span class="n">eventIds</span><span class="o">)</span> <span class="o">{</span>
+             <span class="n">EventData</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+         <span class="o">}</span>
+     <span class="o">}</span>
+
+     <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This handler method uses the <code class="docutils literal notranslate"><span class="pre">required</span> <span class="pre">=</span> <span class="pre">false</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> to make this parameter optional. This allows the user to submit the form without any events selected. Once <code class="docutils literal notranslate"><span class="pre">eventIds</span></code> is optional, we must also check that it is not <code class="docutils literal notranslate"><span class="pre">null</span></code> before entering the loop.</p>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>12.3.7. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, which method can we call to list every event object?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">Events.get()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">EventData.getEvery()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Event.getAll()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">EventData.getAll()</span></code></li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, breaking up the event storage from the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model is an example of which object-oriented
+concept?</p>
+<ol class="last arabic simple">
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Encapsulation</li>
+<li>MVC design</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="model-class.html"><span aria-hidden="true">&larr;</span> 12.2. Create a Model</a></li>
+        
+        
+        <li class="next"><a href="model-binding.html">12.4. Model-Binding <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-classes/data-layer.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
