@@ -142,7 +142,10 @@ We'll discuss the syntax of this program soon, but you can likely trust your gut
 that this program has an expected output of "Hello, World". 
 
 To test this hypothesis, open a terminal window and navigate to the parent directory of your new file.
-In a separate window, navigate to the Java Development Kit to get the file path. Copy the file path.
+In a separate window, navigate to the Java Development Kit to get the file path (the image below shows you how to get there from the C: Drive). Copy the file path.
+
+.. figure:: figures/windowsjavafilepath.png
+   :alt: Image showing that the JDK can be found inside the Program Files directory in the C: Drive.
 
 .. admonition:: Warning
 
