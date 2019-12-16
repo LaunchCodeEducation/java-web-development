@@ -37,7 +37,16 @@ Exercises: Enum Practice
 
    #. The value of each ``yearLength`` should be the number of earth days of a year on the given planet.
 
-      TODO: list the values
+      #. Number of earth days on each planet:
+
+         #. Mercury: 88
+         #. Venus: 225
+         #. Earth: 365
+         #. Mars: 687
+         #. Jupiter: 4333
+         #. Saturn: 10759
+         #. Uranus: 30687
+         #. Neptune: 60200
 
    #. Update the constructor and add a getter for this field.
 
