@@ -1,5 +1,5 @@
-The Sequel to SQL
-=================
+The SQL Sequel
+==============
 
 .. toctree::
    :maxdepth: 3
@@ -7,3 +7,5 @@ The Sequel to SQL
    creating-databases
    relationships
    complex-queries
+   exercises
+   studio
