@@ -23,9 +23,9 @@ Movies Table
 ^^^^^^^^^^^^
 
 For the ``movies`` table, it makes sense to have columns for the ``title`` of
-the movie, the ``year`` it was released, and the ``director``. We're also going
-to want to have a unique ``movie_id`` column as the primary key, since there
-can be more than one movie with the same title.
+the movie, the ``year_released``, and the ``director``. We're also going to
+want to have a unique ``movie_id`` column as the primary key, since there can
+be more than one movie with the same title.
 
 Take the time now to think about what data types you might use for these
 columns (``INTEGER``, ``VARCHAR``, ``DATE``, etc.), then go ahead and write (or
@@ -49,7 +49,7 @@ Here's how our ``movies`` table could be created:
    CREATE TABLE movies (
       movie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
       title VARCHAR(120),
-      year INTEGER,
+      year_released INTEGER,
       director VARCHAR(80)
    );
 
@@ -63,7 +63,7 @@ Directors Table
 ^^^^^^^^^^^^^^^
 
 Next, let's consider the properties we'd want for a ``director`` object in
-Java. These could include a ``first`` name, a ``last`` name, and maybe the
+Java. These could include a ``first_name``, a ``last_name``, and maybe the
 ``country`` where the director was born.
 
 Once we identify the data types for these properties, we can write the SQL
@@ -77,8 +77,8 @@ command to create the ``directors`` table. Also, we should include a
 
    CREATE TABLE directors (
       director_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-      first VARCHAR(40),
-      last VARCHAR(40),
+      first_name VARCHAR(40),
+      last_name VARCHAR(40),
       country VARCHAR(80)
    );
 
@@ -135,7 +135,7 @@ establish the link is called a *foreign key*.
       CREATE TABLE movies (
          movie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
          title VARCHAR(120),
-         year INTEGER,
+         year_released INTEGER,
          director_id INTEGER,
          FOREIGN KEY (director_id) REFERENCES directors(director_id)
       );
@@ -221,7 +221,7 @@ step, compare your SQL code and the output with a partner.
       Recall that the column for ``director_id`` is auto incremented, so you
       don't need to put in a value for that column.
 
-#. Combine the ``SELECT`` and ``WHERE`` keywords to list the ``last`` name and
+#. Combine the ``SELECT`` and ``WHERE`` keywords to list the ``last_name`` and
    ``director_id`` for Rob Reiner.
 #. Insert a new record into the ``movies`` table for *The Princess Bride*,
    which was released in 1987 and directed by Rob Reiner.
@@ -256,8 +256,8 @@ step, compare your SQL code and the output with a partner.
 
 #. Delete a row from the ``movies`` table. What consequence does this have on
    ``directors``? List the contents of both tables to find out.
-#. Delete one person from the ``directors`` table, then re-run your SQL command
-   from step 8. What consequence results from trying to remove a director?
+#. Try to delete one person from the ``directors`` table. What error results
+   from trying to remove a director?
 
 Bonus Missions
 ---------------
