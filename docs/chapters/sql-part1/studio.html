@@ -4,11 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<<<<<<< HEAD
-    <title>12.5. Studio: Databases, Part 1 &#8212; Java Web Development  documentation</title>
-=======
-    <title>13.2. Studio: Movie SQLs &#8212; Java Web Development  documentation</title>
->>>>>>> master
+    <title>13.5. Studio: Movie SQLs &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -26,11 +22,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Index" href="../../genindex.html" />
-<<<<<<< HEAD
-    <link rel="prev" title="12.4. Exercises: SQL, Part 1" href="exercises.html" />
-=======
-    <link rel="prev" title="13.1. Exercises: SQL, Part 1" href="exercises.html" />
->>>>>>> master
+    <link rel="prev" title="13.4. Exercises: SQL, Part 1" href="exercises.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -81,13 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-<<<<<<< HEAD
-    <li><a href="index.html">12. Databases and SQL</a></li>
-    <li class="active">12.5. Studio: Databases, Part 1</li>
-=======
-    <li><a href="index.html">13. SQL Part 1</a></li>
-    <li class="active">13.2. Studio: Movie SQLs</li>
->>>>>>> master
+    <li><a href="index.html">13. Databases and SQL</a></li>
+    <li class="active">13.5. Studio: Movie SQLs</li>
 </ol>
 
 
@@ -97,38 +84,14 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-<<<<<<< HEAD
-  <div class="section" id="studio-databases-part-1">
-<h1>12.5. Studio: Databases, Part 1<a class="headerlink" href="#studio-databases-part-1" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
-<div class="section" id="old-content">
-<h2>12.5.1. Old Content<a class="headerlink" href="#old-content" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>From old LC101 Unit 2: Web Fundamentals.</div></blockquote>
-<p>This studio has two parts, corresponding to what you’ll learn in SQL classes
-part 1 and part 2, respectively. In the first part of this studio, we’ll create
-and manipulate tables, as well as explore the parallels between Java objects
-and database tables.</p>
-<p>In the second part of this studio, we’ll make a real database locally and use
-it to perform SQL queries through <em>MySQLWorkbench</em>.</p>
-</div>
-<div class="section" id="walkthrough">
-<h2>12.5.2. Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
-<p>Let’s relate what you’ve been learning about SQL and databases to your work on
-a fictional model. We’ll start with a database called <code class="docutils literal notranslate"><span class="pre">movie-buff</span></code> and create
-two tables in it, <code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code>. Let’s think about what kind of
-columns we want in our tables.</p>
-<div class="section" id="movies-table">
-<h3>12.5.2.1. Movies Table<a class="headerlink" href="#movies-table" title="Permalink to this headline">¶</a></h3>
-=======
   <div class="section" id="studio-movie-sqls">
-<h1>13.2. Studio: Movie SQLs<a class="headerlink" href="#studio-movie-sqls" title="Permalink to this headline">¶</a></h1>
+<h1>13.5. Studio: Movie SQLs<a class="headerlink" href="#studio-movie-sqls" title="Permalink to this headline">¶</a></h1>
 <p>A database fills the role of the model in an MVC structure.</p>
 <p>In this studio, you will use space in <em>MySQL Workbench</em> to practice writing SQL
 queries to retrieve or modify information stored in an established database.
 You will also explore the parallels between Java objects and database tables.</p>
 <div class="section" id="walkthrough">
-<h2>13.2.1. Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
+<h2>13.5.1. Walkthrough<a class="headerlink" href="#walkthrough" title="Permalink to this headline">¶</a></h2>
 <p>Let’s relate what you’ve learned about SQL to interact with a database called
 <code class="docutils literal notranslate"><span class="pre">movie-buff</span></code> that contains two tables—<code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code>.</p>
 <p>Just as you did in the <a class="reference internal" href="exercises.html#sql-part1-exercises"><span class="std std-ref">exercises</span></a> create the new
@@ -136,8 +99,7 @@ You will also explore the parallels between Java objects and database tables.</p
 <p>Before we create the <code class="docutils literal notranslate"><span class="pre">movies</span></code> and <code class="docutils literal notranslate"><span class="pre">directors</span></code> tables, let’s think about
 what kind of columns we want in each one.</p>
 <div class="section" id="movies-table">
-<h3>13.2.1.1. Movies Table<a class="headerlink" href="#movies-table" title="Permalink to this headline">¶</a></h3>
->>>>>>> master
+<h3>13.5.1.1. Movies Table<a class="headerlink" href="#movies-table" title="Permalink to this headline">¶</a></h3>
 <p>For the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table, it makes sense to have columns for the <code class="docutils literal notranslate"><span class="pre">title</span></code> of
 the movie, the <code class="docutils literal notranslate"><span class="pre">year_released</span></code>, and the <code class="docutils literal notranslate"><span class="pre">director</span></code>. We’re also going to
 want to have a unique <code class="docutils literal notranslate"><span class="pre">movie_id</span></code> column as the primary key, since there can
@@ -175,11 +137,7 @@ review the table setup for the <a class="reference internal" href="exercises.htm
 </ol>
 </div>
 <div class="section" id="directors-table">
-<<<<<<< HEAD
-<h3>12.5.2.2. Directors Table<a class="headerlink" href="#directors-table" title="Permalink to this headline">¶</a></h3>
-=======
-<h3>13.2.1.2. Directors Table<a class="headerlink" href="#directors-table" title="Permalink to this headline">¶</a></h3>
->>>>>>> master
+<h3>13.5.1.2. Directors Table<a class="headerlink" href="#directors-table" title="Permalink to this headline">¶</a></h3>
 <p>Next, let’s consider the properties we’d want for a <code class="docutils literal notranslate"><span class="pre">director</span></code> object in
 Java. These could include a <code class="docutils literal notranslate"><span class="pre">first_name</span></code>, a <code class="docutils literal notranslate"><span class="pre">last_name</span></code>, and maybe the
 <code class="docutils literal notranslate"><span class="pre">country</span></code> where the director was born.</p>
@@ -201,11 +159,7 @@ command to create the <code class="docutils literal notranslate"><span class="pr
 </td></tr></table></div>
 </div>
 <div class="section" id="relating-the-tables">
-<<<<<<< HEAD
-<h3>12.5.2.3. Relating the Tables<a class="headerlink" href="#relating-the-tables" title="Permalink to this headline">¶</a></h3>
-=======
-<h3>13.2.1.3. Relating the Tables<a class="headerlink" href="#relating-the-tables" title="Permalink to this headline">¶</a></h3>
->>>>>>> master
+<h3>13.5.1.3. Relating the Tables<a class="headerlink" href="#relating-the-tables" title="Permalink to this headline">¶</a></h3>
 <p>Before we go further, let’s take a moment to think about how these two tables
 relate to each other, and whether we may want to modify the column <code class="docutils literal notranslate"><span class="pre">director</span></code>
 in the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table. A director can work on multiple movies, but each
@@ -278,7 +232,7 @@ between the major databases.</p>
 </div>
 </div>
 <div class="section" id="insert-data-from-file">
-<h3>13.2.1.4. <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> Data From File<a class="headerlink" href="#insert-data-from-file" title="Permalink to this headline">¶</a></h3>
+<h3>13.5.1.4. <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> Data From File<a class="headerlink" href="#insert-data-from-file" title="Permalink to this headline">¶</a></h3>
 <p>Rather than adding entries line by line, you will use a prepared SQL file to
 speed up the process.</p>
 <ol class="arabic">
@@ -314,17 +268,13 @@ each name.</p>
 </div>
 </div>
 <div class="section" id="your-assignment">
-<<<<<<< HEAD
-<h2>12.5.3. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
-=======
-<h2>13.2.2. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
->>>>>>> master
+<h2>13.5.2. Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
 <p>For this studio, you’ll practice writing SQL queries to perform various data
 retrieval and manipulation tasks. You will be using the <code class="docutils literal notranslate"><span class="pre">movies</span></code> and
 <code class="docutils literal notranslate"><span class="pre">directors</span></code> tables described <a class="reference internal" href="#id1"><span class="std std-ref">above</span></a>, so if you still
 need to <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> them, please do so now.</p>
 <div class="section" id="task-list">
-<h3>13.2.2.1. Task List<a class="headerlink" href="#task-list" title="Permalink to this headline">¶</a></h3>
+<h3>13.5.2.1. Task List<a class="headerlink" href="#task-list" title="Permalink to this headline">¶</a></h3>
 <p>Open up a new <em>Query</em> tab in MySQL Workbench. In that tab, write the SQL
 commands to carry out each of the queries described below. As you complete each
 step, compare your SQL code and the output with a partner.</p>
@@ -369,14 +319,8 @@ This data is not particularly helpful to a user, since they probably want to
 see the director names instead. Use an <code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code> in your SQL command to
 display a list of movie titles, years released, and director last names.</p>
 </li>
-<<<<<<< HEAD
-<li><p class="first">List the last names and countries of origin for the director of <em>Roma</em> and
-the director of <em>The Incredibles</em>. You could do this using either a join or
-a sub-query, but for this step please use a join.</p>
-=======
 <li><p class="first">List all the movies in the database along with the first and last name of
 the director. Order the list alphabetically by the director’s last name.</p>
->>>>>>> master
 </li>
 <li><p class="first">List the first and last name for the director of <em>The Incredibles</em>. You can
 do this with either a join or a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> command, but for this step please
@@ -404,11 +348,7 @@ from trying to remove a director?</p>
 </div>
 </div>
 <div class="section" id="bonus-missions">
-<<<<<<< HEAD
-<h2>12.5.4. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
-=======
-<h2>13.2.3. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
->>>>>>> master
+<h2>13.5.3. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Note that SQL <em>aliases</em> give a table or column a temporary name. Assign
 aliases in at least 3 of the items above to make the columns names different
@@ -432,11 +372,7 @@ certain amount.</li>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-<<<<<<< HEAD
-        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 12.4. Exercises: SQL, Part 1</a></li>
-=======
-        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 13.1. Exercises: SQL, Part 1</a></li>
->>>>>>> master
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 13.4. Exercises: SQL, Part 1</a></li>
         
         
         <li class="next"><a href="../../genindex.html">Index <span aria-hidden="true">&rarr;</span></a></li>

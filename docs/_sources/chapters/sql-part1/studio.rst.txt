@@ -247,13 +247,7 @@ step, compare your SQL code and the output with a partner.
    can do this with either a join or a ``WHERE`` command, but for this step
    please use a join.
 
-<<<<<<< HEAD
-#. List the last names and countries of origin for the director of *Roma* and
-   the director of *The Incredibles*. You could do this using either a join or
-   a sub-query, but for this step please use a join.
-=======
    .. admonition:: Tip
->>>>>>> master
 
       For more join practice, take advantage of these resources at W3 Schools:
 
