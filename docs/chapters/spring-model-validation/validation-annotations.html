@@ -89,7 +89,7 @@
 <p>Within the model of a Java web application, we can define validation rules using annotations from the <code class="docutils literal notranslate"><span class="pre">javax.validation.constraints</span></code> package. This package provides a variety of annotations that are useful in common circumstances, and which can be applied to model fields.</p>
 <div class="section" id="common-annotations">
 <h2>13.2.1. Common Annotations<a class="headerlink" href="#common-annotations" title="Permalink to this headline">¶</a></h2>
-<p>We’ll use only a few of these annotations, but you can find a full list in the <a class="reference external" href="https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/" target="_blank">package documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p>We’ll use only a few of these annotations, but you can find a full list in the <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html" target="_blank">package documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <table border="1" class="docutils" id="id1">
 <caption><span class="caption-text">Common Validation Annotations</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -167,6 +167,209 @@
 </div>
 <div class="section" id="applying-validation-annotations-text">
 <h2>13.2.4. Applying Validation Annotations - Text<a class="headerlink" href="#applying-validation-annotations-text" title="Permalink to this headline">¶</a></h2>
+<p>To configure validation on the model-side, we begin by adding validation annotations to each field for which we want to apply constraints.</p>
+<p>For our <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, we add <code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code> to the <code class="docutils literal notranslate"><span class="pre">name</span></code> field, and just <code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code> to the <code class="docutils literal notranslate"><span class="pre">description</span></code> field.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Name is required.&quot;</span><span class="o">)</span>
+<span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">50</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Name must be between 3 and 50 characters&quot;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+<span class="nd">@Size</span><span class="o">(</span><span class="n">max</span> <span class="o">=</span> <span class="mi">500</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Description too long!&quot;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> parameters for <code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code> specify the minimum and maximum number of allowed characters, respectively. Omitting either of these means that no min or max will be applied for the field. For our <code class="docutils literal notranslate"><span class="pre">description</span></code> field, leaving off <code class="docutils literal notranslate"><span class="pre">min</span></code> effectively makes this field optional.</p>
+<p>Each of our annotations also receives a <code class="docutils literal notranslate"><span class="pre">message</span></code> parameter, which provides a user-friendly message to display to the user if the particular validation rule fails. We will see how to display these in a view a bit later.</p>
+<p>Next, we add a new field to store a contact email for each event. This is a <code class="docutils literal notranslate"><span class="pre">String</span></code> named <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code>. Validating email addresses by directly applying each of the rules that an email must satisfy is <em>extremely</em> difficult. Thankfully, there is an <code class="docutils literal notranslate"><span class="pre">&#64;Email</span></code> validation annotation that we can apply to our new field.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">The full list of Java validation annotations is in the <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html" target="_blank">documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for <code class="docutils literal notranslate"><span class="pre">javax.validation.constraints</span></code>.</p>
+</div>
+<p>After adding this new field to our constructor, and dropping in a getter and setter, our class is done for the moment.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">nextId</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+   <span class="nd">@NotBlank</span>
+   <span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">50</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Name must be between 3 and 50 characters&quot;</span><span class="o">)</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+   <span class="nd">@Size</span><span class="o">(</span><span class="n">max</span> <span class="o">=</span> <span class="mi">500</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Description too long!&quot;</span><span class="o">)</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+
+   <span class="nd">@Email</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Invalid email. Try again.&quot;</span><span class="o">)</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">contactEmail</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">description</span><span class="o">,</span> <span class="n">String</span> <span class="n">contactEmail</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">contactEmail</span> <span class="o">=</span> <span class="n">contactEmail</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">nextId</span><span class="o">;</span>
+      <span class="n">nextId</span><span class="o">++;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getDescription</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescription</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getContactEmail</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">contactEmail</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setContactEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">contactEmail</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">contactEmail</span> <span class="o">=</span> <span class="n">contactEmail</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">o</span><span class="o">)</span> <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">getClass</span><span class="o">()</span> <span class="o">!=</span> <span class="n">o</span><span class="o">.</span><span class="na">getClass</span><span class="o">())</span> <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+      <span class="n">Event</span> <span class="n">event</span> <span class="o">=</span> <span class="o">(</span><span class="n">Event</span><span class="o">)</span> <span class="n">o</span><span class="o">;</span>
+      <span class="k">return</span> <span class="n">id</span> <span class="o">==</span> <span class="n">event</span><span class="o">.</span><span class="na">id</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">Objects</span><span class="o">.</span><span class="na">hash</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Before we can start up our application, we need to add a new column to the <code class="docutils literal notranslate"><span class="pre">events/index</span></code> template to make <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> visible. Our table now looks like this:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-striped&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>ID<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Name<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Contact Email<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;event : ${events}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.id}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.description}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.contactEmail}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now we can start up our application and test. Submitting an empty form at <code class="docutils literal notranslate"><span class="pre">/events/create</span></code> still results in an event being created, however.</p>
+<div class="figure" id="id2">
+<img alt="The main event listing with one event that has an ID, but for which all other fields are blank." src="../../_images/new-empty-event.png" />
+<p class="caption"><span class="caption-text">Even after adding validation annotations, we can still create invalid data.</span></p>
+</div>
+<p>Rather than a bug, this is expected behavior. Recall that we said validation involves <em>both</em> the model and controller, but we have not modified the controller in any way. Validation annotations simply define the validation rules that <em>should</em> be used to check data. The responsibility of checking the data before saving a new event lies with the controller.</p>
+<p>In the next section, we’ll modify the controller to properly check for valid data.</p>
 </div>
 </div>
 

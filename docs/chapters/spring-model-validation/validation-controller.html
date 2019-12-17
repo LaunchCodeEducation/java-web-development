@@ -97,11 +97,14 @@
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>The flow of this request can be visualized like this:</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">create initial flow diagram</p>
-</div>
+<p>The flow of this request can be described like this:</p>
+<ol class="arabic simple">
+<li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
+<li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
+<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</li>
+<li>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></li>
+</ol>
 <p>The request creates an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object using data from the incoming request. Regardless of what the data looks like, the new object is “saved” to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> and save it. Similarly, a user could submit the full text of the massive novel “War and Peace” as the description. This isn’t great.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
@@ -113,10 +116,15 @@
 <li>The <code class="docutils literal notranslate"><span class="pre">description</span></code> field may be empty, but may contain no more than 500 characters.</li>
 </ul>
 <p>With these rules in place, conceptually, the flow of our controller code should look more like this:</p>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Todo</p>
-<p class="last">create flow diagram with validation</p>
-</div>
+<p>The flow of this request can be described like this:</p>
+<ol class="arabic simple">
+<li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
+<li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
+<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></li>
+<li><strong>Controller checks for validation errors in the model object. If errors are found, return the user to the form. Otherwise, proceed.</strong></li>
+<li><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</li>
+<li>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></li>
+</ol>
 <p>Let’s look at how we can practically do this within Spring Boot.</p>
 </div>
 <div class="section" id="handling-validation-errors-video">

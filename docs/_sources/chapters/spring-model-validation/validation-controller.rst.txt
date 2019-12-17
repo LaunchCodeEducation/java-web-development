@@ -18,9 +18,13 @@ Before diving into the details of the code, let's consider the logical flow of c
       return "redirect:";
    }
 
-The flow of this request can be visualized like this:
+The flow of this request can be described like this:
 
-.. todo:: create initial flow diagram
+#. Server receives ``POST`` request
+#. Server creates ``newEvent`` object using request parameters
+#. ``processCreateEventForm`` is called with ``newEvent``
+#. ``newEvent`` is saved
+#. A 303 redirect response is returned, redirecting the user to ``/events``
 
 The request creates an ``Event`` object using data from the incoming request. Regardless of what the data looks like, the new object is "saved" to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an ``Event`` and save it. Similarly, a user could submit the full text of the massive novel "War and Peace" as the description. This isn't great. 
 
@@ -36,7 +40,14 @@ Some modest validation rules for a new ``Event`` object might be:
 
 With these rules in place, conceptually, the flow of our controller code should look more like this:
 
-.. todo:: create flow diagram with validation
+The flow of this request can be described like this:
+
+#. Server receives ``POST`` request
+#. Server creates ``newEvent`` object using request parameters
+#. ``processCreateEventForm`` is called with ``newEvent``
+#. **Controller checks for validation errors in the model object. If errors are found, return the user to the form. Otherwise, proceed.**
+#. ``newEvent`` is saved
+#. A 303 redirect response is returned, redirecting the user to ``/events``
 
 Let's look at how we can practically do this within Spring Boot.
 
