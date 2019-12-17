@@ -3,7 +3,7 @@ Studio: Databases Part 1
 
 A database fills the role of the model in an MVC structure.
 
-In this studio, you will use space in *MySQLWorkbench* to practice writing SQL
+In this studio, you will use space in *MySQL Workbench* to practice writing SQL
 queries to retrieve or modify information stored in an established database.
 You will also explore the parallels between Java objects and database tables.
 
@@ -11,22 +11,10 @@ Walkthrough
 ------------
 
 Let's relate what you've learned about SQL to interact with a database called
-``movie-buff``. We'll start by creating a new schema and then adding two tables
-to it, ``movies`` and ``directors``.
+``movie-buff`` that contains two tables---``movies`` and ``directors``.
 
-#. In MySQLWorkbench, click on the *Create New Schema* button and name the new
-   model ``movie-buff``.
-
-   .. figure:: ./figures/createNewSchema.png
-      :alt: Create new schema button, then assign name.
-      :scale: 60%
-
-#. Click *Apply*, and accept all of the default options when prompted.
-#. Your new schema is now ready to use! You should see it when you click the
-   *Schemas* tab.
-
-   .. figure:: ./figures/movie-buffSchema.png
-      :alt: movie-buff schema in the file tree.
+Just as you did in the :ref:`exercises <sql-part1-exercises>` create the new
+``movie-buff`` schema.
 
 Before we create the ``movies`` and ``directors`` tables, let's think about
 what kind of columns we want in each one.
@@ -65,8 +53,11 @@ Here's how our ``movies`` table could be created:
       director VARCHAR(80)
    );
 
-(Take a moment to discuss with a partner why the two ``VARCHAR`` parameters
-differ).
+Take a moment to discuss with a partner:
+
+#. Why the two ``VARCHAR`` parameters differ in lines 3 and 5.
+#. The purpose behind ``PRIMARY KEY AUTO_INCREMENT`` in line 2. If necessary,
+   review the table setup for the :ref:`chapter exercises <primary-key>`.
 
 Directors Table
 ^^^^^^^^^^^^^^^
@@ -96,74 +87,74 @@ Relating the Tables
 
 Before we go further, let's take a moment to think about how these two tables
 relate to each other, and whether we may want to modify the column ``director``
-in the ``movies`` table. Understanding the common *one-to-many* relationship
-that exists between database tables helps us set up the best design for
-``movies`` and ``directors``. A director can work on multiple movies, but each
-movie may only have one director.
+in the ``movies`` table. A director can work on multiple movies, but each
+movie may only have one director. Rather than store multiple copies of the same
+name in the ``director`` column, we can instead *reference* a single value
+stored elsewhere.
 
-.. admonition:: Note
+Our goal is to keep our table design *clean*. This means putting data specific
+to directors in the ``directors`` table, and placing data specific to each
+movie in the ``movies`` table. To follow this structure, we should NOT store
+the director's name in the ``movies`` table.
 
-   It may be useful to review `this article <http://www.databaseprimer.com/pages/relationship_1tox/>`__
-   to refresh your memory on the one-to-many concept.
-
-In order to reflect a one-to-many relationship in the table definitions, let's
-modify the ``director`` column in ``movies`` to become ``director_id``. It
-should therefore be an ``INTEGER`` instead of the ``VARCHAR`` we used earlier
-when we thought the ``director`` column would hold the name of a person.
-
-We also will want to make the ``director_id`` column in ``movies`` a
-*foreign key*, so that it links directly to the ``director_id`` column in the
-``directors`` table. Go ahead and write the SQL to drop the old ``movies``
-table, and then write the SQL command to create a new table with these changes.
-
-.. sourcecode:: sql
-   :linenos:
-
-   DROP TABLE movies;
-
-   CREATE TABLE movies (
-      movie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-      title VARCHAR(120),
-      year INTEGER,
-      director_id INTEGER,
-      FOREIGN KEY (director_id) REFERENCES directors(director_id)
-   );
-
-.. admonition:: Note
-
-   If needed, here is a set of review articles:
-
-   #. `SQL Drop Table <https://www.w3schools.com/sql/sql_drop_table.asp>`__,
-   #. `SQL Create Table <https://www.w3schools.com/sql/sql_create_table.asp>`__,
-   #. `SQL Foreign Key <https://www.w3schools.com/sql/sql_foreignkey.asp>`__.
-
-   Follow the MySQL syntax instructions when there is a syntax variation
-   between the major databases.
-
-Setting up our two tables this way keeps our design *clean*. It puts data
-specific to directors in the ``directors`` table, places data specific to each
-movie in the ``movies`` table, and it provides a link between the two tables.
-
-Data such as the director's country is NOT an attribute of a movie, so there is
+Similarly, the director's country is NOT an attribute of a movie, so there is
 no need to clutter a ``movie`` object or the ``movies`` table with that
-information. Instead, a country name is an attribute of the director, so that
-data should be stored in ``directors`` table.
+information. Instead, a name and country are attributes of the director, which
+means the data must be stored in the ``directors`` table.
 
 However, we might want to know that information for a given movie (e.g. we may
 want to find all the movies since 2010 that have French directors). So we need
 a way to filter the movies based on attributes from ``directors``. Solving this
-challenge is what relational databases are all about, and ``Foreign Keys``
-offer the solution.
+challenge is why relational databases exist.
 
-Your Assignment
----------------
+In order to link the two tables to each other, let's modify the ``director``
+column in ``movies`` to become ``director_id``. It should therefore be an
+``INTEGER`` instead of the ``VARCHAR`` we used earlier when we thought the
+``director`` column would hold the name of a person.
 
-For this studio, you'll practice writing SQL queries to perform various data
-retrieval and manipulation tasks. You will be using the ``movies`` and
-``directors`` tables described :ref:`above <directors-table>`, so if you still
-need to ``CREATE`` them, please do so now.
+Note that with the new format, both tables contain a ``director_id`` column,
+and we will use this match to relate ``movies`` with ``directors``. The tool to
+establish the link is called a *foreign key*.
 
-The tables contain no data yet, so let's fix that.
+#. Go ahead and use SQL to delete the old ``movies`` table:
+
+   .. sourcecode:: SQL
+
+      DROP TABLE movies;
+
+#. Now you need to create a new ``movies`` table that relates to data stored in
+   the ``directors`` table. The code sample below shows how to define the
+   ``director_id`` column in ``movies`` as a ``Foreign Key``. Doing this links
+   that column in ``movies`` to the ``director_id`` column in the ``directors``
+   table.
+#. Use this SQL command to create a new ``movies`` table.
+
+   .. sourcecode:: sql
+      :linenos:
+
+      CREATE TABLE movies (
+         movie_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+         title VARCHAR(120),
+         year INTEGER,
+         director_id INTEGER,
+         FOREIGN KEY (director_id) REFERENCES directors(director_id)
+      );
+
+Line 6 matches every entry in the ``movies`` table to the ONE entry in the
+``directors`` table that has the same value for ``director_id``. Thus, multiple
+rows in ``movies`` can reference the same row in ``directors``, and a single
+director can connect to many movies.
+
+.. admonition:: Note
+
+   If needed, here is a set of helpful articles:
+
+   #. `SQL Create Table <https://www.w3schools.com/sql/sql_create_table.asp>`__,
+   #. `SQL Drop Table <https://www.w3schools.com/sql/sql_drop_table.asp>`__,
+   #. `SQL Foreign Key <https://www.w3schools.com/sql/sql_foreignkey.asp>`__.
+
+   Follow the MySQL syntax instructions when there is a syntax variation
+   between the major databases.
 
 ``INSERT`` Data From File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -176,7 +167,7 @@ speed up the process.
 #. Click the *Download Zip* button to save a copy of the file to your machine.
 #. Double-click the zip file icon to extract the ``movie-buff-data.sql`` file
    (it will be inside a folder).
-#. In MySQLWorkbench, click the *Open SQL* button, and select the
+#. In MySQL Workbench, click the *Open SQL* button, and select the
    ``movie-buff-data.sql`` file.
 
    .. figure:: ./figures/openSQLFileButton.png
@@ -198,27 +189,30 @@ speed up the process.
 
 OK! Your model is ready to accept queries.
 
+Your Assignment
+---------------
+
+For this studio, you'll practice writing SQL queries to perform various data
+retrieval and manipulation tasks. You will be using the ``movies`` and
+``directors`` tables described :ref:`above <directors-table>`, so if you still
+need to ``CREATE`` them, please do so now.
+
 Task List
 ^^^^^^^^^
 
-.. admonition:: Tip
-
-   MySQLWorkbench allows you to run one SQL command, a set of commands, or all
-   of the commands listed in the editor pane. Hover over each lightning bolt
-   icon in the panel to see these options.
-
-   .. figure:: ./figures/workbenchBoltIcons.png
-      :alt: Lightning bold icons in MySQLWorkbench.
-
-Open up a new *Query* tab in MySQLWorkbench. In that tab, write the SQL
+Open up a new *Query* tab in MySQL Workbench. In that tab, write the SQL
 commands to carry out each of the queries described below. As you complete each
 step, compare your SQL code and the output with a partner.
 
 #. List just the titles of all the movies in the database.
-
 #. List the title and year of each movie in the database in *DESCENDING* order
-   of the year released.
-
+   of the year released. (*Hint*: Combine the ``SELECT`` command with the
+   `ORDER BY <https://www.w3schools.com/sql/sql_orderby.asp>`__ keywords).
+#. List all columns for all records of the ``directors`` table in *ASCENDING*
+   alphabetical order based on the director's country of origin.
+#. ``ORDER BY`` can also consider multiple columns. List all columns for all
+   records of the ``directors`` table in *ASCENDING* alphabetical order first
+   by the director's country of origin and then by the director's last name.
 #. Insert a new record into the ``directors`` table for Rob Reiner, an
    American film director.
 
@@ -227,8 +221,8 @@ step, compare your SQL code and the output with a partner.
       Recall that the column for ``director_id`` is auto incremented, so you
       don't need to put in a value for that column.
 
-#. List the ``last`` name and ``director_id`` for Rob Reiner.
-
+#. Combine the ``SELECT`` and ``WHERE`` keywords to list the ``last`` name and
+   ``director_id`` for Rob Reiner.
 #. Insert a new record into the ``movies`` table for *The Princess Bride*,
    which was released in 1987 and directed by Rob Reiner.
 
@@ -239,29 +233,19 @@ step, compare your SQL code and the output with a partner.
       the foreign key, ``director_id``, to link the movie to the proper
       director.
 
-#. List all columns for all records of the ``directors`` table in ascending
-   alphabetical order based on the director's country of origin.
-
-#. List all columns for all records of the ``directors`` table in ascending
-   alphabetical order first by the director's country of origin and then by
-   the director's last name.
-
 #. If you list all of the data from the ``movies`` table
    (``SELECT * FROM movies;``), you will see a column of director ID numbers.
    This data is not particularly helpful to a user, since they probably want to
-   see the director names instead. Use an *inner join* in your SQL command to
+   see the director names instead. Use an ``INNER JOIN`` in your SQL command to
    display a list of movie titles, years released, and director last names.
-
 #. List all the movies in the database along with the first and last name of
    the director. Order the list alphabetically by the director's last name.
-
 #. List the first and last name for the director of *The Incredibles*. You can
    do this with either a join or a ``WHERE`` command, but for this step please
    use ``WHERE``.
-
 #. List the last name and country of origin for the director of *Roma*. You
-   can do this using either a join or a ``WHERE`` command, but for this
-   step please use a join.
+   can do this with either a join or a ``WHERE`` command, but for this step
+   please use a join.
 
    .. admonition:: Tip
 
@@ -272,7 +256,6 @@ step, compare your SQL code and the output with a partner.
 
 #. Delete a row from the ``movies`` table. What consequence does this have on
    ``directors``? List the contents of both tables to find out.
-
 #. Delete one person from the ``directors`` table, then re-run your SQL command
    from step 8. What consequence results from trying to remove a director?
 
