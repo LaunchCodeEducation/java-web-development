@@ -1,4 +1,4 @@
-Creating a Database
+Database Management
 ===================
 
 - Create a new user and database
