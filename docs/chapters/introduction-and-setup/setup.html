@@ -136,6 +136,11 @@ the file type options for your operating system.</p>
 </div>
 <p>Once you have completed the
 installation steps, move onto the next section.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">When installing Java on Windows, the installer will tell you where it wants to install Java.
+The default is in the C: Drive under <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Files</span></code>. Make note of the destination as we will be using it later.</p>
+</div>
 </div>
 <div class="section" id="java-in-the-terminal">
 <span id="terminal-java"></span><h2>1.2.3. Java in the Terminal<a class="headerlink" href="#java-in-the-terminal" title="Permalink to this headline">¶</a></h2>
@@ -206,13 +211,9 @@ so we can demonstrate what we get with the JDK.</p>
 <p>We’ll discuss the syntax of this program soon, but you can likely trust your gut
 that this program has an expected output of “Hello, World”.</p>
 <p>To test this hypothesis, open a terminal window and navigate to the parent directory of your new file.
-In a separate window, navigate to the Java Development Kit to get the file path (the image below shows you how to get there from the C: Drive). Copy the file path.</p>
+In a separate window, navigate to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder in the Java Development Kit to get the file path (the image below shows you how to get there from the C: Drive). Copy the file path.</p>
 <div class="figure">
 <img alt="Image showing that the JDK can be found inside the Program Files directory in the C: Drive." src="../../_images/windowsjavafilepath.png" />
-</div>
-<div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">When locating the file path for the Java Development Kit, make sure that it is pointing to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder.</p>
 </div>
 <p>Run the following command, replacing the <code class="docutils literal notranslate"><span class="pre">{filepath}</span></code> with the file path to your JDK that you just copied:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="nv">path</span><span class="o">=</span>%path%<span class="p">;</span><span class="o">{</span>filepath<span class="o">}</span>
