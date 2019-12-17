@@ -1,11 +1,11 @@
 Using a Template
 =================
 
-In the video at the :ref:`bottom of this page <hello-spring-vid2>`, you will
-extend your ``hello-spring`` project and practice using Thymeleaf templates as
-you code along with the clip.
+In the :ref:`next video <hello-spring-vid2>`, you will extend your
+``hello-spring`` project and practice using Thymeleaf templates as you code
+along with the clip.
 
-Before you get there, however, let's review one core skill and two
+Before you get there, however, we need to review a few core skills and
 best-practices.
 
 Passing Data to a Template
