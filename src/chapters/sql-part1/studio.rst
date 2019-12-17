@@ -1,5 +1,5 @@
-Studio: Databases Part 1
-=========================
+Studio: Movie SQLs
+==================
 
 A database fills the role of the model in an MVC structure.
 
