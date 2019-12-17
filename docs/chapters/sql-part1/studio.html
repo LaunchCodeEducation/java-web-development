@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.2. Studio: Databases Part 1 &#8212; Java Web Development  documentation</title>
+    <title>13.2. Studio: Movie SQLs &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -74,7 +74,7 @@
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
     <li><a href="index.html">13. SQL Part 1</a></li>
-    <li class="active">13.2. Studio: Databases Part 1</li>
+    <li class="active">13.2. Studio: Movie SQLs</li>
 </ol>
 
 
@@ -84,8 +84,8 @@
     <div class="col-md-10 col-md-offset-1 content ">
 
     
-  <div class="section" id="studio-databases-part-1">
-<h1>13.2. Studio: Databases Part 1<a class="headerlink" href="#studio-databases-part-1" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="studio-movie-sqls">
+<h1>13.2. Studio: Movie SQLs<a class="headerlink" href="#studio-movie-sqls" title="Permalink to this headline">¶</a></h1>
 <p>A database fills the role of the model in an MVC structure.</p>
 <p>In this studio, you will use space in <em>MySQL Workbench</em> to practice writing SQL
 queries to retrieve or modify information stored in an established database.
@@ -101,9 +101,9 @@ what kind of columns we want in each one.</p>
 <div class="section" id="movies-table">
 <h3>13.2.1.1. Movies Table<a class="headerlink" href="#movies-table" title="Permalink to this headline">¶</a></h3>
 <p>For the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table, it makes sense to have columns for the <code class="docutils literal notranslate"><span class="pre">title</span></code> of
-the movie, the <code class="docutils literal notranslate"><span class="pre">year</span></code> it was released, and the <code class="docutils literal notranslate"><span class="pre">director</span></code>. We’re also going
-to want to have a unique <code class="docutils literal notranslate"><span class="pre">movie_id</span></code> column as the primary key, since there
-can be more than one movie with the same title.</p>
+the movie, the <code class="docutils literal notranslate"><span class="pre">year_released</span></code>, and the <code class="docutils literal notranslate"><span class="pre">director</span></code>. We’re also going to
+want to have a unique <code class="docutils literal notranslate"><span class="pre">movie_id</span></code> column as the primary key, since there can
+be more than one movie with the same title.</p>
 <p>Take the time now to think about what data types you might use for these
 columns (<code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>, <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code>, <code class="docutils literal notranslate"><span class="pre">DATE</span></code>, etc.), then go ahead and write (or
 type) the SQL statement to create this table.</p>
@@ -124,7 +124,7 @@ further in the class on <em>Object-Relational Mapping</em> (ORM).</p>
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">movies</span> <span class="p">(</span>
    <span class="n">movie_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
    <span class="n">title</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
-   <span class="k">year</span> <span class="nb">INTEGER</span><span class="p">,</span>
+   <span class="n">year_released</span> <span class="nb">INTEGER</span><span class="p">,</span>
    <span class="n">director</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
 <span class="p">);</span>
 </pre></div>
@@ -139,7 +139,7 @@ review the table setup for the <a class="reference internal" href="exercises.htm
 <div class="section" id="directors-table">
 <h3>13.2.1.2. Directors Table<a class="headerlink" href="#directors-table" title="Permalink to this headline">¶</a></h3>
 <p>Next, let’s consider the properties we’d want for a <code class="docutils literal notranslate"><span class="pre">director</span></code> object in
-Java. These could include a <code class="docutils literal notranslate"><span class="pre">first</span></code> name, a <code class="docutils literal notranslate"><span class="pre">last</span></code> name, and maybe the
+Java. These could include a <code class="docutils literal notranslate"><span class="pre">first_name</span></code>, a <code class="docutils literal notranslate"><span class="pre">last_name</span></code>, and maybe the
 <code class="docutils literal notranslate"><span class="pre">country</span></code> where the director was born.</p>
 <p>Once we identify the data types for these properties, we can write the SQL
 command to create the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table. Also, we should include a
@@ -151,8 +151,8 @@ command to create the <code class="docutils literal notranslate"><span class="pr
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">directors</span> <span class="p">(</span>
    <span class="n">director_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
-   <span class="k">first</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
-   <span class="k">last</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+   <span class="n">first_name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+   <span class="n">last_name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
    <span class="n">country</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
 <span class="p">);</span>
 </pre></div>
@@ -207,7 +207,7 @@ table.</p>
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">movies</span> <span class="p">(</span>
    <span class="n">movie_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
    <span class="n">title</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
-   <span class="k">year</span> <span class="nb">INTEGER</span><span class="p">,</span>
+   <span class="n">year_released</span> <span class="nb">INTEGER</span><span class="p">,</span>
    <span class="n">director_id</span> <span class="nb">INTEGER</span><span class="p">,</span>
    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">director_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">directors</span><span class="p">(</span><span class="n">director_id</span><span class="p">)</span>
 <span class="p">);</span>
@@ -300,7 +300,7 @@ American film director.</p>
 don’t need to put in a value for that column.</p>
 </div>
 </li>
-<li><p class="first">Combine the <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> keywords to list the <code class="docutils literal notranslate"><span class="pre">last</span></code> name and
+<li><p class="first">Combine the <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> keywords to list the <code class="docutils literal notranslate"><span class="pre">last_name</span></code> and
 <code class="docutils literal notranslate"><span class="pre">director_id</span></code> for Rob Reiner.</p>
 </li>
 <li><p class="first">Insert a new record into the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table for <em>The Princess Bride</em>,
@@ -341,8 +341,8 @@ please use a join.</p>
 <li><p class="first">Delete a row from the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table. What consequence does this have on
 <code class="docutils literal notranslate"><span class="pre">directors</span></code>? List the contents of both tables to find out.</p>
 </li>
-<li><p class="first">Delete one person from the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table, then re-run your SQL command
-from step 8. What consequence results from trying to remove a director?</p>
+<li><p class="first">Try to delete one person from the <code class="docutils literal notranslate"><span class="pre">directors</span></code> table. What error results
+from trying to remove a director?</p>
 </li>
 </ol>
 </div>
