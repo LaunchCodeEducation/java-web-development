@@ -18,6 +18,7 @@ Chapters
    chapters/thymeleaf-views/index
    chapters/spring-model-classes/index
    chapters/spring-model-validation/index
+   chapters/sql-part1/index
 
 .. toctree::
 
@@ -40,6 +41,7 @@ Studios
    chapters/spring-controllers-and-routes/studio
    chapters/thymeleaf-views/studio
    chapters/spring-model-classes/studio
+   chapters/sql-part1/studio
 
 Assignments
 -----------

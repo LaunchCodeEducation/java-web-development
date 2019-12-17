@@ -89,7 +89,7 @@ following video.
 
 .. admonition:: Warning
 
-   This videos in this chapter walk you through building small web-based
+   The videos in this chapter walk you through building small web-based
    projects. Do NOT skip this practice, because the end of chapter exercises
    pick up where the tutorials end.
 
