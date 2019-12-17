@@ -26,7 +26,11 @@ Accepting data like this leads to many complications. For example, searching for
 
 When filling out forms on the web, you are used to seeing ``select`` elements use to represent fields like this.
 
-.. todo:: screenshot of select w/ days of the week
+.. figure:: figures/weekdaySelect.png
+   :scale: 80%
+   :alt: Select tag with days of the week.
+
+Select tag with days of the week.
 
 Limiting the values that the user can select drastically reduces complexity and ensures that our application data remains clean and standardized. Enum types are one way to model fields like this.
 
