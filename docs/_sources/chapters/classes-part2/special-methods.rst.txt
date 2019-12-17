@@ -18,7 +18,7 @@ something like this:
 
 .. admonition:: Example
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       Student person = new Student("Violet");
@@ -87,7 +87,7 @@ below, which creates two ``Student`` objects:
 
 .. admonition:: Example
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       Student student1 = new Student("Maria", 1234);
@@ -399,7 +399,7 @@ Check Your Understanding
 
    Given the code:
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       public class Pet {
@@ -433,7 +433,7 @@ Check Your Understanding
 
    We add the following code inside the ``Pet`` class:
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
       :linenos:
 
       public boolean equals(Object petToCheck) {

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>12.2. Create a Model &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.3. Models and Data" href="data-layer.html" />
+    <link rel="prev" title="12.1. Models in MVC" href="model-intro.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">12. Models and Model Binding</a></li>
+    <li class="active">12.2. Create a Model</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="create-a-model">
+<h1>12.2. Create a Model<a class="headerlink" href="#create-a-model" title="Permalink to this headline">¶</a></h1>
+<p>In the next several pages, we will be making updates to <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> to demonstrate model creation,
+how models relate to data, and the practice of model biding. The first of these steps is to move data
+handling out of our controller classes and into a model class. As we discussed on the previous page, the
+controller class is not responsible for holding data.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, we’ll remove the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> data from <code class="docutils literal notranslate"><span class="pre">EventController</span></code> and create a proper
+Java class to deal with event items. We’ll then update our controller methods to take
+advantage of the new model and its properties, rather than the strings stored in the list.
+Lastly, because the controller is updating, the template variables it relies upon will also need to
+change to reflect the model properties.</p>
+<div class="section" id="create-a-model-class-video">
+<h2>12.2.1. Create a Model Class - Video<a class="headerlink" href="#create-a-model-class-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/tDfwNJ3Nk_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/create-model" target="_blank">create-model branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+</div>
+<div class="section" id="create-a-model-class-text">
+<h2>12.2.2. Create a Model Class - Text<a class="headerlink" href="#create-a-model-class-text" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">Like controllers, model classes are conventionally located in a <code class="docutils literal notranslate"><span class="pre">models</span></code>
+package. Structurally, model classes most closely resemble the kinds of classes we practiced
+making at the start of this course, before introducing Spring Boot. In other words,
+models are <strong>plain old Java objects</strong>, or <strong>POJOs</strong>.</p>
+<p>To create a model to shape event data, we include a field for <code class="docutils literal notranslate"><span class="pre">name</span></code>.
+Of course, we’ll also like at least one constructor and some getters and setters.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now that we’re working to move the data handling out from the controller classes and into a class of its own,
+we’ll need to update the <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler that creates new events. Update the <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method inside of
+<code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> to add a new <code class="docutils literal notranslate"><span class="pre">Event</span></code> instance:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">eventName</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="n">eventName</span><span class="o">));</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>And you’ll notice, we’re adding a different type of data to the <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>, so we’ll have to update that too:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+</pre></div>
+</td></tr></table></div>
+<p>Back in the <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> template, update the HTML to use the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object’s fields, rather than
+simply strings.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The syntax <code class="docutils literal notranslate"><span class="pre">event.fieldName</span></code> runs a getter method behind the scenes in order to access a field.</p>
+</div>
+</div>
+<div class="section" id="add-a-model-property-video">
+<h2>12.2.3. Add a Model Property - Video<a class="headerlink" href="#add-a-model-property-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/5dtyojtADbk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-property" target="_blank">add-property branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+</div>
+<div class="section" id="add-a-model-property-text">
+<h2>12.2.4. Add a Model Property - Text<a class="headerlink" href="#add-a-model-property-text" title="Permalink to this headline">¶</a></h2>
+<p>To round out the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, we’ll add a <code class="docutils literal notranslate"><span class="pre">description</span></code> field to showcase what our events are all about.</p>
+<p>Updates to <code class="docutils literal notranslate"><span class="pre">models/Event.java</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Event</span> <span class="o">{</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Event</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getDescription</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescription</span><span class="o">(</span><span class="n">String</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now that our data is object-oriented, it’s quick and easy to add a new property affiliated with an event. If after
+this, we decide to add a <code class="docutils literal notranslate"><span class="pre">date</span></code> or <code class="docutils literal notranslate"><span class="pre">location</span></code> field, we would simply follow the pattern established. Before,
+with events stored as name strings, we would have had more changes to make in order to add other information fields
+to the shape of the data.</p>
+<p>Update both the <code class="docutils literal notranslate"><span class="pre">events/create.html</span></code> and <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> templates to create an event object with a
+description field and to display that description along with the event’s name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">events/create.html</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+   Description
+   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;eventDescription&quot;</span>  <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">events/index.html</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.description}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lastly, add a parameter to the
+<code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> to handle the form submission and pass the description
+value into the creation of the Event object.</p>
+<p><code class="docutils literal notranslate"><span class="pre">EventController</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>36
+37
+38
+39
+40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">eventName</span><span class="o">,</span> <span class="nd">@RequestParam</span> <span class="n">String</span> <span class="n">eventDescription</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">events</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Event</span><span class="o">(</span><span class="n">eventName</span><span class="o">,</span> <span class="n">eventDescription</span><span class="o">));</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>12.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: Model code is framework independent.</p>
+<ol class="last arabic simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, if we add a field to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model to record the date of the event, which of the methods in
+<code class="docutils literal notranslate"><span class="pre">EventController</span></code> will need to be updated?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">displayCreateEventForm</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code></li>
+<li>no controller methods need to be updated</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="model-intro.html"><span aria-hidden="true">&larr;</span> 12.1. Models in MVC</a></li>
+        
+        
+        <li class="next"><a href="data-layer.html">12.3. Models and Data <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-classes/model-class.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
