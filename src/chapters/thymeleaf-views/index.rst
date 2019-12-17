@@ -14,5 +14,6 @@ Thymeleaf Views
    template-forms
    template-fragments
    src&href
+   bootstrap
    exercises
    studio

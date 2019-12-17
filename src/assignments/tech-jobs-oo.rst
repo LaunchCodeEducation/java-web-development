@@ -259,6 +259,8 @@ constructor:
 #. It should call the first constructor to initialize the ``id`` field.
 #. It must also initialize the ``value`` field for a new ``Location`` object.
 
+.. _generator-shortcut:
+
 The ``CoreCompetency`` Class
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -21,7 +21,7 @@ Array Practice
    table.
 #. Print the array of words to verify that your code works. The syntax is:
 
-   .. sourcecode:: Java
+   .. sourcecode:: java
 
       System.out.println(Arrays.toString(arrayName));
 
