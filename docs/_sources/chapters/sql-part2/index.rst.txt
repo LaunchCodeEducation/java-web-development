@@ -7,3 +7,4 @@ The Sequel to SQL
    creating-databases
    relationships
    complex-queries
+   studio
