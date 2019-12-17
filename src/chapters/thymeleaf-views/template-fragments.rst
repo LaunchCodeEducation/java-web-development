@@ -17,8 +17,8 @@ live-coding practice.
 Fragments DRY Your Code
 ------------------------
 
-Anythyme you find yourself typing identical code into different templates,
-you should consider ways to streamline your work.
+Anytime you find yourself typing identical code into different templates, you
+should consider ways to streamline your work.
 
 Never fear, coder. Fragments are the tool you need. The general syntax is:
 
