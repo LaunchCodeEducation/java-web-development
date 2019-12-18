@@ -86,43 +86,40 @@
     
   <div class="section" id="exercises-sql-part-2">
 <h1>14.4. Exercises: SQL, Part 2<a class="headerlink" href="#exercises-sql-part-2" title="Permalink to this headline">¶</a></h1>
-<p>Lorem ipsum…</p>
+<p>Start up MySQL Workbench and select your <code class="docutils literal notranslate"><span class="pre">practiceDB</span></code> from the previous chapter.</p>
+<p>We are going to add to our garden database to practice our new SQL skills.</p>
 <div class="section" id="import-new-tables">
 <h2>14.4.1. Import New Tables<a class="headerlink" href="#import-new-tables" title="Permalink to this headline">¶</a></h2>
-<p>Do this…</p>
+<p>In addition to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table, we need to add a <code class="docutils literal notranslate"><span class="pre">plant</span></code> table and a <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> table.</p>
+<p>Our <code class="docutils literal notranslate"><span class="pre">plant</span></code> table needs to have <code class="docutils literal notranslate"><span class="pre">plant_id</span></code> column, a <code class="docutils literal notranslate"><span class="pre">name</span></code> column, a <code class="docutils literal notranslate"><span class="pre">zone</span></code> column, and a <code class="docutils literal notranslate"><span class="pre">season</span></code> column.</p>
+<p>Our <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> table needs to have a <code class="docutils literal notranslate"><span class="pre">plant_id</span></code> column, a <code class="docutils literal notranslate"><span class="pre">date</span></code> column, and a <code class="docutils literal notranslate"><span class="pre">doing_well</span></code> column.</p>
+<p>We also need to modify our seeds table to include the <code class="docutils literal notranslate"><span class="pre">plant_id</span></code> column.</p>
+<p><code class="docutils literal notranslate"><span class="pre">plant_id</span></code> is going to be our foreign key that will connect <code class="docutils literal notranslate"><span class="pre">plant</span></code> to `` seed`` and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code>.</p>
 </div>
 <div class="section" id="inner-join">
 <h2>14.4.2. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h2>
-<p>Instructions here for 1 or 2 inner joins (review from SQL, part 1).</p>
+<p>Inner join <code class="docutils literal notranslate"><span class="pre">seeds</span></code> and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> to see what plants are we have seeds for and are also planted.</p>
+<p>Why is this helpful?</p>
 </div>
 <div class="section" id="left-join">
 <h2>14.4.3. Left Join<a class="headerlink" href="#left-join" title="Permalink to this headline">¶</a></h2>
-<p>Instructions here for 2 left joins…</p>
+<p>Left join to see all of the seeds and corresponding planted plants.</p>
+<p>Why is this helpful?</p>
 </div>
 <div class="section" id="right-join">
 <h2>14.4.4. Right Join<a class="headerlink" href="#right-join" title="Permalink to this headline">¶</a></h2>
-<p>Instructions here for 1 right join…</p>
-<p>Maybe add a comparison between left join B on A vs. right join A on B?</p>
+<p>Right join to see all of the seeds and corresponding planted plants.</p>
+<p>Why is this helpful?</p>
 </div>
 <div class="section" id="full-join">
 <h2>14.4.5. Full Join<a class="headerlink" href="#full-join" title="Permalink to this headline">¶</a></h2>
 <p>Instructions for 2 full joins:</p>
 <ol class="arabic simple">
-<li>Two tables…</li>
-<li>Three tables…</li>
+<li>seeds and garden_bed. Does this match all that is in plants?</li>
 </ol>
 </div>
 <div class="section" id="sub-queries">
 <h2>14.4.6. Sub-Queries<a class="headerlink" href="#sub-queries" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
-<p>Maybe something like:</p>
-<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">...</span>
-<span class="k">FROM</span> <span class="p">...</span>
-<span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="p">(</span><span class="n">sub</span><span class="o">-</span><span class="n">query</span> <span class="n">here</span><span class="p">);</span>
-</pre></div>
-</td></tr></table></div>
 </div>
 </div>
 
