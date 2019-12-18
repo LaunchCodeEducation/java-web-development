@@ -205,9 +205,9 @@ Check Your Understanding
    Which type of relationship exists between a ``drawer`` table and a
    ``storage_case`` table?
 
-   a. one-to-one
-   b. one-to-many
-   c. many-to-many
+   a. One-to-one
+   b. One-to-many
+   c. Many-to-many
 
 .. Answer = b (one-to-many)
 
@@ -215,20 +215,20 @@ Check Your Understanding
 
    Which type of relationship would exist between ``teachers`` and ``students``?
 
-   a. one-to-one
-   b. one-to-many
-   c. many-to-many
+   a. One-to-one
+   b. One-to-many
+   c. Many-to-many
 
 .. Answer = c (many-to-many)
 
 .. admonition:: Question
 
-   For the ``storage_case``, ``drawer``, and ``document`` tables, what are the
+   For the ``closet``, ``shelf``, and ``box`` tables, what are the
    relationships? (Don't overthink this).
 
-   a. one-to-many and one-to-many
-   b. one-too-many questions
-   c. many-too-many-too-many questions
+   a. One-to-many and one-to-many
+   b. One-too-many questions
+   c. Many-too-many-too-many questions
    d. Um, wait, but... NOOOOOOO! I overthought it!
 
 .. Answer = a (one-to-many and one-to-many)
