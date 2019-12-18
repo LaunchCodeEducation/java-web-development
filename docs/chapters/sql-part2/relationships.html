@@ -86,11 +86,64 @@
     
   <div class="section" id="table-relationships">
 <h1>14.2. Table Relationships<a class="headerlink" href="#table-relationships" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>Explain how and why data is split into related tables</li>
-<li>Utilize foreign keys</li>
-<li>Create tables with an understanding of one-to-many relationships</li>
-</ul>
+<p>Intro text…
+(Explain how and why data is split into related tables).</p>
+<div class="section" id="one-to-many-relationships">
+<h2>14.2.1. One-To-Many Relationships<a class="headerlink" href="#one-to-many-relationships" title="Permalink to this headline">¶</a></h2>
+<p>We’re also going to want to have a unique <cite>movie_id</cite> column as
+the primary key, since there can be more than one movie with the same title.</p>
+<p>Also, be sure to have an <cite>director_id</cite>
+column so that we have a valid primary key.</p>
+<div class="highlight-sql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">directors</span> <span class="p">(</span>
+   <span class="n">director_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="k">first</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
+   <span class="k">last</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">),</span>
+   <span class="n">country</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>Before we go further, let’s take a moment to think about how these two tables
+relate to each other, and whether we may want to modify the column <cite>director</cite>
+in the <cite>movies</cite> table. Understanding the one-to-many relationship that is
+common among database tables will help us to come up with the best design for
+these two tables. A director may direct multiple movies, but each movie may
+only have one director.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">It may be useful to review <a class="reference external" href="http://www.databaseprimer.com/pages/relationship_1tox/" target="_blank">this article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+from the class prep to refresh your memory on the one-to-many concept.</p>
+</div>
+<p>In order to reflect this relationship in the table definitions, let’s modify
+the <cite>director</cite> column in <cite>movies</cite> to become <cite>director_id</cite> and therefore to be
+an <cite>INTEGER</cite> instead of a <cite>VARCHAR</cite> (as that is the type we used earlier when
+we thought the director column would hold the name of a director). We also
+will want to make the <cite>director_id</cite> column a foreign key, so that it links
+directly to the <cite>director_id</cite> column of the <cite>directors</cite> table. Go ahead and
+write the SQL to drop the <cite>movies</cite> table we had created, and then write the
+SQL to create a new table with these changes.</p>
+<p>This kind of table structure keeps our database clean. It keeps data specific
+to directors in the <cite>directors</cite> table, and data specific to each movie in the
+<cite>movies</cite> table and provides a link between the two tables. This is a “clean”
+design, because data such as what country the director of a movie is from
+isn’t really an attribute of the movie, it’s an attribute of the director.
+After all, you wouldn’t put <cite>directors_country</cite> as a property of a Python
+<cite>movie</cite> object, would you? Hopefully not. :-)</p>
+<p>Still, we may want to know that information for a given movie, e.g., we may
+want to find all the movies since 2010 that have French directors. So we need
+to have a way of filtering movies based on attributes of directors, without
+cluttering up the <cite>movies</cite> table. Solving this challenge is what relational
+databases are all about, and Foreign Keys are the “key” (pun intended) to the
+solution.</p>
+</div>
+<div class="section" id="foreign-keys">
+<h2>14.2.2. Foreign Keys<a class="headerlink" href="#foreign-keys" title="Permalink to this headline">¶</a></h2>
+<p>Lorem ipsum…</p>
+</div>
 </div>
 
 
