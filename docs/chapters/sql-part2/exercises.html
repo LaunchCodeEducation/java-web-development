@@ -86,40 +86,84 @@
     
   <div class="section" id="exercises-sql-part-2">
 <h1>14.4. Exercises: SQL, Part 2<a class="headerlink" href="#exercises-sql-part-2" title="Permalink to this headline">¶</a></h1>
-<p>Start up MySQL Workbench and select your <code class="docutils literal notranslate"><span class="pre">practiceDB</span></code> from the previous chapter.</p>
-<p>We are going to add to our garden database to practice our new SQL skills.</p>
-<div class="section" id="import-new-tables">
-<h2>14.4.1. Import New Tables<a class="headerlink" href="#import-new-tables" title="Permalink to this headline">¶</a></h2>
-<p>In addition to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table, we need to add a <code class="docutils literal notranslate"><span class="pre">plant</span></code> table and a <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> table.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">plant</span></code> table needs to have <code class="docutils literal notranslate"><span class="pre">plant_id</span></code> column, a <code class="docutils literal notranslate"><span class="pre">name</span></code> column, a <code class="docutils literal notranslate"><span class="pre">zone</span></code> column, and a <code class="docutils literal notranslate"><span class="pre">season</span></code> column.</p>
-<p>Our <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> table needs to have a <code class="docutils literal notranslate"><span class="pre">plant_id</span></code> column, a <code class="docutils literal notranslate"><span class="pre">date</span></code> column, and a <code class="docutils literal notranslate"><span class="pre">doing_well</span></code> column.</p>
-<p>We also need to modify our seeds table to include the <code class="docutils literal notranslate"><span class="pre">plant_id</span></code> column.</p>
-<p><code class="docutils literal notranslate"><span class="pre">plant_id</span></code> is going to be our foreign key that will connect <code class="docutils literal notranslate"><span class="pre">plant</span></code> to `` seed`` and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code>.</p>
+<p>In the previous chapter, we set up a database to store information about seeds. Let’s expand that idea now that we know all about foreign keys!</p>
+<div class="section" id="create-a-new-schema">
+<h2>14.4.1. Create a New Schema<a class="headerlink" href="#create-a-new-schema" title="Permalink to this headline">¶</a></h2>
+<p>To get started, let’s set up a new schema in MySQL Workbench and call it <code class="docutils literal notranslate"><span class="pre">garden</span></code>.
+In the last chapter, we learned we can do this by clicking on <em>New Schema</em>, naming it <code class="docutils literal notranslate"><span class="pre">garden</span></code>, accepting the defaults, and clicking <em>Apply</em>.</p>
 </div>
+<div class="section" id="import-new-tables">
+<h2>14.4.2. Import New Tables<a class="headerlink" href="#import-new-tables" title="Permalink to this headline">¶</a></h2>
+<p>To import the data in our CSVs, we need to create three empty tables.</p>
+<p>Our first table is <code class="docutils literal notranslate"><span class="pre">plant</span></code>. <code class="docutils literal notranslate"><span class="pre">plant</span></code> needs to have four columns:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">plant_id</span></code>, which will be the primary key for our database.</li>
+<li><code class="docutils literal notranslate"><span class="pre">plant_name</span></code>, which will contain the name of the plant.</li>
+<li><code class="docutils literal notranslate"><span class="pre">zone</span></code> is an integer for the hardiness zone that our plant will live in best.</li>
+<li><code class="docutils literal notranslate"><span class="pre">season</span></code> is either <code class="docutils literal notranslate"><span class="pre">&quot;Winter&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Spring&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Summer&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;Fall&quot;</span></code> depending on which season our plant blooms in.</li>
+</ol>
+<p>In a new query tab, use <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> to make the <code class="docutils literal notranslate"><span class="pre">plant</span></code> table.
+After you have created the <code class="docutils literal notranslate"><span class="pre">plant</span></code> table, you need to import some data.</p>
+<p>Our second table is <code class="docutils literal notranslate"><span class="pre">seeds</span></code>. <code class="docutils literal notranslate"><span class="pre">seeds</span></code> needs to have five columns:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">seed_id</span></code>, which will auto increment.</li>
+<li><code class="docutils literal notranslate"><span class="pre">expiration_date</span></code>, which will be of the <code class="docutils literal notranslate"><span class="pre">DATE</span></code> type.</li>
+<li><code class="docutils literal notranslate"><span class="pre">quantity</span></code> is an integer for the number of seeds we have available.</li>
+<li><code class="docutils literal notranslate"><span class="pre">reorder</span></code> of type <code class="docutils literal notranslate"><span class="pre">BOOL</span></code> and tells us if we need to reorder that type of seed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">plant_id</span></code> is the foreign key that connects <code class="docutils literal notranslate"><span class="pre">seeds</span></code> to <code class="docutils literal notranslate"><span class="pre">plant</span></code>.</li>
+</ol>
+<p>In a new query tab, use <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> to make the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table.
+After you have created the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table, you need to import some data.</p>
+<p>Our third table is <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code>. <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> needs to have four columns:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">space_number</span></code>, which will increment as we plant new plants.</li>
+<li><code class="docutils literal notranslate"><span class="pre">date_planted</span></code> of type <code class="docutils literal notranslate"><span class="pre">DATE</span></code> for the date we planted that plant on.</li>
+<li><code class="docutils literal notranslate"><span class="pre">doing_well</span></code> of type <code class="docutils literal notranslate"><span class="pre">BOOL</span></code> and tells us if the plant is doing well.</li>
+<li><code class="docutils literal notranslate"><span class="pre">plant_id</span></code> is the foreign key that connects <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> to <code class="docutils literal notranslate"><span class="pre">plant</span></code>.</li>
+</ol>
+<p>In a new query tab, use <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> to make the <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> table.
+After you have created the <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> table, you need to import some data.</p>
+</div>
+<div class="section" id="try-out-some-joins">
+<h2>14.4.3. Try out some joins!<a class="headerlink" href="#try-out-some-joins" title="Permalink to this headline">¶</a></h2>
+<p>Before we jump in with our subqueries and more complex queries, let’s practice our joins from the previous chapter.
+After you write each query, look at the result set and reflect on why that information might be helpful.
+If you needed this database to manage your own garden, what would you use the result set for?</p>
 <div class="section" id="inner-join">
-<h2>14.4.2. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h2>
-<p>Inner join <code class="docutils literal notranslate"><span class="pre">seeds</span></code> and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> to see what plants are we have seeds for and are also planted.</p>
-<p>Why is this helpful?</p>
+<h3>14.4.3.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h3>
+<p>Write a query that joins <code class="docutils literal notranslate"><span class="pre">seeds</span></code> and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> with an inner join to see what plants are we have seeds for that are <em>also</em> planted in the garden bed.</p>
 </div>
 <div class="section" id="left-join">
-<h2>14.4.3. Left Join<a class="headerlink" href="#left-join" title="Permalink to this headline">¶</a></h2>
-<p>Left join to see all of the seeds and corresponding planted plants.</p>
-<p>Why is this helpful?</p>
+<h3>14.4.3.2. Left Join<a class="headerlink" href="#left-join" title="Permalink to this headline">¶</a></h3>
+<p>Write a query that joins <code class="docutils literal notranslate"><span class="pre">seeds</span></code> and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> with a left join to see all of the seeds we have and any matching plants in the garden bed.</p>
 </div>
 <div class="section" id="right-join">
-<h2>14.4.4. Right Join<a class="headerlink" href="#right-join" title="Permalink to this headline">¶</a></h2>
-<p>Right join to see all of the seeds and corresponding planted plants.</p>
-<p>Why is this helpful?</p>
+<h3>14.4.3.3. Right Join<a class="headerlink" href="#right-join" title="Permalink to this headline">¶</a></h3>
+<p>Write a query that joins <code class="docutils literal notranslate"><span class="pre">seeds</span></code> and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> with a right join to see all the plants in the garden bed and any matching seeds we have.</p>
 </div>
 <div class="section" id="full-join">
-<h2>14.4.5. Full Join<a class="headerlink" href="#full-join" title="Permalink to this headline">¶</a></h2>
-<p>Instructions for 2 full joins:</p>
-<ol class="arabic simple">
-<li>seeds and garden_bed. Does this match all that is in plants?</li>
-</ol>
+<h3>14.4.3.4. Full Join<a class="headerlink" href="#full-join" title="Permalink to this headline">¶</a></h3>
+<p>Write a query that joins <code class="docutils literal notranslate"><span class="pre">seeds</span></code> and <code class="docutils literal notranslate"><span class="pre">garden_bed</span></code> with a full join.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">In the previous chapter, we learned that MySQL does not support full joins.
+Review the section on <a class="reference internal" href="../sql-part1/joins.html#fullouterjoin"><span class="std std-ref">full joins</span></a> to see how this could be done!</p>
 </div>
-<div class="section" id="sub-queries">
-<h2>14.4.6. Sub-Queries<a class="headerlink" href="#sub-queries" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="sub-queries-and-complex-queries">
+<h2>14.4.4. Sub-Queries and Complex Queries<a class="headerlink" href="#sub-queries-and-complex-queries" title="Permalink to this headline">¶</a></h2>
+<p>When we were writing our joins, you may have noticed that the information that was most helpful to you (the <code class="docutils literal notranslate"><span class="pre">plant_name</span></code>) was missing from the result set!</p>
+<p>Write a query that gets the name of the plant by joining the <code class="docutils literal notranslate"><span class="pre">plant</span></code> table on the result set of the inner join query above.</p>
+<p>Let’s say our <code class="docutils literal notranslate"><span class="pre">plant</span></code> table is so large that we have no idea what the <code class="docutils literal notranslate"><span class="pre">plant_id</span></code> for a hosta is. All we know is that there is definitely a row for hostas in the <code class="docutils literal notranslate"><span class="pre">plant</span></code> table.</p>
+<p>Write a query that will insert a new row into our <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table. This new row needs to show that we received 100 hosta seeds that will expire on 08/05/2020 (so no need to reorder!) and for the <code class="docutils literal notranslate"><span class="pre">plant_id</span></code>, use a query <em>inside</em> the INSERT statement to get the appropriate ID for hostas.</p>
+</div>
+<div class="section" id="bonus-missions">
+<h2>14.4.5. Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Revisit your query with a full join and try using <code class="docutils literal notranslate"><span class="pre">UNION</span> <span class="pre">ALL</span></code> as opposed to <code class="docutils literal notranslate"><span class="pre">UNION</span></code>. How does the result set differ?</li>
+<li>Now that we can get the <code class="docutils literal notranslate"><span class="pre">plant_name</span></code> of plants that we have seeds for and are in the garden bed, try using <code class="docutils literal notranslate"><span class="pre">COUNT()</span></code> to see how many plants are in both places.</li>
+</ol>
 </div>
 </div>
 
