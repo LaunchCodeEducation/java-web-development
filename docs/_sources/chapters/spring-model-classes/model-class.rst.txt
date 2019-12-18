@@ -201,15 +201,5 @@ Check Your Understanding
 
 .. ans: true, models are just java objects
 
-.. admonition:: Question
 
-   In ``coding-events``, if we add a field to the ``Event`` model to record the date of the event, which of the methods in 
-   ``EventController`` will need to be updated? 
-
-   #. ``displayAllEvents``
-   #. ``displayCreateEventForm``
-   #. ``processCreateEventForm``
-   #. no controller methods need to be updated
-
-.. ans: d, no controller methods need to be updated
 
