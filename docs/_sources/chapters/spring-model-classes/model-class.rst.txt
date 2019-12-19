@@ -2,7 +2,7 @@ Create a Model
 ==============
 
 In the next several pages, we will be making updates to ``coding-events`` to demonstrate model creation,
-how models relate to data, and the practice of model biding. The first of these steps is to move data 
+how models relate to data, and the practice of model binding. The first of these steps is to move data 
 handling out of our controller classes and into a model class. As we discussed on the previous page, the 
 controller class is not responsible for holding data.
 
