@@ -3,6 +3,11 @@ Validation Annotations
 
 Within the model of a Java web application, we can define validation rules using annotations from the ``javax.validation.constraints`` package. This package provides a variety of annotations that are useful in common circumstances, and which can be applied to model fields. 
 
+.. index::
+   :single: validation, annotations
+
+.. index:: ! @Size, ! @Min, ! @Max, ! @Email, ! @NotBlank, ! @NotNull
+
 Common Annotations
 ------------------
 
@@ -83,7 +88,7 @@ The final code from this video is in the `add-validation-annotations branch <htt
 Applying Validation Annotations - Text
 --------------------------------------
 
-To configure validation on the model-side, we begin by adding validation annotations to each field for which we want to apply constraints.
+To configure validation on the model-side, we begin by adding validation annotations to each field to which we want to apply constraints.
 
 For our ``Event`` class, we add ``@Size`` and ``@NotBlank`` to the ``name`` field, and just ``@Size`` to the ``description`` field.
 
@@ -103,12 +108,7 @@ Each of our annotations also receives a ``message`` parameter, which provides a 
 
 Next, we add a new field to store a contact email for each event. This is a ``String`` named ``contactEmail``. Validating email addresses by directly applying each of the rules that an email must satisfy is *extremely* difficult. Thankfully, there is an ``@Email`` validation annotation that we can apply to our new field.
 
-.. admonition:: Tip
-
-   The full list of Java validation annotations is in the `documentation <https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html>`_ for ``javax.validation.constraints``.
-
-
-After adding this new field to our constructor, and dropping in a getter and setter, our class is done for the moment.
+After adding this new field to our constructor, and generating a getter and setter, our class is done for the moment.
 
 .. sourcecode:: java
    :lineno-start: 11
@@ -183,7 +183,12 @@ After adding this new field to our constructor, and dropping in a getter and set
       }
    }
 
-Before we can start up our application, we need to add a new column to the ``events/index`` template to make ``contactEmail`` visible. Our table now looks like this:
+
+.. admonition:: Tip
+
+   The full list of Java validation annotations is in the `documentation <https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html>`_ for ``javax.validation.constraints``.
+
+Before we can start up our application, we need to add a new column to the ``events/index`` template to make ``contactEmail`` visible. 
 
 .. sourcecode:: html
    :lineno-start: 8
@@ -205,7 +210,7 @@ Before we can start up our application, we need to add a new column to the ``eve
       </tr>
    </table>
 
-Now we can start up our application and test. Submitting an empty form at ``/events/create`` still results in an event being created, however.
+Now we can start up our application and test. Submitting an empty form at ``/events/create`` still results in an event being created, which may not be what you were expecting. 
 
 .. figure:: figures/new-empty-event.png
    :alt: The main event listing with one event that has an ID, but for which all other fields are blank.

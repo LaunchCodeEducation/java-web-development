@@ -101,7 +101,7 @@
 <h2>13.4.2. Display Validation Errors for a Field - Text<a class="headerlink" href="#display-validation-errors-for-a-field-text" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="using-th-field">
 <h3>13.4.2.1. Using <code class="docutils literal notranslate"><span class="pre">th:field</span></code><a class="headerlink" href="#using-th-field" title="Permalink to this headline">¶</a></h3>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">th:field</span></code> attribute on a form input to instruct Thymeleaf to add field-specific attributes to the form, such as <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+<p id="index-0">We can use the <code class="docutils literal notranslate"><span class="pre">th:field</span></code> attribute on a form input to instruct Thymeleaf to add field-specific attributes to the form, such as <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
 <p>Consider our second input, which currently looks like this:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>17
 18
@@ -123,8 +123,8 @@
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>We don’t need to use the <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute in this case, but doesn’t hurt anything to have it. Now Thymeleaf sets <code class="docutils literal notranslate"><span class="pre">name</span></code> on its own, and if we were to change the field name on the class, no template updates would be required.</p>
-<p>For this to work, two more steps are necessary. First, we add constructor to <code class="docutils literal notranslate"><span class="pre">Event</span></code> that doesn’t require any arguments, also called a <strong>no-arg constructor</strong>.</p>
+<p>We don’t need to use the <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute in this case, but it doesn’t hurt anything by being there. Now, Thymeleaf sets <code class="docutils literal notranslate"><span class="pre">name</span></code> on its own, and if we were to change the field name on the class, no template updates would be required.</p>
+<p id="index-1">For this to work, two more steps are necessary. First, we add constructor to <code class="docutils literal notranslate"><span class="pre">Event</span></code> that doesn’t require any arguments, also called a <strong>no-arg constructor</strong>.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
 28
 29
@@ -167,7 +167,7 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Notice line 29, which pass in an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object created by calling the no-arg constructor.</p>
+<p>Notice line 29, which passes in an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object created by calling the no-arg constructor.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>It’s also allowable to pass in the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object without a label:</p>
@@ -224,7 +224,7 @@
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>One final action fo <code class="docutils literal notranslate"><span class="pre">th:field</span></code> to note is that if the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object has values in any of the bound fields, the input will be created with that value in its <code class="docutils literal notranslate"><span class="pre">value</span></code> attribute. For example, if the <code class="docutils literal notranslate"><span class="pre">event</span></code> object had a <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> of <code class="docutils literal notranslate"><span class="pre">me&#64;me.com</span></code>, then the resulting form input would be:</p>
+<p>One additional result of using <code class="docutils literal notranslate"><span class="pre">th:field</span></code> is that if the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object has a value in any bound field, the input will be created with that value in its <code class="docutils literal notranslate"><span class="pre">value</span></code> attribute. For example, if the <code class="docutils literal notranslate"><span class="pre">event</span></code> object has a <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> of <code class="docutils literal notranslate"><span class="pre">me&#64;me.com</span></code>, then the resulting form input would be:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;contactEmail&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;contactEmail&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;me@me.com&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -252,11 +252,11 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>This method checks for validation errors and returns the user to the form if it finds any. It uses model binding to create a new event object, but this event object is also <em>passed into the view when r-rendering the form</em>. This means that if there are validation errors, the form will be rendered with the values that the user previously entered, preventing the user from having to re-enter all of their data.</p>
+<p>This method checks for validation errors and returns the user to the form if it finds any. It uses model binding to create a new event object, but this event object is <em>also passed into the view when re-rendering the form</em>. This means that if there are validation errors, the form will be rendered with the values that the user previously entered, preventing the user from having to re-enter all of their data.</p>
 </div>
 <div class="section" id="using-th-errors">
 <h3>13.4.2.2. Using <code class="docutils literal notranslate"><span class="pre">th:errors</span></code><a class="headerlink" href="#using-th-errors" title="Permalink to this headline">¶</a></h3>
-<p>The Thymeleaf attribute <code class="docutils literal notranslate"><span class="pre">th:errors</span></code> is used similarly to <code class="docutils literal notranslate"><span class="pre">th:field</span></code> to display field-specific error messages. Recall that when we added our validation annotations to each model field, we also <a class="reference internal" href="validation-annotations.html#validation-messages"><span class="std std-ref">added a message argument</span></a>. Using <code class="docutils literal notranslate"><span class="pre">th:errors</span></code> with its value set to a field will display any validation errors for that field.</p>
+<p>The Thymeleaf attribute <code class="docutils literal notranslate"><span class="pre">th:errors</span></code> is used similarly to <code class="docutils literal notranslate"><span class="pre">th:field</span></code> to display field-specific error messages. Recall that when we added our validation annotations to each model field, we also <a class="reference internal" href="validation-annotations.html#validation-messages"><span class="std std-ref">added a message argument</span></a>. Setting <code class="docutils literal notranslate"><span class="pre">th:errors</span></code> to a field will display any validation errors for that field.</p>
 <p>For example, let’s add a new element to the first form group:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
 10
@@ -307,19 +307,19 @@
 30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Name
-            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span> <span class="na">th:errors</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Description
-            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${event.description}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${event.description}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span> <span class="na">th:errors</span><span class="o">=</span><span class="s">&quot;${event.description}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Contact Email
-            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${event.contactEmail}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${event.contactEmail}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span> <span class="na">th:errors</span><span class="o">=</span><span class="s">&quot;${event.contactEmail}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -329,7 +329,7 @@
 <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Now, when the form is submitted with invalid data, our custom validation error messages will display right next to the given inputs.</p>
+<p>Now, when the form is submitted with invalid data, our custom validation error messages will display just below the given inputs.</p>
 <div class="figure" id="id1">
 <a class="reference internal image-reference" href="../../_images/display-validation-errors.png"><img alt="Our Create Event form after submission with all fields blank. Red error messages are visible next to the fields that failed validation." src="../../_images/display-validation-errors.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-text">The result of submitting an empty form</span></p>

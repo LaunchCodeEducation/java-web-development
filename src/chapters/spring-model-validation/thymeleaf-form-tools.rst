@@ -24,6 +24,8 @@ Display Validation Errors for a Field - Text
 Using ``th:field``
 ^^^^^^^^^^^^^^^^^^
 
+.. index:: ! th:field
+
 We can use the ``th:field`` attribute on a form input to instruct Thymeleaf to add field-specific attributes to the form, such as ``name`` and ``id``. 
 
 Consider our second input, which currently looks like this:
@@ -52,7 +54,9 @@ With this syntax, Thymeleaf will look for a variable named ``event`` and use its
 
    <input type="text" id="description" name="description" class="form-control">
 
-We don't need to use the ``id`` attribute in this case, but doesn't hurt anything to have it. Now Thymeleaf sets ``name`` on its own, and if we were to change the field name on the class, no template updates would be required. 
+We don't need to use the ``id`` attribute in this case, but it doesn't hurt anything by being there. Now, Thymeleaf sets ``name`` on its own, and if we were to change the field name on the class, no template updates would be required. 
+
+.. index:: ! no-arg constructor
 
 For this to work, two more steps are necessary. First, we add constructor to ``Event`` that doesn't require any arguments, also called a **no-arg constructor**.
 
@@ -88,7 +92,7 @@ Finally, we have to pass in an "empty" ``Event`` created with the new constructo
       return "events/create";
    }
 
-Notice line 29, which pass in an ``Event`` object created by calling the no-arg constructor. 
+Notice line 29, which passes in an ``Event`` object created by calling the no-arg constructor. 
 
 .. admonition:: Note
 
@@ -129,7 +133,7 @@ Using this technique on our other form fields completes the task of binding the 
       </div>
    </form>
 
-One final action fo ``th:field`` to note is that if the ``Event`` object has values in any of the bound fields, the input will be created with that value in its ``value`` attribute. For example, if the ``event`` object had a ``contactEmail`` of ``me@me.com``, then the resulting form input would be:
+One additional result of using ``th:field`` is that if the ``Event`` object has a value in any bound field, the input will be created with that value in its ``value`` attribute. For example, if the ``event`` object has a ``contactEmail`` of ``me@me.com``, then the resulting form input would be:
 
 .. sourcecode:: html
 
@@ -152,12 +156,12 @@ The value is then visible in the form field when the page loads. This may not se
       return "redirect:";
    }
 
-This method checks for validation errors and returns the user to the form if it finds any. It uses model binding to create a new event object, but this event object is also *passed into the view when r-rendering the form*. This means that if there are validation errors, the form will be rendered with the values that the user previously entered, preventing the user from having to re-enter all of their data.
+This method checks for validation errors and returns the user to the form if it finds any. It uses model binding to create a new event object, but this event object is *also passed into the view when re-rendering the form*. This means that if there are validation errors, the form will be rendered with the values that the user previously entered, preventing the user from having to re-enter all of their data.
 
 Using ``th:errors``
 ^^^^^^^^^^^^^^^^^^^
 
-The Thymeleaf attribute ``th:errors`` is used similarly to ``th:field`` to display field-specific error messages. Recall that when we added our validation annotations to each model field, we also :ref:`added a message argument <validation-messages>`. Using ``th:errors`` with its value set to a field will display any validation errors for that field.
+The Thymeleaf attribute ``th:errors`` is used similarly to ``th:field`` to display field-specific error messages. Recall that when we added our validation annotations to each model field, we also :ref:`added a message argument <validation-messages>`. Setting ``th:errors`` to a field will display any validation errors for that field.
 
 For example, let's add a new element to the first form group:
 
@@ -191,19 +195,19 @@ Using this attribute on all of the fields gives us our final form template code:
    <form method="post">
       <div class="form-group">
          <label>Name
-               <input th:field="${event.name}" class="form-control">
+               <input type="text" th:field="${event.name}" class="form-control">
          </label>
          <p class="error" th:errors="${event.name}"></p>
       </div>
       <div class="form-group">
          <label>Description
-               <input th:field="${event.description}" class="form-control">
+               <input type="text" th:field="${event.description}" class="form-control">
          </label>
          <p class="error" th:errors="${event.description}"></p>
       </div>
       <div class="form-group">
          <label>Contact Email
-               <input th:field="${event.contactEmail}" class="form-control">
+               <input type="text" th:field="${event.contactEmail}" class="form-control">
          </label>
          <p class="error" th:errors="${event.contactEmail}"></p>
       </div>
@@ -212,7 +216,7 @@ Using this attribute on all of the fields gives us our final form template code:
       </div>
    </form>
 
-Now, when the form is submitted with invalid data, our custom validation error messages will display right next to the given inputs.
+Now, when the form is submitted with invalid data, our custom validation error messages will display just below the given inputs.
 
 .. figure:: figures/display-validation-errors.png
    :alt: Our Create Event form after submission with all fields blank. Red error messages are visible next to the fields that failed validation.

@@ -82,12 +82,14 @@ The first step to enable validation in a controller is to add ``@Valid`` to a me
       return "redirect:";
    }
 
-In lieu of explicit validation error handling (which we will cover below), Spring Boot throws an exception if validation fails for the new object. This means that an object that fails validation will NOT be saved. However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.
+In lieu of explicit validation error handling (which we will cover below), Spring Boot throws an exception if validation fails for the new object. This means that an object that fails validation will NOT be saved. 
 
 .. figure:: figures/validation-exception.png
    :alt: An exception is thrown if @Valid is applied without explicit handling of validation errors.
 
    A validation exception displayed in the browser
+
+However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.
 
 Using the ``Errors`` Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,7 +112,7 @@ We can prevent a validation exception from being thrown by explicitly handling v
       return "redirect:";
    }
 
-Here, we have added ``Errors errors`` to our handler method. This object has a boolean method, ``.hasErrors()`` that we can use to check for the existence of validation errors. If there are validation errors, we return the form again, along with a simple message for the user. This message can be displayed in the ``events/create`` template by adding some code above the form:
+Here, we have added ``Errors errors`` to our handler. This object has a boolean method, ``.hasErrors()`` that we can use to check for the existence of validation errors. If there are validation errors, we return the form again, along with a simple message for the user. This message can be displayed in the ``events/create`` template by adding some code above the form:
 
 .. sourcecode:: html
 

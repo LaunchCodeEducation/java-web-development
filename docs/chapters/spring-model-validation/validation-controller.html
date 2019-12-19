@@ -146,11 +146,12 @@
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>In lieu of explicit validation error handling (which we will cover below), Spring Boot throws an exception if validation fails for the new object. This means that an object that fails validation will NOT be saved. However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.</p>
+<p>In lieu of explicit validation error handling (which we will cover below), Spring Boot throws an exception if validation fails for the new object. This means that an object that fails validation will NOT be saved.</p>
 <div class="figure" id="id1">
 <img alt="An exception is thrown if &#64;Valid is applied without explicit handling of validation errors." src="../../_images/validation-exception.png" />
 <p class="caption"><span class="caption-text">A validation exception displayed in the browser</span></p>
 </div>
+<p>However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.</p>
 </div>
 <div class="section" id="using-the-errors-object">
 <h3>13.3.3.2. Using the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> Object<a class="headerlink" href="#using-the-errors-object" title="Permalink to this headline">¶</a></h3>
@@ -180,7 +181,7 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Here, we have added <code class="docutils literal notranslate"><span class="pre">Errors</span> <span class="pre">errors</span></code> to our handler method. This object has a boolean method, <code class="docutils literal notranslate"><span class="pre">.hasErrors()</span></code> that we can use to check for the existence of validation errors. If there are validation errors, we return the form again, along with a simple message for the user. This message can be displayed in the <code class="docutils literal notranslate"><span class="pre">events/create</span></code> template by adding some code above the form:</p>
+<p>Here, we have added <code class="docutils literal notranslate"><span class="pre">Errors</span> <span class="pre">errors</span></code> to our handler. This object has a boolean method, <code class="docutils literal notranslate"><span class="pre">.hasErrors()</span></code> that we can use to check for the existence of validation errors. If there are validation errors, we return the form again, along with a simple message for the user. This message can be displayed in the <code class="docutils literal notranslate"><span class="pre">events/create</span></code> template by adding some code above the form:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${errorMsg}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
