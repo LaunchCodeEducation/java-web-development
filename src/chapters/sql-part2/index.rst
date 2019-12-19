@@ -1,7 +1,7 @@
 .. _sql-part2:
 
-The Sequel to SQL
-=================
+The SQL Sequel
+==============
 
 .. toctree::
    :maxdepth: 3
