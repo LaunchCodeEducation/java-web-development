@@ -86,7 +86,31 @@
     
   <div class="section" id="complex-queries">
 <h1>14.3. Complex Queries<a class="headerlink" href="#complex-queries" title="Permalink to this headline">¶</a></h1>
-<p>Intro text…</p>
+<p><em>Simple</em> SQL queries are commands that focus on only one parameter. These
+include using the <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> keywords to perform straightforward
+data retrieval. Simple queries usually collect data from only one table at a
+time, and they narrow the result set with fairly simple conditions.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">movies</span>
+<span class="k">WHERE</span> <span class="n">release_date</span> <span class="o">&gt;=</span> <span class="mi">2015</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last">Note that in line 1, we selected all of the fields in the <code class="docutils literal notranslate"><span class="pre">movies</span></code> table,
+but we could easily replace <code class="docutils literal notranslate"><span class="pre">*</span></code> with a smaller set of column names.</p>
+</div>
+<p><em>Complex</em> SQL queries go beyond the standard requests by retrieving data from
+several tables and by limiting the result set with multiple conditions.</p>
+<p>In the <a class="reference internal" href="../sql-part1/index.html#sql-part1"><span class="std std-ref">previous chapter</span></a>, you learned how to use joins to
+display data that is spread over different tables. Another advanced SQL tool is
+called a <strong>subquery</strong>, which is a simple SQL command embedded within another
+query. By nesting queries, you can set up larger restrictions on the data
+included in the result set.</p>
+<p>Complex queries often combine joins and subqueries, and they may include
+multiple <code class="docutils literal notranslate"><span class="pre">AND</span></code>/<code class="docutils literal notranslate"><span class="pre">OR</span></code> operators within the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause.</p>
 <div class="section" id="review-joins">
 <h2>14.3.1. Review Joins<a class="headerlink" href="#review-joins" title="Permalink to this headline">¶</a></h2>
 <p>Inner join example…</p>
@@ -100,7 +124,25 @@
 </div>
 <div class="section" id="subqueries">
 <h2>14.3.2. Subqueries<a class="headerlink" href="#subqueries" title="Permalink to this headline">¶</a></h2>
-<p>Lorem ipsum…</p>
+<p>Consider:</p>
+<ol class="arabic simple">
+<li>Query for ids of cabinet with 3 or more drawers,</li>
+<li>Query for ids of drawers with 50 or more files,</li>
+<li>Query for ids of cabinets that have 3 or more drawers with 50 or more files.</li>
+</ol>
+<p>SELECT cabinet_id FROM cabinet
+WHERE num_drawers &gt;= 3;</p>
+<p>SELECT drawer_id FROM drawer
+WHERE num_files &gt;= 50;</p>
+<p>SELECT cabinet_id, drawer_id
+FROM cabinet
+INNER JOIN drawers ON cabinet.cabinet_id = drawer.cabinet_id
+WHERE num_drawers &gt;= 3;</p>
+<p>SELECT cabinet_id
+FROM cabinet
+INNER JOIN drawers ON cabinet.cabinet_id = drawer.cabinet_id
+WHERE num_drawers &gt;= 3
+AND (SELECT drawer_id FROM drawer WHERE num_files &gt;= 50);</p>
 </div>
 <div class="section" id="joins-and-subqueries">
 <h2>14.3.3. Joins AND Subqueries<a class="headerlink" href="#joins-and-subqueries" title="Permalink to this headline">¶</a></h2>

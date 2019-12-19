@@ -35,12 +35,13 @@ the tables as described below.
 ``drawer``
 ^^^^^^^^^^
 
-4. Each record in this table will have 4 fields:
+4. Each record in this table will have 5 fields:
 
    a. A primary key, ``drawer_id``.
-   b. An maximum number of files, ``max_files``.
-   c. A boolean describing whether or not a drawer is ``full``.
-   d. A foreign key (``cabinet_id``) that connects ``drawer`` with ``cabinet``.
+   b. The number of files, ``num_files``.
+   c. An maximum number of files, ``max_files``.
+   d. A boolean describing whether or not a drawer is ``full``.
+   e. A foreign key (``cabinet_id``) that connects ``drawer`` with ``cabinet``.
 
 ``file``
 ^^^^^^^^
