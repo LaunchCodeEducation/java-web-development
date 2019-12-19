@@ -203,7 +203,7 @@ Check Your Understanding
 .. admonition:: Question
 
    Which type of relationship exists between a ``drawer`` table and a
-   ``storage_case`` table?
+   ``dresser`` table?
 
    a. One-to-one
    b. One-to-many
@@ -213,7 +213,8 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Which type of relationship would exist between ``teachers`` and ``students``?
+   Which type of relationship would exist between ``teachers`` and ``students``
+   tables?
 
    a. One-to-one
    b. One-to-many
