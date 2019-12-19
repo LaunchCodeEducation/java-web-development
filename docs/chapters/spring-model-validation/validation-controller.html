@@ -133,11 +133,58 @@
 </div>
 <div class="section" id="handling-validation-errors-text">
 <h2>13.3.3. Handling Validation Errors - Text<a class="headerlink" href="#handling-validation-errors-text" title="Permalink to this headline">¶</a></h2>
+<p>When using model binding, we can use Spring Boot annotations and tools to validate new model objects before they are saved to a data layer or database.</p>
 <div class="section" id="using-valid">
 <h3>13.3.3.1. Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code><a class="headerlink" href="#using-valid" title="Permalink to this headline">¶</a></h3>
+<p>Within <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, the <code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> handler method uses model binding to receive an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object that is created using form data. This object is NOT validated automatically, even if validation annotations are present on its fields.</p>
+<p>Recall that <em>both</em> the model and controller play a role in validation. The model’s responsibility is simply to define validation rules. The controller must check that those rules are satisfied.</p>
+<p>The first step to enable validation in a controller is to add <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> to a method parameter that is created using model binding.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="nd">@Valid</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newEvent</span><span class="o">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In lieu of explicit validation error handling (which we will cover below), Spring Boot throws an exception if validation fails for the new object. This means that an object that fails validation will NOT be saved. However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.</p>
+<div class="figure" id="id1">
+<img alt="An exception is thrown if &#64;Valid is applied without explicit handling of validation errors." src="../../_images/validation-exception.png" />
+<p class="caption"><span class="caption-text">A validation exception displayed in the browser</span></p>
+</div>
 </div>
 <div class="section" id="using-the-errors-object">
 <h3>13.3.3.2. Using the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> Object<a class="headerlink" href="#using-the-errors-object" title="Permalink to this headline">¶</a></h3>
+<p>We can prevent a validation exception from being thrown by explicitly handling validation errors. Spring Boot makes an object of type <code class="docutils literal notranslate"><span class="pre">Errors</span></code> available when a method uses <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code>. As with <code class="docutils literal notranslate"><span class="pre">Model</span></code> objects, we can access this object by placing it in a method’s parameter list.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="nd">@Valid</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="o">,</span>
+                                    <span class="n">Errors</span> <span class="n">errors</span><span class="o">,</span> <span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">if</span><span class="o">(</span><span class="n">errors</span><span class="o">.</span><span class="na">hasErrors</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;title&quot;</span><span class="o">,</span> <span class="s">&quot;Create Event&quot;</span><span class="o">);</span>
+      <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;errorMsg&quot;</span><span class="o">,</span> <span class="s">&quot;Bad data!&quot;</span><span class="o">);</span>
+      <span class="k">return</span> <span class="s">&quot;events/create&quot;</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newEvent</span><span class="o">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here, we have added <code class="docutils literal notranslate"><span class="pre">Errors</span> <span class="pre">errors</span></code> to our handler method. This object has a boolean method, <code class="docutils literal notranslate"><span class="pre">.hasErrors()</span></code> that we can use to check for the existence of validation errors. If there are validation errors, we return the form again, along with a simple message for the user. This message can be displayed in the <code class="docutils literal notranslate"><span class="pre">events/create</span></code> template by adding some code above the form:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${errorMsg}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now, when a user submits the form with bad data they will be notified and no exception will be thrown. However, the message “Bad data!” is far from ideal. The next section introduces a technique to display more useful error messages.</p>
 </div>
 </div>
 </div>

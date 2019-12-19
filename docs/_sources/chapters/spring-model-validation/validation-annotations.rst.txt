@@ -210,6 +210,6 @@ Now we can start up our application and test. Submitting an empty form at ``/eve
 
    Even after adding validation annotations, we can still create invalid data.
    
-Rather than a bug, this is expected behavior. Recall that we said validation involves *both* the model and controller, but we have not modified the controller in any way. Validation annotations simply define the validation rules that *should* be used to check data. The responsibility of checking the data before saving a new event lies with the controller.
+Rather than a bug, this is expected behavior. Recall that validation involves *both* the model and controller, but we have not modified the controller in any way. Validation annotations simply define the validation rules that *should* be used to check data. The responsibility of checking the data before saving a new event lies with the controller.
 
 In the next section, we'll modify the controller to properly check for valid data.
