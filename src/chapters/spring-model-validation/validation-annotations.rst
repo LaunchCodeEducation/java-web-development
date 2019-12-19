@@ -220,3 +220,14 @@ Now we can start up our application and test. Submitting an empty form at ``/eve
 Rather than a bug, this is expected behavior. Recall that validation involves *both* the model and controller, but we have not modified the controller in any way. Validation annotations simply define the validation rules that *should* be used to check data. The responsibility of checking the data before saving a new event lies with the controller.
 
 In the next section, we'll modify the controller to properly check for valid data.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   **True or False:** When using ``@Size`` you must provide both ``min`` and ``max`` arguments.
+
+.. admonition:: Question
+
+   **True or False:** Adding validation annotations ensures that bad data is not saved.

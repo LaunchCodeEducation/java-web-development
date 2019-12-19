@@ -18,7 +18,7 @@ Before diving into the details of the code, let's consider the logical flow of c
       return "redirect:";
    }
 
-The flow of this request can be described like this:
+The flow of this request can be described as follows:
 
 #. Server receives ``POST`` request
 #. Server creates ``newEvent`` object using request parameters
@@ -38,9 +38,7 @@ Some modest validation rules for a new ``Event`` object might be:
 - The ``name`` field must contain between 3 and 20 characters, and 
 - The ``description`` field may be empty, but may contain no more than 500 characters.
 
-With these rules in place, conceptually, the flow of our controller code should look more like this:
-
-The flow of this request can be described like this:
+With these rules in place, conceptually, the flow of our controller code should look more like the following:
 
 #. Server receives ``POST`` request
 #. Server creates ``newEvent`` object using request parameters
@@ -119,3 +117,15 @@ Here, we have added ``Errors errors`` to our handler. This object has a boolean 
    <p th:text="${errorMsg}" style="color:red;"></p>
 
 Now, when a user submits the form with bad data they will be notified and no exception will be thrown. However, the message "Bad data!" is far from ideal. The next section introduces a technique to display more useful error messages. 
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Which of the following statements are true?
+
+   #. A method parameter may have only one annotation.
+   #. ``@Valid`` can only be used in conjunction with model binding.
+   #. Using ``@Valid`` means that a method will never be called with invalid data.
+   #. Spring Boot can infer validation requirements based on the name of a field. 

@@ -23,3 +23,15 @@ Web applications should validate *all* data submitted by users. This ensures tha
 Even if client-side validation is done, it is still critical to validate data on the server. This is because client-side validation can often be bypassed by a savvy user. For example, such a user might modify HTML using a browser's developer tools, or disable JavaScript. 
 
 Server-side validation involves both the model and controller. The model is responsible for *defining* validation rules, while the controller is responsible for *checking* validation rules when data is submitted to the server. 
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   The best practice for validating data in a web app is to:
+
+   #. Use client-side validation
+   #. Use server-side validation
+   #. Use both client-side and server-side validation
+   #. Don't validate incoming data

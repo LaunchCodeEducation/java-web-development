@@ -97,7 +97,7 @@
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>The flow of this request can be described like this:</p>
+<p>The flow of this request can be described as follows:</p>
 <ol class="arabic simple">
 <li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
 <li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
@@ -115,8 +115,7 @@
 <li>The <code class="docutils literal notranslate"><span class="pre">name</span></code> field must contain between 3 and 20 characters, and</li>
 <li>The <code class="docutils literal notranslate"><span class="pre">description</span></code> field may be empty, but may contain no more than 500 characters.</li>
 </ul>
-<p>With these rules in place, conceptually, the flow of our controller code should look more like this:</p>
-<p>The flow of this request can be described like this:</p>
+<p>With these rules in place, conceptually, the flow of our controller code should look more like the following:</p>
 <ol class="arabic simple">
 <li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
 <li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
@@ -186,6 +185,19 @@
 </pre></div>
 </div>
 <p>Now, when a user submits the form with bad data they will be notified and no exception will be thrown. However, the message “Bad data!” is far from ideal. The next section introduces a technique to display more useful error messages.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>13.3.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which of the following statements are true?</p>
+<ol class="last arabic simple">
+<li>A method parameter may have only one annotation.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> can only be used in conjunction with model binding.</li>
+<li>Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> means that a method will never be called with invalid data.</li>
+<li>Spring Boot can infer validation requirements based on the name of a field.</li>
+</ol>
 </div>
 </div>
 </div>
