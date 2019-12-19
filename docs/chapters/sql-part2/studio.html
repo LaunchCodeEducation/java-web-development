@@ -88,11 +88,22 @@
 <h1>14.4. Studio: Library<a class="headerlink" href="#studio-library" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="database-setup">
 <h2>14.4.1. Database Setup<a class="headerlink" href="#database-setup" title="Permalink to this headline">¶</a></h2>
-<p>LibraryDB
-Three tables: librarians, books, authors</p>
+<p>book, reference_book, author, genre, loan, patron</p>
 </div>
 <div class="section" id="queries">
 <h2>14.4.2. Queries<a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h2>
+<p>Return the reference book titles and their ISBNs.
+Return all of the books written by authors who are currently still living.</p>
+<p>Return the authors of all books in the library that are mysteries.
+Return the average age of authors whose books are currently checked out.
+Return the author’s names of the books that Anthony has currently checked out.</p>
+<p>Return the names of the patrons with the genre of every book they currently have checked out.</p>
+</div>
+<div class="section" id="bonus-mission">
+<h2>14.4.3. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
+<p>Return the counts of the books of each genre.</p>
+<p>A reference book cannot leave the library. How would you modify either the <code class="docutils literal notranslate"><span class="pre">reference_book</span></code> table or the book table to make sure that doesn’t happen?
+Apply your modifications.</p>
 </div>
 </div>
 
