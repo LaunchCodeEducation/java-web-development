@@ -50,6 +50,8 @@ We'll use only a few of these annotations, but you can find a full list in the `
 Defining Validation Messages
 ----------------------------
 
+.. _validation-messages:
+
 .. index::
    single: validation, message
 
