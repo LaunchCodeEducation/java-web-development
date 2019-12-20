@@ -69,20 +69,43 @@ Insert Data
 #. In MySQL Workbench, right-click on the ``cabinet`` table. Select *Table Data
    Import Wizard*.
 
-      TODO: Add screenshot.
+   .. figure:: ./figures/SQLWorkbenchImport.png
+      :alt: Table Data Import Wizard menu option.
 
 #. In the next panel, click the *Browse* button. Find and select the
    ``cabinet.csv`` file. Click *Next*.
 
-      TODO: Add screenshot.
+   .. figure:: ./figures/importCsvFile.png
+      :alt: Select file path to csv file.
 
-#. On the next panel, select *Use existing table --> storage.cabinet*.
-#. Accept the default options on the next panel. Click *Next*.
+#. In the following panel, use the default option
+   *Use existing table --> storage.cabinet*, and click *Next*.
+#. Once again, accept the default options for importing data into your table
+   columns. Click *Next*.
 
-      TODO: Add screenshot.
+   .. figure:: ./figures/importColumns.png
+      :alt: Select columns to import.
 
-#. Clicking *Next* again will import the data. *Finish* will return you to the
-   editor.
+#. Clicking *Next* again will import the data. Clicking *Finish* on the final
+   panel returns you to the editor.
 #. In the query tab, run ``SELECT * FROM cabinet`` to confirm that 50 entries
    now exist in the table.
-#. Repeat the import steps for the ``drawer`` and ``document`` tables.
+#. Repeat the steps 3 - 8 for the ``drawer`` and ``document`` tables.
+
+Confirm that the ``drawer`` and ``document`` tables hold 200 and 1000 entries,
+respectively. You are now ready to practice more advanced SQL queries.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Examine the setup you used for the ``storage``, ``drawer``, and ``document``
+   tables. Which of the following pairs does NOT have a
+   one-to-many relationship?
+
+   a. ``storage`` and ``drawer``
+   b. ``storage`` and ``document``
+   c. ``drawer`` and ``document``
+
+.. Answer = b (``storage`` and ``document``)

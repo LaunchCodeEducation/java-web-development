@@ -158,32 +158,50 @@ file. Double-click on it to extract three <code class="docutils literal notransl
 </li>
 <li><p class="first">In MySQL Workbench, right-click on the <code class="docutils literal notranslate"><span class="pre">cabinet</span></code> table. Select <em>Table Data
 Import Wizard</em>.</p>
-<blockquote>
-<div><p>TODO: Add screenshot.</p>
-</div></blockquote>
+<div class="figure">
+<img alt="Table Data Import Wizard menu option." src="../../_images/SQLWorkbenchImport.png" />
+</div>
 </li>
 <li><p class="first">In the next panel, click the <em>Browse</em> button. Find and select the
 <code class="docutils literal notranslate"><span class="pre">cabinet.csv</span></code> file. Click <em>Next</em>.</p>
-<blockquote>
-<div><p>TODO: Add screenshot.</p>
-</div></blockquote>
+<div class="figure">
+<img alt="Select file path to csv file." src="../../_images/importCsvFile.png" />
+</div>
 </li>
-<li><p class="first">On the next panel, select <em>Use existing table –&gt; storage.cabinet</em>.</p>
+<li><p class="first">In the following panel, use the default option
+<em>Use existing table –&gt; storage.cabinet</em>, and click <em>Next</em>.</p>
 </li>
-<li><p class="first">Accept the default options on the next panel. Click <em>Next</em>.</p>
-<blockquote>
-<div><p>TODO: Add screenshot.</p>
-</div></blockquote>
+<li><p class="first">Once again, accept the default options for importing data into your table
+columns. Click <em>Next</em>.</p>
+<div class="figure">
+<img alt="Select columns to import." src="../../_images/importColumns.png" />
+</div>
 </li>
-<li><p class="first">Clicking <em>Next</em> again will import the data. <em>Finish</em> will return you to the
-editor.</p>
+<li><p class="first">Clicking <em>Next</em> again will import the data. Clicking <em>Finish</em> on the final
+panel returns you to the editor.</p>
 </li>
 <li><p class="first">In the query tab, run <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cabinet</span></code> to confirm that 50 entries
 now exist in the table.</p>
 </li>
-<li><p class="first">Repeat the import steps for the <code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code> tables.</p>
+<li><p class="first">Repeat the steps 3 - 8 for the <code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code> tables.</p>
 </li>
 </ol>
+<p>Confirm that the <code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code> tables hold 200 and 1000 entries,
+respectively. You are now ready to practice more advanced SQL queries.</p>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>14.2.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Examine the setup you used for the <code class="docutils literal notranslate"><span class="pre">storage</span></code>, <code class="docutils literal notranslate"><span class="pre">drawer</span></code>, and <code class="docutils literal notranslate"><span class="pre">document</span></code>
+tables. Which of the following pairs does NOT have a
+one-to-many relationship?</p>
+<ol class="last loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">storage</span></code> and <code class="docutils literal notranslate"><span class="pre">drawer</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">storage</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code></li>
+</ol>
+</div>
 </div>
 </div>
 
