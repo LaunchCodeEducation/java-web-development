@@ -94,8 +94,11 @@ base class. This call to the base class constructor must be the first line of
 the subclass constructor. In the case of ``HouseCat``, the subclass constructor 
 extends the original constructor by setting an additional property, ``name``.
 
+.. index:: ! no-arg constructor
+
 If a base class constructor takes no arguments, then the 
-default constructor is implicitly called for you in the subclass. 
+**no-argument constructor** is implicitly called for you in the subclass. A no-argument,
+or **no-arg constructor**, is just as the name implies, a constructor that takes no arguments. 
 
 For example, we can add an additional constructor in ``Cat``:
 
@@ -116,8 +119,8 @@ Then in ``HouseCat``, we can simply define another constructor as this:
    }
 
 Even though we don’t explicitly specify that we want to call a
-constructor from ``Cat``, the default constructor will be called. Now, we can 
-initialize a new ``HouseCat`` with only a ``name`` property and ``Cat`` default
+constructor from ``Cat``, the no-argument constructor will be called. Now, we can 
+initialize a new ``HouseCat`` with only a ``name`` property and the ``Cat`` no-argument
 constructor will still be applied. Back in ``Main``, you can confirm that the base
 class constructor has been called:
 

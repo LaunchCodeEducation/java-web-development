@@ -491,7 +491,7 @@ Let’s fix this.
 
 #. Make a new controller, ``TechJobsController``. This new controller should
    have a static HashMap, ``actionChoices``. The HashMap should be populated
-   via a no-argument/default constructor, just like ``columnChoices`` is
+   via a no-argument constructor, just like ``columnChoices`` is
    populated in ``ListController``. You do NOT need to add the ``@Controller``
    annotation to this class.
 #. Write a static method ``getActionChoices`` in ``TechJobsController`` that
