@@ -146,14 +146,14 @@
 </div>
 <div class="section" id="defining-validation-messages">
 <h2>13.2.2. Defining Validation Messages<a class="headerlink" href="#defining-validation-messages" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="validation-messages"></span><p id="index-2">Each of these annotations takes and optional <code class="docutils literal notranslate"><span class="pre">message</span></code> parameter that allows you to define a user-friendly description to be used when validation fails.</p>
+<span class="target" id="validation-messages"></span><p id="index-2">Each of these annotations takes an optional <code class="docutils literal notranslate"><span class="pre">message</span></code> parameter that allows you to define a user-friendly description to be used when validation fails.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Username is required&quot;</span><span class="o">)</span>
 <span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">12</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Username must be between 3 and 12 characters long&quot;</span><span class="o">)</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="o">;</span>
 
-<span class="nd">@NotBlank</span>
+<span class="nd">@NotBlank</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Password is required&quot;</span><span class="o">)</span>
 <span class="nd">@Size</span><span class="o">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">6</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Sorry, but the given password is too short. Passwords must be at least 6 characters long.&quot;</span><span class="o">)</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
 </pre></div>
@@ -348,10 +348,10 @@
 23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-striped&quot;</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>ID<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Name<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Contact Email<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>ID<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Name<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Contact Email<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
       <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
    <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">tr</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;event : ${events}&quot;</span><span class="p">&gt;</span>

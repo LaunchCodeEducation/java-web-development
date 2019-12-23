@@ -60,17 +60,17 @@ Defining Validation Messages
 .. index::
    single: validation, message
 
-Each of these annotations takes and optional ``message`` parameter that allows you to define a user-friendly description to be used when validation fails.
+Each of these annotations takes an optional ``message`` parameter that allows you to define a user-friendly description to be used when validation fails.
 
 .. admonition:: Example
 
    .. sourcecode:: java
 
-      @NotBlank
+      @NotBlank(message = "Username is required")
       @Size(min = 3, max = 12, message = "Username must be between 3 and 12 characters long")
       private String username;
 
-      @NotBlank
+      @NotBlank(message = "Password is required")
       @Size(min = 6, message = "Sorry, but the given password is too short. Passwords must be at least 6 characters long.")
       private String password;
 
@@ -196,10 +196,10 @@ Before we can start up our application, we need to add a new column to the ``eve
    <table class="table table-striped">
       <thead>
          <tr>
-               <th>ID</th>
-               <th>Name</th>
-               <th>Description</th>
-               <th>Contact Email</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Contact Email</th>
          </tr>
       </thead>
       <tr th:each="event : ${events}">
@@ -228,6 +228,10 @@ Check Your Understanding
 
    **True or False:** When using ``@Size`` you must provide both ``min`` and ``max`` arguments.
 
+.. ans: False, one or both arguments may be used.
+
 .. admonition:: Question
 
    **True or False:** Adding validation annotations ensures that bad data is not saved.
+
+.. ans: False, server-side validation requires cooperation from annotations on the model, as well as controller logic

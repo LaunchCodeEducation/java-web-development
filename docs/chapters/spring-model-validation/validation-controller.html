@@ -105,7 +105,7 @@
 <li><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</li>
 <li>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></li>
 </ol>
-<p>The request creates an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object using data from the incoming request. Regardless of what the data looks like, the new object is “saved” to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> and save it. Similarly, a user could submit the full text of the massive novel “War and Peace” as the description. This isn’t great.</p>
+<p>The request creates an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object using data from the incoming request. Regardless of what the data looks like, the new object is saved to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> and save it. Similarly, a user could submit the full text of the massive novel “War and Peace” as the description. This isn’t great.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">Technically, submitting a request containing “War and Peace” would fail with most applications. This is because web servers typically set a limit on the maximum size of a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request. However, our application code is willing to take requests of any size, at this point.</p>
@@ -151,6 +151,10 @@
 <p class="caption"><span class="caption-text">A validation exception displayed in the browser</span></p>
 </div>
 <p>However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Remember, exceptions should be messages to programmers and programs, not end users. Even if an exception occurs, we should avoid displaying it to a the user.</p>
+</div>
 </div>
 <div class="section" id="using-the-errors-object">
 <h3>13.3.3.2. Using the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> Object<a class="headerlink" href="#using-the-errors-object" title="Permalink to this headline">¶</a></h3>

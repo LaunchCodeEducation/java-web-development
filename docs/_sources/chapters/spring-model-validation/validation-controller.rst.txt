@@ -26,7 +26,7 @@ The flow of this request can be described as follows:
 #. ``newEvent`` is saved
 #. A 303 redirect response is returned, redirecting the user to ``/events``
 
-The request creates an ``Event`` object using data from the incoming request. Regardless of what the data looks like, the new object is "saved" to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an ``Event`` and save it. Similarly, a user could submit the full text of the massive novel "War and Peace" as the description. This isn't great. 
+The request creates an ``Event`` object using data from the incoming request. Regardless of what the data looks like, the new object is saved to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an ``Event`` and save it. Similarly, a user could submit the full text of the massive novel "War and Peace" as the description. This isn't great. 
 
 .. admonition:: Note
 
@@ -89,6 +89,10 @@ In lieu of explicit validation error handling (which we will cover below), Sprin
 
 However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.
 
+.. admonition:: Note
+
+   Remember, exceptions should be messages to programmers and programs, not end users. Even if an exception occurs, we should avoid displaying it to a the user.
+
 Using the ``Errors`` Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -129,3 +133,5 @@ Check Your Understanding
    #. ``@Valid`` can only be used in conjunction with model binding.
    #. Using ``@Valid`` means that a method will never be called with invalid data.
    #. Spring Boot can infer validation requirements based on the name of a field. 
+
+.. ans: b, @Valid can only be used in conjunction with model binding.

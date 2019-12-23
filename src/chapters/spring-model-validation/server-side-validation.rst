@@ -18,7 +18,7 @@ Web applications work under the client-server model. We have been focusing on th
    single: validation, server-side
    single: validation, client-side
 
-Web applications should validate *all* data submitted by users. This ensures that data remains well-structure and unexpected errors don't occur. Validation that occurs in the browser---using JavaScript or HTML attributes---is **client-side validation**. Validation that occurs on the web server is **server-side validation**. 
+Web applications should validate *all* data submitted by users. This ensures that data remains well-structured and unexpected errors don't occur. Validation that occurs in the browser---using JavaScript or HTML attributes---is **client-side validation**. Validation that occurs on the web server is **server-side validation**. 
 
 Even if client-side validation is done, it is still critical to validate data on the server. This is because client-side validation can often be bypassed by a savvy user. For example, such a user might modify HTML using a browser's developer tools, or disable JavaScript. 
 
@@ -35,3 +35,5 @@ Check Your Understanding
    #. Use server-side validation
    #. Use both client-side and server-side validation
    #. Don't validate incoming data
+
+.. ans: c, Use both client-side and server-side validation

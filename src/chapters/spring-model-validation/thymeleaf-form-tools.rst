@@ -36,7 +36,7 @@ Consider our second input, which currently looks like this:
       <input type="text" name="description" class="form-control">
    </label>
 
-We set ``name="description"`` because the field that we want the data in the input to be bound to on submission is the ``description`` field of the ``Event`` class. 
+Above, we set the ``name`` attribute of the input element equal to ``description"``. We do this because we want this input data to be bound to the ``description`` field of the ``Event`` class when the form is submitted.
 
 A better approach uses ``th:field`` to bind the ``description`` field *when the form is rendered*.
 
@@ -53,9 +53,9 @@ With this syntax, Thymeleaf will look for a variable named ``event`` and use its
 
    <input type="text" id="description" name="description" class="form-control">
 
-We don't need to use the ``id`` attribute in this case, but it doesn't hurt anything by being there. Now, Thymeleaf sets ``name`` on its own, and if we were to change the field name on the class, no template updates would be required. 
+We don't need to use the ``id`` attribute in this case, but it doesn't hurt anything by being there. Now, Thymeleaf sets ``name`` on its own, based on the field identifier. 
 
-.. index:: ! no-arg constructor
+.. index:: no-arg constructor
 
 For this to work, two more steps are necessary. First, we add constructor to ``Event`` that doesn't require any arguments, also called a **no-arg constructor**.
 
@@ -79,7 +79,7 @@ This code includes two changes:
 #. A no-arg constructor has been created. It simply sets the ``id`` of the object, leaving all other fields ``null``.
 #. The previously-existing constructor now calls ``this()``, which calls the no-arg constructor to set the ``id`` before setting the values of all other fields. 
 
-Finally, we have to pass in an "empty" ``Event`` created with the new constructor when rendering the form. Back in ``EventController``, we update the handler:
+Finally, we have to pass in an empty ``Event`` created with the new no-arg constructor when rendering the form. Back in ``EventController``, we update the handler:
 
 .. sourcecode:: java
    :lineno-start: 26
@@ -222,3 +222,17 @@ Now, when the form is submitted with invalid data, our custom validation error m
    :width: 700px
 
    The result of submitting an empty form
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Which HTML attributes will a ``th:field`` attribute NOT influence?
+
+   #. ``id``
+   #. ``name``
+   #. ``value``
+   #. ``field``
+
+.. ans: D, which is not even an attribute. All other attributes are set by th:field

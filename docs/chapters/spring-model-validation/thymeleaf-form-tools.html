@@ -109,7 +109,7 @@
 <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p>We set <code class="docutils literal notranslate"><span class="pre">name=&quot;description&quot;</span></code> because the field that we want the data in the input to be bound to on submission is the <code class="docutils literal notranslate"><span class="pre">description</span></code> field of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class.</p>
+<p>Above, we set the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute of the input element equal to <code class="docutils literal notranslate"><span class="pre">description&quot;</span></code>. We do this because we want this input data to be bound to the <code class="docutils literal notranslate"><span class="pre">description</span></code> field of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class when the form is submitted.</p>
 <p>A better approach uses <code class="docutils literal notranslate"><span class="pre">th:field</span></code> to bind the <code class="docutils literal notranslate"><span class="pre">description</span></code> field <em>when the form is rendered</em>.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>17
 18
@@ -122,7 +122,7 @@
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>We don’t need to use the <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute in this case, but it doesn’t hurt anything by being there. Now, Thymeleaf sets <code class="docutils literal notranslate"><span class="pre">name</span></code> on its own, and if we were to change the field name on the class, no template updates would be required.</p>
+<p>We don’t need to use the <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute in this case, but it doesn’t hurt anything by being there. Now, Thymeleaf sets <code class="docutils literal notranslate"><span class="pre">name</span></code> on its own, based on the field identifier.</p>
 <p id="index-1">For this to work, two more steps are necessary. First, we add constructor to <code class="docutils literal notranslate"><span class="pre">Event</span></code> that doesn’t require any arguments, also called a <strong>no-arg constructor</strong>.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
 28
@@ -152,7 +152,7 @@
 <li>A no-arg constructor has been created. It simply sets the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the object, leaving all other fields <code class="docutils literal notranslate"><span class="pre">null</span></code>.</li>
 <li>The previously-existing constructor now calls <code class="docutils literal notranslate"><span class="pre">this()</span></code>, which calls the no-arg constructor to set the <code class="docutils literal notranslate"><span class="pre">id</span></code> before setting the values of all other fields.</li>
 </ol>
-<p>Finally, we have to pass in an “empty” <code class="docutils literal notranslate"><span class="pre">Event</span></code> created with the new constructor when rendering the form. Back in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, we update the handler:</p>
+<p>Finally, we have to pass in an empty <code class="docutils literal notranslate"><span class="pre">Event</span></code> created with the new no-arg constructor when rendering the form. Back in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, we update the handler:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>26
 27
 28
@@ -333,6 +333,19 @@
 <a class="reference internal image-reference" href="../../_images/display-validation-errors.png"><img alt="Our Create Event form after submission with all fields blank. Red error messages are visible next to the fields that failed validation." src="../../_images/display-validation-errors.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-text">The result of submitting an empty form</span></p>
 </div>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>13.4.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which HTML attributes will a <code class="docutils literal notranslate"><span class="pre">th:field</span></code> attribute NOT influence?</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">id</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">value</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">field</span></code></li>
+</ol>
 </div>
 </div>
 </div>
