@@ -48,8 +48,8 @@ Each value is demarcated with a comma and the list is completed with a semicolon
 Add an Enum Field
 ^^^^^^^^^^^^^^^^^
 
-Enums can store additional information affiliated with each value in properties. Enum properties 
-are treated like fields on any other type. Again, because enum values are constants, properties 
+Enums can store additional information affiliated with each value in fields. Enum fields 
+are treated like fields on any other type. Again, because enum values are constants, fields 
 should be ``final`` variables, since they will not change. 
 
 To add a ``displayName`` field to ``EventType``, we declare the field, add a constructor, and 
@@ -199,7 +199,6 @@ Once an event is created, to display its ``type`` field in the table of all even
 ``templates/events/index.html`` to include another column:
 
 .. sourcecode:: html
-   :lineno-start: 15
 
    <!-- other table headers -->
    <th>Type</th>
@@ -230,7 +229,7 @@ Check Your Understanding
    In ``coding-events``, say we change our template variable name in 
    ``EventController.displayCreateEventForm`` so that ``EventType.values()`` is now assigned to 
    a variable, ``categories``. Which of the template expressions in the following codeblock 
-   from ``create.html``, if any, will be changed? Select all that apply.
+   from ``create.html``, if any, should be changed to reflect this update? Select all that apply.
 
    .. sourcecode:: html
       :lineno-start: 27
@@ -246,9 +245,9 @@ Check Your Understanding
          </label>
       </div>
 
-   #. In line 29, ``${event.type}`` will change to ``${event.category}``
-   #. In line 30, ``type : ${types}`` will change to ``category : ${categories}``
-   #. In line 31, ``${type}`` will change to ``${category}``
-   #. In line 32, ``${type.displayName}`` will change to ``${category.displayName}``
+   #. In line 29, ``${event.type}`` should be changed to ``${event.category}``
+   #. In line 30, ``type : ${types}`` should be changed to ``category : ${categories}``
+   #. In line 31, ``${type}`` should be changed to ``${category}``
+   #. In line 32, ``${type.displayName}`` should be changed to ``${category.displayName}``
 
 .. ans: b, c, and d, lines 30,31, and 32

@@ -125,8 +125,8 @@ Each value is demarcated with a comma and the list is completed with a semicolon
 </div>
 <div class="section" id="add-an-enum-field">
 <h3>13.2.2.2. Add an Enum Field<a class="headerlink" href="#add-an-enum-field" title="Permalink to this headline">¶</a></h3>
-<p>Enums can store additional information affiliated with each value in properties. Enum properties
-are treated like fields on any other type. Again, because enum values are constants, properties
+<p>Enums can store additional information affiliated with each value in fields. Enum fields
+are treated like fields on any other type. Again, because enum values are constants, fields
 should be <code class="docutils literal notranslate"><span class="pre">final</span></code> variables, since they will not change.</p>
 <p>To add a <code class="docutils literal notranslate"><span class="pre">displayName</span></code> field to <code class="docutils literal notranslate"><span class="pre">EventType</span></code>, we declare the field, add a constructor, and
 tack on a getter method:</p>
@@ -307,15 +307,12 @@ of the form as the <code class="docutils literal notranslate"><span class="pre">
 <h3>13.2.2.6. Use Enum Properties to Display Information<a class="headerlink" href="#use-enum-properties-to-display-information" title="Permalink to this headline">¶</a></h3>
 <p>Once an event is created, to display its <code class="docutils literal notranslate"><span class="pre">type</span></code> field in the table of all events, we’ll modify
 <code class="docutils literal notranslate"><span class="pre">templates/events/index.html</span></code> to include another column:</p>
-<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15
-16
-17
-18</pre></div></td><td class="code"><div class="highlight"><pre><span></span>&lt;!-- other table headers --&gt;
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;!-- other table headers --&gt;
 &lt;th&gt;Type&lt;/th&gt;
 &lt;!-- other event data --&gt;
 &lt;td th:text=&quot;${event.type.displayName}&quot;&lt;/td&gt;
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In this case, the type displayed is the value of the event object’s <code class="docutils literal notranslate"><span class="pre">type</span></code> field, so the controller
 method responsible for rendering this view does not need a <code class="docutils literal notranslate"><span class="pre">types</span></code> variable passed in. To show the
 more user-friendly view of the type value, we use the <code class="docutils literal notranslate"><span class="pre">.displayName</span></code> field of <code class="docutils literal notranslate"><span class="pre">EventType</span></code>.</p>
@@ -339,7 +336,7 @@ reason why we don’t we write a setter method for that field?</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, say we change our template variable name in
 <code class="docutils literal notranslate"><span class="pre">EventController.displayCreateEventForm</span></code> so that <code class="docutils literal notranslate"><span class="pre">EventType.values()</span></code> is now assigned to
 a variable, <code class="docutils literal notranslate"><span class="pre">categories</span></code>. Which of the template expressions in the following codeblock
-from <code class="docutils literal notranslate"><span class="pre">create.html</span></code>, if any, will be changed? Select all that apply.</p>
+from <code class="docutils literal notranslate"><span class="pre">create.html</span></code>, if any, should be changed to reflect this update? Select all that apply.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
 28
 29
@@ -362,10 +359,10 @@ from <code class="docutils literal notranslate"><span class="pre">create.html</s
 </pre></div>
 </td></tr></table></div>
 <ol class="last arabic simple">
-<li>In line 29, <code class="docutils literal notranslate"><span class="pre">${event.type}</span></code> will change to <code class="docutils literal notranslate"><span class="pre">${event.category}</span></code></li>
-<li>In line 30, <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">:</span> <span class="pre">${types}</span></code> will change to <code class="docutils literal notranslate"><span class="pre">category</span> <span class="pre">:</span> <span class="pre">${categories}</span></code></li>
-<li>In line 31, <code class="docutils literal notranslate"><span class="pre">${type}</span></code> will change to <code class="docutils literal notranslate"><span class="pre">${category}</span></code></li>
-<li>In line 32, <code class="docutils literal notranslate"><span class="pre">${type.displayName}</span></code> will change to <code class="docutils literal notranslate"><span class="pre">${category.displayName}</span></code></li>
+<li>In line 29, <code class="docutils literal notranslate"><span class="pre">${event.type}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${event.category}</span></code></li>
+<li>In line 30, <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">:</span> <span class="pre">${types}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">category</span> <span class="pre">:</span> <span class="pre">${categories}</span></code></li>
+<li>In line 31, <code class="docutils literal notranslate"><span class="pre">${type}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${category}</span></code></li>
+<li>In line 32, <code class="docutils literal notranslate"><span class="pre">${type.displayName}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${category.displayName}</span></code></li>
 </ol>
 </div>
 </div>
