@@ -7,7 +7,7 @@ class, adding in model validation.
 Getting Started
 ---------------
 
-Open up your ``spa-day`` application and checkout the `user-signup-pt2 <git@github.com:LaunchCodeEducation/spa-day-starter-code.git>`__ branch. 
+Open up your ``spa-day`` application and checkout the `user-signup-pt2 <https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-pt2>`__ branch. 
 
 Add Validation Annotations
 --------------------------
