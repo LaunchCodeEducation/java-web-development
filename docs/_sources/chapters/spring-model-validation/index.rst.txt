@@ -9,3 +9,5 @@ Model Validation
    validation-controller
    thymeleaf-form-tools
    exercises
+   studio
+   
