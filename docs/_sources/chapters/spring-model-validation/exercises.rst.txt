@@ -2,7 +2,7 @@ Exercises: Model Validation
 ===========================
 
 Let’s practice adding more fields onto our event objects and 
-validating them. Create a new branch from TODO: STARTING CODE BRANCH. For each of the items below,
+validating them. Create a new branch from ``display-errors``. For each of the items below,
 consider the following factors:
 
 a. What will you call your field?
