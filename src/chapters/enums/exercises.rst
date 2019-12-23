@@ -3,6 +3,8 @@ Exercises: Enum Practice
 
 #. Fork and clone `enumerable-planets <https://github.com/LaunchCodeEducation/enumerable-planets>`__.
 
+#. Use the *Get from Version Control* option to open the project in IntelliJ.
+
 #. In the project, navigate to the data package.
 
 #. Create a new public enum called ``Planets``.
@@ -18,7 +20,7 @@ Exercises: Enum Practice
       }
 
 #. Before adding any other fields to ``Planets``, go to ``PlanetController``
-   and update the index handler to pass in a model argument. 
+   and update the index handler to pass in a ``Model`` class argument (eg. ``Model model``). 
 
 #. Use ``.addAttribute`` to add the planet values to the model.
 
