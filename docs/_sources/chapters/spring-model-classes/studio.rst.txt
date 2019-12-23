@@ -1,3 +1,5 @@
+.. _user-signup-studio:
+
 Studio: Spa User Signup
 =======================
 

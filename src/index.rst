@@ -42,6 +42,7 @@ Studios
    chapters/spring-controllers-and-routes/studio
    chapters/thymeleaf-views/studio
    chapters/spring-model-classes/studio
+   chapters/spring-model-validation/studio
    chapters/sql-part1/studio
 
 Assignments
