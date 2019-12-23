@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>13. Model Validation &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="13.1. Server-Side Validation" href="server-side-validation.html" />
+    <link rel="prev" title="12.6. Studio: Spa User Signup" href="../spring-model-classes/studio.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li class="active">13. Model Validation</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="model-validation">
+<h1>13. Model Validation<a class="headerlink" href="#model-validation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ol>
+<li class="toctree-l1"><a class="reference internal" href="server-side-validation.html">13.1. Server-Side Validation</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="server-side-validation.html#check-your-understanding">13.1.1. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validation-annotations.html">13.2. Validation Annotations</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="validation-annotations.html#common-annotations">13.2.1. Common Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation-annotations.html#defining-validation-messages">13.2.2. Defining Validation Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation-annotations.html#applying-validation-annotations-video">13.2.3. Applying Validation Annotations - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation-annotations.html#applying-validation-annotations-text">13.2.4. Applying Validation Annotations - Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation-annotations.html#check-your-understanding">13.2.5. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validation-controller.html">13.3. Validating Models in a Controller</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="validation-controller.html#validation-flow">13.3.1. Validation Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation-controller.html#handling-validation-errors-video">13.3.2. Handling Validation Errors - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation-controller.html#handling-validation-errors-text">13.3.3. Handling Validation Errors - Text</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="validation-controller.html#using-valid">13.3.3.1. Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="validation-controller.html#using-the-errors-object">13.3.3.2. Using the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> Object</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="validation-controller.html#check-your-understanding">13.3.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thymeleaf-form-tools.html">13.4. Thymeleaf Form Tools</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf-form-tools.html#display-validation-errors-for-a-field-video">13.4.1. Display Validation Errors for a Field - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf-form-tools.html#display-validation-errors-for-a-field-text">13.4.2. Display Validation Errors for a Field - Text</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf-form-tools.html#using-th-field">13.4.2.1. Using <code class="docutils literal notranslate"><span class="pre">th:field</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="thymeleaf-form-tools.html#using-th-errors">13.4.2.2. Using <code class="docutils literal notranslate"><span class="pre">th:errors</span></code></a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="thymeleaf-form-tools.html#check-your-understanding">13.4.3. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">13.5. Exercises: Model Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="studio.html">13.6. Studio: Spa User Validation</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#getting-started">13.6.1. Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#add-validation-annotations">13.6.2. Add Validation Annotations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#using-the-model-to-render-the-form">13.6.3. Using the Model to Render the Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#validating-form-submission-data">13.6.4. Validating Form Submission Data</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="studio.html#validating-that-passwords-match">13.6.4.1. Validating That Passwords Match</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#test-test-test">13.6.5. Test, Test, Test!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#bonus-mission">13.6.6. Bonus Mission</a></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="../spring-model-classes/studio.html"><span aria-hidden="true">&larr;</span> 12.6. Studio: Spa User Signup</a></li>
+        
+        
+        <li class="next"><a href="server-side-validation.html">13.1. Server-Side Validation <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-validation/index.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

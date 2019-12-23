@@ -1,5 +1,5 @@
-Enum Types
-==========
+Enumeration Types
+=================
 
 .. toctree::
    :maxdepth: 3
