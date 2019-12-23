@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>14.3. Exercises: Enum Practice &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="15. Databases and SQL" href="../sql-part1/index.html" />
+    <link rel="prev" title="14.2. Enums in Model Classes" href="enums-in-models.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">14. Enumeration Types</a></li>
+    <li class="active">14.3. Exercises: Enum Practice</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="exercises-enum-practice">
+<h1>14.3. Exercises: Enum Practice<a class="headerlink" href="#exercises-enum-practice" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p class="first">Fork and clone <a class="reference external" href="https://github.com/LaunchCodeEducation/enumerable-planets" target="_blank">enumerable-planets<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</li>
+<li><p class="first">Use the <em>Get from Version Control</em> option to open the project in IntelliJ.</p>
+</li>
+<li><p class="first">In the project, navigate to the data package.</p>
+</li>
+<li><p class="first">Create a new public enum called <code class="docutils literal notranslate"><span class="pre">Planets</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Planets</span> <span class="o">{</span>
+   <span class="c1">// list the planets here.</span>
+   <span class="c1">// Mercury, Venus, Earth, Mars, Jupiter,</span>
+   <span class="c1">// Saturn, Uranus, Neptune</span>
+   <span class="c1">// Don&#39;t forget to capitalization convention and enum</span>
+   <span class="c1">// syntax to separate value and end the list</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Before adding any other fields to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>, go to <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code>
+and update the index handler to pass in a <code class="docutils literal notranslate"><span class="pre">Model</span></code> class argument (eg. <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">model</span></code>).</p>
+</li>
+<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">.addAttribute</span></code> to add the planet values to the model.</p>
+</li>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a list element and use the template
+variable you have just defined in the controller to list all of the
+planet values on the page.</p>
+</li>
+<li><p class="first">Add a <code class="docutils literal notranslate"><span class="pre">name</span></code> field to the planets.</p>
+<ol class="loweralpha simple">
+<li>Create a name property to display a non-capitalized version of each of the planet names.</li>
+<li>Add a constructor for with the name field and a getter for the field.</li>
+</ol>
+</li>
+<li><p class="first">Update the template to display the planet names.</p>
+</li>
+<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">Planets</span></code> enum, add a new field called <code class="docutils literal notranslate"><span class="pre">yearLength</span></code>.</p>
+<ol class="arabic simple">
+<li>The value of each <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> should be the number of earth days of a year on the given planet.<ol class="arabic">
+<li>Number of earth days on each planet:<ol class="arabic">
+<li>Mercury: 88</li>
+<li>Venus: 225</li>
+<li>Earth: 365</li>
+<li>Mars: 687</li>
+<li>Jupiter: 4333</li>
+<li>Saturn: 10759</li>
+<li>Uranus: 30687</li>
+<li>Neptune: 60200</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Update the constructor and add a getter for this field.</li>
+</ol>
+</li>
+<li><p class="first">Change the index template to display a table of each planet name and its year in earth days.</p>
+<ol class="arabic simple">
+<li>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a table element and add the appropriate bootstrap class.</li>
+<li>The table can be style to your liking and add a message to let the users know what data you are displaying
+with the <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> field.</li>
+</ol>
+</li>
+<li><p class="first">If you wish, add another field to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>. You can find plenty of information on <a class="reference external" href="https://solarsystem.nasa.gov/planets/overview/" target="_blank">NASA’s web site<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<ol class="arabic simple">
+<li>Update the enum with the new field, including changing the constructor and adding a getter method.</li>
+<li>Add the field to display in the table, with a message if helpful to convey the information or units of measure.</li>
+</ol>
+</li>
+</ol>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="enums-in-models.html"><span aria-hidden="true">&larr;</span> 14.2. Enums in Model Classes</a></li>
+        
+        
+        <li class="next"><a href="../sql-part1/index.html">15. Databases and SQL <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/enums/exercises.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
