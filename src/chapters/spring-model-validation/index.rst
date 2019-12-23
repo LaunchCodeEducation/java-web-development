@@ -8,5 +8,6 @@ Model Validation
    validation-annotations
    validation-controller
    thymeleaf-form-tools
+   exercises
    studio
    
