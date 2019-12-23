@@ -2,7 +2,7 @@ Create a Model
 ==============
 
 In the next several pages, we will be making updates to ``coding-events`` to demonstrate model creation,
-how models relate to data, and the practice of model biding. The first of these steps is to move data 
+how models relate to data, and the practice of model binding. The first of these steps is to move data 
 handling out of our controller classes and into a model class. As we discussed on the previous page, the 
 controller class is not responsible for holding data.
 
@@ -201,15 +201,5 @@ Check Your Understanding
 
 .. ans: true, models are just java objects
 
-.. admonition:: Question
 
-   In ``coding-events``, if we add a field to the ``Event`` model to record the date of the event, which of the methods in 
-   ``EventController`` will need to be updated? 
-
-   #. ``displayAllEvents``
-   #. ``displayCreateEventForm``
-   #. ``processCreateEventForm``
-   #. no controller methods need to be updated
-
-.. ans: d, no controller methods need to be updated
 
