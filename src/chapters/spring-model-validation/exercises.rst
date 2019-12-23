@@ -2,8 +2,10 @@ Exercises: Model Validation
 ===========================
 
 Let’s practice adding more fields onto our event objects and 
-validating them. Create a new branch from ``display-errors``. For each of the items below,
-consider the following factors:
+validating them. Create a new branch from the `display-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/display-errors>`__. 
+
+Below, we describe some new fields for you to add to the ``Event`` class. 
+For each field, consider the following factors:
 
 a. What will you call your field?
 #. Will you need accessors for this field?
