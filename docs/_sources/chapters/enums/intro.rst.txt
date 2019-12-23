@@ -24,7 +24,7 @@ Accepting data like this leads to many complications. For example, searching for
 
 .. index:: select
 
-When filling out forms on the web, you are used to seeing ``select`` elements use to represent fields like this.
+When filling out forms on the web, you are used to seeing ``select`` elements used to represent fields like this.
 
 .. figure:: figures/weekdaySelect.png
    :scale: 80%
@@ -241,7 +241,7 @@ The world is filled with examples ripe for representation by enums. Here are a f
 
       }
 
-.. index:: log level
+.. index:: ! log level
 
 .. admonition:: Example
 
@@ -340,6 +340,11 @@ Check Your Understanding
 
    We mentioned above that all classes define a data type. Is the inverse of this statement true? In other words, do all data types correspond to a class? (*Hint:* Try to think of a data type that is NOT a class.)
 
+   #. Yes, everything in Java is a class.
+   #. No, there are data types that do not correspond to a class. (Be sure to provide an example.)
+
+.. ans: b, primitive data types are not classes.
+
 .. admonition:: Question
 
    Which of the following would NOT be a good choice for an enum type?
@@ -348,3 +353,5 @@ Check Your Understanding
    #. Shoe sizes (using the American scale)
    #. Price of a gallon of milk
    #. Sections in a bookstore 
+
+.. ans: c, Price of a gallon of milk
