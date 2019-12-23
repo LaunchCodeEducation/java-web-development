@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>13.3. Validating Models in a Controller &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="13.4. Thymeleaf Form Tools" href="thymeleaf-form-tools.html" />
+    <link rel="prev" title="13.2. Validation Annotations" href="validation-annotations.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">13. Model Validation</a></li>
+    <li class="active">13.3. Validating Models in a Controller</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="validating-models-in-a-controller">
+<span id="validating-models"></span><h1>13.3. Validating Models in a Controller<a class="headerlink" href="#validating-models-in-a-controller" title="Permalink to this headline">¶</a></h1>
+<p>Validation involves both model and controller components of an MVC application. After we have defined validation rules using annotations on the model, we must also update the controller to ensure that the rules are checked and appropriate action is taken when validation fails.</p>
+<div class="section" id="validation-flow">
+<h2>13.3.1. Validation Flow<a class="headerlink" href="#validation-flow" title="Permalink to this headline">¶</a></h2>
+<p>Before diving into the details of the code, let’s consider the logical flow of control for validating data in a request. Recall our <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler from the previous chapter, which used model binding to create new <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects from form submissions.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newEvent</span><span class="o">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The flow of this request can be described as follows:</p>
+<ol class="arabic simple">
+<li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
+<li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
+<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</li>
+<li>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></li>
+</ol>
+<p>The request creates an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object using data from the incoming request. Regardless of what the data looks like, the new object is saved to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> and save it. Similarly, a user could submit the full text of the massive novel “War and Peace” as the description. This isn’t great.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Technically, submitting a request containing “War and Peace” would fail with most applications. This is because web servers typically set a limit on the maximum size of a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request. However, our application code is willing to take requests of any size, at this point.</p>
+</div>
+<p>Some modest validation rules for a new <code class="docutils literal notranslate"><span class="pre">Event</span></code> object might be:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">name</span></code> field must contain between 3 and 20 characters, and</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">description</span></code> field may be empty, but may contain no more than 500 characters.</li>
+</ul>
+<p>With these rules in place, conceptually, the flow of our controller code should look more like the following:</p>
+<ol class="arabic simple">
+<li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
+<li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
+<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></li>
+<li><strong>Controller checks for validation errors in the model object. If errors are found, return the user to the form. Otherwise, proceed.</strong></li>
+<li><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</li>
+<li>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></li>
+</ol>
+<p>Let’s look at how we can practically do this within Spring Boot.</p>
+</div>
+<div class="section" id="handling-validation-errors-video">
+<h2>13.3.2. Handling Validation Errors - Video<a class="headerlink" href="#handling-validation-errors-video" title="Permalink to this headline">¶</a></h2>
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/omSQO6721cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><p>The final code from this video is in the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/validation-errors" target="_blank">validation-errors branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+</div>
+<div class="section" id="handling-validation-errors-text">
+<h2>13.3.3. Handling Validation Errors - Text<a class="headerlink" href="#handling-validation-errors-text" title="Permalink to this headline">¶</a></h2>
+<p>When using model binding, we can use Spring Boot annotations and tools to validate new model objects before they are saved to a data layer or database.</p>
+<div class="section" id="using-valid">
+<h3>13.3.3.1. Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code><a class="headerlink" href="#using-valid" title="Permalink to this headline">¶</a></h3>
+<p>Within <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, the <code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> handler method uses model binding to receive an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object that is created using form data. This object is NOT validated automatically, even if validation annotations are present on its fields.</p>
+<p>Recall that <em>both</em> the model and controller play a role in validation. The model’s responsibility is simply to define validation rules. The controller must check that those rules are satisfied.</p>
+<p>The first step to enable validation in a controller is to add <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> to a method parameter that is created using model binding.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="nd">@Valid</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newEvent</span><span class="o">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In lieu of explicit validation error handling (which we will cover below), Spring Boot throws an exception if validation fails for the new object. This means that an object that fails validation will NOT be saved.</p>
+<div class="figure" id="id1">
+<img alt="An exception is thrown if &#64;Valid is applied without explicit handling of validation errors." src="../../_images/validation-exception.png" />
+<p class="caption"><span class="caption-text">A validation exception displayed in the browser</span></p>
+</div>
+<p>However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Remember, exceptions should be messages to programmers and programs, not end users. Even if an exception occurs, we should avoid displaying it to a the user.</p>
+</div>
+</div>
+<div class="section" id="using-the-errors-object">
+<h3>13.3.3.2. Using the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> Object<a class="headerlink" href="#using-the-errors-object" title="Permalink to this headline">¶</a></h3>
+<p>We can prevent a validation exception from being thrown by explicitly handling validation errors. Spring Boot makes an object of type <code class="docutils literal notranslate"><span class="pre">Errors</span></code> available when a method uses <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code>. As with <code class="docutils literal notranslate"><span class="pre">Model</span></code> objects, we can access this object by placing it in a method’s parameter list.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;create&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="o">(</span><span class="nd">@ModelAttribute</span> <span class="nd">@Valid</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="o">,</span>
+                                    <span class="n">Errors</span> <span class="n">errors</span><span class="o">,</span> <span class="n">Model</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">if</span><span class="o">(</span><span class="n">errors</span><span class="o">.</span><span class="na">hasErrors</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;title&quot;</span><span class="o">,</span> <span class="s">&quot;Create Event&quot;</span><span class="o">);</span>
+      <span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="s">&quot;errorMsg&quot;</span><span class="o">,</span> <span class="s">&quot;Bad data!&quot;</span><span class="o">);</span>
+      <span class="k">return</span> <span class="s">&quot;events/create&quot;</span><span class="o">;</span>
+   <span class="o">}</span>
+
+   <span class="n">EventData</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newEvent</span><span class="o">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Here, we have added <code class="docutils literal notranslate"><span class="pre">Errors</span> <span class="pre">errors</span></code> to our handler. This object has a boolean method, <code class="docutils literal notranslate"><span class="pre">.hasErrors()</span></code> that we can use to check for the existence of validation errors. If there are validation errors, we return the form again, along with a simple message for the user. This message can be displayed in the <code class="docutils literal notranslate"><span class="pre">events/create</span></code> template by adding some code above the form:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${errorMsg}&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;color:red;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Now, when a user submits the form with bad data they will be notified and no exception will be thrown. However, the message “Bad data!” is far from ideal. The next section introduces a technique to display more useful error messages.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>13.3.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which of the following statements are true?</p>
+<ol class="last arabic simple">
+<li>A method parameter may have only one annotation.</li>
+<li><code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> can only be used in conjunction with model binding.</li>
+<li>Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> means that a method will never be called with invalid data.</li>
+<li>Spring Boot can infer validation requirements based on the name of a field.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="validation-annotations.html"><span aria-hidden="true">&larr;</span> 13.2. Validation Annotations</a></li>
+        
+        
+        <li class="next"><a href="thymeleaf-form-tools.html">13.4. Thymeleaf Form Tools <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-validation/validation-controller.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

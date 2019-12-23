@@ -79,6 +79,8 @@ An **else if** construction in Java:
 
 .. index:: ! switch, ! case, ! break
 
+.. _switch-statements:
+
 ``switch`` Statements
 ---------------------
 
