@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.3. Joins &#8212; Java Web Development  documentation</title>
+    <title>15.3. Joins &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13.4. Exercises: SQL, Part 1" href="exercises.html" />
-    <link rel="prev" title="13.2. SQL Queries" href="queries.html" />
+    <link rel="next" title="15.4. Exercises: SQL, Part 1" href="exercises.html" />
+    <link rel="prev" title="15.2. SQL Queries" href="queries.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">13. Databases and SQL</a></li>
-    <li class="active">13.3. Joins</li>
+    <li><a href="index.html">15. Databases and SQL</a></li>
+    <li class="active">15.3. Joins</li>
 </ol>
 
 
@@ -85,7 +85,7 @@
 
     
   <div class="section" id="joins">
-<h1>13.3. Joins<a class="headerlink" href="#joins" title="Permalink to this headline">¶</a></h1>
+<h1>15.3. Joins<a class="headerlink" href="#joins" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">A <strong>join</strong> combines two tables into one result set.
 We can use joins when we want to query two tables at the same time.
 Whenever we join two tables, we have to specify the condition upon which the tables need to be joined.</p>
@@ -110,7 +110,7 @@ On line 3, we need to include the type of join as part of our query with the <co
 Our condition follows the <code class="docutils literal notranslate"><span class="pre">ON</span></code> keyword and tells MySQL what we believe to be matching records.
 This may mean we want to join on matching customer ids or matching dollar amounts or matching dates depending on the tables we are working with and what questions we need to answer.</p>
 <div class="section" id="inner-join">
-<span id="index-1"></span><h2>13.3.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2>15.3.1. Inner Join<a class="headerlink" href="#inner-join" title="Permalink to this headline">¶</a></h2>
 <p>Joining two tables with an <strong>inner join</strong> produces a result set that only includes the values that are present in <em>both</em> tables.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
@@ -128,7 +128,7 @@ This may mean we want to join on matching customer ids or matching dollar amount
 </div>
 </div>
 <div class="section" id="left-outer-join">
-<span id="index-2"></span><h2>13.3.2. Left Outer Join<a class="headerlink" href="#left-outer-join" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>15.3.2. Left Outer Join<a class="headerlink" href="#left-outer-join" title="Permalink to this headline">¶</a></h2>
 <p>Joining two tables with a <strong>left outer join</strong> gives us a result set which includes all values in the left table and any matching records from the right table.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
@@ -145,7 +145,7 @@ This may mean we want to join on matching customer ids or matching dollar amount
 </div>
 </div>
 <div class="section" id="right-outer-join">
-<span id="index-3"></span><h2>13.3.3. Right Outer Join<a class="headerlink" href="#right-outer-join" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>15.3.3. Right Outer Join<a class="headerlink" href="#right-outer-join" title="Permalink to this headline">¶</a></h2>
 <p>Joining two tables with a <strong>right outer join</strong> gives us a result set that includes all values in the right table and any matching records from the left table.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
@@ -162,7 +162,7 @@ This may mean we want to join on matching customer ids or matching dollar amount
 </div>
 </div>
 <div class="section" id="full-outer-join">
-<span id="index-4"></span><h2>13.3.4. Full Outer Join<a class="headerlink" href="#full-outer-join" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>15.3.4. Full Outer Join<a class="headerlink" href="#full-outer-join" title="Permalink to this headline">¶</a></h2>
 <p>Joining two tables with a <strong>full outer join</strong> gives us a result set that includes all records from both tables.
 Full outer joins are important to SQL, but the syntax is not supported in MySQL.
 Instead, to achieve a full outer join, you have to work with a left outer join and a right outer join.
@@ -194,7 +194,7 @@ Check out the <a class="reference external" href="https://dev.mysql.com/doc/refm
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>13.3.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>15.3.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p class="last">True or false, an inner join gives all of the records in both tables</p>
@@ -225,10 +225,10 @@ Check out the <a class="reference external" href="https://dev.mysql.com/doc/refm
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="queries.html"><span aria-hidden="true">&larr;</span> 13.2. SQL Queries</a></li>
+        <li class="previous"><a href="queries.html"><span aria-hidden="true">&larr;</span> 15.2. SQL Queries</a></li>
         
         
-        <li class="next"><a href="exercises.html">13.4. Exercises: SQL, Part 1 <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="exercises.html">15.4. Exercises: SQL, Part 1 <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

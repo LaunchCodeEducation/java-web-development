@@ -154,7 +154,7 @@ other annotations for the other request methods, but these are the two we will u
 </div>
 <p>If we want to write a controller method that will be used for both <code class="docutils literal notranslate"><span class="pre">GET</span></code> and <code class="docutils literal notranslate"><span class="pre">POST</span></code> at the same path, we
 can label the method with <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code>. <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> can handle more than one method as such:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Controller</span>
+<div class="highlight-java notranslate" id="request-method-example"><div class="highlight"><pre><span></span><span class="nd">@Controller</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloSpringController</span> <span class="o">{</span>
 
    <span class="c1">// responds to get and post requests at &quot;/hellogoodbye&quot;</span>
