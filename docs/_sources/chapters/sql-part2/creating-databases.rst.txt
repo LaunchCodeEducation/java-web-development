@@ -54,7 +54,7 @@ the tables as described below.
    d. A summary of each document, ``summary``.
    e. A foreign key (``drawer_id``) that connects ``document`` with ``drawer``.
 
-Insert Data
+Import Data
 -----------
 
 .. admonition:: Note
@@ -100,7 +100,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Examine the setup you used for the ``storage``, ``drawer``, and ``document``
+   Examine the setup you used for the ``cabinet``, ``drawer``, and ``document``
    tables. Which of the following pairs does NOT have a
    one-to-many relationship?
 
