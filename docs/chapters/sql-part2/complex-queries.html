@@ -128,7 +128,7 @@ such as <code class="docutils literal notranslate"><span class="pre">quantity</s
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">writing_supply</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">pencil_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">==</span> <span class="n">pencil_drawer</span><span class="p">.</span><span class="n">supply_id</span><span class="p">;</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">pencil_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">=</span> <span class="n">pencil_drawer</span><span class="p">.</span><span class="n">supply_id</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 <p>The result set contains all of the records from both tables that have matching
@@ -138,7 +138,7 @@ this would be inefficient. We would need to first run a query on
 <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> and then use the results to shape one or more queries on
 <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code>.</p>
 </div>
-<p>To restrict the size of the result set, we can request specific fields and add
+<p>To reduce the size of the result set, we can request specific fields and add
 conditions to the query:</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
@@ -147,8 +147,8 @@ conditions to the query:</p>
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">quantity</span>
 <span class="k">FROM</span> <span class="n">writing_supply</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">pencil_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">==</span> <span class="n">pencil_drawer</span><span class="p">.</span><span class="n">supply_id</span>
-<span class="k">WHERE</span> <span class="n">refill</span> <span class="o">==</span> <span class="k">true</span> <span class="k">AND</span> <span class="k">type</span> <span class="o">==</span> <span class="ss">&quot;Wooden&quot;</span><span class="p">;</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">pencil_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">=</span> <span class="n">pencil_drawer</span><span class="p">.</span><span class="n">supply_id</span>
+<span class="k">WHERE</span> <span class="n">refill</span> <span class="o">=</span> <span class="k">true</span> <span class="k">AND</span> <span class="n">pencil_type</span> <span class="o">=</span> <span class="ss">&quot;Mechanical&quot;</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 <p class="last">Note that in line 1, we need to specify the source for <code class="docutils literal notranslate"><span class="pre">supply_id</span></code>, since
@@ -165,7 +165,7 @@ table and pull in overlapping data from another.</p>
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">quantity</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">utensil_type</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">color</span>
 <span class="k">FROM</span> <span class="n">writing_supply</span>
 <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">pen_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">==</span> <span class="n">pen_drawer</span><span class="p">.</span><span class="n">supply_id</span><span class="p">;</span>
 </pre></div>
@@ -173,7 +173,7 @@ table and pull in overlapping data from another.</p>
 <p>TODO: Add screenshot showing output.</p>
 <div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">quantity</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">utensil_type</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">color</span>
 <span class="k">FROM</span> <span class="n">writing_supply</span>
 <span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">pen_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">==</span> <span class="n">pen_drawer</span><span class="p">.</span><span class="n">supply_id</span><span class="p">;</span>
 </pre></div>
@@ -186,19 +186,19 @@ table and pull in overlapping data from another.</p>
 <div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">quantity</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">utensil_type</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">color</span>
 <span class="k">FROM</span> <span class="n">writing_supply</span>
-<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">pen_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">==</span> <span class="n">pen_drawer</span><span class="p">.</span><span class="n">supply_id</span>
-<span class="k">WHERE</span> <span class="n">refill</span> <span class="o">==</span> <span class="k">true</span><span class="p">;</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">pen_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">=</span> <span class="n">pen_drawer</span><span class="p">.</span><span class="n">supply_id</span>
+<span class="k">WHERE</span> <span class="n">refill</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 <p class="last">TODO: Add screenshot showing output.</p>
 </div>
 </div>
-<div class="section" id="full-outer-join">
-<h3>16.4.1.3. Full Outer Join<a class="headerlink" href="#full-outer-join" title="Permalink to this headline">¶</a></h3>
-<p>Since MySQL has no <code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code> syntax, we use the <code class="docutils literal notranslate"><span class="pre">UNION</span></code> keyword to
-combine the result sets of separate <code class="docutils literal notranslate"><span class="pre">LEFT</span></code> and <code class="docutils literal notranslate"><span class="pre">RIGHT</span></code> joins.</p>
+<div class="section" id="multiple-joins">
+<h3>16.4.1.3. Multiple Joins<a class="headerlink" href="#multiple-joins" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">UNION</span></code> keyword allows us to combine the result sets of separate join
+commands.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -207,43 +207,70 @@ combine the result sets of separate <code class="docutils literal notranslate"><
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">quantity</span> <span class="k">FROM</span> <span class="n">writing_supply</span>
-<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">pen_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">==</span> <span class="n">pen_drawer</span><span class="p">.</span><span class="n">supply_id</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">pencil_type</span><span class="p">,</span> <span class="n">quantity</span> <span class="k">FROM</span> <span class="n">writing_supply</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">pencil_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">=</span> <span class="n">pencil_drawer</span><span class="p">.</span><span class="n">supply_id</span>
 
 <span class="k">UNION</span>
 
 <span class="k">SELECT</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span><span class="p">,</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">quantity</span> <span class="k">FROM</span> <span class="n">writing_supply</span>
-<span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">pen_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">==</span> <span class="n">pen_drawer</span><span class="p">.</span><span class="n">supply_id</span><span class="p">;</span>
+<span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">pen_drawer</span> <span class="k">ON</span> <span class="n">writing_supply</span><span class="p">.</span><span class="n">supply_id</span> <span class="o">=</span> <span class="n">pen_drawer</span><span class="p">.</span><span class="n">supply_id</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 <p class="last">TODO: Add screenshot showing output.</p>
+</div>
+<p>Explanation of result set here…</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Recall that MySQL has no <code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">OUTER</span> <span class="pre">JOIN</span></code> syntax. If we want to combine
+all of the data from two separate tables, we would use the <code class="docutils literal notranslate"><span class="pre">UNION</span></code>
+keyword between <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">JOIN</span></code> and <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">JOIN</span></code> queries.</p>
 </div>
 </div>
 </div>
 <div class="section" id="subqueries">
 <h2>16.4.2. Subqueries<a class="headerlink" href="#subqueries" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following situations:</p>
+<ol class="arabic simple">
+<li>Retrieve the <code class="docutils literal notranslate"><span class="pre">supply_id</span></code> values for any containers with more than 2
+drawers.</li>
+<li>Using the <code class="docutils literal notranslate"><span class="pre">supply_id</span></code> values, retrieve the ID and <code class="docutils literal notranslate"><span class="pre">color</span></code> values for
+any drawers that hold 30 or more pens.</li>
+</ol>
+<p>We can accomplish these actions by using two simple SQL queries:</p>
+<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">supply_id</span> <span class="k">FROM</span> <span class="n">writing_supply</span>
+<span class="k">WHERE</span> <span class="n">utensil_type</span> <span class="o">==</span> <span class="ss">&quot;Pen&quot;</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="n">drawer_id</span><span class="p">,</span> <span class="n">color</span> <span class="k">FROM</span> <span class="n">pen_drawer</span>
+<span class="k">WHERE</span> <span class="n">quantity</span> <span class="o">&gt;=</span> <span class="mi">20</span> <span class="k">AND</span> <span class="p">(</span><span class="n">supply_id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">OR</span> <span class="n">supply_id</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">OR</span> <span class="n">supply_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>As mentioned earlier, a subquery is a simple SQL command embedded within
+another. By combining the two SQL queries above, we can accomplish the same
+result in a single SQL command.</p>
+<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">supply_id</span> <span class="k">FROM</span> <span class="n">writing_supply</span>
+<span class="k">WHERE</span> <span class="n">supply_id</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">supply_id</span> <span class="k">FROM</span> <span class="n">pen_drawer</span> <span class="k">WHERE</span> <span class="n">quantity</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
 <p>Consider:</p>
 <ol class="arabic simple">
-<li>Query for ids of cabinet with 3 or more drawers,</li>
-<li>Query for ids of drawers with 50 or more files,</li>
-<li>Query for ids of cabinets that have 3 or more drawers with 50 or more files.</li>
+<li>Query for ids of writing_supply that hold pens,</li>
+<li>Query for ids of drawers with 20 or more pens,</li>
+<li>Query for ids of writing_supply that have 3 or more drawers with 20 or more
+pens.</li>
 </ol>
-<p>SELECT cabinet_id FROM cabinet
-WHERE num_drawers &gt;= 3;</p>
-<p>SELECT drawer_id FROM drawer
-WHERE num_files &gt;= 50;</p>
-<p>SELECT cabinet_id, drawer_id
-FROM cabinet
-INNER JOIN drawers ON cabinet.cabinet_id = drawer.cabinet_id
-WHERE num_drawers &gt;= 3;</p>
 <p>SELECT cabinet_id
 FROM cabinet
 INNER JOIN drawers ON cabinet.cabinet_id = drawer.cabinet_id
 WHERE num_drawers &gt;= 3
 AND (SELECT drawer_id FROM drawer WHERE num_files &gt;= 50);</p>
 </div>
-<div class="section" id="joins-and-subqueries">
-<h2>16.4.3. Joins AND Subqueries<a class="headerlink" href="#joins-and-subqueries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="joins-with-subqueries">
+<h2>16.4.3. Joins with Subqueries<a class="headerlink" href="#joins-with-subqueries" title="Permalink to this headline">¶</a></h2>
 <p>Lorem ipsum…</p>
 </div>
 <div class="section" id="check-your-understanding">

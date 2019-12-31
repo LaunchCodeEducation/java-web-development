@@ -39,8 +39,7 @@ Workbench, ``CREATE`` the tables as described below.
 4. Each record in this table will have five fields:
 
    a. A primary key, ``drawer_id``.
-   b. The ``type`` of the pencils, which will be an ``ENUM`` ("Wood" or
-      "Mechanical").
+   b. The ``pencil_type``, which will be an ``ENUM`` ("Wood" or "Mechanical").
    c. An integer number of pencils, ``quantity``.
    d. A boolean describing whether or not it is time to ``refill`` the drawer.
    e. A foreign key (``supply_id``) that connects ``pencil_drawer`` with

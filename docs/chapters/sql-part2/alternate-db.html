@@ -121,8 +121,7 @@ Workbench, <code class="docutils literal notranslate"><span class="pre">CREATE</
 <ol class="arabic simple" start="4">
 <li>Each record in this table will have five fields:<ol class="loweralpha">
 <li>A primary key, <code class="docutils literal notranslate"><span class="pre">drawer_id</span></code>.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">type</span></code> of the pencils, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Wood” or
-“Mechanical”).</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">pencil_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Wood” or “Mechanical”).</li>
 <li>An integer number of pencils, <code class="docutils literal notranslate"><span class="pre">quantity</span></code>.</li>
 <li>A boolean describing whether or not it is time to <code class="docutils literal notranslate"><span class="pre">refill</span></code> the drawer.</li>
 <li>A foreign key (<code class="docutils literal notranslate"><span class="pre">supply_id</span></code>) that connects <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> with

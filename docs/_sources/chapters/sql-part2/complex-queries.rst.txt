@@ -53,7 +53,7 @@ To return a result set that contains information that appears in both the
 
       SELECT *
       FROM writing_supply
-      INNER JOIN pencil_drawer ON writing_supply.supply_id == pencil_drawer.supply_id;
+      INNER JOIN pencil_drawer ON writing_supply.supply_id = pencil_drawer.supply_id;
 
    The result set contains all of the records from both tables that have matching
    ``supply_id`` values.
@@ -63,7 +63,7 @@ To return a result set that contains information that appears in both the
    ``writing_supply`` and then use the results to shape one or more queries on
    ``pencil_drawer``.
 
-To restrict the size of the result set, we can request specific fields and add
+To reduce the size of the result set, we can request specific fields and add
 conditions to the query:
 
 .. admonition:: Example
@@ -73,8 +73,8 @@ conditions to the query:
 
       SELECT writing_supply.supply_id, drawer_id, quantity
       FROM writing_supply
-      INNER JOIN pencil_drawer ON writing_supply.supply_id == pencil_drawer.supply_id
-      WHERE refill == true AND type == "Wooden";
+      INNER JOIN pencil_drawer ON writing_supply.supply_id = pencil_drawer.supply_id
+      WHERE refill = true AND pencil_type = "Mechanical";
 
    Note that in line 1, we need to specify the source for ``supply_id``, since
    both tables contain a column with that name.
@@ -93,7 +93,7 @@ Let's compare the result of using a ``LEFT`` vs. ``RIGHT`` join on the
    .. sourcecode:: SQL
       :linenos:
 
-      SELECT writing_supply.supply_id, drawer_id, quantity
+      SELECT writing_supply.supply_id, utensil_type, drawer_id, color
       FROM writing_supply
       LEFT JOIN pen_drawer ON writing_supply.supply_id == pen_drawer.supply_id;
 
@@ -102,7 +102,7 @@ Let's compare the result of using a ``LEFT`` vs. ``RIGHT`` join on the
    .. sourcecode:: SQL
       :linenos:
 
-      SELECT writing_supply.supply_id, drawer_id, quantity
+      SELECT writing_supply.supply_id, utensil_type, drawer_id, color
       FROM writing_supply
       RIGHT JOIN pen_drawer ON writing_supply.supply_id == pen_drawer.supply_id;
 
@@ -115,53 +115,79 @@ As with inner joins, we can restrict the size of the result set:
    .. sourcecode:: SQL
       :linenos:
 
-      SELECT writing_supply.supply_id, drawer_id, color, quantity
+      SELECT writing_supply.supply_id, utensil_type, drawer_id, color
       FROM writing_supply
-      LEFT JOIN pen_drawer ON writing_supply.supply_id == pen_drawer.supply_id
-      WHERE refill == true;
+      LEFT JOIN pen_drawer ON writing_supply.supply_id = pen_drawer.supply_id
+      WHERE refill = true;
 
    TODO: Add screenshot showing output.
 
-Full Outer Join
-^^^^^^^^^^^^^^^^
+Multiple Joins
+^^^^^^^^^^^^^^
 
-Since MySQL has no ``FULL OUTER JOIN`` syntax, we use the ``UNION`` keyword to
-combine the result sets of separate ``LEFT`` and ``RIGHT`` joins.
+The ``UNION`` keyword allows us to combine the result sets of separate join
+commands.
 
 .. admonition:: Example
 
    .. sourcecode:: SQL
       :linenos:
 
-      SELECT writing_supply.supply_id, drawer_id, color, quantity FROM writing_supply
-      LEFT JOIN pen_drawer ON writing_supply.supply_id == pen_drawer.supply_id
+      SELECT writing_supply.supply_id, drawer_id, pencil_type, quantity FROM writing_supply
+      LEFT JOIN pencil_drawer ON writing_supply.supply_id = pencil_drawer.supply_id
 
       UNION
 
       SELECT writing_supply.supply_id, drawer_id, color, quantity FROM writing_supply
-      RIGHT JOIN pen_drawer ON writing_supply.supply_id == pen_drawer.supply_id;
+      RIGHT JOIN pen_drawer ON writing_supply.supply_id = pen_drawer.supply_id;
 
    TODO: Add screenshot showing output.
+
+Explanation of result set here...
+
+.. admonition:: Note
+
+   Recall that MySQL has no ``FULL OUTER JOIN`` syntax. If we want to combine
+   all of the data from two separate tables, we would use the ``UNION``
+   keyword between ``LEFT JOIN`` and ``RIGHT JOIN`` queries.
 
 Subqueries
 ----------
 
+Consider the following situations:
+
+#. Retrieve the ``supply_id`` values for any containers with more than 2
+   drawers.
+#. Using the ``supply_id`` values, retrieve the ID and ``color`` values for
+   any drawers that hold 30 or more pens.
+
+We can accomplish these actions by using two simple SQL queries:
+
+.. sourcecode:: SQL
+   :linenos:
+
+   SELECT supply_id FROM writing_supply
+   WHERE utensil_type == "Pen";
+
+   SELECT drawer_id, color FROM pen_drawer
+   WHERE quantity >= 20 AND (supply_id = 1 OR supply_id = 2 OR supply_id = 5);
+
+As mentioned earlier, a subquery is a simple SQL command embedded within
+another. By combining the two SQL queries above, we can accomplish the same
+result in a single SQL command.
+
+.. sourcecode:: SQL
+   :linenos:
+
+   SELECT supply_id FROM writing_supply
+   WHERE supply_id IN (SELECT supply_id FROM pen_drawer WHERE quantity >= 20);
+
 Consider:
 
-#. Query for ids of cabinet with 3 or more drawers,
-#. Query for ids of drawers with 50 or more files,
-#. Query for ids of cabinets that have 3 or more drawers with 50 or more files.
-
-SELECT cabinet_id FROM cabinet
-WHERE num_drawers >= 3;
-
-SELECT drawer_id FROM drawer
-WHERE num_files >= 50;
-
-SELECT cabinet_id, drawer_id
-FROM cabinet
-INNER JOIN drawers ON cabinet.cabinet_id = drawer.cabinet_id
-WHERE num_drawers >= 3;
+#. Query for ids of writing_supply that hold pens,
+#. Query for ids of drawers with 20 or more pens,
+#. Query for ids of writing_supply that have 3 or more drawers with 20 or more
+   pens.
 
 SELECT cabinet_id
 FROM cabinet
@@ -169,9 +195,8 @@ INNER JOIN drawers ON cabinet.cabinet_id = drawer.cabinet_id
 WHERE num_drawers >= 3
 AND (SELECT drawer_id FROM drawer WHERE num_files >= 50);
 
-
-Joins AND Subqueries
---------------------
+Joins with Subqueries
+---------------------
 
 Lorem ipsum...
 
