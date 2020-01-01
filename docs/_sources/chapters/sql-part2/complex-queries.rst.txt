@@ -156,44 +156,101 @@ Subqueries
 
 Consider the following situations:
 
-#. Retrieve the ``supply_id`` values for any containers with more than 2
-   drawers.
+#. Retrieve the ``supply_id`` values for any ``writing_supply`` containers that
+   hold pens.
 #. Using the ``supply_id`` values, retrieve the ID and ``color`` values for
-   any drawers that hold 30 or more pens.
+   any drawers in the last container that hold 60 or more pens.
 
 We can accomplish these actions by using two simple SQL queries:
 
-.. sourcecode:: SQL
-   :linenos:
+.. admonition:: Example
 
-   SELECT supply_id FROM writing_supply
-   WHERE utensil_type == "Pen";
+   .. sourcecode:: SQL
+      :linenos:
 
-   SELECT drawer_id, color FROM pen_drawer
-   WHERE quantity >= 20 AND (supply_id = 1 OR supply_id = 2 OR supply_id = 5);
+      SELECT supply_id FROM writing_supply
+      WHERE utensil_type = "Pen";
+      /* Result set contains the supply_id values 1, 2, and 5. */
 
-As mentioned earlier, a subquery is a simple SQL command embedded within
-another. By combining the two SQL queries above, we can accomplish the same
-result in a single SQL command.
+      SELECT drawer_id, color FROM pen_drawer
+      WHERE quantity >= 60 AND supply_id = 5;
 
-.. sourcecode:: SQL
-   :linenos:
+   TODO: Add screenshot of result set.
 
-   SELECT supply_id FROM writing_supply
-   WHERE supply_id IN (SELECT supply_id FROM pen_drawer WHERE quantity >= 20);
+To complete the second SQL query, we must examine the result set from the
+first, then hard-code the largest ``supply_id`` value into the line 6.
+This is inefficient.
 
-Consider:
+By using a subquery, we can combine the two SQL commands to accomplish the same
+result. Let's begin by embedding one simple SQL command inside the ``WHERE``
+clause of a second.
 
-#. Query for ids of writing_supply that hold pens,
-#. Query for ids of drawers with 20 or more pens,
-#. Query for ids of writing_supply that have 3 or more drawers with 20 or more
-   pens.
+.. admonition:: Example
 
-SELECT cabinet_id
-FROM cabinet
-INNER JOIN drawers ON cabinet.cabinet_id = drawer.cabinet_id
-WHERE num_drawers >= 3
-AND (SELECT drawer_id FROM drawer WHERE num_files >= 50);
+   .. sourcecode:: SQL
+      :linenos:
+
+      SELECT drawer_id, color FROM pen_drawer
+      WHERE supply_id IN (SELECT supply_id FROM writing_supply WHERE utensil_type = "Pen");
+
+   TODO: Add screenshot of result set.
+
+Items to note:
+
+#. An embedded *inner query* will always execute before the *outer
+   query*. In this case, the ``SELECT`` statement in line 2 runs first,
+   followed by the ``SELECT`` statement in line 1.
+#. The inner query in line 2 creates a result set of ``supply_id`` values from
+   the ``writing_supply`` table, based on the condition
+   ``utensil_type = "Pen"``.
+#. The outer query returns a result set of ``drawer_id`` and ``color`` values
+   from the ``pen_drawer`` table.
+#. The condition ``WHERE supply_id IN`` checks if the ``supply_id`` value for
+   a ``pen_drawer`` row matches one of the ``supply_id`` values returned from
+   the inner query.
+
+The result set from this complex SQL command is not yet what we want, since it
+returns values for ALL pen drawers in ALL of the supply containers. Let's
+modify the query by adding the condition for ``quantity``.
+
+.. admonition:: Example
+
+   .. sourcecode:: SQL
+      :linenos:
+
+      SELECT drawer_id, color FROM pen_drawer
+      WHERE supply_id IN (SELECT supply_id FROM writing_supply WHERE utensil_type = "Pen")
+      AND quantity >= 60;
+
+   TODO: Add screenshot of result set.
+
+Now the result set shows only the information for pen drawers with 60 or more
+items. This is good but still not quite complete, since we only want data from
+the *last* ``writing_supply`` row that contains pens. To fix this, we need to
+restrict the inner query to that single ``supply_id`` value.
+
+The last pen container in ``writing_supply`` will have the largest value for
+``supply_id``. Fortunately, SQL has a defined function, ``MAX(column_name)``,
+that returns the largest value in the specified column.
+
+.. admonition:: Example
+
+   .. sourcecode:: SQL
+      :linenos:
+
+      SELECT drawer_id, color FROM pen_drawer
+      WHERE supply_id = (SELECT MAX(supply_id) FROM writing_supply WHERE utensil_type = "Pen")
+      AND quantity >= 60;
+
+   TODO: Add screenshot of result set.
+
+Success! Our complex SQL query now produces the same result as the two
+separate, simple SQL queries. However, the former is more flexible, since it
+does not rely on hard-coded values. Assume we add 100 more entries to
+``writing_supply``. The original pair of queries still checks for entries with
+``supply_id = 5``, even though this may no longer be the last pen container.
+The combined query correctly identifies the last pen container regardless of
+how many entries ``writing_supply`` contains.
 
 Joins with Subqueries
 ---------------------
