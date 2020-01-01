@@ -252,7 +252,9 @@ any drawers in the last container that hold 60 or more pens.</li>
 <span class="k">WHERE</span> <span class="n">quantity</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="k">AND</span> <span class="n">supply_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">TODO: Add screenshot of result set.</p>
+<div class="last figure">
+<img alt="Result set of the two simple SQL queries." src="../../_images/two-simple-queries.png" />
+</div>
 </div>
 <p>To complete the second SQL query, we must examine the result set from the
 first, then hard-code the largest <code class="docutils literal notranslate"><span class="pre">supply_id</span></code> value into the line 6.
@@ -267,7 +269,9 @@ clause of a second.</p>
 <span class="k">WHERE</span> <span class="n">supply_id</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">supply_id</span> <span class="k">FROM</span> <span class="n">writing_supply</span> <span class="k">WHERE</span> <span class="n">utensil_type</span> <span class="o">=</span> <span class="ss">&quot;Pen&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">TODO: Add screenshot of result set.</p>
+<div class="last figure">
+<img alt="Result set of the initial complex SQL query." src="../../_images/all-pen-drawers.png" />
+</div>
 </div>
 <p>Items to note:</p>
 <ol class="arabic simple">
@@ -295,7 +299,9 @@ modify the query by adding the condition for <code class="docutils literal notra
 <span class="k">AND</span> <span class="n">quantity</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">TODO: Add screenshot of result set.</p>
+<div class="last figure">
+<img alt="Result set of the restricted complex SQL query." src="../../_images/over60-pen-drawers.png" />
+</div>
 </div>
 <p>Now the result set shows only the information for pen drawers with 60 or more
 items. This is good but still not quite complete, since we only want data from
@@ -313,7 +319,9 @@ that returns the largest value in the specified column.</p>
 <span class="k">AND</span> <span class="n">quantity</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">TODO: Add screenshot of result set.</p>
+<div class="last figure">
+<img alt="Result set of the final, complex SQL query." src="../../_images/two-simple-queries.png" />
+</div>
 </div>
 <p>Success! Our complex SQL query now produces the same result as the two
 separate, simple SQL queries. However, the former is more flexible, since it

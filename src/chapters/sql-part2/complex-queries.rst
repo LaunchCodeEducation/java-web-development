@@ -175,7 +175,8 @@ We can accomplish these actions by using two simple SQL queries:
       SELECT drawer_id, color FROM pen_drawer
       WHERE quantity >= 60 AND supply_id = 5;
 
-   TODO: Add screenshot of result set.
+   .. figure:: ./figures/two-simple-queries.png
+      :alt: Result set of the two simple SQL queries.
 
 To complete the second SQL query, we must examine the result set from the
 first, then hard-code the largest ``supply_id`` value into the line 6.
@@ -193,7 +194,8 @@ clause of a second.
       SELECT drawer_id, color FROM pen_drawer
       WHERE supply_id IN (SELECT supply_id FROM writing_supply WHERE utensil_type = "Pen");
 
-   TODO: Add screenshot of result set.
+   .. figure:: ./figures/all-pen-drawers.png
+      :alt: Result set of the initial complex SQL query.
 
 Items to note:
 
@@ -222,7 +224,8 @@ modify the query by adding the condition for ``quantity``.
       WHERE supply_id IN (SELECT supply_id FROM writing_supply WHERE utensil_type = "Pen")
       AND quantity >= 60;
 
-   TODO: Add screenshot of result set.
+   .. figure:: ./figures/over60-pen-drawers.png
+      :alt: Result set of the restricted complex SQL query.
 
 Now the result set shows only the information for pen drawers with 60 or more
 items. This is good but still not quite complete, since we only want data from
@@ -242,7 +245,8 @@ that returns the largest value in the specified column.
       WHERE supply_id = (SELECT MAX(supply_id) FROM writing_supply WHERE utensil_type = "Pen")
       AND quantity >= 60;
 
-   TODO: Add screenshot of result set.
+   .. figure:: ./figures/two-simple-queries.png
+      :alt: Result set of the final, complex SQL query.
 
 Success! Our complex SQL query now produces the same result as the two
 separate, simple SQL queries. However, the former is more flexible, since it
