@@ -5,8 +5,9 @@ Back in the :ref:`Database and SQL chapter exercises <sql-part1-exercises>`,
 you created a new database in MySQL Workbench with one table, ``seeds``.
 
 Let's go through the process again, but this time we will set up one-to-many
-relationships between three tables---``cabinet``, ``drawer``, and ``document``.
-You will soon use these tables to practice more complex SQL queries.
+relationships between three tables---``writing_supply``, ``pencil_drawer``,
+and ``pen_drawer``. You will soon use these tables to practice more complex SQL
+queries.
 
 Setup
 -----
@@ -15,44 +16,47 @@ Setup
    model ``storage``.
 #. Click *Apply*, and accept all of the default options when prompted.
 
-The relationships between the three tables follows a logical progression. Each
-``cabinet`` record relates to several ``drawer`` entries, and each ``drawer``
-record relates in turn to multiple ``document`` entries.
+The three tables form a pair of one-to-many relationships. Each
+``writing_supply`` record relates either to several ``pencil_drawer`` entries
+or several ``pen_drawer`` entries.
 
-Each table will need a primary key column, and ``drawer`` and ``document`` will
-require foreign key columns. In the query tab of MySQL Workbench, ``CREATE``
-the tables as described below.
+Each table will need a primary key column, and ``pencil_drawer`` and
+``pen_drawer`` will require foreign key columns. In the query tab of MySQL
+Workbench, ``CREATE`` the tables as described below.
 
-``cabinet``
-^^^^^^^^^^^
+``writing_supply``
+^^^^^^^^^^^^^^^^^^^
 
-3. Each record in this table will have 3 fields:
+3. Each record in this table will have three fields:
 
-   a. A primary key, ``cabinet_id``.
+   a. A primary key, ``supply_id``.
+   #. A ``utensil_type``, which will be an ``ENUM`` ("Pencil" or "Pen").
    #. An integer number of drawers, ``num_drawers``.
-   #. A boolean describing whether or not the storage case is ``is_full``.
 
-``drawer``
-^^^^^^^^^^
+``pencil_drawer``
+^^^^^^^^^^^^^^^^^
 
-4. Each record in this table will have 4 fields:
+4. Each record in this table will have five fields:
 
    a. A primary key, ``drawer_id``.
-   b. The number of files, ``num_files``.
-   c. A boolean describing whether or not a drawer is ``is_full``.
-   d. A foreign key (``cabinet_id``) that connects ``drawer`` with ``cabinet``.
+   b. The ``pencil_type``, which will be an ``ENUM`` ("Wood" or "Mechanical").
+   c. An integer number of pencils, ``quantity``.
+   d. A boolean describing whether or not it is time to ``refill`` the drawer.
+   e. A foreign key (``supply_id``) that connects ``pencil_drawer`` with
+      ``writing_supply``.
 
-``document``
-^^^^^^^^^^^^
+``pen_drawer``
+^^^^^^^^^^^^^^
 
-5. Each record in this table will have 5 fields:
+5. Each record in this table will have five fields:
 
-   a. A primary key, ``document_id``.
-   b. A ``document_type``, which will be an ``ENUM`` ("Invoice", "Contract",
-      "Proposal").
-   c. A document size, ``num_pages``.
-   d. A summary of each document, ``summary``.
-   e. A foreign key (``drawer_id``) that connects ``document`` with ``drawer``.
+   a. A primary key, ``drawer_id``.
+   b. The ``color`` of the pens, which will be an ``ENUM`` ("Black", "Blue",
+      "Red", "Green", "Purple").
+   c. An integer number of pens, ``quantity``.
+   d. A boolean describing whether or not it is time to ``refill`` the drawer.
+   e. A foreign key (``supply_id``) that connects ``pen_drawer`` with
+      ``writing_supply``.
 
 Import Data
 -----------
@@ -66,20 +70,20 @@ Import Data
    `practice data <https://gist.github.com/jimflores5/d575333c633c194e0af13ed8e4ab4cdd>`__.
 #. As you did in the first :ref:`SQL studio <movie-sqls>`, download the zip
    file. Double-click on it to extract three ``.csv`` files.
-#. In MySQL Workbench, right-click on the ``cabinet`` table. Select *Table Data
-   Import Wizard*.
+#. In MySQL Workbench, right-click on the ``writing_supply`` table. Select
+   *Table Data Import Wizard*.
 
    .. figure:: ./figures/SQLWorkbenchImport.png
       :alt: Table Data Import Wizard menu option.
 
 #. In the next panel, click the *Browse* button. Find and select the
-   ``cabinet.csv`` file. Click *Next*.
+   ``writing_supply.csv`` file. Click *Next*.
 
    .. figure:: ./figures/importCsvFile.png
       :alt: Select file path to csv file.
 
 #. In the following panel, use the default option
-   *Use existing table --> storage.cabinet*, and click *Next*.
+   *Use existing table --> storage.writing_supply*, and click *Next*.
 #. Once again, accept the default options for importing data into your table
    columns. Click *Next*.
 
@@ -88,24 +92,24 @@ Import Data
 
 #. Clicking *Next* again will import the data. Clicking *Finish* on the final
    panel returns you to the editor.
-#. In the query tab, run ``SELECT * FROM cabinet`` to confirm that 50 entries
-   now exist in the table.
-#. Repeat the steps 3 - 8 for the ``drawer`` and ``document`` tables.
+#. In the query tab, run ``SELECT * FROM writing_supply`` to confirm that 6
+   entries now exist in the table.
+#. Repeat the steps 3 - 8 for the ``pencil_drawer`` and ``pen_drawer`` tables.
 
-Confirm that the ``drawer`` and ``document`` tables hold 200 and 1000 entries,
-respectively. You are now ready to practice more advanced SQL queries.
+Confirm that the ``pencil_drawer`` and ``pen_drawer`` tables hold 6 and 15
+entries, respectively. You are now ready to practice more advanced SQL queries.
 
 Check Your Understanding
 ------------------------
 
 .. admonition:: Question
 
-   Examine the setup you used for the ``cabinet``, ``drawer``, and ``document``
-   tables. Which of the following pairs does NOT have a
+   Examine the setup you used for the ``writing_supply``, ``pencil_drawer``,
+   and ``pen_drawer`` tables. Which of the following pairs does NOT have a
    one-to-many relationship?
 
-   a. ``storage`` and ``drawer``
-   b. ``storage`` and ``document``
-   c. ``drawer`` and ``document``
+   a. ``writing_supply`` and ``pencil_drawer``
+   b. ``writing_supply`` and ``pen_drawer``
+   c. ``pencil_drawer`` and ``pen_drawer``
 
-.. Answer = b (``storage`` and ``document``)
+.. Answer = c (``pencil_drawer`` and ``pen_drawer``)

@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="16.3. Creating a Database (alternate)" href="alternate-db.html" />
+    <link rel="next" title="16.3. Complex Queries" href="complex-queries.html" />
     <link rel="prev" title="16.1. Table Relationships" href="relationships.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -89,8 +89,9 @@
 <p>Back in the <a class="reference internal" href="../sql-part1/exercises.html#sql-part1-exercises"><span class="std std-ref">Database and SQL chapter exercises</span></a>,
 you created a new database in MySQL Workbench with one table, <code class="docutils literal notranslate"><span class="pre">seeds</span></code>.</p>
 <p>Let’s go through the process again, but this time we will set up one-to-many
-relationships between three tables—<code class="docutils literal notranslate"><span class="pre">cabinet</span></code>, <code class="docutils literal notranslate"><span class="pre">drawer</span></code>, and <code class="docutils literal notranslate"><span class="pre">document</span></code>.
-You will soon use these tables to practice more complex SQL queries.</p>
+relationships between three tables—<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>, <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code>. You will soon use these tables to practice more complex SQL
+queries.</p>
 <div class="section" id="setup">
 <h2>16.2.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
@@ -98,45 +99,48 @@ You will soon use these tables to practice more complex SQL queries.</p>
 model <code class="docutils literal notranslate"><span class="pre">storage</span></code>.</li>
 <li>Click <em>Apply</em>, and accept all of the default options when prompted.</li>
 </ol>
-<p>The relationships between the three tables follows a logical progression. Each
-<code class="docutils literal notranslate"><span class="pre">cabinet</span></code> record relates to several <code class="docutils literal notranslate"><span class="pre">drawer</span></code> entries, and each <code class="docutils literal notranslate"><span class="pre">drawer</span></code>
-record relates in turn to multiple <code class="docutils literal notranslate"><span class="pre">document</span></code> entries.</p>
-<p>Each table will need a primary key column, and <code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code> will
-require foreign key columns. In the query tab of MySQL Workbench, <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>
-the tables as described below.</p>
-<div class="section" id="cabinet">
-<h3>16.2.1.1. <code class="docutils literal notranslate"><span class="pre">cabinet</span></code><a class="headerlink" href="#cabinet" title="Permalink to this headline">¶</a></h3>
+<p>The three tables form a pair of one-to-many relationships. Each
+<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> record relates either to several <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> entries
+or several <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> entries.</p>
+<p>Each table will need a primary key column, and <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> will require foreign key columns. In the query tab of MySQL
+Workbench, <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> the tables as described below.</p>
+<div class="section" id="writing-supply">
+<h3>16.2.1.1. <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code><a class="headerlink" href="#writing-supply" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple" start="3">
-<li>Each record in this table will have 3 fields:<ol class="loweralpha">
-<li>A primary key, <code class="docutils literal notranslate"><span class="pre">cabinet_id</span></code>.</li>
+<li>Each record in this table will have three fields:<ol class="loweralpha">
+<li>A primary key, <code class="docutils literal notranslate"><span class="pre">supply_id</span></code>.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">utensil_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Pencil” or “Pen”).</li>
 <li>An integer number of drawers, <code class="docutils literal notranslate"><span class="pre">num_drawers</span></code>.</li>
-<li>A boolean describing whether or not the storage case is <code class="docutils literal notranslate"><span class="pre">is_full</span></code>.</li>
 </ol>
 </li>
 </ol>
 </div>
-<div class="section" id="drawer">
-<h3>16.2.1.2. <code class="docutils literal notranslate"><span class="pre">drawer</span></code><a class="headerlink" href="#drawer" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pencil-drawer">
+<h3>16.2.1.2. <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code><a class="headerlink" href="#pencil-drawer" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple" start="4">
-<li>Each record in this table will have 4 fields:<ol class="loweralpha">
+<li>Each record in this table will have five fields:<ol class="loweralpha">
 <li>A primary key, <code class="docutils literal notranslate"><span class="pre">drawer_id</span></code>.</li>
-<li>The number of files, <code class="docutils literal notranslate"><span class="pre">num_files</span></code>.</li>
-<li>A boolean describing whether or not a drawer is <code class="docutils literal notranslate"><span class="pre">is_full</span></code>.</li>
-<li>A foreign key (<code class="docutils literal notranslate"><span class="pre">cabinet_id</span></code>) that connects <code class="docutils literal notranslate"><span class="pre">drawer</span></code> with <code class="docutils literal notranslate"><span class="pre">cabinet</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">pencil_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Wood” or “Mechanical”).</li>
+<li>An integer number of pencils, <code class="docutils literal notranslate"><span class="pre">quantity</span></code>.</li>
+<li>A boolean describing whether or not it is time to <code class="docutils literal notranslate"><span class="pre">refill</span></code> the drawer.</li>
+<li>A foreign key (<code class="docutils literal notranslate"><span class="pre">supply_id</span></code>) that connects <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> with
+<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>.</li>
 </ol>
 </li>
 </ol>
 </div>
-<div class="section" id="document">
-<h3>16.2.1.3. <code class="docutils literal notranslate"><span class="pre">document</span></code><a class="headerlink" href="#document" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pen-drawer">
+<h3>16.2.1.3. <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code><a class="headerlink" href="#pen-drawer" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple" start="5">
-<li>Each record in this table will have 5 fields:<ol class="loweralpha">
-<li>A primary key, <code class="docutils literal notranslate"><span class="pre">document_id</span></code>.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">document_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Invoice”, “Contract”,
-“Proposal”).</li>
-<li>A document size, <code class="docutils literal notranslate"><span class="pre">num_pages</span></code>.</li>
-<li>A summary of each document, <code class="docutils literal notranslate"><span class="pre">summary</span></code>.</li>
-<li>A foreign key (<code class="docutils literal notranslate"><span class="pre">drawer_id</span></code>) that connects <code class="docutils literal notranslate"><span class="pre">document</span></code> with <code class="docutils literal notranslate"><span class="pre">drawer</span></code>.</li>
+<li>Each record in this table will have five fields:<ol class="loweralpha">
+<li>A primary key, <code class="docutils literal notranslate"><span class="pre">drawer_id</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">color</span></code> of the pens, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Black”, “Blue”,
+“Red”, “Green”, “Purple”).</li>
+<li>An integer number of pens, <code class="docutils literal notranslate"><span class="pre">quantity</span></code>.</li>
+<li>A boolean describing whether or not it is time to <code class="docutils literal notranslate"><span class="pre">refill</span></code> the drawer.</li>
+<li>A foreign key (<code class="docutils literal notranslate"><span class="pre">supply_id</span></code>) that connects <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> with
+<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>.</li>
 </ol>
 </li>
 </ol>
@@ -156,20 +160,20 @@ use the same column names as the external source.</p>
 <li><p class="first">As you did in the first <a class="reference internal" href="../sql-part1/studio.html#movie-sqls"><span class="std std-ref">SQL studio</span></a>, download the zip
 file. Double-click on it to extract three <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files.</p>
 </li>
-<li><p class="first">In MySQL Workbench, right-click on the <code class="docutils literal notranslate"><span class="pre">cabinet</span></code> table. Select <em>Table Data
-Import Wizard</em>.</p>
+<li><p class="first">In MySQL Workbench, right-click on the <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> table. Select
+<em>Table Data Import Wizard</em>.</p>
 <div class="figure">
 <img alt="Table Data Import Wizard menu option." src="../../_images/SQLWorkbenchImport.png" />
 </div>
 </li>
 <li><p class="first">In the next panel, click the <em>Browse</em> button. Find and select the
-<code class="docutils literal notranslate"><span class="pre">cabinet.csv</span></code> file. Click <em>Next</em>.</p>
+<code class="docutils literal notranslate"><span class="pre">writing_supply.csv</span></code> file. Click <em>Next</em>.</p>
 <div class="figure">
 <img alt="Select file path to csv file." src="../../_images/importCsvFile.png" />
 </div>
 </li>
 <li><p class="first">In the following panel, use the default option
-<em>Use existing table –&gt; storage.cabinet</em>, and click <em>Next</em>.</p>
+<em>Use existing table –&gt; storage.writing_supply</em>, and click <em>Next</em>.</p>
 </li>
 <li><p class="first">Once again, accept the default options for importing data into your table
 columns. Click <em>Next</em>.</p>
@@ -180,26 +184,26 @@ columns. Click <em>Next</em>.</p>
 <li><p class="first">Clicking <em>Next</em> again will import the data. Clicking <em>Finish</em> on the final
 panel returns you to the editor.</p>
 </li>
-<li><p class="first">In the query tab, run <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cabinet</span></code> to confirm that 50 entries
-now exist in the table.</p>
+<li><p class="first">In the query tab, run <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">writing_supply</span></code> to confirm that 6
+entries now exist in the table.</p>
 </li>
-<li><p class="first">Repeat the steps 3 - 8 for the <code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code> tables.</p>
+<li><p class="first">Repeat the steps 3 - 8 for the <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables.</p>
 </li>
 </ol>
-<p>Confirm that the <code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code> tables hold 200 and 1000 entries,
-respectively. You are now ready to practice more advanced SQL queries.</p>
+<p>Confirm that the <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables hold 6 and 15
+entries, respectively. You are now ready to practice more advanced SQL queries.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>16.2.3. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Examine the setup you used for the <code class="docutils literal notranslate"><span class="pre">cabinet</span></code>, <code class="docutils literal notranslate"><span class="pre">drawer</span></code>, and <code class="docutils literal notranslate"><span class="pre">document</span></code>
-tables. Which of the following pairs does NOT have a
+<p>Examine the setup you used for the <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>, <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables. Which of the following pairs does NOT have a
 one-to-many relationship?</p>
 <ol class="last loweralpha simple">
-<li><code class="docutils literal notranslate"><span class="pre">storage</span></code> and <code class="docutils literal notranslate"><span class="pre">drawer</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">storage</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> and <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code></li>
 </ol>
 </div>
 </div>
@@ -214,7 +218,7 @@ one-to-many relationship?</p>
         <li class="previous"><a href="relationships.html"><span aria-hidden="true">&larr;</span> 16.1. Table Relationships</a></li>
         
         
-        <li class="next"><a href="alternate-db.html">16.3. Creating a Database (alternate) <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="complex-queries.html">16.3. Complex Queries <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

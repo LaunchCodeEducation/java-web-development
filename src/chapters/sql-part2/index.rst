@@ -8,7 +8,6 @@ The SQL Sequel
 
    relationships
    creating-databases
-   alternate-db
    complex-queries
    exercises
    studio
