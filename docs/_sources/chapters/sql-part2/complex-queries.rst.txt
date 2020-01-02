@@ -130,9 +130,9 @@ As with inner joins, we can restrict the size of the result set:
 Multiple Joins
 ^^^^^^^^^^^^^^
 
-The ``UNION`` keyword allows us to combine the results of separate SQL
-commands. Run each of the following ``SELECT`` queries individually and examine
-the two result sets. Next, run the queries with ``UNION``.
+The ``UNION`` keyword allows us to combine the results of separate ``SELECT``
+commands. Run each of the following queries individually and examine the two
+result sets. Next, run the queries with ``UNION``.
 
 .. admonition:: Example
 
@@ -310,4 +310,40 @@ Last Reminders
 Check Your Understanding
 -------------------------
 
-Lorem ipsum...
+.. admonition:: Question
+
+   ``UNION`` and ``JOIN`` produce the same result set.
+
+   a. True
+   b. False
+
+.. Answer = False
+
+.. admonition:: Question
+
+   A subquery and a ``UNION`` accomplish the same thing.
+
+   a. True
+   b. False
+
+.. Answer = False
+
+.. admonition:: Question
+
+   What is the execution order for the following complex SQL query?
+
+   .. sourcecode:: SQL
+
+      SELECT column_1 FROM table_1
+      WHERE column_1 IN (SELECT column_2 FROM table_2
+         WHERE column_2 IN (SELECT column_3 FROM table_3
+            WHERE num_items > 30));
+
+   a. ``SELECT column1``, then ``SELECT column2``, then ``SELECT column3``
+   b. ``SELECT column1``, then ``SELECT column3``, then ``SELECT column2``
+   c. ``SELECT column2``, then ``SELECT column1``, then ``SELECT column3``
+   d. ``SELECT column2``, then ``SELECT column3``, then ``SELECT column1``
+   e. ``SELECT column3``, then ``SELECT column1``, then ``SELECT column2``
+   f. ``SELECT column3``, then ``SELECT column2``, then ``SELECT column1``
+
+.. Answer = f (3, then 2, then 1)
