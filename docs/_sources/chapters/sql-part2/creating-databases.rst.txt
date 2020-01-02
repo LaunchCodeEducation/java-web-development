@@ -67,7 +67,7 @@ Import Data
    use the same column names as the external source.
 
 #. Follow this link to the
-   `practice data <https://gist.github.com/jimflores5/d575333c633c194e0af13ed8e4ab4cdd>`__.
+   `practice data <https://gist.github.com/jimflores5/795a7faae8d35d36033872ae30b88328>`__.
 #. As you did in the first :ref:`SQL studio <movie-sqls>`, download the zip
    file. Double-click on it to extract three ``.csv`` files.
 #. In MySQL Workbench, right-click on the ``writing_supply`` table. Select
