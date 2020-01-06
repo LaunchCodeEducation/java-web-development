@@ -91,7 +91,7 @@ However, the user experience for this flow is not great. If a user submits bad d
 
 .. admonition:: Note
 
-   Remember, exceptions should be messages to programmers and programs, not end users. Even if an exception occurs, we should avoid displaying it to a the user.
+   Remember, exceptions should be messages to programmers and programs, not end users. Even if an exception occurs, we should avoid displaying it to the user.
 
 Using the ``Errors`` Object
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
