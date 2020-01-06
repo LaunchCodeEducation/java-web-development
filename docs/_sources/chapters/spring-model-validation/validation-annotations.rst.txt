@@ -232,6 +232,6 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   **True or False:** Adding validation annotations ensures that bad data is not saved.
+   **True or False:** Adding validation annotations to a model ensures that bad data is not saved.
 
 .. ans: False, server-side validation requires cooperation from annotations on the model, as well as controller logic
