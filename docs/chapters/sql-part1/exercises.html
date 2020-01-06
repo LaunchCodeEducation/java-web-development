@@ -136,7 +136,7 @@ fixation, attracts bees, etc.)</li>
 <p>The <code class="docutils literal notranslate"><span class="pre">crop</span></code> and <code class="docutils literal notranslate"><span class="pre">encourages</span></code> columns will hold <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code> data types, and
 each must include a parameter that specifies the maximum number of characters.
 <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> and <code class="docutils literal notranslate"><span class="pre">use_by</span></code> will be integers.</p>
-<p>Paste the following script into the query tab, then run it.</p>
+<p>Put the following script into the query tab.</p>
 <div class="highlight-SQL notranslate" id="primary-key"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -153,29 +153,32 @@ each must include a parameter that specifies the maximum number of characters.
 <p>Line 2 establishes <code class="docutils literal notranslate"><span class="pre">seed_id</span></code> as the unique identifier—the
 <code class="docutils literal notranslate"><span class="pre">PRIMARY</span> <span class="pre">KEY</span></code>—for each record in the table. <code class="docutils literal notranslate"><span class="pre">AUTO_INCREMENT</span></code> assigns
 every new entry a different integer value.</p>
-<p>You can verify that the table was created by inspecting your schema:</p>
+<p>MySQL Workbench allows you to run one SQL command, a set of commands, or all
+of the commands listed in the editor pane. Hover over each lightning bolt
+icon in the panel to see these options.</p>
 <div class="figure" id="id1">
+<img alt="Execute icons in MySQL Workbench." src="../../_images/workbenchBoltIcons.png" />
+<p class="caption"><span class="caption-text">Execute icons in MySQL Workbench.</span></p>
+</div>
+<p>Execute the <code class="docutils literal notranslate"><span class="pre">CREATE_TABLE</span></code> command using the simple lightning icon.
+Next, verify that the table was created by inspecting your schema:</p>
+<div class="figure" id="id2">
 <img alt="Schema information panel showing the seeds table." src="../../_images/seedsTableSchemaInfo.png" />
 <p class="caption"><span class="caption-text">Schema information panel showing the seeds table.</span></p>
 </div>
 <p>Or, you may also see the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table listed under the schema in the file tree.</p>
-<div class="figure" id="id2">
+<div class="figure" id="id3">
 <img alt="File tree showing the seeds table." src="../../_images/seedsTableFileTree.png" />
 <p class="caption"><span class="caption-text">File tree showing the seeds table.</span></p>
+</div>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Some users may need to refresh the Schemas tab to update the file tree view.</p>
 </div>
 </div>
 <div class="section" id="create">
 <h2>15.4.2. Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
 <p>Open up a new query tab for the SQL commands you code in this section.</p>
-<div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p>MySQL Workbench allows you to run one SQL command, a set of commands, or all
-of the commands listed in the editor pane. Hover over each lightning bolt
-icon in the panel to see these options.</p>
-<div class="last figure">
-<img alt="Lightning bold icons in MySQL Workbench." src="../../_images/workbenchBoltIcons.png" />
-</div>
-</div>
 <ol class="arabic">
 <li><p class="first">Use the following SQL command to add a new entry to the <code class="docutils literal notranslate"><span class="pre">seeds</span></code> table.</p>
 <div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
