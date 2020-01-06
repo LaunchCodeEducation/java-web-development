@@ -170,7 +170,7 @@ Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed t
 </div>
 <p>This query adds a row for Eliza to the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> table in our database.</p>
 <p>If we wanted to add a row, but only add values to specific columns in the table, we can do so! We simply need to add the names of the columns that we will be adding data to.</p>
-<p>In the case of inviting people the Johnson’s vow renewal, we may want to invite Eliza’s sister, Felicity, as well. However, we have not confirmed Felicity’s dietary preferences or whether or not she is coming.</p>
+<p>In the case of inviting people to the Johnson’s vow renewal, we may want to invite Eliza’s sister, Felicity, as well. However, we have not confirmed Felicity’s dietary preferences or whether or not she is coming.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="nf">johnson_vow_renewal</span> <span class="p">(</span><span class="n">guest_id</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span><span class="p">)</span>
 <span class="k">VALUES</span> <span class="p">(</span><span class="mi">186</span><span class="p">,</span> <span class="s2">&quot;Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Felicity&quot;</span><span class="p">);</span>
 </pre></div>
