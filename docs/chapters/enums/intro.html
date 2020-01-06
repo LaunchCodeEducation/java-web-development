@@ -86,27 +86,37 @@
     
   <div class="section" id="introduction-to-enums">
 <h1>14.1. Introduction to Enums<a class="headerlink" href="#introduction-to-enums" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">Many statically-typed programming languages provide a feature called <strong>enumeration types</strong>, or <strong>enum types</strong> for short. Enum types are special classes that should have only one of a set of fixed values, such as days of the week.</p>
-<p>Imagine that we wanted to add a field to <code class="docutils literal notranslate"><span class="pre">Event</span></code> to specify which day of the week an event takes place. You might start by creating a new field:</p>
+<p id="index-0">Many statically-typed programming languages provide a feature called
+<strong>enumeration types</strong>, or <strong>enum types</strong> for short. Enum types are special
+classes that should have only one of a set of fixed values, such as days of the
+week.</p>
+<p>Imagine that we wanted to add a field to <code class="docutils literal notranslate"><span class="pre">Event</span></code> to specify which day of the
+week an event takes place. You might start by creating a new field:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">dayOfWeek</span><span class="o">;</span>
 </pre></div>
 </div>
-<p>As defined here, a user could submit any of the following values representing Wednesday:</p>
-<ul class="simple">
+<p>As defined here, a user could submit any of the following values representing
+Wednesday:</p>
+<ol class="arabic simple">
 <li><code class="docutils literal notranslate"><span class="pre">&quot;Wednesday&quot;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;wednesday&quot;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;Wed&quot;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;WED&quot;</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">&quot;W&quot;</span></code></li>
-</ul>
-<p>Accepting data like this leads to many complications. For example, searching for all events taking place on Wednesday would need to account for all of these variations. And what happens if a user misspells “Wednesday”?</p>
-<p id="index-1">When filling out forms on the web, you are used to seeing <code class="docutils literal notranslate"><span class="pre">select</span></code> elements used to represent fields like this.</p>
+</ol>
+<p>Accepting data like this leads to many complications. For example, searching
+for all events taking place on Wednesday would need to account for all of these
+variations. And what happens if a user misspells “Wednesday”?</p>
+<p id="index-1">When filling out forms on the web, you are used to seeing <code class="docutils literal notranslate"><span class="pre">select</span></code> elements
+used to represent fields like this.</p>
 <div class="figure">
 <a class="reference internal image-reference" href="../../_images/weekdaySelect.png"><img alt="Select tag with days of the week." src="../../_images/weekdaySelect.png" style="width: 294.40000000000003px; height: 272.0px;" /></a>
 </div>
 <p>Select tag with days of the week.</p>
-<p>Limiting the values that the user can select drastically reduces complexity and ensures that our application data remains clean and standardized. Enum types are one way to model fields like this.</p>
+<p>Limiting the values that the user can select drastically reduces complexity and
+ensures that our application data remains clean and standardized. Enum types
+are one way to model fields like this.</p>
 <div class="section" id="creating-an-enum-type">
 <h2>14.1.1. Creating an Enum Type<a class="headerlink" href="#creating-an-enum-type" title="Permalink to this headline">¶</a></h2>
 <p>Let’s see how we can create an enum type, or enum class.</p>
@@ -114,7 +124,8 @@
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">Recall that a class defines a new <em>data type</em>. Thus, the term “data type” can be used in place of “class.” We’ll typically call enum classes “enum types” since this is what most Java developers do.</p>
 </div>
-<p>The simplest enum type that we can define to represent days of the week looks like this:</p>
+<p>The simplest enum type that we can define to represent days of the week looks
+like this:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -138,7 +149,11 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword specifies that this class should be an enum type. In other words, it should only be able to take on one of a fixed set of values. Within the body of the class, we list the valid values (<code class="docutils literal notranslate"><span class="pre">SUNDAY</span></code>, <code class="docutils literal notranslate"><span class="pre">MONDAY</span></code>, etc.). These values are in all-caps because they are <em>constants</em>. In fact, the class above is very similar to this static class:</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword specifies that this class should be an enum type. In
+other words, it should only be able to take on one of a fixed set of values.
+Within the body of the class, we list the valid values (<code class="docutils literal notranslate"><span class="pre">SUNDAY</span></code>, <code class="docutils literal notranslate"><span class="pre">MONDAY</span></code>,
+etc.). These values are in all-caps because they are <em>constants</em>. In fact, the
+class above is very similar to this static class:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -162,7 +177,8 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>To refer to Thursday, you can use the value <code class="docutils literal notranslate"><span class="pre">DayStatic.THURSDAY</span></code>. Recall our <code class="docutils literal notranslate"><span class="pre">switch</span></code> <a class="reference internal" href="../control-flow-and-collections/conditionals.html#switch-statements"><span class="std std-ref">example from earlier</span></a>.</p>
+<p>To refer to Thursday, you can use the value <code class="docutils literal notranslate"><span class="pre">DayStatic.THURSDAY</span></code>. Recall our
+<code class="docutils literal notranslate"><span class="pre">switch</span></code> <a class="reference internal" href="../control-flow-and-collections/conditionals.html#switch-statements"><span class="std std-ref">example from earlier</span></a>.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -318,7 +334,9 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>In essence, this code represents days of the week as fixed integer values, one for each day. Enum types are essentially a more robust version of this approach.</p>
+<p>In essence, this code represents days of the week as fixed integer values, one
+for each day. Enum types are essentially a more robust version of this
+approach.</p>
 <p>Let’s revisit our <code class="docutils literal notranslate"><span class="pre">Day</span></code> enum type:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -343,7 +361,8 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>We can declare a variable of type <code class="docutils literal notranslate"><span class="pre">Day</span></code> and it will only be allowed to take on one of the 7 defined values.</p>
+<p>We can declare a variable of type <code class="docutils literal notranslate"><span class="pre">Day</span></code> and it will only be allowed to take
+on one of the 7 defined values.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -355,11 +374,14 @@
 <span class="n">Day</span> <span class="n">workWeekEnd</span> <span class="o">=</span> <span class="s">&quot;Friday&quot;</span><span class="o">;</span>
 </pre></div>
 </td></tr></table></div>
-<p>Enums are important because they provide <em>type safety</em> in situations where we want to restrict possible values. In other words, they eliminate the possibility of bad, or dirty, values.</p>
+<p>Enums are important because they provide <em>type safety</em> in situations where we
+want to restrict possible values. In other words, they eliminate the
+possibility of bad, or dirty, values.</p>
 </div>
 <div class="section" id="enum-examples">
 <h2>14.1.2. Enum Examples<a class="headerlink" href="#enum-examples" title="Permalink to this headline">¶</a></h2>
-<p>The world is filled with examples ripe for representation by enums. Here are a few from both the real world and the world of programming.</p>
+<p>The world is filled with examples ripe for representation by enums. Here are a
+few from both the real world and the world of programming.</p>
 <div class="admonition-example admonition">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Months of the year.</p>
@@ -420,7 +442,9 @@
 </div>
 <div class="admonition-example admonition" id="index-2">
 <p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p>A common use of enums in programming is to set the log level of an application. The <strong>log level</strong> represents the types of log messages that should be displayed as the application runs.</p>
+<p>A common use of enums in programming is to set the log level of an
+application. The <strong>log level</strong> represents the types of log messages that
+should be displayed as the application runs.</p>
 <p>You might only want to see critical error messages when running an application on a production server, but you may want to see many more messages, such as warnings and informational messages, when developing the application locally.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -448,9 +472,15 @@
 </div>
 <div class="section" id="adding-properties-to-enums">
 <h2>14.1.3. Adding Properties to Enums<a class="headerlink" href="#adding-properties-to-enums" title="Permalink to this headline">¶</a></h2>
-<p>It can sometimes be useful to add properties and methods to enum types, in order to associate data and behaviors with each value.</p>
-<p>Let’s consider the example of our <code class="docutils literal notranslate"><span class="pre">Day</span></code> enum from above. We can associate a user-friendly display name (such as <code class="docutils literal notranslate"><span class="pre">&quot;Saturday&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">Day.SATURDAY</span></code>), along with a boolean representing its status as a weekday, just as you would in any other class.</p>
-<p>Let’s include the relevant fields, getters, and a constructor. Note that the fields will be <code class="docutils literal notranslate"><span class="pre">final</span></code> since they should never change value. This also means that they don’t need setters.</p>
+<p>It can sometimes be useful to add properties and methods to enum types, in
+order to associate data and behaviors with each value.</p>
+<p>Let’s consider the example of our <code class="docutils literal notranslate"><span class="pre">Day</span></code> enum from above. We can associate a
+user-friendly display name (such as <code class="docutils literal notranslate"><span class="pre">&quot;Saturday&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">Day.SATURDAY</span></code>), along
+with a boolean representing its status as a weekday, just as you would in any
+other class.</p>
+<p>Let’s include the relevant fields, getters, and a constructor. Note that the
+fields will be <code class="docutils literal notranslate"><span class="pre">final</span></code> since they should never change value. This also means
+that they don’t need setters.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -482,7 +512,9 @@
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>To specify the values of <code class="docutils literal notranslate"><span class="pre">displayName</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> for each enum value, we call the constructor when listing the values. The full class then looks like this:</p>
+<p>To specify the values of <code class="docutils literal notranslate"><span class="pre">displayName</span></code> and <code class="docutils literal notranslate"><span class="pre">weekday</span></code> for each enum value,
+we call the constructor when listing the values. The full class then looks like
+this:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -511,13 +543,13 @@
 26
 27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Day</span> <span class="o">{</span>
 
-   <span class="n">SUNDAY</span><span class="o">(</span><span class="s">&quot;Sunday&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
-   <span class="n">MONDAY</span><span class="o">(</span><span class="s">&quot;Monday&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">),</span>
-   <span class="n">TUESDAY</span><span class="o">(</span><span class="s">&quot;Tuesday&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">),</span>
-   <span class="n">WEDNESDAY</span><span class="o">(</span><span class="s">&quot;Wednesday&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">),</span>
-   <span class="n">THURSDAY</span><span class="o">(</span><span class="s">&quot;Thursday&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">),</span>
-   <span class="n">FRIDAY</span><span class="o">(</span><span class="s">&quot;Friday&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">),</span>
-   <span class="n">SATURDAY</span><span class="o">(</span><span class="s">&quot;Saturday&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+   <span class="n">SUNDAY</span><span class="o">(</span><span class="s">&quot;Sunday&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">),</span>
+   <span class="n">MONDAY</span><span class="o">(</span><span class="s">&quot;Monday&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+   <span class="n">TUESDAY</span><span class="o">(</span><span class="s">&quot;Tuesday&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+   <span class="n">WEDNESDAY</span><span class="o">(</span><span class="s">&quot;Wednesday&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+   <span class="n">THURSDAY</span><span class="o">(</span><span class="s">&quot;Thursday&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+   <span class="n">FRIDAY</span><span class="o">(</span><span class="s">&quot;Friday&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">),</span>
+   <span class="n">SATURDAY</span><span class="o">(</span><span class="s">&quot;Saturday&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
 
    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">displayName</span><span class="o">;</span>
    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="n">weekday</span><span class="o">;</span>

@@ -3,28 +3,36 @@ Introduction to Enums
 
 .. index:: ! enumeration types
 
-Many statically-typed programming languages provide a feature called **enumeration types**, or **enum types** for short. Enum types are special classes that should have only one of a set of fixed values, such as days of the week. 
+Many statically-typed programming languages provide a feature called
+**enumeration types**, or **enum types** for short. Enum types are special
+classes that should have only one of a set of fixed values, such as days of the
+week.
 
-Imagine that we wanted to add a field to ``Event`` to specify which day of the week an event takes place. You might start by creating a new field:
+Imagine that we wanted to add a field to ``Event`` to specify which day of the
+week an event takes place. You might start by creating a new field:
 
 .. sourcecode:: java
 
    @NotBlank
    private String dayOfWeek;
 
-As defined here, a user could submit any of the following values representing Wednesday:
+As defined here, a user could submit any of the following values representing
+Wednesday:
 
-- ``"Wednesday"``
-- ``"wednesday"``
-- ``"Wed"``
-- ``"WED"``
-- ``"W"``
+#. ``"Wednesday"``
+#. ``"wednesday"``
+#. ``"Wed"``
+#. ``"WED"``
+#. ``"W"``
 
-Accepting data like this leads to many complications. For example, searching for all events taking place on Wednesday would need to account for all of these variations. And what happens if a user misspells "Wednesday"? 
+Accepting data like this leads to many complications. For example, searching
+for all events taking place on Wednesday would need to account for all of these
+variations. And what happens if a user misspells "Wednesday"?
 
 .. index:: select
 
-When filling out forms on the web, you are used to seeing ``select`` elements used to represent fields like this.
+When filling out forms on the web, you are used to seeing ``select`` elements
+used to represent fields like this.
 
 .. figure:: figures/weekdaySelect.png
    :scale: 80%
@@ -32,7 +40,9 @@ When filling out forms on the web, you are used to seeing ``select`` elements us
 
 Select tag with days of the week.
 
-Limiting the values that the user can select drastically reduces complexity and ensures that our application data remains clean and standardized. Enum types are one way to model fields like this.
+Limiting the values that the user can select drastically reduces complexity and
+ensures that our application data remains clean and standardized. Enum types
+are one way to model fields like this.
 
 Creating an Enum Type
 ---------------------
@@ -41,13 +51,14 @@ Let's see how we can create an enum type, or enum class.
 
 .. note:: Recall that a class defines a new *data type*. Thus, the term "data type" can be used in place of "class." We'll typically call enum classes "enum types" since this is what most Java developers do.
 
-The simplest enum type that we can define to represent days of the week looks like this:
+The simplest enum type that we can define to represent days of the week looks
+like this:
 
 .. sourcecode:: java
    :linenos:
 
    public enum Day {
-   
+
       SUNDAY,
       MONDAY,
       TUESDAY,
@@ -58,13 +69,17 @@ The simplest enum type that we can define to represent days of the week looks li
 
    }
 
-Using the ``enum`` keyword specifies that this class should be an enum type. In other words, it should only be able to take on one of a fixed set of values. Within the body of the class, we list the valid values (``SUNDAY``, ``MONDAY``, etc.). These values are in all-caps because they are *constants*. In fact, the class above is very similar to this static class:
+Using the ``enum`` keyword specifies that this class should be an enum type. In
+other words, it should only be able to take on one of a fixed set of values.
+Within the body of the class, we list the valid values (``SUNDAY``, ``MONDAY``,
+etc.). These values are in all-caps because they are *constants*. In fact, the
+class above is very similar to this static class:
 
 .. sourcecode:: java
    :linenos:
 
    public class DayStatic {
-   
+
       public static final int SUNDAY = 0;
       public static final int MONDAY = 1;
       public static final int TUESDAY = 2;
@@ -75,7 +90,8 @@ Using the ``enum`` keyword specifies that this class should be an enum type. In 
 
    }
 
-To refer to Thursday, you can use the value ``DayStatic.THURSDAY``. Recall our ``switch`` :ref:`example from earlier <switch-statements>`.
+To refer to Thursday, you can use the value ``DayStatic.THURSDAY``. Recall our
+``switch`` :ref:`example from earlier <switch-statements>`.
 
 .. sourcecode:: java
    :linenos:
@@ -163,7 +179,9 @@ This code can be refactored using ``DayStatic``:
       }
    }
 
-In essence, this code represents days of the week as fixed integer values, one for each day. Enum types are essentially a more robust version of this approach. 
+In essence, this code represents days of the week as fixed integer values, one
+for each day. Enum types are essentially a more robust version of this
+approach.
 
 Let's revisit our ``Day`` enum type:
 
@@ -171,7 +189,7 @@ Let's revisit our ``Day`` enum type:
    :linenos:
 
    public enum Day {
-   
+
       SUNDAY,
       MONDAY,
       TUESDAY,
@@ -182,7 +200,8 @@ Let's revisit our ``Day`` enum type:
 
    }
 
-We can declare a variable of type ``Day`` and it will only be allowed to take on one of the 7 defined values.
+We can declare a variable of type ``Day`` and it will only be allowed to take
+on one of the 7 defined values.
 
 .. sourcecode:: java
    :linenos:
@@ -193,12 +212,15 @@ We can declare a variable of type ``Day`` and it will only be allowed to take on
    // This does not, throwing a compiler error
    Day workWeekEnd = "Friday";
 
-Enums are important because they provide *type safety* in situations where we want to restrict possible values. In other words, they eliminate the possibility of bad, or dirty, values.
+Enums are important because they provide *type safety* in situations where we
+want to restrict possible values. In other words, they eliminate the
+possibility of bad, or dirty, values.
 
 Enum Examples
 -------------
 
-The world is filled with examples ripe for representation by enums. Here are a few from both the real world and the world of programming.
+The world is filled with examples ripe for representation by enums. Here are a
+few from both the real world and the world of programming.
 
 .. admonition:: Example
 
@@ -208,7 +230,7 @@ The world is filled with examples ripe for representation by enums. Here are a f
       :linenos:
 
       public enum Month {
-      
+
          JANUARY,
          FEBRUARY,
          MARCH,
@@ -221,7 +243,7 @@ The world is filled with examples ripe for representation by enums. Here are a f
          OCTOBER,
          NOVEMBER,
          DECEMBER
-      
+
       }
 
 
@@ -245,15 +267,17 @@ The world is filled with examples ripe for representation by enums. Here are a f
 
 .. admonition:: Example
 
-   A common use of enums in programming is to set the log level of an application. The **log level** represents the types of log messages that should be displayed as the application runs. 
-   
+   A common use of enums in programming is to set the log level of an
+   application. The **log level** represents the types of log messages that
+   should be displayed as the application runs.
+
    You might only want to see critical error messages when running an application on a production server, but you may want to see many more messages, such as warnings and informational messages, when developing the application locally.
 
    .. sourcecode:: java
       :linenos:
 
       public enum LogLevel {
-      
+
          DEBUG,
          INFO,
          WARNING,
@@ -270,11 +294,17 @@ The world is filled with examples ripe for representation by enums. Here are a f
 Adding Properties to Enums
 --------------------------
 
-It can sometimes be useful to add properties and methods to enum types, in order to associate data and behaviors with each value.  
+It can sometimes be useful to add properties and methods to enum types, in
+order to associate data and behaviors with each value.
 
-Let's consider the example of our ``Day`` enum from above. We can associate a user-friendly display name (such as ``"Saturday"`` for ``Day.SATURDAY``), along with a boolean representing its status as a weekday, just as you would in any other class.
+Let's consider the example of our ``Day`` enum from above. We can associate a
+user-friendly display name (such as ``"Saturday"`` for ``Day.SATURDAY``), along
+with a boolean representing its status as a weekday, just as you would in any
+other class.
 
-Let's include the relevant fields, getters, and a constructor. Note that the fields will be ``final`` since they should never change value. This also means that they don't need setters.
+Let's include the relevant fields, getters, and a constructor. Note that the
+fields will be ``final`` since they should never change value. This also means
+that they don't need setters.
 
 .. sourcecode:: java
    :linenos:
@@ -295,20 +325,22 @@ Let's include the relevant fields, getters, and a constructor. Note that the fie
       return this.weekday;
    }
 
-To specify the values of ``displayName`` and ``weekday`` for each enum value, we call the constructor when listing the values. The full class then looks like this:
+To specify the values of ``displayName`` and ``weekday`` for each enum value,
+we call the constructor when listing the values. The full class then looks like
+this:
 
 .. sourcecode:: java
    :linenos:
 
    public enum Day {
 
-      SUNDAY("Sunday", true),
-      MONDAY("Monday", false),
-      TUESDAY("Tuesday", false),
-      WEDNESDAY("Wednesday", false),
-      THURSDAY("Thursday", false),
-      FRIDAY("Friday", false),
-      SATURDAY("Saturday", true);
+      SUNDAY("Sunday", false),
+      MONDAY("Monday", true),
+      TUESDAY("Tuesday", true),
+      WEDNESDAY("Wednesday", true),
+      THURSDAY("Thursday", true),
+      FRIDAY("Friday", true),
+      SATURDAY("Saturday", false);
 
       private final String displayName;
       private final boolean weekday;
@@ -352,6 +384,6 @@ Check Your Understanding
    #. States in the US
    #. Shoe sizes (using the American scale)
    #. Price of a gallon of milk
-   #. Sections in a bookstore 
+   #. Sections in a bookstore
 
 .. ans: c, Price of a gallon of milk
