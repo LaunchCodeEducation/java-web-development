@@ -31,7 +31,7 @@ Creating a Table
 ^^^^^^^^^^^^^^^^
 
 Creating a Table from Scratch
-"""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let's say that we are working on our events database.
 Mary has been working hard planning the Li wedding.
@@ -56,7 +56,7 @@ This query creates a new table in our database called ``li_wedding``. This table
 When we use ``CREATE TABLE`` to create a table from scratch, we will end up with an empty table. We will learn how to add to a table a little further down the page.
 
 Creating a Table from Another Table
-"""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We can also create a table from another table.
 When doing so, the new table will also include any existing data from the original table.
@@ -72,11 +72,11 @@ Due to some wedding drama, Mr. and Mrs. Johnson will also be avoiding inviting a
    CREATE TABLE johnson_vow_renewal
    AS guest_id, last_name, first_name, attending, diet
    FROM johnson_wedding
-   WHERE (attending == 1);
+   WHERE (attending = 1);
 
 This query creates the ``johnson_vow_renewal`` table with the same columns as ``johnson_wedding``.
 We use ``AS`` to specify the columns that will be carried over from the ``johnson_wedding`` table to the ``johnson_vow_renewal``.
-The ``WHERE`` condition in the query specifies that we only want the rows from ``johnson_wedding`` in ``johnson_vow_renewal`` *where* the guest was in attendance (or ``attending == 1``).
+The ``WHERE`` condition in the query specifies that we only want the rows from ``johnson_wedding`` in ``johnson_vow_renewal`` *where* the guest was in attendance (or ``attending = 1``).
 If we did *not* add a ``WHERE`` condition, then we would have copied over all of the data from ``johnson_wedding``.
 
 Adding a Row
@@ -104,7 +104,7 @@ In the case of inviting people the Johnson's vow renewal, we may want to invite 
    INSERT INTO johnson_vow_renewal (guest_id, last_name, first_name)
    VALUES (186, "Johnson", "Felicity");
 
-By adding the column names in parantheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: ``guest_id``, ``last_name``, and ``first_name``.
+By adding the column names in parentheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: ``guest_id``, ``last_name``, and ``first_name``.
 
 .. admonition:: Note
 
@@ -152,7 +152,7 @@ So, we will ``SELECT`` the ``last_name`` and ``first_name`` columns ``FROM`` the
 
    SELECT last_name, first_name
    FROM li_wedding
-   WHERE (attending == 1) AND (diet == "vegetarian");
+   WHERE (attending = 1) AND (diet = "vegetarian");
 
 If Mary just wants all of the guests for the Li wedding, we need to modify our ``SELECT`` statement.
 We won't apply a ``WHERE`` condition to our query and we will use a ``*`` to denote that we want all columns.
@@ -178,7 +178,7 @@ Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to u
 
    UPDATE johnson_vow_renewal
    SET diet="vegetarian"
-   WHERE guest_id==185;
+   WHERE guest_id=185;
 
 Now if we use a ``SELECT`` statement, we can confirm that we have properly updated the record.
 
@@ -186,7 +186,7 @@ Now if we use a ``SELECT`` statement, we can confirm that we have properly updat
 
    SELECT *
    FROM johnson_vow_renewal
-   WHERE guest_id==185;
+   WHERE guest_id=185;
 
 If we wanted to update another column in Eliza's record, such as the ``first_name`` value to ``Elizabeth``, we would add that information to ``SET``.
 
@@ -194,7 +194,7 @@ If we wanted to update another column in Eliza's record, such as the ``first_nam
 
    UPDATE johnson_vow_renewal
    SET diet="vegetarian", first_name="Elizabeth"
-   WHERE guest_id==185;
+   WHERE guest_id=185;
 
 .. admonition:: Warning
 
@@ -214,7 +214,7 @@ Mr. Johnson's great-uncle, Frank, died and won't be in attendance for the vow re
 
 .. sourcecode:: mysql
 
-   DELETE FROM johnson_vow_renewal WHERE guest_id==107;
+   DELETE FROM johnson_vow_renewal WHERE guest_id=107;
 
 We can then use a ``SELECT`` statement to confirm that Uncle Frank's record has been removed.
 
@@ -222,7 +222,7 @@ We can then use a ``SELECT`` statement to confirm that Uncle Frank's record has 
 
    SELECT *
    FROM johnson_vow_renewal
-   WHERE guest_id==107;
+   WHERE guest_id=107;
 
 Check Your Understanding
 ------------------------
@@ -235,7 +235,7 @@ Check Your Understanding
 
       SELECT EventID
       FROM EventsMaster
-      WHERE (Month==07);
+      WHERE (Month=07);
 
    a. Returns the event id from a table called ``EventsMaster`` for all events in 7 months of the year.
    b. Returns the event id for all events in a table called ``EventsMaster`` for the month of July.
