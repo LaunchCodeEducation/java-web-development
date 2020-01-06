@@ -75,10 +75,19 @@ Line 2 establishes ``seed_id`` as the unique identifier---the
 ``PRIMARY KEY``---for each record in the table. ``AUTO_INCREMENT`` assigns
 every new entry a different integer value.
 
-Properly done, you should now see the ``seeds`` table within your database.
+You can verify that the table was created by inspecting your schema:
+
+.. figure:: ./figures/seedsTableSchemaInfo.png
+   :alt: Schema information panel showing the seeds table.
+
+   Schema information panel showing the seeds table.
+
+Or, you may also see the ``seeds`` table listed under the schema in the file tree.
 
 .. figure:: ./figures/seedsTableFileTree.png
-   :alt: File tree for the seeds table.
+   :alt: File tree showing the seeds table.
+
+   File tree showing the seeds table.
 
 Create
 ------
