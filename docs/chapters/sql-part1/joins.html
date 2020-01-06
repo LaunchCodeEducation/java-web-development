@@ -101,7 +101,7 @@ Whenever we join two tables, we have to specify the condition upon which the tab
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">column_name_1</span><span class="p">,</span> <span class="n">column_name_2</span><span class="p">,</span> <span class="p">....</span>
 <span class="k">FROM</span> <span class="n">table_a</span>
-<span class="n">TYPEOFJOIN</span> <span class="k">JOIN</span> <span class="n">table_b</span> <span class="k">ON</span> <span class="n">table_a</span><span class="p">.</span><span class="n">column_name_1</span> <span class="o">==</span> <span class="n">table_b</span><span class="p">.</span><span class="n">column_name_1</span><span class="p">;</span>
+<span class="n">TYPEOFJOIN</span> <span class="k">JOIN</span> <span class="n">table_b</span> <span class="k">ON</span> <span class="n">table_a</span><span class="p">.</span><span class="n">column_name_1</span> <span class="o">=</span> <span class="n">table_b</span><span class="p">.</span><span class="n">column_name_1</span><span class="p">;</span>
 </pre></div>
 </td></tr></table></div>
 <p>In this general query, we specified what columns we want (or we could have used the <code class="docutils literal notranslate"><span class="pre">*</span></code> to read data from all columns).
@@ -117,7 +117,7 @@ This may mean we want to join on matching customer ids or matching dollar amount
 <p>If we use an inner join to combine <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> and <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> in a query, we can see what guests are going to both the vow renewal and the wedding.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
 <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">johnson_wedding</span> <span class="k">ON</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">johnson_wedding</span> <span class="k">ON</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">=</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>This query will give us a result set of the first and last names of the guests from the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> table that are also in the <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> table.</p>
@@ -135,7 +135,7 @@ This may mean we want to join on matching customer ids or matching dollar amount
 <p>If we use a left outer join to combine <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> and <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> in a query, the result set includes all of the guests invited to the wedding and any guests who were also invited to the vow renewal.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
 <span class="k">FROM</span> <span class="n">johnson_wedding</span>
-<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">johnson_vow_renewal</span> <span class="k">ON</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">johnson_vow_renewal</span> <span class="k">ON</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">=</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="figure">
@@ -152,7 +152,7 @@ This may mean we want to join on matching customer ids or matching dollar amount
 <p>If we use a right inner join to combine <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> and <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> in a query, the result set includes all of the guests that were invited to the vow renewal and any guests who were also invited to the wedding.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
 <span class="k">FROM</span> <span class="n">johnson_wedding</span>
-<span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">johnson_vow_renewal</span> <span class="k">ON</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
+<span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">johnson_vow_renewal</span> <span class="k">ON</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">=</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="figure">
@@ -172,8 +172,8 @@ To show what a full outer join looks like in other types of SQL, we have simulat
 <p>Now that another event planner has joined Mary’s company, to get all of the events run by the company in August, we can use a full outer join to combine <code class="docutils literal notranslate"><span class="pre">MaryEvents</span></code> and <code class="docutils literal notranslate"><span class="pre">LeahEvents</span></code>.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">MaryEvents</span>
-<span class="n">FULL</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">LeahEvents</span> <span class="k">ON</span> <span class="n">MaryEvents</span><span class="p">.</span><span class="n">Month</span> <span class="o">==</span> <span class="n">LeahEvents</span><span class="p">.</span><span class="n">Month</span>
-<span class="k">WHERE</span> <span class="n">MaryEvents</span><span class="p">.</span><span class="n">Month</span> <span class="o">==</span> <span class="mi">08</span><span class="p">;</span>
+<span class="n">FULL</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">LeahEvents</span> <span class="k">ON</span> <span class="n">MaryEvents</span><span class="p">.</span><span class="n">Month</span> <span class="o">=</span> <span class="n">LeahEvents</span><span class="p">.</span><span class="n">Month</span>
+<span class="k">WHERE</span> <span class="n">MaryEvents</span><span class="p">.</span><span class="n">Month</span> <span class="o">=</span> <span class="mi">08</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="figure">
@@ -204,7 +204,7 @@ Check out the <a class="reference external" href="https://dev.mysql.com/doc/refm
 <p>What bugs are in this SQL query? Select all that apply.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span>
 <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
-<span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonWeding</span> <span class="k">ON</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">==</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span>
+<span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">JohnsonWedding</span> <span class="k">ON</span> <span class="n">johnson_vow_renewal</span><span class="p">.</span><span class="n">guest_id</span> <span class="o">=</span> <span class="n">johnson_wedding</span><span class="p">.</span><span class="n">guest_id</span>
 </pre></div>
 </div>
 <ol class="last loweralpha simple">

@@ -149,12 +149,12 @@ Due to some wedding drama, Mr. and Mrs. Johnson will also be avoiding inviting a
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">johnson_vow_renewal</span>
 <span class="k">AS</span> <span class="n">guest_id</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">attending</span><span class="p">,</span> <span class="n">diet</span>
 <span class="k">FROM</span> <span class="n">johnson_wedding</span>
-<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">=</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>This query creates the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> table with the same columns as <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code>.
 We use <code class="docutils literal notranslate"><span class="pre">AS</span></code> to specify the columns that will be carried over from the <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> table to the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> condition in the query specifies that we only want the rows from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> in <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> <em>where</em> the guest was in attendance (or <code class="docutils literal notranslate"><span class="pre">attending</span> <span class="pre">==</span> <span class="pre">1</span></code>).
+The <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> condition in the query specifies that we only want the rows from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> in <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> <em>where</em> the guest was in attendance (or <code class="docutils literal notranslate"><span class="pre">attending</span> <span class="pre">=</span> <span class="pre">1</span></code>).
 If we did <em>not</em> add a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> condition, then we would have copied over all of the data from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code>.</p>
 </div>
 </div>
@@ -175,7 +175,7 @@ Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed t
 <span class="k">VALUES</span> <span class="p">(</span><span class="mi">186</span><span class="p">,</span> <span class="s2">&quot;Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Felicity&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>By adding the column names in parantheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: <code class="docutils literal notranslate"><span class="pre">guest_id</span></code>, <code class="docutils literal notranslate"><span class="pre">last_name</span></code>, and <code class="docutils literal notranslate"><span class="pre">first_name</span></code>.</p>
+<p>By adding the column names in parentheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: <code class="docutils literal notranslate"><span class="pre">guest_id</span></code>, <code class="docutils literal notranslate"><span class="pre">last_name</span></code>, and <code class="docutils literal notranslate"><span class="pre">first_name</span></code>.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">When we use this method, any column that doesn’t have a specified value for the new row will have a <code class="docutils literal notranslate"><span class="pre">null</span></code> value.</p>
@@ -214,7 +214,7 @@ So, we will <code class="docutils literal notranslate"><span class="pre">SELECT<
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
 <span class="k">FROM</span> <span class="n">li_wedding</span>
-<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">diet</span> <span class="o">==</span> <span class="s2">&quot;vegetarian&quot;</span><span class="p">);</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">diet</span> <span class="o">=</span> <span class="s2">&quot;vegetarian&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>If Mary just wants all of the guests for the Li wedding, we need to modify our <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.
@@ -235,19 +235,19 @@ We cannot simply click <em>Edit</em> &gt; <em>Undo</em> if we make a mistake!</p
 <p>Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> table.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">johnson_vow_renewal</span>
 <span class="kt">SET</span> <span class="n">diet</span><span class="o">=</span><span class="s2">&quot;vegetarian&quot;</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">185</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Now if we use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement, we can confirm that we have properly updated the record.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">185</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>If we wanted to update another column in Eliza’s record, such as the <code class="docutils literal notranslate"><span class="pre">first_name</span></code> value to <code class="docutils literal notranslate"><span class="pre">Elizabeth</span></code>, we would add that information to <code class="docutils literal notranslate"><span class="pre">SET</span></code>.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">johnson_vow_renewal</span>
 <span class="kt">SET</span> <span class="n">diet</span><span class="o">=</span><span class="s2">&quot;vegetarian&quot;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Elizabeth&quot;</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">185</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition-warning admonition">
@@ -264,13 +264,13 @@ We cannot simply click <em>Edit</em> &gt; <em>Undo</em> if we make a mistake!</p
 Proceed with caution with removing records!</p>
 </div>
 <p>Mr. Johnson’s great-uncle, Frank, died and won’t be in attendance for the vow renewal. Since he was in attendance at their wedding, when we created <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code>, Frank’s record needs to be removed.</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span> <span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">107</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span> <span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">107</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>We can then use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement to confirm that Uncle Frank’s record has been removed.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">107</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">107</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -281,7 +281,7 @@ Proceed with caution with removing records!</p>
 <p>What does the following query do?</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">EventID</span>
 <span class="k">FROM</span> <span class="n">EventsMaster</span>
-<span class="k">WHERE</span> <span class="p">(</span><span class="n">Month</span><span class="o">==</span><span class="mi">07</span><span class="p">);</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">Month</span><span class="o">=</span><span class="mi">07</span><span class="p">);</span>
 </pre></div>
 </div>
 <ol class="last loweralpha simple">
