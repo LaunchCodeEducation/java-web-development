@@ -333,6 +333,7 @@ Check Your Understanding
    What is the execution order for the following complex SQL query?
 
    .. sourcecode:: SQL
+      :linenos:
 
       SELECT column_1 FROM table_1
       WHERE column_1 IN (SELECT column_2 FROM table_2

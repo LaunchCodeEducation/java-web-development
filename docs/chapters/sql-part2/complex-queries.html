@@ -403,12 +403,15 @@ the comparison operator (<code class="docutils literal notranslate"><span class=
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What is the execution order for the following complex SQL query?</p>
-<div class="highlight-SQL notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">column_1</span> <span class="k">FROM</span> <span class="n">table_1</span>
+<div class="highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">column_1</span> <span class="k">FROM</span> <span class="n">table_1</span>
 <span class="k">WHERE</span> <span class="n">column_1</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">column_2</span> <span class="k">FROM</span> <span class="n">table_2</span>
    <span class="k">WHERE</span> <span class="n">column_2</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">column_3</span> <span class="k">FROM</span> <span class="n">table_3</span>
       <span class="k">WHERE</span> <span class="n">num_items</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">));</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <ol class="last loweralpha simple">
 <li><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">column1</span></code>, then <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">column2</span></code>, then <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">column3</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">column1</span></code>, then <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">column3</span></code>, then <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">column2</span></code></li>
