@@ -48,9 +48,9 @@ Open a terminal window on your machine and enter the following command:
 If the response returns a version 13 or higher, you can move on to the section below,
 :ref:`terminal-java`.
 
-If you do not have a version of Java at 13 or higher, you can download 
+If you do not have a version of Java at 13 or higher or the command does not work, you can download 
 it `here <https://www.oracle.com/technetwork/java/javase/downloads/jdk13-downloads-5672538.html>`__.
-The relevant install link is on the bottom of the page:
+The relevant install link for your operating system is on the bottom of the page:
 
 .. figure:: figures/installJava.png
    :alt: Install Java
@@ -62,17 +62,24 @@ the file type options for your operating system.
 
 .. tip::
 
-   - Mac users, we reccommend the ``.dmg`` option
-   - Windows users, we reccommend the ``.exe`` option
+   - Mac users, we recommend the ``.dmg`` option
+   - Windows users, we recommend the ``.exe`` option
 
 Once you have completed the 
-installation steps, return to your terminal and enter ``java -version`` again to 
-ensure Java has been installed.
+installation steps, move onto the next section.
+
+.. admonition:: Note
+
+   When installing Java on Windows, the installer will tell you where it wants to install Java.
+   The default is in the C: Drive under ``Program Files``. Make note of the destination as we will be using it later.
 
 .. _terminal-java:
 
 Java in the Terminal
 --------------------
+
+Mac Users
+^^^^^^^^^
 
 Let's write a simple "Hello, World" program and watch the JDK in action. 
 
@@ -110,6 +117,65 @@ Recall from the walk-through :ref:`above <compiling-java>`, Java needs to be be 
 the capability to compile single-file Java programs without explicitly running a command to compile. If our 
 ``Hello, World`` program were more complex and contained another file, we would need to first run 
 ``javac HelloWorld.java``, to compile, followed by ``java HelloWorld.java``.
+
+Windows Users
+^^^^^^^^^^^^^
+
+Let's write a simple "Hello, World" program and watch the JDK in action. 
+
+In the future, we'll be doing most of our Java coding with the IntelliJ IDE. 
+IntelliJ contains many features to help us write Java properly and easily, 
+including its own compiler. For now though, we'll use a simpler text editor 
+so we can demonstrate what we get with the JDK.
+
+In the text editor of your choice, create and save a file called 
+``HelloWorld.java`` and include the code below:
+
+.. sourcecode:: java
+   :linenos:
+
+   public class HelloWorld {
+
+      public static void main(String[] args) {
+
+         System.out.println("Hello, World");
+      }
+
+   }
+
+We'll discuss the syntax of this program soon, but you can likely trust your gut
+that this program has an expected output of "Hello, World". 
+
+To test this hypothesis, open a terminal window and navigate to the parent directory of your new file.
+In a separate window, navigate to the ``bin`` folder in the Java Development Kit to get the file path (the image below shows you how to get there from the C: Drive). Copy the file path.
+
+.. figure:: figures/windowsjavafilepath.png
+   :alt: Image showing that the JDK can be found inside the Program Files directory in the C: Drive.
+
+Run the following command, replacing the ``{filepath}`` with the file path to your JDK that you just copied:
+
+.. sourcecode:: bash
+
+   set path=%path%;{filepath}
+
+This command sets a path in our system for ``java`` so that we can compile and run Java programs.
+
+.. sourcecode:: bash
+
+   java HelloWorld.java
+
+You should see your greeting printed! 
+
+Recall from the walk-through :ref:`above <compiling-java>`, Java needs to be be compiled before executing. Java version 11 introduced 
+the capability to compile single-file Java programs without explicitly running a command to compile. If our 
+``Hello, World`` program were more complex and contained another file, we would need to first run 
+``javac HelloWorld.java``, to compile, followed by ``java HelloWorld.java``.
+
+.. admonition:: Note
+
+   These steps change the path in just that directory.
+   While this is sufficient to get us through the rest of the course, you may want change the system path for your whole system.
+   Check out these `instructions <https://www.java.com/en/download/help/path.xml>`_ to change the path globally.
 
 .. index:: ! integrated development environment, IDE
 

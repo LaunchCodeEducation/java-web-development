@@ -161,8 +161,9 @@ provide it.</p>
 base class. This call to the base class constructor must be the first line of
 the subclass constructor. In the case of <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>, the subclass constructor
 extends the original constructor by setting an additional property, <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
-<p>If a base class constructor takes no arguments, then the
-default constructor is implicitly called for you in the subclass.</p>
+<p id="index-1">If a base class constructor takes no arguments, then the
+<strong>no-argument constructor</strong> is implicitly called for you in the subclass. A no-argument,
+or <strong>no-arg constructor</strong>, is just as the name implies, a constructor that takes no arguments.</p>
 <p>For example, we can add an additional constructor in <code class="docutils literal notranslate"><span class="pre">Cat</span></code>:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>16
 17
@@ -180,8 +181,8 @@ default constructor is implicitly called for you in the subclass.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Even though we don’t explicitly specify that we want to call a
-constructor from <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, the default constructor will be called. Now, we can
-initialize a new <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> with only a <code class="docutils literal notranslate"><span class="pre">name</span></code> property and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> default
+constructor from <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, the no-argument constructor will be called. Now, we can
+initialize a new <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> with only a <code class="docutils literal notranslate"><span class="pre">name</span></code> property and the <code class="docutils literal notranslate"><span class="pre">Cat</span></code> no-argument
 constructor will still be applied. Back in <code class="docutils literal notranslate"><span class="pre">Main</span></code>, you can confirm that the base
 class constructor has been called:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -208,7 +209,7 @@ syntax and usage. We would not want to have a constructor for
 </div>
 </div>
 <div class="section" id="override">
-<span id="index-1"></span><h2>7.3.3. <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code><a class="headerlink" href="#override" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2>7.3.3. <code class="docutils literal notranslate"><span class="pre">&#64;Override</span></code><a class="headerlink" href="#override" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes when extending a class, we’ll want to modify behavior provided
 by the base class. This can be done by replacing the implementation of
 an inherited method by a completely new method implementation. For a
@@ -290,7 +291,7 @@ method as follows:</p>
 conditional branch is reached.</p>
 </div>
 <div class="section" id="object-class">
-<span id="index-2"></span><h2>7.3.4. <code class="docutils literal notranslate"><span class="pre">Object</span></code> Class<a class="headerlink" href="#object-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>7.3.4. <code class="docutils literal notranslate"><span class="pre">Object</span></code> Class<a class="headerlink" href="#object-class" title="Permalink to this headline">¶</a></h2>
 <p>In a previous lesson, we introduced the <a class="reference internal" href="../classes-part2/special-methods.html#special-methods"><span class="std std-ref">Special Methods</span></a> <code class="docutils literal notranslate"><span class="pre">equals</span></code> and
 <code class="docutils literal notranslate"><span class="pre">toString</span></code>. All classes contain default implementations of these methods that
 can be overridden.</p>

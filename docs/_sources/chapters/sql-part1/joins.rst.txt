@@ -4,7 +4,7 @@ Joins
 .. index:: ! join
 
 A **join** combines two tables into one result set.
-We can use joins when we want to query two tables at the same time. 
+We can use joins when we want to query two tables at the same time.
 Whenever we join two tables, we have to specify the condition upon which the tables need to be joined.
 
 In SQL, there are four different types of joins:
@@ -21,7 +21,7 @@ No matter which join you are working with, the general syntax for the query look
 
    SELECT column_name_1, column_name_2, ....
    FROM table_a
-   TYPEOFJOIN JOIN table_b ON table_a.column_name_1 == table_b.column_name_1;
+   TYPEOFJOIN JOIN table_b ON table_a.column_name_1 = table_b.column_name_1;
 
 In this general query, we specified what columns we want (or we could have used the ``*`` to read data from all columns).
 We have also specified that ``table_a`` is the *left* table and that ``table_b`` is the *right* table.
@@ -44,7 +44,7 @@ Joining two tables with an **inner join** produces a result set that only includ
 
       SELECT last_name, first_name
       FROM johnson_vow_renewal
-      INNER JOIN johnson_wedding ON johnson_vow_renewal.guest_id == johnson_wedding.guest_id;
+      INNER JOIN johnson_wedding ON johnson_vow_renewal.guest_id = johnson_wedding.guest_id;
 
    This query will give us a result set of the first and last names of the guests from the ``johnson_vow_renewal`` table that are also in the ``johnson_wedding`` table.
 
@@ -60,7 +60,7 @@ Left Outer Join
 
 Joining two tables with a **left outer join** gives us a result set which includes all values in the left table and any matching records from the right table.
 
-.. admonition:: Example 
+.. admonition:: Example
 
    If we use a left outer join to combine ``johnson_wedding`` and ``johnson_vow_renewal`` in a query, the result set includes all of the guests invited to the wedding and any guests who were also invited to the vow renewal.
 
@@ -68,7 +68,7 @@ Joining two tables with a **left outer join** gives us a result set which includ
 
       SELECT last_name, first_name
       FROM johnson_wedding
-      LEFT JOIN johnson_vow_renewal ON johnson_wedding.guest_id == johnson_vow_renewal.guest_id;
+      LEFT JOIN johnson_vow_renewal ON johnson_wedding.guest_id = johnson_vow_renewal.guest_id;
 
    .. figure:: figures/leftouterjoin.png
       :alt: Venn diagram highlighting the center and entirety of left circle.
@@ -82,7 +82,7 @@ Right Outer Join
 
 Joining two tables with a **right outer join** gives us a result set that includes all values in the right table and any matching records from the left table.
 
-.. admonition:: Example 
+.. admonition:: Example
 
    If we use a right inner join to combine ``johnson_wedding`` and ``johnson_vow_renewal`` in a query, the result set includes all of the guests that were invited to the vow renewal and any guests who were also invited to the wedding.
 
@@ -90,12 +90,12 @@ Joining two tables with a **right outer join** gives us a result set that includ
 
       SELECT last_name, first_name
       FROM johnson_wedding
-      RIGHT JOIN johnson_vow_renewal ON johnson_wedding.guest_id == johnson_vow_renewal.guest_id;
+      RIGHT JOIN johnson_vow_renewal ON johnson_wedding.guest_id = johnson_vow_renewal.guest_id;
 
-   .. figure:: figures/rightouterjoin.png 
+   .. figure:: figures/rightouterjoin.png
       :alt: Venn diagram highlighting the center and entirety of right circle.
 
-   The Venn diagram above shows the result set highlighted in blue.  
+   The Venn diagram above shows the result set highlighted in blue.
 
 .. index:: ! full outer join
 
@@ -104,7 +104,7 @@ Joining two tables with a **right outer join** gives us a result set that includ
 Full Outer Join
 ---------------
 
-Joining two tables with a **full outer join** gives us a result set that includes all records from both tables. 
+Joining two tables with a **full outer join** gives us a result set that includes all records from both tables.
 Full outer joins are important to SQL, but the syntax is not supported in MySQL.
 Instead, to achieve a full outer join, you have to work with a left outer join and a right outer join.
 To show what a full outer join looks like in other types of SQL, we have simulated some possible syntax below.
@@ -117,8 +117,8 @@ To show what a full outer join looks like in other types of SQL, we have simulat
 
       SELECT *
       FROM MaryEvents
-      FULL OUTER JOIN LeahEvents ON MaryEvents.Month == LeahEvents.Month
-      WHERE MaryEvents.Month == 08;
+      FULL OUTER JOIN LeahEvents ON MaryEvents.Month = LeahEvents.Month
+      WHERE MaryEvents.Month = 08;
 
    .. figure:: figures/fullouterjoin.png
       :alt: Venn diagram with the entirety of both circles highlighted.
@@ -136,7 +136,7 @@ To show what a full outer join looks like in other types of SQL, we have simulat
       SELECT * FROM table_a RIGHT JOIN table_b ON table_a.column_name_1 = table_b.column_name_2;
 
    ``UNION`` is used to bring together the result sets of 2 ``SELECT`` queries.
-   Check out the `documentation <https://dev.mysql.com/doc/refman/8.0/en/union.html>`_ for more information on how ``UNION`` works. 
+   Check out the `documentation <https://dev.mysql.com/doc/refman/8.0/en/union.html>`_ for more information on how ``UNION`` works.
 
 Check Your Understanding
 ------------------------
@@ -153,9 +153,9 @@ Check Your Understanding
 
    .. sourcecode:: mysql
 
-      SELECT 
+      SELECT
       FROM johnson_vow_renewal
-      OUTER JOIN JohnsonWeding ON johnson_vow_renewal.guest_id == johnson_wedding.guest_id
+      OUTER JOIN JohnsonWedding ON johnson_vow_renewal.guest_id = johnson_wedding.guest_id
 
    a. Nothing specified after ``SELECT``.
    b. ``johnson_vow_renewal`` is spelled wrong.

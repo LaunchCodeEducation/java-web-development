@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.2. SQL Queries &#8212; Java Web Development  documentation</title>
+    <title>15.2. SQL Queries &#8212; Java Web Development  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13.3. Joins" href="joins.html" />
-    <link rel="prev" title="13.1. What is SQL?" href="background.html" />
+    <link rel="next" title="15.3. Joins" href="joins.html" />
+    <link rel="prev" title="15.1. What is SQL?" href="background.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -73,8 +73,8 @@
 
 <ol class="breadcrumb container">
     <li><a href="../../index.html">Contents</a></li>
-    <li><a href="index.html">13. Databases and SQL</a></li>
-    <li class="active">13.2. SQL Queries</li>
+    <li><a href="index.html">15. Databases and SQL</a></li>
+    <li class="active">15.2. SQL Queries</li>
 </ol>
 
 
@@ -85,7 +85,7 @@
 
     
   <div class="section" id="sql-queries">
-<h1>13.2. SQL Queries<a class="headerlink" href="#sql-queries" title="Permalink to this headline">¶</a></h1>
+<h1>15.2. SQL Queries<a class="headerlink" href="#sql-queries" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">When we want to perform an operation on a database, we write a SQL <strong>query</strong>.
 Queries can vary widely in complexity and purpose depending on the operation we need to perform.
 Each query produces a <strong>result set</strong> containing the requested data.
@@ -105,12 +105,12 @@ Our event planner, Mary, has a database storing the guest info of every event sh
 She named each table of guest info after the event itself.</p>
 </div>
 <div class="section" id="create">
-<h2>13.2.1. Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
+<h2>15.2.1. Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
 <p>When we talk about creating something in SQL, we could want to create a table, add a row, or add a column.</p>
 <div class="section" id="creating-a-table">
-<h3>13.2.1.1. Creating a Table<a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h3>
+<h3>15.2.1.1. Creating a Table<a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="creating-a-table-from-scratch">
-<h4>13.2.1.1.1. Creating a Table from Scratch<a class="headerlink" href="#creating-a-table-from-scratch" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.1.1.1. Creating a Table from Scratch<a class="headerlink" href="#creating-a-table-from-scratch" title="Permalink to this headline">¶</a></h4>
 <p>Let’s say that we are working on our events database.
 Mary has been working hard planning the Li wedding.
 She wants us to create a table with the pertinent guest info of every guest invited.
@@ -136,7 +136,7 @@ The columns include the unique number id for each guest, the guest’s first nam
 When we use <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code> to create a table from scratch, we will end up with an empty table. We will learn how to add to a table a little further down the page.</p>
 </div>
 <div class="section" id="creating-a-table-from-another-table">
-<h4>13.2.1.1.2. Creating a Table from Another Table<a class="headerlink" href="#creating-a-table-from-another-table" title="Permalink to this headline">¶</a></h4>
+<h4>15.2.1.1.2. Creating a Table from Another Table<a class="headerlink" href="#creating-a-table-from-another-table" title="Permalink to this headline">¶</a></h4>
 <p>We can also create a table from another table.
 When doing so, the new table will also include any existing data from the original table.</p>
 <p>Mary is also planning a vow renewal for Mr. and Mrs. Johnson.
@@ -149,17 +149,17 @@ Due to some wedding drama, Mr. and Mrs. Johnson will also be avoiding inviting a
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">johnson_vow_renewal</span>
 <span class="k">AS</span> <span class="n">guest_id</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">attending</span><span class="p">,</span> <span class="n">diet</span>
 <span class="k">FROM</span> <span class="n">johnson_wedding</span>
-<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">==</span> <span class="mi">1</span><span class="p">);</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">=</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>This query creates the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> table with the same columns as <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code>.
 We use <code class="docutils literal notranslate"><span class="pre">AS</span></code> to specify the columns that will be carried over from the <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> table to the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> condition in the query specifies that we only want the rows from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> in <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> <em>where</em> the guest was in attendance (or <code class="docutils literal notranslate"><span class="pre">attending</span> <span class="pre">==</span> <span class="pre">1</span></code>).
+The <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> condition in the query specifies that we only want the rows from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code> in <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> <em>where</em> the guest was in attendance (or <code class="docutils literal notranslate"><span class="pre">attending</span> <span class="pre">=</span> <span class="pre">1</span></code>).
 If we did <em>not</em> add a <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> condition, then we would have copied over all of the data from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code>.</p>
 </div>
 </div>
 <div class="section" id="adding-a-row">
-<h3>13.2.1.2. Adding a Row<a class="headerlink" href="#adding-a-row" title="Permalink to this headline">¶</a></h3>
+<h3>15.2.1.2. Adding a Row<a class="headerlink" href="#adding-a-row" title="Permalink to this headline">¶</a></h3>
 <p>Whether we have created a table from scratch or are working with an existing table, we may need to add a row of data.
 To do so, we need to use an <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement.</p>
 <p>In the case of the Johnsons, we may need to add a row for their niece, who is now old enough to attend the vow renewal.
@@ -175,14 +175,14 @@ Their niece is Eliza Johnson and she is a vegan. Her mother has also confirmed t
 <span class="k">VALUES</span> <span class="p">(</span><span class="mi">186</span><span class="p">,</span> <span class="s2">&quot;Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Felicity&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>By adding the column names in parantheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: <code class="docutils literal notranslate"><span class="pre">guest_id</span></code>, <code class="docutils literal notranslate"><span class="pre">last_name</span></code>, and <code class="docutils literal notranslate"><span class="pre">first_name</span></code>.</p>
+<p>By adding the column names in parentheses after the table name, we have specified that we are adding a new row of data to the table, but we only have values for the columns: <code class="docutils literal notranslate"><span class="pre">guest_id</span></code>, <code class="docutils literal notranslate"><span class="pre">last_name</span></code>, and <code class="docutils literal notranslate"><span class="pre">first_name</span></code>.</p>
 <div class="admonition-note admonition">
 <p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p class="last">When we use this method, any column that doesn’t have a specified value for the new row will have a <code class="docutils literal notranslate"><span class="pre">null</span></code> value.</p>
 </div>
 </div>
 <div class="section" id="adding-a-column">
-<h3>13.2.1.3. Adding a column<a class="headerlink" href="#adding-a-column" title="Permalink to this headline">¶</a></h3>
+<h3>15.2.1.3. Adding a column<a class="headerlink" href="#adding-a-column" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes, we may also need to add a column to our table. Some of the caterers Mary works with have asked that she confirm how many people are of drinking age.
 We may now want to add a column to our <code class="docutils literal notranslate"><span class="pre">li_wedding</span></code> table that contains either <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code> depending on whether the guest is legally old enough to drink.</p>
 <p>To add a column, we need to start with an <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement. <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> can be used to perform different operations, so in our case, we will also need to specify that we want to <code class="docutils literal notranslate"><span class="pre">ADD</span></code> a column.</p>
@@ -198,7 +198,7 @@ We may now want to add a column to our <code class="docutils literal notranslate
 </div>
 </div>
 <div class="section" id="read">
-<h2>13.2.2. Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
+<h2>15.2.2. Read<a class="headerlink" href="#read" title="Permalink to this headline">¶</a></h2>
 <p>When reading data, we don’t want to modify anything, we just want to know what is there.
 In order to get information from a table, we need to use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.</p>
 <p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statements have a few different components to them. We need to know what we are selecting, which table the information is in, and if necessary, we can also use <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> to apply a conditional.
@@ -214,7 +214,7 @@ So, we will <code class="docutils literal notranslate"><span class="pre">SELECT<
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">first_name</span>
 <span class="k">FROM</span> <span class="n">li_wedding</span>
-<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">diet</span> <span class="o">==</span> <span class="s2">&quot;vegetarian&quot;</span><span class="p">);</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">attending</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">diet</span> <span class="o">=</span> <span class="s2">&quot;vegetarian&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <p>If Mary just wants all of the guests for the Li wedding, we need to modify our <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement.
@@ -225,7 +225,7 @@ We won’t apply a <code class="docutils literal notranslate"><span class="pre">
 </div>
 </div>
 <div class="section" id="update">
-<h2>13.2.3. Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<h2>15.2.3. Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
 <p>Now that we can add data and see what our data actually is, let’s start changing it!</p>
 <div class="admonition-warning admonition">
 <p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
@@ -235,19 +235,19 @@ We cannot simply click <em>Edit</em> &gt; <em>Undo</em> if we make a mistake!</p
 <p>Earlier, we made a mistake! Eliza is a vegetarian, but not a vegan. We want to update the record in the <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> table.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">johnson_vow_renewal</span>
 <span class="kt">SET</span> <span class="n">diet</span><span class="o">=</span><span class="s2">&quot;vegetarian&quot;</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">185</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Now if we use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement, we can confirm that we have properly updated the record.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">185</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>If we wanted to update another column in Eliza’s record, such as the <code class="docutils literal notranslate"><span class="pre">first_name</span></code> value to <code class="docutils literal notranslate"><span class="pre">Elizabeth</span></code>, we would add that information to <code class="docutils literal notranslate"><span class="pre">SET</span></code>.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">johnson_vow_renewal</span>
 <span class="kt">SET</span> <span class="n">diet</span><span class="o">=</span><span class="s2">&quot;vegetarian&quot;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Elizabeth&quot;</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">185</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">185</span><span class="p">;</span>
 </pre></div>
 </div>
 <div class="admonition-warning admonition">
@@ -256,7 +256,7 @@ We cannot simply click <em>Edit</em> &gt; <em>Undo</em> if we make a mistake!</p
 </div>
 </div>
 <div class="section" id="delete">
-<h2>13.2.4. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<h2>15.2.4. Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
 <p>Our final operation we may want to perform on a table is to delete something.</p>
 <div class="admonition-warning admonition">
 <p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
@@ -264,24 +264,24 @@ We cannot simply click <em>Edit</em> &gt; <em>Undo</em> if we make a mistake!</p
 Proceed with caution with removing records!</p>
 </div>
 <p>Mr. Johnson’s great-uncle, Frank, died and won’t be in attendance for the vow renewal. Since he was in attendance at their wedding, when we created <code class="docutils literal notranslate"><span class="pre">johnson_vow_renewal</span></code> from <code class="docutils literal notranslate"><span class="pre">johnson_wedding</span></code>, Frank’s record needs to be removed.</p>
-<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span> <span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">107</span><span class="p">;</span>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span> <span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">107</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>We can then use a <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement to confirm that Uncle Frank’s record has been removed.</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">johnson_vow_renewal</span>
-<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">==</span><span class="mi">107</span><span class="p">;</span>
+<span class="k">WHERE</span> <span class="n">guest_id</span><span class="o">=</span><span class="mi">107</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
-<h2>13.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<h2>15.2.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What does the following query do?</p>
 <div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">EventID</span>
 <span class="k">FROM</span> <span class="n">EventsMaster</span>
-<span class="k">WHERE</span> <span class="p">(</span><span class="n">Month</span><span class="o">==</span><span class="mi">07</span><span class="p">);</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">Month</span><span class="o">=</span><span class="mi">07</span><span class="p">);</span>
 </pre></div>
 </div>
 <ol class="last loweralpha simple">
@@ -327,10 +327,10 @@ Does the following query accomplish this task?</p>
     <nav aria-label="Next and Previous Pages">
       <ul class="pager">
         
-        <li class="previous"><a href="background.html"><span aria-hidden="true">&larr;</span> 13.1. What is SQL?</a></li>
+        <li class="previous"><a href="background.html"><span aria-hidden="true">&larr;</span> 15.1. What is SQL?</a></li>
         
         
-        <li class="next"><a href="joins.html">13.3. Joins <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="next"><a href="joins.html">15.3. Joins <span aria-hidden="true">&rarr;</span></a></li>
         
       </ul>
     </nav>

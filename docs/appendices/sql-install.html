@@ -117,6 +117,18 @@ You can setup MySQL for use in the terminal, however, many don’t actually like
 When working with MySQL in the terminal, you can’t use any fun tools to visualize the tables.
 Sounds like you should use a desktop client at first to practice! For these reasons, we will be using MySQL Workbench as our GUI client to work with our databases.</p>
 <p>The <a class="reference external" href="https://dev.mysql.com/downloads/workbench/" target="_blank">MySQL Workbench 8.0.18 download page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> has a dropdown menu for the operating system. Make sure MacOS is selected before downloading.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>If you are using a MacOS version prior to 10.14, use an older version of MySQL Workbench (6.3.10) by clicking the link that reads
+“Looking for previous GA versions?”.</p>
+<p>This previous version is only compatible with a <em>legacy password encryption</em> option. If you did not select this when downloading MySQL
+(or you are not sure),</p>
+<ol class="last arabic simple">
+<li>Open MySQL from System Preferences and select <em>Initialize Database</em>.</li>
+<li>Enter your root user password choose the <em>Use Legacy Password Encryption</em> option.</li>
+<li>After hitting <em>OK</em>, start the MySQL Server again by clicking <em>Start MySQL Server</em>.</li>
+</ol>
+</div>
 <p>Once you have downloaded MySQL workbench, double-click on the disk image to launch the installer.
 Agree to the terms and conditions and install.</p>
 <p>Now, you can use MySQL workbench to access databases and practice commands!
@@ -128,12 +140,18 @@ Double-click to access the server, enter the password, and you’re ready to sta
 <p>Windows users have a MySQL Installer available and that is what you will be using to install MySQL!
 The <a class="reference external" href="https://dev.mysql.com/downloads/installer/" target="_blank">Installer download page<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> has a couple options available.
 You want to download the version called <code class="docutils literal notranslate"><span class="pre">&quot;Windows</span> <span class="pre">(x86,</span> <span class="pre">32-bit),</span> <span class="pre">MSI</span> <span class="pre">Installer&quot;</span></code> that specifies it is the <code class="docutils literal notranslate"><span class="pre">&quot;(mysql-installer-community-8.0.18.0.msi)&quot;</span></code>.
-This should also be the version that uses at least 400 MB.
+This should also be the version that uses at least 400 MB (not the <em>web-community</em> version).
 Make sure you have selected the correct option before clicking <em>Download</em>!</p>
 <ol class="arabic">
 <li><p class="first">When MySQL is done downloading, open the installer.</p>
 </li>
-<li><p class="first">The installer will install MySQL server and related tools. Select <em>Developer Default</em> and proceed!</p>
+<li><p class="first">The installer will install MySQL server and related tools. Select <em>Developer Default</em> and proceed.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If you receive a message on the <em>Check Requirements</em> page for any MySQL products or tools other than MySQL Workbench, you
+can safely ignore these and continue with <em>Next</em>.</p>
+<p class="last">With the exception of creating and entering a password, you can move forward with the default selections to install and configure.</p>
+</div>
 </li>
 <li><p class="first">The installer will check that the installs are compatible and install each one in turn. This may take a while so grab a snack!</p>
 </li>
@@ -144,8 +162,9 @@ Make sure you have selected the correct option before clicking <em>Download</em>
 </div>
 </li>
 </ol>
-<p>The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now you can open up MySQL Workbench.
-MySQL Workbench will automatically scan for available MySQL servers. Your local server should appear on the home screen. Double click and enter your password to get going!</p>
+<p>The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now you can open up MySQL Workbench
+from the final page in the installation process. MySQL Workbench will automatically scan for available MySQL servers. Your local server
+should appear on the home screen. Double click and enter your password to get going!</p>
 </div>
 </div>
 

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>13.6. Studio: Spa User Validation &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="14. Enumeration Types" href="../enums/index.html" />
+    <link rel="prev" title="13.5. Exercises: Model Validation" href="exercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">13. Model Validation</a></li>
+    <li class="active">13.6. Studio: Spa User Validation</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="studio-spa-user-validation">
+<h1>13.6. Studio: Spa User Validation<a class="headerlink" href="#studio-spa-user-validation" title="Permalink to this headline">¶</a></h1>
+<p>We’ll build on the <a class="reference internal" href="../spring-model-classes/studio.html#user-signup-studio"><span class="std std-ref">User Signup</span></a> studio from last
+class, adding in model validation.</p>
+<div class="section" id="getting-started">
+<h2>13.6.1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Open up your <code class="docutils literal notranslate"><span class="pre">spa-day</span></code> application and checkout the <a class="reference external" href="https://github.com/LaunchCodeEducation/spa-day-starter-code/tree/user-signup-pt2" target="_blank">user-signup-pt2<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> branch.</p>
+</div>
+<div class="section" id="add-validation-annotations">
+<h2>13.6.2. Add Validation Annotations<a class="headerlink" href="#add-validation-annotations" title="Permalink to this headline">¶</a></h2>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">User</span></code> model class. Add <a class="reference external" href="https://docs.jboss.org/hibernate/beanvalidation/spec/2.0/api/" target="_blank">validation
+annotations<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+to ensure these conditions are satisfied:</p>
+<ol class="arabic simple">
+<li>Username, password, and verify are required (they can’t be empty)</li>
+<li>Username is between 5 and 15 characters</li>
+<li>Email is optional</li>
+<li>If provided, the email has the format of a valid email address.</li>
+<li>The password is at least 6 characters long</li>
+</ol>
+</div>
+<div class="section" id="using-the-model-to-render-the-form">
+<h2>13.6.3. Using the Model to Render the Form<a class="headerlink" href="#using-the-model-to-render-the-form" title="Permalink to this headline">¶</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, modify the <code class="docutils literal notranslate"><span class="pre">add</span></code> method that displays the
+form so that it passes in an empty <code class="docutils literal notranslate"><span class="pre">User</span></code> object with:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="na">addAttribute</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">());</span>
+</pre></div>
+</div>
+<p>This object will be accessible in the template, by name, as <code class="docutils literal notranslate"><span class="pre">user</span></code>.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Now that you’re passing in an empty <code class="docutils literal notranslate"><span class="pre">User</span></code> object, you may notice some redundant code
+in your <code class="docutils literal notranslate"><span class="pre">processAddUserForm</span></code> controller. Remove the model attribute additions
+and update the <code class="docutils literal notranslate"><span class="pre">user/add</span></code> template to make use of the model fields (eg. <code class="docutils literal notranslate"><span class="pre">user.username</span></code>).</p>
+</div>
+<p>While you’re in the <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template remove the <code class="docutils literal notranslate"><span class="pre">type=&quot;email&quot;</span></code> designation from the email
+input. The last studio had you add this type to provide some client-side validation on the email
+field, but we shouldn’t consider that sufficient. Now that we know how to use model validation to
+validate an email field, we’ll favor this technique over client-side validation. Even with client-side
+validation (that is, in the browser), you should always validate data on
+the server as well. You might want to provide constraints in addition to
+or beyond what the browser does, and it’s also possible for a clever
+(or, more often, malicious) user to bypass the browser’s validation. For this studio, we’ll remove the
+input type to make it easier to test the server-side validation.</p>
+</div>
+<div class="section" id="validating-form-submission-data">
+<h2>13.6.4. Validating Form Submission Data<a class="headerlink" href="#validating-form-submission-data" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have your form set up, go back to <code class="docutils literal notranslate"><span class="pre">UserController</span></code> and
+add validation on form submission by adding the <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> annotation to
+the <code class="docutils literal notranslate"><span class="pre">User</span></code> parameter that is bound, along with an additional
+parameter: <code class="docutils literal notranslate"><span class="pre">Errors</span> <span class="pre">errors</span></code>.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">Remember, you must put this parameter directly
+after the <code class="docutils literal notranslate"><span class="pre">User</span></code> parameter in the method definition for it to work
+properly.</p>
+</div>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">processAddUserForm</span></code> handler, check for errors configured by the
+validation annotation using <code class="docutils literal notranslate"><span class="pre">errors.hasErrors()</span></code>. If this returns
+<code class="docutils literal notranslate"><span class="pre">true</span></code>, return the user to the form.</p>
+<div class="section" id="validating-that-passwords-match">
+<h3>13.6.4.1. Validating That Passwords Match<a class="headerlink" href="#validating-that-passwords-match" title="Permalink to this headline">¶</a></h3>
+<p>As we mentioned above, we are not able to use Spring’s validation
+machinery to validate that the two password fields match given the setup
+we have here. Checking <code class="docutils literal notranslate"><span class="pre">errors.hasErrors()</span></code> will only tell us if there
+are errors in other form data fields.</p>
+<p>Last studio, we added some validation checks to make sure the password fields match.
+Now we have two validation sections: one for the annotation-configured
+validation (which checks <code class="docutils literal notranslate"><span class="pre">errors.hasErrors()</span></code>), and one that checks
+that the password fields match. Make sure they work in-sync with each
+other to properly return to the form if any of the validation conditions
+fail.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">You can, in fact, validate that passwords match using annotations by
+taking a slightly more difficult approach than we’ve done here. We
+outline how to do so in the Bonus Mission section.</p>
+</div>
+</div>
+</div>
+<div class="section" id="test-test-test">
+<h2>13.6.5. Test, Test, Test!<a class="headerlink" href="#test-test-test" title="Permalink to this headline">¶</a></h2>
+<p>You made a lot of changes! Be sure to thoroughly test them to make sure
+everything works as expected.</p>
+</div>
+<div class="section" id="bonus-mission">
+<h2>13.6.6. Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
+<p>Let’s set up our <code class="docutils literal notranslate"><span class="pre">User</span></code> class so we can validate that the password
+fields match using annotations.</p>
+<ol class="arabic simple">
+<li>Add a <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">String</span> <span class="pre">verifyPassword</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with
+getters and setters.</li>
+<li>Add a new method, <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">void</span> <span class="pre">checkPassword</span></code>, that compares
+<code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code>. If neither is <code class="docutils literal notranslate"><span class="pre">null</span></code> and they
+don’t match, then set <code class="docutils literal notranslate"><span class="pre">verifyPassword</span> <span class="pre">=</span> <span class="pre">null</span></code>.</li>
+<li>In both <code class="docutils literal notranslate"><span class="pre">setPassword</span></code> and <code class="docutils literal notranslate"><span class="pre">setVerifyPassword</span></code>, call
+<code class="docutils literal notranslate"><span class="pre">checkPassword</span></code> <em>after</em> setting the given field.</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> to the <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code> field with the error
+message: “Passwords do not match”.</li>
+<li>Refactor the controller and <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template to use the
+built-in, annotation-based validation instead of the manual password
+validation that we carried out previously. Be sure to update the
+verify field and label in the form to use the field on the <code class="docutils literal notranslate"><span class="pre">User</span></code>
+class, and to remove <code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">verify</span></code> from the <code class="docutils literal notranslate"><span class="pre">add</span></code> method
+signature.</li>
+</ol>
+<p>The result of these changes is that when the <code class="docutils literal notranslate"><span class="pre">User</span></code> object is bound to
+the request, both <code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code> are set. Spring
+does this by calling the setters on these fields. The setters call
+<code class="docutils literal notranslate"><span class="pre">checkPassword</span></code>, so when the second one is set (whichever that may
+be), we’ll know that both <code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code> are not
+<code class="docutils literal notranslate"><span class="pre">null</span></code> and we’ll compare them. If they don’t match, we manually
+violate the <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> validation on <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code> by setting
+that field to <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> 13.5. Exercises: Model Validation</a></li>
+        
+        
+        <li class="next"><a href="../enums/index.html">14. Enumeration Types <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-validation/studio.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

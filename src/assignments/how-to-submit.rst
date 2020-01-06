@@ -29,23 +29,23 @@ TechJobs (MVC Edition)
 
 Graded assignment #3: :ref:`Work on TechJobs (MVC Edition) <tech-jobs-mvc>`.
 
-Cheese MVC Persistent (???)
-----------------------------
+Persistence
+-----------
 
 Graded assignment #4:
 
-   TODO: Add link to this assignment.
+   Coming Soon ...
 
-Assignment #5 Title
---------------------
+Assignment #5
+-------------
 
 Graded assignment #5:
 
-   TODO: Add link to this assignment.
+   Coming Soon ...
 
-Assignment #6 Title
---------------------
+Assignment #6
+-------------
 
 Graded assignment #6:
 
-   TODO: Add link to this assignment.
+   Coming Soon ...
