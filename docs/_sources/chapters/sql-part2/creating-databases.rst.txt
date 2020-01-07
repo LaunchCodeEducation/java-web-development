@@ -9,6 +9,8 @@ relationships between three tables---``writing_supply``, ``pencil_drawer``,
 and ``pen_drawer``. You will soon use these tables to practice more complex SQL
 queries.
 
+.. _practice-setup:
+
 Setup
 -----
 
@@ -25,7 +27,7 @@ Each table will need a primary key column, and ``pencil_drawer`` and
 Workbench, ``CREATE`` the tables as described below.
 
 ``writing_supply``
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 3. Each record in this table will have three fields:
 
@@ -82,7 +84,7 @@ Import Data
    .. figure:: ./figures/importCsvFile.png
       :alt: Select file path to csv file.
 
-#. In the following panel, use the default option
+#. In the following panel, select the default option
    *Use existing table --> storage.writing_supply*, and click *Next*.
 #. Once again, accept the default options for importing data into your table
    columns. Click *Next*.
@@ -98,6 +100,38 @@ Import Data
 
 Confirm that the ``pencil_drawer`` and ``pen_drawer`` tables hold 6 and 15
 entries, respectively. You are now ready to practice more advanced SQL queries.
+
+Import Troubleshooting
+----------------------
+
+Did something go wrong with your import? No worries---the process is not always
+perfect, and errors occur more often than we would like. Some issues are just
+random glitches, while others involve syntax or selection mistakes.
+
+Here are some common errors:
+
+#. **Filename**: Make sure that each file ends with the ``.csv`` extension.
+   Also, select the correct file to import into each table (e.g.
+   ``pen_drawer.csv`` will not import into the ``writing_supply`` table).
+#. **Mismatched data types**: MySQL Workbench will throw an error if you define
+   a table column as one data type, but the matching column in the ``.csv``
+   file contains a different data type. Check to make sure that your ``CREATE``
+   statements correctly define the data types described in the
+   :ref:`Setup <practice-setup>` section.
+#. **Import order**: For one-to-many relationships, the *one* table must be
+   created before the *many*, and this idea also applies to filling the tables
+   with data. ``pen_drawer`` and ``pencil_drawer`` both contain foreign keys
+   that link to ``writing_supply``. Thus, you must import data into
+   ``writing_supply`` FIRST, before attempting to add data to the other two
+   tables.
+
+.. admonition:: Note
+
+   This is NOT a complete list of everything that could happen to prevent a
+   successful import. Sorry.
+
+   If your issue is not discussed above, YAY! You get to practice your
+   real-world developer skills by figuring out how to make it work!
 
 Check Your Understanding
 ------------------------

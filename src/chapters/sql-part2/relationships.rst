@@ -7,17 +7,18 @@ and any specific piece of information should be stored in ONLY ONE PLACE. This
 makes it much simpler to perform updates, since changes can be applied once
 rather than over multiple tables.
 
-For example, a school might keep track of their class offerings by creating a
-``courses`` table. This would include information such as course ID, title,
+For example, a school might keep track of their course offerings by creating a
+``courses`` table. This would include information such as an ID number, title,
 duration, a short description, and number of credits. All of these items define
-a course.
+a course---Chemistry, for example.
 
-Every course has an assigned teacher as well as a student roster, which also
-seem like good things to add to the ``courses`` table. However, a list of
-student names does NOT define a particular class. Since student placement in a
-class is temporary, the roster data needs to be kept in a separate location.
-Similarly, multiple people could teach the same course (e.g. "Chemistry"), so
-the name of specific instructors should be kept out of the ``courses`` table.
+Every course has an assigned teacher as well as a student roster, and these may
+also seem like good things to add to the ``courses`` table. However, a list of
+student names does NOT define "Chemistry". Since student placement in a
+course is temporary, the roster data needs to be kept in a separate location.
+Similarly, multiple teachers could run the same course. Since there could be
+two Chemistry classes that take place during 1st period, the names of
+specific instructors should be kept out of the ``courses`` table.
 
 A separate ``teachers`` table would include information like ID, name, email,
 and hire date---everything the school needs to define an instructor. Data such
@@ -27,15 +28,15 @@ person.
 
 Similarly, a ``students`` table could contain ID, name, email, courses
 completed, parent phone numbers, and grades---anything that defines a
-particular child. However, something like the name of the first period teacher
-should be stored elsewhere.
+particular child. Something like the name of their first period teacher would
+be stored elsewhere.
 
-So, ``courses`` only holds data directly relevant to classes. ``teachers`` only
-contains information that defines each instructor, and ``students`` stores
-student data and nothing else. This sounds obvious, but it is very easy to
-throw lots of data into a table and provide descriptive column names. While
-this may seem like a good idea at the time, it leads to repetition of data, and
-it makes maintaining that information more difficult.
+So, ``courses`` only holds data that directly defines each class the school
+offers. ``teachers`` only contains information that defines each instructor,
+and ``students`` stores student data and nothing else. This sounds obvious, but
+it is very easy to throw lots of data into a table and provide descriptive
+column names. While this may seem like a good idea at the time, it leads to
+repetition of data, and it makes maintaining that information more difficult.
 
 Any time you add a new column to a table, ask yourself whether the data it
 represents *defines* ``table_name``. If you answer *No*, then store the data in
@@ -44,9 +45,10 @@ a different place (e.g. ``lunch_period`` does not fit within ``students``).
 Relating Data
 -------------
 
-Keeping data in separate, smaller chunks is more efficient that keeping a huge
+Keeping data in separate, smaller chunks is more efficient than keeping a huge
 amount of data in one place. However, this often means we need to access
-information that exists in different tables.
+information stored in different tables. To gather all the data we want, we will
+have to combine parts of these tables to get the whole picture.
 
 For our school example, knowing which students are enrolled in which classes is
 useful. Similarly, we might want to display a list of students shared by a
@@ -202,8 +204,8 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Which type of relationship exists between a ``drawer`` table and a
-   ``dresser`` table?
+   Which type of relationship exists between a ``dresser`` table and a
+   ``drawer`` table?
 
    a. One-to-one
    b. One-to-many

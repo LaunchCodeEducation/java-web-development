@@ -33,8 +33,8 @@ multiple ``AND``/``OR`` operators within the ``WHERE`` clause.
 Review Joins
 ------------
 
-Code along with the following examples. Use the ``writing_supply``,
-``pencil_drawer``, and ``pen_drawer`` tables you created earlier.
+Code along with the following examples using the ``storage`` database and
+tables you created earlier.
 
 Inner Join
 ^^^^^^^^^^^
