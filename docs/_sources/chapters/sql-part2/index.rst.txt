@@ -7,12 +7,7 @@ The SQL Sequel
    :maxdepth: 3
 
    relationships
-<<<<<<< HEAD
-   complex-queries
-   studio
-=======
    creating-databases
    complex-queries
    exercises
    studio
->>>>>>> master

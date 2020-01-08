@@ -111,7 +111,7 @@ Use the following query to create the ``genre`` table.
    :linenos:
 
    CREATE TABLE genre (
-      genre_id INT AUTO_INCREMENT PRIMARY KEY,
+      genre_id INT PRIMARY KEY,
       genres VARCHAR(100)
    );
 
