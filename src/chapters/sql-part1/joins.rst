@@ -99,6 +99,8 @@ Joining two tables with a **right outer join** gives us a result set that includ
 
 .. index:: ! full outer join
 
+.. _fullouterjoin:
+
 Full Outer Join
 ---------------
 

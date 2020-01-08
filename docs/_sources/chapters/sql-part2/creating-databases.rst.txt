@@ -1,4 +1,4 @@
-Creating a Database
+Database Management
 ===================
 
 Back in the :ref:`Database and SQL chapter exercises <sql-part1-exercises>`,
@@ -71,6 +71,8 @@ Workbench, ``CREATE`` the tables as described below.
    d. A boolean describing whether or not it is time to ``refill`` the drawer.
    e. A foreign key (``supply_id``) that connects ``pen_drawer`` with
       ``writing_supply``.
+
+.. _table-import-data:
 
 Import Data
 -----------
