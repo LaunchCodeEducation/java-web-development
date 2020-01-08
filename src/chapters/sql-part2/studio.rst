@@ -1,4 +1,3 @@
-Studio: Databases, Part 2
-==========================
+Studio: A Library
+=================
 
-   

@@ -1,5 +1,5 @@
 Exercises: SQL, Part 2
-=======================
+======================
 
 In the previous chapter's exercises, we set up a database to store information about seeds. Let's expand that idea now that we know all about foreign keys!
 
@@ -103,5 +103,3 @@ Bonus Missions
 
 #. Revisit your query with a full join and try using ``UNION ALL`` as opposed to ``UNION``. How does the result set differ?
 #. Now that we can get the ``plant_name`` of plants that we have seeds for and are in the garden bed, try using ``COUNT()`` to see how many plants are in both places.
-
-

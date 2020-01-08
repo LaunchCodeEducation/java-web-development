@@ -1,3 +1,5 @@
+.. _sql-part2:
+
 The SQL Sequel
 ==============
 

@@ -44,6 +44,7 @@ Studios
    chapters/thymeleaf-views/studio
    chapters/spring-model-classes/studio
    chapters/sql-part1/studio
+   chapters/sql-part2/studio
 
 Assignments
 -----------
