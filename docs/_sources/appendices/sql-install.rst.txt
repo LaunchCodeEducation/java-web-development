@@ -41,11 +41,11 @@ The `MySQL Workbench 8.0.18 download page <https://dev.mysql.com/downloads/workb
 
 .. admonition:: Warning
 
-      If you are using a MacOS version prior to 10.14, use an older version of MySQL Workbench (6.3.10) by clicking the link that reads 
+      If you are using a MacOS version prior to 10.14, use an older version of MySQL Workbench (6.3.10) by clicking the link that reads
       "Looking for previous GA versions?".
 
       This previous version is only compatible with a *legacy password encryption* option. If you did not select this when downloading MySQL
-      (or you are not sure), 
+      (or you are not sure),
 
       #. Open MySQL from System Preferences and select *Initialize Database*.
       #. Enter your root user password choose the *Use Legacy Password Encryption* option.
@@ -72,9 +72,9 @@ Make sure you have selected the correct option before clicking *Download*!
 
    .. admonition:: Note
 
-      If you receive a message on the *Check Requirements* page for any MySQL products or tools other than MySQL Workbench, you 
+      If you receive a message on the *Check Requirements* page for any MySQL products or tools other than MySQL Workbench, you
       can safely ignore these and continue with *Next*.
-      
+
       With the exception of creating and entering a password, you can move forward with the default selections to install and configure.
 
 
@@ -84,8 +84,8 @@ Make sure you have selected the correct option before clicking *Download*!
    .. admonition:: Warning
 
       Once you create a password for the root user, you cannot change it! Be careful when typing out the password.
-   
 
-The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now you can open up MySQL Workbench 
-from the final page in the installation process. MySQL Workbench will automatically scan for available MySQL servers. Your local server 
+
+The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now you can open up MySQL Workbench
+from the final page in the installation process. MySQL Workbench will automatically scan for available MySQL servers. Your local server
 should appear on the home screen. Double click and enter your password to get going!
