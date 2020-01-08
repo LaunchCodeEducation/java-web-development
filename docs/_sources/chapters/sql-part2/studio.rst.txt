@@ -50,7 +50,7 @@ Use the following query to create the ``author`` table.
    :linenos:
 
    CREATE TABLE author (
-	  author_id INT AUTO_INCREMENT PRIMARY KEY,
+      author_id INT AUTO_INCREMENT PRIMARY KEY,
       first_name VARCHAR(255),
       last_name VARCHAR(255),
       birthday DATE,
@@ -68,7 +68,7 @@ Use the following query to create the patron table.
    :linenos:
 
    CREATE TABLE patron (
-	  patron_id INT AUTO_INCREMENT PRIMARY KEY,
+      patron_id INT AUTO_INCREMENT PRIMARY KEY,
       first_name VARCHAR(255),
       last_name VARCHAR(255),
       loan_id INT
@@ -85,11 +85,11 @@ Use the following query to create the ``reference_books`` table.
    :linenos:
 
    CREATE TABLE reference_books (
-	  reference_id INT AUTO_INCREMENT PRIMARY KEY,
+      reference_id INT AUTO_INCREMENT PRIMARY KEY,
       edition INT,
       book_id INT,
       FOREIGN KEY (book_id)
-	 	 REFERENCES book(book_id)
+         REFERENCES book(book_id)
          ON UPDATE SET NULL
          ON DELETE SET NULL
    );
@@ -111,8 +111,8 @@ Use the following query to create the ``genre`` table.
    :linenos:
 
    CREATE TABLE genre (
-	 genre_id INT AUTO_INCREMENT PRIMARY KEY,
-     genre_type VARCHAR(100)
+      genre_id INT AUTO_INCREMENT PRIMARY KEY,
+      genres VARCHAR(100)
    );
 
 Use the ``genres.csv`` file to fill the ``genre`` table.
@@ -126,15 +126,15 @@ Use the following query to create the ``loan`` table.
    :linenos:
 
    CREATE TABLE loan (
-	  loan_id INT AUTO_INCREMENT PRIMARY KEY,
+      loan_id INT AUTO_INCREMENT PRIMARY KEY,
       patron_id INT,
       date_out DATE,
       date_in DATE,
       book_id INT,
       FOREIGN KEY (book_id)
-		 REFERENCES book(book_id)
+         REFERENCES book(book_id)
          ON UPDATE SET NULL
-		 ON DELETE SET NULL
+         ON DELETE SET NULL
    );
 
 For now, the ``loan`` table can stay empty! We will add information to it in a bit!
@@ -142,10 +142,10 @@ For now, the ``loan`` table can stay empty! We will add information to it in a b
 Warm-up Queries
 ---------------
 
-Write the following 2 queries to get warmed up.
+Write the following queries to get warmed up.
 
-#. Return the reference book titles and their ISBNs.
-#. Return all of the books written by authors who are currently living.
+#. Return the mystery book titles and their ISBNs.
+#. Return all of the titles and author's first and last names for books written by authors who are currently living.
 
 Loan Out a Book
 ---------------
@@ -171,6 +171,8 @@ To do so, the script needs to:
 #. Change ``available`` to ``TRUE`` for the appropriate book.
 #. Update the appropriate row in the ``loan`` table with today's date as the ``date_in``.
 #. Update the appropriate ``patron`` changing ``loan_id`` back to ``null``.
+
+Once you have created these scripts, loan out 5 new books to 5 different patrons.
 
 Wrap-up Query
 -------------

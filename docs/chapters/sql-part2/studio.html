@@ -137,7 +137,7 @@ By the end of your setup, you should have 6 tables:</p>
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">author</span> <span class="p">(</span>
-       <span class="n">author_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+   <span class="n">author_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
    <span class="n">first_name</span> <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
    <span class="n">last_name</span> <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
    <span class="n">birthday</span> <span class="kt">DATE</span><span class="p">,</span>
@@ -156,7 +156,7 @@ By the end of your setup, you should have 6 tables:</p>
 4
 5
 6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">patron</span> <span class="p">(</span>
-       <span class="n">patron_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+   <span class="n">patron_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
    <span class="n">first_name</span> <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
    <span class="n">last_name</span> <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
    <span class="n">loan_id</span> <span class="kt">INT</span>
@@ -177,11 +177,11 @@ By the end of your setup, you should have 6 tables:</p>
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">reference_books</span> <span class="p">(</span>
-       <span class="n">reference_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+   <span class="n">reference_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
    <span class="n">edition</span> <span class="kt">INT</span><span class="p">,</span>
    <span class="n">book_id</span> <span class="kt">INT</span><span class="p">,</span>
    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
-              <span class="k">REFERENCES</span> <span class="nf">book</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
+      <span class="k">REFERENCES</span> <span class="nf">book</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
       <span class="k">ON</span> <span class="k">UPDATE</span> <span class="kt">SET</span> <span class="no">NULL</span>
       <span class="k">ON</span> <span class="k">DELETE</span> <span class="kt">SET</span> <span class="no">NULL</span>
 <span class="p">);</span>
@@ -201,8 +201,8 @@ By the end of your setup, you should have 6 tables:</p>
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">genre</span> <span class="p">(</span>
-      <span class="n">genre_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
-  <span class="n">genre_type</span> <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+   <span class="n">genre_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+   <span class="n">genres</span> <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
@@ -222,15 +222,15 @@ By the end of your setup, you should have 6 tables:</p>
  9
 10
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">loan</span> <span class="p">(</span>
-       <span class="n">loan_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+   <span class="n">loan_id</span> <span class="kt">INT</span> <span class="kp">AUTO_INCREMENT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
    <span class="n">patron_id</span> <span class="kt">INT</span><span class="p">,</span>
    <span class="n">date_out</span> <span class="kt">DATE</span><span class="p">,</span>
    <span class="n">date_in</span> <span class="kt">DATE</span><span class="p">,</span>
    <span class="n">book_id</span> <span class="kt">INT</span><span class="p">,</span>
    <span class="k">FOREIGN</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
-              <span class="k">REFERENCES</span> <span class="nf">book</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
+      <span class="k">REFERENCES</span> <span class="nf">book</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
       <span class="k">ON</span> <span class="k">UPDATE</span> <span class="kt">SET</span> <span class="no">NULL</span>
-              <span class="k">ON</span> <span class="k">DELETE</span> <span class="kt">SET</span> <span class="no">NULL</span>
+      <span class="k">ON</span> <span class="k">DELETE</span> <span class="kt">SET</span> <span class="no">NULL</span>
 <span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
@@ -239,10 +239,10 @@ By the end of your setup, you should have 6 tables:</p>
 </div>
 <div class="section" id="warm-up-queries">
 <h2>14.4.2. Warm-up Queries<a class="headerlink" href="#warm-up-queries" title="Permalink to this headline">¶</a></h2>
-<p>Write the following 2 queries to get warmed up.</p>
+<p>Write the following queries to get warmed up.</p>
 <ol class="arabic simple">
-<li>Return the reference book titles and their ISBNs.</li>
-<li>Return all of the books written by authors who are currently living.</li>
+<li>Return the mystery book titles and their ISBNs.</li>
+<li>Return all of the titles and author’s first and last names for books written by authors who are currently living.</li>
 </ol>
 </div>
 <div class="section" id="loan-out-a-book">
@@ -266,6 +266,7 @@ To do so, the script needs to:</p>
 <li>Update the appropriate row in the <code class="docutils literal notranslate"><span class="pre">loan</span></code> table with today’s date as the <code class="docutils literal notranslate"><span class="pre">date_in</span></code>.</li>
 <li>Update the appropriate <code class="docutils literal notranslate"><span class="pre">patron</span></code> changing <code class="docutils literal notranslate"><span class="pre">loan_id</span></code> back to <code class="docutils literal notranslate"><span class="pre">null</span></code>.</li>
 </ol>
+<p>Once you have created these scripts, loan out 5 new books to 5 different patrons.</p>
 </div>
 <div class="section" id="wrap-up-query">
 <h2>14.4.5. Wrap-up Query<a class="headerlink" href="#wrap-up-query" title="Permalink to this headline">¶</a></h2>
