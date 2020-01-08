@@ -32,8 +32,20 @@ Workbench, ``CREATE`` the tables as described below.
 3. Each record in this table will have three fields:
 
    a. A primary key, ``supply_id``.
-   #. A ``utensil_type``, which will be an ``ENUM`` ("Pencil" or "Pen").
+   #. A ``utensil_type``, which will be an ``ENUM`` ("Pencil" or "Pen"). Note
+      the syntax for setting this up in line 3 of the example.
    #. An integer number of drawers, ``num_drawers``.
+
+.. admonition:: Example
+
+   .. sourcecode:: SQL
+      :linenos:
+
+      CREATE TABLE writing_supply (
+         supply_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+         utensil_type ENUM ("Pencil", "Pen"),
+         num_drawers INTEGER
+      );
 
 ``pencil_drawer``
 ^^^^^^^^^^^^^^^^^
@@ -69,9 +81,17 @@ Import Data
    use the same column names as the external source.
 
 #. Follow this link to the
-   `practice data <https://gist.github.com/jimflores5/795a7faae8d35d36033872ae30b88328>`__.
-#. As you did in the first :ref:`SQL studio <movie-sqls>`, download the zip
-   file. Double-click on it to extract three ``.csv`` files.
+   `java-web-development-starter-data <https://github.com/LaunchCodeEducation/java-web-development-starter-data.git>`__.
+   Fork the repository and then clone it to your machine.
+#. Unlike previous repositories, this one only holds folders of CSV data files.
+   It does NOT contain executable code.
+#. Pay attention to where you save the folder for this repository. In the
+   following steps, you need to access the files inside
+   ``lesson-15-reading-data``.
+
+   .. figure:: ./figures/csv-data-file-tree.png
+      :alt: Table Data Import Wizard menu option.
+
 #. In MySQL Workbench, right-click on the ``writing_supply`` table. Select
    *Table Data Import Wizard*.
 
@@ -96,7 +116,7 @@ Import Data
    panel returns you to the editor.
 #. In the query tab, run ``SELECT * FROM writing_supply`` to confirm that 6
    entries now exist in the table.
-#. Repeat the steps 3 - 8 for the ``pencil_drawer`` and ``pen_drawer`` tables.
+#. Repeat the steps 4 - 9 for the ``pencil_drawer`` and ``pen_drawer`` tables.
 
 Confirm that the ``pencil_drawer`` and ``pen_drawer`` tables hold 6 and 15
 entries, respectively. You are now ready to practice more advanced SQL queries.
@@ -105,18 +125,18 @@ Import Troubleshooting
 ----------------------
 
 Did something go wrong with your import? No worries---the process is not always
-perfect, and errors occur more often than we would like. Some issues are just
-random glitches, while others involve syntax or selection mistakes.
+perfect, and errors occur more often than we would like. A few issues are just
+random glitches, but most others involve syntax or selection mistakes.
 
 Here are some common errors:
 
 #. **Filename**: Make sure that each file ends with the ``.csv`` extension.
    Also, select the correct file to import into each table (e.g.
    ``pen_drawer.csv`` will not import into the ``writing_supply`` table).
-#. **Mismatched data types**: MySQL Workbench will throw an error if you define
-   a table column as one data type, but the matching column in the ``.csv``
-   file contains a different data type. Check to make sure that your ``CREATE``
-   statements correctly define the data types described in the
+#. **Mismatched data types**: MySQL Workbench will not complete an import if
+   you define a table column as one data type, but the matching column in the
+   ``.csv`` file contains a different data type. Check to make sure that your
+   ``CREATE`` statements correctly define the data types described in the
    :ref:`Setup <practice-setup>` section.
 #. **Import order**: For one-to-many relationships, the *one* table must be
    created before the *many*, and this idea also applies to filling the tables

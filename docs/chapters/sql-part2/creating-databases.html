@@ -110,11 +110,26 @@ Workbench, <code class="docutils literal notranslate"><span class="pre">CREATE</
 <ol class="arabic simple" start="3">
 <li>Each record in this table will have three fields:<ol class="loweralpha">
 <li>A primary key, <code class="docutils literal notranslate"><span class="pre">supply_id</span></code>.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">utensil_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Pencil” or “Pen”).</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">utensil_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Pencil” or “Pen”). Note
+the syntax for setting this up in line 3 of the example.</li>
 <li>An integer number of drawers, <code class="docutils literal notranslate"><span class="pre">num_drawers</span></code>.</li>
 </ol>
 </li>
 </ol>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">writing_supply</span> <span class="p">(</span>
+   <span class="n">supply_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="n">utensil_type</span> <span class="n">ENUM</span> <span class="p">(</span><span class="ss">&quot;Pencil&quot;</span><span class="p">,</span> <span class="ss">&quot;Pen&quot;</span><span class="p">),</span>
+   <span class="n">num_drawers</span> <span class="nb">INTEGER</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
 </div>
 <div class="section" id="pencil-drawer">
 <h3>16.2.1.2. <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code><a class="headerlink" href="#pencil-drawer" title="Permalink to this headline">¶</a></h3>
@@ -155,10 +170,18 @@ use the same column names as the external source.</p>
 </div>
 <ol class="arabic">
 <li><p class="first">Follow this link to the
-<a class="reference external" href="https://gist.github.com/jimflores5/795a7faae8d35d36033872ae30b88328" target="_blank">practice data<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-development-starter-data.git" target="_blank">java-web-development-starter-data<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+Fork the repository and then clone it to your machine.</p>
 </li>
-<li><p class="first">As you did in the first <a class="reference internal" href="../sql-part1/studio.html#movie-sqls"><span class="std std-ref">SQL studio</span></a>, download the zip
-file. Double-click on it to extract three <code class="docutils literal notranslate"><span class="pre">.csv</span></code> files.</p>
+<li><p class="first">Unlike previous repositories, this one only holds folders of CSV data files.
+It does NOT contain executable code.</p>
+</li>
+<li><p class="first">Pay attention to where you save the folder for this repository. In the
+following steps, you need to access the files inside
+<code class="docutils literal notranslate"><span class="pre">lesson-15-reading-data</span></code>.</p>
+<div class="figure">
+<img alt="Table Data Import Wizard menu option." src="../../_images/csv-data-file-tree.png" />
+</div>
 </li>
 <li><p class="first">In MySQL Workbench, right-click on the <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> table. Select
 <em>Table Data Import Wizard</em>.</p>
@@ -187,7 +210,7 @@ panel returns you to the editor.</p>
 <li><p class="first">In the query tab, run <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">writing_supply</span></code> to confirm that 6
 entries now exist in the table.</p>
 </li>
-<li><p class="first">Repeat the steps 3 - 8 for the <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables.</p>
+<li><p class="first">Repeat the steps 4 - 9 for the <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables.</p>
 </li>
 </ol>
 <p>Confirm that the <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables hold 6 and 15
@@ -196,17 +219,17 @@ entries, respectively. You are now ready to practice more advanced SQL queries.<
 <div class="section" id="import-troubleshooting">
 <h2>16.2.3. Import Troubleshooting<a class="headerlink" href="#import-troubleshooting" title="Permalink to this headline">¶</a></h2>
 <p>Did something go wrong with your import? No worries—the process is not always
-perfect, and errors occur more often than we would like. Some issues are just
-random glitches, while others involve syntax or selection mistakes.</p>
+perfect, and errors occur more often than we would like. A few issues are just
+random glitches, but most others involve syntax or selection mistakes.</p>
 <p>Here are some common errors:</p>
 <ol class="arabic simple">
 <li><strong>Filename</strong>: Make sure that each file ends with the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> extension.
 Also, select the correct file to import into each table (e.g.
 <code class="docutils literal notranslate"><span class="pre">pen_drawer.csv</span></code> will not import into the <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> table).</li>
-<li><strong>Mismatched data types</strong>: MySQL Workbench will throw an error if you define
-a table column as one data type, but the matching column in the <code class="docutils literal notranslate"><span class="pre">.csv</span></code>
-file contains a different data type. Check to make sure that your <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>
-statements correctly define the data types described in the
+<li><strong>Mismatched data types</strong>: MySQL Workbench will not complete an import if
+you define a table column as one data type, but the matching column in the
+<code class="docutils literal notranslate"><span class="pre">.csv</span></code> file contains a different data type. Check to make sure that your
+<code class="docutils literal notranslate"><span class="pre">CREATE</span></code> statements correctly define the data types described in the
 <a class="reference internal" href="#practice-setup"><span class="std std-ref">Setup</span></a> section.</li>
 <li><strong>Import order</strong>: For one-to-many relationships, the <em>one</em> table must be
 created before the <em>many</em>, and this idea also applies to filling the tables
