@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>16.2. Database Management &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="16.3. Complex Queries" href="complex-queries.html" />
+    <link rel="prev" title="16.1. Table Relationships" href="relationships.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">16. The SQL Sequel</a></li>
+    <li class="active">16.2. Database Management</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="database-management">
+<h1>16.2. Database Management<a class="headerlink" href="#database-management" title="Permalink to this headline">¶</a></h1>
+<p>Back in the <a class="reference internal" href="../sql-part1/exercises.html#sql-part1-exercises"><span class="std std-ref">Database and SQL chapter exercises</span></a>,
+you created a new database in MySQL Workbench with one table, <code class="docutils literal notranslate"><span class="pre">seeds</span></code>.</p>
+<p>Let’s go through the process again, but this time we will set up one-to-many
+relationships between three tables—<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>, <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code>. You will soon use these tables to practice more complex SQL
+queries.</p>
+<div class="section" id="setup">
+<span id="practice-setup"></span><h2>16.2.1. Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Open a connection in MySQL Workbench. Click <em>Create New Schema</em> and call the
+model <code class="docutils literal notranslate"><span class="pre">storage</span></code>.</li>
+<li>Click <em>Apply</em>, and accept all of the default options when prompted.</li>
+</ol>
+<p>The three tables form a pair of one-to-many relationships. Each
+<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> record relates either to several <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> entries
+or several <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> entries.</p>
+<p>Each table will need a primary key column, and <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> will require foreign key columns. In the query tab of MySQL
+Workbench, <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> the tables as described below.</p>
+<div class="section" id="writing-supply">
+<h3>16.2.1.1. <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code><a class="headerlink" href="#writing-supply" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="3">
+<li>Each record in this table will have three fields:<ol class="loweralpha">
+<li>A primary key, <code class="docutils literal notranslate"><span class="pre">supply_id</span></code>.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">utensil_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Pencil” or “Pen”). Note
+the syntax for setting this up in line 3 of the example.</li>
+<li>An integer number of drawers, <code class="docutils literal notranslate"><span class="pre">num_drawers</span></code>.</li>
+</ol>
+</li>
+</ol>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="last highlight-SQL notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">writing_supply</span> <span class="p">(</span>
+   <span class="n">supply_id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+   <span class="n">utensil_type</span> <span class="n">ENUM</span> <span class="p">(</span><span class="ss">&quot;Pencil&quot;</span><span class="p">,</span> <span class="ss">&quot;Pen&quot;</span><span class="p">),</span>
+   <span class="n">num_drawers</span> <span class="nb">INTEGER</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="pencil-drawer">
+<h3>16.2.1.2. <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code><a class="headerlink" href="#pencil-drawer" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="4">
+<li>Each record in this table will have five fields:<ol class="loweralpha">
+<li>A primary key, <code class="docutils literal notranslate"><span class="pre">drawer_id</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">pencil_type</span></code>, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Wood” or “Mechanical”).</li>
+<li>An integer number of pencils, <code class="docutils literal notranslate"><span class="pre">quantity</span></code>.</li>
+<li>A boolean describing whether or not it is time to <code class="docutils literal notranslate"><span class="pre">refill</span></code> the drawer.</li>
+<li>A foreign key (<code class="docutils literal notranslate"><span class="pre">supply_id</span></code>) that connects <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> with
+<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="pen-drawer">
+<h3>16.2.1.3. <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code><a class="headerlink" href="#pen-drawer" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="5">
+<li>Each record in this table will have five fields:<ol class="loweralpha">
+<li>A primary key, <code class="docutils literal notranslate"><span class="pre">drawer_id</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">color</span></code> of the pens, which will be an <code class="docutils literal notranslate"><span class="pre">ENUM</span></code> (“Black”, “Blue”,
+“Red”, “Green”, “Purple”).</li>
+<li>An integer number of pens, <code class="docutils literal notranslate"><span class="pre">quantity</span></code>.</li>
+<li>A boolean describing whether or not it is time to <code class="docutils literal notranslate"><span class="pre">refill</span></code> the drawer.</li>
+<li>A foreign key (<code class="docutils literal notranslate"><span class="pre">supply_id</span></code>) that connects <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> with
+<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>.</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="import-data">
+<span id="table-import-data"></span><h2>16.2.2. Import Data<a class="headerlink" href="#import-data" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Whenever you import existing data into your empty tables, it is helpful to
+use the same column names as the external source.</p>
+</div>
+<ol class="arabic">
+<li><p class="first">Follow this link to the
+<a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-development-starter-data.git" target="_blank">java-web-development-starter-data<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+Fork the repository and then clone it to your machine.</p>
+</li>
+<li><p class="first">Unlike previous repositories, this one only holds folders of CSV data files.
+It does NOT contain executable code.</p>
+</li>
+<li><p class="first">Pay attention to where you save the folder for this repository. In the
+following steps, you need to access the files inside
+<code class="docutils literal notranslate"><span class="pre">lesson-15-reading-data</span></code>.</p>
+<div class="figure">
+<img alt="Table Data Import Wizard menu option." src="../../_images/csv-data-file-tree.png" />
+</div>
+</li>
+<li><p class="first">In MySQL Workbench, right-click on the <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> table. Select
+<em>Table Data Import Wizard</em>.</p>
+<div class="figure">
+<img alt="Table Data Import Wizard menu option." src="../../_images/SQLWorkbenchImport.png" />
+</div>
+</li>
+<li><p class="first">In the next panel, click the <em>Browse</em> button. Find and select the
+<code class="docutils literal notranslate"><span class="pre">writing_supply.csv</span></code> file. Click <em>Next</em>.</p>
+<div class="figure">
+<img alt="Select file path to csv file." src="../../_images/importCsvFile.png" />
+</div>
+</li>
+<li><p class="first">In the following panel, select the default option
+<em>Use existing table –&gt; storage.writing_supply</em>, and click <em>Next</em>.</p>
+</li>
+<li><p class="first">Once again, accept the default options for importing data into your table
+columns. Click <em>Next</em>.</p>
+<div class="figure">
+<img alt="Select columns to import." src="../../_images/importColumns.png" />
+</div>
+</li>
+<li><p class="first">Clicking <em>Next</em> again will import the data. Clicking <em>Finish</em> on the final
+panel returns you to the editor.</p>
+</li>
+<li><p class="first">In the query tab, run <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">writing_supply</span></code> to confirm that 6
+entries now exist in the table.</p>
+</li>
+<li><p class="first">Repeat the steps 4 - 9 for the <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables.</p>
+</li>
+</ol>
+<p>Confirm that the <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables hold 6 and 15
+entries, respectively. You are now ready to practice more advanced SQL queries.</p>
+</div>
+<div class="section" id="import-troubleshooting">
+<h2>16.2.3. Import Troubleshooting<a class="headerlink" href="#import-troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>Did something go wrong with your import? No worries—the process is not always
+perfect, and errors occur more often than we would like. A few issues are just
+random glitches, but most others involve syntax or selection mistakes.</p>
+<p>Here are some common errors:</p>
+<ol class="arabic simple">
+<li><strong>Filename</strong>: Make sure that each file ends with the <code class="docutils literal notranslate"><span class="pre">.csv</span></code> extension.
+Also, select the correct file to import into each table (e.g.
+<code class="docutils literal notranslate"><span class="pre">pen_drawer.csv</span></code> will not import into the <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> table).</li>
+<li><strong>Mismatched data types</strong>: MySQL Workbench will not complete an import if
+you define a table column as one data type, but the matching column in the
+<code class="docutils literal notranslate"><span class="pre">.csv</span></code> file contains a different data type. Check to make sure that your
+<code class="docutils literal notranslate"><span class="pre">CREATE</span></code> statements correctly define the data types described in the
+<a class="reference internal" href="#practice-setup"><span class="std std-ref">Setup</span></a> section.</li>
+<li><strong>Import order</strong>: For one-to-many relationships, the <em>one</em> table must be
+created before the <em>many</em>, and this idea also applies to filling the tables
+with data. <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> both contain foreign keys
+that link to <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>. Thus, you must import data into
+<code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> FIRST, before attempting to add data to the other two
+tables.</li>
+</ol>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">This is not an exhaustive list of everything that could go wrong with a data
+import. Be patient and persistent, and don’t hesitate to consult the
+<a class="reference external" href="https://dev.mysql.com/doc/workbench/en/" target="_blank">MySQL Workbench documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,
+Google, your TA, or your instructor.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2>16.2.4. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Examine the setup you used for the <code class="docutils literal notranslate"><span class="pre">writing_supply</span></code>, <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code> tables. Which of the following pairs does NOT have a
+one-to-many relationship?</p>
+<ol class="last loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> and <code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">writing_supply</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">pencil_drawer</span></code> and <code class="docutils literal notranslate"><span class="pre">pen_drawer</span></code></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="relationships.html"><span aria-hidden="true">&larr;</span> 16.1. Table Relationships</a></li>
+        
+        
+        <li class="next"><a href="complex-queries.html">16.3. Complex Queries <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/sql-part2/creating-databases.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

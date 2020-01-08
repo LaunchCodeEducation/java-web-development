@@ -110,6 +110,8 @@ table.
 
 .. index:: ! full outer join
 
+.. _fullouterjoin:
+
 Full Outer Join
 ---------------
 
