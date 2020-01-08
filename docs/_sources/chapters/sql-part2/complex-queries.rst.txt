@@ -37,7 +37,7 @@ Code along with the following examples using the ``storage`` database and
 tables you created earlier.
 
 Inner Join
-^^^^^^^^^^^
+^^^^^^^^^^
 
 Each record in ``writing_supply`` stores a ``utensil_type`` value. We could use
 a simple query to filter the records by type, but this would not contain data
@@ -110,7 +110,8 @@ table and pull in overlapping data from another.
    .. figure:: ./figures/left-join-result-set.png
       :alt: Result set for an inner join with a WHERE clause.
 
-As with inner joins, we can restrict the size of the result set:
+As with inner joins, we can restrict the size of the result set by adding one
+or more conditions:
 
 .. admonition:: Example
 

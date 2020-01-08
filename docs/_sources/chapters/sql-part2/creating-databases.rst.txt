@@ -127,11 +127,10 @@ Here are some common errors:
 
 .. admonition:: Note
 
-   This is NOT a complete list of everything that could happen to prevent a
-   successful import. Sorry.
-
-   If your issue is not discussed above, YAY! You get to practice your
-   real-world developer skills by figuring out how to make it work!
+   This is not an exhaustive list of everything that could go wrong with a data
+   import. Be patient and persistent, and don't hesitate to consult the
+   `MySQL Workbench documentation <https://dev.mysql.com/doc/workbench/en/>`__,
+   Google, your TA, or your instructor.
 
 Check Your Understanding
 ------------------------

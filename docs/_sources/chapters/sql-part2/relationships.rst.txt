@@ -39,8 +39,9 @@ column names. While this may seem like a good idea at the time, it leads to
 repetition of data, and it makes maintaining that information more difficult.
 
 Any time you add a new column to a table, ask yourself whether the data it
-represents *defines* ``table_name``. If you answer *No*, then store the data in
-a different place (e.g. ``lunch_period`` does not fit within ``students``).
+represents *defines* that table. If you answer *No*, then store the data in
+a different place (e.g. ``lunch_period`` does not fit within ``students``, so
+it will have to go in a different table, such as ``schedule``).
 
 Relating Data
 -------------
@@ -174,18 +175,20 @@ Keys Wrap-Up
 .. admonition:: Tip
 
    Even if you do not think a table needs one, define a primary key column
-   anyway. As your database and projects grow, you WILL have a need for a unique
-   identifier for each row.
+   anyway. Your database needs to grow and adapt to change. Adding a primary
+   key column to a table at the beginning helps with that.
 
 Other Relationships
 -------------------
 
 Besides the common one-to-many structure, there are two other ways to relate
-tables to each other. We will not discuss these examples here, but you can
-explore them on your own with a quick Google search or here:
+tables to each other. Read the following articles (or do a quick Google search)
+to explore these options:
 
 #. `One-to-one <http://www.databaseprimer.com/pages/relationship_1to1/>`__
 #. `Many-to-many <http://www.databaseprimer.com/pages/relationship_xtox/>`__
+
+You will need this information to answer the last few concept check questions.
 
 Check Your Understanding
 -------------------------
@@ -196,11 +199,11 @@ Check Your Understanding
    for an Algebra I course?
 
    a. ``teachers``
-   b. ``math_department``
+   b. ``students``
    c. ``courses``
-   d. ``master_schedule``
+   d. ``schedule``
 
-.. Answer = d (master_schedule)
+.. Answer = d (schedule)
 
 .. admonition:: Question
 
@@ -215,8 +218,8 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Which type of relationship would exist between ``teachers`` and ``students``
-   tables?
+   Which type of relationship would exist between the ``teachers`` and
+   ``students`` tables?
 
    a. One-to-one
    b. One-to-many

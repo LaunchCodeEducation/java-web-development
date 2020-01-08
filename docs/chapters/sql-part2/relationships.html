@@ -118,8 +118,9 @@ it is very easy to throw lots of data into a table and provide descriptive
 column names. While this may seem like a good idea at the time, it leads to
 repetition of data, and it makes maintaining that information more difficult.</p>
 <p>Any time you add a new column to a table, ask yourself whether the data it
-represents <em>defines</em> <code class="docutils literal notranslate"><span class="pre">table_name</span></code>. If you answer <em>No</em>, then store the data in
-a different place (e.g. <code class="docutils literal notranslate"><span class="pre">lunch_period</span></code> does not fit within <code class="docutils literal notranslate"><span class="pre">students</span></code>).</p>
+represents <em>defines</em> that table. If you answer <em>No</em>, then store the data in
+a different place (e.g. <code class="docutils literal notranslate"><span class="pre">lunch_period</span></code> does not fit within <code class="docutils literal notranslate"><span class="pre">students</span></code>, so
+it will have to go in a different table, such as <code class="docutils literal notranslate"><span class="pre">schedule</span></code>).</p>
 <div class="section" id="relating-data">
 <h2>16.1.1. Relating Data<a class="headerlink" href="#relating-data" title="Permalink to this headline">¶</a></h2>
 <p>Keeping data in separate, smaller chunks is more efficient than keeping a huge
@@ -242,20 +243,21 @@ one-to-many relationship.</li>
 <div class="admonition-tip admonition">
 <p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p class="last">Even if you do not think a table needs one, define a primary key column
-anyway. As your database and projects grow, you WILL have a need for a unique
-identifier for each row.</p>
+anyway. Your database needs to grow and adapt to change. Adding a primary
+key column to a table at the beginning helps with that.</p>
 </div>
 </div>
 </div>
 <div class="section" id="other-relationships">
 <h2>16.1.4. Other Relationships<a class="headerlink" href="#other-relationships" title="Permalink to this headline">¶</a></h2>
 <p>Besides the common one-to-many structure, there are two other ways to relate
-tables to each other. We will not discuss these examples here, but you can
-explore them on your own with a quick Google search or here:</p>
+tables to each other. Read the following articles (or do a quick Google search)
+to explore these options:</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://www.databaseprimer.com/pages/relationship_1to1/" target="_blank">One-to-one<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 <li><a class="reference external" href="http://www.databaseprimer.com/pages/relationship_xtox/" target="_blank">Many-to-many<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 </ol>
+<p>You will need this information to answer the last few concept check questions.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2>16.1.5. Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
@@ -265,9 +267,9 @@ explore them on your own with a quick Google search or here:</p>
 for an Algebra I course?</p>
 <ol class="last loweralpha simple">
 <li><code class="docutils literal notranslate"><span class="pre">teachers</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">math_department</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">students</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">courses</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">master_schedule</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">schedule</span></code></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
@@ -282,8 +284,8 @@ for an Algebra I course?</p>
 </div>
 <div class="admonition-question admonition">
 <p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p>Which type of relationship would exist between <code class="docutils literal notranslate"><span class="pre">teachers</span></code> and <code class="docutils literal notranslate"><span class="pre">students</span></code>
-tables?</p>
+<p>Which type of relationship would exist between the <code class="docutils literal notranslate"><span class="pre">teachers</span></code> and
+<code class="docutils literal notranslate"><span class="pre">students</span></code> tables?</p>
 <ol class="last loweralpha simple">
 <li>One-to-one</li>
 <li>One-to-many</li>
