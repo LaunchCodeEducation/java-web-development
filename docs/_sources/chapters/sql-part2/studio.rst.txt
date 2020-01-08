@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Studio: Library
 ===============
 
@@ -184,3 +185,8 @@ Bonus Mission
 
 #. Return the counts of the books of each genre. Check out the `documentation <https://dev.mysql.com/doc/refman/8.0/en/counting-rows.html>`_ to see how this could be done!
 #. A reference book cannot leave the library. How would you modify either the ``reference_book`` table or the book table to make sure that doesn't happen? Try to apply your modifications.
+=======
+Studio: A Library
+=================
+
+>>>>>>> master

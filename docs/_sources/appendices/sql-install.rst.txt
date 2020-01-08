@@ -1,3 +1,5 @@
+.. _sql-installation:
+
 Installing SQL
 ==============
 
@@ -37,6 +39,18 @@ Sounds like you should use a desktop client at first to practice! For these reas
 
 The `MySQL Workbench 8.0.18 download page <https://dev.mysql.com/downloads/workbench/>`_ has a dropdown menu for the operating system. Make sure MacOS is selected before downloading.
 
+.. admonition:: Warning
+
+      If you are using a MacOS version prior to 10.14, use an older version of MySQL Workbench (6.3.10) by clicking the link that reads
+      "Looking for previous GA versions?".
+
+      This previous version is only compatible with a *legacy password encryption* option. If you did not select this when downloading MySQL
+      (or you are not sure),
+
+      #. Open MySQL from System Preferences and select *Initialize Database*.
+      #. Enter your root user password choose the *Use Legacy Password Encryption* option.
+      #. After hitting *OK*, start the MySQL Server again by clicking *Start MySQL Server*.
+
 Once you have downloaded MySQL workbench, double-click on the disk image to launch the installer.
 Agree to the terms and conditions and install.
 
@@ -50,18 +64,28 @@ Windows Users
 Windows users have a MySQL Installer available and that is what you will be using to install MySQL!
 The `Installer download page <https://dev.mysql.com/downloads/installer/>`_ has a couple options available.
 You want to download the version called ``"Windows (x86, 32-bit), MSI Installer"`` that specifies it is the ``"(mysql-installer-community-8.0.18.0.msi)"``.
-This should also be the version that uses at least 400 MB.
+This should also be the version that uses at least 400 MB (not the *web-community* version).
 Make sure you have selected the correct option before clicking *Download*!
 
 #. When MySQL is done downloading, open the installer.
-#. The installer will install MySQL server and related tools. Select *Developer Default* and proceed!
+#. The installer will install MySQL server and related tools. Select *Developer Default* and proceed.
+
+   .. admonition:: Note
+
+      If you receive a message on the *Check Requirements* page for any MySQL products or tools other than MySQL Workbench, you
+      can safely ignore these and continue with *Next*.
+
+      With the exception of creating and entering a password, you can move forward with the default selections to install and configure.
+
+
 #. The installer will check that the installs are compatible and install each one in turn. This may take a while so grab a snack!
 #. When you reach the configuration window for MySQL server, you may have to enter a password for the root user. Pick a good password that you can remember.
 
    .. admonition:: Warning
 
       Once you create a password for the root user, you cannot change it! Be careful when typing out the password.
-   
 
-The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now you can open up MySQL Workbench.
-MySQL Workbench will automatically scan for available MySQL servers. Your local server should appear on the home screen. Double click and enter your password to get going!
+
+The convenient thing about using the Windows installer is that our GUI client for the course is bundled in the install, so now you can open up MySQL Workbench
+from the final page in the installation process. MySQL Workbench will automatically scan for available MySQL servers. Your local server
+should appear on the home screen. Double click and enter your password to get going!

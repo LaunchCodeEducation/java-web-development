@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>13.5. Exercises: Model Validation &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="13.6. Studio: Spa User Validation" href="studio.html" />
+    <link rel="prev" title="13.4. Thymeleaf Form Tools" href="thymeleaf-form-tools.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">13. Model Validation</a></li>
+    <li class="active">13.5. Exercises: Model Validation</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content ">
+
+    
+  <div class="section" id="exercises-model-validation">
+<h1>13.5. Exercises: Model Validation<a class="headerlink" href="#exercises-model-validation" title="Permalink to this headline">¶</a></h1>
+<p>Let’s practice adding more fields onto our event objects and
+validating them. Create a new branch from the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/display-errors" target="_blank">display-errors branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p>Below, we describe some new fields for you to add to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class.
+For each field, consider the following factors:</p>
+<ol class="loweralpha simple">
+<li>What will you call your field?</li>
+<li>Will you need accessors for this field?</li>
+<li>What type of input should be added to capture the field’s information from the user?</li>
+<li>Refer to the documentation page to find an appropriate annotation to fit the constraints.</li>
+<li>What should the error message convey to the user?</li>
+<li>What, if anything, will you need to update on the controller to account for the new field?</li>
+</ol>
+<p>Event information to add:</p>
+<ol class="arabic simple">
+<li>Add a field to collect information about where the event will take place. This field should not be
+null or blank.</li>
+<li>Add a field to collect information about whether an attendee must register for the event or not. For
+the purposes of validation practice, make this field only able to be marked as true.</li>
+<li>Add a field to collect information about the number of attendees for the event. Valid values for this
+field should be any number over zero.</li>
+<li>Browse the validation annotations to find one to use on another new field of your choosing.</li>
+</ol>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="thymeleaf-form-tools.html"><span aria-hidden="true">&larr;</span> 13.4. Thymeleaf Form Tools</a></li>
+        
+        
+        <li class="next"><a href="studio.html">13.6. Studio: Spa User Validation <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/spring-model-validation/exercises.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

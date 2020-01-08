@@ -90,6 +90,8 @@ other annotations for the other request methods, but these are the two we will u
 If we want to write a controller method that will be used for both ``GET`` and ``POST`` at the same path, we
 can label the method with ``@RequestMapping``. ``@RequestMapping`` can handle more than one method as such:
 
+.. _request-method-example:
+
 .. sourcecode:: java
 
    @Controller
