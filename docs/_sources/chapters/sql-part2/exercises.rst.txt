@@ -13,7 +13,7 @@ Import New Tables
 -----------------
 
 The starter data for these exercises is in the `Github repo <https://github.com/LaunchCodeEducation/java-web-development-starter-data>`_ under ``lesson-15-exercises``.
-To import the data in our ``.csv`` files, we need to create three empty tables. 
+To import the data in our ``.csv`` files, we need to create three empty tables. Once you have created your tables, you need to use the :ref:`Table Import Wizard <table-import-data>`.
 
 .. admonition:: Note
 
