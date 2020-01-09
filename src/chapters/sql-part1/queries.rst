@@ -97,7 +97,7 @@ This query adds a row for Eliza to the ``johnson_vow_renewal`` table in our data
 
 If we wanted to add a row, but only add values to specific columns in the table, we can do so! We simply need to add the names of the columns that we will be adding data to.
 
-In the case of inviting people the Johnson's vow renewal, we may want to invite Eliza's sister, Felicity, as well. However, we have not confirmed Felicity's dietary preferences or whether or not she is coming.
+In the case of inviting people to the Johnson's vow renewal, we may want to invite Eliza's sister, Felicity, as well. However, we have not confirmed Felicity's dietary preferences or whether or not she is coming.
 
 .. sourcecode:: mysql
 

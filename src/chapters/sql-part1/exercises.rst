@@ -57,7 +57,7 @@ The ``crop`` and ``encourages`` columns will hold ``VARCHAR`` data types, and
 each must include a parameter that specifies the maximum number of characters.
 ``seed_id`` and ``use_by`` will be integers.
 
-Paste the following script into the query tab, then run it.
+Put the following script into the query tab.
 
 .. _primary-key:
 
@@ -75,24 +75,38 @@ Line 2 establishes ``seed_id`` as the unique identifier---the
 ``PRIMARY KEY``---for each record in the table. ``AUTO_INCREMENT`` assigns
 every new entry a different integer value.
 
-Properly done, you should now see the ``seeds`` table within your database.
+MySQL Workbench allows you to run one SQL command, a set of commands, or all
+of the commands listed in the editor pane. Hover over each lightning bolt
+icon in the panel to see these options.
+
+.. figure:: ./figures/workbenchBoltIcons.png
+   :alt: Execute icons in MySQL Workbench.
+
+   Execute icons in MySQL Workbench.
+
+Execute the ``CREATE_TABLE`` command using the simple lightning icon. 
+Next, verify that the table was created by inspecting your schema:
+
+.. figure:: ./figures/seedsTableSchemaInfo.png
+   :alt: Schema information panel showing the seeds table.
+
+   Schema information panel showing the seeds table.
+
+Or, you may also see the ``seeds`` table listed under the schema in the file tree.
 
 .. figure:: ./figures/seedsTableFileTree.png
-   :alt: File tree for the seeds table.
+   :alt: File tree showing the seeds table.
+
+   File tree showing the seeds table.
+
+.. admonition:: Tip
+
+   Some users may need to refresh the Schemas tab to update the file tree view.
 
 Create
 ------
 
 Open up a new query tab for the SQL commands you code in this section.
-
-.. admonition:: Tip
-
-   MySQL Workbench allows you to run one SQL command, a set of commands, or all
-   of the commands listed in the editor pane. Hover over each lightning bolt
-   icon in the panel to see these options.
-
-   .. figure:: ./figures/workbenchBoltIcons.png
-      :alt: Lightning bold icons in MySQL Workbench.
 
 #. Use the following SQL command to add a new entry to the ``seeds`` table.
 

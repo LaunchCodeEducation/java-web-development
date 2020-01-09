@@ -341,11 +341,11 @@ Check Your Understanding
          WHERE column_2 IN (SELECT column_3 FROM table_3
             WHERE num_items > 30));
 
-   a. ``SELECT column1``, then ``SELECT column2``, then ``SELECT column3``
-   b. ``SELECT column1``, then ``SELECT column3``, then ``SELECT column2``
-   c. ``SELECT column2``, then ``SELECT column1``, then ``SELECT column3``
-   d. ``SELECT column2``, then ``SELECT column3``, then ``SELECT column1``
-   e. ``SELECT column3``, then ``SELECT column1``, then ``SELECT column2``
-   f. ``SELECT column3``, then ``SELECT column2``, then ``SELECT column1``
+   a. ``SELECT column_1``, then ``SELECT column_2``, then ``SELECT column_3``
+   b. ``SELECT column_1``, then ``SELECT column_3``, then ``SELECT column_2``
+   c. ``SELECT column_2``, then ``SELECT column_1``, then ``SELECT column_3``
+   d. ``SELECT column_2``, then ``SELECT column_3``, then ``SELECT column_1``
+   e. ``SELECT column_3``, then ``SELECT column_1``, then ``SELECT column_2``
+   f. ``SELECT column_3``, then ``SELECT column_2``, then ``SELECT column_1``
 
 .. Answer = f (3, then 2, then 1)
