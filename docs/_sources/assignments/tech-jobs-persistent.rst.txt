@@ -10,3 +10,18 @@ Learning Objectives
 #. Configure a one-to-many relationship to be managed by Spring Data
 #. Configure a many-to-many relationship to be managed by Spring Data
 
+
+Setup
+-----
+
+Connect a database to a Spring App.
+
+Persisting a Single Class
+-------------------------
+
+Job + Employer
+
+One-To-Many
+-----------
+
+One job has one employer. One employer can have many jobs.
