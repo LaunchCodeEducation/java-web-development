@@ -1,5 +1,5 @@
-Exercises: SQL, Part 2
-======================
+Exercises: The SQL Sequel
+=========================
 
 In the previous chapter's exercises, we set up a database to store information about seeds. Let's expand that idea now that we know all about foreign keys!
 
