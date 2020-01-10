@@ -22,6 +22,7 @@ Chapters
    chapters/enums/index
    chapters/sql-part1/index
    chapters/sql-part2/index
+   chapters/orm/index
 
 .. toctree::
 
