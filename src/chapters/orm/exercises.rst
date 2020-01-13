@@ -2,28 +2,34 @@ Exercises
 =========
 
 For the exercises, we are going to continue building on our ``coding-events`` application.
+Create a new branch for the exercises off of the ``persistent-controller-refactor`` branch. 
 
 The ``EventCategory`` Class
 ---------------------------
 
-We need to use the ``@Entity`` annotation to create a new class called ``EventCategory``.
+First, create a new class called ``EventCategory`` in the ``models`` directory.
 
-Our class needs to have the following:
+``EventCategory`` needs to have the following:
 
-#. An ``id`` field.
-#. A ``name`` field.
+#. An ``id`` field of type ``int``.
+#. A ``name`` field of type ``String``.
 #. A constructor.
 #. The appropriate getters and setters.
+
+``EventCategory`` represents data that will be stored in our database so you need to use the ``@Entity`` annotation!
 
 The ``EventCategoryRepository``
 -------------------------------
 
-Create the ``EventCategoryRepository`` in the ``data`` folder.
+Once you have created ``EventCategory``, you need to create the ``EventCategoryRepository`` in the ``data`` folder.
+``EventCategoryRepository`` will extend ``EventCategory``.
 
 The ``EventCategoryController``
 -------------------------------
 
 Create the ``EventCategoryController`` in the ``controllers`` directory.
+You can use the ``@RequestMapping`` annotation to map to ``"eventCategories"``.
+To get our handlers working, we also need a variable of type ``EventCategoryRepository``.
 
 We will be creating 3 handlers in our controller:
 
@@ -31,10 +37,39 @@ We will be creating 3 handlers in our controller:
 #. ``renderCreateEventCategoryForm``
 #. ``processCreateEventCategoryForm``
 
+``displayAllEvents``
+^^^^^^^^^^^^^^^^^^^^
+
+``displayAllEvents`` needs to do the following:
+
+#. Use ``@GetMapping`` and return ``"eventCategories/index"``.
+#. Add an attribute for the ``title`` that uses ``"All Categories"``.
+#. Add an attribute for the ``categories`` that uses all of the values in your ``EventCategoryRepository`` variable.
+
+``renderCreateEventCategoryForm``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``renderCreateEventCategoryForm`` needs to do the following:
+
+#. Use ``@GetMapping`` and return ``"eventCategories/create"``.
+#. Add an attribute for the ``title`` that uses ``"Create Category"``.
+#. Add an attribute for a new instance of ``EventCategory``.
+
+``processCreateEventCategoryForm``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``processCreateEventCategoryForm`` needs to do the following:
+
+#. Use ``@PostMapping``.
+#. Use error validation and the ``Errors`` object appropriately.
+#. Add an attribute for the ``title`` that uses ``"Create Category"``.
+#. Add an attribute for a new instance of ``EventCategory``.
+#. Either return ``"eventCategories/create"`` or ``"redirect:"``.
+
 Thymeleaf Templates
 -------------------
 
 To finish the exercises, we need to make two new templates.
 
-#. ``eventCategories/index``
-#. ``eventCategories/create``
+#. ``eventCategories/index``, which will contain a table of the event categories.
+#. ``eventCategories/create``, which will contain a form for adding new event categories.
