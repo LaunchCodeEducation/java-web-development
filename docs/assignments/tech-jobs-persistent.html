@@ -215,78 +215,93 @@ themselves.</p>
 <div class="section" id="updating-homecontroller">
 <h3>Updating HomeController<a class="headerlink" href="#updating-homecontroller" title="Permalink to this headline">¶</a></h3>
 <p>We’ll make several updates here.</p>
-<div class="section" id="displayaddcheeseform">
-<h4>displayAddCheeseForm<a class="headerlink" href="#displayaddcheeseform" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="displayaddjobform">
+<h4>displayAddJobForm<a class="headerlink" href="#displayaddjobform" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
 <li>wire up homecontroller with the employerrepository.</li>
 <li>update the addjob handlers so that they grab the employer information</li>
 <li>update the add job form to include an employer selection option</li>
 </ol>
 </div>
-<div class="section" id="processaddcheeseform">
-<h4>processAddCheeseForm<a class="headerlink" href="#processaddcheeseform" title="Permalink to this headline">¶</a></h4>
-<p>This action creates a new cheese. Based on our updates to <code class="docutils literal notranslate"><span class="pre">add.html</span></code>
-above, we can add <code class="docutils literal notranslate"><span class="pre">categoryId</span></code> to the method signature:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public String processAddCheeseForm(
-                @ModelAttribute  @Valid Cheese newCheese,
-                Errors errors,
-                @RequestParam int categoryId,
-                Model model)
-</pre></div>
-</div>
-<p>We’ll need to have the <code class="docutils literal notranslate"><span class="pre">Category</span></code> object corresponding to this ID, so
-we can set up the new cheese properly. Get it from the data layer like
-this:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Category cat = categoryDao.findOne(categoryId);
-</pre></div>
-</div>
-<p>This will fetch a single <code class="docutils literal notranslate"><span class="pre">Category</span></code> object, with ID matching the
-<code class="docutils literal notranslate"><span class="pre">CategoryID</span></code> value selected. Then set it:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>newCheese.setCategory(cat);
-</pre></div>
+<div class="section" id="processaddcjobform">
+<h4>processAddCJobForm<a class="headerlink" href="#processaddcjobform" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>add request param from employer info on job object submission.</li>
+<li>use .findbyId(). else…. to  select employer obj chosen</li>
+<li>Job object .setEmployer</li>
+</ol>
 </div>
 </div>
+<div class="section" id="review-job-deletion-code">
+<h3>Review Job Deletion Code<a class="headerlink" href="#review-job-deletion-code" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>have the students write soemthing to delete jobs?</li>
+</ol>
 </div>
-</div>
-<div class="section" id="review-cheese-deletion-code">
-<h2>Review Cheese Deletion Code<a class="headerlink" href="#review-cheese-deletion-code" title="Permalink to this headline">¶</a></h2>
-<p>The code to remove a <code class="docutils literal notranslate"><span class="pre">Cheese</span></code> object is already in place for you, but
-since we won’t have a reason to use the <code class="docutils literal notranslate"><span class="pre">delete</span></code> method on a
-<code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> interface, read the code in
-<code class="docutils literal notranslate"><span class="pre">displayRemoveCheeseForm</span></code> and <code class="docutils literal notranslate"><span class="pre">processRemoveCheeseForm</span></code> to see how
-to remove an item from the database.</p>
-</div>
-<div class="section" id="one-more-thing">
-<h2>One more thing…<a class="headerlink" href="#one-more-thing" title="Permalink to this headline">¶</a></h2>
-<p>We’ve touched almost every file except the <code class="docutils literal notranslate"><span class="pre">cheese/index.html</span></code>
-template. Go into that file and update the table to display the category
-name of a given cheese instead of its type. Update the header as well,
-so it has “Category” in place of “Type”.</p>
+<div class="section" id="update-job-view">
+<h3>Update Job View<a class="headerlink" href="#update-job-view" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>update view template to display employer info on given job object.</li>
+</ol>
 </div>
 <div class="section" id="id1">
-<h2>Test!<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h3>Test!<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>You made a lot of changes! Great work.</p>
 <p>Assuming you don’t have any remaining compiler errors, start up your
-application. (Don’t forget to start MAMP first!) Make sure you can
-create a new cheese object, selecting a pre-existing category. Then make
-sure the proper category name is displayed in the table on the home page
+application. (Don’t forget to start your SQL server first.) Make sure you can
+create a new job object, selecting a pre-existing employer. Then make
+sure the proper employer name is displayed in the table on the home page
 after doing so.</p>
-<p>When everything works, move on to <a class="reference external" href="../many-to-many/" target="_blank">Part 3<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<p>When everything works, move on to Part 3 below.</p>
 </div>
-<div class="section" id="bonus-missions">
-<h2>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Within <code class="docutils literal notranslate"><span class="pre">CheeseController</span></code>, create a handler named <code class="docutils literal notranslate"><span class="pre">category</span></code> that
-responds to <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests at URLs like <code class="docutils literal notranslate"><span class="pre">/cheese/category/2</span></code>,
-where 2 may be the ID of any category in the system. This handler
-should retrieve all cheeses in the given category and pass them into
-the view. You should use the <code class="docutils literal notranslate"><span class="pre">cheese/index.html</span></code> template to
-display the results, with an appropriate title.</li>
-</ul>
 </div>
-<div class="section" id="many-to-many">
-<h2>Many-To-Many<a class="headerlink" href="#many-to-many" title="Permalink to this headline">¶</a></h2>
-<p>Job to Skills</p>
+<div class="section" id="part-3-setting-up-a-many-to-many-relationship">
+<h2>Part 3: Setting Up a Many-to-Many Relationship<a class="headerlink" href="#part-3-setting-up-a-many-to-many-relationship" title="Permalink to this headline">¶</a></h2>
+<p>A Job requires many skills and a skill can be associated with several jobs.</p>
+<div class="section" id="creating-the-skill-model">
+<h3>Creating the Skill Model<a class="headerlink" href="#creating-the-skill-model" title="Permalink to this headline">¶</a></h3>
+<p>This final section of the studio has us set up a many-to-many
+relationship between two classes. The classes in question will be
+<code class="docutils literal notranslate"><span class="pre">Job</span></code> and <code class="docutils literal notranslate"><span class="pre">Skill</span></code>.</p>
+<div class="section" id="the-skill-class">
+<h4>The Skill Class<a class="headerlink" href="#the-skill-class" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>add &#64;entity annotaiton to skill class</li>
+<li>add a field named Jobs that is a list</li>
+<li>add the &#64;manytomany annotation to this field</li>
+</ol>
+</div>
+<div class="section" id="the-skillrepository-interface">
+<h4>The SkillRepository Interface<a class="headerlink" href="#the-skillrepository-interface" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>create Skills Repository witht he right super class and annotations</li>
+</ol>
+</div>
+<div class="section" id="setting-up-the-other-side-of-the-relationship">
+<h4>Setting Up the Other Side of the Relationship<a class="headerlink" href="#setting-up-the-other-side-of-the-relationship" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>add the manytomany annotation onto a skills field in the job class</li>
+<li>add the mapped by skills argument</li>
+</ol>
+</div>
+</div>
+<div class="section" id="the-skillcontroller-class-and-views">
+<h3>The SkillController Class and Views<a class="headerlink" href="#the-skillcontroller-class-and-views" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>add skillrepository as autowired field to home controller so that a new job can be added with skills</li>
+</ol>
+</div>
+</div>
+<div class="section" id="clean-up-the-navigation">
+<h2>Clean Up the Navigation<a class="headerlink" href="#clean-up-the-navigation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>to the navbar, add options to view a list of employers and skills</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>Test!<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Run your application and make sure you can create a new job with several skills.</p>
+<p>When everything works, you’re done! Congrats!</p>
 </div>
 <div class="section" id="sql-report">
 <h2>SQL Report<a class="headerlink" href="#sql-report" title="Permalink to this headline">¶</a></h2>
