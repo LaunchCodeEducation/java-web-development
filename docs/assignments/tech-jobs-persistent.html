@@ -142,82 +142,147 @@ object-relational mapping for a new class.</p>
 </div>
 <div class="section" id="add-jobs">
 <h3>Add Jobs<a class="headerlink" href="#add-jobs" title="Permalink to this headline">¶</a></h3>
-<p>Next, we want to enable the user to create a new category via a form.
+<p>#. Next, we want to enable the user to create a new category via a form.
 This will require multiple steps.</p>
 </div>
 <div class="section" id="add-handler-methods">
 <h3>Add Handler Methods<a class="headerlink" href="#add-handler-methods" title="Permalink to this headline">¶</a></h3>
 <p>Let’s add controller handlers to render and process the form.</p>
-<p>Create an <code class="docutils literal notranslate"><span class="pre">add</span></code> handler within <code class="docutils literal notranslate"><span class="pre">CategoryController</span></code> with input
-parameter <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">model</span></code>. It should create a new <code class="docutils literal notranslate"><span class="pre">Category</span></code> object
-using the default constructor and pass it into the view with key
-<code class="docutils literal notranslate"><span class="pre">&quot;category&quot;</span></code> (you can do this with the shorthand
-<code class="docutils literal notranslate"><span class="pre">model.addAttribute(new</span> <span class="pre">Category())</span></code>; note the omission of a
-string/key argument). Add the title “Add Category” to <code class="docutils literal notranslate"><span class="pre">model</span></code> as well.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">add</span></code> handler should accept <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests at <code class="docutils literal notranslate"><span class="pre">/category/add</span></code>
-(recall that you set the path segment “category” at the controller level
-already). The handler should render the <code class="docutils literal notranslate"><span class="pre">category/add</span></code> template (we’ll
-add this template in a moment).</p>
-<p>Create another <code class="docutils literal notranslate"><span class="pre">add</span></code> handler that accepts <code class="docutils literal notranslate"><span class="pre">POST</span></code> requests at
-<code class="docutils literal notranslate"><span class="pre">/category/add</span></code>. Its signature should be:</p>
-<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public String add(Model model,
-    @ModelAttribute @Valid Category category, Errors errors)
-</pre></div>
-</div>
-<p>Within this second <code class="docutils literal notranslate"><span class="pre">add</span></code> handler: - Determine whether or not there are
-any validation errors. If there are, return the form at
-<code class="docutils literal notranslate"><span class="pre">category/add</span></code>. - If the form submission is valid: - Save the new
-<code class="docutils literal notranslate"><span class="pre">Category</span></code> object by calling <code class="docutils literal notranslate"><span class="pre">categoryDao.save(category)</span></code>. -
-Redirect to the <code class="docutils literal notranslate"><span class="pre">index</span></code> handler for <code class="docutils literal notranslate"><span class="pre">CategoryController</span></code> by
-returning the string <code class="docutils literal notranslate"><span class="pre">&quot;redirect:&quot;</span></code>.</p>
+<ol class="arabic simple">
+<li>create an add handler in homecontroller for adding jobs</li>
+<li>create another handler for the posting of this form</li>
+<li>check for object validation and if good, use the crudrepository mehtod to save the object</li>
+</ol>
 </div>
 <div class="section" id="add-view">
 <h3>Add View<a class="headerlink" href="#add-view" title="Permalink to this headline">¶</a></h3>
-<p>In <code class="docutils literal notranslate"><span class="pre">resources/templates/category/</span></code> create a new template,
-<code class="docutils literal notranslate"><span class="pre">add.html</span></code>. Within the template, create a form that uses the
-<code class="docutils literal notranslate"><span class="pre">category</span></code> object that you passed in from the controller.</p>
-<p>You’ll need to bind the object to the form using
-<code class="docutils literal notranslate"><span class="pre">th:object=&quot;${category}&quot;</span></code>. And you should use the appropriate
-attributes within the form: <code class="docutils literal notranslate"><span class="pre">th:for</span></code>, <code class="docutils literal notranslate"><span class="pre">th:field</span></code>, <code class="docutils literal notranslate"><span class="pre">th:errors</span></code>.</p>
-<p>This is the same technique we’ve been using over the last couple of
-weeks.</p>
+<ol class="arabic simple">
+<li>create the template to add jobs via a form</li>
+</ol>
+</div>
 <div class="section" id="adding-navigation-links">
-<h4>Adding Navigation Links<a class="headerlink" href="#adding-navigation-links" title="Permalink to this headline">¶</a></h4>
-<p>Let’s make it easy to navigate to the new views that we’ve created.</p>
-<p>Within the <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> template, add a link to <code class="docutils literal notranslate"><span class="pre">/category</span></code> to
-the list of navigation links.</p>
-<p>Within the <code class="docutils literal notranslate"><span class="pre">category/index.html</span></code> template, add a link to
-<code class="docutils literal notranslate"><span class="pre">/category/add</span></code> with the text “Add Category”. Place this link below
-the list.</p>
-</div>
-</div>
+<h3>Adding Navigation Links<a class="headerlink" href="#adding-navigation-links" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>add a link to the add jobs form - TechJobs title in the nav bar</li>
+</ol>
 </div>
 <div class="section" id="test">
-<h2>Test!<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
-<p>Start up your application – don’t forget to start MAMP first – and try
-to add a new category!</p>
-<p>Click on the <em>Categories</em> navigation link, then on <em>Add Category</em>.
+<h3>Test!<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
+<p>Start up your application – don’t forget to have our SQL server running – and try
+to add a new job!</p>
+<p>Click on the <em>TechJobs</em> navigation link, then on <em>Add Job</em>.
 Complete the form, and if everything works as expected, you’ll see your
-new category in the list. If everything seems to work – that is, you are
+new job in the list. If everything seems to work – that is, you are
 able to submit the form without any errors – but you don’t see your
-category in the list, here’s what you should check:</p>
+job in the list, here’s what you should check:</p>
 <ul class="simple">
-<li>Is there any data in the <code class="docutils literal notranslate"><span class="pre">categories</span></code> table? Check by going to MAMP
-and hitting the <em>Open Start Page</em> button, then navigating to <em>Tools &gt;
-phpMyAdmin</em>. Find the <code class="docutils literal notranslate"><span class="pre">cheese-mvc-data</span></code> database, and look within
-the <code class="docutils literal notranslate"><span class="pre">categories</span></code>. If there isn’t any data in the table, you
-probably forgot to save the category when processing the form.</li>
-<li>If there’s data in the database, check that you are correctly
-querying for the list of all categories in
-<code class="docutils literal notranslate"><span class="pre">CategoryController.index</span></code>: <code class="docutils literal notranslate"><span class="pre">categoryDao.findAll()</span></code>.</li>
-<li>Ensure you’re passing this list into the view, and looping over the
-list of categories to display them in the page.</li>
+<li>Is there any data in the <code class="docutils literal notranslate"><span class="pre">jobs</span></code> table? Check by going to MySQL Workbench
+and looking for the job data within your schema.</li>
 </ul>
-<p>When everything works, move on to <a class="reference external" href="../one-to-many/" target="_blank">Part 2<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<ul class="simple">
+<li>If there’s data in the database, check that you are correctly
+querying for the list of all jobs in the controller
+findAll()``?</li>
+<li>Ensure you’re passing this list into the view, and looping over the
+list of jobs to display them in the page.</li>
+</ul>
+<p>When everything works, move on to Part 2 below.</p>
 </div>
-<div class="section" id="one-to-many">
-<h2>One-To-Many<a class="headerlink" href="#one-to-many" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="part-2-setting-up-a-one-to-many-relationship">
+<h2>Part 2: Setting Up a One-to-Many Relationship<a class="headerlink" href="#part-2-setting-up-a-one-to-many-relationship" title="Permalink to this headline">¶</a></h2>
 <p>One job has one employer. One employer can have many jobs.</p>
+<div class="section" id="add-an-employer-to-a-job">
+<h3>Add an Employer to a Job<a class="headerlink" href="#add-an-employer-to-a-job" title="Permalink to this headline">¶</a></h3>
+<p>Within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, add a private property <code class="docutils literal notranslate"><span class="pre">jobs</span></code> of type
+<code class="docutils literal notranslate"><span class="pre">List&lt;Job&gt;</span></code> and initialize it to an empty <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. After we
+set up the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class to work with <code class="docutils literal notranslate"><span class="pre">Employer</span></code> objects, this list
+will represent the list of all items in a given job. We’ll do this
+in a bit.</p>
+<ol class="arabic simple">
+<li>use the onetomany and join column annotations on the jobs list in Employer class</li>
+</ol>
+</div>
+<div class="section" id="replace-string-employer-with-employer-object">
+<h3>Replace String Employer with Employer Object<a class="headerlink" href="#replace-string-employer-with-employer-object" title="Permalink to this headline">¶</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class as a field on Job objects will be much
+more flexible, as it will allow users to create new employers
+themselves.</p>
+<ol class="arabic simple">
+<li>add the &#64;manytoone annotation on an employer field in Job</li>
+</ol>
+</div>
+<div class="section" id="updating-homecontroller">
+<h3>Updating HomeController<a class="headerlink" href="#updating-homecontroller" title="Permalink to this headline">¶</a></h3>
+<p>We’ll make several updates here.</p>
+<div class="section" id="displayaddcheeseform">
+<h4>displayAddCheeseForm<a class="headerlink" href="#displayaddcheeseform" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>wire up homecontroller with the employerrepository.</li>
+<li>update the addjob handlers so that they grab the employer information</li>
+<li>update the add job form to include an employer selection option</li>
+</ol>
+</div>
+<div class="section" id="processaddcheeseform">
+<h4>processAddCheeseForm<a class="headerlink" href="#processaddcheeseform" title="Permalink to this headline">¶</a></h4>
+<p>This action creates a new cheese. Based on our updates to <code class="docutils literal notranslate"><span class="pre">add.html</span></code>
+above, we can add <code class="docutils literal notranslate"><span class="pre">categoryId</span></code> to the method signature:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>public String processAddCheeseForm(
+                @ModelAttribute  @Valid Cheese newCheese,
+                Errors errors,
+                @RequestParam int categoryId,
+                Model model)
+</pre></div>
+</div>
+<p>We’ll need to have the <code class="docutils literal notranslate"><span class="pre">Category</span></code> object corresponding to this ID, so
+we can set up the new cheese properly. Get it from the data layer like
+this:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>Category cat = categoryDao.findOne(categoryId);
+</pre></div>
+</div>
+<p>This will fetch a single <code class="docutils literal notranslate"><span class="pre">Category</span></code> object, with ID matching the
+<code class="docutils literal notranslate"><span class="pre">CategoryID</span></code> value selected. Then set it:</p>
+<div class="code java highlight-none notranslate"><div class="highlight"><pre><span></span>newCheese.setCategory(cat);
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="review-cheese-deletion-code">
+<h2>Review Cheese Deletion Code<a class="headerlink" href="#review-cheese-deletion-code" title="Permalink to this headline">¶</a></h2>
+<p>The code to remove a <code class="docutils literal notranslate"><span class="pre">Cheese</span></code> object is already in place for you, but
+since we won’t have a reason to use the <code class="docutils literal notranslate"><span class="pre">delete</span></code> method on a
+<code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> interface, read the code in
+<code class="docutils literal notranslate"><span class="pre">displayRemoveCheeseForm</span></code> and <code class="docutils literal notranslate"><span class="pre">processRemoveCheeseForm</span></code> to see how
+to remove an item from the database.</p>
+</div>
+<div class="section" id="one-more-thing">
+<h2>One more thing…<a class="headerlink" href="#one-more-thing" title="Permalink to this headline">¶</a></h2>
+<p>We’ve touched almost every file except the <code class="docutils literal notranslate"><span class="pre">cheese/index.html</span></code>
+template. Go into that file and update the table to display the category
+name of a given cheese instead of its type. Update the header as well,
+so it has “Category” in place of “Type”.</p>
+</div>
+<div class="section" id="id1">
+<h2>Test!<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>You made a lot of changes! Great work.</p>
+<p>Assuming you don’t have any remaining compiler errors, start up your
+application. (Don’t forget to start MAMP first!) Make sure you can
+create a new cheese object, selecting a pre-existing category. Then make
+sure the proper category name is displayed in the table on the home page
+after doing so.</p>
+<p>When everything works, move on to <a class="reference external" href="../many-to-many/" target="_blank">Part 3<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
+<div class="section" id="bonus-missions">
+<h2>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Within <code class="docutils literal notranslate"><span class="pre">CheeseController</span></code>, create a handler named <code class="docutils literal notranslate"><span class="pre">category</span></code> that
+responds to <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests at URLs like <code class="docutils literal notranslate"><span class="pre">/cheese/category/2</span></code>,
+where 2 may be the ID of any category in the system. This handler
+should retrieve all cheeses in the given category and pass them into
+the view. You should use the <code class="docutils literal notranslate"><span class="pre">cheese/index.html</span></code> template to
+display the results, with an appropriate title.</li>
+</ul>
 </div>
 <div class="section" id="many-to-many">
 <h2>Many-To-Many<a class="headerlink" href="#many-to-many" title="Permalink to this headline">¶</a></h2>
