@@ -7,12 +7,35 @@ Your Task
 ---------
 
 You will once again work with the ``techjobs`` application. This time around you'll add ORM
-functionality by using Spring Data. 
+functionality by using Spring Data. You will be responsible for completing the code to allow users 
+to create new job data.
 
+Checkout and Review the Starter Code
+------------------------------------
+
+Fork and clone the starter code from the techjobs persistent repo.
+TODO: link to the repo
+TODO: describe what has changed from the end result of the last assignment. 
+
+We're no longer using a csv file to load job data, instead, we'll be creating new Job objects via a 
+user form. The Job data will be stored in a mySQL database that you'll setup in Part 1 of this assignment.
+
+You'll next be tasked with completing the work to persist some of the classes of the job data. As you explore
+the starter code, you'll notice that the ``JobField`` abstract class is no longer present. Your task for 
+Part 2 is to complete the work to persist some of the classes.
+TODO: clarify which classes they will need to complete.
+
+The ``Job`` class will also look different from how you have last seen it. In Parts 3 and 4, you'll 
+add back the ``employer`` and ``skills`` (formerly ``coreCompetency``) fields on the ``Job`` class,
+using one-to-many and many-to-many relationships.
+
+Finally, wou will be in charge of writing some SQL queries to extract the job data out of the application
+into a report.
 
 Learning Objectives
 -------------------
 
+#. Setup the database
 #. Configure an individual class to be managed by Spring Data
 #. Configure a one-to-many relationship to be managed by Spring Data
 #. Configure a many-to-many relationship to be managed by Spring Data
@@ -20,37 +43,80 @@ Learning Objectives
 
 .. _tech-jobs-persistent-setup:
 
-Setup
------
+Part 1: Setup
+-------------
 
 Connect a database to a Spring App.
 
+#. Start MySQL Workbench and create a new schema named ``techjobs``.
 
-Part 1: Persisting a Single Class
+   .. admonition:: Tip
+   
+      Remember to double click on the schema name in the file tree to make it the default schema.
+
+#. In the administration tab, create a new user, ``techjobs`` with the same settings as described in
+   the lesson tutorial.
+   TODO: reference the point in the book setting up the new user.
+
+#. Update ``build.gradle`` with the dependencies.
+
+#. Update ``src/resources/application.properties`` with the right info.
+
+#. Test?
+
+
+Part 2: Persisting a Single Class
 ---------------------------------
 
-Be sure you’ve completed the :ref:`setup steps <tech-jobs-persistent-setup>` before starting this
+You will need to have completed the :ref:`setup steps <tech-jobs-persistent-setup>` before starting this
 section.
 
-If you get stuck on any of the steps here, refer to the video lesson, or
-other code within the program that was provided. You’ll often find the
-answers there.
+.. You'll next be tasked with completing the work to persist some of the classes of the job data. As you explore
+.. the starter code, you'll notice that the ``JobField`` abstract class is no longer present. Your task for 
+.. Part 2 is to complete the work to persist some of the classes.
+.. TODO: clarify which classes they will need to complete.
 
-Setting Up the New Model
-^^^^^^^^^^^^^^^^^^^^^^^^
+.. If you get stuck on any of the steps here, refer to the video lesson, or
+.. other code within the program that was provided. You’ll often find the
+.. answers there.
 
-We’ll use Spring Data – along with JPA and Hibernate – to create an
-object-relational mapping for a new class.
+``AbstractEntity``
+^^^^^^^^^^^^^^^^^^
 
-#. update the classes: Job + Employer
+We've replaced the abstract class ``JobField`` with an even more abstracted class aptly named, 
+``AbstractEntity``. This class is holds the fields and methods that are common across the ``Job`` class
+and the classes it contains as fields.  
 
-#. use the @Entity annotation
+#. We will be creating tables for the subclasses that inherit from
+   ``AbstractEntity`` but not a table for this parent class. Therefore, give ``AbstractEntity`` the 
+   ``@MappedSuperClass`` annotation.
 
-#. id creation, getters and setters, constructors
+#. Since all of the subclasses of ``AbstractEntity`` will be entities themselves, add the ``@Id`` 
+   and ``@GeneratedValue`` annotations to the field ``id``.
 
-#. id annotation, generated value annotation
+#. Each subclass will also inherit the ``name`` field from ``AbstractEntity``. Add appropriate 
+   validation annotations so that:
+   
+   a. a user cannot leave this field blank when creating an object. 
 
-#. validation annotations on fields
+   b. there are reasonable limitations on the size of the name string.
+
+   .. admonition:: Tip
+
+      TODO: add notes on how to test this validation.
+
+.. We’ll use Spring Data – along with JPA and Hibernate – to create an
+.. object-relational mapping for a new class.
+
+.. #. update the classes: Job + Employer
+
+.. #. use the @Entity annotation
+
+.. #. id creation, getters and setters, constructors
+
+.. #. id annotation, generated value annotation
+
+.. #. validation annotations on fields
 
 .. In ``org.launchcode.models``, create a new model class named
 .. ``Category``. Add the ``@Entity`` annotation to make the class
@@ -80,10 +146,45 @@ object-relational mapping for a new class.
 .. objects from data retrieved from the database. - A constructor that
 .. accepts a parameter to set ``name``.
 
+``Employer`` and ``Skill``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This employer and skill (formerly core competency) information about a particular job will now be stored in classes themselves.
+These items themselves will hold their own supplementary information.
+
+
+#. In addition to the fields inherited from ``AbstractEntity``, ``Employer`` should have a string 
+   field for ``location``. Add this field with validation as you see fit, as well as getters and setters.
+
+   .. admonition:: Note
+
+      For the purposes of this application, an employer can only have one location.
+
+#. ``Employer`` is a class that will be mapped to one of our tables. Make sure the class has the 
+   ``@Entity`` annotation, as well as the no-arg constructor required for Hibernate to create an
+   object.
+
+#. In ``Skill``, add a field for a longer description of the skill. Some hiring managers like to have
+   more information available about the nature of a given programming language or framework. 
+
+#. As with ``Employer``, give this class the ``@Entity`` annotation and be sure it contains a no-arg
+   constructor.
+
+
 Setting Up the Data Layer
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. JobRepository interface creation, extend crud repo, transactional annotation
+To map the ``Employer`` and ``Skill`` classes to your techjobs database, you'll add a new package in 
+``models``, ``data``. Data will make use of the Spring Data ``CrudRepository`` class to map our objects.
+
+#. In ``models/data``, create a new interface ``EmployerRepository``.
+
+   a. ``EmployerRepository`` should extend ``CrudRepository``.
+   #. ``EmployerRepository`` should be annotated with both ``@Repository`` and ``@Transactional``.
+
+#. Repeat the steps above for an interface, ``SkillRepository``.
+
+.. #. JobRepository interface creation, extend crud repo, transactional annotation
 
 .. We’ll want instances of this class to be stored in the database, so
 .. create a new interface in ``org.launchcode.models.data`` named
@@ -102,7 +203,14 @@ Setting Up the Data Layer
 Adding Jobs
 ^^^^^^^^^^^
 
-#. add JobRepository to homecontroller with @autowired annotation
+TODO* STart with employer controller!
+
+With the data repositories in place, we can reference these to send object information through 
+controller handlers. ``HomeController`` contains handlers for the index page of the application,
+as well as the views for adding and viewing individual jobs.
+
+#. Add a private field of ``JobRepository`` type called ``jobRepository`` to ``HomeController``. 
+   Give this field an ``@Autowired`` annotation.
 
 
 

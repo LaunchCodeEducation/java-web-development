@@ -88,50 +88,134 @@
 <div class="section" id="your-task">
 <h2>Your Task<a class="headerlink" href="#your-task" title="Permalink to this headline">¶</a></h2>
 <p>You will once again work with the <code class="docutils literal notranslate"><span class="pre">techjobs</span></code> application. This time around you’ll add ORM
-functionality by using Spring Data.</p>
+functionality by using Spring Data. You will be responsible for completing the code to allow users
+to create new job data.</p>
+</div>
+<div class="section" id="checkout-and-review-the-starter-code">
+<h2>Checkout and Review the Starter Code<a class="headerlink" href="#checkout-and-review-the-starter-code" title="Permalink to this headline">¶</a></h2>
+<p>Fork and clone the starter code from the techjobs persistent repo.
+TODO: link to the repo
+TODO: describe what has changed from the end result of the last assignment.</p>
+<p>We’re no longer using a csv file to load job data, instead, we’ll be creating new Job objects via a
+user form. The Job data will be stored in a mySQL database that you’ll setup in Part 1 of this assignment.</p>
+<p>You’ll next be tasked with completing the work to persist some of the classes of the job data. As you explore
+the starter code, you’ll notice that the <code class="docutils literal notranslate"><span class="pre">JobField</span></code> abstract class is no longer present. Your task for
+Part 2 is to complete the work to persist some of the classes.
+TODO: clarify which classes they will need to complete.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Job</span></code> class will also look different from how you have last seen it. In Parts 3 and 4, you’ll
+add back the <code class="docutils literal notranslate"><span class="pre">employer</span></code> and <code class="docutils literal notranslate"><span class="pre">skills</span></code> (formerly <code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>) fields on the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class,
+using one-to-many and many-to-many relationships.</p>
+<p>Finally, wou will be in charge of writing some SQL queries to extract the job data out of the application
+into a report.</p>
 </div>
 <div class="section" id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
+<li>Setup the database</li>
 <li>Configure an individual class to be managed by Spring Data</li>
 <li>Configure a one-to-many relationship to be managed by Spring Data</li>
 <li>Configure a many-to-many relationship to be managed by Spring Data</li>
 <li>Create a SQL report</li>
 </ol>
 </div>
-<div class="section" id="setup">
-<span id="tech-jobs-persistent-setup"></span><h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="part-1-setup">
+<span id="tech-jobs-persistent-setup"></span><h2>Part 1: Setup<a class="headerlink" href="#part-1-setup" title="Permalink to this headline">¶</a></h2>
 <p>Connect a database to a Spring App.</p>
+<ol class="arabic">
+<li><p class="first">Start MySQL Workbench and create a new schema named <code class="docutils literal notranslate"><span class="pre">techjobs</span></code>.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">Remember to double click on the schema name in the file tree to make it the default schema.</p>
 </div>
-<div class="section" id="part-1-persisting-a-single-class">
-<h2>Part 1: Persisting a Single Class<a class="headerlink" href="#part-1-persisting-a-single-class" title="Permalink to this headline">¶</a></h2>
-<p>Be sure you’ve completed the <a class="reference internal" href="#tech-jobs-persistent-setup"><span class="std std-ref">setup steps</span></a> before starting this
+</li>
+<li><p class="first">In the administration tab, create a new user, <code class="docutils literal notranslate"><span class="pre">techjobs</span></code> with the same settings as described in
+the lesson tutorial.
+TODO: reference the point in the book setting up the new user.</p>
+</li>
+<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> with the dependencies.</p>
+</li>
+<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">src/resources/application.properties</span></code> with the right info.</p>
+</li>
+<li><p class="first">Test?</p>
+</li>
+</ol>
+</div>
+<div class="section" id="part-2-persisting-a-single-class">
+<h2>Part 2: Persisting a Single Class<a class="headerlink" href="#part-2-persisting-a-single-class" title="Permalink to this headline">¶</a></h2>
+<p>You will need to have completed the <a class="reference internal" href="#tech-jobs-persistent-setup"><span class="std std-ref">setup steps</span></a> before starting this
 section.</p>
-<p>If you get stuck on any of the steps here, refer to the video lesson, or
-other code within the program that was provided. You’ll often find the
-answers there.</p>
-<div class="section" id="setting-up-the-new-model">
-<h3>Setting Up the New Model<a class="headerlink" href="#setting-up-the-new-model" title="Permalink to this headline">¶</a></h3>
-<p>We’ll use Spring Data – along with JPA and Hibernate – to create an
-object-relational mapping for a new class.</p>
-<ol class="arabic simple">
-<li>update the classes: Job + Employer</li>
-<li>use the &#64;Entity annotation</li>
-<li>id creation, getters and setters, constructors</li>
-<li>id annotation, generated value annotation</li>
-<li>validation annotations on fields</li>
+<div class="section" id="abstractentity">
+<h3><code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code><a class="headerlink" href="#abstractentity" title="Permalink to this headline">¶</a></h3>
+<p>We’ve replaced the abstract class <code class="docutils literal notranslate"><span class="pre">JobField</span></code> with an even more abstracted class aptly named,
+<code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. This class is holds the fields and methods that are common across the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class
+and the classes it contains as fields.</p>
+<ol class="arabic">
+<li><p class="first">We will be creating tables for the subclasses that inherit from
+<code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> but not a table for this parent class. Therefore, give <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> the
+<code class="docutils literal notranslate"><span class="pre">&#64;MappedSuperClass</span></code> annotation.</p>
+</li>
+<li><p class="first">Since all of the subclasses of <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> will be entities themselves, add the <code class="docutils literal notranslate"><span class="pre">&#64;Id</span></code>
+and <code class="docutils literal notranslate"><span class="pre">&#64;GeneratedValue</span></code> annotations to the field <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+</li>
+<li><p class="first">Each subclass will also inherit the <code class="docutils literal notranslate"><span class="pre">name</span></code> field from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Add appropriate
+validation annotations so that:</p>
+<ol class="loweralpha simple">
+<li>a user cannot leave this field blank when creating an object.</li>
+<li>there are reasonable limitations on the size of the name string.</li>
+</ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">TODO: add notes on how to test this validation.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="employer-and-skill">
+<h3><code class="docutils literal notranslate"><span class="pre">Employer</span></code> and <code class="docutils literal notranslate"><span class="pre">Skill</span></code><a class="headerlink" href="#employer-and-skill" title="Permalink to this headline">¶</a></h3>
+<p>This employer and skill (formerly core competency) information about a particular job will now be stored in classes themselves.
+These items themselves will hold their own supplementary information.</p>
+<ol class="arabic">
+<li><p class="first">In addition to the fields inherited from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code> should have a string
+field for <code class="docutils literal notranslate"><span class="pre">location</span></code>. Add this field with validation as you see fit, as well as getters and setters.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">For the purposes of this application, an employer can only have one location.</p>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Employer</span></code> is a class that will be mapped to one of our tables. Make sure the class has the
+<code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> annotation, as well as the no-arg constructor required for Hibernate to create an
+object.</p>
+</li>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">Skill</span></code>, add a field for a longer description of the skill. Some hiring managers like to have
+more information available about the nature of a given programming language or framework.</p>
+</li>
+<li><p class="first">As with <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, give this class the <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> annotation and be sure it contains a no-arg
+constructor.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="setting-up-the-data-layer">
 <h3>Setting Up the Data Layer<a class="headerlink" href="#setting-up-the-data-layer" title="Permalink to this headline">¶</a></h3>
+<p>To map the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> and <code class="docutils literal notranslate"><span class="pre">Skill</span></code> classes to your techjobs database, you’ll add a new package in
+<code class="docutils literal notranslate"><span class="pre">models</span></code>, <code class="docutils literal notranslate"><span class="pre">data</span></code>. Data will make use of the Spring Data <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> class to map our objects.</p>
 <ol class="arabic simple">
-<li>JobRepository interface creation, extend crud repo, transactional annotation</li>
+<li>In <code class="docutils literal notranslate"><span class="pre">models/data</span></code>, create a new interface <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code>.<ol class="loweralpha">
+<li><code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> should extend <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> should be annotated with both <code class="docutils literal notranslate"><span class="pre">&#64;Repository</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;Transactional</span></code>.</li>
+</ol>
+</li>
+<li>Repeat the steps above for an interface, <code class="docutils literal notranslate"><span class="pre">SkillRepository</span></code>.</li>
 </ol>
 </div>
 <div class="section" id="adding-jobs">
 <h3>Adding Jobs<a class="headerlink" href="#adding-jobs" title="Permalink to this headline">¶</a></h3>
+<p>TODO* STart with employer controller!</p>
+<p>With the data repositories in place, we can reference these to send object information through
+controller handlers. <code class="docutils literal notranslate"><span class="pre">HomeController</span></code> contains handlers for the index page of the application,
+as well as the views for adding and viewing individual jobs.</p>
 <ol class="arabic simple">
-<li>add JobRepository to homecontroller with &#64;autowired annotation</li>
+<li>Add a private field of <code class="docutils literal notranslate"><span class="pre">JobRepository</span></code> type called <code class="docutils literal notranslate"><span class="pre">jobRepository</span></code> to <code class="docutils literal notranslate"><span class="pre">HomeController</span></code>.
+Give this field an <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code> annotation.</li>
 </ol>
 </div>
 <div class="section" id="view-all-jobs">
