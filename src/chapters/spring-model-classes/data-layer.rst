@@ -1,3 +1,5 @@
+.. _data-layer:
+
 Models and Data 
 ===============
 
