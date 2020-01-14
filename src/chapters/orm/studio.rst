@@ -15,9 +15,7 @@ In your ``coding-events`` repository, checkout out the `add-persistent-category 
 Your Tasks
 ----------
 
-Look at both the ``Event`` and ``EventCategory`` classes and identify the methods and fields that are the same in both.
-
-You should find that the following class members are (essentially) the same in both classes:
+Let's look at both the ``Event`` and ``EventCategory`` classes. There are four class members that are (essentially) the same in both classes:
 
 - The ``id`` field
 - The ``getId`` method
@@ -30,7 +28,7 @@ You should find that the following class members are (essentially) the same in b
 
    .. sourcecode:: java
 
-      Event that = (Event) o;
+      Event Event = (Event) o;
 
    while in ``EventCategory`` this line is slightly different;
 
@@ -40,12 +38,12 @@ You should find that the following class members are (essentially) the same in b
 
    This minor difference will not matter in the long run, as we'll see later.
 
-Your objective in this studio is to reduce this repetition by creating a class that both ``Event`` and ``EventCategory`` can inherit from, and which contains the duplicated/shared code.
+Your objective in this studio is to reduce this repetition by creating a class that contains the duplicated/shared code, which both ``Event`` and ``EventCategory`` can inherit.
 
 Create and Extend ``AbstractEntity``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the ``models`` package, create a new class named ``AbstractEntity``. Add the ``abstract`` keyword to the class declaration. We do this because, while we want to share code across our two models, we'll never need to create an instance of ``AbstractEntity``.
+In the ``models`` package, create a new class named ``AbstractEntity``. Add the ``abstract`` keyword to the class declaration. We do this because, while we want to share code across our two models, we'll never need to create an instance of ``AbstractEntity``. If you need a quick refresher, review our section on :ref:`abstract-classes`.
 
 .. admonition:: Tip
 
@@ -70,8 +68,8 @@ When you move the ``equals`` method up into ``AbstractEntity``, you'll see a com
    public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
-      Event that = (Event) o;
-      return id == that.id;
+      Event event = (Event) o;
+      return id == event.id;
    }
 
 The compiler error occurs on the last line, and the context menu in IntelliJ describes it for us:
@@ -81,9 +79,9 @@ The compiler error occurs on the last line, and the context menu in IntelliJ des
    'id' has private access in 'org.launchcode.codingevents.models.AbstractEntity'
 
 
-What is this telling us? As written, ``that`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line above: ``event that = (Event) o;``. But when we reference ``that.id`` we are attempting to reference the *private* field ``id``, which lives not in ``Event`` but in ``AbstractEntity``. This is not allowed.
+What is this telling us? As written, ``event`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line above: ``event event = (Event) o;``. But when we reference ``event.id`` we are attempting to reference the *private* field ``id``, which lives not in ``Event`` but in ``AbstractEntity``. This is not allowed.
 
-This error is easy to fix; simply change the cast on the next-to-last line to convert ``o`` to an instance of ``AbstractEntity``.
+This error is easy to fix; simply change the cast on the next-to-last line to convert ``o`` to an instance of ``AbstractEntity``. And while we're at it, let's give the variable ``event`` a better name.
 
 .. sourcecode:: java
 
@@ -91,8 +89,8 @@ This error is easy to fix; simply change the cast on the next-to-last line to co
    public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
-      AbstractEntity that = (AbstractEntity) o;
-      return id == that.id;
+      AbstractEntity entity = (AbstractEntity) o;
+      return id == entity.id;
    }
 
 .. admonition:: Note
@@ -103,12 +101,12 @@ This error is easy to fix; simply change the cast on the next-to-last line to co
 
 Now in your other model, delete the 4 class members that are now inherited from ``AbstractEntity``. You should have NO compiler errors in your application at this point.
 
-The ``@MappedSuperClass`` Annotation
+The ``@MappedSuperclass`` Annotation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One final step: Add the ``@MappedSuperClass`` to your ``AbstractEntity`` class. 
+One final step: Add the ``@MappedSuperclass`` to your ``AbstractEntity`` class. 
 
-This annotation will be discussed in more detail later, but for now you should understand that it ensures that even though ``Event`` and ``EventCategory`` don't have ``id`` fields in their class definition (since they are inherited) these columns will still be stored on the ``event`` and ``event_category`` tables of the database.
+This annotation will be discussed in more detail later. For now, you should understand that it ensures that the ``id`` values will still be stored in the ``event`` and ``event_category`` tables of the database, even though ``Event`` and ``EventCategory`` don't have ``id`` fields in their class definition.
 
 Making Sure It Works
 ^^^^^^^^^^^^^^^^^^^^
