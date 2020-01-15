@@ -18,33 +18,24 @@ TODO: link to the repo
 TODO: describe what has changed from the end result of the last assignment. 
 
 We're no longer using a csv file to load job data, instead, we'll be creating new Job objects via a 
-user form. The Job data will be stored in a mySQL database that you'll setup in Part 1 of this assignment.
+user form. The Job data will be stored in a MySQL database that you'll setup in :ref:`Part 1 <tech-jobs-persistent-pt1>` of this assignment.
 
 You'll next be tasked with completing the work to persist some of the classes of the job data. As you explore
 the starter code, you'll notice that the ``JobField`` abstract class is no longer present. Your task for 
-Part 2 is to complete the work to persist some of the classes.
+:ref:`Part 2 <tech-jobs-persistent-pt2>` is to complete the work to persist some of the classes.
 TODO: clarify which classes they will need to complete.
 
 The ``Job`` class will also look different from how you have last seen it. In Parts 3 and 4, you'll 
 add back the ``employer`` and ``skills`` (formerly ``coreCompetency``) fields on the ``Job`` class,
-using one-to-many and many-to-many relationships.
+using :ref:`one-to-many <tech-jobs-persistent-pt3>` and :ref:`many-to-many <tech-jobs-persistent-pt4>` relationships.
 
-Finally, wou will be in charge of writing some SQL queries to extract the job data out of the application
-into a report.
+Finally, :ref:`Part 5 <tech-jobs-persistent-pt5>` asks you to be in charge of writing some SQL queries to extract the job 
+data out of the application.
 
-Learning Objectives
--------------------
+.. _tech-jobs-persistent-pt1:
 
-#. Setup the database
-#. Configure an individual class to be managed by Spring Data
-#. Configure a one-to-many relationship to be managed by Spring Data
-#. Configure a many-to-many relationship to be managed by Spring Data
-#. Create a SQL report
-
-.. _tech-jobs-persistent-setup:
-
-Part 1: Setup
--------------
+Part 1: Setup the Database
+--------------------------
 
 Connect a database to a Spring App.
 
@@ -62,8 +53,12 @@ Connect a database to a Spring App.
 
 #. Update ``src/resources/application.properties`` with the right info.
 
-#. Test?
+.. admonition:: Tip
+   
+   You can double check your setup against what you've already done for 
+   :ref:`your coding events repo <setup-orm-database>`
 
+.. _tech-jobs-persistent-pt2:
 
 Part 2: Persisting a Single Class
 ---------------------------------
@@ -200,18 +195,34 @@ To map the ``Employer`` and ``Skill`` classes to your techjobs database, you'll 
 ..    public interface CategoryDao extends CrudRepository<Category, Integer> {
 ..    }
 
-Adding Jobs
-^^^^^^^^^^^
+Adding Employers
+^^^^^^^^^^^^^^^^
 
-TODO* STart with employer controller!
+With the employer repository in place, we will reference this to send object information through 
+the ``EmployerController`` handlers. ``EmployerController`` contains two handlers with missing 
+information.
 
-With the data repositories in place, we can reference these to send object information through 
-controller handlers. ``HomeController`` contains handlers for the index page of the application,
-as well as the views for adding and viewing individual jobs.
+#. View an individual employer object.
 
-#. Add a private field of ``JobRepository`` type called ``jobRepository`` to ``HomeController``. 
-   Give this field an ``@Autowired`` annotation.
+Your task here is to make use of the ``EmployerRepository`` class in these handlers. 
 
+#. Add a private field of ``EmployerRepository`` type called ``employerRepository`` to 
+   ``EmployerController``. Give this field an ``@Autowired`` annotation.
+
+#. ``processAddEmployerForm`` already takes care of sending the form back if any of the submitted 
+   employer object information is invalid. However, it doesn't yet contain the code to save a
+   valid object. Use ``employerRepository`` and the appropriate method to do so.
+   
+#. ``displayViewEmployer`` will be in charge of rendering an a page to view the contents of an individual 
+   employer object. It will make use of that employer object's ``id`` field to grab the correct
+   information from ``employerRepository``. ``optEmployer`` is not yet initialized. You'll need to use
+   the ``.findById()`` method with the right argument to look for the given employer object from 
+   the data layer. 
+
+   .. admonition:: Tip
+
+      The variable holding the id you want to query for is already provided for you in the controller
+      method's parameters.
 
 
 .. Create a ``CategoryController`` in ``org.launchcode.controllers``. Add
@@ -252,130 +263,151 @@ as well as the views for adding and viewing individual jobs.
 
 ..    </aside>
 
-View All Jobs
-^^^^^^^^^^^^^
-
-#. create view template for accessing individual job info.
-
-.. Create an ``index`` handler within ``CategoryController``. Create an
-.. ``index.html`` template file in ``resources/templates/category/`` (you
-.. will have to create this last folder).
-
-.. The ``index`` handler should correspond to the route ``""`` (that is,
-.. the path ``/category``), and it should retrieve the list of all
-.. categories. This is done via the ``categoryDao`` object:
-.. ``categoryDao.findAll()`` returns a collection (actually, an
-.. ``Iterable``) of all ``Category`` objects managed by ``categoryDao``.
-.. Use this snippet to retrieve the list of categories, and then pass the
-.. list into the view by adding it to ``model``. Also add a ``"title"`` to
-.. the model (“Categories” works).
-
-.. The handler should render the ``index.html`` template that you just
-.. created. This view should display an unordered list (that is, a
-.. ``<ul>``) of category names. The list will look a bit plain for now, but
-.. we will make it more interesting later on.
-
-Add Jobs
+Test It!
 ^^^^^^^^
+The employer view templates for adding and viewing are made for you. Before you move on,
+test your application now to make sure it runs as expected. You should be able to create an Employer object
+and view it.
 
-#. Next, we want to enable the user to create a new category via a form.
-This will require multiple steps.
+#. Start up your application – don’t forget to have our SQL server running – and go to the *Add Jobs*
+   view from the nav bar.
 
-Add Handler Methods
-^^^^^^^^^^^^^^^^^^^
+#. You won't be able to add a job yet, but you'll see a link to *Add Employers* in the form. Click it.
 
-Let’s add controller handlers to render and process the form.
-
-#. create an add handler in homecontroller for adding jobs
-#. create another handler for the posting of this form
-#. check for object validation and if good, use the crudrepository mehtod to save the object
-
-.. Create an ``add`` handler within ``CategoryController`` with input
-.. parameter ``Model model``. It should create a new ``Category`` object
-.. using the default constructor and pass it into the view with key
-.. ``"category"`` (you can do this with the shorthand
-.. ``model.addAttribute(new Category())``; note the omission of a
-.. string/key argument). Add the title “Add Category” to ``model`` as well.
-
-.. The ``add`` handler should accept ``GET`` requests at ``/category/add``
-.. (recall that you set the path segment “category” at the controller level
-.. already). The handler should render the ``category/add`` template (we’ll
-.. add this template in a moment).
-
-.. Create another ``add`` handler that accepts ``POST`` requests at
-.. ``/category/add``. Its signature should be:
-
-.. .. code:: java
-
-..    public String add(Model model,
-..        @ModelAttribute @Valid Category category, Errors errors)
-
-.. Within this second ``add`` handler: - Determine whether or not there are
-.. any validation errors. If there are, return the form at
-.. ``category/add``. - If the form submission is valid: - Save the new
-.. ``Category`` object by calling ``categoryDao.save(category)``. -
-.. Redirect to the ``index`` handler for ``CategoryController`` by
-.. returning the string ``"redirect:"``.
-
-Add View
-^^^^^^^^
-
-#. create the template to add jobs via a form
-
-.. In ``resources/templates/category/`` create a new template,
-.. ``add.html``. Within the template, create a form that uses the
-.. ``category`` object that you passed in from the controller.
-
-.. You’ll need to bind the object to the form using
-.. ``th:object="${category}"``. And you should use the appropriate
-.. attributes within the form: ``th:for``, ``th:field``, ``th:errors``.
-
-.. This is the same technique we’ve been using over the last couple of
-.. weeks.
-
-Adding Navigation Links
-^^^^^^^^^^^^^^^^^^^^^^^
-
-#. add a link to the add jobs form - TechJobs title in the nav bar
-
-.. Let’s make it easy to navigate to the new views that we’ve created.
-
-.. Within the ``fragments.html`` template, add a link to ``/category`` to
-.. the list of navigation links.
-
-.. Within the ``category/index.html`` template, add a link to
-.. ``/category/add`` with the text “Add Category”. Place this link below
-.. the list.
-
-Test!
-^^^^^
-
-Start up your application – don’t forget to have our SQL server running – and try
-to add a new job!
-
-Click on the *TechJobs* navigation link, then on *Add Job*.
-Complete the form, and if everything works as expected, you’ll see your
-new job in the list. If everything seems to work – that is, you are
-able to submit the form without any errors – but you don’t see your
-job in the list, here’s what you should check:
-
--  Is there any data in the ``jobs`` table? Check by going to MySQL Workbench
-   and looking for the job data within your schema.
-
-.. hitting the *Open Start Page* button, then navigating to *Tools >
-.. phpMyAdmin*. Find the ``cheese-mvc-data`` database, and look within
-.. the ``categories``. If there isn’t any data in the table, you
-.. probably forgot to save the category when processing the form.
-
--  If there’s data in the database, check that you are correctly
-   querying for the list of all jobs in the controller
-   findAll()``?
--  Ensure you’re passing this list into the view, and looping over the
-   list of jobs to display them in the page.
+#. Complete the form and test your validation requirements and error handling.
 
 When everything works, move on to Part 2 below.
 
-Part 2: Setting Up a One-to-Many Relationship
+.. admonition:: Tip
+
+   If everything seems to work – that is, you are
+   able to submit the form without any errors – but you don’t see your
+   employer in the list after submission, here’s what you should check:
+
+   #. Is there any data in the ``employers`` table? Check by going to MySQL Workbench
+      and looking for the employer data within your schema.
+
+   #. If there’s data in the database, check that you are correctly
+      querying for the list of all employers in the controller
+      findAll()``?
+
+   #. Ensure you’re passing this list into the view, and it is named the same as the variable in the ThymeLeaf template.
+
+
+
+.. View All Jobs
+.. ^^^^^^^^^^^^^
+
+.. #. create view template for accessing individual job info.
+
+.. .. Create an ``index`` handler within ``CategoryController``. Create an
+.. .. ``index.html`` template file in ``resources/templates/category/`` (you
+.. .. will have to create this last folder).
+
+.. .. The ``index`` handler should correspond to the route ``""`` (that is,
+.. .. the path ``/category``), and it should retrieve the list of all
+.. .. categories. This is done via the ``categoryDao`` object:
+.. .. ``categoryDao.findAll()`` returns a collection (actually, an
+.. .. ``Iterable``) of all ``Category`` objects managed by ``categoryDao``.
+.. .. Use this snippet to retrieve the list of categories, and then pass the
+.. .. list into the view by adding it to ``model``. Also add a ``"title"`` to
+.. .. the model (“Categories” works).
+
+.. .. The handler should render the ``index.html`` template that you just
+.. .. created. This view should display an unordered list (that is, a
+.. .. ``<ul>``) of category names. The list will look a bit plain for now, but
+.. .. we will make it more interesting later on.
+
+.. Add Jobs
+.. ^^^^^^^^
+
+.. #. Next, we want to enable the user to create a new category via a form.
+.. This will require multiple steps.
+
+.. Add Handler Methods
+.. ^^^^^^^^^^^^^^^^^^^
+
+.. Let’s add controller handlers to render and process the form.
+
+.. #. create an add handler in homecontroller for adding jobs
+.. #. create another handler for the posting of this form
+.. #. check for object validation and if good, use the crudrepository mehtod to save the object
+
+.. .. Create an ``add`` handler within ``CategoryController`` with input
+.. .. parameter ``Model model``. It should create a new ``Category`` object
+.. .. using the default constructor and pass it into the view with key
+.. .. ``"category"`` (you can do this with the shorthand
+.. .. ``model.addAttribute(new Category())``; note the omission of a
+.. .. string/key argument). Add the title “Add Category” to ``model`` as well.
+
+.. .. The ``add`` handler should accept ``GET`` requests at ``/category/add``
+.. .. (recall that you set the path segment “category” at the controller level
+.. .. already). The handler should render the ``category/add`` template (we’ll
+.. .. add this template in a moment).
+
+.. .. Create another ``add`` handler that accepts ``POST`` requests at
+.. .. ``/category/add``. Its signature should be:
+
+.. .. .. code:: java
+
+.. ..    public String add(Model model,
+.. ..        @ModelAttribute @Valid Category category, Errors errors)
+
+.. .. Within this second ``add`` handler: - Determine whether or not there are
+.. .. any validation errors. If there are, return the form at
+.. .. ``category/add``. - If the form submission is valid: - Save the new
+.. .. ``Category`` object by calling ``categoryDao.save(category)``. -
+.. .. Redirect to the ``index`` handler for ``CategoryController`` by
+.. .. returning the string ``"redirect:"``.
+
+.. Add View
+.. ^^^^^^^^
+
+.. #. create the template to add jobs via a form
+
+.. .. In ``resources/templates/category/`` create a new template,
+.. .. ``add.html``. Within the template, create a form that uses the
+.. .. ``category`` object that you passed in from the controller.
+
+.. .. You’ll need to bind the object to the form using
+.. .. ``th:object="${category}"``. And you should use the appropriate
+.. .. attributes within the form: ``th:for``, ``th:field``, ``th:errors``.
+
+.. .. This is the same technique we’ve been using over the last couple of
+.. .. weeks.
+
+
+.. Test!
+.. ^^^^^
+
+.. Start up your application – don’t forget to have our SQL server running – and try
+.. to add a new job!
+
+.. Click on the *TechJobs* navigation link, then on *Add Job*.
+.. Complete the form, and if everything works as expected, you’ll see your
+.. new job in the list. If everything seems to work – that is, you are
+.. able to submit the form without any errors – but you don’t see your
+.. job in the list, here’s what you should check:
+
+.. -  Is there any data in the ``jobs`` table? Check by going to MySQL Workbench
+..    and looking for the job data within your schema.
+
+.. .. hitting the *Open Start Page* button, then navigating to *Tools >
+.. .. phpMyAdmin*. Find the ``cheese-mvc-data`` database, and look within
+.. .. the ``categories``. If there isn’t any data in the table, you
+.. .. probably forgot to save the category when processing the form.
+
+.. -  If there’s data in the database, check that you are correctly
+..    querying for the list of all jobs in the controller
+..    findAll()``?
+.. -  Ensure you’re passing this list into the view, and looping over the
+..    list of jobs to display them in the page.
+
+.. When everything works, move on to Part 2 below.
+
+.. _tech-jobs-persistent-pt3:
+
+Part 3: Setting Up a One-to-Many Relationship
 ---------------------------------------------
 
 One job has one employer. One employer can have many jobs.
@@ -553,8 +585,9 @@ after doing so.
 
 When everything works, move on to Part 3 below.
 
+.. _tech-jobs-persistent-pt4:
 
-Part 3: Setting Up a Many-to-Many Relationship
+Part 4: Setting Up a Many-to-Many Relationship
 ----------------------------------------------
 
 A Job requires many skills and a skill can be associated with several jobs.
@@ -918,6 +951,7 @@ Run your application and make sure you can create a new job with several skills.
 
 When everything works, you’re done! Congrats!
 
+.. _tech-jobs-persistent-pt5:
 
 SQL Report
 ----------
@@ -949,3 +983,12 @@ To turn in your assignment and get credit, follow the :ref:`submission instructi
 ..    ``CheeseData`` to get and save the object, use ``cheeseDao``. And
 ..    don’t forget to call ``.save()`` to make sure your edits are stored
 ..    in the database!.
+
+.. Objectives
+.. ----------
+
+.. #. Setup the database
+.. #. Configure an individual class to be managed by Spring Data
+.. #. Configure a one-to-many relationship to be managed by Spring Data
+.. #. Configure a many-to-many relationship to be managed by Spring Data
+.. #. Create a SQL report

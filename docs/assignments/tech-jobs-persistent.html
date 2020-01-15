@@ -97,29 +97,19 @@ to create new job data.</p>
 TODO: link to the repo
 TODO: describe what has changed from the end result of the last assignment.</p>
 <p>We’re no longer using a csv file to load job data, instead, we’ll be creating new Job objects via a
-user form. The Job data will be stored in a mySQL database that you’ll setup in Part 1 of this assignment.</p>
+user form. The Job data will be stored in a MySQL database that you’ll setup in <a class="reference internal" href="#tech-jobs-persistent-pt1"><span class="std std-ref">Part 1</span></a> of this assignment.</p>
 <p>You’ll next be tasked with completing the work to persist some of the classes of the job data. As you explore
 the starter code, you’ll notice that the <code class="docutils literal notranslate"><span class="pre">JobField</span></code> abstract class is no longer present. Your task for
-Part 2 is to complete the work to persist some of the classes.
+<a class="reference internal" href="#tech-jobs-persistent-pt2"><span class="std std-ref">Part 2</span></a> is to complete the work to persist some of the classes.
 TODO: clarify which classes they will need to complete.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Job</span></code> class will also look different from how you have last seen it. In Parts 3 and 4, you’ll
 add back the <code class="docutils literal notranslate"><span class="pre">employer</span></code> and <code class="docutils literal notranslate"><span class="pre">skills</span></code> (formerly <code class="docutils literal notranslate"><span class="pre">coreCompetency</span></code>) fields on the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class,
-using one-to-many and many-to-many relationships.</p>
-<p>Finally, wou will be in charge of writing some SQL queries to extract the job data out of the application
-into a report.</p>
+using <a class="reference internal" href="#tech-jobs-persistent-pt3"><span class="std std-ref">one-to-many</span></a> and <a class="reference internal" href="#tech-jobs-persistent-pt4"><span class="std std-ref">many-to-many</span></a> relationships.</p>
+<p>Finally, <a class="reference internal" href="#tech-jobs-persistent-pt5"><span class="std std-ref">Part 5</span></a> asks you to be in charge of writing some SQL queries to extract the job
+data out of the application.</p>
 </div>
-<div class="section" id="learning-objectives">
-<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Setup the database</li>
-<li>Configure an individual class to be managed by Spring Data</li>
-<li>Configure a one-to-many relationship to be managed by Spring Data</li>
-<li>Configure a many-to-many relationship to be managed by Spring Data</li>
-<li>Create a SQL report</li>
-</ol>
-</div>
-<div class="section" id="part-1-setup">
-<span id="tech-jobs-persistent-setup"></span><h2>Part 1: Setup<a class="headerlink" href="#part-1-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="part-1-setup-the-database">
+<span id="tech-jobs-persistent-pt1"></span><h2>Part 1: Setup the Database<a class="headerlink" href="#part-1-setup-the-database" title="Permalink to this headline">¶</a></h2>
 <p>Connect a database to a Spring App.</p>
 <ol class="arabic">
 <li><p class="first">Start MySQL Workbench and create a new schema named <code class="docutils literal notranslate"><span class="pre">techjobs</span></code>.</p>
@@ -136,13 +126,16 @@ TODO: reference the point in the book setting up the new user.</p>
 </li>
 <li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">src/resources/application.properties</span></code> with the right info.</p>
 </li>
-<li><p class="first">Test?</p>
-</li>
 </ol>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">You can double check your setup against what you’ve already done for
+<span class="xref std std-ref">your coding events repo</span></p>
+</div>
 </div>
 <div class="section" id="part-2-persisting-a-single-class">
-<h2>Part 2: Persisting a Single Class<a class="headerlink" href="#part-2-persisting-a-single-class" title="Permalink to this headline">¶</a></h2>
-<p>You will need to have completed the <a class="reference internal" href="#tech-jobs-persistent-setup"><span class="std std-ref">setup steps</span></a> before starting this
+<span id="tech-jobs-persistent-pt2"></span><h2>Part 2: Persisting a Single Class<a class="headerlink" href="#part-2-persisting-a-single-class" title="Permalink to this headline">¶</a></h2>
+<p>You will need to have completed the <span class="xref std std-ref">setup steps</span> before starting this
 section.</p>
 <div class="section" id="abstractentity">
 <h3><code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code><a class="headerlink" href="#abstractentity" title="Permalink to this headline">¶</a></h3>
@@ -207,74 +200,66 @@ constructor.</p>
 <li>Repeat the steps above for an interface, <code class="docutils literal notranslate"><span class="pre">SkillRepository</span></code>.</li>
 </ol>
 </div>
-<div class="section" id="adding-jobs">
-<h3>Adding Jobs<a class="headerlink" href="#adding-jobs" title="Permalink to this headline">¶</a></h3>
-<p>TODO* STart with employer controller!</p>
-<p>With the data repositories in place, we can reference these to send object information through
-controller handlers. <code class="docutils literal notranslate"><span class="pre">HomeController</span></code> contains handlers for the index page of the application,
-as well as the views for adding and viewing individual jobs.</p>
+<div class="section" id="adding-employers">
+<h3>Adding Employers<a class="headerlink" href="#adding-employers" title="Permalink to this headline">¶</a></h3>
+<p>With the employer repository in place, we will reference this to send object information through
+the <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code> handlers. <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code> contains two handlers with missing
+information.</p>
 <ol class="arabic simple">
-<li>Add a private field of <code class="docutils literal notranslate"><span class="pre">JobRepository</span></code> type called <code class="docutils literal notranslate"><span class="pre">jobRepository</span></code> to <code class="docutils literal notranslate"><span class="pre">HomeController</span></code>.
-Give this field an <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code> annotation.</li>
+<li>View an individual employer object.</li>
+</ol>
+<p>Your task here is to make use of the <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> class in these handlers.</p>
+<ol class="arabic">
+<li><p class="first">Add a private field of <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> type called <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> to
+<code class="docutils literal notranslate"><span class="pre">EmployerController</span></code>. Give this field an <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code> annotation.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">processAddEmployerForm</span></code> already takes care of sending the form back if any of the submitted
+employer object information is invalid. However, it doesn’t yet contain the code to save a
+valid object. Use <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> and the appropriate method to do so.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">displayViewEmployer</span></code> will be in charge of rendering an a page to view the contents of an individual
+employer object. It will make use of that employer object’s <code class="docutils literal notranslate"><span class="pre">id</span></code> field to grab the correct
+information from <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code>. <code class="docutils literal notranslate"><span class="pre">optEmployer</span></code> is not yet initialized. You’ll need to use
+the <code class="docutils literal notranslate"><span class="pre">.findById()</span></code> method with the right argument to look for the given employer object from
+the data layer.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">The variable holding the id you want to query for is already provided for you in the controller
+method’s parameters.</p>
+</div>
+</li>
 </ol>
 </div>
-<div class="section" id="view-all-jobs">
-<h3>View All Jobs<a class="headerlink" href="#view-all-jobs" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="test-it">
+<h3>Test It!<a class="headerlink" href="#test-it" title="Permalink to this headline">¶</a></h3>
+<p>The employer view templates for adding and viewing are made for you. Before you move on,
+test your application now to make sure it runs as expected. You should be able to create an Employer object
+and view it.</p>
 <ol class="arabic simple">
-<li>create view template for accessing individual job info.</li>
+<li>Start up your application – don’t forget to have our SQL server running – and go to the <em>Add Jobs</em>
+view from the nav bar.</li>
+<li>You won’t be able to add a job yet, but you’ll see a link to <em>Add Employers</em> in the form. Click it.</li>
+<li>Complete the form and test your validation requirements and error handling.</li>
 </ol>
-</div>
-<div class="section" id="add-jobs">
-<h3>Add Jobs<a class="headerlink" href="#add-jobs" title="Permalink to this headline">¶</a></h3>
-<p>#. Next, we want to enable the user to create a new category via a form.
-This will require multiple steps.</p>
-</div>
-<div class="section" id="add-handler-methods">
-<h3>Add Handler Methods<a class="headerlink" href="#add-handler-methods" title="Permalink to this headline">¶</a></h3>
-<p>Let’s add controller handlers to render and process the form.</p>
-<ol class="arabic simple">
-<li>create an add handler in homecontroller for adding jobs</li>
-<li>create another handler for the posting of this form</li>
-<li>check for object validation and if good, use the crudrepository mehtod to save the object</li>
-</ol>
-</div>
-<div class="section" id="add-view">
-<h3>Add View<a class="headerlink" href="#add-view" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>create the template to add jobs via a form</li>
-</ol>
-</div>
-<div class="section" id="adding-navigation-links">
-<h3>Adding Navigation Links<a class="headerlink" href="#adding-navigation-links" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>add a link to the add jobs form - TechJobs title in the nav bar</li>
-</ol>
-</div>
-<div class="section" id="test">
-<h3>Test!<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
-<p>Start up your application – don’t forget to have our SQL server running – and try
-to add a new job!</p>
-<p>Click on the <em>TechJobs</em> navigation link, then on <em>Add Job</em>.
-Complete the form, and if everything works as expected, you’ll see your
-new job in the list. If everything seems to work – that is, you are
-able to submit the form without any errors – but you don’t see your
-job in the list, here’s what you should check:</p>
-<ul class="simple">
-<li>Is there any data in the <code class="docutils literal notranslate"><span class="pre">jobs</span></code> table? Check by going to MySQL Workbench
-and looking for the job data within your schema.</li>
-</ul>
-<ul class="simple">
-<li>If there’s data in the database, check that you are correctly
-querying for the list of all jobs in the controller
-findAll()``?</li>
-<li>Ensure you’re passing this list into the view, and looping over the
-list of jobs to display them in the page.</li>
-</ul>
 <p>When everything works, move on to Part 2 below.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>If everything seems to work – that is, you are
+able to submit the form without any errors – but you don’t see your
+employer in the list after submission, here’s what you should check:</p>
+<ol class="last arabic simple">
+<li>Is there any data in the <code class="docutils literal notranslate"><span class="pre">employers</span></code> table? Check by going to MySQL Workbench
+and looking for the employer data within your schema.</li>
+<li>If there’s data in the database, check that you are correctly
+querying for the list of all employers in the controller
+findAll()``?</li>
+<li>Ensure you’re passing this list into the view, and it is named the same as the variable in the ThymeLeaf template.</li>
+</ol>
 </div>
 </div>
-<div class="section" id="part-2-setting-up-a-one-to-many-relationship">
-<h2>Part 2: Setting Up a One-to-Many Relationship<a class="headerlink" href="#part-2-setting-up-a-one-to-many-relationship" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="part-3-setting-up-a-one-to-many-relationship">
+<span id="tech-jobs-persistent-pt3"></span><h2>Part 3: Setting Up a One-to-Many Relationship<a class="headerlink" href="#part-3-setting-up-a-one-to-many-relationship" title="Permalink to this headline">¶</a></h2>
 <p>One job has one employer. One employer can have many jobs.</p>
 <div class="section" id="add-an-employer-to-a-job">
 <h3>Add an Employer to a Job<a class="headerlink" href="#add-an-employer-to-a-job" title="Permalink to this headline">¶</a></h3>
@@ -328,8 +313,8 @@ themselves.</p>
 <li>update view template to display employer info on given job object.</li>
 </ol>
 </div>
-<div class="section" id="id1">
-<h3>Test!<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="test">
+<h3>Test!<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
 <p>You made a lot of changes! Great work.</p>
 <p>Assuming you don’t have any remaining compiler errors, start up your
 application. (Don’t forget to start your SQL server first.) Make sure you can
@@ -339,8 +324,8 @@ after doing so.</p>
 <p>When everything works, move on to Part 3 below.</p>
 </div>
 </div>
-<div class="section" id="part-3-setting-up-a-many-to-many-relationship">
-<h2>Part 3: Setting Up a Many-to-Many Relationship<a class="headerlink" href="#part-3-setting-up-a-many-to-many-relationship" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="part-4-setting-up-a-many-to-many-relationship">
+<span id="tech-jobs-persistent-pt4"></span><h2>Part 4: Setting Up a Many-to-Many Relationship<a class="headerlink" href="#part-4-setting-up-a-many-to-many-relationship" title="Permalink to this headline">¶</a></h2>
 <p>A Job requires many skills and a skill can be associated with several jobs.</p>
 <div class="section" id="creating-the-skill-model">
 <h3>Creating the Skill Model<a class="headerlink" href="#creating-the-skill-model" title="Permalink to this headline">¶</a></h3>
@@ -382,13 +367,13 @@ relationship between two classes. The classes in question will be
 <li>to the navbar, add options to view a list of employers and skills</li>
 </ol>
 </div>
-<div class="section" id="id2">
-<h2>Test!<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>Test!<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Run your application and make sure you can create a new job with several skills.</p>
 <p>When everything works, you’re done! Congrats!</p>
 </div>
 <div class="section" id="sql-report">
-<h2>SQL Report<a class="headerlink" href="#sql-report" title="Permalink to this headline">¶</a></h2>
+<span id="tech-jobs-persistent-pt5"></span><h2>SQL Report<a class="headerlink" href="#sql-report" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="how-to-submit">
 <h2>How to Submit<a class="headerlink" href="#how-to-submit" title="Permalink to this headline">¶</a></h2>
