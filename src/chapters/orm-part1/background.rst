@@ -44,7 +44,6 @@ In MySQL Workbench, you need to do the following:
 In IntelliJ, attach MySQL to your project in ``application.properties``.
 
 .. sourcecode:: guess
-   :linenos:
 
    # Database connection settings
    spring.datasource.url=jdbc:mysql://localhost:3306/coding_events
@@ -58,7 +57,7 @@ In the ``dependencies`` of ``build.gradle``, add MySQL and the Spring Data JPA, 
 .. sourcecode:: guess
 
    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'mysql:mysql-connector-java'
+   implementation 'mysql:mysql-connector-java'
 
 Once you have taken these steps, you are ready to set up the appropriate models and controllers for the application!
 

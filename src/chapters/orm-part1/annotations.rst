@@ -1,9 +1,9 @@
 Accessing Data 
 ==============
 
-Now that we have set up our Java application to connect with a MySQL database, we need to set up the appropriate Java code.
-In the previous chapters, we learned about performing CRUD operations on a database and the info inside a table in order to manage it.
-One of the reasons we use ORM is so that we can write Java code in our application to manage our relational database.
+Now that we have connected our Java application to a MySQL database, we need to set up our Java classes and interfaces.
+In the previous chapters, we learned about performing CRUD operations on a database and its tables.
+One of the reasons we use ORM is so that now we can write Java code in our application to manage our relational database.
 
 .. index:: ! persistent class, ! entity class, ! @Entity, ! @Id, ! @GeneratedValue
 
@@ -11,7 +11,7 @@ Persistent Classes
 ------------------
 
 Our JPA needs to know what Java class is going to be converted to a table in the MySQL database.
-A Java class that is models a persistent data store is called a **persistent class** or **entity class**.
+A Java class that models a persistent data store is called a **persistent class** or **entity class**.
 
 ``@Entity`` denotes an entity class. Entity classes look very similar to any other Java class, *except* entity classes have *two* constructors.
 One is the one you need to create an instance of the class. 
@@ -22,17 +22,21 @@ Since an entity class determines the *structure* of a table in our relational da
 ``@Id`` is an annotation that denotes that an integer id field is to be used as an id in the corresponding table in the database.
 ``@GeneratedValue`` is used in conjunction with the ``@Id`` annotation to create a primary key for the entity.
 
-.. index:: ! data access object, ! repository, ! @Repository
+.. index:: ! repository, ! @Repository, ! CrudRepository
 
-Data Access Objects
--------------------
+Repositories
+------------
 
-If entity classes determine the structure of a table in our relational database, we need to use a **data access object** or **repository** to get at the data *in* the table. 
-A repository is an interface stored in a separate folder from our models. Repositories are *not* models.
+If entity classes determine the structure of a table in our relational database, we need to use a **repository** to get at the data *in* the table. 
+Repositories are *not* models and are stored in a separate folder from models. Repositories are also interfaces, *not* classes.
 We use the ``@Repository`` annotation to denote a repository.
 
 When we create repository interfaces, we are not going to be extending a particular class. Instead, we will be extending ``CrudRepository``.
 Extending the ``CrudRepository`` interface gives us access to methods to perform all of the CRUD operations that we made happen in SQL.
+
+.. admonition:: Note
+
+   ``CrudRepository`` has a number of different methods. You might want to bookmark the `documentation <https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html>`_ for later reference about the different methods.
 
 Creating Persistent Models - Video
 ----------------------------------
@@ -44,17 +48,31 @@ Creating Persistent Models - Video
 Creating Persistent Models - Text
 ---------------------------------
 
+Now that we have connected MySQL and ``coding-events``, we are going to create a persistent class and a repository.
 
-Additional Annotations
-----------------------
+Let's create a persistent class for an event called ``Events``.
 
-``@Transactional``
+``Events`` has the following fields:
 
-``@OneToMany``
+#. ``id``
+#. ``name``
+#. ``description``
+#. ``contactemail``
+#. ``type``
 
-``@JoinColumn``
+``Events`` also has all of the getters and setters for these fields and *both* constructors.
 
-``@ManyToOne``
+After making ``Events``, we can add a repository to ``data`` called ``EventRepository``.
+``EventRepository`` extends ``CrudRepository``. We will add more methods and info to ``EventRepository`` soon.
 
 Check Your Understanding
 ------------------------
+
+.. admonition:: Question
+
+   Entity classes are _________ and repositories are ____________.
+
+   A. classes, interfaces
+   B. interfaces, classes
+   C. classes, classes
+   D. interfaces, interfaces
