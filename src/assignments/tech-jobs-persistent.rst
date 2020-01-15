@@ -60,20 +60,11 @@ Connect a database to a Spring App.
 
 .. _tech-jobs-persistent-pt2:
 
-Part 2: Persisting a Single Class
----------------------------------
+Part 2: Persisting Employers and Skills
+---------------------------------------
 
 You will need to have completed the :ref:`setup steps <tech-jobs-persistent-setup>` before starting this
 section.
-
-.. You'll next be tasked with completing the work to persist some of the classes of the job data. As you explore
-.. the starter code, you'll notice that the ``JobField`` abstract class is no longer present. Your task for 
-.. Part 2 is to complete the work to persist some of the classes.
-.. TODO: clarify which classes they will need to complete.
-
-.. If you get stuck on any of the steps here, refer to the video lesson, or
-.. other code within the program that was provided. You’ll often find the
-.. answers there.
 
 ``AbstractEntity``
 ^^^^^^^^^^^^^^^^^^
@@ -96,60 +87,16 @@ and the classes it contains as fields.
 
    b. there are reasonable limitations on the size of the name string.
 
-   .. admonition:: Tip
 
-      TODO: add notes on how to test this validation.
+Models
+^^^^^^
 
-.. We’ll use Spring Data – along with JPA and Hibernate – to create an
-.. object-relational mapping for a new class.
+In the last assignment, a ``Job`` object contained string fields for employer and core competency data. This employer 
+and skill (formerly core competency) information about a particular job will now be stored in classes themselves.
+These items themselves will hold their own supplementary information. 
 
-.. #. update the classes: Job + Employer
-
-.. #. use the @Entity annotation
-
-.. #. id creation, getters and setters, constructors
-
-.. #. id annotation, generated value annotation
-
-.. #. validation annotations on fields
-
-.. In ``org.launchcode.models``, create a new model class named
-.. ``Category``. Add the ``@Entity`` annotation to make the class
-.. persistent In other words, this annotation will ensure that the class is
-.. mapped to a relational database table.
-
-.. Give it a private ``id`` field that’s an ``int``, along with a private
-.. ``name`` property that’s a string. Add a public getter and setter for
-.. ``name``, but only a getter for ``id``. Other classes shouldn’t be able
-.. to change our ID!
-
-.. Mimic the same JPA annotations used in ``Cheese``:
-
-.. .. code:: java
-
-..    @Id
-..    @GeneratedValue
-..    private int id;
-
-..    @NotNull
-..    @Size(min=3, max=15)
-..    private String name;
-
-.. Add two constructors to ``Category``. - Default (no-argument)
-.. constructor: This is required, and doesn’t need a any code within its
-.. body. It will only be used by Hibernate in the process of creating
-.. objects from data retrieved from the database. - A constructor that
-.. accepts a parameter to set ``name``.
-
-``Employer`` and ``Skill``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This employer and skill (formerly core competency) information about a particular job will now be stored in classes themselves.
-These items themselves will hold their own supplementary information.
-
-
-#. In addition to the fields inherited from ``AbstractEntity``, ``Employer`` should have a string 
-   field for ``location``. Add this field with validation as you see fit, as well as getters and setters.
+#. Open the ``Employer`` model class. In addition to the fields inherited from ``AbstractEntity``, ``Employer`` should have a 
+   string field for ``location``. Add this field with validation as you see fit, as well as getters and setters.
 
    .. admonition:: Note
 
@@ -159,18 +106,19 @@ These items themselves will hold their own supplementary information.
    ``@Entity`` annotation, as well as the no-arg constructor required for Hibernate to create an
    object.
 
-#. In ``Skill``, add a field for a longer description of the skill. Some hiring managers like to have
+#. In the model class ``Skill``, add a field for a longer description of the skill. Some hiring managers like to have
    more information available about the nature of a given programming language or framework. 
 
 #. As with ``Employer``, give this class the ``@Entity`` annotation and be sure it contains a no-arg
    constructor.
 
 
-Setting Up the Data Layer
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Data Layer
+^^^^^^^^^^
 
-To map the ``Employer`` and ``Skill`` classes to your techjobs database, you'll add a new package in 
-``models``, ``data``. Data will make use of the Spring Data ``CrudRepository`` class to map our objects.
+To map the ``Employer`` and ``Skill`` classes to your techjobs database, you'll add data access interfaces for these relational 
+objects, similiar to the existing ``JobRepository`` interface. Like ``JobRepository``, make use of the Spring Data 
+``CrudRepository`` class to map our objects.
 
 #. In ``models/data``, create a new interface ``EmployerRepository``.
 
@@ -179,24 +127,8 @@ To map the ``Employer`` and ``Skill`` classes to your techjobs database, you'll 
 
 #. Repeat the steps above for an interface, ``SkillRepository``.
 
-.. #. JobRepository interface creation, extend crud repo, transactional annotation
-
-.. We’ll want instances of this class to be stored in the database, so
-.. create a new interface in ``org.launchcode.models.data`` named
-.. ``CategoryDao``. You can do this by creating a new class, and then
-.. changing ``class`` to ``interface`` in the boilerplate code. It should
-.. extend ``CrudRepository`` and have ``@Repository`` and
-.. ``@Transactional`` annotations, as shown here:
-
-.. .. code:: java
-
-..    @Repository
-..    @Transactional
-..    public interface CategoryDao extends CrudRepository<Category, Integer> {
-..    }
-
-Adding Employers
-^^^^^^^^^^^^^^^^
+Controllers
+^^^^^^^^^^^
 
 With the employer repository in place, we will reference this to send object information through 
 the ``EmployerController`` handlers. ``EmployerController`` contains two handlers with missing 
@@ -215,7 +147,7 @@ Your task here is to make use of the ``EmployerRepository`` class in these handl
    
 #. ``displayViewEmployer`` will be in charge of rendering an a page to view the contents of an individual 
    employer object. It will make use of that employer object's ``id`` field to grab the correct
-   information from ``employerRepository``. ``optEmployer`` is not yet initialized. You'll need to use
+   information from ``employerRepository``. ``optEmployer`` currently initialized to ``null``. Replace this using
    the ``.findById()`` method with the right argument to look for the given employer object from 
    the data layer. 
 
@@ -224,57 +156,21 @@ Your task here is to make use of the ``EmployerRepository`` class in these handl
       The variable holding the id you want to query for is already provided for you in the controller
       method's parameters.
 
-
-.. Create a ``CategoryController`` in ``org.launchcode.controllers``. Add
-.. the ``@Controller`` and ``@RequestMapping("category")`` annotations to
-.. the class. Just inside the class, add:
-
-.. .. code:: java
-
-..    @Autowired
-..    private CategoryDao categoryDao;
-
-.. This creates a private field ``categoryDao`` of type ``CategoryDao``.
-.. This object will be the mechanism with which we interact with objects
-.. stored in the database. Recall that Spring will do the work of creating
-.. a class that implements ``CategoryDao`` and putting one of those objects
-.. in the ``categoryDao`` field when the application starts up. And all of
-.. this is thanks to the ``@Autowired`` annotation.
-
-.. This code would need to be added to each controller class that you want
-.. to have access to the persistent collections defined within
-.. ``categoryDao``.
-
-.. .. raw:: html
-
-..    <aside class="aside-warning">
-
-.. We made the ``@Autowired`` annotation sound pretty dang magical! It’s
-.. not that it isn’t, but don’t go adding ``@Autowired`` to every field
-.. under the sun that you want to use and expect them to be initialized for
-.. you.
-
-.. Recall that ``@Autowired`` is part of Spring’s dependency injection
-.. framework, and it works its magic in this case because we’re using
-.. Spring’s ``CrudRepository`` interface, along with the ``@Repository``
-.. annotations, and some other implicit Spring Boot settings.
-
-.. .. raw:: html
-
-..    </aside>
+#. Create a ``SkillController`` class and replicate the steps you followed above for ``EmployerController``.
 
 Test It!
 ^^^^^^^^
-The employer view templates for adding and viewing are made for you. Before you move on,
-test your application now to make sure it runs as expected. You should be able to create an Employer object
-and view it.
+The employer and skill view templates for adding and viewing these objects are made for you. Before you move on,
+test your application now to make sure it runs as expected. You should be able to create Employer and Skill objects
+and view them.
 
 #. Start up your application – don’t forget to have our SQL server running – and go to the *Add Jobs*
    view from the nav bar.
 
-#. You won't be able to add a job yet, but you'll see a link to *Add Employers* in the form. Click it.
+#. You won't be able to add a job yet, but you'll see a link to *Add Employers* and *Add Skills* in the form. Click them and proceed
+   to check the functionality of the forms that follow.
 
-#. Complete the form and test your validation requirements and error handling.
+#. Be sure to test your validation requirements and error handling.
 
 When everything works, move on to Part 2 below.
 
@@ -282,128 +178,17 @@ When everything works, move on to Part 2 below.
 
    If everything seems to work – that is, you are
    able to submit the form without any errors – but you don’t see your
-   employer in the list after submission, here’s what you should check:
+   employers or skills in the list after submission, here’s what you should check:
 
-   #. Is there any data in the ``employers`` table? Check by going to MySQL Workbench
-      and looking for the employer data within your schema.
+   #. Is there any data in the ``employers`` and ``skills`` table? Check by going to MySQL Workbench
+      and looking for the employer/skill data within your schema.
 
    #. If there’s data in the database, check that you are correctly
-      querying for the list of all employers in the controller
+      querying for the list of all objects in the controller
       findAll()``?
 
-   #. Ensure you’re passing this list into the view, and it is named the same as the variable in the ThymeLeaf template.
-
-
-
-.. View All Jobs
-.. ^^^^^^^^^^^^^
-
-.. #. create view template for accessing individual job info.
-
-.. .. Create an ``index`` handler within ``CategoryController``. Create an
-.. .. ``index.html`` template file in ``resources/templates/category/`` (you
-.. .. will have to create this last folder).
-
-.. .. The ``index`` handler should correspond to the route ``""`` (that is,
-.. .. the path ``/category``), and it should retrieve the list of all
-.. .. categories. This is done via the ``categoryDao`` object:
-.. .. ``categoryDao.findAll()`` returns a collection (actually, an
-.. .. ``Iterable``) of all ``Category`` objects managed by ``categoryDao``.
-.. .. Use this snippet to retrieve the list of categories, and then pass the
-.. .. list into the view by adding it to ``model``. Also add a ``"title"`` to
-.. .. the model (“Categories” works).
-
-.. .. The handler should render the ``index.html`` template that you just
-.. .. created. This view should display an unordered list (that is, a
-.. .. ``<ul>``) of category names. The list will look a bit plain for now, but
-.. .. we will make it more interesting later on.
-
-.. Add Jobs
-.. ^^^^^^^^
-
-.. #. Next, we want to enable the user to create a new category via a form.
-.. This will require multiple steps.
-
-.. Add Handler Methods
-.. ^^^^^^^^^^^^^^^^^^^
-
-.. Let’s add controller handlers to render and process the form.
-
-.. #. create an add handler in homecontroller for adding jobs
-.. #. create another handler for the posting of this form
-.. #. check for object validation and if good, use the crudrepository mehtod to save the object
-
-.. .. Create an ``add`` handler within ``CategoryController`` with input
-.. .. parameter ``Model model``. It should create a new ``Category`` object
-.. .. using the default constructor and pass it into the view with key
-.. .. ``"category"`` (you can do this with the shorthand
-.. .. ``model.addAttribute(new Category())``; note the omission of a
-.. .. string/key argument). Add the title “Add Category” to ``model`` as well.
-
-.. .. The ``add`` handler should accept ``GET`` requests at ``/category/add``
-.. .. (recall that you set the path segment “category” at the controller level
-.. .. already). The handler should render the ``category/add`` template (we’ll
-.. .. add this template in a moment).
-
-.. .. Create another ``add`` handler that accepts ``POST`` requests at
-.. .. ``/category/add``. Its signature should be:
-
-.. .. .. code:: java
-
-.. ..    public String add(Model model,
-.. ..        @ModelAttribute @Valid Category category, Errors errors)
-
-.. .. Within this second ``add`` handler: - Determine whether or not there are
-.. .. any validation errors. If there are, return the form at
-.. .. ``category/add``. - If the form submission is valid: - Save the new
-.. .. ``Category`` object by calling ``categoryDao.save(category)``. -
-.. .. Redirect to the ``index`` handler for ``CategoryController`` by
-.. .. returning the string ``"redirect:"``.
-
-.. Add View
-.. ^^^^^^^^
-
-.. #. create the template to add jobs via a form
-
-.. .. In ``resources/templates/category/`` create a new template,
-.. .. ``add.html``. Within the template, create a form that uses the
-.. .. ``category`` object that you passed in from the controller.
-
-.. .. You’ll need to bind the object to the form using
-.. .. ``th:object="${category}"``. And you should use the appropriate
-.. .. attributes within the form: ``th:for``, ``th:field``, ``th:errors``.
-
-.. .. This is the same technique we’ve been using over the last couple of
-.. .. weeks.
-
-
-.. Test!
-.. ^^^^^
-
-.. Start up your application – don’t forget to have our SQL server running – and try
-.. to add a new job!
-
-.. Click on the *TechJobs* navigation link, then on *Add Job*.
-.. Complete the form, and if everything works as expected, you’ll see your
-.. new job in the list. If everything seems to work – that is, you are
-.. able to submit the form without any errors – but you don’t see your
-.. job in the list, here’s what you should check:
-
-.. -  Is there any data in the ``jobs`` table? Check by going to MySQL Workbench
-..    and looking for the job data within your schema.
-
-.. .. hitting the *Open Start Page* button, then navigating to *Tools >
-.. .. phpMyAdmin*. Find the ``cheese-mvc-data`` database, and look within
-.. .. the ``categories``. If there isn’t any data in the table, you
-.. .. probably forgot to save the category when processing the form.
-
-.. -  If there’s data in the database, check that you are correctly
-..    querying for the list of all jobs in the controller
-..    findAll()``?
-.. -  Ensure you’re passing this list into the view, and looping over the
-..    list of jobs to display them in the page.
-
-.. When everything works, move on to Part 2 below.
+   #. Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.
+   
 
 .. _tech-jobs-persistent-pt3:
 
