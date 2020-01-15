@@ -1,8 +1,8 @@
-Exercises
-=========
+Exercises: OMG the ORM!
+=======================
 
 For the exercises, we are going to continue building on our ``coding-events`` application.
-Create a new branch for the exercises off of the ``persistent-controller-refactor`` branch. 
+Create a new branch for the exercises off of the `persistent-controller <https://github.com/LaunchCodeEducation/coding-events/tree/persistent-controller>`_ branch. 
 
 The ``EventCategory`` Class
 ---------------------------
@@ -52,7 +52,7 @@ We will be creating 3 handlers in our controller:
 ``renderCreateEventCategoryForm`` needs to do the following:
 
 #. Use ``@GetMapping`` and return ``"eventCategories/create"``.
-#. Add an attribute for the ``title`` that uses ``"Create Category"``.
+#. Add an attribute for the ``title`` and assign it ``"Create Category"``.
 #. Add an attribute for a new instance of ``EventCategory``.
 
 ``processCreateEventCategoryForm``
@@ -61,8 +61,8 @@ We will be creating 3 handlers in our controller:
 ``processCreateEventCategoryForm`` needs to do the following:
 
 #. Use ``@PostMapping``.
-#. Use error validation and the ``Errors`` object appropriately.
-#. Add an attribute for the ``title`` that uses ``"Create Category"``.
+#. Use error validation and the ``Errors`` object appropriately. If you want to review how to use the ``Errors`` object, check out the :ref:`section <validating-models>` on error validation.
+#. Add an attribute for the ``title`` and assign it ``"Create Category"``.
 #. Add an attribute for a new instance of ``EventCategory``.
 #. Either return ``"eventCategories/create"`` or ``"redirect:"``.
 
