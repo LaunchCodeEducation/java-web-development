@@ -1,12 +1,12 @@
 Studio: Creating an ``AbstractEntity``
 ======================================
 
-In :ref:`orm1-exercises`, you created a new persistent class, ``EventCategory``. We will eventually use this class to categorize events in our application. However, your application now has a fair amount of duplication across the two model classes. This studio has you reduce repetition (i.e. "DRY out your code") using inheritance and abstract classes.
+In :ref:`orm1-exercises`, you created a new persistent class, ``EventCategory``. We will eventually use this class to categorize events in our application. However, your application now has a fair amount of duplication across the two model classes. In this studio, you will reduce repetition (i.e. "DRY out your code") using inheritance and abstract classes.
 
 Getting Ready
 -------------
 
-In your ``coding-events`` repository, checkout out the `add-persistent-category branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category>`_ and create a new branch, ``abstract-entity-studio``, off of that branch.
+In your ``coding-events`` repository, checkout out the ``add-persistent-category`` branch and create a new branch, ``abstract-entity-studio``, off of that branch.
 
 .. admonition:: Note
 
@@ -28,7 +28,7 @@ Let's look at both the ``Event`` and ``EventCategory`` classes. There are four c
 
    .. sourcecode:: java
 
-      Event Event = (Event) o;
+      Event event = (Event) o;
 
    while in ``EventCategory`` this line is slightly different;
 
@@ -49,7 +49,7 @@ In the ``models`` package, create a new class named ``AbstractEntity``. Add the 
 
    This class name seems a little odd at first, but it makes sense after a brief explanation. 
    
-   It is a commonly-used convention in Java to prefix the name of an abstract class with ``Abstract``, to make it obvious to other developers that they can't create instances of the class. 
+   It is a commonly used convention in Java to prefix the name of an abstract class with ``Abstract``, to make it obvious to other developers that they can't create instances of the class. 
 
    Additionally, *every* entity class that we create will extend ``AbstractEntity``. (Recall that an entity is a class/object that can be stored in a database.)
 
@@ -63,6 +63,7 @@ Open up the ``Event`` class file. Move the 4 class members that we identified as
 When you move the ``equals`` method up into ``AbstractEntity``, you'll see a compiler error on the last line (this is related to the note we made above). Let's look at this method in detail.
 
 .. sourcecode:: java
+   :lineno-start: 22
 
    @Override
    public boolean equals(Object o) {
@@ -79,11 +80,12 @@ The compiler error occurs on the last line, and the context menu in IntelliJ des
    'id' has private access in 'org.launchcode.codingevents.models.AbstractEntity'
 
 
-What is this telling us? As written, ``event`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line above: ``event event = (Event) o;``. But when we reference ``event.id`` we are attempting to reference the *private* field ``id``, which lives not in ``Event`` but in ``AbstractEntity``. This is not allowed.
+What is this telling us? As written, ``event`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line above: ``Event event = (Event) o;``. But when we reference ``event.id`` we are attempting to reference the *private* field ``id``, which lives not in ``Event`` but in ``AbstractEntity``. This is not allowed.
 
 This error is easy to fix; simply change the cast on the next-to-last line to convert ``o`` to an instance of ``AbstractEntity``. And while we're at it, let's give the variable ``event`` a better name.
 
 .. sourcecode:: java
+   :lineno-start: 22
 
    @Override
    public boolean equals(Object o) {
@@ -99,7 +101,7 @@ This error is easy to fix; simply change the cast on the next-to-last line to co
 
    It may not be obvious that you can't have an ``Event`` object and an ``EventCategory`` object with the same ``id``. However, the way in which the database manages and assigns these values ensures that won't happen.
 
-Now in your other model, delete the 4 class members that are now inherited from ``AbstractEntity``. You should have NO compiler errors in your application at this point.
+Now in your the ``EventCategory`` model, delete the four class members that are now inherited from ``AbstractEntity``. You should have NO compiler errors in your application at this point.
 
 The ``@MappedSuperclass`` Annotation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -109,6 +111,6 @@ One final step: Add the ``@MappedSuperclass`` to your ``AbstractEntity`` class.
 This annotation will be discussed in more detail later. For now, you should understand that it ensures that the ``id`` values will still be stored in the ``event`` and ``event_category`` tables of the database, even though ``Event`` and ``EventCategory`` don't have ``id`` fields in their class definition.
 
 Making Sure It Works
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 Start up your application and make sure it all works! Be sure to add some new data and make sure you see it in the appropriate table(s).
