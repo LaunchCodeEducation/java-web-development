@@ -165,7 +165,7 @@ test your application now to make sure it runs as expected. You should be able t
 and view them.
 
 #. Start up your application – don’t forget to have our SQL server running – and go to the *Add Jobs*
-   view from the nav bar.
+   view from the application's navigation menu.
 
 #. You won't be able to add a job yet, but you'll see a link to *Add Employers* and *Add Skills* in the form. Click them and proceed
    to check the functionality of the forms that follow.
@@ -188,26 +188,31 @@ When everything works, move on to Part 2 below.
       findAll()``?
 
    #. Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.
-   
+
 
 .. _tech-jobs-persistent-pt3:
 
 Part 3: Setting Up a One-to-Many Relationship
 ---------------------------------------------
 
-One job has one employer. One employer can have many jobs.
+In this application, any one ``Job`` object is affiliated with one employer while one ``Employer`` may contain several jobs.
 
+Now that you have set up persistence for the ``Employer`` and ``Skill`` classes, it is time to update the ``Job`` class
+to make use of these. ``Job`` is already using the Spring Data framework to be persistent and now you'll update its 
+``Employer`` field to create a one-to-many relationship. You'll also add a field on ``Employer`` to list the jobs associated 
+with each instance.
 
-Add an Employer to a Job
-^^^^^^^^^^^^^^^^^^^^^^^^
+Add a ``jobs`` Field to ``Employer``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Within ``Employer``, add a private property ``jobs`` of type
-``List<Job>`` and initialize it to an empty ``ArrayList``. After we
-set up the ``Job`` class to work with ``Employer`` objects, this list
-will represent the list of all items in a given job. We’ll do this
-in a bit.
+#. Within ``Employer``, add a private property ``jobs`` of type
+   ``List<Job>`` and initialize it to an empty ``ArrayList``. After we
+   set up the ``Job`` class to work with ``Employer`` objects, this list
+   will represent the list of all items in a given job. We’ll do this
+   in a bit.
 
-#. use the onetomany and join column annotations on the jobs list in Employer class
+#. Use the ``@OneToMany`` and ``@JoinColumn`` annotations on the jobs list in ``Employer`` to declare the relationship between   
+   data tables.
 
 .. Add the following annotations:
 
@@ -231,14 +236,20 @@ in a bit.
 .. other. It will also populate this particular list for us, based on these
 .. relationships.
 
-Replace String Employer with Employer Object
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Update ``Job`` Model
+^^^^^^^^^^^^^^^^^^^^
 
-Using the ``Employer`` class as a field on Job objects will be much
-more flexible, as it will allow users to create new employers
-themselves.
+#. Since it too has ``id`` and ``name`` fields, the ``Job`` model class can also inherit from ``AbstractEntity``. Update the 
+   class definition of ``Job`` to extend ``AbstractEntity``. Remove the redundant fields from ``Job``.
 
-#. add the @manytoone annotation on an employer field in Job
+.. Using the ``Employer`` class as a field on Job objects will be much
+.. more flexible, as it will allow users to create new employers
+.. themselves.
+
+#. Replace the type of the field ``employer`` to be of type ``Employer``. You will also need to refactor the affected constructor
+   and getter and setter that use this field.
+
+#. Add the ``@ManyToOne`` annotation on the field ``employer``
 
 .. Within ``Cheese``, replace the ``type`` field with a field named
 .. ``category``, of type ``Category``. Give it the ``@ManyToOne``
@@ -267,106 +278,130 @@ themselves.
 .. compiler/build errors where this type is used, but we’re about to fix
 .. them!
 
-Updating HomeController
-^^^^^^^^^^^^^^^^^^^^^^^
+Updating ``HomeController``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We’ll make several updates here.
+We’ll make several updates here. Similar to what you have done in Part 1, several of the methods in ``HomeController`` are 
+missing code because the class has not yet been *wired* with the data layer yet. 
 
-displayAddJobForm
-~~~~~~~~~~~~~~~~~
 
-#. wire up homecontroller with the employerrepository.
-#. update the addjob handlers so that they grab the employer information 
-#. update the add job form to include an employer selection option
+#. Add a field ``employerRepository`` annotated with ``@Autowired``.
+#. A user will select an employer when they create a job. Add the employer data from ``employerRepository`` into the form template.
+   The add job form already includes an employer selection option. Be sure your variable name for the employer data matches that 
+   already used in ``templates/add``. 
+#. Checkout ``templates/add.html``. Make a mental note of the name of the variable being used to pass the selected employer 
+   id on form submission.
+#. In ``processAddJobForm``, add a parameter to the method to pass in the template variable you just found. You'll need to use the 
+   ``@RequestParam`` annotation on this parameter. 
+#. Still in ``processAddJobForm``, add code inside of this method to select the employer object that has been chosen to be 
+   affiliated with the new job. You will need to select the employer useing the request parameter you've added to the method. 
 
-.. We now need to pass in a list of categories into the view, rather the
-.. array of enum values. Modify the appropriate line so that the ``model``
-.. has an attribute ``"categories"`` equal to the result of calling
-.. ``categoryDao.findAll()``.
+   .. admonition:: Note
 
-.. Let’s take a detour to the ``cheese/add.html`` template to make sure
-.. these categories are properly displayed in the form. Open that file, and
-.. modify the section that renders the ``<select>`` element to look like
-.. this:
+      An employer only needs to be found and set on the new job object if the form data is validated.
 
-.. .. code:: html
 
-..    <label th:for="type">Type</label>
-..    <select name="categoryId">
-..        <option th:each="category : ${categories}"
-..                th:text="${category.name}"
-..                th:value="${category.id}"></option>
-..    </select>
 
-.. This loops over the list of categories, using the ``name`` and ``id``
-.. properties to set up each value. Note also that we’ve set
-.. ``name="categoryId"``, indicating that the posted property will be
-.. called ``categoryId``.
+.. ``displayAddJobForm``
+.. ~~~~~~~~~~~~~~~~~~~~~
 
-processAddCJobForm
-~~~~~~~~~~~~~~~~~~
+.. #. A user will select an employer when they create a job. Add the employer data from ``employerRepository`` into the form template.
+..    The add job form already includes an employer selection option. Be sure your variable name for the employer data matches that 
+..    already used in ``templates/add``. 
 
-#. add request param from employer info on job object submission.
-#. use .findbyId(). else.... to  select employer obj chosen
-#. Job object .setEmployer
+.. .. We now need to pass in a list of categories into the view, rather the
+.. .. array of enum values. Modify the appropriate line so that the ``model``
+.. .. has an attribute ``"categories"`` equal to the result of calling
+.. .. ``categoryDao.findAll()``.
 
-.. This action creates a new cheese. Based on our updates to ``add.html``
-.. above, we can add ``categoryId`` to the method signature:
+.. .. Let’s take a detour to the ``cheese/add.html`` template to make sure
+.. .. these categories are properly displayed in the form. Open that file, and
+.. .. modify the section that renders the ``<select>`` element to look like
+.. .. this:
 
-.. .. code:: java
+.. .. .. code:: html
 
-..    public String processAddCheeseForm(
-..                    @ModelAttribute  @Valid Cheese newCheese,
-..                    Errors errors,
-..                    @RequestParam int categoryId,
-..                    Model model)
+.. ..    <label th:for="type">Type</label>
+.. ..    <select name="categoryId">
+.. ..        <option th:each="category : ${categories}"
+.. ..                th:text="${category.name}"
+.. ..                th:value="${category.id}"></option>
+.. ..    </select>
 
-.. We’ll need to have the ``Category`` object corresponding to this ID, so
-.. we can set up the new cheese properly. Get it from the data layer like
-.. this:
+.. .. This loops over the list of categories, using the ``name`` and ``id``
+.. .. properties to set up each value. Note also that we’ve set
+.. .. ``name="categoryId"``, indicating that the posted property will be
+.. .. called ``categoryId``.
 
-.. .. code:: java
+.. processAddCJobForm
+.. ~~~~~~~~~~~~~~~~~~
 
-..    Category cat = categoryDao.findOne(categoryId);
+.. #. add request param from employer info on job object submission.
+.. #. use .findbyId(). else.... to  select employer obj chosen
+.. #. Job object .setEmployer
 
-.. This will fetch a single ``Category`` object, with ID matching the
-.. ``CategoryID`` value selected. Then set it:
+.. .. This action creates a new cheese. Based on our updates to ``add.html``
+.. .. above, we can add ``categoryId`` to the method signature:
 
-.. .. code:: java
+.. .. .. code:: java
 
-..    newCheese.setCategory(cat);
+.. ..    public String processAddCheeseForm(
+.. ..                    @ModelAttribute  @Valid Cheese newCheese,
+.. ..                    Errors errors,
+.. ..                    @RequestParam int categoryId,
+.. ..                    Model model)
 
-Review Job Deletion Code
-^^^^^^^^^^^^^^^^^^^^^^^^
+.. .. We’ll need to have the ``Category`` object corresponding to this ID, so
+.. .. we can set up the new cheese properly. Get it from the data layer like
+.. .. this:
 
-#. have the students write soemthing to delete jobs?
+.. .. .. code:: java
 
-.. The code to remove a ``Cheese`` object is already in place for you, but
-.. since we won’t have a reason to use the ``delete`` method on a
-.. ``CrudRepository`` interface, read the code in
-.. ``displayRemoveCheeseForm`` and ``processRemoveCheeseForm`` to see how
-.. to remove an item from the database.
+.. ..    Category cat = categoryDao.findOne(categoryId);
 
-Update Job View
-^^^^^^^^^^^^^^^
+.. .. This will fetch a single ``Category`` object, with ID matching the
+.. .. ``CategoryID`` value selected. Then set it:
 
-#. update view template to display employer info on given job object.
+.. .. .. code:: java
 
-.. We’ve touched almost every file except the ``cheese/index.html``
-.. template. Go into that file and update the table to display the category
-.. name of a given cheese instead of its type. Update the header as well,
-.. so it has “Category” in place of “Type”.
+.. ..    newCheese.setCategory(cat);
+
+.. Review Job Deletion Code
+.. ^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. #. have the students write soemthing to delete jobs?
+
+.. .. The code to remove a ``Cheese`` object is already in place for you, but
+.. .. since we won’t have a reason to use the ``delete`` method on a
+.. .. ``CrudRepository`` interface, read the code in
+.. .. ``displayRemoveCheeseForm`` and ``processRemoveCheeseForm`` to see how
+.. .. to remove an item from the database.
+
+.. Update Job View
+.. ^^^^^^^^^^^^^^^
+
+.. #. update view template to display employer info on given job object.
+
+.. .. We’ve touched almost every file except the ``cheese/index.html``
+.. .. template. Go into that file and update the table to display the category
+.. .. name of a given cheese instead of its type. Update the header as well,
+.. .. so it has “Category” in place of “Type”.
 
 Test!
 ^^^^^
 
 You made a lot of changes! Great work.
 
-Assuming you don’t have any remaining compiler errors, start up your
-application. (Don’t forget to start your SQL server first.) Make sure you can
-create a new job object, selecting a pre-existing employer. Then make
-sure the proper employer name is displayed in the table on the home page
-after doing so.
+Assuming you don’t have any compiler errors, start up your
+application. Don’t forget to start your SQL server. Make sure you can
+create a new job object from the *Add Jobs* form, selecting a pre-existing employer. 
+
+Then make sure the data has been saved in your job table. You should see a column for 
+``employer_id``, corresponding to the employer object selected for the new job.
+
+The *List* and *Search* functionality still isn't quite fixed so to view a job in the application, make a note 
+of the job's id in the SQL table. Back in your browser, enter the path for ``/view/{jobId}``.
+
 
 When everything works, move on to Part 3 below.
 

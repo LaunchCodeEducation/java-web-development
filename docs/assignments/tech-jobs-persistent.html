@@ -234,7 +234,7 @@ test your application now to make sure it runs as expected. You should be able t
 and view them.</p>
 <ol class="arabic simple">
 <li>Start up your application – don’t forget to have our SQL server running – and go to the <em>Add Jobs</em>
-view from the nav bar.</li>
+view from the application’s navigation menu.</li>
 <li>You won’t be able to add a job yet, but you’ll see a link to <em>Add Employers</em> and <em>Add Skills</em> in the form. Click them and proceed
 to check the functionality of the forms that follow.</li>
 <li>Be sure to test your validation requirements and error handling.</li>
@@ -258,67 +258,71 @@ findAll()``?</li>
 </div>
 <div class="section" id="part-3-setting-up-a-one-to-many-relationship">
 <span id="tech-jobs-persistent-pt3"></span><h2>Part 3: Setting Up a One-to-Many Relationship<a class="headerlink" href="#part-3-setting-up-a-one-to-many-relationship" title="Permalink to this headline">¶</a></h2>
-<p>One job has one employer. One employer can have many jobs.</p>
-<div class="section" id="add-an-employer-to-a-job">
-<h3>Add an Employer to a Job<a class="headerlink" href="#add-an-employer-to-a-job" title="Permalink to this headline">¶</a></h3>
-<p>Within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, add a private property <code class="docutils literal notranslate"><span class="pre">jobs</span></code> of type
+<p>In this application, any one <code class="docutils literal notranslate"><span class="pre">Job</span></code> object is affiliated with one employer while one <code class="docutils literal notranslate"><span class="pre">Employer</span></code> may contain several jobs.</p>
+<p>Now that you have set up persistence for the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> and <code class="docutils literal notranslate"><span class="pre">Skill</span></code> classes, it is time to update the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class
+to make use of these. <code class="docutils literal notranslate"><span class="pre">Job</span></code> is already using the Spring Data framework to be persistent and now you’ll update its
+<code class="docutils literal notranslate"><span class="pre">Employer</span></code> field to create a one-to-many relationship. You’ll also add a field on <code class="docutils literal notranslate"><span class="pre">Employer</span></code> to list the jobs associated
+with each instance.</p>
+<div class="section" id="add-a-jobs-field-to-employer">
+<h3>Add a <code class="docutils literal notranslate"><span class="pre">jobs</span></code> Field to <code class="docutils literal notranslate"><span class="pre">Employer</span></code><a class="headerlink" href="#add-a-jobs-field-to-employer" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, add a private property <code class="docutils literal notranslate"><span class="pre">jobs</span></code> of type
 <code class="docutils literal notranslate"><span class="pre">List&lt;Job&gt;</span></code> and initialize it to an empty <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. After we
 set up the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class to work with <code class="docutils literal notranslate"><span class="pre">Employer</span></code> objects, this list
 will represent the list of all items in a given job. We’ll do this
-in a bit.</p>
-<ol class="arabic simple">
-<li>use the onetomany and join column annotations on the jobs list in Employer class</li>
+in a bit.</li>
+<li>Use the <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;JoinColumn</span></code> annotations on the jobs list in <code class="docutils literal notranslate"><span class="pre">Employer</span></code> to declare the relationship between
+data tables.</li>
 </ol>
 </div>
-<div class="section" id="replace-string-employer-with-employer-object">
-<h3>Replace String Employer with Employer Object<a class="headerlink" href="#replace-string-employer-with-employer-object" title="Permalink to this headline">¶</a></h3>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> class as a field on Job objects will be much
-more flexible, as it will allow users to create new employers
-themselves.</p>
+<div class="section" id="update-job-model">
+<h3>Update <code class="docutils literal notranslate"><span class="pre">Job</span></code> Model<a class="headerlink" href="#update-job-model" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>add the &#64;manytoone annotation on an employer field in Job</li>
+<li>Since it too has <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> fields, the <code class="docutils literal notranslate"><span class="pre">Job</span></code> model class can also inherit from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Update the
+class definition of <code class="docutils literal notranslate"><span class="pre">Job</span></code> to extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Remove the redundant fields from <code class="docutils literal notranslate"><span class="pre">Job</span></code>.</li>
+</ol>
+<ol class="arabic simple">
+<li>Replace the type of the field <code class="docutils literal notranslate"><span class="pre">employer</span></code> to be of type <code class="docutils literal notranslate"><span class="pre">Employer</span></code>. You will also need to refactor the affected constructor
+and getter and setter that use this field.</li>
+<li>Add the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code> annotation on the field <code class="docutils literal notranslate"><span class="pre">employer</span></code></li>
 </ol>
 </div>
 <div class="section" id="updating-homecontroller">
-<h3>Updating HomeController<a class="headerlink" href="#updating-homecontroller" title="Permalink to this headline">¶</a></h3>
-<p>We’ll make several updates here.</p>
-<div class="section" id="displayaddjobform">
-<h4>displayAddJobForm<a class="headerlink" href="#displayaddjobform" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li>wire up homecontroller with the employerrepository.</li>
-<li>update the addjob handlers so that they grab the employer information</li>
-<li>update the add job form to include an employer selection option</li>
-</ol>
+<h3>Updating <code class="docutils literal notranslate"><span class="pre">HomeController</span></code><a class="headerlink" href="#updating-homecontroller" title="Permalink to this headline">¶</a></h3>
+<p>We’ll make several updates here. Similar to what you have done in Part 1, several of the methods in <code class="docutils literal notranslate"><span class="pre">HomeController</span></code> are
+missing code because the class has not yet been <em>wired</em> with the data layer yet.</p>
+<ol class="arabic">
+<li><p class="first">Add a field <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code>.</p>
+</li>
+<li><p class="first">A user will select an employer when they create a job. Add the employer data from <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> into the form template.
+The add job form already includes an employer selection option. Be sure your variable name for the employer data matches that
+already used in <code class="docutils literal notranslate"><span class="pre">templates/add</span></code>.</p>
+</li>
+<li><p class="first">Checkout <code class="docutils literal notranslate"><span class="pre">templates/add.html</span></code>. Make a mental note of the name of the variable being used to pass the selected employer
+id on form submission.</p>
+</li>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">processAddJobForm</span></code>, add a parameter to the method to pass in the template variable you just found. You’ll need to use the
+<code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> annotation on this parameter.</p>
+</li>
+<li><p class="first">Still in <code class="docutils literal notranslate"><span class="pre">processAddJobForm</span></code>, add code inside of this method to select the employer object that has been chosen to be
+affiliated with the new job. You will need to select the employer useing the request parameter you’ve added to the method.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">An employer only needs to be found and set on the new job object if the form data is validated.</p>
 </div>
-<div class="section" id="processaddcjobform">
-<h4>processAddCJobForm<a class="headerlink" href="#processaddcjobform" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li>add request param from employer info on job object submission.</li>
-<li>use .findbyId(). else…. to  select employer obj chosen</li>
-<li>Job object .setEmployer</li>
-</ol>
-</div>
-</div>
-<div class="section" id="review-job-deletion-code">
-<h3>Review Job Deletion Code<a class="headerlink" href="#review-job-deletion-code" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>have the students write soemthing to delete jobs?</li>
-</ol>
-</div>
-<div class="section" id="update-job-view">
-<h3>Update Job View<a class="headerlink" href="#update-job-view" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li>update view template to display employer info on given job object.</li>
+</li>
 </ol>
 </div>
 <div class="section" id="test">
 <h3>Test!<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h3>
 <p>You made a lot of changes! Great work.</p>
-<p>Assuming you don’t have any remaining compiler errors, start up your
-application. (Don’t forget to start your SQL server first.) Make sure you can
-create a new job object, selecting a pre-existing employer. Then make
-sure the proper employer name is displayed in the table on the home page
-after doing so.</p>
+<p>Assuming you don’t have any compiler errors, start up your
+application. Don’t forget to start your SQL server. Make sure you can
+create a new job object from the <em>Add Jobs</em> form, selecting a pre-existing employer.</p>
+<p>Then make sure the data has been saved in your job table. You should see a column for
+<code class="docutils literal notranslate"><span class="pre">employer_id</span></code>, corresponding to the employer object selected for the new job.</p>
+<p>The <em>List</em> and <em>Search</em> functionality still isn’t quite fixed so to view a job in the application, make a note
+of the job’s id in the SQL table. Back in your browser, enter the path for <code class="docutils literal notranslate"><span class="pre">/view/{jobId}</span></code>.</p>
 <p>When everything works, move on to Part 3 below.</p>
 </div>
 </div>
