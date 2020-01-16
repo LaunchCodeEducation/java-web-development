@@ -1,23 +1,63 @@
 Object-Relational Mapping
 =========================
 
-.. index:: ! Object-Relational Mapping, ! ORM, ! Java Persistence API, ! JPA, ! Data Layer
+.. index:: ! Object-Relational Mapping, ! ORM, ! Java Persistence API, ! JPA, ! Data Layer, ! object-relaitonal mapper
 
 With all that we have learned about MVC applications and relational databases, we are ready to connect the two and add persistent data storage to our apps!
-To do so, we need to use object-relational mapping.
+To do so, we need to use *object-relational mapping*.
 
-**Object-Relational Mapping** or ORM is a technique for converting data between Java objects and relational databases.
+**Object-Relational Mapping** or **ORM** is a technique for converting data between Java objects and relational databases.
 ORM converts data between two incompatible type systems (Java and MySQL), such that each model class becomes a table in our database and each instance a row of the table.
 
-In Java, a **JPA** or **Java Persistence API** handles the object-relational mapping between the classes in our model and the tables in our database.
-In order to accomplish this, a JPA makes use of **data layers**.
+.. admonition:: Example
+
+   Let's say we have a Java class called ``ContactInfo``. ``ContactInfo`` has three fields: a integer ``id``, a string ``name``, and a string ``email``.
+   Now we want to store this information in a MySQL database.
+   We can use ORM so that the database of our application has a table to contain all objects instantiated from the ``ContactInfo`` class.
+   The table called ``contactinfo`` has three columns: an integer ``id``, a varchar ``name``, and a varchar ``email``.
+
+   Now, let's instantiate a Java object:
+
+   .. sourcecode:: java
+
+      public frank = new ContactInfo(3,"Frank","frank@email.com"); 
+
+   Having properly set up our application, we can add Frank's info to our ``contactinfo`` table.
+   While we will write the code to add Frank's info to our database in Java, the frameworks and APIs that make ORM happen will run the following MySQL query for us.
+
+   .. sourcecode:: mysql
+
+      INSERT INTO contactinfo (id,name,email)
+      VALUES (3,"Frank","frank@email.com");
+   
+   Now Frank's info is safely stored in our MySQL database in the ``contactinfo`` table!
+
+At the most basic level, we need two components to make ORM work in our Java applications: an API and a object-relational mapper.
+The API will set the standards by which the **object-relational mapper** will convert between Java and MySQL.
+In the example above, the API reads through our Java code and designates a class that will be turned into a table.
+The mapper will then read through the class and create the following MySQL query to make the ``contactinfo`` table.
+
+.. sourcecode:: mysql
+   :linenos:
+
+   CREATE TABLE contactinfo (
+      INT id,
+      VARCHAR(255) name,
+      VARCHAR(255) email
+   );
+
+In Java, this API is called a **JPA** or **Java Persistence API**.
+JPAs makes use of **data layers**.
 When we learned about models, we learned that :ref:`data layers <data-layer>` add abstraction between models and the data we want to store.
-Models are not persistent data stores and relational databases do not shape the Java objects we will be using.
+Models are NOT persistent data stores and relational databases do NOT shape the Java objects we will be using.
+We want to make sure that the two remain separate.
 
 ORM in Spring
 -------------
 
-In Spring, our JPA for ORM is a combination of Spring Data and Hibernate.
+In Spring, our JPA is called the Spring Data JPA. If you look up JPA on the internet, you will find many different ones!
+While JPAs follow the same set of standards, different frameworks have different JPAs that work within their specific framework.
+The object-relational mapper we will be using with the Spring Data JPA is Hibernate. 
 As you run your apps, you will notice Hibernate and JPA pop up in the logs!
 To run your apps, you need to connect MySQL to a Spring application. Let's do this with ``coding-events``!
 
@@ -26,13 +66,16 @@ To run your apps, you need to connect MySQL to a Spring application. Let's do th
 Setting up a Persistent Database - Video
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The following video explains how we can add a MySQL database to our ``coding-events`` application. 
+The accompanying text is a quick rundown of what happens in the video. To get started, create a branch off of your `enums <https://github.com/LaunchCodeEducation/coding-events/tree/enums>`_ branch.
+
 .. raw:: html
 
    <div style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/GVOpKW3NcMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 
 Setting up a Persistent Database - Text
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""""""""
 
 To get started with using a relational database with our MVC applications, we need to first go to MySQL Workbench.
 
@@ -54,15 +97,17 @@ Set the value of ``username`` and ``password`` to the username and password you 
 
 In the ``dependencies`` of ``build.gradle``, add MySQL and the Spring Data JPA, like so:
 
-.. sourcecode:: guess
+.. sourcecode:: groovy
 
    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
    implementation 'mysql:mysql-connector-java'
 
 Once you have taken these steps, you are ready to set up the appropriate models and controllers for the application!
 
+.. index:: ! environment variables
+
 Key Takeaways
-^^^^^^^^^^^^^
+"""""""""""""
 
 Before we can get into the ins and outs of using ORM, we need to make sure that our application has a corresponding database and that our application is ready to connect to MySQL.
 We can start to do this by creating new schemas and setting user privileges in MySQL Workbench.
@@ -70,7 +115,7 @@ We also *must* make sure that the Spring application has the correct dependencie
 
 If we do not do these steps, then our application will not be able to use a persistent data source.
 
-As Chris noted in our video, while we can simply set the value of ``spring.datasource.username`` and ``spring.datasource.password`` to the value of the username and password, this is not best practice.
+As Chris noted in our video, while we can simply set the value of ``spring.datasource.username`` and ``spring.datasource.password`` to the value of the username and password, this is NOT best practice.
 We regularly commit our code to Github, meaning anyone who reads the code in our repository can see the username and password.
 While you can do it for the ``coding-events`` application, you do not want to do it in the future.
 
