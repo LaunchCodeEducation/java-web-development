@@ -1,3 +1,5 @@
+.. _orm1-exercises:
+
 Exercises: OMG the ORM!
 =======================
 
