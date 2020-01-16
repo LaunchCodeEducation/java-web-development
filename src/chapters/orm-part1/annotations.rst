@@ -63,7 +63,7 @@ Let's create a persistent class for an event called ``Events``.
 ``Events`` also has all of the getters and setters for these fields and *both* constructors.
 
 After making ``Events``, we can add a repository to ``data`` called ``EventRepository``.
-``EventRepository`` extends ``CrudRepository``. We will add more methods and info to ``EventRepository`` soon.
+``EventRepository`` extends ``CrudRepository``. We will add more methods and info to make use of ``EventRepository`` soon.
 
 Check Your Understanding
 ------------------------

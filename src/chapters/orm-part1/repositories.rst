@@ -5,9 +5,14 @@ Repositories
 
 Now that we have a general idea of how to set up our entity classes and repositories, let's take a deeper dive into how repositories are used to perform CRUD operations on a database.
 
-``@Autowired``
+CRUD Operations
+---------------
 
-Use common ``CrudRepository`` methods: ``delete``, ``deleteById``, ``findAll``, ``findById``, ``save``
+Previously, we learned that we can create a repository to fetch rows of a table in a database.
+To do so, we need to create a corresponding controller. 
+When creating our controller, we add a variable of the repository type that has the annotation ``@Autowired``.
+
+Now, we can use some of the more common ``CrudRepository`` methods, such as ``delete(T entity)``, ``deleteById(ID id)``, ``findAll()``, ``findById(ID id)``, and ``save(S entity)``.
 
 Using Persistence in a Controller - Video
 -----------------------------------------
@@ -19,5 +24,25 @@ Using Persistence in a Controller - Video
 Using Persistence in a Controller - Text
 ----------------------------------------
 
+Create a controller called ``EventController``. We will add request mapping to ``"events"``.
+Once we do that, we can add a variable of type ``EventRepository`` and add an ``@Autowired`` annotation.
+
+For events, we want to be able to display all of the events in our database and add and delete events.
+
+When displaying the events in our database, we write a method, ``displayAllEvents``.
+We want to use ``displayAllEvents`` to display a table that contains all of our events. 
+We did something similar to this before, but we used a list or iterable containg all of the objects we wanted to display.
+Since we have set up ORM between the MySQL database and our MVC application, we need to use the methods from ``CrudRepository`` to get all of the instances of the ``Event`` class.
+We can use the ``findAll()`` method to return an iterable containing all of the events in our database.
+
+As you write the methods necessary for ``EventController``, you may have noticed that this controller doesn't look too different from other controllers we have created before.
+Now we need to use the methods in ``CrudRepository`` to fetch the necessary information or update the correct table. 
+
 Check Your Understanding
 ------------------------
+
+.. admonition:: Question
+
+   True or false: we add different methods directly to our repository.
+
+.. ans: False
