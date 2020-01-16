@@ -1,3 +1,5 @@
+.. _abstract-classes:
+
 Inheriting from Abstraction
 ===========================
 

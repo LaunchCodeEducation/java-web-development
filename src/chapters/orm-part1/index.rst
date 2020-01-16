@@ -5,3 +5,4 @@ Introduction to Object-Relational Mapping
    :maxdepth: 3
 
    exercises
+   studio
