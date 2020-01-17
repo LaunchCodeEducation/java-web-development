@@ -7,3 +7,5 @@ Introduction to Object-Relational Mapping
    background
    accessingdata
    repositories
+   exercises
+   studio

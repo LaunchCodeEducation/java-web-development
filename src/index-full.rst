@@ -46,6 +46,7 @@ Studios
    chapters/spring-model-classes/studio
    chapters/sql-part1/studio
    chapters/sql-part2/studio
+   chapters/orm-part1/studio
 
 Assignments
 -----------
