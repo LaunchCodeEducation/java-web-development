@@ -1,7 +1,7 @@
 Object-Relational Mapping
 =========================
 
-.. index:: ! Object-Relational Mapping, ! ORM, ! Java Persistence API, ! JPA, ! Data Layer, ! object-relaitonal mapper
+.. index:: ! Object-Relational Mapping, ! ORM, ! Java Persistence API, ! JPA, ! Data Layer, ! object-relational mapper
 
 With all that we have learned about MVC applications and relational databases, we are ready to connect the two and add persistent data storage to our apps!
 To do so, we need to use *object-relational mapping*.
@@ -11,7 +11,7 @@ ORM converts data between two incompatible type systems (Java and MySQL), such t
 
 .. admonition:: Example
 
-   Let's say we have a Java class called ``ContactInfo``. ``ContactInfo`` has three fields: a integer ``id``, a string ``name``, and a string ``email``.
+   Let's say we have a Java class called ``ContactInfo``. ``ContactInfo`` has three fields: an integer ``id``, a string ``name``, and a string ``email``.
    Now we want to store this information in a MySQL database.
    We can use ORM so that the database of our application has a table to contain all objects instantiated from the ``ContactInfo`` class.
    The table called ``contactinfo`` has three columns: an integer ``id``, a varchar ``name``, and a varchar ``email``.
@@ -32,7 +32,7 @@ ORM converts data between two incompatible type systems (Java and MySQL), such t
    
    Now Frank's info is safely stored in our MySQL database in the ``contactinfo`` table!
 
-At the most basic level, we need two components to make ORM work in our Java applications: an API and a object-relational mapper.
+At the most basic level, we need two components to make ORM work in our Java applications: an API and an object-relational mapper.
 The API will set the standards by which the **object-relational mapper** will convert between Java and MySQL.
 In the example above, the API reads through our Java code and designates a class that will be turned into a table.
 The mapper will then read through the class and create the following MySQL query to make the ``contactinfo`` table.
@@ -52,12 +52,14 @@ When we learned about models, we learned that :ref:`data layers <data-layer>` ad
 Models are NOT persistent data stores and relational databases do NOT shape the Java objects we will be using.
 We want to make sure that the two remain separate.
 
+.. index:: ! Spring Data JPA, ! Hibernate
+
 ORM in Spring
 -------------
 
-In Spring, our JPA is called the Spring Data JPA. If you look up JPA on the internet, you will find many different ones!
+In Spring, our JPA is called the **Spring Data JPA**. If you look up JPA on the internet, you will find many different examples!
 While JPAs follow the same set of standards, different frameworks have different JPAs that work within their specific framework.
-The object-relational mapper we will be using with the Spring Data JPA is Hibernate. 
+The object-relational mapper we will be using with the Spring Data JPA is **Hibernate**. 
 As you run your apps, you will notice Hibernate and JPA pop up in the logs!
 To run your apps, you need to connect MySQL to a Spring application. Let's do this with ``coding-events``!
 
@@ -75,7 +77,7 @@ The accompanying text is a quick rundown of what happens in the video. To get st
 
 
 Setting up a Persistent Database - Text
-"""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To get started with using a relational database with our MVC applications, we need to first go to MySQL Workbench.
 
@@ -107,11 +109,11 @@ Once you have taken these steps, you are ready to set up the appropriate models 
 .. index:: ! environment variables
 
 Key Takeaways
-"""""""""""""
+^^^^^^^^^^^^^
 
 Before we can get into the ins and outs of using ORM, we need to make sure that our application has a corresponding database and that our application is ready to connect to MySQL.
 We can start to do this by creating new schemas and setting user privileges in MySQL Workbench.
-We also *must* make sure that the Spring application has the correct dependencies and the username and password to access the schema.
+We also *must* make sure that the Spring application has the correct dependencies, username, and password to access the schema.
 
 If we do not do these steps, then our application will not be able to use a persistent data source.
 

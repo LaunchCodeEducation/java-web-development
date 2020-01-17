@@ -5,5 +5,5 @@ Introduction to Object-Relational Mapping
    :maxdepth: 3
 
    background
-   annotations
+   accessingdata
    repositories

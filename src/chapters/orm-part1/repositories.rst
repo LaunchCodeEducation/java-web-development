@@ -30,7 +30,7 @@ Using Persistence in a Controller - Text
 Create a controller called ``EventController``. We will add request mapping to ``"events"``.
 Once we do that, we can add a variable of type ``EventRepository`` and add an ``@Autowired`` annotation.
 
-For events, we want to be able to display all of the events in our database and add and delete events.
+For events, we want to be able to display all of the events in our database as well as add and delete events.
 
 When displaying the events in our database, we write a method, ``displayAllEvents``.
 We want to use ``displayAllEvents`` to display a table that contains all of our events. 

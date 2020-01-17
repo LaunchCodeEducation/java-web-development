@@ -16,7 +16,7 @@ A Java class that models a persistent data store is called a **persistent class*
 ``@Entity`` denotes an entity class. Entity classes look very similar to any other Java class, *except* entity classes have *two* constructors.
 The first constructor creates an instance of the class. 
 The second one is ``protected`` and has no arguments and/or no return statement.
-While you must set up this second constructor, this constructor will only be used by the JPA to create a new instance.
+While you must set up this second constructor, it will only be used by the JPA to create a new instance.
 
 Since an entity class determines the *structure* of a table in our relational database, you can add fields to the class to create ids and primary keys.
 ``@Id`` is an annotation that denotes that an integer id field is to be used as an id in the corresponding table in the database.
@@ -48,7 +48,7 @@ Since an entity class determines the *structure* of a table in our relational da
       }
 
    This class declaration makes use of ``@Id`` and ``@GeneratedValue`` for the ``id`` field. Every time we instantiate a new object of the ``ContactInfo`` class, the object will have an id that translates to the primary key of the ``contactinfo`` table.
-   We also have two constructors: the first is what we will use to instantiate an object for Frank and the second is what the JPA uses to instantiate an object.
+   We also have two constructors: the first is what we will use to instantiate an object for Frank, and the second is what the JPA uses to instantiate an object.
 
 .. index:: ! repository, ! @Repository, ! CrudRepository
 
@@ -77,7 +77,7 @@ Extending the ``CrudRepository`` interface gives us access to methods to perform
       public interface ContactInfoRepository extends CrudRepository<ContactInfo, Integer> {
       }
 
-   This code creates a repository called ContactInfoRepository so we can fetch data from the ``contactinfo`` table.
+   This code creates a repository called ``ContactInfoRepository`` so we can fetch data from the ``contactinfo`` table.
    
 One the next page, we will cover how to use a controller and ``CrudRepository`` methods to get info in and out of the tables of our relational database.
 
