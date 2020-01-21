@@ -36,7 +36,7 @@ find yourself thinking, *If this were a property of a Java object, what data
 type would I use?*
 
 For example, if the ``movie`` object has a ``title`` and a ``director`` field,
-you would expect both of these data types to be ``String``. Similarly the year
+you would expect both of these data types to be ``String``. Similarly, the year
 the movie was released would be stored as an integer. This conceptual overlap
 between databases and Java objects is very useful, and we will explore this
 further in the class on *Object-Relational Mapping* (ORM).
