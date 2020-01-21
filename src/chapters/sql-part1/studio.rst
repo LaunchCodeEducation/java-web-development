@@ -3,14 +3,12 @@
 Studio: Movie SQLs
 ==================
 
-A database fills the role of the model in an MVC structure.
-
 In this studio, you will use space in *MySQL Workbench* to practice writing SQL
 queries to retrieve or modify information stored in an established database.
 You will also explore the parallels between Java objects and database tables.
 
 Walkthrough
-------------
+-----------
 
 Let's relate what you've learned about SQL to interact with a database called
 ``movie-buff`` that contains two tables---``movies`` and ``directors``.
