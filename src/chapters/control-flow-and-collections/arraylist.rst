@@ -4,10 +4,10 @@ ArrayList
 =========
 
 To write an **ArrayList** version of the program, we will have to introduce
-several new Java concepts, including the class ``ArrayList``. We will also review different 
-kinds of ``for`` loops used in Java.
+several new Java concepts, including the class ``ArrayList``. We will also
+review different kinds of ``for`` loops used in Java.
 
-Before going any further, we suggest you run the ``ArrayListGradebook`` 
+Before going any further, we suggest you run the ``ArrayListGradebook``
 program in IntelliJ. You can view this program in ``java-web-dev-exercises``.
 Once you’ve done that, let’s look at what is happening in the Java
 source code.
@@ -78,13 +78,12 @@ fill our list with Strings. Similarly, ``grades`` will hold exclusively
 values of type ``Double`` and is declared to be of type
 ``ArrayList<Double>``.
 
-.. warning::
+.. admonition:: Warning
 
    Notice that we declared ``grades`` to be of type ``ArrayList<Double>``,
    using the wrapper class ``Double`` rather than the primitive type
    ``double``. All values stored in Java collections must be objects, so
    we’ll have to use object types in those situations.
-
 
 In lines 10 and 11, we also initialize each list by creating a new, empty
 list. Note that when we call the ``ArrayList`` constructor, as in
@@ -125,11 +124,12 @@ in the class.
 
    } while(!newStudent.equals(""));
 
-Recall that a ``do-while`` loop is very similar to a ``while`` loop, but 
-the execution condition is checked at the end of the loop block. This has 
-the net effect that the code block will always run at least once. In this example, 
-we prompt the user for a name, which Java processes via ``input.nextLine()`` when the 
-user hits the enter key. To finish entering names, the user enters a blank line.
+Recall that a ``do-while`` loop is very similar to a ``while`` loop, but the
+execution condition is checked at the end of the loop block. This has the net
+effect that the code block will always run at least once. In this example, we
+prompt the user for a name, which Java processes via ``input.nextLine()`` when
+the user hits the enter key. To finish entering names, the user enters a blank
+line.
 
 .. index:: ! ArrayList.add()
 
@@ -137,18 +137,18 @@ For each student that is entered (that is, each non-empty line), we add
 the new ``String`` to the end of our list with ``students.add(newStudent)``.
 The ``.add()`` method is provided by the `ArrayList
 Class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__.
-There are lots of other ArrayList methods to get familiar with, some of which we will discuss
-in more detail below.
+There are lots of other ArrayList methods to get familiar with, some of which
+we will discuss in more detail below.
 
-Note that our program imports ``java.util.ArrayList`` to take advantage of this Java
-provided class.
+Note that our program imports ``java.util.ArrayList`` to take advantage of this
+Java provided class.
 
 ``for-each``
 ^^^^^^^^^^^^
 
-Below the ``do-while`` loop are two different loops that demonstrate two ways you 
-can loop through a list in Java. Here’s the first, which
-collects the numeric grade for each student:
+Below the ``do-while`` loop are two different loops that demonstrate two ways
+you can loop through a list in Java. Here’s the first, which collects the
+numeric grade for each student:
 
 .. sourcecode:: java
    :lineno-start: 27
@@ -160,7 +160,7 @@ collects the numeric grade for each student:
       grades.add(grade);
    }
 
-This, you may recall, is Java's ``for-each`` loop syntax. You may read this 
+This, you may recall, is Java's ``for-each`` loop syntax. You may read this
 in your head, or even aloud, as: ``for each student in students``. As you might
 expect at this point, we must declare the iterator variable ``student``
 with its data type.
@@ -183,23 +183,23 @@ The next loop on display prints out each student’s name and grade:
 
 .. index:: ! ArrayList.size()
 
-Here, we introduce the syntax ``students.size()`` which utilizes the
-``size()`` method of ``ArrayList``. This method returns the integer representing
-the number of items in the list. This is similar to String's ``.length()`` 
+Here, we introduce the syntax ``students.size()`` which utilizes the ``size()``
+method of ``ArrayList``. This method returns the integer representing the
+number of items in the list. This is similar to String's ``.length()``
 :ref:`method <string-methods>`.
 
-In this ``for`` loop, we use a *loop index* to define the starting point, ending point, 
-and increment for iteration. It may be helpful for you to consider this kind of 
-construction as something like,  ``for integer i in the range of the number of items 
-in students...``. The first statement inside the parenthesis declares and 
-initializes a loop index variable ``i``. The second statement is a Boolean 
-expression that is our exit condition. In other words, we will keep looping as 
-long as this expression evaluates to ``true``. The third statement is used to 
-increment the value of the loop index variable at the end of iteration through the
-loop. 
+In this ``for`` loop, we use a *loop index* to define the starting point,
+ending point, and increment for iteration. It may be helpful for you to
+consider this kind of construction as something like,  ``for integer i in the
+range of the number of items in students...``. The first statement inside the
+parenthesis declares and initializes a loop index variable ``i``. The second
+statement is a Boolean expression that is our exit condition. In other words,
+we will keep looping as long as this expression evaluates to ``true``. The
+third statement is used to increment the value of the loop index variable at
+the end of iteration through the loop.
 
 Again, the syntax ``i++`` is Java shorthand for ``i = i + 1``. Java also
-supports the shorthand ``i--`` to decrement the value of ``i``. 
+supports the shorthand ``i--`` to decrement the value of ``i``.
 We can also write ``i += 2`` as shorthand for ``i = i + 2``.
 
 In the final lines of the program, we compute the average grade for all
@@ -214,27 +214,26 @@ students:
 ArrayList Methods
 -----------------
 
-Let’s gather up a few of the ``ArrayList`` methods that
-we’ve encountered so far, along with a few new ones. While these will be the
-most common methods and properties that you use with this class, they by
-no means represent a complete list. Refer to the `official documentation
-on the ArrayList
+Let’s gather up a few of the ``ArrayList`` methods that we’ve encountered so
+far, along with a few new ones. While these will be the most common methods and
+properties that you use with this class, they by no means represent a complete
+list. Refer to the `official documentation on the ArrayList
 class <http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html>`__
 for such a list, and for more details.
 
-To demonstrate the use of these methods, we'll create a new ``ArrayList`` 
+To demonstrate the use of these methods, we'll create a new ``ArrayList``
 called ``planets``.
 
 .. sourcecode:: java
 
    ArrayList<String> planets = new ArrayList<>();
 
-Ok, we've got an empty ArrayList. We need to use the class's ``.add()`` method to 
-populate this collection with items.
+Ok, we've got an empty ArrayList. We need to use the class's ``.add()`` method
+to populate this collection with items.
 
 .. note::
 
-   There are other means to declare and initialize an ArrayList in fewer lines. 
+   There are other means to declare and initialize an ArrayList in fewer lines.
    These require knowledge of other collections types, so we'll stick with ``.add()``
    for the time being.
 
@@ -272,7 +271,7 @@ Thus, the first item in this table:
      - Checks to see if the ArrayList contains a given item, returning a Boolean
      - ``planets.contains("Earth")`` returns ``true``
    * - ``indexOf()``
-     - Looks for an item in n ArrayList, returns the index of the first occurrence of the item if it exists, returns -1 otherwise 
+     - Looks for an item in an ArrayList, returns the index of the first occurrence of the item if it exists, returns -1 otherwise
      - ``planets.indexOf("Jupiter")`` returns ``4``
 
 Here's a couple more methods that require slightly longer descriptions:
@@ -286,8 +285,8 @@ Here's a couple more methods that require slightly longer descriptions:
      - Description
      - Example
    * - ``Collections.sort()``
-     - Sorts a Collection in ascending order, returns the sorted Collection
-     - ``Collections.sort(planets)`` returns ``["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"]``
+     - Rearranges the elements of a ``Collection`` into ascending order.
+     - ``Collections.sort(planets)`` produces ``["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"]``
 
 This method is technically used on Java's ``Collections`` class and
 thus requires a different ``import`` statement:
@@ -296,9 +295,10 @@ thus requires a different ``import`` statement:
 
    import java.util.Collections;
 
-``Collections`` is itself a member of the collections framework but not all members of the framework
-are instances of this class. We include this method here because, should you be in the market for a sorting method,
-this is a helpful one to know.
+``Collections`` is itself a member of the collections framework but not all
+members of the framework are instances of this class. We include this method
+here because, should you be in the market for a sorting method, this is a
+helpful one to know.
 
 .. list-table:: toArray()
    :header-rows: 1
@@ -312,7 +312,8 @@ this is a helpful one to know.
        ``{"Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Pluto", "Saturn", "Uranus", "Venus"}``
 
 Perhaps you recall that in Java, you must know the size of the Array when you
-create it. So we'll need to first define the new Array before we can use ``toArray()``.
+create it. So we'll need to first define the new Array before we can use
+``toArray()``.
 
 .. sourcecode:: java
    :linenos:
@@ -335,7 +336,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   The number of entries in an ``ArrayList`` may not be modified. 
+   The number of entries in an ``ArrayList`` may not be modified.
 
    #. True
    #. False
