@@ -9,3 +9,4 @@ Relationships in Object-Relational Mapping
    one-to-many
    one-to-one
    many-to-many
+   exercises
