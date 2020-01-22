@@ -25,11 +25,11 @@ Model Configuration
 
    private final List<Event> events = new ArrayList<>();
 
-The ``events`` field will be initialized when an ``EventCategory`` object is created. It is final to ensure that the collection isn't deleted or replaced. Since it is final, only a getter is needed. 
+The ``events`` field will be initialized when an ``EventCategory`` object is created. It is marked ``final`` to ensure that the collection isn't deleted or replaced. Since it is final, only a getter is needed; add one near the bottom of the class.
 
 .. admonition:: Note
 
-   Recall that when a collection is marked ``final`` its *contents* are allowed to change, but collection object itself may not be changed.
+   Recall that when a collection is marked ``final`` its *contents* are allowed to change, but the collection object itself may not be changed. In other words, we may add or remove items from the ``events`` list, but we may not reassign the value of ``events``.
 
 To establish a persistent relationship, we use the ``@OneToMany`` annotation on ``events``. This annotation requires a parameter to let Hibernate know *how* to determine which events belong to a given category object.
 
@@ -53,9 +53,9 @@ The end result will look like this:
 
    Events belonging to a specific category
 
-Notice that this view is extremely similar to our main view listing all events. The only differences are the title, and the specific events in the list. Since both ``title`` and ``events`` are values that we pass into our ``events/index.html`` template, we can use the same template for this view as we have been using for the view at route ``/events``. 
+Notice that this view is extremely similar to our main view listing all events. The only differences are the title and the specific events in the list. Since both ``title`` and ``events`` are values that we pass into our ``events/index.html`` template, we can use the same template for this view as we have been using for the view at route ``/events``. 
 
-Taking this one step further, we will use the same controller as well. This will allow us to have a route, ``/events``` that displays *all* events if no ``eventId`` is specified and a filtered list when a valid ``eventId`` *is* provided. Let's get to work in ``EventController``.
+Taking this one step further, we will use the same controller as well. This will allow us to have a route, ``/events`` that displays *all* events if no ``eventId`` is specified, but displays a filtered list when a valid ``eventId`` is provided. Let's get to work in ``EventController``.
 
 The method at the route ``/events`` is ``displayAllEvents``. Since this handler will no longer *always* display all events, we rename it to ``displayEvents``.
 
@@ -93,11 +93,11 @@ Update 1: Optional ``categoryId`` Parameter
 
 In order to filter events by category, we need the ID of a category to filter by. The handler now has a new parameter:
 
-::
+.. sourcecode:: java
 
    @RequestParam(required = false) Integer categoryId
 
-This allows request to URLs like ``/events?categoryId=1``. By specifying ``required = false`` we are telling Spring that it should call this handler for request to the path ``/events`` even if no such ID is specified. This allows us to preserve our existing behavior that lists *all* events at ``/events``. If no ``categoryId`` is specified in the request, then the ``categoryId`` parameter will be ``null``.
+This allows requests to URLs like ``/events?categoryId=1``. By specifying ``required = false`` we are telling Spring that it should call this handler for requests to the path ``/events`` even if no such ID is specified. This allows us to preserve our existing behavior that lists *all* events at ``/events``. If no ``categoryId`` is specified in the request, then the ``categoryId`` parameter will be ``null`` when the handler is called.
 
 Update 2: ``null`` Check
 ++++++++++++++++++++++++
@@ -114,7 +114,7 @@ Before filtering by category, we check for the existence of the ``categoryId`` p
       model.addAttribute("events", eventRepository.findAll());
    }
 
-If no ``categoryId`` is passed in, we carry out the same behavior as before, displaying all events in the view.
+If no ``categoryId`` is passed in, we carry out the same behavior as before, passing all events into the view.
 
 Update 3: Ensuring the Category Object Exists
 +++++++++++++++++++++++++++++++++++++++++++++
@@ -146,7 +146,7 @@ Essentially, by returning an ``Optional<EventCategory>`` object, the ``findById`
 
 On lines 37-38 we use this fact to check to see if an ``EventCategory`` object was found. If not, we display an error message in the title.
 
-.. tip::
+.. admonition:: Tip
 
    As you wade into vast waters of Java and Spring, you will frequently find yourself needing to use a method or class that you have not encountered before. In such cases, be brave and remember that you don't have understand *all* of the documentation for a method or class in order to use it. 
 

@@ -83,7 +83,7 @@ The first occurrence is in ``EventController.displayCreateEventForm``:
 
 This line passes a collection of all of the values of ``EventType`` into the view, to be rendered in the form used to create new events.
 
-Since we are now using ``EventCategory`` to group events, our code should be passing in all of the category objects in our app. To fetch category objects, we need an instance of ``EventCategoryRepository``. Add an autowired instance to the top of the controller:
+Since we are now using ``EventCategory`` to group events, our code should instead be passing in all of the category objects in our app. To fetch category objects, we need an instance of ``EventCategoryRepository`` in our controller. Add an autowired instance to the top of the controller:
 
 .. sourcecode:: java
    :lineno-start: 24
@@ -98,7 +98,7 @@ Now, use the repository to fetch all saved categories:
 
    model.addAttribute("categories", eventCategoryRepository.findAll());
 
-Notice that we have relabeled this attribute ``"categories"`` to be more consistent. This also requires updating the ``events/create.html`` template:
+This line replaces the line references ``EventType.values()``. Notice that we have relabeled this attribute ``"categories"`` to be more consistent. This also requires updating the ``events/create.html`` template:
 
 .. sourcecode:: html
    :lineno-start: 27
@@ -115,7 +115,7 @@ Notice that we have relabeled this attribute ``"categories"`` to be more consist
       </label>
    </div>
 
-This new code includes several changes:
+This new template code includes several changes:
 
 #. The ``select`` is now bound to the field ``eventCategory``.
 #. The loop references ``categories`` and has an updated iterator variable name, ``eventCategory``.
@@ -161,7 +161,7 @@ Notice that the ``type`` column remains, even though we have deleted the ``type`
 
 .. index:: ! truncate
 
-.. tip:: 
+.. admonition:: Tip
 
    Notice that existing events will not have a category, which violates our new ``@NotNull`` validation rule. The easiest way to handle this is to delete all rows in ``event``.
    
@@ -183,9 +183,9 @@ Notice that there is a new column, ``event_category_id``. This new column has ty
 
    Hibernate will generally avoid deleting your data, since you may want to keep it around (even if just in the form of a backup). You can simply drop this column yourself.
 
-.. admonition:: Note
+.. admonition:: Tip
 
-   If your table was updating upon restarting, make sure you have ``spring.jpa.hibernate.ddl-auto`` set to ``update`` in ``application.properties``.
+   If your table was not updating upon restarting, make sure you have ``spring.jpa.hibernate.ddl-auto`` set to ``update`` in ``application.properties``.
 
 If we create some new events, we can see precisely how ``event`` rows are related to ``event_category`` rows.
 
@@ -201,3 +201,5 @@ If we create some new events, we can see precisely how ``event`` rows are relate
    The ``event_category`` table 
 
 Notice that our events have ``event_category_id`` values of ``12`` and ``13`` (these values may differ slightly in your application). These are foreign keys into the ``event_category`` table. For example, in the tables above, the ``event`` row with ``id`` equal to ``14`` is related to the ``event_category`` row with ``id`` equal to ``12``. This database relationship corresponds to the relationship between objects that was created by Spring Boot when we submitted the form.
+
+With this many-to-one relationship in place, we next look at how to establish a persistent one-to-many relationship.
