@@ -29,10 +29,10 @@ That said, it's a good idea to scan the classes and templates even before you're
 ``bootRun``. Take a gander at the ``Job`` class. It will look somewhat similar to the model in 
 :ref:`Tech Jobs (MVC Edition) <tech-jobs-mvc>`, with a few key differences. 
 
-We're no longer using a csv file to load job data, instead, we'll be creating new Job objects via a 
+You're no longer using a csv file to load job data, instead, we'll be creating new Job objects via a 
 user form. The Job data will be stored in a MySQL database that you'll setup in :ref:`Part 1 <tech-jobs-persistent-pt1>` of this assignment.
 
-You'll next be tasked with completing the work to persist some of the classes of the job data. As you explore
+As you explore
 the starter code, you'll notice that the ``JobField`` abstract class is no longer present. Your task for 
 :ref:`Part 2 <tech-jobs-persistent-pt2>` is to complete the work to persist some of the classes.
 You'll do this for ``Employer`` and ``Skill`` classes, as well as ``Job``.
@@ -42,16 +42,16 @@ add object relational mapping on the ``Job`` class by refactoring the ``employer
 fields. 
 
 In your IntelliJ project, you'll see an empty file in the root directory called ``queries.sql``. After completing the 
-Java updates for parts 1,2,3, and 4, we ask you to test your application updates with SQL statements. Since you are entering
-your own data, running the queries we ask you to write may not return any results. However, as the architect of the database,
-you will have the knowledge to write these nonetheless.
+Java updates for parts 1,2,3, and 4, we ask you to test your application updates with SQL statements. 
+
+Since you are entering your own data, the queries we ask you to write will return unique result sets. For example, if you haven't entered 
+any data yet, there may be an empty result set. However, as the architect of the database, you have the knowledge to write the 
+appropriate queries nonetheless.
 
 .. _tech-jobs-persistent-pt1:
 
-Part 1: Setup the Database
---------------------------
-
-Connect a database to a Spring App.
+Part 1: Connect a Database to a Spring App
+------------------------------------------
 
 #. Start MySQL Workbench and create a new schema named ``techjobs``.
 
@@ -61,9 +61,8 @@ Connect a database to a Spring App.
 
 #. In the administration tab, create a new user, ``techjobs`` with the same settings as described in
    the lesson tutorial.
-   TODO: reference the point in the book setting up the new user.
 
-#. Update ``build.gradle`` with the dependencies.
+#. Update ``build.gradle`` with the necessary dependencies.
 
 #. Update ``src/resources/application.properties`` with the right info. This will include
    ``spring.datasource.url`` set to the address of your database connection, as well as the username and password
@@ -89,7 +88,7 @@ locally in the browser at ``Localhost:8080`` (unless of course you have changed 
    in the table.
 
 Your running application still has limited functionality. You won't yet be able to add a job with the *Add Job* form. You also
-won't yet be able to view the list of jobs or search for jobs - but this is mostly because you have no more job data. Move on to
+won't yet be able to view the list of jobs or search for jobs - but this is mostly because you have no job data. Move on to
 Part 2 below to start adding these functionalities.
 
 
@@ -155,7 +154,7 @@ Data Layer
 
 To map the ``Employer`` and ``Skill`` classes to your techjobs database, you'll add data access interfaces for these relational 
 objects, similiar to the existing ``JobRepository`` interface. Like ``JobRepository``, make use of the Spring Data 
-``CrudRepository`` class to map our objects.
+``CrudRepository`` interface to map our objects.
 
 #. In ``models/data``, create a new interface ``EmployerRepository``.
 
@@ -178,7 +177,7 @@ information. Your task here is to make use of the ``EmployerRepository`` class i
    employer object information is invalid. However, it doesn't yet contain the code to save a
    valid object. Use ``employerRepository`` and the appropriate method to do so.
    
-#. ``displayViewEmployer`` will be in charge of rendering an a page to view the contents of an individual 
+#. ``displayViewEmployer`` will be in charge of rendering a page to view the contents of an individual 
    employer object. It will make use of that employer object's ``id`` field to grab the correct
    information from ``employerRepository``. ``optEmployer`` currently initialized to ``null``. Replace this using
    the ``.findById()`` method with the right argument to look for the given employer object from 
@@ -223,7 +222,7 @@ and view them.
 
    #. Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.
 
-   When everything works, move on to Part 2 below.
+   When everything works, move on to Part 3 below.
 
 
 
@@ -310,7 +309,7 @@ The *List* and *Search* functionality still isn't quite fixed so to view a job i
 of the job's id in the SQL table. Back in your browser, enter the path for ``/view/{jobId}``.
 
 
-When everything works, move on to Part 3 below.
+When everything works, move on to Part 4 below.
 
 .. _tech-jobs-persistent-pt4:
 
