@@ -34,6 +34,10 @@ The ``Job`` class will also look different from how you have last seen it. In Pa
 add object relational mapping on the ``Job`` class by refactoring the ``employer`` and ``skills`` (formerly ``coreCompetency``) 
 fields. 
 
+In your IntelliJ project, you'll see an empty file in the root directory called ``queries.sql``. After completing the 
+Java updates for parts 1,2,3, and 4, we ask you to test your application updates with SQL queries. Since you are entering
+your own data, your results will vary but we'll ask you to enter your queries for each part in this SQL file. 
+
 Finally, :ref:`Part 5 <tech-jobs-persistent-pt5>` asks you to be in charge of writing some SQL queries to extract the job 
 data out of the application.
 
@@ -63,8 +67,8 @@ Connect a database to a Spring App.
    You can double check your setup against what you've already done for 
    :ref:`your coding events repo <setup-orm-database>`
 
-Test It!
-^^^^^^^^
+Test It with SQL!
+^^^^^^^^^^^^^^^^^
 
 When your database is properly configured, you should have no compiler errors when starting the application. Execute ``bootRun``
 and check the compiler output to make sure this is the case. If all runs, you will be able to view your app running locally in 
@@ -73,6 +77,10 @@ the browser at ``Localhost:8080`` (unless of course you have changed the server 
 Your running application still has limited functionality. You won't yet be able to add a job from the *Add Job* form. You also
 won't yet be able to view the list of jobs or search for jobs - but this is mostly because you have no more job data. Move on to
 Part 2 below to get the app to be more useful.
+
+#. In your MySQL workbench, open a new query tab to check your database connection.
+
+#. At this point, you will have one table, ``job``.
 
 .. _tech-jobs-persistent-pt2:
 
@@ -372,7 +380,25 @@ When everything works, you’re done! Congrats!
 SQL Report
 ----------
 
-TBD! 
+You probably don't have very many jobs saved in your techjobs schema yet. That's ok. Based on the architecture of your database,
+tell us what queries you would run to generate the following reports.
+
+#. A list of the names of all employers that are attached to jobs in ascending order of location. 
+   If an employer does not have a job listed, it should not be 
+   included in the results of this query.
+
+   .. SELECT name FROM Employer
+      INNER JOIN employer ON job.employer_id = employer.id
+      ORDER BY location ASC;
+
+#. A report containing the names and descriptions of all skills for jobs in Illinois.
+
+   .. select all employers with location = "illinois"
+      select all jobs with these employers
+      select all the skills on these jobs
+
+
+
 
 
 How to Submit
