@@ -11,7 +11,9 @@ functionality by using Spring Data. You will be responsible for completing the c
 to create new job data.
 
 Your final application will have the same list and search capabilities as your :ref:`Tech Jobs (MVC Edition) <tech-jobs-mvc>` but 
-you'll need to do the work to connect the project to a database for storing user-submitted job data.
+you'll need to do the work to connect the project to a database for storing user-submitted job data. 
+
+Each of the four sections of this assignment will also ask you to demonstrate your SQL skills under an item labelled **SQL TASK**.
 
 Checkout and Review the Starter Code
 ------------------------------------
@@ -39,8 +41,10 @@ The ``Job`` class will also look different from how you have last seen it. In Pa
 add object relational mapping on the ``Job`` class by refactoring the ``employer`` and ``skills`` (formerly ``coreCompetency``) 
 fields. 
 
-Finally, :ref:`Part 5 <tech-jobs-persistent-pt5>` asks you to be in charge of writing some SQL queries to extract the job 
-data out of the application.
+In your IntelliJ project, you'll see an empty file in the root directory called ``queries.sql``. After completing the 
+Java updates for parts 1,2,3, and 4, we ask you to test your application updates with SQL statements. Since you are entering
+your own data, running the queries we ask you to write may not return any results. However, as the architect of the database,
+you will have the knowledge to write these nonetheless.
 
 .. _tech-jobs-persistent-pt1:
 
@@ -72,16 +76,22 @@ Connect a database to a Spring App.
    :ref:`your coding events repo <setup-orm-database>`. You can copy these property assignments from your coding 
    events repo, only needing to change the database address and username/password values.
 
-Test It!
-^^^^^^^^
+Test It with SQL
+^^^^^^^^^^^^^^^^
 
 When your database is properly configured, you should have no compiler errors when starting the application. Execute ``bootRun``
 and check the compiler output to make sure this is the case. If everything runs, you will be able to view your app 
 locally in the browser at ``Localhost:8080`` (unless of course you have changed the server port).
 
+#. In your MySQL workbench, open a new query tab to check your database connection.
+
+#. **SQL TASK:** At this point, you will have one table, ``job``. In ``queries.sql`` under "Part 1", list the columns and their data types 
+   in the table.
+
 Your running application still has limited functionality. You won't yet be able to add a job with the *Add Job* form. You also
 won't yet be able to view the list of jobs or search for jobs - but this is mostly because you have no more job data. Move on to
 Part 2 below to start adding these functionalities.
+
 
 .. _tech-jobs-persistent-pt2:
 
@@ -181,8 +191,9 @@ information. Your task here is to make use of the ``EmployerRepository`` class i
 
 #. Create a ``SkillController`` class and replicate the steps you followed above for ``EmployerController``.
 
-Test It!
-^^^^^^^^
+Test It with SQL
+^^^^^^^^^^^^^^^^
+
 The employer and skill view templates for adding and viewing these objects are made for you. Before you move on,
 test your application now to make sure it runs as expected. You should be able to create Employer and Skill objects
 and view them.
@@ -195,7 +206,7 @@ and view them.
 
 #. Be sure to test your validation requirements and error handling.
 
-When everything works, move on to Part 2 below.
+#. **SQL TASK:** In ``queries.sql`` under "Part 2", write a query to list the names of the employers in St. Louis City.
 
 .. admonition:: Tip
 
@@ -211,6 +222,9 @@ When everything works, move on to Part 2 below.
      Are you calling ``.findAll()`` on the repository?
 
    #. Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.
+
+   When everything works, move on to Part 2 below.
+
 
 
 .. _tech-jobs-persistent-pt3:
@@ -273,8 +287,8 @@ missing code because the class has not yet been *wired* with the data layer yet.
       An employer only needs to be found and set on the new job object if the form data is validated.
 
 
-Test It!
-^^^^^^^^
+Test It with SQL
+^^^^^^^^^^^^^^^^
 
 You made a lot of changes! Great work.
 
@@ -282,8 +296,15 @@ Assuming you don’t have any compiler errors, start up your
 application. Don’t forget to start your SQL server. Make sure you can
 create a new job object from the *Add Jobs* form, selecting a pre-existing employer. 
 
-Then make sure the data has been saved in your job table. You should see a column for 
+Then, make sure the data has been saved in your job table. You should see a column for 
 ``employer_id``, corresponding to the employer object selected for the new job.
+
+You have changed the architecture of your job table. You will still be able to add a new entry that has an 
+``employer_id`` column but you'll note that job still has the now defunct ``employer`` column. You can keep your database 
+clean by removing the job table. It will be recreated when you run the application again.
+   
+#. **SQL TASK:** In ``queries.sql`` under "Part 3", write the SQL statement to remove the job table.
+
 
 The *List* and *Search* functionality still isn't quite fixed so to view a job in the application, make a note 
 of the job's id in the SQL table. Back in your browser, enter the path for ``/view/{jobId}``.
@@ -366,20 +387,24 @@ You now have all the tools in place to re-implement the list and search views fr
 #. You'll also need to pass the employer and skill data from those repositories into the view template rendered at ``list/``.
    Add the right ``model.addAttribute(name, value)`` statements to pass this info into ``templates/list.html``.    
 
-Test It!
-^^^^^^^^
+
+Test It with SQL
+^^^^^^^^^^^^^^^^
 
 Run your application and make sure you can create a new job with an employer and several skills. You should now also have restored
 full list and search capabilities.
 
+#. **SQL TASK:** In ``queries.sql`` under "Part 4", write a query to return a list of the names 
+   and descriptions of all skills that are attached to jobs in alphabetical order. 
+   If a skill does not have a job listed, it should not be 
+   included in the results of this query.
+
+   .. admonition:: Tip
+
+      You will need to make use of "is not null".
+
+
 When everything works, you’re done! Congrats!
-
-.. _tech-jobs-persistent-pt5:
-
-SQL Report
-----------
-
-TBD! 
 
 
 How to Submit
