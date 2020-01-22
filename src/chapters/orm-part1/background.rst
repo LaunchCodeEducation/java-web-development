@@ -84,14 +84,22 @@ To get started with using a relational database with our MVC applications, we ne
 In MySQL Workbench, you need to do the following:
 
 #. Create a new schema, ``coding-events``.
+
+   .. admonition:: Note
+
+      In the video, Chris names his schema ``coding_events``. Either name works just fine, as long as you are 
+      consistent within your own application.
+   
+   
 #. Add a new user with a new password. Give the user all privileges to modify your new schema. 
+
 
 In IntelliJ, attach MySQL to your project in ``application.properties``.
 
 .. sourcecode:: guess
 
    # Database connection settings
-   spring.datasource.url=jdbc:mysql://localhost:3306/coding_events
+   spring.datasource.url=jdbc:mysql://localhost:3306/coding-events
    spring.datasource.username=user
    spring.datasource.password=greatpassword
 
