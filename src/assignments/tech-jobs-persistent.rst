@@ -18,9 +18,14 @@ Checkout and Review the Starter Code
 
 Fork and clone the starter code from the `techjobs persistent repository <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-persistent>`__.
 
-You won't be able to run your application yet. You'll need to complete :ref:`Part1 <tech-jobs-persistent-pt1>` before you can
-check out the app in the browser. That said, it's a good idea to get familiar with the classes and templates even before you're able
-to execute ``bootRun``.
+You won't be able to run your application yet. If you try it, you'll likely see a host of errors relating to the 
+Spring Data annotations and classes. Some of these have already been added but the dependency has not yet been defined. 
+That will be one of your tasks. You'll need to complete :ref:`Part1 <tech-jobs-persistent-pt1>` before you can
+check out the project running in the browser. 
+
+That said, it's a good idea to scan the classes and templates even before you're able to execute 
+``bootRun``. Take a gander at the ``Job`` class. It will look somewhat similar to the model in 
+:ref:`Tech Jobs (MVC Edition) <tech-jobs-mvc>`, with a few key differences. 
 
 We're no longer using a csv file to load job data, instead, we'll be creating new Job objects via a 
 user form. The Job data will be stored in a MySQL database that you'll setup in :ref:`Part 1 <tech-jobs-persistent-pt1>` of this assignment.
@@ -56,23 +61,27 @@ Connect a database to a Spring App.
 
 #. Update ``build.gradle`` with the dependencies.
 
-#. Update ``src/resources/application.properties`` with the right info.
+#. Update ``src/resources/application.properties`` with the right info. This will include
+   ``spring.datasource.url`` set to the address of your database connection, as well as the username and password
+   for a user you have created. Refer to the tip below for the other properties you must add to complete your 
+   database setup. 
 
 .. admonition:: Tip
    
    You can double check your setup against what you've already done for 
-   :ref:`your coding events repo <setup-orm-database>`
+   :ref:`your coding events repo <setup-orm-database>`. You can copy these property assignments from your coding 
+   events repo, only needing to change the database address and username/password values.
 
 Test It!
 ^^^^^^^^
 
 When your database is properly configured, you should have no compiler errors when starting the application. Execute ``bootRun``
-and check the compiler output to make sure this is the case. If all runs, you will be able to view your app running locally in 
-the browser at ``Localhost:8080`` (unless of course you have changed the server port).
+and check the compiler output to make sure this is the case. If everything runs, you will be able to view your app 
+locally in the browser at ``Localhost:8080`` (unless of course you have changed the server port).
 
-Your running application still has limited functionality. You won't yet be able to add a job from the *Add Job* form. You also
+Your running application still has limited functionality. You won't yet be able to add a job with the *Add Job* form. You also
 won't yet be able to view the list of jobs or search for jobs - but this is mostly because you have no more job data. Move on to
-Part 2 below to get the app to be more useful.
+Part 2 below to start adding these functionalities.
 
 .. _tech-jobs-persistent-pt2:
 
@@ -86,7 +95,7 @@ section.
 ^^^^^^^^^^^^^^^^^^
 
 We've replaced the abstract class ``JobField`` with an even more abstracted class aptly named, 
-``AbstractEntity``. This class is holds the fields and methods that are common across the ``Job`` class
+``AbstractEntity``. This class holds the fields and methods that are common across the ``Job`` class
 and the classes it contains as fields.  
 
 #. We will be creating tables for the subclasses that inherit from
@@ -101,7 +110,8 @@ and the classes it contains as fields.
    
    a. a user cannot leave this field blank when creating an object. 
 
-   b. there are reasonable limitations on the size of the name string.
+   b. there are reasonable limitations on the size of the name string. Keep in mind that the name field will be 
+      shared across ``Job``, ``Employer``, and ``Skill`` classes. Some employer names might be longer than 50 characters.
 
 
 Models
@@ -112,7 +122,8 @@ and skill (formerly core competency) information about a particular job will now
 These items themselves will hold their own supplementary information. 
 
 #. Open the ``Employer`` model class. In addition to the fields inherited from ``AbstractEntity``, ``Employer`` should have a 
-   string field for ``location``. Add this field with validation as you see fit, as well as getters and setters.
+   string field for ``location``. Add the field for ``location`` with validation. In addition, add getters and setters
+   to ``Employer``.
 
    .. admonition:: Note
 
@@ -148,11 +159,7 @@ Controllers
 
 With the employer repository in place, we will reference this to send object information through 
 the ``EmployerController`` handlers. ``EmployerController`` contains two handlers with missing 
-information.
-
-#. View an individual employer object.
-
-Your task here is to make use of the ``EmployerRepository`` class in these handlers. 
+information. Your task here is to make use of the ``EmployerRepository`` class in these handlers. 
 
 #. Add a private field of ``EmployerRepository`` type called ``employerRepository`` to 
    ``EmployerController``. Give this field an ``@Autowired`` annotation.
@@ -180,7 +187,7 @@ The employer and skill view templates for adding and viewing these objects are m
 test your application now to make sure it runs as expected. You should be able to create Employer and Skill objects
 and view them.
 
-#. Start up your application – don’t forget to have our SQL server running – and go to the *Add Jobs*
+#. Start up your application – don’t forget to have your SQL server running – and go to the *Add Jobs*
    view from the application's navigation menu.
 
 #. You won't be able to add a job yet, but you'll see a link to *Add Employers* and *Add Skills* in the form. Click them and proceed
@@ -201,7 +208,7 @@ When everything works, move on to Part 2 below.
 
    #. If there’s data in the database, check that you are correctly
       querying for the list of all objects in the controller
-      findAll()``?
+     Are you calling ``.findAll()`` on the repository?
 
    #. Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.
 
@@ -233,7 +240,7 @@ Add a ``jobs`` Field to ``Employer``
 Update ``Job`` Model
 ^^^^^^^^^^^^^^^^^^^^
 
-#. Since it too has ``id`` and ``name`` fields, the ``Job`` model class can also inherit from ``AbstractEntity``. Update the 
+#. Since the ``Job`` model class has ``id`` and ``name`` fields, it too can inherit from ``AbstractEntity``. Update the 
    class definition of ``Job`` to extend ``AbstractEntity``. Remove the redundant fields from ``Job``.
 
 #. Replace the type of the field ``employer`` to be of type ``Employer``. You will also need to refactor the affected constructor
@@ -259,7 +266,7 @@ missing code because the class has not yet been *wired* with the data layer yet.
 #. In ``processAddJobForm``, add a parameter to the method to pass in the template variable you just found. You'll need to use the 
    ``@RequestParam`` annotation on this parameter. 
 #. Still in ``processAddJobForm``, add code inside of this method to select the employer object that has been chosen to be 
-   affiliated with the new job. You will need to select the employer useing the request parameter you've added to the method. 
+   affiliated with the new job. You will need to select the employer using the request parameter you've added to the method. 
 
    .. admonition:: Note
 
@@ -310,7 +317,7 @@ Refactor ``Job.skills``
 
 #. Update your ``Job`` model class to fit its many-to-many relationship with skills.
 
-   #. ``Job.skills`` already exists. What needs to change and/or be added to map this relationship.
+   #. ``Job.skills`` already exists. What needs to change and/or be added to map this relationship?
 
       .. admonition:: Tip
 
