@@ -100,7 +100,7 @@ table and pull in overlapping data from another.
 
       SELECT writing_supply.supply_id, utensil_type, drawer_id, color
       FROM writing_supply
-      LEFT JOIN pen_drawer ON writing_supply.supply_id == pen_drawer.supply_id;
+      LEFT JOIN pen_drawer ON writing_supply.supply_id = pen_drawer.supply_id;
 
    The result set contains ``null`` values for any rows that involve pencils. The
    left join retains all of the data in ``writing_supply``, but it can only
