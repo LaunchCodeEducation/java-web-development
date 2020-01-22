@@ -99,3 +99,28 @@ An event can have multiple tags, and a tag may be associated with multiple event
    #. Books / authors
    #. Recipes / ingredients
    #. Actors / movies
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Match the following pairs with the appropriate relationship type:
+
+   #. car / manufacturer
+   #. car / title
+   #. car / driver 
+   #. car / tire
+
+.. ans: a. many-to-one, b. one-to-one, c. many-to-many, d. one-to-many
+
+.. admonition:: Question
+
+   True/False: In order for two Java classes, A and B, to be mapped in a one-to-many relationship, class A must 
+   contain a field for B objects and B must have a field for instances of A.
+
+   #. True
+   #. False
+
+.. ans: False, A one-to-many relationship may be present without B containing a field A.
+
