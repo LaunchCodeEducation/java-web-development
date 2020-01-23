@@ -201,10 +201,10 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Which of the following is not a ``CrudRepository`` method? Check all that apply.
+   Which of the following is NOT a ``CrudRepository`` method? Check all that apply.
 
    #. ``.findAll()``
-   #. ``findById()``
+   #. ``.findById()``
    #. ``.value()``
    #. ``.get()``
 
@@ -212,7 +212,7 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True/False: The conditional in ``displayEvents`` in the ``coding-events`` repo helps curtail an exception making its way to the user.
+   True/False: The nested conditional in ``displayEvents`` in the ``coding-events`` repo helps curtail an exception making its way to the user.
 
    #. True
    #. False

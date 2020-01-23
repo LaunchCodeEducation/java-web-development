@@ -209,10 +209,10 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Name the annotation on ``AbstractEntity`` to allow it handle primary key id generation of subclasses but not map to a database 
-   table itself.
+   What is the annotation that allows ``@AbstractEntity`` to handle logic related to IDs/primary keys of subclasses, 
+   yet not be mapped to a database table.
 
-.. ans: short answer, @MappedSuperClass
+.. ans: short answer, @MappedSuperclass
 
 
 .. admonition:: Question

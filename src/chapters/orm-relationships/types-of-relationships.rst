@@ -127,7 +127,7 @@ Check Your Understanding
 .. admonition:: Question
 
    True/False: In order for two Java classes, A and B, to be mapped in a one-to-many relationship, class A must 
-   contain a field for B objects and B must have a field for instances of A.
+   contain a field for instances of B and B must have a field for instances of A.
 
    #. True
    #. False
