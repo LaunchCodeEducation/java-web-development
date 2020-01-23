@@ -1,3 +1,5 @@
+.. _orm1-studio:
+
 Studio: Creating an ``AbstractEntity``
 ======================================
 

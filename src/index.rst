@@ -23,6 +23,7 @@ Chapters
    chapters/sql-part1/index
    chapters/sql-part2/index
    chapters/orm-part1/index
+   chapters/orm-relationships/index
 
 .. toctree::
 
@@ -61,6 +62,7 @@ Assignments
    assignments/tech-jobs-console
    assignments/tech-jobs-oo
    assignments/tech-jobs-mvc
+   assignments/tech-jobs-persistent
 
 Appendices
 -----------
