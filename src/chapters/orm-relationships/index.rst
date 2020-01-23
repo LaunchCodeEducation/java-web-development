@@ -7,3 +7,4 @@ Relationships in Object-Relational Mapping
    types-of-relationships
    many-to-one
    one-to-many
+   exercises
