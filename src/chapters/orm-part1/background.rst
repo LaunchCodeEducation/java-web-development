@@ -103,6 +103,19 @@ In IntelliJ, attach MySQL to your project in ``application.properties``.
    spring.datasource.username=user
    spring.datasource.password=greatpassword
 
+   # Specify the DBMS
+   spring.jpa.database = MYSQL
+
+   # Show or not log for each sql query
+   spring.jpa.show-sql = false
+
+   # Hibernate ddl auto (create, create-drop, update)
+   spring.jpa.hibernate.ddl-auto = update
+
+   # Use spring.jpa.properties.* for Hibernate native properties (the prefix is
+   # stripped before adding them to the entity manager)
+   spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+
 Set the value of ``username`` and ``password`` to the username and password you set up in MySQL Workbench.
 
 In the ``dependencies`` of ``build.gradle``, add MySQL and the Spring Data JPA, like so:
