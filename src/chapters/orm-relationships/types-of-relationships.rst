@@ -12,7 +12,7 @@ For the examples below, we use four classes:
 - ``EventDetails`` - A class that encapsulates details about a single event, such as description, contact email, location, and so on.
 - ``Tag`` - A piece of metadata labeling an event. You can think of these as topics that an event might include, such as Java, Spring, or JavaScript. An event can cover multiple topics, so it can have multiple tags.
 
-The first two of these are familiar to you from our ``coding-events`` app. ``EventDetails`` and ``Tag`` classes will be introduced later in this chapter.
+The first two of these are familiar to you from our ``coding-events`` app. The ``EventDetails`` and ``Tag`` classes will be introduced later in this chapter.
 
 One-to-One
 ----------
@@ -23,7 +23,9 @@ The simplest type of relationship is the **one-to-one relationship**. This occur
 
 .. admonition:: Note
 
-   In the following examples, arrows point in the directly of the relationship. If A points to B, then you can say that A *knows about* B.
+   In the following examples, arrows point in the direction of the relationship. If A points to B, then you can say that A *knows about* B.
+
+   While relationships in SQL are bidirectional, relationships in programming languages are unidirectional. In other words, if A knows about B, then B doesn't necessarily know about A.
 
 .. figure:: figures/one-to-one.png
    :alt: A single Event object on the left, with a double-sided arrow point to a single EventDetails object on the right
@@ -60,6 +62,14 @@ A **one-to-many** relationship occurs when each instance of type A may be relate
 
 In this case, we say that A has a one-to-many relationship to B. A category can contain multiple items, therefore an ``EventCategory`` object may be related to multiple ``Event`` objects. But an event may only be in one category.
 
+.. admonition:: Examples
+
+   The following pairs of things generally have one-to-many relationships:
+
+   #. Birth dates / people
+   #. States / U.S. Representatives
+   #. Model numbers / iPhones
+
 When discussing the inverse relationship, we say that B has a **many-to-one** relationship to A.
 
 .. figure:: figures/many-to-one.png
@@ -72,11 +82,11 @@ A many-to-one relationship operates in the opposite direction of a one-to-many r
 
 .. admonition:: Examples
 
-   The following pairs of things generally have one-to-many relationships:
+   Many-to-one relationships are simply the opposite direction of one-to-many. Therefore, each of the following pairs has a many-to-one relationship.
 
-   #. Birth dates / people
-   #. U.S. Senators / states
-   #. Model numbers / iPhones
+   #. People / birth dates
+   #. U.S. Representatives / states
+   #. iPhones / model numbers
 
 
 Many-to-Many

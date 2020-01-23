@@ -3,7 +3,7 @@ Creating a Many-to-One Relationship
 
 The first relationship we implement will be between the ``Event`` and ``EventCategory`` classes. We will allow multiple events to be in the same category, but each event will only have one category. Thus, this will be a many-to-one relationship.
 
-Before diving in, let's reduce repetition in our persistent classes, that is, let's "DRY out" our code.
+Before diving in, let's reduce repetition in our persistent classes, that is, let's DRY out our code.
 
 Creating an ``AbstractEntity`` - Video
 --------------------------------------
@@ -66,7 +66,7 @@ This establishes a relationship between the two classes, but that relationship i
 
 This annotation informs Hibernate that there can be many events for each category, but only one category per event. 
 
-Before we can start up the app and test our changes, we need to remove the code that references the deleted ``type`` field. A quick way to find these references is to find ``EventType`` in the *Project* pane of IntelliJ, right-click, and select *Find Usages*. This will open a pane listing each location ``EventType`` occurs in our project, whether that is an object of that type or a direct reference to the class itself. 
+Before we can start up the app and test our changes, we need to remove the code that references the deleted ``type`` field. A quick way to find these references is to find ``EventType`` in the *Project* pane of IntelliJ, right-click, and select *Find Usages*. This will open a pane listing each location where ``EventType`` occurs in our project, whether that is an object of that type or a direct reference to the class itself. 
 
 .. figure:: figures/find-usages.png
    :alt: The search results pane after running Find Usages on EventType
@@ -83,7 +83,7 @@ The first occurrence is in ``EventController.displayCreateEventForm``:
 
 This line passes a collection of all of the values of ``EventType`` into the view, to be rendered in the form used to create new events.
 
-Since we are now using ``EventCategory`` to group events, our code should instead be passing in all of the category objects in our app. To fetch category objects, we need an instance of ``EventCategoryRepository`` in our controller. Add an autowired instance to the top of the controller:
+Since we are now using ``EventCategory`` to group events, our code should instead be passing in all of the category objects in our app. To fetch category objects, we need an instance of ``EventCategoryRepository`` in our controller. Add an ``@Autowired`` instance to the top of the controller:
 
 .. sourcecode:: java
    :lineno-start: 24
@@ -120,7 +120,7 @@ This new template code includes several changes:
 #. The ``select`` is now bound to the field ``eventCategory``.
 #. The loop references ``categories`` and has an updated iterator variable name, ``eventCategory``.
 #. The value of the ``select`` is now ``eventCategory.id``. This allows model binding to occur upon form submission. Spring Boot will determine the category object to assign to the new event object by referencing the ``id``.
-#. The display text for each ``option`` is now ``eventCategory.name``
+#. The text for each ``option`` is now ``eventCategory.name``
 #. The error message display now references the new field, ``event.eventCategory``.
 
 The remaining usages of ``EventType`` refer to:
@@ -132,7 +132,7 @@ The remaining usages of ``EventType`` refer to:
 
 Removing this unneeded code resolves all remaining compiler errors. 
 
-Finally, the ``events/create.html`` template needs to be updated as well, since it still contains a reference to the ``type`` field of ``Event``:
+The ``events/create.html`` template needs to be updated as well, since it still contains a reference to the ``type`` field of ``Event``:
 
 .. sourcecode:: html
    :lineno-start: 23
@@ -149,7 +149,7 @@ This usage wasn't found by IntelliJ because templates do not receive compile-tim
 Testing and Database Updates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Before starting up the, let's look at our ``event`` table:
+Before starting up the application, let's look at our ``event`` table:
 
 .. figure:: figures/event-table-before-update.png
    :alt: The event table before starting up the application
@@ -165,7 +165,7 @@ Notice that the ``type`` column remains, even though we have deleted the ``type`
 
    Notice that existing events will not have a category, which violates our new ``@NotNull`` validation rule. The easiest way to handle this is to delete all rows in ``event``.
    
-   To delete all events, truncate the ``event`` table in MySQL Workbench. (To truncate a SQL table is simply to delete all its rows.) To do this, select the table in the *Schemas* pane, right-click, and select *Truncate Table...*
+   To delete all events, truncate the ``event`` table in MySQL Workbench. (To **truncate** a SQL table is simply to delete all its rows.) To do this, select the table in the *Schemas* pane, right-click, and select *Truncate Table...*
 
 Start up the application and refresh the view in MySQL Workbench. 
 

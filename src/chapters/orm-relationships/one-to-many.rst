@@ -39,7 +39,7 @@ To establish a persistent relationship, we use the ``@OneToMany`` annotation on 
    @OneToMany(mappedBy = "eventCategory")
    private final List<Event> events = new ArrayList<>();
 
-By specifying ``mappedBy = "eventCategory"``, we are telling Hibernate that for a given category object, ``someCategory``, the ``events`` collection should by populated by all events for which the ``eventCategory`` field is set to ``someCategory``. To determine this, Hibernate will look at the foreign key column on the ``events`` table.
+By specifying ``mappedBy = "eventCategory"``, we are telling Hibernate that for a given category object, ``someCategory``, the ``events`` collection should be populated by all events for which the ``eventCategory`` field is set to ``someCategory``. To determine this, Hibernate will look at the foreign key column on the ``events`` table.
 
 Controller Updates
 ^^^^^^^^^^^^^^^^^^
@@ -59,7 +59,7 @@ Taking this one step further, we will use the same controller as well. This will
 
 The method at the route ``/events`` is ``displayAllEvents``. Since this handler will no longer *always* display all events, we rename it to ``displayEvents``.
 
-.. admonition:: note
+.. admonition:: Note
 
    We have renamed this method in the repository linked above, but the video skips this step.
 
@@ -69,7 +69,7 @@ Let's view the finished handler method and break down the changes one-by-one:
    :lineno-start: 29
 
    @GetMapping
-   public String displayAllEvents(@RequestParam(required = false) Integer categoryId, Model model) {
+   public String displayEvents(@RequestParam(required = false) Integer categoryId, Model model) {
 
       if (categoryId == null) {
          model.addAttribute("title", "All Events");
@@ -102,7 +102,7 @@ This allows requests to URLs like ``/events?categoryId=1``. By specifying ``requ
 Update 2: ``null`` Check
 ++++++++++++++++++++++++
 
-Much of the method consists of a large if/else if/else block.
+Much of the method consists of a large ``if``/``else if``/``else`` block.
 
 Before filtering by category, we check for the existence of the ``categoryId`` parameter. The first part of the conditional block is:
 
@@ -119,7 +119,7 @@ If no ``categoryId`` is passed in, we carry out the same behavior as before, pas
 Update 3: Ensuring the Category Object Exists
 +++++++++++++++++++++++++++++++++++++++++++++
 
-If the conditional check above fails then we have a non-null ``categoryId``. However, this does not guarantee that an object with the given ID exists in the database. We must manually check for existence of such an object.
+If the conditional check above fails, then we have a non-null ``categoryId``. However, this does not guarantee that an object with the given ID exists in the database. We must manually check for the existence of such an object.
 
 Here's our conditional block with the next piece added:
 
@@ -148,7 +148,7 @@ On lines 37-38 we use this fact to check to see if an ``EventCategory`` object w
 
 .. admonition:: Tip
 
-   As you wade into vast waters of Java and Spring, you will frequently find yourself needing to use a method or class that you have not encountered before. In such cases, be brave and remember that you don't have understand *all* of the documentation for a method or class in order to use it. 
+   As you wade into vast waters of Java and Spring, you will frequently find yourself needing to use a method or class that you have not encountered before. In such cases, be brave and remember that you don't have to understand *all* of the documentation for a method or class in order to use it. 
 
 Update 4: Retrieving Events For the Given Category
 ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -194,5 +194,5 @@ We need to provide a way for the user to access our new filtered views. In the `
 
 The logic in ``th:href`` uses string concatenation to create the appropriate URL for each category.
 
-With this code in place, we can start up our application and test out the new functionality! Be sure to navigate to ``/eventCategories`` to see your new links to the filtered views. And also be sure to test that ``/events`` still displays all events. 
+With this code in place, start up our application and test out the new functionality! Be sure to navigate to ``/eventCategories`` to see your new links to the filtered views. Also, be sure to test that ``/events`` still displays all events. 
 
