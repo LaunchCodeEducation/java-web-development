@@ -32,9 +32,8 @@ Graded assignment #3: :ref:`Work on TechJobs (MVC Edition) <tech-jobs-mvc>`.
 Persistence
 -----------
 
-Graded assignment #4:
+Graded assignment #4: :ref:`Work on TechJobs (Persistent Edition) <tech-jobs-persistent>`.
 
-   Coming Soon ...
 
 Assignment #5
 -------------

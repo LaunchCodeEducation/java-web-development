@@ -64,6 +64,8 @@ will NOT hold any names. Instead, it will store references that point to the
 ``teachers`` table. These references identify the information in ``teachers``
 that is connected to a particular entry in ``courses``.
 
+.. _one-to-many-sql:
+
 One-To-Many Relationships
 --------------------------
 
