@@ -203,3 +203,26 @@ If we create some new events, we can see precisely how ``event`` rows are relate
 Notice that our events have ``event_category_id`` values of ``12`` and ``13`` (these values may differ slightly in your application). These are foreign keys into the ``event_category`` table. For example, in the tables above, the ``event`` row with ``id`` equal to ``14`` is related to the ``event_category`` row with ``id`` equal to ``12``. This database relationship corresponds to the relationship between objects that was created by Spring Boot when we submitted the form.
 
 With this many-to-one relationship in place, we next look at how to establish a persistent one-to-many relationship.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Name the annotation on ``AbstractEntity`` to allow it handle primary key id generation of subclasses but not map to a database 
+   table itself.
+
+.. ans: short answer, @MappedSuperClass
+
+
+.. admonition:: Question
+
+   You are working on a Spring application tracking elected officials. Your model class, ``Senator`` has a many-to-one relationship 
+   with another model class, ``State``. To properly configure this relationship in the Hibernate context, what must be present?
+
+   #. In ``Senator``, a ``state`` field, annotated with ``@OneToMany``
+   #. In ``Senator``, a ``state`` field, annotated with ``@ManyToOne``
+   #. In ``State``, a ``senator`` field, annotated with ``@OneToMany``
+   #. In ``State``, a ``senator`` field, annotated with ``@ManyToOne``
+
+.. ans: b. In ``Senator``, a ``state`` field, annotated with ``@ManyToOne``

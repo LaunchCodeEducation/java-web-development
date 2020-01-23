@@ -196,3 +196,25 @@ The logic in ``th:href`` uses string concatenation to create the appropriate URL
 
 With this code in place, start up our application and test out the new functionality! Be sure to navigate to ``/eventCategories`` to see your new links to the filtered views. Also, be sure to test that ``/events`` still displays all events. 
 
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Which of the following is not a ``CrudRepository`` method? Check all that apply.
+
+   #. ``.findAll()``
+   #. ``findById()``
+   #. ``.value()``
+   #. ``.get()``
+
+.. ans: c + d, .value and .get
+
+.. admonition:: Question
+
+   True/False: The conditional in ``displayEvents`` in the ``coding-events`` repo helps curtail an exception making its way to the user.
+
+   #. True
+   #. False
+
+.. ans: a. True, if the result of ``.findById()`` is not checked, then the application would display an exception when an invalid id passed
