@@ -140,7 +140,7 @@ If we do not do these steps, then our application will not be able to use a pers
 
 As Chris noted in our video, while we can simply set the value of ``spring.datasource.username`` and ``spring.datasource.password`` to the value of the username and password, this is NOT best practice.
 We regularly commit our code to Github, meaning anyone who reads the code in our repository can see the username and password.
-While you can do it for the ``coding-events`` application, you do not want to do it in the future.
+While you can do it for the applications in this class, you do not want to do it in the future.
 
 To avoid this in the future, you can configure your ``application.properties`` file to use **environment variables**.
 You then hide the appropriate info by setting the environment variable's value equal to the password, for example.
