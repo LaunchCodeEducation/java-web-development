@@ -97,7 +97,7 @@ Part 2 below to start adding these functionalities.
 Part 2: Persisting Employers and Skills
 ---------------------------------------
 
-You will need to have completed the :ref:`setup steps <tech-jobs-persistent-setup>` before starting this
+You will need to have completed the :ref:`setup steps <tech-jobs-persistent-pt1>` before starting this
 section.
 
 ``AbstractEntity``
