@@ -14,6 +14,8 @@ For the examples below, we use four classes:
 
 The first two of these are familiar to you from our ``coding-events`` app. The ``EventDetails`` and ``Tag`` classes will be introduced later in this chapter.
 
+.. _one-to-one-def:
+
 One-to-One
 ----------
 
