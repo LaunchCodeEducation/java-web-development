@@ -98,7 +98,8 @@ Now, use the repository to fetch all saved categories:
 
    model.addAttribute("categories", eventCategoryRepository.findAll());
 
-This line replaces the line references ``EventType.values()``. Notice that we have relabeled this attribute ``"categories"`` to be more consistent. This also requires updating the ``events/create.html`` template:
+This line replaces the line references ``EventType.values()``. Notice that we have relabeled this attribute ``"categories"`` 
+to be more consistent. This also requires updating the ``events/create.html`` template:
 
 .. sourcecode:: html
    :lineno-start: 27
@@ -132,7 +133,7 @@ The remaining usages of ``EventType`` refer to:
 
 Removing this unneeded code resolves all remaining compiler errors. 
 
-The ``events/create.html`` template needs to be updated as well, since it still contains a reference to the ``type`` field of ``Event``:
+The ``events/index.html`` template needs to be updated as well, since it still contains a reference to the ``type`` field of ``Event``:
 
 .. sourcecode:: html
    :lineno-start: 23
