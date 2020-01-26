@@ -97,7 +97,7 @@ Part 2 below to start adding these functionalities.
 Part 2: Persisting Employers and Skills
 ---------------------------------------
 
-You will need to have completed the :ref:`setup steps <tech-jobs-persistent-setup>` before starting this
+You will need to have completed the :ref:`setup steps <tech-jobs-persistent-pt1>` before starting this
 section.
 
 ``AbstractEntity``
@@ -218,7 +218,7 @@ and view them.
 
    #. If there’s data in the database, check that you are correctly
       querying for the list of all objects in the controller
-     Are you calling ``.findAll()`` on the repository?
+      Are you calling ``.findAll()`` on the repository?
 
    #. Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.
 
@@ -379,7 +379,7 @@ the job form.
 It's Your Job, List It and Re-Search It
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You now have all the tools in place to re-implement the list and search views from :ref:`tech-jobs-mvc>`.
+You now have all the tools in place to re-implement the list and search views from :ref:`tech-jobs-mvc`.
 
 #. In the ``ListController`` class, add fields for ``EmployerRepository`` and ``SkillRepository``, both annotated with 
    ``@Autowired``.
