@@ -41,10 +41,3 @@ Assignment #5
 Graded assignment #5:
 
    Coming Soon ...
-
-Assignment #6
--------------
-
-Graded assignment #6:
-
-   Coming Soon ...

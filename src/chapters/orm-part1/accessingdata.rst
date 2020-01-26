@@ -79,7 +79,7 @@ Extending the ``CrudRepository`` interface gives us access to methods to perform
 
    This code creates a repository called ``ContactInfoRepository`` so we can fetch data from the ``contactinfo`` table.
    
-One the next page, we will cover how to use a controller and ``CrudRepository`` methods to get info in and out of the tables of our relational database.
+On the next page, we will cover how to use a controller and ``CrudRepository`` methods to get info in and out of the tables of our relational database.
 
 Creating Persistent Models - Video
 ----------------------------------

@@ -84,16 +84,37 @@ To get started with using a relational database with our MVC applications, we ne
 In MySQL Workbench, you need to do the following:
 
 #. Create a new schema, ``coding-events``.
+
+   .. admonition:: Note
+
+      In the video, Chris names his schema ``coding_events``. Either name works just fine, as long as you are 
+      consistent within your own application.
+   
+   
 #. Add a new user with a new password. Give the user all privileges to modify your new schema. 
+
 
 In IntelliJ, attach MySQL to your project in ``application.properties``.
 
 .. sourcecode:: guess
 
    # Database connection settings
-   spring.datasource.url=jdbc:mysql://localhost:3306/coding_events
+   spring.datasource.url=jdbc:mysql://localhost:3306/coding-events
    spring.datasource.username=user
    spring.datasource.password=greatpassword
+
+   # Specify the DBMS
+   spring.jpa.database = MYSQL
+
+   # Show or not log for each sql query
+   spring.jpa.show-sql = false
+
+   # Hibernate ddl auto (create, create-drop, update)
+   spring.jpa.hibernate.ddl-auto = update
+
+   # Use spring.jpa.properties.* for Hibernate native properties (the prefix is
+   # stripped before adding them to the entity manager)
+   spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
 
 Set the value of ``username`` and ``password`` to the username and password you set up in MySQL Workbench.
 
@@ -119,7 +140,7 @@ If we do not do these steps, then our application will not be able to use a pers
 
 As Chris noted in our video, while we can simply set the value of ``spring.datasource.username`` and ``spring.datasource.password`` to the value of the username and password, this is NOT best practice.
 We regularly commit our code to Github, meaning anyone who reads the code in our repository can see the username and password.
-While you can do it for the ``coding-events`` application, you do not want to do it in the future.
+While you can do it for the applications in this class, you do not want to do it in the future.
 
 To avoid this in the future, you can configure your ``application.properties`` file to use **environment variables**.
 You then hide the appropriate info by setting the environment variable's value equal to the password, for example.

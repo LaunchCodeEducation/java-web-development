@@ -3,14 +3,12 @@
 Studio: Movie SQLs
 ==================
 
-A database fills the role of the model in an MVC structure.
-
 In this studio, you will use space in *MySQL Workbench* to practice writing SQL
 queries to retrieve or modify information stored in an established database.
 You will also explore the parallels between Java objects and database tables.
 
 Walkthrough
-------------
+-----------
 
 Let's relate what you've learned about SQL to interact with a database called
 ``movie-buff`` that contains two tables---``movies`` and ``directors``.
@@ -38,7 +36,7 @@ find yourself thinking, *If this were a property of a Java object, what data
 type would I use?*
 
 For example, if the ``movie`` object has a ``title`` and a ``director`` field,
-you would expect both of these data types to be ``String``. Similarly the year
+you would expect both of these data types to be ``String``. Similarly, the year
 the movie was released would be stored as an integer. This conceptual overlap
 between databases and Java objects is very useful, and we will explore this
 further in the class on *Object-Relational Mapping* (ORM).
