@@ -96,6 +96,8 @@ Many-to-Many
 
 **Many-to-many** relationships occur when each instance of type A can be related to multiple instances of type B, and vice versa. 
 
+.. _many-to-many-figure:
+
 .. figure:: figures/many-to-many.png
    :alt: Three Event objects on the left, with various relationships to three Tag objects on the right
    :width: 800px
