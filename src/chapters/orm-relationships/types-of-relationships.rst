@@ -14,6 +14,8 @@ For the examples below, we use four classes:
 
 The first two of these are familiar to you from our ``coding-events`` app. The ``EventDetails`` and ``Tag`` classes will be introduced later in this chapter.
 
+.. _one-to-one-def:
+
 One-to-One
 ----------
 
@@ -93,6 +95,8 @@ Many-to-Many
 ------------
 
 **Many-to-many** relationships occur when each instance of type A can be related to multiple instances of type B, and vice versa. 
+
+.. _many-to-many-figure:
 
 .. figure:: figures/many-to-many.png
    :alt: Three Event objects on the left, with various relationships to three Tag objects on the right
