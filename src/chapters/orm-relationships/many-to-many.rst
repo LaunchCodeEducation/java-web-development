@@ -8,7 +8,7 @@ Persistent Tags - Video
 
 .. raw:: html
 
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/GKOCCjn86yk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/bLK-VtZgx0Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 The final code from this video is in the `add-tags branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-tags>`__ of ``coding-events``.
 
@@ -67,7 +67,7 @@ Many-to-Many Forms and Data Transfer Objects - Text
 
 .. index:: design pattern
 
-In order to make use of our new many-to-many relationship, we need to have a way for users to add a tag to an event. We will implement this feature by creating a form that, for a given event, let's the user add a single tag. The process of binding an ``Event`` and ``Tag`` object together will be made easier through the use of a new design pattern. 
+In order to make use of our new many-to-many relationship, we need to have a way for users to add a tag to an event. We will implement this feature by creating a form that, for a given event, lets the user add a single tag. The process of binding an ``Event`` and a ``Tag`` object together will be made easier through the use of a new design pattern. 
 
 Data Transfer Objects (DTO)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -142,7 +142,7 @@ Here is the handler method in ``EventController`` that renders the form, broken 
 - **Line 112**: Specifies that the handler will be available at the route ``/events/add-tag``, and will respond to ``GET`` requests.
 - **Line 113**: Defines the ``displayAddTagForm`` handler, which has a required query parameter, ``eventId``.
 - **Line 114**: Queries the repository for the ``Event`` object with ID equal to the value of ``eventId``.
-- **Line 115**: Extracts the ``Event`` object from the result of the query. We would ideally include a conditional to check that such an object exists before proceeding.
+- **Line 115**: Extracts the ``Event`` object from the result of the query. We would ideally include a conditional to check that such an object exists before proceeding, but are omitting it here to focus on DTO usage.
 - **Line 116**: Creates a title for the form, which includes the name of the event.
 - **LIne 117**: Passes a collection of all available tags into the view. This collection will be used to render a dropdown that the user can use to select the tag to be added.
 - **Line 118**: Creates an empty ``EventTagDTO`` object. This will be used to help render the form, as we have done previously with model classes.
@@ -214,7 +214,9 @@ As with ``displayAddTagForm``, we will break down the form's ``POST`` handler in
 
 Using model binding, our method takes a valid parameter of type ``EventTagDTO``. Since we referenced the ``event`` and ``tag`` fields of our DTO when rendering the form (in the template, using ``th:field``), our submitted form should contain all of the data necessary to create an ``EventTagDTO`` instance. This instance will be valid if both ``event`` and ``tag`` are non-null. 
 
-Lines 130-131 retrieve the values of these fields from the DTO. Then, as long as the given event doesn't already have the given tag, we add the tag to it's collection in lines 132-134. Finally, we save the ``event`` to ``eventRepository``, which results in the relationship being stored in the database.
+The reasons for creating a DTO model should hopefully be a bit clearer by now. Using a DTO allows us to create and validate these objects through model binding. The same event and tag relationship information could be processed without a DTO, but this would require passing query parameters for the IDs of both ``event`` and ``tag`` objects, querying the ``eventRepository`` and ``tagRepository`` for these items, validating those objects, etc. Simply put, the DTO makes this procedure cleaner and easier.
+
+Once we have a valid DTO, lines 130-131 retrieve the values of its. Then, as long as the given event doesn't already have the given tag, we add the tag to it's collection in lines 132-134. Finally, we save the ``event`` to ``eventRepository``, which results in the relationship being stored in the database.
 
 Exactly *how* this relationship is stored utilizes a new type of SQL table.
 
@@ -223,13 +225,13 @@ Join Tables
 
 Think about how relationships are established at the database level. One-to-one and one-to-many relationships are facilitated by the use of a foreign key column on one side of the relationship. Our ``event`` table has two foreign key columns: ``event_category_id`` and ``event_details_id``. 
 
-For a given row in ``event``, the column ``event_category_id`` contains the primary key of the row in ``event_category`` that the ``event`` row is related to, an similarly for ``event_details_id``. 
+For a given row in ``event``, the column ``event_category_id`` contains the primary key of the row in ``event_category`` that the ``event`` row is related to, and similarly for ``event_details_id``. 
 
-The only difference is the *number* of different ``event`` rows that may have the same value of ``event_category_id`` and ``event_details_id``. The ``event``/``event_category`` relationship is many-to-one, so *many* event rows may have the same ``event_category_id`` value. The ``event``/``event_details`` relationship is one-to-one, so *only one* event row may have a given value in ``event_details_id``. 
+The only difference is the *number* of different ``event`` rows that may have the same value of ``event_category_id`` and ``event_details_id``. The ``event``/``event_category`` relationship is many-to-one, so *many* event rows may have the same ``event_category_id`` value. The ``event``/``event_details`` relationship is one-to-one, so *only one* event row may have a certain value in ``event_details_id``. 
 
 .. index:: ! join table
 
-Using foreign and primary keys to create many-to-many relationships is a bit trickier. In order to relate rows in ``event`` to rows in ``tag`` we need need a third table, known as a **join table**. A join table consists of two columns, each of which is a foreign key column to another table. Each row in a join table represents a relationship between one row of each of the two tables. This technique enables many-to-many relationships.
+Using foreign and primary keys to create many-to-many relationships is a bit trickier. In order to relate rows in ``event`` to rows in ``tag`` we need need a third table, known as a **join table**. A join table consists of two columns, each of which is a foreign key column to another table. Each row in a join table represents a relationship between one row in each of the two tables. This technique enables many-to-many relationships.
 
 Consider some example data in our ``event`` and ``tag`` tables.
 
@@ -287,7 +289,7 @@ If we want to relate the ``ios`` tag to the ``WWDC`` event, we create a new row 
    * - 13
      - 4
 
-We can do this again and again to generate more relationships. Let's revisit the :ref:`many-to-many diagram <many-to-many-figure>` from earlier in the chapter. 
+We can do this again and again to generate more relationships. Let's revisit the many-to-many diagram from earlier in the chapter. 
 
 .. figure:: figures/many-to-many.png
    :alt: Three Event objects on the left, with various relationships to three Tag objects on the right
@@ -330,3 +332,5 @@ Check Your Understanding
    #. Many-to-many relationships between tables.
    #. Many-to-many relationships between classes without using the ``@ManyToMany`` annotation.
    #. Rainbows and butterflies to be stored in your database.
+
+.. ans: B only.

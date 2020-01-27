@@ -88,7 +88,11 @@ To establish the relationship, add a new field of type ``EventDetails`` to ``Eve
 
 .. index:: @Valid
 
-You have used ``@NotNull`` in this way before, but this is the first time we have used ``@Valid`` on a class member. 
+This is the first time we have used ``@Valid`` on a class member. 
+
+First, let's review what ``@NotNull`` accomplishes. When an Event object is created, the ``@NotNull``annotation will ensure that the ``eventDetails`` field is not null. But what if we also want to ensure that ``eventDetails`` is itself a valid object? 
+
+By default, model validation will not descend into the ``eventDetails`` class to check *its* validation annotations. However, annotating the field with ``@Valid`` overrides the default behavior. It makes sure that an ``Event`` object will not be considered valid unless it has an ``EventDetails`` object that is *also* valid (i.e. it has valid ``description`` and ``contactEmail`` fields).
 
 As we have seen, using ``@Valid`` on a method parameter in a controller will result in the fields of that method being validated. For instance, with an ``Event`` object, our ``@NotNull`` annotation will ensure that the ``eventDetails`` field is not null. By default, however, validation will not descend into the ``eventDetails`` class to check *its* validation annotations. 
 
@@ -179,7 +183,7 @@ This exception refers to the transient value ``Event.eventDetails``. A **transie
 
 The fix for this problem is simple, and allows us to introduce the concept of cascading. A database operation **cascades** from ``Event`` to ``EventDetails`` if, when the operation is applied to an ``Event`` instance, it is also applied to the associated ``EventDetails`` instance. If our call to ``eventRepository.save`` could be made to *cascade* then our problem would be solved! 
 
-To force our save operation to cascade, go into the ``Event`` class and add a ``cascade`` parameter to the ``@OneToOne`` annotation:
+To cascade our save operation, go into the ``Event`` class and add a ``cascade`` parameter to the ``@OneToOne`` annotation:
 
 .. sourcecode:: java
    :lineno-start: 22
@@ -200,7 +204,7 @@ At this point, your app should work. We have established our first one-to-one re
 The Inverse Relationship
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once we have set up the relationship from ``Event`` to ``EventDetails`` it is easy to configure the inverse relationship.
+Once we have set up the relationship from ``Event`` to ``EventDetails``, it is easy to configure the inverse relationship. We don't need to do this for the functionality currently in ``coding-events``, but we will walk through the steps here for demonstration purposes. 
 
 To do so, add a field of type ``Event`` to ``EventDetails``. Then add ``@OneToOne`` to the new field with a ``mappedBy`` parameter.
 
@@ -218,7 +222,7 @@ Check Your Understanding
 
    True/False: When a new object is saved to a repository, all of its non-primitive fields are saved as well.
 
-.. ans: False. Any fields that are also entities must be either explicitly, or else the appropriate cascade setting must be used.
+.. ans: False. Any fields that are also entities must be either explicitly as well, or else the appropriate cascade setting must be used.
 
 .. admonition:: Question
 
