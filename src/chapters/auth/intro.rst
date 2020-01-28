@@ -90,3 +90,7 @@ In this book, we are explicitly not introducing Spring Security for two reasons:
 #. Setting up Spring Security is fairly complicated, and requires concept that are beyond the scope of this course.
 
 That said, the authentication approach outlined in this chapter is sufficient for use in your personal projects. And never fear, when you begin working with a team on professional application, a senior developer will have already set up authentication.
+
+.. admonition:: Note
+
+   If you are curious about simple authentication using Spring Security, check out `an example <https://github.com/chrisbay/event-log/>`_ on GitHub. Start with the `SecurityConfig class <https://github.com/chrisbay/event-log/blob/master/src/main/java/net/chrisbay/eventlog/SecurityConfig.java>`_.
