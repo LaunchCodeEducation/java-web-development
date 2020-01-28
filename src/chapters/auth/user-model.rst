@@ -119,4 +119,36 @@ While our repository extends ``CrudRepository``, it also contains a new method, 
 
 Spring allows for additional, custom methods to be added to repository interfaces, as long as they follow some basic naming conventions. These conventions are straightforward to use, and allow you to create additional, more sophisticated query methods. Methods created in this way are called **query methods**, and their rules are defined in `Spring's documentation <https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation>`_.
 
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Why can we not use Java string comparison when evaluating values generated with bcrypt?
+
+   #. bcrypt will never create two matching hashes.
+   #. Java does not have a native string comparator method.
+   #. Salting adds variance to hashes generated from the same plain text.
+   #. Answers a and c.
+
+
+.. ans: c, Salting adds variance to hashes generated from the same plain text.
+
+.. admonition:: Question
+
+   .. sourcecode:: java
+      :lineno-start: 9
+
+      public interface UserRepository extends CrudRepository<User, Integer> {
+
+         User findByUsername(String username);
+
+      }
+
+   True/False: From the code block above, line 11 is missing a return statement.
+
+   #. True
+   #. False
+
+.. ans: False, line 11 is a special query method that takes advantage of logic written in Spring to determine how it functions.
 

@@ -136,12 +136,12 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Select all that are true about salt:
+   Select all that are true about salting:
 
-   #. Salts are an alternative to a hashing function.
-   #. Salts increase the strength of a hashing function.
-   #. Salts are ok to store in a user database.
-   #. Salts are random data used as additional input in a hashing function.
+   #. Salting is an alternative to a hashing function.
+   #. Salting increases the strength of a hashing function.
+   #. Salting makes it ok to store passwords in a user database.
+   #. Salting is the addition of random data to the input of a hashing function.
    
-.. ans: b + d, Salts increase the strength of a hashing function. and Salts are random data used as additional input in a hashing function.
+.. ans: b + d, Salting increases the strength of a hashing function. and Salting is the addition of random data to the input of a hashing function.
 
