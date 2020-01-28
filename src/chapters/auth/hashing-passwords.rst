@@ -121,3 +121,28 @@ Which Hash Function Should I Use?
 .. index:: ! bcrypt
 
 You should use `bcrypt <https://en.wikipedia.org/wiki/Bcrypt>`_. This hash function is considered not only the best hash function at the moment, but also likely to be able to stand the test of time. Bcrypt uses hashing best practices (such as `salts <https://en.wikipedia.org/wiki/Salt_(cryptography)>`_) along with an algorithm that can be made to run as long as you like. So even as computing power grows, bcrypt will be resistant to brute force techniques.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   True/False: One-way encryption does not involve decryption.
+
+   #. True
+   #. False
+
+.. ans: a, one-way encryption is only responsible for encrypting a message, not deciphering it
+
+.. admonition:: Question
+
+   Select all that are true about salt:
+
+	#. Salts are an alternative to a hashing function.
+	#. Salts increase the strength of a hashing function.
+	#. Salts are ok to store in a user database.
+   #. Salts are random data used as additional input in a hashing function.
+	
+
+.. ans: b + d, Salts increase the strength of a hashing function. and Salts are random data used as additional input in a hashing function.
+
