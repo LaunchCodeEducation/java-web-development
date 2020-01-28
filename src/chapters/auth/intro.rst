@@ -95,3 +95,28 @@ That said, the authentication approach outlined in this chapter is sufficient fo
 .. admonition:: Note
 
    If you are curious about simple authentication using Spring Security, check out `an example <https://github.com/chrisbay/event-log/>`_ on GitHub. Start with the `SecurityConfig class <https://github.com/chrisbay/event-log/blob/master/src/main/java/net/chrisbay/eventlog/SecurityConfig.java>`_.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Which of the following are true:
+
+   #. A session is stored on the server.
+   #. A session is stored in the browser.
+   #. A cookie is stored on the server.
+   #. A cookie is stored in the browser.
+
+.. ans: a and d,  A session is stored on the server. and A cookie is stored in the browser.
+
+.. admonition:: Question
+
+   What is the difference between authentication and authorization?
+
+   #. Authentication handles user permissions, authorization handles user restrictions.
+   #. Authentication handles user identity, authorization handles user permissions.
+   #. There is no difference, they are synonymous terms.
+   #. User authorization can be changed in a request, authentication cannot.
+
+.. ans: b, Authentication handles user identity, authorization handles user permissions.
