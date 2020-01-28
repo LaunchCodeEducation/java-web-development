@@ -1,20 +1,20 @@
 Creating a ``User`` Model
 =========================
 
-The next few sections walk through the steps necessary to enable basic authentication in the ``coding-events`` app. 
+The next few sections walk through the steps necessary to enable simple authentication in the ``coding-events`` app. 
 
 .. admonition:: Note
 
-   While we'll use ``coding-events``, these steps would be the same for any other app. If you want to add basic authentication to your Spring Boot application, reference this chapter.
+   While we'll use ``coding-events``, these steps would be the same for any other app. If you want to add simple authentication to a Spring Boot application in the future, reference this chapter.
 
 Before we can authenticate users, we need users to authenticate! We'll start by adding a ``User`` model.
 
-A Basic ``User`` Model
+A ``User`` Model
 ----------------------
 
-Given a username and password, we want to be able to create a new user object.
+A model class representing users needs, at a minimum, fields representing username and password.
 
-In the ``models`` package, create a ``User`` class with ``@Entity`` and extending ``AbstractEntity``. It should have two string fields, ``username`` and ``pwHash``, and we only need a getter for ``username``.
+In the ``models`` package, create a ``User`` class with ``@Entity`` and extending ``AbstractEntity``. It should have two string fields, ``username`` and ``pwHash``. We only need a getter for ``username``.
 
 .. sourcecode:: java
    :lineno-start: 13
@@ -44,7 +44,7 @@ In the ``models`` package, create a ``User`` class with ``@Entity`` and extendin
 
    }
 
-Notice that the constructor takes a parameter named ``password`` and uses it to set the value of ``pwHash``. Our next step is to create a hash from the given password when the object is first created.
+Notice that the constructor takes a parameter named ``password`` and uses it to set the value of ``pwHash``. We mentioned :ref:`previously <hashing-passwords>` that we should never store passwords, so in a moment we will create a hash from the given password to store.
 
 Hashing Passwords
 -----------------
