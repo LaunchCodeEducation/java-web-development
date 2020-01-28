@@ -17,18 +17,19 @@ One-Way Vs. Two-Way Encryption
 .. index::
    single: encryption; two-way
 
-When you think of encryption, you might think of WWII or the Cold War, when the militaries of various countries exchanged secret messages that were unreadable by their enemies. This type of encryption is **two-way encryption**. A message is *encoded* before being sent, and when it is received, it is *decoded*. 
+When you think of encryption, you might think of WWII or the Cold War, when the militaries of various countries exchanged secret messages that were unreadable by their enemies. This type of encryption is **two-way encryption**. A message is *encoded* with a key before being sent, and when it is received, it is *decoded* by another key. 
 
-.. todo:: create 2-way encryption diagram
+.. figure:: figures/two-way-encryption.png
+   :alt: A two-way encryption flow. A key is used to encrypt sensitive data. After being transmitted, another key decrypts it. 
+
+   Two-way encryption (Created by Munkhzaya Ganbold, licensed via `CC BY-SA <https://creativecommons.org/licenses/by-sa/4.0/deed.en>`_)
 
 .. index::
    single: encryption; one-way
 
 .. index:: ! hashing, ! hash function
 
-**One-way encryption**, also known as **hashing**, encodes a message without providing an algorithm for decoding it. An algorithm implementing a one-way encryption algorithm is a **cryptographic hash function** (we'll usually leave off "cryptographic"). For a specific message, the output of a hash function is a **hash**.
-
-.. todo:: create 1-way encryption diagram
+**One-way encryption**, also known as **hashing**, encodes a message in a way that makes it *nearly* impossible to decode. An algorithm implementing a one-way encryption algorithm is a **cryptographic hash function** (we'll usually leave off "cryptographic"). For a specific message, the output of a hash function is a **hash**.
 
 Hash functions are typically expected to have additional characteristics about the way they work. For our purposes, it is only important that we consider a hash function to have these properties:
 
