@@ -179,7 +179,7 @@ information. Your task here is to make use of the ``EmployerRepository`` class i
    
 #. ``displayViewEmployer`` will be in charge of rendering a page to view the contents of an individual 
    employer object. It will make use of that employer object's ``id`` field to grab the correct
-   information from ``employerRepository``. ``optEmployer`` currently initialized to ``null``. Replace this using
+   information from ``employerRepository``. ``optEmployer`` is currently initialized to ``null``. Replace this using
    the ``.findById()`` method with the right argument to look for the given employer object from 
    the data layer. 
 
