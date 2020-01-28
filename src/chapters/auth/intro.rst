@@ -36,7 +36,8 @@ The answers to these questions determine whether or not the user is allowed to v
 
 The logical flow of simple authentication looks like this:
 
-.. todo:: create flow diagram
+.. figure:: figures/authenticationflowdiagram.png
+   :alt: A diagram showing the the flow of a username and password through the authentication process.
 
 Sessions and Cookies
 ^^^^^^^^^^^^^^^^^^^^
