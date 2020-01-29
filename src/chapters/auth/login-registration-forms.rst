@@ -114,7 +114,7 @@ The DTO for the login form needs only ``username`` and ``password`` fields.
 
 .. admonition:: Note
 
-   In the class above we have a password field that will store a plain-text password. However, this does not contradict our early imperative about NOT storing passwords, since ``LoginFormDTO`` is not a persistent class. 
+   In the class above, we have a password field that will store a plain-text password. However, this does not contradict our early imperative about NOT storing passwords, since ``LoginFormDTO`` is not a persistent class. 
 
 Our registration form will ask for a username/password pair, and then ask the user to confirm the password by typing it in again. So the associated DTO can extend ``LoginFormDTO`` and add an additional field for password verification.
 
