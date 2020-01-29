@@ -40,6 +40,8 @@ The diagram below shows the general flow of how hashing works to secure the site
 .. figure:: figures/hashingdiagram.png
    :alt: Diagram showing how encoded passwords are compared to a submitted password to authenticate a user.
 
+   Diagram showing how encoded passwords are compared to a submitted password to authenticate a user.
+
 It can be difficult to write a good hash function, so thankfully you will never have to. Over the years, some very smart people have created some very good hash functions. However, it is important to understand how the properties of a hash function allow for secure password storage. For our purposes, it is only important that we consider a hash function to have these properties:
 
 .. _hash_properties:

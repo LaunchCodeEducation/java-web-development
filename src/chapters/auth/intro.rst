@@ -79,11 +79,15 @@ The following diagram shows the initial creation (steps 1-2) of the session and 
 .. figure:: figures/simplifiedsessionsandcookies.png
    :alt: A flow diagram showing the session and subsequent cookie being created so the user can access a restricted page.
 
+   A flow diagram showing the session and subsequent cookie being created so the user can access a restricted page.
+
 As the user navigates the site, sessions and cookies are used to validate whether users can access restricted pages.
 The next diagram shows the flow of steps 1-2 in black and the flow of steps 3-4 in blue.
 
 .. figure:: figures/sessionsandcookiesdiagram.png
    :alt: A flow diagram showing how sessions and cookies are used to validate an initial request to the server and any subsequent requests to the server.
+
+   A flow diagram showing how sessions and cookies are used to validate an initial request to the server and any subsequent requests to the server.
 
 .. admonition:: Note
 
