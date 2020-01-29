@@ -139,12 +139,12 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   Select all that are true about salting:
+   Which of the following best describes hashing?
 
-   #. Salting is an alternative to a hashing function.
-   #. Salting increases the strength of a hashing function.
-   #. Salting makes it ok to store passwords in a user database.
-   #. Salting is the addition of random data to the input of a hashing function.
+   #. Hashing is the process of encrypting plaintext so that it is very difficult to obtain the original message.
+   #. Hashing is more secure than two-way encryption but less useful because it does not decode an encoded message.
+   #. Hashing cannot confirm that two passwords are the same because the original values are never saved.
+   #. Hashing smashing.
    
-.. ans: b + d, Salting increases the strength of a hashing function. and Salting is the addition of random data to the input of a hashing function.
+.. ans: a, Hashing is the process of encrypting plaintext so that it is very difficult to obtain the original message.
 
