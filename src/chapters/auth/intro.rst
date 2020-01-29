@@ -74,7 +74,16 @@ Cookies and sessions work together to enable simple authentication in the follow
 #. For each subsequent request to the server, the browser passes the session cookie along with the request.
 #. When the server receives a request for a restricted resource, it checks for a session cookie. It then looks for a session with the given session ID. If such a session exists, then the server knows who the user is since their user ID is stored in the session. If the session does NOT exist, then the server does not know the user and they must authenticate themselves.
 
-.. todo:: session/cookie auth flow diagram
+The following diagram shows the initial creation (steps 1-2) of the session and cookie after a user signs in.
+
+.. figure:: figures/simplifiedsessionsandcookies.png
+   :alt: A flow diagram showing the session and subsequent cookie being created so the user can access a restricted page.
+
+As the user navigates the site, sessions and cookies are used to validate whether users can access restricted pages.
+The next diagram shows the flow of steps 1-2 in black and the flow of steps 3-4 in blue.
+
+.. figure:: figures/sessionsandcookiesdiagram.png
+   :alt: A flow diagram showing how sessions and cookies are used to validate an initial request to the server and any subsequent requests to the server.
 
 .. admonition:: Note
 
