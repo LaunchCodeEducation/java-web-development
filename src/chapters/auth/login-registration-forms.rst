@@ -389,7 +389,6 @@ Check Your Understanding
    #. ``Errors.isNotEmpty()``
    #. ``Errors.rejectValue()``
 
-
 .. ans: d, ``Errors.rejectValue()``
 
 .. admonition:: Question
@@ -400,6 +399,5 @@ Check Your Understanding
    #. Network
    #. Storage
    #. Performance
-
 
 .. ans: c, Storage

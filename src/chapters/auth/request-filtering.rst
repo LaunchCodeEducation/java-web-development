@@ -180,3 +180,25 @@ The ``@Configuration`` annotation flags this class to Spring as one that contain
 The first method---``authenticationFilter``, which is annotated with ``@Bean``---makes our filter available as a Spring-managed class. 
 
 The code in ``WebApplicationConfig`` is hard to understand, and contains some advanced concepts that you haven't fully learned. That's okay. We don't expect you to understand every detail of this class. However, you do need to understand its role in enabling authentication, which is to register our filter with Spring.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   True/False: Request filtering takes place before any controller is called.
+
+   #. True
+   #. False
+
+.. ans: True
+
+.. admonition:: Question
+
+   True/False: Paths included in a whitelist must be exact.
+
+   #. True
+   #. False
+
+.. ans: False, whitelisted paths can be just a root address.
+
