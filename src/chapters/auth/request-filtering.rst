@@ -201,10 +201,11 @@ Check Your Understanding
 
 .. admonition:: Question
 
-   True/False: Paths included in a whitelist must be exact.
+   True/False: When our code checks a path against entries in the whitelist, 
+	it must match exactly in order for the path to be accessed without logging in.
 
    #. True
    #. False
 
-.. ans: False, whitelisted paths can be just a root address.
+.. ans: False, Whitelisted paths as listed in this application can be just a root address.
 
