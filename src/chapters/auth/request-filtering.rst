@@ -179,7 +179,7 @@ The ``@Configuration`` annotation flags this class to Spring as one that contain
 
 The first method---``authenticationFilter``, which is annotated with ``@Bean``---makes our filter available as a Spring-managed class. 
 
-The code in ``WebApplicationConfig`` is hard to understand, and contains some advanced concepts that you haven't fully learned. That's okay. We don't expect you to understand every detail of this class. However, you do need to understand its role in enabling authentication, which is to register our filter with Spring.
+Now you can start your application and test. You should be required to log in to view anything other than login and registration pages. 
 
 Check Your Understanding
 ------------------------

@@ -6,7 +6,7 @@ With a ``User`` class in place, we can now create controllers and views for crea
 Creating ``AuthenticationController``
 -------------------------------------
 
-In the ``controllers`` package, create a new class named ``AuthenticationController``. Since this controller will deal with ``User`` objects, it needs a ``UserRepository``.
+In the ``controllers`` package, create a new class named ``AuthenticationController``. Since this controller will deal with ``User`` objects, it needs a ``UserRepository`` instance.
 
 .. sourcecode:: java
    :lineno-start: 21
@@ -22,7 +22,7 @@ In the ``controllers`` package, create a new class named ``AuthenticationControl
 Session-Handling Utilities
 --------------------------
 
-Before creating handler methods for rendering and processing our login and registration forms, we need some utility methods for working with sessions. Below ``userRepository``, let's add the following class members:
+Before creating handler methods for rendering and processing our login and registration forms, we need some utility methods for working with sessions. Below the definition of ``userRepository``, let's add the following class members:
 
 .. sourcecode:: java
    :lineno-start: 27
@@ -110,7 +110,11 @@ The DTO for the login form needs only ``username`` and ``password`` fields.
 
 .. admonition:: Tip
 
-   Think of a DTO associated with a form as an object that represents each of the form fields. Using a DTO to represent the data associated with a form makes form rendering and processing much easier when the form does not line up with a specific model class. 
+   To better understand this approach, think of a DTO associated with a form as an object that represents each of the form fields. Using a DTO to represent the data associated with a form makes form rendering and processing much easier when the form does not line up with a specific model class. 
+
+.. admonition:: Note
+
+   In the class above we have a password field that will store a plain-text password. However, this does not contradict our early imperative about NOT storing passwords, since ``LoginFormDTO`` is not a persistent class. 
 
 Our registration form will ask for a username/password pair, and then ask the user to confirm the password by typing it in again. So the associated DTO can extend ``LoginFormDTO`` and add an additional field for password verification.
 
@@ -205,7 +209,6 @@ The form processing handler is more complicated. Let's look at it, and then brea
 
       if (errors.hasErrors()) {
          model.addAttribute("title", "Register");
-         model.addAttribute("title", "Register");
          return "register";
       }
 
@@ -236,7 +239,7 @@ The form processing handler is more complicated. Let's look at it, and then brea
 - **Lines 60-64**: Return the user to the form if an validation errors occur.
 - **Line 66**: Retrieve the user with the given username from the database.
 - **Lines 68-72**: If a user with the given username already exists, register a custom error with the ``errors`` object and return the user to the form. See the note on using ``errors.rejectValue`` below.
-- **Lines 74-80**: Compare the two passwords submitted. If they do not match, register a custom error adn return the user to the form.
+- **Lines 74-80**: Compare the two passwords submitted. If they do not match, register a custom error and return the user to the form.
 - **Lines 82-84**: At this point, we know that a user with the given username does NOT already exist, and the rest of the form data is valid. So we create a new user object, store it in the database, and then create a new session for the user.
 - **Line 86**: Finally, redirect the user to the home page.
 

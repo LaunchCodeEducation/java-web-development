@@ -39,6 +39,8 @@ The logical flow of simple authentication looks like this:
 .. figure:: figures/authenticationflowdiagram.png
    :alt: A diagram showing the the flow of a username and password through the authentication process.
 
+   General authentication flow
+
 Sessions and Cookies
 ^^^^^^^^^^^^^^^^^^^^
 .. index:: ! session, ! cookie
@@ -78,19 +80,19 @@ Cookies and sessions work together to enable simple authentication in the follow
 
    At some point, you may have cleared all of the cookies from your browser only to find that you were suddenly logged out of every website on the Internet. This is because those cookies stored the session IDs that allowed the various sites to know who you were. 
 
-A logout request to a web app simply destroys the user's session, erasing any memory of who they are. Even if they pass a session cookie in their subsequent requests, the corresponding session and session ID will no longer exist. 
+A logout request to a web app simply destroys the user's session, erasing any memory of who they are. Even if they pass a session cookie in their subsequent requests, the old session and session ID will no longer exist. 
 
 A Note On Authentication In Spring
 ----------------------------------
 
-Before we proceed, we want to point out something important about authentication in Spring. Spring contains a sub-project, `Spring Security <https://spring.io/projects/spring-security>`_, that provides extensive support for authentication *and* authorization. In addition to supporting simple authentication, Spring Security also supports more sophisticated flows like `OAuth 2 <https://oauth.net/2/>`_. Professional developers working with Spring nearly always use Spring Security.
+Before we proceed, we want to point out something important about authentication in Spring. Spring contains a sub-project, `Spring Security <https://spring.io/projects/spring-security>`_, that provides extensive support for authentication *and* authorization. In addition to supporting simple authentication, Spring Security also supports more sophisticated authorization flows/processes like `OAuth 2 <https://oauth.net/2/>`_. Professional developers working with Spring nearly always use Spring Security.
 
 In this book, we are explicitly not introducing Spring Security for two reasons:
 
 #. The project handles many aspects of the authentication process for you. This hides many of the steps that are important to understand as you learn about authentication.
-#. Setting up Spring Security is fairly complicated, and requires concept that are beyond the scope of this course.
+#. Setting up Spring Security is fairly complicated, and requires concepts that are beyond the scope of this course.
 
-That said, the authentication approach outlined in this chapter is sufficient for use in your personal projects. And never fear, when you begin working with a team on professional application, a senior developer will have already set up authentication.
+That said, the authentication approach outlined in this chapter is sufficient for use in your personal projects. When you begin working with a team on professional applications, a senior developer will likely be on hand to help with authentication setup.
 
 .. admonition:: Note
 

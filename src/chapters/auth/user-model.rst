@@ -1,7 +1,7 @@
 Creating a ``User`` Model
 =========================
 
-The next few sections walk through the steps necessary to enable simple authentication in the ``coding-events`` app. 
+The next few sections walk through the steps necessary to enable simple authentication in the ``coding-events`` app. Along the way, we will use some advanced concepts that you haven't fully learned. That's okay. We don't expect you to understand every detail the next few sections. However, you do need to understand the purpose of each step in enabling authentication.
 
 .. admonition:: Note
 
@@ -41,7 +41,7 @@ In the ``models`` package, create a ``User`` class with ``@Entity`` and extendin
 
    }
 
-Notice that the constructor takes a parameter named ``password`` and uses it to set the value of ``pwHash``. We mentioned :ref:`previously <hashing-passwords>` that we should never store passwords, so in a moment we will create a hash from the given password to store.
+Notice that the constructor takes a parameter named ``password`` and uses it to set the value of ``pwHash``. We mentioned :ref:`previously <hashing-passwords>` that we should never store passwords, so in a moment, we will update line 26 by creating a hash from the given password to store.
 
 .. admonition:: Note
 
