@@ -11,8 +11,8 @@ Storing passwords in a database is incredibly insecure. A hacker may break into 
 
 Fortunately, it is possible for us to implement simple authentication *without* storing passwords, by using a technique called **password hashing**. Password hashing is a particular type of encryption that we will explore throughout the rest of this section.
 
-One-Way Vs. Two-Way Encryption
-------------------------------
+Two-Way Encryption
+------------------
 
 .. index::
    single: encryption; two-way
@@ -24,28 +24,31 @@ When you think of encryption, you might think of WWII or the Cold War, when the 
 
    Two-way encryption (Created by Munkhzaya Ganbold, licensed via `CC BY-SA <https://creativecommons.org/licenses/by-sa/4.0/deed.en>`_)
 
+One-Way Encryption
+------------------
+
 .. index::
    single: encryption; one-way
 
 .. index:: ! hashing, ! hash function
 
-**One-way encryption**, also known as **hashing**, encodes a message in a way that makes it *nearly* impossible to decode. An algorithm implementing a one-way encryption algorithm is a **cryptographic hash function** (we'll usually leave off "cryptographic"). For a specific message, the output of a hash function is a **hash**.
+**One-way encryption**, also known as **hashing**, encodes a message in a way that makes it *nearly* impossible to decode. An algorithm implementing a one-way encryption algorithm is a **cryptographic hash function** (we'll usually leave off "cryptographic"). For a specific message, the output of a hash function is a **hash**. 
 
-Hash functions are typically expected to have additional characteristics about the way they work. For our purposes, it is only important that we consider a hash function to have these properties:
+The hashing process is essentially just the top half of the diagram above. While it might not be clear yet, hashing allows us to securely store passwords and still be able to validate a user's submitted password. Precisely *how* this is done will be explored in a moment. 
+
+It can be difficult to write a good hash function, so thankfully you will never have to. Over the years, some very smart people have created some very good hash functions. However, it is important to understand how the properties of a hash function allow for secure password storage. For our purposes, it is only important that we consider a hash function to have these properties:
 
 .. _hash_properties:
 
-#. **Deterministic**: If we encode a message with the function a different points in time then we always get the same result.
+#. **Deterministic**: If we encode a message with the function at different points in time then we always get the same result.
 #. **Hard to reverse**: It is infeasible to calculate the input value that yields a given hash.
-#. **Hash values are ALMOST unique**: If ``a`` and ``b`` are two different messages, then is is *extremely* unlikely that they have the same hash value. By "extremely unlikely" we mean that this is something like a one-in-a-trillion likelihood (there are only about 8 billion people on earth). 
+#. **Hash values are ALMOST unique**: If ``a`` and ``b`` are two different messages, then is is *extremely* unlikely that they have the same hash value. By "extremely unlikely" we mean that this is something like a one-in-a-trillion likelihood (for example, there are only about 8 billion people on earth). 
 #. **Similar messages have VERY different hash values**: In other words, if we change a message only slightly, the resulting hash value is *very* different. A function that returned ``AlXL3M_ws`` for the message ``"LaunchCode"`` and ``AlXL3M_wt`` for the message ``"LaunchCodf"`` would not be a suitable hash function. 
-
-Over the years, some very smart people have created some very good hash functions, so you won't ever have to. However, it is important to understand how the properties of a hash function allow for secure password storage. 
 
 Password Verification With Hashes
 ---------------------------------
 
-Our application will select a particular hash function. Let's call it ``h``. Then, for a message ``x``, the hash value will be the result of call ``h`` with the argument ``x``: ``h(x)``.  Rather than store passwords in a database, we will store their hash values.
+Our application will select a particular hash function. Let's call it ``h``. Then, for a message ``x``, the hash value will be the result of calling ``h`` with the argument ``x``. Invoked, this looks like ``h(x)``.  Rather than store passwords in a database, we will store their hash values.
 
 Consider a fictional user that wants to sign up for our site, Jamie. Jamie likes Taylor Swift, so their desired username is ``tswizzle_fan`` and their desired password is ``lover1989`` (not a great password choice, by the way, but we've seen worse).
 
@@ -90,30 +93,30 @@ To check Jamie's username/password pair, we can do something like this:
       // the hashes are different, so the passwords are definitely different
    }
 
-The conditional compares the values of the hash stored in the database with the hash generated from the *submitted* password. By :ref:`property 1 <hash_properties>` we know that if the hash values are different, then there is no way the passwords are the same. By :ref:`property 3 <hash_properties>` we can safely assume that the passwords are the same. 
+The conditional compares the values of the hash stored in the database with the hash generated from the *submitted* password. By :ref:`property 1 <hash_properties>`, we know that if the hash values are different, then there is no way the passwords are the same. By :ref:`property 3 <hash_properties>`, we can safely assume that the passwords are the same. 
 
 Hashing Isn't Perfect
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. index:: ! collision
 
-Using hash functions to process passwords is not a cure-all. One vulnerability is the possibility for **collisions**. A collision occurs when two different messages have the same hash value. By :ref:`property 3 <hash_properties>`, this is supposed to be rare. However, if a collision is found for a given hash function then it may be possible to create an algorithm to *generate* collisions. In other words, given a specific hash value, the algorithm could generate a string with the *same* hash value.
+Using hash functions to process passwords is not a cure-all. One vulnerability is the possibility for **collisions**. A collision occurs when two different messages have the same hash value. By :ref:`property 3 <hash_properties>`, this is supposed to be rare. However, if a collision is found for a given hash function, then it may be possible to create an algorithm to *generate* collisions. In other words, given a specific hash value, the algorithm could generate a string with the *same* hash value.
 
 .. index:: ! MD5, ! SHA1
 
 The once-popular MD5 and SHA1 hash algorithms `quickly become obsolete <https://arstechnica.com/information-technology/2017/02/at-deaths-door-for-years-widely-used-sha1-function-is-now-dead/>`_ (for cryptographic purposes, at least) once collisions were found. 
 
-Another vulnerability of hashing is the growth in computing power. If a hacker breaks into a database, they will obtain the hashes of all of its users' passwords. Since only a small handful of hash functions are commonly used, they might simply try millions of strings with each of the more popular hash functions and wait until they find a match. 
+Most hashing algorithms become more vulnerable as global computing power increases. If a hacker breaks into a database, they will obtain the hashes of all of its users' passwords. Since only a small handful of hash functions are commonly used, they might simply try millions of strings with each of the more popular hash functions and wait until they find a match. 
 
 .. admonition:: Note
 
    The widespread use of brute force attacks is why it is always a bad idea to use a password that:
 
-   - is ranked as one of the `most commonly used passwords <https://en.wikipedia.org/wiki/List_of_the_most_common_passwords>`_,
-   - utilizes publicly accessible information about you---such as birth date or address---or
-   - uses common words from the dictionary.
+   - is ranked as one of the `most commonly used passwords <https://en.wikipedia.org/wiki/List_of_the_most_common_passwords>`_
+   - utilizes publicly accessible information about you, such as birth date or address
+   - uses common words from the dictionary
 
-   When trying to crack a password hash using brute force, these are first items a hacker will attempt to use.
+   When trying to crack a password hash using brute force, these are the first items a hacker will attempt to use.
 
 Which Hash Function Should I Use?
 ---------------------------------
@@ -121,3 +124,27 @@ Which Hash Function Should I Use?
 .. index:: ! bcrypt
 
 You should use `bcrypt <https://en.wikipedia.org/wiki/Bcrypt>`_. This hash function is considered not only the best hash function at the moment, but also likely to be able to stand the test of time. Bcrypt uses hashing best practices (such as `salts <https://en.wikipedia.org/wiki/Salt_(cryptography)>`_) along with an algorithm that can be made to run as long as you like. So even as computing power grows, bcrypt will be resistant to brute force techniques.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   True/False: One-way encryption does not involve decryption.
+
+   #. True
+   #. False
+
+.. ans: a, one-way encryption is only responsible for encrypting a message, not deciphering it
+
+.. admonition:: Question
+
+   Which of the following best describes hashing?
+
+   #. Hashing is the process of encrypting plaintext so that it is very difficult to obtain the original message.
+   #. Hashing is more secure than two-way encryption but less useful because it does not decode an encoded message.
+   #. Hashing cannot confirm that two passwords are the same because the original values are never saved.
+   #. Hashing smashing.
+   
+.. ans: a, Hashing is the process of encrypting plaintext so that it is very difficult to obtain the original message.
+

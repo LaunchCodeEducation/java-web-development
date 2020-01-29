@@ -1,7 +1,7 @@
 Creating a ``User`` Model
 =========================
 
-The next few sections walk through the steps necessary to enable simple authentication in the ``coding-events`` app. 
+The next few sections walk through the steps necessary to enable simple authentication in the ``coding-events`` app. Along the way, we will use some advanced concepts that you haven't fully learned. That's okay. We don't expect you to understand every detail the next few sections. However, you do need to understand the purpose of each step in enabling authentication.
 
 .. admonition:: Note
 
@@ -41,7 +41,7 @@ In the ``models`` package, create a ``User`` class with ``@Entity`` and extendin
 
    }
 
-Notice that the constructor takes a parameter named ``password`` and uses it to set the value of ``pwHash``. We mentioned :ref:`previously <hashing-passwords>` that we should never store passwords, so in a moment we will create a hash from the given password to store.
+Notice that the constructor takes a parameter named ``password`` and uses it to set the value of ``pwHash``. We mentioned :ref:`previously <hashing-passwords>` that we should never store passwords, so in a moment, we will update line 26 by creating a hash from the given password to store.
 
 .. admonition:: Note
 
@@ -119,4 +119,38 @@ While our repository extends ``CrudRepository``, it also contains a new method, 
 
 Spring allows for additional, custom methods to be added to repository interfaces, as long as they follow some basic naming conventions. These conventions are straightforward to use, and allow you to create additional, more sophisticated query methods. Methods created in this way are called **query methods**, and their rules are defined in `Spring's documentation <https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation>`_.
 
+The code for this section is available in the `user-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/user-model>`_ of the ``coding-events`` repository.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   Why can we not use Java string comparison when evaluating values generated with bcrypt?
+
+   #. bcrypt will never create two matching hashes.
+   #. Java does not have a native string comparator method.
+   #. Salting adds variance to hashes generated from the same plain text.
+   #. Answers a and c.
+
+
+.. ans: c, Salting adds variance to hashes generated from the same plain text.
+
+.. admonition:: Question
+
+   .. sourcecode:: java
+      :lineno-start: 9
+
+      public interface UserRepository extends CrudRepository<User, Integer> {
+
+         User findByUsername(String username);
+
+      }
+
+   True/False: From the code block above, line 11 is missing a return statement.
+
+   #. True
+   #. False
+
+.. ans: False, line 11 is a special query method that takes advantage of logic written in Spring to determine how it functions.
 
