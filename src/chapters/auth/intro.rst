@@ -70,7 +70,7 @@ Cookies and sessions work together to enable simple authentication in the follow
    single: session; ID
 
 #. When a user is authenticated---that is, they provide a valid username/password pair---a session containing their user ID is created on the server. The session has a unique **session ID**, such as ``81LfWG9``.
-#. In order to associate the user with their session, the server returns a **session cookie** to the browser within an HTTP response. The session contains the session ID, and looks something like this: ``session_id: 81LfWG9``. 
+#. In order to associate the user with their session, the server creates a **session cookie** and returns the cookie to the browser within an HTTP response. The session cookie contains the session ID, and looks something like this: ``session_id: 81LfWG9``. 
 #. For each subsequent request to the server, the browser passes the session cookie along with the request.
 #. When the server receives a request for a restricted resource, it checks for a session cookie. It then looks for a session with the given session ID. If such a session exists, then the server knows who the user is since their user ID is stored in the session. If the session does NOT exist, then the server does not know the user and they must authenticate themselves.
 
