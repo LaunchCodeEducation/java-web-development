@@ -85,7 +85,7 @@ The DTO for the login form needs only ``username`` and ``password`` fields.
 
       @NotNull
       @NotBlank
-      @Size(min = 4, max = 20, message = "Invalid password. Must be between 5 and 30 characters.")
+      @Size(min = 5, max = 20, message = "Invalid password. Must be between 5 and 30 characters.")
       private String password;
 
       public String getUsername() {
@@ -379,6 +379,8 @@ After the complicated processes of user registration and login, logging a user o
    }
 
 To log out, we simply invalidate the session associated with the given user. This removes all data from the session, so that when the user makes a subsequent, they will be forced to log in again.
+
+The code for this section is available in the `login-reg-forms branch <https://github.com/LaunchCodeEducation/coding-events/tree/login-reg-forms>`_ of the ``coding-events`` repository.
 
 Check Your Understanding
 ------------------------

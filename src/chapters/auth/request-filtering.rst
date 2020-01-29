@@ -181,6 +181,8 @@ The first method---``authenticationFilter``, which is annotated with ``@Bean``--
 
 Now you can start your application and test. You should be required to log in to view anything other than login and registration pages. 
 
+The code for this section is available in the `auth-filter branch<https://github.com/LaunchCodeEducation/coding-events/tree/auth-filter>`_ of the ``coding-events`` repository.
+
 Check Your Understanding
 ------------------------
 

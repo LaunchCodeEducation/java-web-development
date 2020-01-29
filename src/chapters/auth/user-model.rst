@@ -119,6 +119,8 @@ While our repository extends ``CrudRepository``, it also contains a new method, 
 
 Spring allows for additional, custom methods to be added to repository interfaces, as long as they follow some basic naming conventions. These conventions are straightforward to use, and allow you to create additional, more sophisticated query methods. Methods created in this way are called **query methods**, and their rules are defined in `Spring's documentation <https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation>`_.
 
+The code for this section is available in the `user-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/user-model>`_ of the ``coding-events`` repository.
+
 Check Your Understanding
 ------------------------
 
