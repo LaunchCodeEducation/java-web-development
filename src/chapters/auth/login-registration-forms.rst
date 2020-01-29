@@ -376,3 +376,30 @@ After the complicated processes of user registration and login, logging a user o
    }
 
 To log out, we simply invalidate the session associated with the given user. This removes all data from the session, so that when the user makes a subsequent, they will be forced to log in again.
+
+Check Your Understanding
+------------------------
+
+.. admonition:: Question
+
+   What is the name of the new method we have introduced on the ``Errors`` object?
+
+   #. ``Errors.hasErrors()``
+   #. ``Errors.errors()``
+   #. ``Errors.isNotEmpty()``
+   #. ``Errors.rejectValue()``
+
+
+.. ans: d, ``Errors.rejectValue()``
+
+.. admonition:: Question
+
+   Which developer tool panel can we use to verify that a user session has been started?
+
+   #. Console
+   #. Network
+   #. Storage
+   #. Performance
+
+
+.. ans: c, Storage
