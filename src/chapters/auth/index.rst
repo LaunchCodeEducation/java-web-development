@@ -9,3 +9,4 @@ Authentication
    user-model
    login-registration-forms
    request-filtering
+   studio
