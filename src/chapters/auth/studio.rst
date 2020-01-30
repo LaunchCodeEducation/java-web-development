@@ -91,8 +91,26 @@ Create the Login and Registration Forms
 
 Filter Requests
 ---------------
-19.5.1. Request Filters in Spring
-19.5.2. Creating AuthenticationFilter
-19.5.2.1. Overriding preHandle
-19.5.2.2. Creating a Whitelist
+
+#. Create an ``AuthenticationFilter`` class in the top level of the app.
+
+   #. Have this class inherit from ``HandlerInterceptorAdapter``.
+   #. Add autowired instances of both ``UserRepository`` and ``AuthenticationController``.
+   #. Add a ``preHandle`` method.
+
+      #. This must override the inherited method of the same name.
+      #. Grab the session information from the request object.
+      #. Query the the session data for a user.
+      #. If a user exists, return true. Otherwise, redirect to the login page and return false.
+
+#. Create a whitelist.
+
+   #. In the top of ``AuthenticationFilter``, add a whitelist variable containing the paths that can be 
+      accessed without a user session.
+   #. Create a method next that checks a given path against the values in the whitelist. 
+   #. Update ``preHandle`` with a call to this method.
+
+      #. Before looking for session and user status, add a conditional that checks the path of the current
+         re
+
 19.5.3. Registering the Filter With Spring
