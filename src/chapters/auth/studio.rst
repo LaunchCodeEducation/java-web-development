@@ -10,6 +10,12 @@ in ``coding-events``. You should refer back to the tutorial starting
 #. :ref:`auth_studio_forms`
 #. :ref:`auth_studio_filter`
 
+The Starter Code
+----------------
+
+Fork and clone the starter code for 
+`TechJobs (Auth Edition) <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-authentication>`__.
+
 
 .. _auth_studio_user_model:
 
