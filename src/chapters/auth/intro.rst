@@ -70,11 +70,24 @@ Cookies and sessions work together to enable simple authentication in the follow
    single: session; ID
 
 #. When a user is authenticated---that is, they provide a valid username/password pair---a session containing their user ID is created on the server. The session has a unique **session ID**, such as ``81LfWG9``.
-#. In order to associate the user with their session, the server returns a **session cookie** to the browser within an HTTP response. The session contains the session ID, and looks something like this: ``session_id: 81LfWG9``. 
+#. In order to associate the user with their session, the server creates a **session cookie** and returns the cookie to the browser within an HTTP response. The session cookie contains the session ID, and looks something like this: ``session_id: 81LfWG9``. 
 #. For each subsequent request to the server, the browser passes the session cookie along with the request.
 #. When the server receives a request for a restricted resource, it checks for a session cookie. It then looks for a session with the given session ID. If such a session exists, then the server knows who the user is since their user ID is stored in the session. If the session does NOT exist, then the server does not know the user and they must authenticate themselves.
 
-.. todo:: session/cookie auth flow diagram
+The following diagram shows the initial creation (steps 1-2) of the session and cookie after a user signs in.
+
+.. figure:: figures/simplifiedsessionsandcookies.png
+   :alt: A flow diagram showing the session and subsequent cookie being created so the user can access a restricted page.
+
+   A flow diagram showing the session and subsequent cookie being created so the user can access a restricted page.
+
+As the user navigates the site, sessions and cookies are used to validate whether users can access restricted pages.
+The next diagram shows the flow of steps 1-2 in black and the flow of steps 3-4 in blue.
+
+.. figure:: figures/sessionsandcookiesdiagram.png
+   :alt: A flow diagram showing how sessions and cookies are used to validate an initial request to the server and any subsequent requests to the server.
+
+   A flow diagram showing how sessions and cookies are used to validate an initial request to the server and any subsequent requests to the server.
 
 .. admonition:: Note
 
