@@ -115,4 +115,29 @@ Filter Requests
 
 #. Register the filter with Spring
 
-   #. Create a class called ``WebApplicationConfig``
+   #. Create a class called ``WebApplicationConfig`` at the same 
+      level as ``AuthenticationFilter`` with the following:
+
+      .. sourcecode:: java
+         :lineno-start: 11
+
+         @Configuration
+         public class WebApplicationConfig implements WebMvcConfigurer {
+
+            // Create spring-managed object to allow the app to access our filter
+            @Bean
+            public AuthenticationFilter authenticationFilter() {
+               return new AuthenticationFilter();
+            }
+
+            // Register the filter with the Spring container
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+               registry.addInterceptor( authenticationFilter() );
+            }
+
+         }
+
+That's it, that's all.
+
+      
