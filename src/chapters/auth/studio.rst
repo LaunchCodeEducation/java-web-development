@@ -41,6 +41,14 @@ The Starter Code
          To create a new user with permissions, refresh your memory
          in :ref:`setup-orm-database`.
 
+.. admonition:: Note
+   
+      We've greatly reduced the functionality of the app so you can focus
+      on the work to set up authentication. Running the application now 
+      gives you a familiar-looking navbar with one menu option, *Add Jobs*.
+      You can add jobs right away and an astute observer of the starter code and
+      schema tables will notice that the fields on ``Job`` are only strings, no
+      complex objects.
 
 .. _auth_studio_user_model:
 
@@ -62,6 +70,11 @@ Create the User Model
 #. Create a ``UserRepository``.
 
    #. Add the special query method to find a user by username.
+
+.. admonition:: Tip
+
+   At this point, re-starting your application will not change the view
+   at ``localhost:8080``, but you should see a ``user`` table in MySQL Workbench. 
    
 
 .. _auth_studio_forms:
