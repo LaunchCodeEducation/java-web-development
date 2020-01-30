@@ -45,10 +45,11 @@ The Starter Code
    
       We've greatly reduced the functionality of the app so you can focus
       on the work to set up authentication. Running the application now 
-      gives you a familiar-looking navbar with one menu option, *Add Jobs*.
+      gives you a familiar-looking navbar with two menu options, *Add Jobs* and *Logout*.
       You can add jobs right away and an astute observer of the starter code and
       schema tables will notice that the fields on ``Job`` are only strings, no
-      complex objects.
+      complex objects. Logout functionality is not yet implemented, but you'll get there by the end of 
+      this studio.
 
 .. _auth_studio_user_model:
 
@@ -74,7 +75,8 @@ Create the User Model
 .. admonition:: Tip
 
    At this point, re-starting your application will not change the view
-   at ``localhost:8080``, but you should see a ``user`` table in MySQL Workbench. 
+   at ``localhost:8080``, but you can confirm you have done everything correctly if you see a ``user`` 
+   table in MySQL Workbench. 
    
 
 .. _auth_studio_forms:
@@ -92,7 +94,7 @@ Create the Login and Registration Forms
    #. A method to get the user information from the session.
    #. A method to set the user in the session.
 
-#. Create two DTOs for the user registration and login forms.
+#. Create two DTOs for the user registration and login forms in a new package, ``dto`` under ``models``.
 
    #. Create a login form DTO with username and password fields.
    #. Create a register form DTO with the fields above and a field to verify a password.
@@ -131,12 +133,18 @@ Create the Login and Registration Forms
       #. Invalidate the session data from the request object.
       #. redirect the user to the login form.
 
+.. admonition:: Tip
+
+   Now, clicking the *Logout* navbar link will result in a redirect to the login page. You can also now create 
+   a brand new user through the link to register as one, and confirm the object's existence in your ``user``
+   table.
+
 .. _auth_studio_filter:
 
 Filter Requests
 ---------------
 
-#. Create an ``AuthenticationFilter`` class in the top level of the app.
+#. Create an ``AuthenticationFilter`` class in the ``javawebdevtechjobsauthentication`` package.
 
    #. Have this class inherit from ``HandlerInterceptorAdapter``.
    #. Add autowired instances of both ``UserRepository`` and ``AuthenticationController``.
@@ -157,7 +165,7 @@ Filter Requests
       #. Before looking for session and user status, add a conditional that checks the whitelist status 
          of the current request object.
 
-#. Register the filter with Spring
+#. Register the filter with Spring.
 
    #. Create a class called ``WebApplicationConfig`` at the same 
       level as ``AuthenticationFilter`` with the following:
@@ -181,6 +189,15 @@ Filter Requests
             }
 
          }
+
+.. admonition:: Tip
+
+   You'll know your filter setup works when you re-start your application and attempt to get to 
+   ``localhost:8080`` but instead get redirected to ``/login``.
+
+   You'll also know that your filters are working if hitting your login and and register forms now renders
+   them without any styling. Bonus points if you can determine why this is.
+
 
 That's it, that's all. You're done. Go forth and test the auth flow. 
 Then add this to any other Spring project you're working on!
