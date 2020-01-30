@@ -69,12 +69,14 @@ Many-to-Many Forms and Data Transfer Objects - Text
 
 In order to make use of our new many-to-many relationship, we need to have a way for users to add a tag to an event. We will implement this feature by creating a form that, for a given event, lets the user add a single tag. The process of binding an ``Event`` and a ``Tag`` object together will be made easier through the use of a new design pattern. 
 
+.. _dto:
+
 Data Transfer Objects (DTO)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. index:: ! data transfer object
 
-A **data transfer object** (or DTO) is an object that enables multiple other objects to be passed around an application, in a single container. For reasons that will make more sense shortly, we will want to utilize a DTO to hold ``Event`` and ``Tag`` instances that we want to relate to each other.
+A **data transfer object** (or DTO) is an object that enables multiple other objects or values to be passed around an application, in a single container. For reasons that will make more sense shortly, we will want to utilize a DTO to hold ``Event`` and ``Tag`` instances that we want to relate to each other.
 
 A DTO for these two classes is very simple. It contains two fields, a no-arg constructor, and accessors for the fields. Each field is annotated with ``@NotNull`` because we will use this class in conjunction with model binding and form processing. 
 

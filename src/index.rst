@@ -24,6 +24,7 @@ Chapters
    chapters/sql-part2/index
    chapters/orm-part1/index
    chapters/orm-relationships/index
+   chapters/auth/index
 
 .. toctree::
 

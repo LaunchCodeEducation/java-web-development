@@ -4,7 +4,7 @@ Validation Annotations
 Within the model of a Java web application, we can define validation rules using annotations from the ``javax.validation.constraints`` package. This package provides a variety of annotations that are useful in common circumstances, and which can be applied to model fields. 
 
 .. index::
-   :single: validation, annotations
+   single: validation, annotations
 
 .. index:: ! @Size, ! @Min, ! @Max, ! @Email, ! @NotBlank, ! @NotNull
 
