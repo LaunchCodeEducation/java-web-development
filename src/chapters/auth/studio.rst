@@ -47,7 +47,7 @@ The Starter Code
       on the work to set up authentication. Running the application now 
       gives you a familiar-looking navbar with two menu options, *Add Jobs* and *Logout*.
       You can add jobs right away and an astute observer of the starter code and
-      schema tables will notice that the fields on ``Job`` are only strings, no
+      schema tables will notice that the fields on ``Job`` are only strings, not
       complex objects. Logout functionality is not yet implemented, but you'll get there by the end of 
       this studio.
 
@@ -131,7 +131,7 @@ Create the Login and Registration Forms
    #. Still in ``AuthenticationController``, create a ``GET`` handler method for a path to logout.
 
       #. Invalidate the session data from the request object.
-      #. redirect the user to the login form.
+      #. Redirect the user to the login form.
 
 .. admonition:: Tip
 
