@@ -138,6 +138,6 @@ Filter Requests
 
          }
 
-That's it, that's all.
-
+That's it, that's all. You're done. Go forth and test the auth flow. 
+Then add this to any other Spring project you're working on!
       
