@@ -13,8 +13,33 @@ in ``coding-events``. You should refer back to the tutorial starting
 The Starter Code
 ----------------
 
-Fork and clone the starter code for 
-`TechJobs (Auth Edition) <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-authentication>`__.
+#. Fork and clone the starter code for 
+   `TechJobs (Auth Edition) <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-authentication>`__.
+
+#. The dependencies for the database connection and hashing function 
+   are already added for you in ``build.gradle``. You will need to 
+   do some work to ensure that the schema, user, and database password 
+   match your own local MySQL setup.
+
+   #. Open ``application.properties`` and view the first three statements:
+
+      ::  
+
+         # Database connection settings
+         spring.datasource.url=jdbc:mysql://localhost:3306/techjobs_auth
+         spring.datasource.username=techjobs_auth
+         spring.datasource.password=auth
+
+   #. You likely do not already have a schema named ``techjobs_auth`` or 
+      this combination of username and password so you must create them.
+
+      .. admonition:: Tip
+      
+         To create a new schema in your current connection, refer 
+         back to the instructions in :ref:`sql-part1-exercises`.
+
+         To create a new user with permissions, refresh your memory
+         in :ref:`setup-orm-database`.
 
 
 .. _auth_studio_user_model:
@@ -22,7 +47,7 @@ Fork and clone the starter code for
 Create the User Model
 ---------------------
 
-#. Create a ``User`` model identical to that in ``coding-events``. The class needs:
+#. In the project you have cloned, create a ``User`` model identical to that in ``coding-events``. The class needs:
 
    #. To be an entity.
    #. To have username and encrypted password fields.
