@@ -70,6 +70,10 @@ Here is our initial ``preHandle`` method, with a detailed breakdown below.
 
 The signature of our method must match the `definition of preHandle <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html#preHandle-javax.servlet.http.HttpServletRequest-javax.servlet.http.HttpServletResponse-java.lang.Object->`_ and ``HandlerInterceptor`` *exactly*, even if we don't need all of the parameters. We will only use the ``request`` argument, but we still need to include the ``response`` and ``handler`` arguments.
 
+.. admonition:: Note
+
+   The sharp-eyed reader will notice that our ``preHandle`` and the overridden method in ``HandlerInterceptor`` throw different exception types. This is the one way in which the method signatures are allowed to differ, so long as the exception type of our method is a subclass of the overridden method. Since ``IOException`` extends ``Exception``, this is allowed. 
+
 Notice that ``preHandle`` returns a boolean. The return value will dictate what happens after the handler finishes running. If we return ``true``, then request processing will continue as normal, with the appropriate controller method being called. If we return ``false``, then processing will halt, and no controllers will be called.
 
 Let's break down this method.
