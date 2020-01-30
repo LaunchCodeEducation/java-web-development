@@ -198,7 +198,7 @@ Check Your Understanding
 .. admonition:: Question
 
    True/False: When our code checks a path against entries in the whitelist, 
-	it must match exactly in order for the path to be accessed without logging in.
+   it must match exactly in order for the path to be accessed without logging in.
 
    #. True
    #. False
