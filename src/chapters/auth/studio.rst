@@ -110,7 +110,9 @@ Filter Requests
    #. Create a method next that checks a given path against the values in the whitelist. 
    #. Update ``preHandle`` with a call to this method.
 
-      #. Before looking for session and user status, add a conditional that checks the path of the current
-         re
+      #. Before looking for session and user status, add a conditional that checks the whitelist status 
+         of the current request object.
 
-19.5.3. Registering the Filter With Spring
+#. Register the filter with Spring
+
+   #. Create a class called ``WebApplicationConfig``
