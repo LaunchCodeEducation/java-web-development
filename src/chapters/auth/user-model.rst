@@ -1,3 +1,5 @@
+.. _user_auth_walkthrough:
+
 Creating a ``User`` Model
 =========================
 
