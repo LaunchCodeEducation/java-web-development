@@ -107,8 +107,8 @@ Set up a local copy of the project:
 Carly created a Spring Boot application and filled in some features. She
 refactored ``JobData`` to generate an ArrayList of ``Job`` objects based on
 your TechJobs-OO work, and she added controllers and views for a "Home",
-"List", and "Search" page. ``JobData`` now also builds ArrayLists for the ``Employer``,
-``Location``, ``PositionType``, and ``CoreCompetency`` objects.
+"List", and "Search" page. ``JobData`` now also builds ArrayLists for the
+``Employer``, ``Location``, ``PositionType``, and ``CoreCompetency`` objects.
 
 The Model
 ^^^^^^^^^
@@ -458,8 +458,9 @@ Here are some additional challenges, for those willing to take them on:
    forgotten and returns to "All" by default. Modify the view template to keep
    the previous search field selected when displaying the results.
 #. In the tables displaying the full job data, find a way to manipulate the
-   font, style, capitalization, etc. without hard-coding the text. (*Hint:* We
-   capitalize the title string in multiple templates, so have a look around).
+   font, style, capitalization, etc. to further distinguish the labels from the
+   data (e.g. **Employer:** *LaunchCode*). (*Hint:* We capitalize the title
+   string in multiple templates, so have a look around).
 #. In the tables of the job results, make each value (except ``name``)
    hyperlinked to a new listing of all jobs with that same value. For example,
    if we have a list of jobs with the ``JavaScript`` skill, clicking on a
