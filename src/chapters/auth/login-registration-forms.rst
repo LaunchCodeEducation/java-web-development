@@ -48,7 +48,7 @@ Before creating handler methods for rendering and processing our login and regis
       session.setAttribute(userSessionKey, user.getId());
    }
 
-This code allows us to store and retrieve the login status of a user in a session. More specifically, a logged-in user's user ID will be stored in their session. 
+This code allows us to store and retrieve the login status of a user in a session. More specifically, a logged-in user's user ID will be stored in their session.
 
 .. list-table:: Sample session data for a logged-in user
    :stub-columns: 1
@@ -110,11 +110,11 @@ The DTO for the login form needs only ``username`` and ``password`` fields.
 
 .. admonition:: Tip
 
-   To better understand this approach, think of a DTO associated with a form as an object that represents each of the form fields. Using a DTO to represent the data associated with a form makes form rendering and processing much easier when the form does not line up with a specific model class. 
+   To better understand this approach, think of a DTO associated with a form as an object that represents each of the form fields. Using a DTO to represent the data associated with a form makes form rendering and processing much easier when the form does not line up with a specific model class.
 
 .. admonition:: Note
 
-   In the class above, we have a password field that will store a plain-text password. However, this does not contradict our early imperative about NOT storing passwords, since ``LoginFormDTO`` is not a persistent class. 
+   In the class above, we have a password field that will store a plain-text password. However, this does not contradict our early imperative about NOT storing passwords, since ``LoginFormDTO`` is not a persistent class.
 
 Our registration form will ask for a username/password pair, and then ask the user to confirm the password by typing it in again. So the associated DTO can extend ``LoginFormDTO`` and add an additional field for password verification.
 
@@ -157,7 +157,7 @@ To render the form within ``AuthenticationController`` is simple:
 .. admonition:: Note
 
    When passing an object into the view with ``model.addAttribute``, specifying a label for the object is optional. If a label is not specified the class name is used, with the first letter converted to lowercase.
-   
+
    In the method above, ``model.addAttribute(new RegisterFormDTO())`` will pass a ``RegisterFormDTO`` object in with the label ``registerFormDTO``.
 
 The registration form (in ``templates/register.html``) uses the three DTO fields to render the form fields:
@@ -249,7 +249,7 @@ The form processing handler is more complicated. Let's look at it, and then brea
 
    .. sourcecode:: java
 
-      errors.rejectValue("username", "username.alreadyexists", 
+      errors.rejectValue("username", "username.alreadyexists",
                          "A user with that username already exists");
 
    ``errors.rejectValue`` takes three parameters:
@@ -280,7 +280,8 @@ Rendering the login form is similar to rendering the registration form:
       return "login";
    }
 
-The form template itself should be placed in ``templates/login.html``, and is also similar to the regitration template:
+The form template itself should be placed in ``templates/login.html``, and is
+also similar to the registration template:
 
 .. sourcecode:: html
 
@@ -337,7 +338,7 @@ As usual, processing the form is more complicated. Again, we'll break it down in
         }
 
         String password = loginFormDTO.getPassword();
-        
+
         if (!theUser.isMatchingPassword(password)) {
          errors.rejectValue("password", "password.invalid", "Invalid password");
          model.addAttribute("title", "Log In");
@@ -367,7 +368,8 @@ Now you can test your login form. Upon successful form submission, you should be
 Logging Out
 -----------
 
-After the complicated processes of user registration and login, logging a user out is refreshingly simple.
+After the complicated processes of user registration and login, logging a user
+out is refreshingly simple.
 
 .. sourcecode:: java
    :lineno-start: 127
@@ -378,7 +380,9 @@ After the complicated processes of user registration and login, logging a user o
       return "redirect:/login";
    }
 
-To log out, we simply invalidate the session associated with the given user. This removes all data from the session, so that when the user makes a subsequent, they will be forced to log in again.
+To log out, we simply invalidate the session associated with the given user.
+This removes all data from the session, so that when the user makes a
+subsequent request, they will be forced to log in again.
 
 The code for this section is available in the `login-reg-forms branch <https://github.com/LaunchCodeEducation/coding-events/tree/login-reg-forms>`_ of the ``coding-events`` repository.
 
