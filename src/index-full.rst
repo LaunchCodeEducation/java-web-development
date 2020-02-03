@@ -23,6 +23,7 @@ Chapters
    chapters/sql-part2/index
    chapters/orm-part1/index
    chapters/orm-relationships/index
+   chapters/auth/index
 
 .. toctree::
 
@@ -48,6 +49,7 @@ Studios
    chapters/sql-part1/studio
    chapters/sql-part2/studio
    chapters/orm-part1/studio
+   chapters/auth/studio
 
 Assignments
 -----------
