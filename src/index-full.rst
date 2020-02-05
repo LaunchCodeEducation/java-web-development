@@ -1,5 +1,5 @@
 Chapters
-=========
+========
 
 .. toctree::
    :maxdepth: 2
