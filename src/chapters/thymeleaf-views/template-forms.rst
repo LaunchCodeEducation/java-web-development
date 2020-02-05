@@ -30,8 +30,8 @@ Your new project will keep track of some fictional coding events.
 
 #. *Generate* the ``.zip`` file and then import it into IntelliJ.
 
-Try It!
---------
+Coding Events Setup - Video
+---------------------------
 
 Now that you have ``coding-events`` up and running, add features to it by
 coding along with the videos below:
@@ -41,6 +41,27 @@ coding along with the videos below:
    <div style="text-align:center;">
       <iframe width="800" height="450" src="https://www.youtube.com/embed/hmgxMOf51JU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
    </div>
+
+The final code from this video is in the `starter branch <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`_ of ``coding-events``.
+
+Coding Events Setup - Text
+--------------------------
+
+The code reviewed in the video uses concepts learned in the :ref:`previous chapter <controllers>` to set up a controller and a couple of views. If you need to review any of these concepts, go back to that chapter. 
+
+#. Create a ``controllers`` package.
+#. Within the new package, create a new controller class named ``HomeController``. Annotate the class with ``@Controller``.
+#. Add a single ``GET`` handler method that returns the name templated ``index``, which will be the name of the template we create in the next step.
+#. Create a new Thymeleaf template named ``index.html`` in the ``src/main/resources/templates`` directory. This template could contain a single link to ``/events``.
+#. In the controllers package, create a new controller named ``EventController``. Annotate the class with ``@Controller`` and ``@RequestMapping("events")``.
+#. In the new controller, create a handler method for ``GET`` requests that takes a single parameter, ``Model model``. 
+#. Within the handler, create an empty list and add a few event names to it.
+#. Add the list to the model by calling ``model.addAttribute("events", events)``. Then return the template name ``"events/index"``.
+#. Within the ``src/main/resources/templates`` directory, create a new directory named ``events``. Within this directory, create a new Thymeleaf template named ``index.html``.
+#. Within the new template, loop over the ``events`` object and display the name of each event.
+
+Create and Render a Form - Video
+--------------------------------
 
 .. raw:: html
 
@@ -55,8 +76,8 @@ in the future.
 A summary of Thymeleaf forms is given below, but remember that the text
 supports the videos and is NOT intended as a replacement.
 
-Create and Render a Form
--------------------------
+Create and Render a Form - Text
+-------------------------------
 
 A Thymeleaf form is simply a template that includes a ``<form>`` element inside
 the ``body`` of the HTML. The method for the form should be of type ``post``.
@@ -111,8 +132,8 @@ Some points to note:
       ``events`` that holds a template called ``create.html``, then line 6
       would be ``return "events/create";``.
 
-Add a Form Handler Method
---------------------------
+Add a Form Handler Method - Video
+---------------------------------
 
 Now that you have created and rendered a form in your ``coding-events``
 project, you need to add a method to the controller to *handle* its submission.
@@ -126,8 +147,8 @@ Code along with the video below to add this functionality.
 
 As usual, the following summary outlines the ideas from the clip.
 
-Handle Form Submission
-^^^^^^^^^^^^^^^^^^^^^^^
+Add a Form Handler Method - Text
+--------------------------------
 
 To *process* a form after the user clicks the *Submit* button, you need to add
 a method to the controller using the ``@PostMapping`` annotation:
@@ -162,7 +183,3 @@ Some points to note:
    successfully submit a form. Instead of re-rendering the form, the ``return``
    string *redirects* the user to a method that handles a different template.
 
-Resources
-----------
-
-#. Coding events `starter code <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`__.
