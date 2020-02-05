@@ -73,6 +73,7 @@ Appendices
    :maxdepth: 1
    :name: appendicestoc
 
+   appendices/about-this-book
    appendices/spring/thymeleaf
    appendices/sql-install
 
