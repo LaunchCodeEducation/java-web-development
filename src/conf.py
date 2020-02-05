@@ -182,6 +182,7 @@ def setup(app):
    app.add_stylesheet('css/launchcode.css')
    app.add_stylesheet('css/site.css')
    app.add_config_value('recommonmark_config', {
-      'enable_eval_rst': True,
-      }, True)
+         'enable_eval_rst': True,
+         }, True)
    app.add_transform(AutoStructify)
+    
