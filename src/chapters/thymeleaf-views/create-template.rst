@@ -93,11 +93,8 @@ following video.
    projects. Do NOT skip this practice, because the end of chapter exercises
    pick up where the tutorials end.
 
-.. raw:: html
-
-   <div style="text-align:center;">
-      <iframe width="800" height="450" src="https://www.youtube.com/embed/UIetMLyDVjQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   </div>
+.. youtube::
+   :video_id: UIetMLyDVjQ
 
 The sections below outline the main ideas presented in the video. However, the
 text is NOT a substitute for completing the work described in the clip.

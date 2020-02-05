@@ -21,8 +21,18 @@ to access---like images, CSS stylesheets, JavaScript code, etc.
 .. figure:: ./figures/resourcesFolderFileTree.png
     :alt: Resources folder file tree.
 
+
+``th:src`` and ``th:href`` - Video
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Code along with this final video to practice adding static resources to your
+``coding-events`` project:
+
+.. youtube::
+   :video_id: syzOmHnTnmo
+
 ``th:src``
-^^^^^^^^^^^
+^^^^^^^^^^
 
 To access a file with the standard HTML ``src`` attribute, we need to provide
 either a detailed or relative file path in order to establish a link.
@@ -65,18 +75,6 @@ link to a CSS stylesheet:
 .. sourcecode:: HTML
 
    <link rel = "stylesheet" th:href="@{/css/styles.css}" />
-
-Try It!
---------
-
-Code along with this final video to practice adding static resources to your
-``coding-events`` project:
-
-.. raw:: html
-
-   <div style="text-align:center;">
-      <iframe width="800" height="450" src="https://www.youtube.com/embed/syzOmHnTnmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   </div>
 
 Check Your Understanding
 -------------------------

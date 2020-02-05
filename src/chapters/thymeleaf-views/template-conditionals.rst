@@ -176,11 +176,8 @@ The video below provides you some live-coding practice with Thymeleaf
 templates. Return to your ``hello-spring`` project and code along as you watch
 the clip.
 
-.. raw:: html
-
-   <div style="text-align:center;">
-      <iframe width="800" height="450" src="https://www.youtube.com/embed/bT5Zt9xZYSU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   </div>
+.. youtube::
+   :video_id: bT5Zt9xZYSU
 
 The text on this page and the previous two provides details for some of the
 concepts presented in the clip. Note that these summaries are NOT intended as

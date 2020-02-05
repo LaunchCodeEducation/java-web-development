@@ -59,11 +59,8 @@ The code reviewed in the video uses concepts learned in the :ref:`previous chapt
 Create and Render a Form - Video
 --------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;">
-      <iframe width="800" height="450" src="https://www.youtube.com/embed/lgT962si4eQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   </div>
+.. youtube::
+   :video_id: lgT962si4eQ
 
 Before moving on, be sure to commit and push your changes. Do this after each
 video to create a fallback position just in case disaster strikes your project
@@ -135,11 +132,8 @@ Now that you have created and rendered a form in your ``coding-events``
 project, you need to add a method to the controller to *handle* its submission.
 Code along with the video below to add this functionality.
 
-.. raw:: html
-
-   <div style="text-align:center;">
-      <iframe width="800" height="450" src="https://www.youtube.com/embed/LnpJcq33uoM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   </div>
+.. youtube::
+   :video_id: LnpJcq33uoM
 
 As usual, the following summary outlines the ideas from the clip.
 
