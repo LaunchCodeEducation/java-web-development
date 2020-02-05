@@ -20,9 +20,9 @@ Using Persistence in a Controller - Video
 The following video explains how we can add a controller to manage persistence in our ``coding-events`` application. 
 The accompanying text is a quick rundown of what happens in the video. To get started, create a branch off of your `persistent-model <https://github.com/LaunchCodeEducation/coding-events/tree/persistent-model>`_ branch.
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/0eug2HI7rbo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+.. youtube::
+   :video_id: 0eug2HI7rbo
+   :gh_path: LaunchCodeEducation/coding-events/persistent-controller
 
 Using Persistence in a Controller - Text
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

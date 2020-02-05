@@ -467,21 +467,8 @@ Solution Demo
 
 Watch a demo of a working solution.
 
-.. raw:: html
-
-   <div class="youtube-wrapper">
-
-.. raw:: html
-
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/Ai9ceGDWkac" frameborder="0" allowfullscreen>
-
-.. raw:: html
-
-   </iframe>
-
-.. raw:: html
-
-   </div>
+.. youtube::
+   :video_id: Ai9ceGDWkac
 
 How to Submit
 --------------

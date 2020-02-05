@@ -87,9 +87,9 @@ Creating Persistent Models - Video
 The following video explains how we can add an entity class and a repository to our ``coding-events`` application. 
 The accompanying text is a quick rundown of what happens in the video. To get started, create a branch off of your `db-config <https://github.com/LaunchCodeEducation/coding-events/tree/db-config>`_ branch.
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/YAISqYMOIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+.. youtube::
+   :video_id: YAISqYMOIAw
+   :gh_path: LaunchCodeEducation/coding-events/persistent-models
 
 Creating Persistent Models - Text
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

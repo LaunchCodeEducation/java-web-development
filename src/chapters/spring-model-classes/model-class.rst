@@ -15,11 +15,9 @@ change to reflect the model properties.
 Create a Model Class - Video
 ----------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/tDfwNJ3Nk_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `create-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-model>`__ of ``coding-events``.
+.. youtube::
+   :video_id: tDfwNJ3Nk_M
+   :gh_path: LaunchCodeEducation/coding-events/create-model
 
 Create a Model Class - Text
 ---------------------------
@@ -98,11 +96,9 @@ simply strings.
 Add a Model Property - Video
 ----------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/5dtyojtADbk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `add-property branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-property>`__ of ``coding-events``.
+.. youtube::
+   :video_id: 5dtyojtADbk
+   :gh_path: LaunchCodeEducation/coding-events/add-property
 
 Add a Model Property - Text
 ---------------------------

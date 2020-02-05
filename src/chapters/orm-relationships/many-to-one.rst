@@ -8,11 +8,9 @@ Before diving in, let's reduce repetition in our persistent classes, that is, le
 Creating an ``AbstractEntity`` - Video
 --------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/GKOCCjn86yk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `abstract-entity branch <https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity>`__ of ``coding-events``.
+.. youtube::
+   :video_id: GKOCCjn86yk
+   :gh_path: LaunchCodeEducation/coding-events/abstract-entity
 
 Creating an ``AbstractEntity`` - Text
 -------------------------------------
@@ -24,11 +22,9 @@ Setting Up the Relationship - Video
 
 We are now ready to create a relationship between ``Event`` and ``EventCategory``.
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/aFr_E2T7zZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `many-to-one branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one>`__ of ``coding-events``.
+.. youtube::
+   :video_id: aFr_E2T7zZ8
+   :gh_path: LaunchCodeEducation/coding-events/many-to-one
 
 Setting Up the Relationship - Text
 ----------------------------------

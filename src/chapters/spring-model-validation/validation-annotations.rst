@@ -79,11 +79,9 @@ We will see how to ensure these messages are properly displayed in the next sect
 Applying Validation Annotations - Video
 ---------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/1aZxU0-dhgw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `add-validation-annotations branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-validation-annotations>`__ of ``coding-events``.
+.. youtube::
+   :video_id: 1aZxU0-dhgw
+   :gh_path: LaunchCodeEducation/coding-events/add-validation-annotations
 
 Applying Validation Annotations - Text
 --------------------------------------

@@ -36,13 +36,9 @@ Coding Events Setup - Video
 Now that you have ``coding-events`` up and running, add features to it by
 coding along with the videos below:
 
-.. raw:: html
-
-   <div style="text-align:center;">
-      <iframe width="800" height="450" src="https://www.youtube.com/embed/hmgxMOf51JU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   </div>
-
-The final code from this video is in the `starter branch <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`_ of ``coding-events``.
+.. youtube::
+   :video_id: hmgxMOf51JU
+   :gh_path: LaunchCodeEducation/coding-events/starter
 
 Coding Events Setup - Text
 --------------------------
