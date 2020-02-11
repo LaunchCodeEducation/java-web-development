@@ -52,11 +52,9 @@ Let's look at how we can practically do this within Spring Boot.
 Handling Validation Errors - Video
 ----------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/omSQO6721cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `validation-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/validation-errors>`__ of ``coding-events``.
+.. youtube::
+   :video_id: omSQO6721cU
+   :gh_path: LaunchCodeEducation/coding-events/validation-errors
 
 Handling Validation Errors - Text
 ----------------------------------

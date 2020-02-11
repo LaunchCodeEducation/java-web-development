@@ -11,11 +11,9 @@ Thymeleaf provides some convenient attributes to make wiring up a form much easi
 Display Validation Errors for a Field - Video
 ----------------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/yc-bSDSDuKg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `display-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/display-errors>`__ of ``coding-events``.
+.. youtube::
+   :video_id: yc-bSDSDuKg
+   :gh_path: LaunchCodeEducation/coding-events/display-errors
 
 Display Validation Errors for a Field - Text
 --------------------------------------------

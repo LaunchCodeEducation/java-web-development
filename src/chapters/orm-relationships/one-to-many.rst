@@ -6,11 +6,9 @@ The previous section established a persistent many-to-one relationship between `
 Setting Up the Relationship - Video
 -----------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/RLykFBY9Rys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `one-to-many branch <https://github.com/LaunchCodeEducation/coding-events/tree/one-to-many>`__ of ``coding-events``.
+.. youtube::
+   :video_id: RLykFBY9Rys
+   :gh_path: LaunchCodeEducation/coding-events/one-to-many
 
 Setting Up the Relationship - Text
 ----------------------------------

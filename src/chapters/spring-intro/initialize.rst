@@ -8,15 +8,14 @@ IO <https://spring.io/>`__.
 
 .. _initialize-spring-boot-project:
 
-Initialize a Spring Boot Project - Video Instructions
------------------------------------------------------
+Initialize a Spring Boot Project - Video
+----------------------------------------
 
-.. raw:: html
+.. youtube::
+   :video_id: Z_exRQyLwOY
 
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/Z_exRQyLwOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-Initialize a Spring Boot Project - Text Instructions
-----------------------------------------------------
+Initialize a Spring Boot Project - Text
+---------------------------------------
 
 #. Go to `start.spring.io <https://start.spring.io/>`__.
 #. For *Project*, select *Gradle Project*.

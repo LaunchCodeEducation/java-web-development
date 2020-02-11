@@ -15,11 +15,9 @@ and prepare ourselves for decoupling data from controller classes.
 Add a Unique Id - Video
 -----------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/ijnIgreiNHU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `add-id branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-id>`__ of ``coding-events``.
+.. youtube::
+   :video_id: ijnIgreiNHU
+   :gh_path: LaunchCodeEducation/coding-events/add-id
 
 .. index:: ! uid
 
@@ -77,11 +75,9 @@ With these additions, every time a new event object is created it is assigned a 
 Create a Data Layer - Video
 ---------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/8AQtYZ_q57M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `create-data-layer branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer>`__ of ``coding-events``.
+.. youtube::
+   :video_id: 8AQtYZ_q57M
+   :gh_path: LaunchCodeEducation/coding-events/create-data-layer
 
 Create a Data Layer - Text
 --------------------------
@@ -147,11 +143,9 @@ And back to ``processCreateEventForm``, we'll make use of the ``.add()`` method 
 Delete an Event - Video
 -----------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/orsBBbDaJMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `delete-events branch <https://github.com/LaunchCodeEducation/coding-events/tree/delete-events>`__ of ``coding-events``.
+.. youtube::
+   :video_id: orsBBbDaJMM
+   :gh_path: LaunchCodeEducation/coding-events/delete-events
 
 Delete an Event - Text
 ----------------------

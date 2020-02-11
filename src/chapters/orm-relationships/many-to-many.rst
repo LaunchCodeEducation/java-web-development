@@ -6,11 +6,9 @@ Just as when introducing one-to-one relationships, our first step in exploring m
 Persistent Tags - Video
 -----------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/bLK-VtZgx0Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `add-tags branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-tags>`__ of ``coding-events``.
+.. youtube::
+   :video_id: bLK-VtZgx0Q
+   :gh_path: LaunchCodeEducation/coding-events/add-tags
 
 Persistent Tags - Text
 ----------------------
@@ -20,11 +18,9 @@ To create a persistent ``Tag`` class, we follow the same steps as when making ``
 Creating a Many-to-Many Relationship - Video
 --------------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/qtbkUXAjpt4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `many-to-many branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many>`__ of ``coding-events``.
+.. youtube::
+   :video_id: qtbkUXAjpt4
+   :gh_path: LaunchCodeEducation/coding-events/many-to-many
 
 Creating a Many-to-Many Relationship - Text
 -------------------------------------------
@@ -56,11 +52,9 @@ These minor additions fully configure the many-to-many relationship. Making use 
 Many-to-Many Forms and Data Transfer Objects - Video
 ----------------------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/1qMaEv_CJ6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `many-to-many-features branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many-features>`__ of ``coding-events``.
+.. youtube::
+   :video_id: 1qMaEv_CJ6k
+   :gh_path: LaunchCodeEducation/coding-events/many-to-many-features
 
 Many-to-Many Forms and Data Transfer Objects - Text
 ---------------------------------------------------

@@ -16,11 +16,9 @@ request from ``/create``.
 How to Use Model-Binding - Video
 --------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/gzk__EWfvaw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `model-binding branch <https://github.com/LaunchCodeEducation/coding-events/tree/model-binding>`__ of ``coding-events``.
+.. youtube::
+   :video_id: gzk__EWfvaw
+   :gh_path: LaunchCodeEducation/coding-events/model-binding
 
 How to Use Model-Binding - Text
 --------------------------------

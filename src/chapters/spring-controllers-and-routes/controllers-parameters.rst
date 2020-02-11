@@ -35,9 +35,8 @@ They contain data in key-value pairs.
 Controllers and Query Parameters - Video
 -----------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/cXwlynCtZSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+.. youtube::
+   :video_id: cXwlynCtZSM
 
 .. index:: ! @RequestParam
 
@@ -63,9 +62,8 @@ the paired value of that ``coder`` key into the response text.
 Controllers and Path Parameters - Video
 ---------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/lRNO0eAcSs4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+.. youtube::
+   :video_id: lRNO0eAcSs4
 
 .. index:: ! @PathVariable
 

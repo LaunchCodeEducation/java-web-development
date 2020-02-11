@@ -8,11 +8,9 @@ Such a relationship can be configured using the JPA annotation ``@OneToOne``.
 Creating a One-to-One Relationship - Video
 ------------------------------------------
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/0yNIbAcd4ng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `one-to-one branch <https://github.com/LaunchCodeEducation/coding-events/tree/one-to-one>`__ of ``coding-events``.
+.. youtube::
+   :video_id: 0yNIbAcd4ng
+   :gh_path: LaunchCodeEducation/coding-events/one-to-one
 
 Creating a One-to-One Relationship - Text
 -----------------------------------------

@@ -71,9 +71,9 @@ Setting up a Persistent Database - Video
 The following video explains how we can add a MySQL database to our ``coding-events`` application. 
 The accompanying text is a quick rundown of what happens in the video. To get started, create a branch off of your `enums <https://github.com/LaunchCodeEducation/coding-events/tree/enums>`_ branch.
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/GVOpKW3NcMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+.. youtube::
+   :video_id: GVOpKW3NcMk
+   :gh_path: LaunchCodeEducation/coding-events/db-config
 
 
 Setting up a Persistent Database - Text

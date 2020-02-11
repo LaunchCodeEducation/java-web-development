@@ -37,11 +37,9 @@ Adding Bootstrap to ``coding-events``
 Bootstrap - Video
 ^^^^^^^^^^^^^^^^^
 
-.. raw:: html
-
-   <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/w-f3NYHHe9Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-The final code from this video is in the `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__ of ``coding-events``.
+.. youtube::
+   :video_id: w-f3NYHHe9Q
+   :gh_path: LaunchCodeEducation/coding-events/add-bootstrap
 
 Apart from adding the library to your Spring Boot project, we won't focus much time on the individual 
 Bootstrap updates to ``coding-events`` but we want you to know what they are and where they come from.
