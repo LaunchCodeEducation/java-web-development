@@ -150,6 +150,6 @@ Check Your Understanding
    c. ``private``
    d. ``protected``
 
-.. ans: B, private.
+.. ans: c, private.
 
 
