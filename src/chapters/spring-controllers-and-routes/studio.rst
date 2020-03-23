@@ -35,7 +35,7 @@ Creating Controllers
 --------------------
 
 In your ``org.launchcode`` package, add another package called ``controllers`` and add a class called ``SkillsController``.
-Inside ``SkillsController``, you will add several methods to accomplish the followng:
+Inside ``SkillsController``, you will add several methods to accomplish the following:
 
 #. At ``localhost:8080``, add text that states the three possible programming languages someone could be working on.
    You need to have an ``h1`` with the title "Skills Tracker", an ``h2``, and an ``ol`` containing three programming languages of your choosing.
