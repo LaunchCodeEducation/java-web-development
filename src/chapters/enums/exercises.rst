@@ -31,7 +31,7 @@ Exercises: Enum Practice
 #. Add a ``name`` field to the planets.
 
    a. Create a name property to display a non-capitalized version of each of the planet names.
-   #. Add a constructor for with the name field and a getter for the field.
+   #. Add a constructor with the name field and a getter for the field.
 
 #. Update the template to display the planet names.
 
