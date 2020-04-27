@@ -55,7 +55,8 @@ Exercises: Enum Practice
 #. Change the index template to display a table of each planet name and its year in earth days.
 
    #. In ``templates/index``, create a table element and add the appropriate bootstrap class.
-   #. The table can be style to your liking and add a message to let the users know what data you are displaying
+   #. The table can be styled to your liking. 
+   #. Add a message to let the users know what data you are displaying
       with the ``yearLength`` field.
 
 #. If you wish, add another field to ``Planets``. You can find plenty of information on `NASA's web site <https://solarsystem.nasa.gov/planets/overview/>`__.
