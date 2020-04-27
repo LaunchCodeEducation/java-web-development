@@ -53,9 +53,9 @@ it `here <https://www.oracle.com/technetwork/java/javase/downloads/jdk13-downloa
 The relevant install link for your operating system is on the bottom of the page:
 
 .. figure:: figures/installJava.png
-   :alt: Install Java
+   :alt: Screenshot of different Java installation options on Oracle's website
 
-   Install Java
+   Different options for Java installation
 
 To install, you must first select *Accept License Agreement*, then select any of 
 the file type options for your operating system. 
