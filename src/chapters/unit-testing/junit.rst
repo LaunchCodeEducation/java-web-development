@@ -51,7 +51,7 @@ of tool later in this course. Since we're not quite there yet, we've included th
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Within ``org.launchcode.java.demos``, open the ``testing`` directory. Inside ``testing``, you'll
-see a ``main`` directory and and ``test`` directory. Open the ``Car`` class within ``main`` and 
+see a ``main`` directory and ``test`` directory. Open the ``Car`` class within ``main`` and 
 look around. Here, we provide a class ``Car`` with basic information about a make, model, 
 gas level, and mileage as well as getters, setters, and a few other methods. 
 

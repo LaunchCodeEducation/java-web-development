@@ -89,7 +89,7 @@ The accompanying text is a quick rundown of what happens in the video. To get st
 
 .. youtube::
    :video_id: YAISqYMOIAw
-   :gh_path: LaunchCodeEducation/coding-events/persistent-models
+   :gh_path: LaunchCodeEducation/coding-events/persistent-model
 
 Creating Persistent Models - Text
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
