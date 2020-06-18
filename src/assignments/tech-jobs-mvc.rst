@@ -257,7 +257,7 @@ The most interesting part of this template is how we generate the links:
 #. In line 21, ``category`` represents one key/value pair from
    ``tableChoices``, and in line 23, ``item`` represents one entry from the
    stored ArrayList.
-#. We’ve seen the syntax ``@{/list/jobs}`` to generate a link within a Thymleaf
+#. We’ve seen the syntax ``@{/list/jobs}`` to generate a link within a Thymeleaf
    template, but we haven’t seen the other portion of the link:
    ``(column=${category.key},value=${position})``. This syntax causes Thymeleaf
    to dynamically generate query parameters for our URL.
