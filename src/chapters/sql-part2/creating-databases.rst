@@ -83,7 +83,7 @@ Import Data
    use the same column names as the external source.
 
 #. Follow this link to the
-   `java-web-development-starter-data <https://github.com/LaunchCodeEducation/java-web-development-starter-data.git>`__.
+   `sql-starter-data <https://github.com/LaunchCodeEducation/sql-starter-data>`__.
    Fork the repository and then clone it to your machine.
 #. Unlike previous repositories, this one only holds folders of CSV data files.
    It does NOT contain executable code.

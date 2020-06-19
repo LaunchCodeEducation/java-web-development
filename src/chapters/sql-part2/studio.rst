@@ -20,7 +20,7 @@ By the end of your setup, you should have 6 tables:
 
 .. admonition:: Note
 
-   For the starter data, you need to use the same `Github repo <https://github.com/LaunchCodeEducation/java-web-development-starter-data>`_ as the exercises. The files you need are in ``lesson-15-studio``.
+   For the starter data, you need to use the same `Github repo <https://github.com/LaunchCodeEducation/sql-starter-data>`_ as the exercises. The files you need are in ``lesson-15-studio``.
 
 The ``book`` table
 ^^^^^^^^^^^^^^^^^^
