@@ -7,7 +7,7 @@ Introduction
 Bootstrap is a commonly-used style library. It allows users to quickly apply its CSS style rules 
 with class selectors. Style updates can add features or improve the usability of an application. For example, 
 Bootstrap, and other styling libraries for that matter, use a standardized color scheme for items like clickable
-buttons. As the implementer of the helper library, you can apply the ``btn btn-primary`` classes to a button 
+buttons. As the user of the helper library, you can apply the ``btn btn-primary`` classes to a button 
 on your page and Bootstrap works behind the CSS scenes to render a blue button with white text in a legible 
 font. For more customization, you could also choose which color you want all of a the buttons labelled with 
 ``btn-primary`` on your web page to be. 
