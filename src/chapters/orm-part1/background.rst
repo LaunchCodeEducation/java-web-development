@@ -20,7 +20,7 @@ ORM converts data between two incompatible type systems (Java and MySQL), such t
 
    .. sourcecode:: java
 
-      public frank = new ContactInfo(3,"Frank","frank@email.com"); 
+      public ContactInfo frank = new ContactInfo(3,"Frank","frank@email.com"); 
 
    Having properly set up our application, we can add Frank's info to our ``contactinfo`` table.
    While we will write the code to add Frank's info to our database in Java, the frameworks and APIs that make ORM happen will run the following MySQL query for us.
