@@ -7,6 +7,14 @@ Controller Classes - Video
 .. youtube::
    :video_id: DvEvhB20e2s
 
+.. TODO: create these branches on hello-spring-demo
+
+.. admonition:: Note 
+
+	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
+	for this video is on the ``forms`` branch. If you ever want to verify what code you end this video with, 
+	the `final code <TODO LINK TO BRANCH>` for this video is on the ``TODO NAME BRANCH`` branch.
+
 Controller Classes - Text
 --------------------------
 

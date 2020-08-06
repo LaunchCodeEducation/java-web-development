@@ -18,6 +18,14 @@ Controllers and Static Responses - Video
 .. youtube::
    :video_id: attSxLlXkz8
 
+.. TODO: create these branches on hello-spring-demo
+
+.. admonition:: Note 
+
+	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
+	for this video is on the ``master`` branch. If you ever want to verify what code you end this video with, 
+	the `final code <TODO LINK TO BRANCH>` for this video is on the ``static-responses`` branch.
+
 Controllers and Static Responses - Intro
 ----------------------------------------
 

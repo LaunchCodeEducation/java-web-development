@@ -38,6 +38,14 @@ Controllers and Query Parameters - Video
 .. youtube::
    :video_id: cXwlynCtZSM
 
+.. TODO: create these branches on hello-spring-demo
+
+.. admonition:: Note 
+
+	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
+	for this video is on the ``static-responses`` branch. If you ever want to verify what code you end this video with, 
+	the `final code <TODO LINK TO BRANCH>` for this video is on the ``query-parameters`` branch.
+
 .. index:: ! @RequestParam
 
 ``@RequestParam``
@@ -64,6 +72,14 @@ Controllers and Path Parameters - Video
 
 .. youtube::
    :video_id: lRNO0eAcSs4
+
+.. TODO: create these branches on hello-spring-demo
+
+.. admonition:: Note 
+
+	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
+	for this video is on the ``query-parameters`` branch. If you ever want to verify what code you end this video with, 
+	the `final code <TODO LINK TO BRANCH>` for this video is on the ``path-variables`` branch.
 
 .. index:: ! @PathVariable
 

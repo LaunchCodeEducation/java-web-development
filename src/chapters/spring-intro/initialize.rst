@@ -14,6 +14,13 @@ Initialize a Spring Boot Project - Video
 .. youtube::
    :video_id: Z_exRQyLwOY
 
+.. admonition:: Note
+
+	As you code along with the videos, you will be working on your own project. However, should you want to review a step or double-check your code, fork LaunchCode’s 
+	``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on `Github <TODO CREATE THIS REPO>`. The master branch contains 
+	the code after creation and also shows the starting point for the next chapter.
+
+
 Initialize a Spring Boot Project - Text
 ---------------------------------------
 

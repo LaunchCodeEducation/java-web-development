@@ -1,9 +1,17 @@
+.. _controllers-exercises:
+
 Exercises: Controllers and Routing
 ==================================
 
 While reading the chapter, you created a
 basic Hello, World application using Spring Boot called ``hello-spring``. Open that project up
 in IntelliJ, and get ready to add some features!
+
+.. TODO: create these branches on hello-spring-demo
+
+.. admonition:: Note 
+
+	Check out this reference to make sure your own application matches our ``hello-spring-demo`` BRANCH name.
 
 Modify your ``HelloController`` class to display a form on a ``GET``
 request that asks the user for both their name and the language they

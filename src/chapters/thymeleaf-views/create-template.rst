@@ -87,6 +87,12 @@ Start a Practice Project
 Open up your ``hello-spring`` project in IntelliJ and code along with the
 following video.
 
+.. admonition:: Note
+
+	We're assuming you've completed these :ref:`controllers-exercises` on your own ``hello-spring`` application. 
+	Take a look at our solution `here <TODO LINK TO EXERCISES SOLUTION on hell-spring-demo` if you need a reference or
+	refresher.
+
 .. admonition:: Warning
 
    The videos in this chapter walk you through building small web-based
