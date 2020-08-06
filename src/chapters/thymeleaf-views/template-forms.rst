@@ -40,6 +40,10 @@ coding along with the videos below:
    :video_id: hmgxMOf51JU
    :gh_path: LaunchCodeEducation/coding-events/starter
 
+.. admonition:: Note 
+
+   The final code presented in this video is found on the ``starter branch <TODO>`` of the ``coding-events-demo`` repository.
+
 Coding Events Setup - Text
 --------------------------
 
@@ -61,6 +65,11 @@ Create and Render a Form - Video
 
 .. youtube::
    :video_id: lgT962si4eQ
+   :gh_path: LaunchCodeEducation/coding-events/form
+
+.. admonition:: Note 
+
+   The final code presented in this video is found on the ``form branch <TODO>`` of the ``coding-events-demo`` repository.
 
 Before moving on, be sure to commit and push your changes. Do this after each
 video to create a fallback position just in case disaster strikes your project
@@ -134,6 +143,11 @@ Code along with the video below to add this functionality.
 
 .. youtube::
    :video_id: LnpJcq33uoM
+   :gh_path: LaunchCodeEducation/coding-events/form2
+
+.. admonition:: Note 
+
+   The final code presented in this video is found on the ``form2 branch <TODO>`` of the ``coding-events-demo`` repository.
 
 As usual, the following summary outlines the ideas from the clip.
 

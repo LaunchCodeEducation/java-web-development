@@ -87,6 +87,8 @@ Start a Practice Project
 Open up your ``hello-spring`` project in IntelliJ and code along with the
 following video.
 
+.. TODO: update with real repo and branch name
+
 .. admonition:: Note
 
 	We're assuming you've completed these :ref:`controllers-exercises` on your own ``hello-spring`` application. 
@@ -101,6 +103,11 @@ following video.
 
 .. youtube::
    :video_id: UIetMLyDVjQ
+
+.. admonition:: Note
+
+	The starter code for this video is found at the ``views-starter <TODO>`` branch of ``HelloASPDotNETDemo``. 
+	The final code presented in this video is found on the ``views-static <TODO>`` branch.
 
 The sections below outline the main ideas presented in the video. However, the
 text is NOT a substitute for completing the work described in the clip.

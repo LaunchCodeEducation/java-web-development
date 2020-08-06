@@ -179,6 +179,12 @@ the clip.
 .. youtube::
    :video_id: bT5Zt9xZYSU
 
+
+.. admonition:: Note
+
+	The starter code for this video is found at the ``views-static <TODO>`` branch of ``HelloASPDotNETDemo``. 
+	The final code presented in this video is found on the ``views-dynamic <TODO>`` branch.
+
 The text on this page and the previous two provides details for some of the
 concepts presented in the clip. Note that these summaries are NOT intended as
 a replacement for the walkthrough. To get better at coding, you need to

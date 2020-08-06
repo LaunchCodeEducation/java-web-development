@@ -41,6 +41,10 @@ Bootstrap - Video
    :video_id: w-f3NYHHe9Q
    :gh_path: LaunchCodeEducation/coding-events/add-bootstrap
 
+.. admonition:: Note 
+
+   The final code presented in this video is found on the ``add-bootstrap branch <TODO>`` of the ``coding-events-demo`` repository.
+
 Apart from adding the library to your Spring Boot project, we won't focus much time on the individual 
 Bootstrap updates to ``coding-events`` but we want you to know what they are and where they come from.
 Feel free to add as much or as little Bootstrap styling to your own version.

@@ -161,7 +161,12 @@ Code along with the following video to practice using fragments in your
 templates:
 
 .. youtube::
-   :video_id: rbIyV6OoS-o
+   :video_id: rbIyV6OoS-o  
+   :gh_path: LaunchCodeEducation/coding-events/fragments
+
+.. admonition:: Note 
+
+   The final code presented in this video is found on the ``fragments branch <TODO>`` of the ``coding-events-demo`` repository.
 
 Remember that the summary text for the ``fragment`` and ``replace`` keywords
 supports the video and is NOT intended as a replacement.

@@ -19,7 +19,7 @@ were still using data from a static event list.
 
    .. admonition:: Note
 
-      If you were not making commits after each video, that is fine. You can fork and clone this `repo <https://github.com/LaunchCodeEducation/coding-events>`_ to get started.
+      If you need to make sure your code matches ours, look at the `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__  on ``coding-events-demo``.
 
 #. Use ``git reset --hard <commit>`` to go back to that moment.
 

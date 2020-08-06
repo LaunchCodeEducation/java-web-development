@@ -29,7 +29,12 @@ Code along with this final video to practice adding static resources to your
 ``coding-events`` project:
 
 .. youtube::
-   :video_id: syzOmHnTnmo
+   :video_id: syzOmHnTnmo   
+   :gh_path: LaunchCodeEducation/coding-events/staticresources
+
+.. admonition:: Note 
+
+   The final code presented in this video is found on the ``staticresources branch <TODO>`` of the ``coding-events-demo`` repository.
 
 ``th:src``
 ^^^^^^^^^^
