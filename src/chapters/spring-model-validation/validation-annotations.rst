@@ -83,6 +83,14 @@ Applying Validation Annotations - Video
    :video_id: 1aZxU0-dhgw
    :gh_path: LaunchCodeEducation/coding-events/add-validation-annotations
 
+.. TODO: is the starting branch model-binding or the end of exercises?
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``model-binding branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``add-validation-annotations branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 Applying Validation Annotations - Text
 --------------------------------------
 

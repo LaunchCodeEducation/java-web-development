@@ -8,11 +8,12 @@ In :ref:`orm1-exercises`, you created a new persistent class, ``EventCategory``.
 Getting Ready
 -------------
 
-In your ``coding-events`` repository, checkout out the ``add-persistent-category`` branch and create a new branch, ``abstract-entity-studio``, off of that branch.
+In your ``coding-events`` repository, create a new branch from your exercises work. Call this branch ``abstract-entity-studio``.
 
 .. admonition:: Note
 
-   You can also branch off of the branch you created in the exercises, if you like. We have provided the branch mentioned to make sure you have good starter code for the studio, even if you didn't complete the exercises. 
+   On ``coding-events-demo``, we have provided a branch called `add-persistent-category <TODO add branch>` 
+   to make sure you have good starter code for the studio, even if you didn't complete the exercises. 
 
 Your Tasks
 ----------

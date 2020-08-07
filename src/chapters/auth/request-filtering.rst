@@ -20,7 +20,7 @@ A request filter in Spring can be built by extending the built-in class ``Handle
 
 - ``preHandle`` - called *before* a request is handled by a controller
 - ``postHandle`` - called *after* a request is handled by a controller, but
-   *before* the view is rendered
+  *before* the view is rendered
 - ``afterCompletion`` - called *after* the view is rendered
 
 By extending ``HandlerInterceptorAdapter`` and overriding one or more of these
@@ -212,7 +212,10 @@ The first method---``authenticationFilter``, which is annotated with ``@Bean``--
 
 Now you can start your application and test. You should be required to log in to view anything other than login and registration pages.
 
-The code for this section is available in the `auth-filter branch <https://github.com/LaunchCodeEducation/coding-events/tree/auth-filter>`_ of the ``coding-events`` repository.
+.. admonition:: Note
+
+	The code for this section is available in the 
+	`auth-filter branch <https://github.com/LaunchCodeEducation/coding-events/tree/auth-filter>`_ of the ``coding-events-demo`` repository.
 
 Check Your Understanding
 ------------------------

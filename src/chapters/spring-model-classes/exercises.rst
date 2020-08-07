@@ -1,9 +1,9 @@
 Exercises: Edit Model Classes
 =============================
 
-Add functionality to edit event objects in the ``coding-events`` application. 
+Add functionality to edit event objects in your ``coding-events`` application. 
 These exercises assume that you have added all of the code from this section of the book and your 
-application resembles the `model-binding branch <https://github.com/LaunchCodeEducation/coding-events/tree/model-binding>`__.
+application resembles the `model-binding branch of coding-events-demo <https://github.com/LaunchCodeEducation/coding-events/tree/model-binding>`__.
 
 The edit form will resemble the form used to create an event.
 

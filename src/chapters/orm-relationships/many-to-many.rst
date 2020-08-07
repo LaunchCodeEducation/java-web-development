@@ -10,6 +10,12 @@ Persistent Tags - Video
    :video_id: bLK-VtZgx0Q
    :gh_path: LaunchCodeEducation/coding-events/add-tags
 
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``one-to-one branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``add-tags branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 Persistent Tags - Text
 ----------------------
 
@@ -21,6 +27,12 @@ Creating a Many-to-Many Relationship - Video
 .. youtube::
    :video_id: qtbkUXAjpt4
    :gh_path: LaunchCodeEducation/coding-events/many-to-many
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``add-tags branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``many-to-many branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Creating a Many-to-Many Relationship - Text
 -------------------------------------------
@@ -55,6 +67,12 @@ Many-to-Many Forms and Data Transfer Objects - Video
 .. youtube::
    :video_id: 1qMaEv_CJ6k
    :gh_path: LaunchCodeEducation/coding-events/many-to-many-features
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``many-to-many branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``many-to-many-features branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Many-to-Many Forms and Data Transfer Objects - Text
 ---------------------------------------------------

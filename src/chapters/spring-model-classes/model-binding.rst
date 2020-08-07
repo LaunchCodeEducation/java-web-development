@@ -20,6 +20,12 @@ How to Use Model-Binding - Video
    :video_id: gzk__EWfvaw
    :gh_path: LaunchCodeEducation/coding-events/model-binding
 
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``delete-events branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``model-binding branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 How to Use Model-Binding - Text
 --------------------------------
 

@@ -12,6 +12,12 @@ Creating a One-to-One Relationship - Video
    :video_id: 0yNIbAcd4ng
    :gh_path: LaunchCodeEducation/coding-events/one-to-one
 
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``one-to-many branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``one-to-one branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 Creating a One-to-One Relationship - Text
 -----------------------------------------
 

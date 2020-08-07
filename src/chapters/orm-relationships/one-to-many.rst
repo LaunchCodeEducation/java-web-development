@@ -10,6 +10,12 @@ Setting Up the Relationship - Video
    :video_id: RLykFBY9Rys
    :gh_path: LaunchCodeEducation/coding-events/one-to-many
 
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``many-to-one branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``one-to-many branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 Setting Up the Relationship - Text
 ----------------------------------
 

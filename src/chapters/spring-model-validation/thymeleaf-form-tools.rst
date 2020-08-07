@@ -19,6 +19,12 @@ Display Validation Errors for a Field - Video
    :video_id: yc-bSDSDuKg
    :gh_path: LaunchCodeEducation/coding-events/display-errors
 
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``validation-errors  branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``display-errors branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 Display Validation Errors for a Field - Text
 --------------------------------------------
 

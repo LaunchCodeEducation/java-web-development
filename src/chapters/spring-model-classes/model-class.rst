@@ -19,6 +19,13 @@ Create a Model Class - Video
    :video_id: tDfwNJ3Nk_M
    :gh_path: LaunchCodeEducation/coding-events/create-model
 
+.. admonition:: Note 
+
+   The final code presented in this video is found on the ``create-model branch <TODO>`` of the ``coding-events-demo`` repository.
+   
+   The starter code for this video is found at the models1-start branch of CodingEventsDemo. The final code presented in this video 
+   is found on the create-model branch. As always, code along to the videos on your own CodingEvents project.
+
 Create a Model Class - Text
 ---------------------------
 
@@ -99,6 +106,12 @@ Add a Model Property - Video
 .. youtube::
    :video_id: 5dtyojtADbk
    :gh_path: LaunchCodeEducation/coding-events/add-property
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the ``create-model branch <TODO>`` of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the ``add-property branch <TODO>``. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Add a Model Property - Text
 ---------------------------
