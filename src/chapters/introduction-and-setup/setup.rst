@@ -156,7 +156,7 @@ Run the following command, replacing the ``{filepath}`` with the file path to yo
 
 .. sourcecode:: bash
 
-   set path=%path%;{filepath}
+   set PATH=%PATH%;{filepath}
 
 This command sets a path in our system for ``java`` so that we can compile and run Java programs.
 
