@@ -39,11 +39,14 @@ Bootstrap - Video
 
 .. youtube::
    :video_id: w-f3NYHHe9Q
-   :gh_path: LaunchCodeEducation/coding-events/add-bootstrap
+
+.. TODO: make the static resources branch?
 
 .. admonition:: Note 
 
-   The final code presented in this video is found on the ``add-bootstrap branch <TODO>`` of the ``coding-events-demo`` repository.
+   The starter code for this video is found at the `staticresources branch <https://github.com/LaunchCodeEducation/coding-events/tree/staticresources>`__. of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Apart from adding the library to your Spring Boot project, we won't focus much time on the individual 
 Bootstrap updates to ``coding-events`` but we want you to know what they are and where they come from.

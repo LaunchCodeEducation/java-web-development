@@ -17,12 +17,11 @@ Display Validation Errors for a Field - Video
 
 .. youtube::
    :video_id: yc-bSDSDuKg
-   :gh_path: LaunchCodeEducation/coding-events/display-errors
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``validation-errors  branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``display-errors branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `validation-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/validation-errors>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `display-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/display-errors>`__ As always, code along to the 
    videos on your own ``coding-events`` project.
 
 Display Validation Errors for a Field - Text

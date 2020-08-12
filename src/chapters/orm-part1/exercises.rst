@@ -6,7 +6,7 @@ Exercises: OMG the ORM!
 For the exercises, we are going to continue building on our ``coding-events`` application.
 The exercise instructions assume that your code resembles the 
 `persistent-controller <https://github.com/LaunchCodeEducation/coding-events/tree/persistent-controller>`_ branch of ``coding-events-demo``.
-Create a new branch off of your ``persistent-controller`` code to get started on the exercises. 
+Create a new branch off of your own ``persistent-controller`` code to get started on the exercises. 
 
 .. admonition:: Note
 

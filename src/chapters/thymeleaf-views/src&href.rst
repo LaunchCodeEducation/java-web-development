@@ -30,11 +30,14 @@ Code along with this final video to practice adding static resources to your
 
 .. youtube::
    :video_id: syzOmHnTnmo   
-   :gh_path: LaunchCodeEducation/coding-events/staticresources
+
+.. TODO: make staticresources branch?
 
 .. admonition:: Note 
 
-   The final code presented in this video is found on the ``staticresources branch <TODO>`` of the ``coding-events-demo`` repository.
+   The starter code for this video is found at the `fragments branch <https://github.com/LaunchCodeEducation/coding-events/tree/fragments>`__. of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `staticresources branch <https://github.com/LaunchCodeEducation/coding-events/tree/staticresources>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 ``th:src``
 ^^^^^^^^^^

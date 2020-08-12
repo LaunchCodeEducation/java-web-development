@@ -182,7 +182,7 @@ the clip.
 
 .. admonition:: Note
 
-	The starter code for this video is found at the ``views-static <TODO>`` branch of ``HelloASPDotNETDemo``. 
+	The starter code for this video is found at the ``views-static <TODO>`` branch of ``hello-spring-demo``. 
 	The final code presented in this video is found on the ``views-dynamic <TODO>`` branch.
 
 The text on this page and the previous two provides details for some of the

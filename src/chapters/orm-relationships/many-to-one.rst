@@ -10,14 +10,13 @@ Creating an ``AbstractEntity`` - Video
 
 .. youtube::
    :video_id: GKOCCjn86yk
-   :gh_path: LaunchCodeEducation/coding-events/abstract-entity
 
-.. TODO: is this the right starter branch?
+.. TODO: is this the right starter branch? or add-persistent-category?
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``abstract-entity-studio branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``abstract-entity branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `abstract-entity-studio branch <https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity-studio>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `abstract-entity branch <https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity>`__. As always, code along to the 
    videos on your own ``coding-events`` project.
 
 
@@ -33,12 +32,11 @@ We are now ready to create a relationship between ``Event`` and ``EventCategory`
 
 .. youtube::
    :video_id: aFr_E2T7zZ8
-   :gh_path: LaunchCodeEducation/coding-events/many-to-one
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``abstract-entity branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``many-to-one branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `abstract-entity branch <https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity>`__  of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `many-to-one branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one>`__ . As always, code along to the 
    videos on your own ``coding-events`` project.
 
 Setting Up the Relationship - Text

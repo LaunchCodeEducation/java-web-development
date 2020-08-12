@@ -162,11 +162,15 @@ templates:
 
 .. youtube::
    :video_id: rbIyV6OoS-o  
-   :gh_path: LaunchCodeEducation/coding-events/fragments
+
+.. TODO: create fragments branch
 
 .. admonition:: Note 
 
-   The final code presented in this video is found on the ``fragments branch <TODO>`` of the ``coding-events-demo`` repository.
+   The starter code for this video is found at the `form2 branch <https://github.com/LaunchCodeEducation/coding-events/tree/form2>`__. of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `fragments branch <https://github.com/LaunchCodeEducation/coding-events/tree/fragments>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 
 Remember that the summary text for the ``fragment`` and ``replace`` keywords
 supports the video and is NOT intended as a replacement.

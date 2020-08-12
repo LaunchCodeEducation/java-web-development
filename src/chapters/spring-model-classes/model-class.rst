@@ -17,14 +17,15 @@ Create a Model Class - Video
 
 .. youtube::
    :video_id: tDfwNJ3Nk_M
-   :gh_path: LaunchCodeEducation/coding-events/create-model
 
+.. TODO: no models1-start branch, what is the starting branch here?
+   
 .. admonition:: Note 
 
-   The final code presented in this video is found on the ``create-model branch <TODO>`` of the ``coding-events-demo`` repository.
-   
-   The starter code for this video is found at the models1-start branch of CodingEventsDemo. The final code presented in this video 
-   is found on the create-model branch. As always, code along to the videos on your own CodingEvents project.
+   The starter code for this video is found at the `models1-start branch <https://github.com/LaunchCodeEducation/coding-events/tree/models1-start>`__ 
+   of ``coding-events-demo``. The final code presented in this video is found on the 
+   `create-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-model>`__. As always, code along 
+   with the videos on your own coding-events project.
 
 Create a Model Class - Text
 ---------------------------
@@ -105,12 +106,11 @@ Add a Model Property - Video
 
 .. youtube::
    :video_id: 5dtyojtADbk
-   :gh_path: LaunchCodeEducation/coding-events/add-property
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``create-model branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``add-property branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `create-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-model>`__  of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `add-property branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-property>`__ . As always, code along to the 
    videos on your own ``coding-events`` project.
 
 Add a Model Property - Text

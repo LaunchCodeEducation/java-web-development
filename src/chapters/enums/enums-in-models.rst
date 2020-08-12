@@ -8,14 +8,13 @@ Enum Types in Models - Video
 
 .. youtube::
    :video_id: FOvBYJxGPTQ
-   :gh_path: LaunchCodeEducation/coding-events/enums
 
 .. TODO: does this start with display-errors of the end of exercises?
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``display-errors  branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``enums branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `display-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/display-errors>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `enums branch <https://github.com/LaunchCodeEducation/coding-events/tree/enums>`__. As always, code along to the 
    videos on your own ``coding-events`` project.
 
 Enum Types in Models - Text

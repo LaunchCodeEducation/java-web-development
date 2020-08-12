@@ -12,7 +12,7 @@ In your ``coding-events`` repository, create a new branch from your exercises wo
 
 .. admonition:: Note
 
-   On ``coding-events-demo``, we have provided a branch called `add-persistent-category <TODO add branch>` 
+   On ``coding-events-demo``, we have provided a branch called `add-persistent-category <https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category>`__ 
    to make sure you have good starter code for the studio, even if you didn't complete the exercises. 
 
 Your Tasks

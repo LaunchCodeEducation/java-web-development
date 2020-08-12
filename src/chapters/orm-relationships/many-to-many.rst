@@ -8,12 +8,11 @@ Persistent Tags - Video
 
 .. youtube::
    :video_id: bLK-VtZgx0Q
-   :gh_path: LaunchCodeEducation/coding-events/add-tags
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``one-to-one branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``add-tags branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `one-to-one branch <https://github.com/LaunchCodeEducation/coding-events/tree/one-to-one>`__  of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `add-tags branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-tags>`__ . As always, code along to the 
    videos on your own ``coding-events`` project.
 
 Persistent Tags - Text
@@ -26,12 +25,11 @@ Creating a Many-to-Many Relationship - Video
 
 .. youtube::
    :video_id: qtbkUXAjpt4
-   :gh_path: LaunchCodeEducation/coding-events/many-to-many
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``add-tags branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``many-to-many branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `add-tags branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-tags>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `many-to-many branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many>`__. As always, code along to the 
    videos on your own ``coding-events`` project.
 
 Creating a Many-to-Many Relationship - Text
@@ -57,7 +55,7 @@ In ``Tag``:
    @ManyToMany(mappedBy = "tags")
    private final List<Event> events = new ArrayList<>();
 
-Along with the ``@ManyToMany`` annotation, the ``mappedBy`` paramater ensures that Hibernate populates the ``events`` collection of a given ``Tag`` object with every ``Event`` object that has that specific tag in *its* ``tags`` collection.
+Along with the ``@ManyToMany`` annotation, the ``mappedBy`` parameter ensures that Hibernate populates the ``events`` collection of a given ``Tag`` object with every ``Event`` object that has that specific tag in *its* ``tags`` collection.
 
 These minor additions fully configure the many-to-many relationship. Making use of this relationship in our controllers and views will take quite a bit more work, however. 
 
@@ -66,12 +64,11 @@ Many-to-Many Forms and Data Transfer Objects - Video
 
 .. youtube::
    :video_id: 1qMaEv_CJ6k
-   :gh_path: LaunchCodeEducation/coding-events/many-to-many-features
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the ``many-to-many branch <TODO>`` of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the ``many-to-many-features branch <TODO>``. As always, code along to the 
+   The starter code for this video is found at the `many-to-many branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `many-to-many-features branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many-features>`__. As always, code along to the 
    videos on your own ``coding-events`` project.
 
 Many-to-Many Forms and Data Transfer Objects - Text
