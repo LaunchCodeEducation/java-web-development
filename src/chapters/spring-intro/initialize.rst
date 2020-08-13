@@ -16,9 +16,10 @@ Initialize a Spring Boot Project - Video
 
 .. admonition:: Note
 
-	As you code along with the videos, you will be working on your own project. However, should you want to review a step or double-check your code, fork LaunchCode’s 
-	``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on `Github <TODO CREATE THIS REPO>`. The master branch contains 
-	the code after creation and also shows the starting point for the next chapter.
+   As you code along with the videos, you will be working on your own project. However, should you want to review a step or double-check 
+   your code, fork LaunchCode’s ``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on 
+   `Github <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__. The ``starter`` branch contains 
+   the code after creation and also shows the starting point for the next chapter.
 
 
 Initialize a Spring Boot Project - Text
@@ -56,12 +57,12 @@ Initialize a Spring Boot Project - Text
 Spring in IntelliJ
 ------------------
 
-#. Move the downloaded unzipped folder from your downloads folder into
+#. Move the downloaded, unzipped folder from your downloads folder into
    another location such as ``LC101`` or your home directory.
 #. Start IntelliJ.
 #. Select *Import Project* and browse to where you put the downloaded
-   project.
-#. Select *Import project from external model* and pick *Gradle*. Select all other defaults
+   project. Unzip the project and select to import the top-level folder of the new Spring project.
+#. In the window that follows, select *Import project from external model* and pick *Gradle*. Select all other defaults
    as you create the project.
 
    .. note::
@@ -156,12 +157,12 @@ Before Running a Spring Project
 
 Before running your project, we need to check the configuration of a few items. 
 
-#. In ``build,gradle``, locate an item called ``sourceCompatibility``. If it's value is not equal to 
-``13``, change it and save the file.
+#. In ``build.gradle``, locate an item called ``sourceCompatibility``. If it's value is not equal to 
+   ``13``, change it and save the file.
 
 #. In the ``gradle`` directory, open the subdirectory, ``wrapper``, and then the file 
-``gradle-wrapper.properties`` inside of it. Ensure that the ``distributionUrl`` includes a gradle 
-version of at least ``6.0``. 
+   ``gradle-wrapper.properties`` inside of it. Ensure that the ``distributionUrl`` includes a gradle 
+   version of at least ``6.0``. 
 
 #. Open the test class, ``HelloSpringApplicationTests`` located in ``src/test/java/org.launchcode.hellospring``.
    Run the single test. If you experience a JDK error, click on the ``Gradle Settings`` icon in the right-hand
