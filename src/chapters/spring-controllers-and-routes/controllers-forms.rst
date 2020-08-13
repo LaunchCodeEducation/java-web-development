@@ -11,9 +11,9 @@ Sending Form Data - Video
 
 .. admonition:: Note 
 
-	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
-	for this video is on the ``path-variables`` branch. If you ever want to verify what code you end this video with, 
-	the `final code <TODO LINK TO BRANCH>` for this video is on the ``forms`` branch.
+	The starter code for this video is found in the `path-variables branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/path-variables>`__  
+	of the ``hello-spring-demo`` repo. The final code presented in this video is found on the `forms branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__. 
+	As always, code along to the videos on your own ``hello-spring`` project.
 
 Sending Form Data - Text
 -------------------------

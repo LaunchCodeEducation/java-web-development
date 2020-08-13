@@ -42,9 +42,9 @@ Controllers and Query Parameters - Video
 
 .. admonition:: Note 
 
-	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
-	for this video is on the ``static-responses`` branch. If you ever want to verify what code you end this video with, 
-	the `final code <TODO LINK TO BRANCH>` for this video is on the ``query-parameters`` branch.
+	The starter code for this video is found in the `static-responses branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/static-responses>`__  
+	of the ``hello-spring-demo`` repo. The final code presented in this video is found on the `query-parameters branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/query-parameters>`__. 
+	Be sure to code along to the videos on your own ``hello-spring`` project.
 
 .. index:: ! @RequestParam
 
@@ -73,13 +73,13 @@ Controllers and Path Parameters - Video
 .. youtube::
    :video_id: lRNO0eAcSs4
 
-.. TODO: create these branches on hello-spring-demo
+.. TODO: create these branches on hello-spring-demo - path-variables or query-parameters?
 
 .. admonition:: Note 
 
-	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
-	for this video is on the ``query-parameters`` branch. If you ever want to verify what code you end this video with, 
-	the `final code <TODO LINK TO BRANCH>` for this video is on the ``path-variables`` branch.
+	The starter code for this video is found in the `query-parameters branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/query-parameters>`__  
+	of the ``hello-spring-demo`` repo. The final code presented in this video is found on the `path-variables branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/path-variables>`__. 
+	Please code along to the videos on your own ``hello-spring`` project.
 
 .. index:: ! @PathVariable
 
