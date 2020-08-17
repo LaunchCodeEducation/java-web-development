@@ -21,6 +21,12 @@ Initialize a Spring Boot Project - Video
    `Github <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__. The ``starter`` branch contains 
    the code after creation and also shows the starting point for the next chapter.
 
+.. admonition:: Tip
+
+   You also may find it useful to create and checkout a new branch in your ``hello-spring`` repository for each video lesson. 
+   This can help you return to earlier states of your application to review your work, and is a convenient opportunity to practice 
+   your git workflow.
+
 
 Initialize a Spring Boot Project - Text
 ---------------------------------------

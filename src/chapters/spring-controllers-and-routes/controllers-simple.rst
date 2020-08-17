@@ -18,8 +18,6 @@ Controllers and Static Responses - Video
 .. youtube::
    :video_id: attSxLlXkz8
 
-.. TODO: create these branches on hello-spring-demo
-
 .. admonition:: Note 
 
 	The starter code for this video is found in the `starter branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__  

@@ -1,3 +1,5 @@
+.. _controllers-class-annotations:
+
 Class Level Controller Annotations
 ==================================
 
@@ -11,9 +13,12 @@ Controller Classes - Video
 
 .. admonition:: Note 
 
-	If you ever want to verify what code you started this video with, the `starter code <TODO LINK TO BRANCH>` 
-	for this video is on the ``forms`` branch. If you ever want to verify what code you end this video with, 
-	the `final code <TODO LINK TO BRANCH>` for this video is on the ``TODO NAME BRANCH`` branch.
+	The starter code for this video is found in the `forms branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__  
+	of the ``hello-spring-demo`` repo. The final code presented in this video is found on the `class-annotations branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/class-annotations>`__. 
+	As always, code along to the videos on your own ``hello-spring`` project.
+
+	If you haven't been already, be sure to track your class-level annotation additions in a separate branch, as we'll return to the ``forms``
+	branch in the next lesson.
 
 Controller Classes - Text
 --------------------------
