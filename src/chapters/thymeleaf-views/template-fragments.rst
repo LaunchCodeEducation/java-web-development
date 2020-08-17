@@ -163,8 +163,6 @@ templates:
 .. youtube::
    :video_id: rbIyV6OoS-o  
 
-.. TODO: create fragments branch
-
 .. admonition:: Note 
 
    The starter code for this video is found at the `form2 branch <https://github.com/LaunchCodeEducation/coding-events/tree/form2>`__. of the ``coding-events-demo`` repo. 

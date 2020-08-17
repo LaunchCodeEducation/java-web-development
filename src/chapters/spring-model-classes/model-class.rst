@@ -18,11 +18,9 @@ Create a Model Class - Video
 .. youtube::
    :video_id: tDfwNJ3Nk_M
 
-.. TODO: no models1-start branch, what is the starting branch here?
-   
 .. admonition:: Note 
 
-   The starter code for this video is found at the `models1-start branch <https://github.com/LaunchCodeEducation/coding-events/tree/models1-start>`__ 
+   The starter code for this video is found at the `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__ 
    of ``coding-events-demo``. The final code presented in this video is found on the 
    `create-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-model>`__. As always, code along 
    with the videos on your own coding-events project.

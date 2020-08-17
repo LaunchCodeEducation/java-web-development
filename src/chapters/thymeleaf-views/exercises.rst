@@ -13,26 +13,8 @@ From your own ``add-bootstrap`` branch, create and checkout a new branch called 
 
 .. admonition:: Note
 
-   If you need to make sure your code matches ours, look at the 
+   If you need to make sure your code matches ours to start, look at the 
    `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__  on ``coding-events-demo``.
-
-
-.. Now for some Git magic! We are going to go back in time to when our templates
-.. were still using data from a static event list.
-
-.. #. Use the ``git log`` command. Go through the logs until you find the commit
-..    where you finished creating a static event list.
-
-..    .. admonition:: Note
-
-..       If you need to make sure your code matches ours, look at the `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__  on ``coding-events-demo``.
-
-.. #. Use ``git reset --hard <commit>`` to go back to that moment.
-
-.. .. admonition:: Warning
-
-..    Before you reset to an older commit, make sure you are on a separate branch!
-..    This will reset your repo to a previous state!
 
 Now, let's add descriptions to our events!
 

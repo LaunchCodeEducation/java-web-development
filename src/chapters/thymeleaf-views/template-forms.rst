@@ -39,13 +39,16 @@ coding along with the videos below:
 .. youtube::
    :video_id: hmgxMOf51JU
 
-.. TODO: starter branch exists, create a pre-starter branch? and form and form2?
-
 .. admonition:: Note 
 
-   The starter code for this video is found at the `MEEP branch <https://github.com/LaunchCodeEducation/coding-events/tree/form>`__. of the ``coding-events-demo`` repo. 
-   The final code presented in this video is found on the `starter branch <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`__. As always, code along to the 
-   videos on your own ``coding-events`` project.
+   This video demonstrates the features we've added to a new MVC application we'll be working with called ``coding-events``. 
+   
+   The code 
+   presented in this video is found on the
+   `starter branch of coding-events-demo <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`__. 
+   
+   We recommend that you create your own version of ``coding-events`` from `Spring Initializer <https://start.spring.io/>`__ and refer to the video and this branch
+   to replicate our code. You may also fork and clone from the ``coding-events-demo`` project.
 
 Coding Events Setup - Text
 --------------------------
@@ -68,7 +71,7 @@ Create and Render a Form - Video
 
 .. youtube::
    :video_id: lgT962si4eQ
-	
+   
 .. admonition:: Note 
 
    The starter code for this video is found at the `starter branch <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`__. of the ``coding-events-demo`` repo. 
@@ -147,7 +150,7 @@ Code along with the video below to add this functionality.
 
 .. youtube::
    :video_id: LnpJcq33uoM
-	
+   
 .. admonition:: Note 
 
    The starter code for this video is found at the `form branch <https://github.com/LaunchCodeEducation/coding-events/tree/form>`__. of the ``coding-events-demo`` repo. 
