@@ -83,9 +83,12 @@ The compiler error occurs on the last line, and the context menu in IntelliJ des
    'id' has private access in 'org.launchcode.codingevents.models.AbstractEntity'
 
 
-What is this telling us? As written, ``event`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line above: ``Event event = (Event) o;``. But when we reference ``event.id`` we are attempting to reference the *private* field ``id``, which lives not in ``Event`` but in ``AbstractEntity``. This is not allowed.
+What is this telling us? As written, ``event`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line 
+above: ``Event event = (Event) o;``. But when we reference ``event.id`` we are attempting to reference the *private* field ``id``, which 
+lives not in ``Event``, but in ``AbstractEntity``. This is not allowed.
 
-This error is easy to fix; simply change the cast on the next-to-last line to convert ``o`` to an instance of ``AbstractEntity``. And while we're at it, let's give the variable ``event`` a better name.
+This error is easy to fix; simply change the cast on the next-to-last line to convert ``o`` to an instance of ``AbstractEntity``. And while 
+we're at it, let's give the variable ``event`` a better name.
 
 .. sourcecode:: java
    :lineno-start: 22
@@ -104,7 +107,7 @@ This error is easy to fix; simply change the cast on the next-to-last line to co
 
    It may not be obvious that you can't have an ``Event`` object and an ``EventCategory`` object with the same ``id``. However, the way in which the database manages and assigns these values ensures that won't happen.
 
-Now in your the ``EventCategory`` model, delete the four class members that are now inherited from ``AbstractEntity``. You should have NO compiler errors in your application at this point.
+Now in your ``EventCategory`` model, delete the four class members that are inherited from ``AbstractEntity``. You should have NO compiler errors in your application at this point.
 
 The ``@MappedSuperclass`` Annotation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

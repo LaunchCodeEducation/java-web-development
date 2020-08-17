@@ -81,7 +81,6 @@ Applying Validation Annotations - Video
 
 .. youtube::
    :video_id: 1aZxU0-dhgw
-.. TODO: is the starting branch model-binding or the end of exercises?
 
 .. admonition:: Note 
 

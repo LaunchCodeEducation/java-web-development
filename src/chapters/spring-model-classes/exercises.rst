@@ -5,7 +5,7 @@ Add functionality to edit event objects in your ``coding-events`` application.
 These exercises assume that you have added all of the code from this section of the book and your 
 application resembles the `model-binding branch of coding-events-demo <https://github.com/LaunchCodeEducation/coding-events/tree/model-binding>`__.
 
-The edit form will resemble the form used to create an event.
+Create a new branch from here with a descriptive name, such as ``edit-events``. The edit form will resemble the form used to create an event.
 
 .. admonition:: Tip 
 

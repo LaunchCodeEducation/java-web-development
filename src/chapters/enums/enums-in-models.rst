@@ -9,8 +9,6 @@ Enum Types in Models - Video
 .. youtube::
    :video_id: FOvBYJxGPTQ
 
-.. TODO: does this start with display-errors of the end of exercises?
-
 .. admonition:: Note 
 
    The starter code for this video is found at the `display-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/display-errors>`__ of the ``coding-events-demo`` repo. 
