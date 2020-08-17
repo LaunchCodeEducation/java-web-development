@@ -87,8 +87,6 @@ Start a Practice Project
 Open up your ``hello-spring`` project in IntelliJ and code along with the
 following video.
 
-.. TODO: update with real repo and branch name
-
 .. admonition:: Note
 
 	We're assuming you've completed these :ref:`controllers-exercises` on your own ``hello-spring`` application and committed your 

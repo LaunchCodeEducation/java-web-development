@@ -9,8 +9,6 @@ Controller Classes - Video
 .. youtube::
    :video_id: DvEvhB20e2s
 
-.. TODO: create these branches on hello-spring-demo
-
 .. admonition:: Note 
 
 	The starter code for this video is found in the `forms branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__  

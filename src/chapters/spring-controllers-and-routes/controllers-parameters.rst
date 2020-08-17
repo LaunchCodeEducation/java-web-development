@@ -38,8 +38,6 @@ Controllers and Query Parameters - Video
 .. youtube::
    :video_id: cXwlynCtZSM
 
-.. TODO: create these branches on hello-spring-demo
-
 .. admonition:: Note 
 
 	The starter code for this video is found in the `static-responses branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/static-responses>`__  
@@ -72,8 +70,6 @@ Controllers and Path Parameters - Video
 
 .. youtube::
    :video_id: lRNO0eAcSs4
-
-.. TODO: create these branches on hello-spring-demo - path-variables or query-parameters?
 
 .. admonition:: Note 
 

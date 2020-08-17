@@ -7,8 +7,6 @@ Sending Form Data - Video
 .. youtube::
    :video_id: LQxzrKPnUGY
 
-.. TODO: create these branches on hello-spring-demo
-
 .. admonition:: Note 
 
 	The starter code for this video is found in the `path-variables branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/path-variables>`__  
