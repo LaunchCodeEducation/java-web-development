@@ -424,10 +424,10 @@ Check Your Understanding
    #. ``firstPet == secondPet;``
    #. ``secondPet == thirdPet;``
    #. ``thirdPet.equals(secondPet);``
-   #. ``thirdPet.getName() == firstPet;``
+   #. ``thirdPet.getName().equals(firstPet);``
    #. ``thirdPet.equals(firstPet);``
 
-.. The correct answer is "thirdPet.getName() == firstPet;".
+.. The correct answer is "thirdPet.getName().equals(firstPet);".
 
 .. admonition:: Question
 
@@ -460,7 +460,7 @@ Check Your Understanding
    #. ``firstPet == secondPet;``
    #. ``secondPet == thirdPet;``
    #. ``thirdPet.equals(secondPet);``
-   #. ``thirdPet.getName() == firstPet;``
+   #. ``thirdPet.getName().equals(firstPet);``
    #. ``thirdPet.equals(firstPet);``
 
 .. The correct answer is "thirdPet.equals(secondPet);".
