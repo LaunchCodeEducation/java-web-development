@@ -37,7 +37,7 @@ In Java we write a definite loop (aka a **for loop**) as:
    effect as ``i += 1``. In this example, since the ``++`` comes after
    ``i``, we call it a postfix increment operator. There is also a ``--``
    decrement operator in Java. For more information, see
-   `Increment and Decrement Operators <http://www.javawithus.com/tutorial/increment-and-decrement-operators>`__.
+   `Increment and Decrement Operators <https://bhivetech.blog/using-the-increment-and-decrement-operators-in-java/>`__.
 
 
 The Java ``for`` loop gives you explicit control over the starting, stopping,

@@ -47,19 +47,30 @@ use a build automation tool to help manage dependencies. We'll begin using this 
 of tool later in this course. Since we're not quite there yet, we've included the 
 ``.jar`` files.
 
+Right-click on each of the ``.jar`` files and select the *Add as Library*
+option. In the dialog box that opens up, make sure the
+``java-web-dev-exercises`` project is selected, then click *OK*.
+
+.. figure:: figures/add-jar-library.png
+   :alt: Image showing the menu options and dialog box that pop up after right-clicking a .jar filename.
+   :width: 80%
+
+   Right-click on the ``.jar`` filename to add it as a library.
+
 ``main/Car`` and ``test/CarTest``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Within ``org.launchcode.java.demos``, open the ``testing`` directory. Inside ``testing``, you'll
-see a ``main`` directory and ``test`` directory. Open the ``Car`` class within ``main`` and 
-look around. Here, we provide a class ``Car`` with basic information about a make, model, 
-gas level, and mileage as well as getters, setters, and a few other methods. 
+Within ``org.launchcode.java.demos``, open the ``lsn5unittesting`` directory.
+Inside ``lsn5unittesting``, you'll see a ``main`` directory and ``test``
+directory. Open the ``Car`` class within ``main`` and  look around. Here, we
+provide a class ``Car`` with basic information about a make, model, gas level,
+and mileage as well as getters, setters, and a few other methods. 
 
 In the same directory, you'll find a ``Main`` class with a main method that prints the
 ``make`` and ``model`` of a given ``Car`` object. Run this class to verify it works.
 Now, open ``test/CarTest``. It's empty, save for a few TODOs. Let's tackle the
-first TODO to make a new empty test. Starting with an empty test lets us validate that we can 
-use JUnit in our current environment.
+first TODO to make a new empty test. Starting with an empty test lets us
+validate that we can use JUnit in our current environment.
 
 ``@Test``
 ---------
@@ -143,7 +154,7 @@ By now, you've probably already imported the ``Car`` class.
 
 .. sourcecode:: java
 
-   import org.launchcode.java.demos.testing.main.Car;
+   import org.launchcode.java.demos.lsn5unittesting.main.Car;
 
 Run ``CarTest`` to see that both tests pass. 
 

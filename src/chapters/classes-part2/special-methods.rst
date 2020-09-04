@@ -355,7 +355,7 @@ these concepts make sense.
 
 Using the general approach outlined above to implement ``equals()`` will
 make it easier to meet these characteristics. However, always check your
-method! Missing one or more characteristic can be disastrous for your Java
+method! Missing one or more characteristics can be disastrous for your Java
 applications.
 
 .. admonition:: Tip
@@ -424,10 +424,10 @@ Check Your Understanding
    #. ``firstPet == secondPet;``
    #. ``secondPet == thirdPet;``
    #. ``thirdPet.equals(secondPet);``
-   #. ``thirdPet.getName() == firstPet;``
+   #. ``thirdPet.getName().equals(firstPet);``
    #. ``thirdPet.equals(firstPet);``
 
-.. The correct answer is "thirdPet.getName() == firstPet;".
+.. The correct answer is "thirdPet.getName().equals(firstPet);".
 
 .. admonition:: Question
 
@@ -460,7 +460,7 @@ Check Your Understanding
    #. ``firstPet == secondPet;``
    #. ``secondPet == thirdPet;``
    #. ``thirdPet.equals(secondPet);``
-   #. ``thirdPet.getName() == firstPet;``
+   #. ``thirdPet.getName().equals(firstPet);``
    #. ``thirdPet.equals(firstPet);``
 
 .. The correct answer is "thirdPet.equals(secondPet);".
