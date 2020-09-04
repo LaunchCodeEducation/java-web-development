@@ -47,6 +47,16 @@ use a build automation tool to help manage dependencies. We'll begin using this 
 of tool later in this course. Since we're not quite there yet, we've included the 
 ``.jar`` files.
 
+Right-click on each of the ``.jar`` files and select the *Add as Library*
+option. In the dialog box that opens up, make sure the
+``java-web-dev-exercises`` project is selected, then click *OK*.
+
+.. figure:: figures/add-jar-library.png
+   :alt: Image showing the menu options and dialog box that pop up after right-clicking a .jar filename.
+   :width: 80%
+
+   Right-click on the ``.jar`` filename to add it as a library.
+
 ``main/Car`` and ``test/CarTest``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
