@@ -170,7 +170,7 @@ Check Your Understanding
 
       SELECT
       FROM johnson_vow_renewal
-      OUTER JOIN JohnsonWedding ON johnson_vow_renewal.guest_id = johnson_wedding.guest_id
+      OUTER JOIN johnson_weding ON johnson_vow_renewal.guest_id = johnson_wedding.guest_id
 
    a. Nothing specified after ``SELECT``.
    b. ``johnson_vow_renewal`` is spelled wrong.
