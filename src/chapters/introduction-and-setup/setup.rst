@@ -298,7 +298,7 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
       IntelliJ output
 
-This is just the start of your relationship with IntelliJ. Not that we know the fundamentals,
+This is just the start of your relationship with IntelliJ. Now that we know the fundamentals,
 let's return to Java basics so we can start writing more code.
 
 Check Your Understanding
