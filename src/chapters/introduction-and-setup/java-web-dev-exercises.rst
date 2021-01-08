@@ -44,7 +44,7 @@ assignment of this unit.
       To work with a remote repository in IntelliJ, you need to configure the
       program to access your GitHub account. We recommend authenticating your
       account using a token. This takes only one brief extra step, and will
-      prevent you from having to update IntelliJ settings when you ever change
+      prevent you from having to update IntelliJ settings whenever you change
       your GitHub password.
 
 #. From the URL dropdown options, select your fork of
