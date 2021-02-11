@@ -5,7 +5,7 @@ Design Patterns, MVC, and Spring, Oh My!
 
 .. index:: ! design pattern, ! Model-View-Controller, ! MVC, ! model, ! view, ! controller
 
-So far, we have been designing our applications by diagrammming classes, drawing connections, and abstracting via interfaces.
+So far, we have been designing our applications by diagramming classes, drawing connections, and abstracting via interfaces.
 This practice benefits us because we can start seeing issues *before* we start coding.
 Many software developers start their applications with this process.
 Before we start diagramming our ``Cat`` class and our ``HouseCat`` class, we decide on the template for our design that we want to use.
