@@ -50,7 +50,7 @@ Initialize a Spring Boot Project - Text
 
       This is the title of your project.
 
-#. For *Project Metadata/Options/Java*, select *13*.
+#. For *Project Metadata/Options/Java*, select *15*.
 #. For *Dependencies*, search for and add the following: *Spring Web*,
    and *Spring Boot DevTools*.
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
@@ -164,7 +164,7 @@ Before Running a Spring Project
 Before running your project, we need to check the configuration of a few items. 
 
 #. In ``build.gradle``, locate an item called ``sourceCompatibility``. If it's value is not equal to 
-   ``13``, change it and save the file.
+   ``15``, change it and save the file.
 
 #. In the ``gradle`` directory, open the subdirectory, ``wrapper``, and then the file 
    ``gradle-wrapper.properties`` inside of it. Ensure that the ``distributionUrl`` includes a gradle 
@@ -172,7 +172,7 @@ Before running your project, we need to check the configuration of a few items.
 
 #. Open the test class, ``HelloSpringApplicationTests`` located in ``src/test/java/org.launchcode.hellospring``.
    Run the single test. If you experience a JDK error, click on the ``Gradle Settings`` icon in the right-hand
-   gradle pane and ensure that the Gradle JVM is using Java 13.
+   gradle pane and ensure that the Gradle JVM is using Java 15.
 
 .. index:: ! bootRun
 
