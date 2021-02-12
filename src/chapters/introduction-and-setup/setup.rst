@@ -45,33 +45,30 @@ Open a terminal window on your machine and enter the following command:
 
    java -version
 
-If the response returns a version 13 or higher, you can move on to the section below,
+If the response returns a version 15 or higher, you can move on to the section below,
 :ref:`terminal-java`.
 
-If you do not have a version of Java at 13 or higher or the command does not work, you can download 
-it `here <https://www.oracle.com/technetwork/java/javase/downloads/jdk13-downloads-5672538.html>`__.
+If you do not have a version of Java at 15 or higher, or the command does not work, you can download 
+it `here <https://www.oracle.com/java/technologies/javase-jdk15-downloads.html>`__.
 The relevant install link for your operating system is on the bottom of the page:
 
 .. figure:: figures/installJava.png
    :alt: Screenshot of different Java installation options on Oracle's website
 
-   Different options for Java installation
+   Download options for Java installation.
+
+- **Mac users**: we recommend the ``.dmg`` option
+- **Windows users**: we recommend the ``.exe`` option
 
 To install, you must first select *Accept License Agreement*, then select any of 
 the file type options for your operating system. 
 
-.. tip::
+Make note of the location where the Java JDK has been installed on your computer. 
 
-   - Mac users, we recommend the ``.dmg`` option
-   - Windows users, we recommend the ``.exe`` option
+**Mac Users** - This should be ``/Library/Java/JavaVirtualMachines``.
+**Windows Users** - This should be in the C: Drive under ``Program Files``
 
-Once you have completed the 
-installation steps, move onto the next section.
-
-.. admonition:: Note
-
-   When installing Java on Windows, the installer will tell you where it wants to install Java.
-   The default is in the C: Drive under ``Program Files``. Make note of the destination as we will be using it later.
+Once you have completed the installation steps, move onto the next section.
 
 .. _terminal-java:
 
@@ -103,7 +100,7 @@ In the text editor of your choice, create and save a file called
 
    }
 
-We'll discuss the syntax of this program soon, but you can likely trust your gut
+We'll discuss the syntax of this program soon, but you can likely predict
 that this program has an expected output of "Hello, World". To test this hypothesis,
 open a terminal window and navigate to the parent directory of your new file. Run:
 
@@ -227,8 +224,14 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
       Create new project
 
 #. Clicking *New Project* opens a window with a series of project settings to
-   select. For this first setting, make sure your selected project SDK is the JDK
-   you have installed. This allows IntelliJ to compile our Java code in-app. 
+   select. This window is called the new project wizard.
+
+   #. Choose *Java* from the options on the left in the project wizard.
+   #. For *Project SDK*, you'll want to use version 15 that you have downloaded. If **15** is not already selected in the SDK window, click *New* on the right and find the JDK you have just downloaded.
+
+.. TODO: LiceCap gif capture here
+   
+   This allows IntelliJ to compile our Java code in-app. 
    Click *Next* in the lower right corner of the window to continue selecting settings.
 
    .. figure:: figures/projectSDK.png
@@ -246,15 +249,16 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
 #. On the next window, enter ``HelloWorld`` for the name of the project.
    Click on the "3-dot" button to select a location to save the project. Here you can
-   choose the Java projects folder you created in step one. Leave the base package as
-   ``com.company``. 
+   choose the Java projects folder you created in step one. You do not need to change the
+   base package.
 
    .. figure:: figures/newProjectName.png
       :alt: New project window for IntelliJ
 
       Create the ``HelloWorld`` project in your Java projects folder.
 
-#. Click *Finish* to create the project. Below is the view of your new project:
+#. Click *Finish* to create the project. Below is the view of your new project.
+   Click on the item labelled *Project* with an icon that looks like a file folder on the left of the project window.
 
    .. figure:: figures/newProjectView.png
       :alt: New project view
