@@ -38,7 +38,7 @@ open a terminal window and navigate to the parent directory of your new file. Ru
 
 You should see your greeting printed! 
 
-Recall from the walk-through on the :ref:`previous page <compiling-java>`, Java needs to be be compiled before executing. Java version 11 introduced 
+Recall from the walk-through on the :ref:`previous page <compiling-java>`, Java needs to be compiled before executing. Java version 11 introduced 
 the capability to compile single-file Java programs without explicitly running a command to compile. If our 
 ``Hello, World`` program were more complex and contained another file, we would need to first run 
 ``javac HelloWorld.java``, to compile, followed by ``java HelloWorld.java``.
