@@ -11,7 +11,7 @@ In Java we write a definite loop (aka a **for loop**) as:
 .. sourcecode:: java
    :linenos:
 
-   public static void main(Strin [] args) {
+   public static void main(String [] args) {
       for (int i = 0; i < 10; i++ ) {
          System.out.println(i);
       }
