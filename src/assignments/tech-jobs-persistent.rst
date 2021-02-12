@@ -173,6 +173,8 @@ information. Your task here is to make use of the ``EmployerRepository`` class i
 #. Add a private field of ``EmployerRepository`` type called ``employerRepository`` to
    ``EmployerController``. Give this field an ``@Autowired`` annotation.
 
+#. Add an ``index`` method that responds at ``/employers`` with a list of all employers in the database.
+
 #. ``processAddEmployerForm`` already takes care of sending the form back if any of the submitted
    employer object information is invalid. However, it doesn't yet contain the code to save a
    valid object. Use ``employerRepository`` and the appropriate method to do so.
@@ -224,8 +226,6 @@ and view them.
 
    When everything works, move on to Part 3 below.
 
-
-
 .. _tech-jobs-persistent-pt3:
 
 Part 3: Setting Up a One-to-Many Relationship
@@ -276,9 +276,7 @@ missing code because the class has not yet been *wired* with the data layer yet.
    already used in ``templates/add``.
 #. Checkout ``templates/add.html``. Make a mental note of the name of the variable being used to pass the selected employer
    id on form submission.
-#. In ``processAddJobForm``, add a parameter to the method to pass in the template variable you just found. You'll need to use the
-   ``@RequestParam`` annotation on this parameter.
-#. Still in ``processAddJobForm``, add code inside of this method to select the employer object that has been chosen to be
+#. In ``processAddJobForm``, add code inside of this method to select the employer object that has been chosen to be
    affiliated with the new job. You will need to select the employer using the request parameter you've added to the method.
 
    .. admonition:: Note
@@ -405,6 +403,18 @@ full list and search capabilities.
 
 When everything works, you’re done! Congrats!
 
+Sanity Check
+------------
+
+Before moving on to submitting your work, make sure that your application:
+
+#. Responds at ``/add`` with the form to add a new job, at ``/employers/add`` with the form to add a new employer, and at ``/skills/add`` with the form to add new skills. 
+#. Has all jobs added listed on the home page.
+#. Responds at ``/view/{jobId}`` with a detail page containing additional employer and skills info.
+#. Responds at ``/view/{employerId}`` with a detail page containing additional employer info.
+#. Responds at ``/view/{skillId}`` with a detail page containing additional skill info.
+#. Has search functionality so users can easily search for specific jobs, employers, and/or skills.
+#. Passes data to a persistent database for storage.
 
 How to Submit
 -------------
