@@ -13,7 +13,7 @@ Creating an ``AbstractEntity`` - Video
 
 .. admonition:: Note 
 
-   The starter code for this video is found at the `add-persistent-category branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category`__ of the ``coding-events-demo`` repo. 
+   The starter code for this video is found at the `add-persistent-category branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category>`__ of the ``coding-events-demo`` repo. 
    The final code presented in this video is found on the `abstract-entity branch <https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity>`__. As always, code along to the 
    videos on your own ``coding-events`` project.
 
