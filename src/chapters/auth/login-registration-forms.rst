@@ -80,12 +80,12 @@ The DTO for the login form needs only ``username`` and ``password`` fields.
 
       @NotNull
       @NotBlank
-      @Size(min = 3, max = 20, message = "Invalid username. Must be between 3 and 30 characters.")
+      @Size(min = 3, max = 20, message = "Invalid username. Must be between 3 and 20 characters.")
       private String username;
 
       @NotNull
       @NotBlank
-      @Size(min = 5, max = 20, message = "Invalid password. Must be between 5 and 30 characters.")
+      @Size(min = 5, max = 30, message = "Invalid password. Must be between 5 and 30 characters.")
       private String password;
 
       public String getUsername() {
@@ -236,12 +236,12 @@ The form processing handler is more complicated. Let's look at it, and then brea
    }
 
 - **Lines 55-58**: Define the handler method at the route ``/register`` that takes a valid ``RegisterFormDTO`` object, associated errors, and a ``Model``. In addition, the method needs an ``HttpServletRequest`` object. This object represents the incoming request, and will be provided by Spring.
-- **Lines 60-64**: Return the user to the form if an validation errors occur.
-- **Line 66**: Retrieve the user with the given username from the database.
-- **Lines 68-72**: If a user with the given username already exists, register a custom error with the ``errors`` object and return the user to the form. See the note on using ``errors.rejectValue`` below.
-- **Lines 74-80**: Compare the two passwords submitted. If they do not match, register a custom error and return the user to the form.
-- **Lines 82-84**: At this point, we know that a user with the given username does NOT already exist, and the rest of the form data is valid. So we create a new user object, store it in the database, and then create a new session for the user.
-- **Line 86**: Finally, redirect the user to the home page.
+- **Lines 60-63**: Return the user to the form if an validation errors occur.
+- **Line 65**: Retrieve the user with the given username from the database.
+- **Lines 67-71**: If a user with the given username already exists, register a custom error with the ``errors`` object and return the user to the form. See the note on using ``errors.rejectValue`` below.
+- **Lines 73-79**: Compare the two passwords submitted. If they do not match, register a custom error and return the user to the form.
+- **Lines 81-83**: At this point, we know that a user with the given username does NOT already exist, and the rest of the form data is valid. So we create a new user object, store it in the database, and then create a new session for the user.
+- **Line 85**: Finally, redirect the user to the home page.
 
 .. admonition:: Note
 

@@ -240,7 +240,7 @@ the reverse process (object to primitive) was called **unboxing**.
       ClassName.methodName(someIntegerObject);
 
    #. Line 1 declares and initializes the variable ``someInteger``.
-   #. Line 2 and converts the primitive ``int`` to the ``Integer`` object type.
+   #. Line 2 converts the primitive ``int`` to the ``Integer`` object type.
    #. Line 3 calls ``methodName`` and passes ``someIntegerObject`` as the
       argument. If ``methodName`` expects an object type and we tried sending
       an ``int`` instead, we would generate an error message.

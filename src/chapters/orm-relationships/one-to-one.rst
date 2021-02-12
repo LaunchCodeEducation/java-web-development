@@ -93,9 +93,7 @@ To establish the relationship, add a new field of type ``EventDetails`` to ``Eve
 
 This is the first time we have used ``@Valid`` on a class member. 
 
-First, let's review what ``@NotNull`` accomplishes. When an Event object is created, the ``@NotNull``annotation will ensure that the ``eventDetails`` field is not null. But what if we also want to ensure that ``eventDetails`` is itself a valid object? 
-
-By default, model validation will not descend into the ``eventDetails`` class to check *its* validation annotations. However, annotating the field with ``@Valid`` overrides the default behavior. It makes sure that an ``Event`` object will not be considered valid unless it has an ``EventDetails`` object that is *also* valid (i.e. it has valid ``description`` and ``contactEmail`` fields).
+First, let's review what ``@NotNull`` accomplishes. When an Event object is created, the ``@NotNull`` annotation will ensure that the ``eventDetails`` field is not null. But what if we also want to ensure that ``eventDetails`` is itself a valid object? 
 
 As we have seen, using ``@Valid`` on a method parameter in a controller will result in the fields of that method being validated. For instance, with an ``Event`` object, our ``@NotNull`` annotation will ensure that the ``eventDetails`` field is not null. By default, however, validation will not descend into the ``eventDetails`` class to check *its* validation annotations. 
 

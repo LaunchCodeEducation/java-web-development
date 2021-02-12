@@ -40,7 +40,7 @@ multiple pages within your web project.
    .. sourcecode:: HTML
       :linenos:
 
-      <h1 class="fancyTitle" th:text="${title}></h1>
+      <h1 class="fancyTitle" th:text="${title}"></h1>
 
    The link list, which appears below a dividing line:
 
@@ -68,7 +68,7 @@ a separate file.
       .. sourcecode:: HTML
          :linenos:
 
-         <h1 th:fragment = "styledHeader" class="fancyTitle" th:text="${title}></h1>
+         <h1 th:fragment = "styledHeader" class="fancyTitle" th:text="${title}"></h1>
 
       For multiple elements, we need to wrap them in another tag:
 
