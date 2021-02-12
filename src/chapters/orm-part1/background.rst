@@ -73,7 +73,12 @@ The accompanying text is a quick rundown of what happens in the video. To get st
 
 .. youtube::
    :video_id: GVOpKW3NcMk
-   :gh_path: LaunchCodeEducation/coding-events/db-config
+	
+.. admonition:: Note 
+
+   The starter code for this video is found at the `enums branch <https://github.com/LaunchCodeEducation/coding-events/tree/enums>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `db-config branch <https://github.com/LaunchCodeEducation/coding-events/tree/db-config>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 
 Setting up a Persistent Database - Text

@@ -38,6 +38,12 @@ Controllers and Query Parameters - Video
 .. youtube::
    :video_id: cXwlynCtZSM
 
+.. admonition:: Note 
+
+	The starter code for this video is found in the `static-responses branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/static-responses>`__  
+	of the ``hello-spring-demo`` repo. The final code presented in this video is found on the `query-parameters branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/query-parameters>`__. 
+	Be sure to code along to the videos on your own ``hello-spring`` project.
+
 .. index:: ! @RequestParam
 
 ``@RequestParam``
@@ -64,6 +70,12 @@ Controllers and Path Parameters - Video
 
 .. youtube::
    :video_id: lRNO0eAcSs4
+
+.. admonition:: Note 
+
+	The starter code for this video is found in the `query-parameters branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/query-parameters>`__  
+	of the ``hello-spring-demo`` repo. The final code presented in this video is found on the `path-variables branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/path-variables>`__. 
+	Please code along to the videos on your own ``hello-spring`` project.
 
 .. index:: ! @PathVariable
 

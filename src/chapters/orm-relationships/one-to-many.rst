@@ -8,7 +8,12 @@ Setting Up the Relationship - Video
 
 .. youtube::
    :video_id: RLykFBY9Rys
-   :gh_path: LaunchCodeEducation/coding-events/one-to-many
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `many-to-one branch <https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `one-to-many branch <https://github.com/LaunchCodeEducation/coding-events/tree/one-to-many>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Setting Up the Relationship - Text
 ----------------------------------

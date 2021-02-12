@@ -5,7 +5,7 @@ Introduction to Object-Relational Mapping
    :maxdepth: 3
 
    background
-   accessingdata
+   accessing-data
    repositories
    exercises
    studio

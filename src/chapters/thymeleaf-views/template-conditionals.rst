@@ -179,6 +179,14 @@ the clip.
 .. youtube::
    :video_id: bT5Zt9xZYSU
 
+.. admonition:: Note
+
+	The starter code for this video is found at the 
+	`views-static <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/views-static>`__ branch of ``hello-spring-demo``. 
+	The final code presented in this video is found on the 
+	`views-dynamic <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/views-dynamic>`__ 
+	branch.
+
 The text on this page and the previous two provides details for some of the
 concepts presented in the clip. Note that these summaries are NOT intended as
 a replacement for the walkthrough. To get better at coding, you need to

@@ -18,6 +18,12 @@ Controllers and Static Responses - Video
 .. youtube::
    :video_id: attSxLlXkz8
 
+.. admonition:: Note 
+
+	The starter code for this video is found in the `starter branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__  
+	of the ``hello-spring-demo`` repo. The final code presented in this video is found on the `static-responses branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/static-responses>`__. 
+	Code along to the videos on your own ``hello-spring`` project.
+
 Controllers and Static Responses - Intro
 ----------------------------------------
 
