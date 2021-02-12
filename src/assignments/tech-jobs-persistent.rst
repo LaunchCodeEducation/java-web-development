@@ -276,9 +276,7 @@ missing code because the class has not yet been *wired* with the data layer yet.
    already used in ``templates/add``.
 #. Checkout ``templates/add.html``. Make a mental note of the name of the variable being used to pass the selected employer
    id on form submission.
-#. In ``processAddJobForm``, add a parameter to the method to pass in the template variable you just found. You'll need to use the
-   ``@RequestParam`` annotation on this parameter.
-#. Still in ``processAddJobForm``, add code inside of this method to select the employer object that has been chosen to be
+#. In ``processAddJobForm``, add code inside of this method to select the employer object that has been chosen to be
    affiliated with the new job. You will need to select the employer using the request parameter you've added to the method.
 
    .. admonition:: Note
