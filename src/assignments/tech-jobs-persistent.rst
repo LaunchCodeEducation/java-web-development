@@ -224,8 +224,6 @@ and view them.
 
    When everything works, move on to Part 3 below.
 
-
-
 .. _tech-jobs-persistent-pt3:
 
 Part 3: Setting Up a One-to-Many Relationship
@@ -405,6 +403,18 @@ full list and search capabilities.
 
 When everything works, you’re done! Congrats!
 
+Sanity Check
+------------
+
+Before moving on to submitting your work, make sure that your application:
+
+#. Responds at ``/add`` with the form to add a new job, at ``/employers/add`` with the form to add a new employer, and at ``/skills/add`` with the form to add new skills. 
+#. Has all jobs added listed on the home page.
+#. Responds at ``/view/{jobId}`` with a detail page containing additional employer and skills info.
+#. Responds at ``/view/{employerId}`` with a detail page containing additional employer info.
+#. Responds at ``/view/{skillId}`` with a detail page containing additional skill info.
+#. Has search functionality so users can easily search for specific jobs, employers, and/or skills.
+#. Passes data to a persistent database for storage.
 
 How to Submit
 -------------
