@@ -45,10 +45,10 @@ Open a terminal window on your machine and enter the following command:
 
    java -version
 
-If the response returns a version 15 or higher, you can move on to the section below,
+If the response returns a major version 15 (ie 15.0.0 or higher, but not as high as 16.0.0), you can move on to the section below,
 :ref:`terminal-java`.
 
-If you do not have a version of Java at 15 or higher, or the command does not work, you can download 
+If you do not have Java 15, or the command does not work, you can download 
 it `here <https://www.oracle.com/java/technologies/javase-jdk15-downloads.html>`__.
 The relevant install link for your operating system is on the bottom of the page:
 
@@ -60,8 +60,7 @@ The relevant install link for your operating system is on the bottom of the page
 - **Mac users**: we recommend the ``.dmg`` option
 - **Windows users**: we recommend the ``.exe`` option
 
-To install, you must first select *Accept License Agreement*, then select any of 
-the file type options for your operating system. 
+To install, you must first select *Accept License Agreement*. 
 
 Make note of the location where the Java JDK has been installed on your computer. 
 
