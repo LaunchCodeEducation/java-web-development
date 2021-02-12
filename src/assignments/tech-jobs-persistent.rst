@@ -173,6 +173,8 @@ information. Your task here is to make use of the ``EmployerRepository`` class i
 #. Add a private field of ``EmployerRepository`` type called ``employerRepository`` to
    ``EmployerController``. Give this field an ``@Autowired`` annotation.
 
+#. Add an ``index`` method that responds at ``/employers`` with a list of all employers in the database.
+
 #. ``processAddEmployerForm`` already takes care of sending the form back if any of the submitted
    employer object information is invalid. However, it doesn't yet contain the code to save a
    valid object. Use ``employerRepository`` and the appropriate method to do so.
