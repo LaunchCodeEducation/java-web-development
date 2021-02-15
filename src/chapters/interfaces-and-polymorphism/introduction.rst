@@ -40,10 +40,9 @@ Let's take a closer look at how polymorphism might work in our cat-centric appli
          }
       }
 
-   The method ``feedTheCat`` uses the field ``pet``, which is of type
-   ``Cat``, but since a ``HouseCat`` *is a* ``Cat`` via inheritance, it is
-   perfectly acceptable to use an instance of ``HouseCat`` to fill the
-   ``pet`` field.
+   The method ``feedTheCat`` uses the field ``pet``, which is of type ``Cat``.
+   Since a ``HouseCat`` *is a* ``Cat`` via inheritance, it is perfectly
+   acceptable to use an instance of ``HouseCat`` to fill the ``pet`` field.
 
    .. sourcecode:: java
       :linenos:
