@@ -81,7 +81,12 @@ Applying Validation Annotations - Video
 
 .. youtube::
    :video_id: 1aZxU0-dhgw
-   :gh_path: LaunchCodeEducation/coding-events/add-validation-annotations
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `model-binding branch <https://github.com/LaunchCodeEducation/coding-events/tree/model-binding>`__. of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `add-validation-annotations branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-validation-annotations>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Applying Validation Annotations - Text
 --------------------------------------

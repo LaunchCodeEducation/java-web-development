@@ -9,24 +9,12 @@ Open up your ``coding-events`` project in IntelliJ.
 Getting Started
 ---------------
 
-Checkout a new branch off of ``master`` called ``my-exercises-solution``.
+From your own ``add-bootstrap`` branch, create and checkout a new branch called ``my-views-exercises-solution``.
 
-Now for some Git magic! We are going to go back in time to when our templates
-were still using data from a static event list.
+.. admonition:: Note
 
-#. Use the ``git log`` command. Go through the logs until you find the commit
-   where you finished creating a static event list.
-
-   .. admonition:: Note
-
-      If you were not making commits after each video, that is fine. You can fork and clone this `repo <https://github.com/LaunchCodeEducation/coding-events>`_ to get started.
-
-#. Use ``git reset --hard <commit>`` to go back to that moment.
-
-.. admonition:: Warning
-
-   Before you reset to an older commit, make sure you are on a separate branch!
-   This will reset your repo to a previous state!
+   If you need to make sure your code matches ours to start, look at the 
+   `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__  on ``coding-events-demo``.
 
 Now, let's add descriptions to our events!
 

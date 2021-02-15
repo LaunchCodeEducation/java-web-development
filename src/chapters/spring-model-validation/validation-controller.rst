@@ -54,7 +54,12 @@ Handling Validation Errors - Video
 
 .. youtube::
    :video_id: omSQO6721cU
-   :gh_path: LaunchCodeEducation/coding-events/validation-errors
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `add-validation-annotations branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-validation-annotations>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `validation-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/validation-errors>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Handling Validation Errors - Text
 ----------------------------------

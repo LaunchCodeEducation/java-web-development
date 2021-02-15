@@ -29,7 +29,13 @@ Code along with this final video to practice adding static resources to your
 ``coding-events`` project:
 
 .. youtube::
-   :video_id: syzOmHnTnmo
+   :video_id: syzOmHnTnmo   
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `fragments branch <https://github.com/LaunchCodeEducation/coding-events/tree/fragments>`__. of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `static-resources branch <https://github.com/LaunchCodeEducation/coding-events/tree/static-resources>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 ``th:src``
 ^^^^^^^^^^

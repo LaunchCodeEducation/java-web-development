@@ -16,7 +16,7 @@ objects.
 **Important Methods**: ``compareTo(T)``
 
 `Comparable<T>
-Documentation <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Comparable.html>`__
+Documentation <https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/Comparable.html>`__
 
 Comparator<T>
 -------------
@@ -26,7 +26,7 @@ Comparator<T>
 **Important Methods**: ``compare(T, T)``
 
 `Comparator<T>
-Documentation <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/Comparator.html>`__
+Documentation <https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/Comparator.html>`__
 
 This interface can be used to determine, given two objects of the given
 type, which one is “greater” than the other. It is also used by
@@ -77,7 +77,7 @@ words, it enables ordered collections.
 **Important Methods**: ``add(int, T)``, ``get(int)``, ``indexOf(T)``
 
 `List<T>
-Documentation <https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/util/List.html>`__
+Documentation <https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/List.html>`__
 
 This interface is also implemented by the ``ArrayList<T>`` class, which
 we’ve been using throughout this course. In fact, ``List<T>`` extends

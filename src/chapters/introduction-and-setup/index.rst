@@ -6,5 +6,8 @@ Introduction and Setup
 
    why-java
    setup
+   java-terminal
+   intellij
+   first-java-project
    java-web-dev-exercises
    naming-conventions

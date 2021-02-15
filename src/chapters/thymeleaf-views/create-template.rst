@@ -87,6 +87,16 @@ Start a Practice Project
 Open up your ``hello-spring`` project in IntelliJ and code along with the
 following video.
 
+.. admonition:: Note
+
+	We're assuming you've completed these :ref:`controllers-exercises` on your own ``hello-spring`` application and committed your 
+	changes to a branch reserved for the exercises. No matter where you are with those exercises, be sure that your own ``hello-spring``
+	application roughly matches the 
+	`hello-spring-demo forms branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__ 
+	so that you can follow along with the video lessons in this chapter. 
+	If you are using git branches to track your work, you can simply return to the branch you were on before starting the video walkthrough
+	on :ref:`this page <controllers-class-annotations>`.
+
 .. admonition:: Warning
 
    The videos in this chapter walk you through building small web-based
@@ -95,6 +105,14 @@ following video.
 
 .. youtube::
    :video_id: UIetMLyDVjQ
+
+.. admonition:: Note
+
+	The starter code for this video is found at the 
+	`forms <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__ branch of ``hello-spring-demo``. 
+	The final code presented in this video is found on the 
+	`views-static <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/views-static>`__ 
+	branch.
 
 The sections below outline the main ideas presented in the video. However, the
 text is NOT a substitute for completing the work described in the clip.
