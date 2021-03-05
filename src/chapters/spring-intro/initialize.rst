@@ -23,8 +23,8 @@ Initialize a Spring Boot Project - Video
 
 .. admonition:: Tip
 
-   You also may find it useful to create and checkout a new branch in your ``hello-spring`` repository for each video lesson. 
-   This can help you return to earlier states of your application to review your work, and is a convenient opportunity to practice 
+   We suggest you create and checkout a new branch in your ``hello-spring`` repository for each video lesson. 
+   This will help you return to earlier states of your application to review your work, and is a convenient opportunity to practice 
    your git workflow.
 
 
@@ -34,8 +34,8 @@ Initialize a Spring Boot Project - Text
 #. Go to `start.spring.io <https://start.spring.io/>`__.
 #. For *Project*, select *Gradle Project*.
 #. For *Language*, select *Java*.
-#. For *Spring Boot*, select *2.2.x* (that is, the most
-   recent 2.2 non-SNAPSHOT release).
+#. For *Spring Boot*, select *2.4.x* (that is, the most
+   recent non-SNAPSHOT release).
 #. For *Project Metadata/Group*, enter ``org.launchcode``.
 
    .. note::
@@ -50,7 +50,7 @@ Initialize a Spring Boot Project - Text
 
       This is the title of your project.
 
-#. For *Project Metadata/Options/Java*, select *15*.
+#. For *Project Metadata/Options/Java*, select *11*.
 #. For *Dependencies*, search for and add the following: *Spring Web*,
    and *Spring Boot DevTools*.
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
@@ -66,45 +66,36 @@ Spring in IntelliJ
 #. Move the downloaded, unzipped folder from your downloads folder into
    another location such as ``LC101`` or your home directory.
 #. Start IntelliJ.
-#. Select *Import Project* and browse to where you put the downloaded
+#. Select *Open* and browse to where you put the downloaded
    project. Unzip the project and select to import the top-level folder of the new Spring project.
-#. In the window that follows, select *Import project from external model* and pick *Gradle*. Select all other defaults
-   as you create the project.
 
-   .. note::
+.. admonition:: Tips
+   
+   Below are some troubleshooting tips we've found to be helpful. If these are not relevant to you and you experience issues, 
+   checkout `<https://help.launchcode.org/>`__ for more support.
 
-      If you encounter an alert that the selected folder is not empty, choose
-      the option to overwrite it.
+   - After you select to open the Spring project, if you encounter an alert that the selected folder is not empty, choose
+     the option to overwrite it.
+   - If you see a Gradle build popup, click
+     *Import Gradle Project*. This popup is fairly small and usually located in the lower right corner of the window.
+     After selecting import, you may be prompted again and should click the *Use auto-import* box. Leave other boxes as default.
 
-#. If you see a Gradle build popup, go ahead and click
-   *Import Gradle Project*.
+     .. figure:: figures/import-gradle-tip.png
+        :alt: Popup to import Gradle
 
-   .. figure:: figures/import-gradle-tip.png
-      :alt: Popup to import Gradle
+        A popup to suggest importing Gradle.
+   - You may see a pop-up in the lower left-hand corner in your *Event Log*
+     that reads: *Unindexed remote maven repositories found*.
 
-      A popup to suggest importing Gradle.
+     1. Select *Open repositories list* in the Event Log message. This will
+        open the *Preferences* (or *Settings* for Windows users) window to
+        *Build, Execution, Deployment > Build Tools > Maven > Repositories* .
+     2. Select the Maven repository (https://repo1.maven.org/maven2) and
+        click *Update* on the side.
 
-   .. note::
+     .. warning::
 
-      This popup is fairly small and usually located in the lower right corner of the window.
-
-#. If a window then opens, check the *Use auto-import* box and
-   leave everything else as it is.
-
-.. admonition:: Note
-
-   You may see a pop-up in the lower left-hand corner in your *Event Log*
-   that reads: *Unindexed remote maven repositories found*.
-
-   1. Select *Open repositories list* in the Event Log message. This will
-      open the *Preferences* (or *Settings* for Windows users) window to
-      *Build, Execution, Deployment > Build Tools > Maven > Repositories* .
-   2. Select the Maven repository (https://repo1.maven.org/maven2) and
-      click *Update* on the side.
-
-.. warning::
-
-   This update usually takes about 20 minutes but can last up to an hour.
+        This update can last up to an hour.
 
 The Spring Project Structure
 ----------------------------
