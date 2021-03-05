@@ -17,7 +17,13 @@ Create a Model Class - Video
 
 .. youtube::
    :video_id: tDfwNJ3Nk_M
-   :gh_path: LaunchCodeEducation/coding-events/create-model
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `add-bootstrap branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap>`__ 
+   of ``coding-events-demo``. The final code presented in this video is found on the 
+   `create-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-model>`__. As always, code along 
+   with the videos on your own coding-events project.
 
 Create a Model Class - Text
 ---------------------------
@@ -98,7 +104,12 @@ Add a Model Property - Video
 
 .. youtube::
    :video_id: 5dtyojtADbk
-   :gh_path: LaunchCodeEducation/coding-events/add-property
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `create-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-model>`__  of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `add-property branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-property>`__ . As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Add a Model Property - Text
 ---------------------------

@@ -56,6 +56,6 @@ expect to see when reading your code.
 
 Oracle, the company that develops the Java language, provides some `more
 detailed naming
-conventions <http://www.oracle.com/technetwork/java/codeconventions-135099.html>`__.
+conventions <https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html>`__.
 (From the date on this article, you’ll note that these have been
 relatively standard for a very long time!)

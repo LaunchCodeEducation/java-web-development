@@ -22,7 +22,12 @@ The accompanying text is a quick rundown of what happens in the video. To get st
 
 .. youtube::
    :video_id: 0eug2HI7rbo
-   :gh_path: LaunchCodeEducation/coding-events/persistent-controller
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `persistent-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/persistent-model>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the  `persistent-controller branch <https://github.com/LaunchCodeEducation/coding-events/tree/persistent-controller>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Using Persistence in a Controller - Text
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

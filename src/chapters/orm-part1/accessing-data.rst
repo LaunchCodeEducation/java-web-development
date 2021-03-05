@@ -89,7 +89,12 @@ The accompanying text is a quick rundown of what happens in the video. To get st
 
 .. youtube::
    :video_id: YAISqYMOIAw
-   :gh_path: LaunchCodeEducation/coding-events/persistent-model
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `db-config branch <https://github.com/LaunchCodeEducation/coding-events/tree/db-config>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `persistent-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/persistent-model>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Creating Persistent Models - Text
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

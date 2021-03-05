@@ -161,7 +161,14 @@ Code along with the following video to practice using fragments in your
 templates:
 
 .. youtube::
-   :video_id: rbIyV6OoS-o
+   :video_id: rbIyV6OoS-o  
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `form2 branch <https://github.com/LaunchCodeEducation/coding-events/tree/form2>`__. of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `fragments branch <https://github.com/LaunchCodeEducation/coding-events/tree/fragments>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
+
 
 Remember that the summary text for the ``fragment`` and ``replace`` keywords
 supports the video and is NOT intended as a replacement.

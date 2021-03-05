@@ -17,7 +17,11 @@ Add a Unique Id - Video
 
 .. youtube::
    :video_id: ijnIgreiNHU
-   :gh_path: LaunchCodeEducation/coding-events/add-id
+.. admonition:: Note 
+
+   The starter code for this video is found at the `add-property branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-property>`__  of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `add-id branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-id>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 .. index:: ! uid
 
@@ -77,7 +81,11 @@ Create a Data Layer - Video
 
 .. youtube::
    :video_id: 8AQtYZ_q57M
-   :gh_path: LaunchCodeEducation/coding-events/create-data-layer
+.. admonition:: Note 
+
+   The starter code for this video is found at the `add-id branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-id>`__ repo. 
+   The final code presented in this video is found on the `create-data-layer branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Create a Data Layer - Text
 --------------------------
@@ -145,7 +153,12 @@ Delete an Event - Video
 
 .. youtube::
    :video_id: orsBBbDaJMM
-   :gh_path: LaunchCodeEducation/coding-events/delete-events
+
+.. admonition:: Note 
+
+   The starter code for this video is found at the `create-data-layer branch <https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer>`__ of the ``coding-events-demo`` repo. 
+   The final code presented in this video is found on the `delete-events branch <https://github.com/LaunchCodeEducation/coding-events/tree/delete-events>`__. As always, code along to the 
+   videos on your own ``coding-events`` project.
 
 Delete an Event - Text
 ----------------------

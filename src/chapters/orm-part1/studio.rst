@@ -8,11 +8,12 @@ In :ref:`orm1-exercises`, you created a new persistent class, ``EventCategory``.
 Getting Ready
 -------------
 
-In your ``coding-events`` repository, checkout out the ``add-persistent-category`` branch and create a new branch, ``abstract-entity-studio``, off of that branch.
+In your ``coding-events`` repository, create a new branch from your exercises work. Call this branch ``abstract-entity-studio``.
 
 .. admonition:: Note
 
-   You can also branch off of the branch you created in the exercises, if you like. We have provided the branch mentioned to make sure you have good starter code for the studio, even if you didn't complete the exercises. 
+   On ``coding-events-demo``, we have provided a branch called `add-persistent-category <https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category>`__ 
+   to make sure you have good starter code for the studio, even if you didn't complete the exercises. 
 
 Your Tasks
 ----------
@@ -82,9 +83,12 @@ The compiler error occurs on the last line, and the context menu in IntelliJ des
    'id' has private access in 'org.launchcode.codingevents.models.AbstractEntity'
 
 
-What is this telling us? As written, ``event`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line above: ``Event event = (Event) o;``. But when we reference ``event.id`` we are attempting to reference the *private* field ``id``, which lives not in ``Event`` but in ``AbstractEntity``. This is not allowed.
+What is this telling us? As written, ``event`` is an ``Event`` object, since it is the result of casting ``o`` to ``Event`` in the line 
+above: ``Event event = (Event) o;``. But when we reference ``event.id`` we are attempting to reference the *private* field ``id``, which 
+lives not in ``Event``, but in ``AbstractEntity``. This is not allowed.
 
-This error is easy to fix; simply change the cast on the next-to-last line to convert ``o`` to an instance of ``AbstractEntity``. And while we're at it, let's give the variable ``event`` a better name.
+This error is easy to fix; simply change the cast on the next-to-last line to convert ``o`` to an instance of ``AbstractEntity``. And while 
+we're at it, let's give the variable ``event`` a better name.
 
 .. sourcecode:: java
    :lineno-start: 22
@@ -103,7 +107,7 @@ This error is easy to fix; simply change the cast on the next-to-last line to co
 
    It may not be obvious that you can't have an ``Event`` object and an ``EventCategory`` object with the same ``id``. However, the way in which the database manages and assigns these values ensures that won't happen.
 
-Now in your the ``EventCategory`` model, delete the four class members that are now inherited from ``AbstractEntity``. You should have NO compiler errors in your application at this point.
+Now in your ``EventCategory`` model, delete the four class members that are inherited from ``AbstractEntity``. You should have NO compiler errors in your application at this point.
 
 The ``@MappedSuperclass`` Annotation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

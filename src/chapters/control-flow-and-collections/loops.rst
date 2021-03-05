@@ -11,8 +11,10 @@ In Java we write a definite loop (aka a **for loop**) as:
 .. sourcecode:: java
    :linenos:
 
-   for (int i = 0; i < 10; i++ ) {
-      System.out.println(i);
+   public static void main(String [] args) {
+      for (int i = 0; i < 10; i++ ) {
+         System.out.println(i);
+      }
    }
 
 **Output:**
@@ -81,10 +83,12 @@ Java also provides a syntax to iterate over any sequence or collection, such as 
 .. sourcecode:: java
    :linenos:
 
-   int nums[] = {1, 1, 2, 3, 5, 8, 13, 21};
+   public static void main(String [] args) {
+      int nums[] = {1, 1, 2, 3, 5, 8, 13, 21};
 
-   for (int i : nums) {
-      System.out.println(i);
+      for (int i : nums) {
+         System.out.println(i);
+      }
    }
 
 Here, the loop variable moves through the items in the Array of integers, ``nums[]``. The syntax
@@ -121,9 +125,11 @@ A ``while`` loop in Java:
 .. sourcecode:: java
    :linenos:
 
-   int i = 0;
-   while (i < 3) {
-      i++;
+   public static void main(String [] args) {
+      int i = 0;
+      while (i < 3) {
+         i++;
+      }
    }
 
 .. index:: ! do-while loop
@@ -143,9 +149,11 @@ For example:
 .. sourcecode:: java
    :linenos:
 
-   do {
-      System.out.println("Hello, World");
-   } while (false);
+   public static void main(String [] args) {
+      do {
+         System.out.println("Hello, World");
+      } while (false);
+   }
 
 **Output:**
 
