@@ -71,6 +71,10 @@ In the text editor of your choice, create and save a file called
 We'll discuss the syntax of this program soon, but you can likely trust your gut
 that this program has an expected output of "Hello, World". 
 
+.. admonition:: Warning
+
+   Whenever using the terminal in this course, use Git Bash as opposed to Windows Command Prompt.
+
 To test this hypothesis, open a terminal window and navigate to the parent directory of your new file.
 In a separate window, navigate to the ``bin`` folder in the Java Development Kit to get the file path (the image below shows you how to get there from the C: Drive). Copy the file path.
 
@@ -83,7 +87,8 @@ Run the following command, replacing the ``{filepath}`` with the file path to yo
 
    set PATH=%PATH%;{filepath}
 
-This command sets a path in our system for ``java`` so that we can compile and run Java programs.
+This command sets a path in our system for ``java`` so that we can compile and run Java programs. 
+To make use of the new ``java`` command, you may have to restart your terminal window by closing it and opening a new one.
 
 .. sourcecode:: bash
 
