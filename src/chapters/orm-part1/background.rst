@@ -150,7 +150,7 @@ While you can do it for the applications in this class, you do not want to do it
 To avoid this in the future, you can configure your ``application.properties`` file to use **environment variables**.
 You then hide the appropriate info by setting the environment variable's value equal to the password, for example.
 
-We have written an `article <https://education.launchcode.org/gis-devops/configurations/02-environment-variables-intellij/index.html>`_ on how to configure your environment variables to keep the username and password to your database safe and secure.
+We have written an `article <https://education.launchcode.org/gis-devops-2019/configurations/02-environment-variables-intellij/index.html>`_ on how to configure your environment variables to keep the username and password to your database safe and secure.
 
 Check Your Understanding
 ------------------------
