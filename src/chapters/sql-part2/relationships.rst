@@ -157,7 +157,7 @@ For our school example, the code to create ``teachers`` could look like:
       FOREIGN KEY (course_id) REFERENCES courses(course_id)
    );
 
-Note that in line 7, the name given to the foreign key column in ``teachers``
+Note that in line 8, the name given to the foreign key column in ``teachers``
 matches the name of the primary key column in ``courses``. Following this
 convention helps you keep the relationships between your tables clear.
 
