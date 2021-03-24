@@ -227,7 +227,7 @@ Using model binding, our method takes a valid parameter of type ``EventTagDTO``.
 
 The reasons for creating a DTO model should hopefully be a bit clearer by now. Using a DTO allows us to create and validate these objects through model binding. The same event and tag relationship information could be processed without a DTO, but this would require passing query parameters for the IDs of both ``event`` and ``tag`` objects, querying the ``eventRepository`` and ``tagRepository`` for these items, validating those objects, etc. Simply put, the DTO makes this procedure cleaner and easier.
 
-Once we have a valid DTO, lines 130-131 retrieve the values of its. Then, as long as the given event doesn't already have the given tag, we add the tag to it's collection in lines 132-134. Finally, we save the ``event`` to ``eventRepository``, which results in the relationship being stored in the database.
+Once we have a valid DTO, lines 130-131 retrieve the values it holds. Then, as long as the given event doesn't already have the given tag, we add the tag to it's collection in lines 132-134. Finally, we save the ``event`` to ``eventRepository``, which results in the relationship being stored in the database.
 
 Exactly *how* this relationship is stored utilizes a new type of SQL table.
 
