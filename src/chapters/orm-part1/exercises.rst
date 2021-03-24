@@ -30,7 +30,7 @@ The ``EventCategoryRepository`` Interface
 -----------------------------------------
 
 Once you have created ``EventCategory``, you need to create the ``EventCategoryRepository`` in the ``data`` folder.
-``EventCategoryRepository`` will extend ``EventCategory``.
+``EventCategoryRepository`` will extend the ``CrudRepository`` interface.
 
 The ``EventCategoryController`` Class
 -------------------------------------
