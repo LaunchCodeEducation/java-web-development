@@ -10,7 +10,7 @@ What Is Authentication?
 
 **Authentication** is the process of determining a user's *identity*. In other words, are they who they say they are? 
 
-This is typically done by asking a user to provide a *secret* piece of data, which theoretically only they should know. Passwords are the most commonly used secrets, but there are others such as RSA keys and physical authentication tokens. Authentication relies on the ability of the user to keep their secret data, well, *secret*. If we are given as user's secret data, we assume that only one person could have provided it.
+This is typically done by asking a user to provide a *secret* piece of data, which theoretically only they should know. Passwords are the most commonly used secrets, but there are others such as RSA keys and physical authentication tokens. Authentication relies on the ability of the user to keep their secret data, well, *secret*. If we are given a user's secret data, we assume that only one person could have provided it.
 
 .. index:: ! authorization
 
