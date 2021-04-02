@@ -6,6 +6,15 @@ implement the
 :ref:`MVC <mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
+As you code along with the videos, you will be working on your own project. Should you want to review a step or double-check 
+your code, fork LaunchCode’s ``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on 
+`Github <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__. The ``starter`` branch contains 
+the code after creation and also shows the starting point for the next chapter.
+
+We suggest you create and checkout a new branch in your ``hello-spring`` repository for each video lesson.
+This will help you return to earlier states of your application to review your work, and is a convenient opportunity to practice 
+your git workflow.
+
 .. _initialize-spring-boot-project:
 
 Initialize a Spring Boot Project - Video
@@ -16,16 +25,10 @@ Initialize a Spring Boot Project - Video
 
 .. admonition:: Note
 
-   As you code along with the videos, you will be working on your own project. However, should you want to review a step or double-check 
-   your code, fork LaunchCode’s ``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on 
-   `Github <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__. The ``starter`` branch contains 
-   the code after creation and also shows the starting point for the next chapter.
-
-.. admonition:: Tip
-
-   We suggest you create and checkout a new branch in your ``hello-spring`` repository for each video lesson. 
-   This will help you return to earlier states of your application to review your work, and is a convenient opportunity to practice 
-   your git workflow.
+	In the video, Chris changes some Gradle configurations to use Java version 13 and Gradle version 6 for his project.
+	You should follow along with him to know where these project configuration settings are located in case you
+	also need to update your own project. However, this course uses Java version 11, which is compatible with most
+	versions of Gradle beyond 6.x.x.
 
 
 Initialize a Spring Boot Project - Text
@@ -55,10 +58,10 @@ Initialize a Spring Boot Project - Text
    and *Spring Boot DevTools*.
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
 
-.. figure:: figures/spring-initializr.png
-   :alt: Spring initializer with options
+.. figure:: figures/spring-initializr-11.png
+   :alt: browser page open to start.spring.io, Spring Boot 2.4.3 and Java 11 are selected
 
-   Spring Initializer with desired options selected.
+   Spring Initializr with Spring Boot 2.4.3 and Java 11 selected.
 
 Spring in IntelliJ
 ------------------
@@ -155,7 +158,7 @@ Before Running a Spring Project
 Before running your project, we need to check the configuration of a few items. 
 
 #. In ``build.gradle``, locate an item called ``sourceCompatibility``. If it's value is not equal to 
-   ``15``, change it and save the file.
+   ``11``, change it and save the file.
 
 #. In the ``gradle`` directory, open the subdirectory, ``wrapper``, and then the file 
    ``gradle-wrapper.properties`` inside of it. Ensure that the ``distributionUrl`` includes a gradle 
@@ -163,7 +166,7 @@ Before running your project, we need to check the configuration of a few items.
 
 #. Open the test class, ``HelloSpringApplicationTests`` located in ``src/test/java/org.launchcode.hellospring``.
    Run the single test. If you experience a JDK error, click on the ``Gradle Settings`` icon in the right-hand
-   gradle pane and ensure that the Gradle JVM is using Java 15.
+   gradle pane and ensure that the Gradle JVM is using Java 11.
 
 .. index:: ! bootRun
 
