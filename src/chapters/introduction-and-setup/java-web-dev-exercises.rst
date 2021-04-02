@@ -13,68 +13,62 @@ assignment of this unit.
 
 #. Open IntelliJ.
 
-   .. note::
+   .. admonition:: Note
 
-      If the app opens up to an existing project, select *IntelliJ >
-      Preferences > Appearance & Behavior > System Settings* and un-check
-      *Reopen last project on startup*. (For Windows users: *File >
-      Settings > Appearance & Behavior > System Settings*.) Close and
-      Reopen IntelliJ.
+      If the app opens up to an existing project, simply close that window to
+      return to the welcome screen.
+      
+      If you prefer to have IntelliJ NOT open your most recent project, select
+      *IntelliJ > Preferences > Appearance & Behavior > System Settings* and
+      un-check *Reopen last project on startup*. (For Windows users: *File >
+      Settings > Appearance & Behavior > System Settings*).
 
-#. From the "Welcome to IntelliJ" dialog, select *Check out from Version
-   Control > Git*
+#. The *Welcome to IntelliJ* dialog looks different now. It includes a list of
+   your most recent projects. However, we have the same three options in the
+   upper-right corner. Select *Get from VCS*.
 
    .. figure:: figures/IntelliJVCS.png
-      :scale: 40%
-      :alt: IntelliJ VCS
+      :alt: IntelliJ VCS button
+      :width: 80%
 
-      IntelliJ VCS
+      Clone a repository from a version control system.
 
-#. Click the button on the lower left corner of the dialog to log in to your
-   Github account.
+#. Select the *GitHub* option on the left side of the next window. Click
+   *Log In via GitHub* or *Use token* and follow the on-screen prompts.
 
-   .. figure:: figures/IntelliJGithub.png
-      :scale: 65%
-      :alt: IntelliJ Github
+   .. figure:: figures/IJ-github-login.png
+      :alt: IntelliJ login to GitHub button
 
-      IntelliJ Github
+      Set up IntelliJ to talk to your GitHub account.
 
-   .. note::
+   .. admonition:: Note
 
       To work with a remote repository in IntelliJ, you need to configure the
       program to access your GitHub account. We recommend authenticating your
-      account using a token. This takes only one brief extra step, and will
+      account using a **token**. This takes only one brief extra step, and will
       prevent you from having to update IntelliJ settings whenever you change
       your GitHub password.
 
-#. From the URL dropdown options, select your fork of
-   ``java-web-dev-exercises``, along with an appropriate source destination
-   directory (i.e. a folder where you’ve stored other projects for this class).
+#. Now return to the *Repository URL* tab. From the URL dropdown options,
+   select your fork of ``java-web-dev-exercises``, along with an appropriate
+   source destination directory (like the folder where you’ve stored other
+   projects for this class).
+
+   When ready, click the *Clone* button!
 
    .. figure:: figures/IntelliJRepoSelection.png
-      :scale: 80%
       :alt: IntelliJ Repo Selection
 
       IntelliJ Repo Selection
 
-#. When asked "Would you like to create an IDEA project…" select *Yes*.
-
-   .. figure:: figures/IntelliJAddFileToGit.png
-      :scale: 40%
-      :alt: IntelliJ Add File To Git
-
-      IntelliJ Add File To Git
-
-#. You'll then be presented with several pages that ask you about other
-   settings for your project. Select the *Next* button on all of these pages,
-   accepting the default settings.
-
+#. If you're asked about other settings for your project. Select the *Next*
+   button every time to accept the default options.
 #. When your project is ready, you'll see a page that looks like the image
    below. Click on the area in the top left labelled *Project*.
 
    .. figure:: figures/IntelliJNewProject.png
-      :scale: 30%
       :alt: IntelliJ New Project
+      :width: 80%
 
       IntelliJ New Project
 
@@ -82,15 +76,15 @@ assignment of this unit.
    the project you have just set up.
 
    .. figure:: figures/IntelliJProjectWindow.png
-      :scale: 30%
+      :width: 80%
       :alt: IntelliJ Project Window
 
       IntelliJ Project Window
 
-#. Double-clicking on the *Hello* file opens the file to the right.
+#. Double-clicking on the *Hello* file opens it in the workspace to the right.
 
    .. figure:: figures/IntelliJOpenFile.png
-      :scale: 35%
+      :width: 80%
       :alt: IntelliJ Open File
 
       IntelliJ Open File
@@ -99,7 +93,6 @@ assignment of this unit.
    definition and select *Run 'Hello.main()'* from the dropdown menu.
 
    .. figure:: figures/IntelliJRunFile.png
-      :scale: 35%
       :alt: IntelliJ Run File
 
       IntelliJ Run File
@@ -108,8 +101,8 @@ assignment of this unit.
    output.
 
    .. figure:: figures/IntelliJFileOutput.png
-      :scale: 35%
       :alt: IntelliJ File Output
+      :width: 80%
 
       IntelliJ File Output
 
