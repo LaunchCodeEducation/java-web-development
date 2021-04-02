@@ -23,7 +23,7 @@ When you reach the window asking for *Installation Options*, select the
 you are asked for any other input, accept the default options.
 
 .. figure:: figures/ij-install-options.png
-   :scale: 80%
+   :scale: 90%
    :alt: Welcome window for IntelliJ
 
    IntelliJ installation options
