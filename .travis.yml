@@ -3,7 +3,7 @@ cache: pip
 python: "3.7"
 language: python
 
-if: type = push AND branch = master
+if: type = push AND branch = main
 
 install: # install dependencies (cached)
   - pip install -r requirements.txt
