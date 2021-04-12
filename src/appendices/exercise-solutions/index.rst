@@ -5,3 +5,4 @@ Exercise Solutions
    :maxdepth: 1
 
    data-types
+   control-flow-and-collections
