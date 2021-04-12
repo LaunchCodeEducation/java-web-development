@@ -23,7 +23,7 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
    select. This window is called the new project wizard.
 
    a. Choose *Java* from the options on the left in the project wizard.
-   b. For *Project SDK*, you'll want to use version 15 that you have downloaded. 
+   b. For *Project SDK*, you'll want to use version 11 that you have downloaded. 
       If **11** is not already selected in the SDK window, click *New* on the right and find the JDK you have just downloaded.
    
    

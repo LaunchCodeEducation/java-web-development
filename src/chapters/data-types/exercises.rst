@@ -155,7 +155,7 @@ Exercises
    .. note::
 
       You may want to write the string above on more than one line in
-      your solution. Java 15 and IntelliJ gives you a few options to do so.
+      your solution. Java 11 and IntelliJ gives you a few options to do so.
       The easiest, thanks to your IDE, is to press *Enter* as you type the string.
       IntelliJ will close the string and concatenate it with the next line to create
       one longer string.
