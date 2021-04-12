@@ -26,9 +26,8 @@ Initialize a Spring Boot Project - Video
 .. admonition:: Note
 
 	In the video, Chris changes some Gradle configurations to use Java version 13 and Gradle version 6 for his project.
-	You should follow along with him to know where these project configuration settings are located in case you
-	also need to update your own project. However, this course uses Java version 11, which is compatible with most
-	versions of Gradle beyond 6.x.x.
+	You should follow along with him in case you also need to update your own project. However, this course uses Java 
+	version 11, which is compatible with most versions of Gradle beyond 6.x.x.
 
 
 Initialize a Spring Boot Project - Text
@@ -131,7 +130,7 @@ applications in Java. Your Spring project contains a file called ``build.gradle`
 tools, you do not need to know everything that this file does. For now, the takeaway is that
 Gradle manages the external dependencies in our project.
 
-Remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
+Do you remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
 ``build.gradle`` file and you will see these items specified in a structure called ``dependencies``.
 
 .. sourcecode:: guess
