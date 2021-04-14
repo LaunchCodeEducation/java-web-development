@@ -25,9 +25,9 @@ Initialize a Spring Boot Project - Video
 
 .. admonition:: Note
 
-	In the video, Chris changes some Gradle configurations to use Java version 13 and Gradle version 6 for his project.
-	You should follow along with him in case you also need to update your own project. However, this course uses Java 
-	version 11, which is compatible with most versions of Gradle beyond 6.x.x.
+   In the video, Chris changes some Gradle configurations to use Java version 13 and Gradle version 6 for his project.
+   You should follow along with him in case you also need to update your own project. However, this course uses Java 
+   version 11, which is compatible with most versions of Gradle beyond 6.x.x.
 
 
 Initialize a Spring Boot Project - Text
@@ -55,6 +55,12 @@ Initialize a Spring Boot Project - Text
 #. For *Project Metadata/Options/Java*, select *11*.
 #. For *Dependencies*, search for and add the following: *Spring Web*,
    and *Spring Boot DevTools*.
+
+   .. admonition:: Note
+
+      For some projects in this book, you'll also need to add *ThymeLeaf* and *Validation*
+      as dependencies.
+      
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
 
 .. figure:: figures/spring-initializr-11.png
