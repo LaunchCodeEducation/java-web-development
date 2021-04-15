@@ -6,4 +6,5 @@ Exercise Solutions
 
    data-types
    control-flow-and-collections
+   classes
    classes-part2
