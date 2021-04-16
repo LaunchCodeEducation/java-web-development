@@ -4,7 +4,7 @@ Java Web Dev Exercises
 Initial Setup
 -------------
 
-The steps here will walk you through setting up a repository that you’ll
+The steps here will walk you through setting up the repository that you’ll
 use to study example code, work on studios, and complete your first
 assignment of this unit.
 
@@ -18,10 +18,13 @@ assignment of this unit.
       If the app opens up to an existing project, simply close that window to
       return to the welcome screen.
       
-      If you prefer to have IntelliJ NOT open your most recent project, select
-      *IntelliJ > Preferences > Appearance & Behavior > System Settings* and
-      un-check *Reopen last project on startup*. (For Windows users: *File >
-      Settings > Appearance & Behavior > System Settings*).
+      If you prefer to have IntelliJ NOT open your most recent project:
+      
+      #. **Mac users**: Select
+         *IntelliJ > Preferences > Appearance & Behavior > System Settings* and
+         un-check *Reopen last project on startup*.
+      #. **Windows users**: Use *File > Settings > Appearance & Behavior > System
+         Settings*.
 
 #. The *Welcome to IntelliJ* dialog looks different now. It includes a list of
    your most recent projects. However, we have the same three options in the
@@ -51,8 +54,8 @@ assignment of this unit.
 
 #. Now return to the *Repository URL* tab. From the URL dropdown options,
    select your fork of ``java-web-dev-exercises``, along with an appropriate
-   source destination directory (like the folder where you’ve stored other
-   projects for this class).
+   destination directory (like the folder where you’ve stored other projects
+   for this class).
 
    When ready, click the *Clone* button!
 
@@ -114,37 +117,45 @@ Troubleshooting
 ClassNotFoundException
 ^^^^^^^^^^^^^^^^^^^^^^
 
-If you experience ``java.lang.ClassNotFoundException`` when trying to
-run code after setting up the project, follow these steps:
+After setting uo the project, if you experience ``java.lang.ClassNotFoundException``
+when you run the code, follow these steps:
 
 #. Select *File > Close Project*. If you have any other IntelliJ projects open,
    close them as well.
 
    .. figure:: figures/closeProject.png
-      :scale: 40%
-      :alt: Close Project
+      :alt: Find the Close Project option under the File menu.
 
       Close Project
 
-#. You should see the IntelliJ startup window, click the *X* next to
-   ``java-web-dev-exercises`` in the left-hand pane.
+#. You should see the IntelliJ startup window. Click the gear icon next to
+   ``java-web-dev-exercises`` and select *Remove from Recent Projects*.
 
    .. figure:: figures/startupWithProject.png
-      :scale: 40%
       :alt: Startup with Project
+      :width: 80%
 
-      Startup with Project
+      Remove project from recently used list.
 
-#. From the same startup window, select *Import Project* from the right-hand
-   pane.
+#. From the same startup window, select
+   *File --> New --> Project from Existing Sources*.
 
    .. figure:: figures/startupWithoutProject.png
-      :scale: 40%
       :alt: Startup without Project
+      :width: 80%
 
-      Startup without Project
+      Start project from existing sources.
+
+#. When prompted, select the ``java-web-dev-exercises`` folder and click *Open*.
+#. In the next panel, select the *Create project from existing sources* radio
+   button. Click *Next*.
+
+   .. figure:: figures/existingSourcesOption.png
+      :alt: Create project from existing sources radio button.
+
+      Create the project from the cloned repository.
 
 #. Follow the steps that IntelliJ guides you through, accepting all defaults.
-   When prompted to overwrite IntelliJ settings files, confirm that you want to
-   do so.
-
+   Each time you are prompted to overwrite IntelliJ settings files, confirm
+   that you want to do so.
+#. Eventually the project will open, and you can successfully run your code!
