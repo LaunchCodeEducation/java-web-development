@@ -9,3 +9,4 @@ Exercise Solutions
    classes
    classes-part2
    unit-testing
+   inheritance
