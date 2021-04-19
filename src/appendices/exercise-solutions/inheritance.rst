@@ -3,9 +3,12 @@
 Exercise Solutions: Inheritance
 ===============================
 
+After working through the exercises, your ``Computer``, ``Laptop``, and ``Smartphone`` classes should look similar to the following examples.
+
 The ``Computer`` class:
 
 .. sourcecode:: java
+   :linenos:
 
    public class Computer extends AbstractEntity{
       // computer is my parent class
@@ -33,6 +36,7 @@ The ``Computer`` class:
 The ``Laptop`` class:
 
 .. sourcecode:: java
+   :linenos:
 
    public class Laptop extends Computer {
 
@@ -56,6 +60,7 @@ The ``Laptop`` class:
 The ``SmartPhone`` class:
 
 .. sourcecode:: java
+   :linenos:
 
    public class SmartPhone extends Computer {
 
@@ -74,3 +79,5 @@ The ``SmartPhone`` class:
          return this.numberOfSelfies;
       }
    }
+
+:ref:`Back to the exercises <inheritance-exercises>`
