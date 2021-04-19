@@ -8,4 +8,5 @@ Exercise Solutions
    control-flow-and-collections
    classes
    classes-part2
+   unit-testing
    inheritance
