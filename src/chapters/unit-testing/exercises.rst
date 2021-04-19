@@ -1,3 +1,5 @@
+.. _unit-testing-exercises:
+
 Exercises: Unit Testing
 =======================
 
@@ -23,6 +25,8 @@ Add a test for the third TODO, "gasTankLevel is accurate after driving within ta
 
       assertEquals(9, test_car.getGasTankLevel(), .001);
 
+:ref:`Check your solution <unit-testing-exercise-solutions1>`
+
 ``testGasTankAfterExceedingTankRange()``
 ----------------------------------------
 
@@ -30,6 +34,8 @@ Add a test for the fourth TODO, "gasTankLevel is accurate after attempting to dr
 
 #. You're on your own for this one. You'll need to simulate the ``Car``
    travelling farther than it's ``gasTankLevel`` allows.
+
+:ref:`Check your solution <unit-testing-exercise-solutions2>`
 
 ``testGasOverfillException()``
 ------------------------------
@@ -94,6 +100,8 @@ to our car that exceeds the gas tank size.
       }
 
 #. Now, run the test - it should pass!
+
+:ref:`Check your solution <unit-testing-exercise-solutions3>`
 
    
 
