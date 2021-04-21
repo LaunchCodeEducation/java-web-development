@@ -3,15 +3,13 @@
 Exercise Solutions: Interfaces and Polymorphism
 ===============================================
 
-Sorting Flavors by Name
-------------------------
+.. _interfaces-and-polymorphism-exercise-solutions1:
 
-To display a menu for your customers, you need to sort the ice cream flavors
-alphabetically by their ``name`` field. Fortunately, the ``Comparator``
-interface helps you solve the sorting-objects-by-field problem.
+Sorting Flavors by Name
+-----------------------
 
 Create a Sorting Class
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 #. Create a new class called ``FlavorComparator`` and have it implement the
    ``Comparator`` interface:
@@ -38,47 +36,9 @@ Create a Sorting Class
       }
    }
 
-Sorting the ``flavors`` ArrayList
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:ref:`Back to the exercises <interfaces-and-polymorphism-exercises>`
 
-In ``Main``, we declare ``menu`` that contains everything in the ``Case``
-as well as specific ``flavors`` and ``cones`` collections.
-
-.. sourcecode:: java
-   :lineno-start: 6
-
-   public static void main(String[] args){
-      Case menu = new Case();
-      ArrayList<Flavor> flavors = menu.getFlavors();
-      ArrayList<Cone> cones = menu.getCones();
-
-   }
-
-#. To sort the ``flavors`` list, first create a new ``FlavorComparator``
-   object.
-
-   .. sourcecode:: java
-      :lineno-start: 6
-
-      public static void main(String[] args){
-         Case menu = new Case();
-         ArrayList<Flavor> flavors = menu.getFlavors();
-         ArrayList<Cone> cones = menu.getCones();
-         Comparator comparator = new FlavorComparator();
-      }
-
-#. Iterating through the ``flavors`` list before and after the sort shows
-   the results. (The output below displays just the ``name`` fields).
-
-   .. sourcecode:: bash
-
-      Before:                 After:
-
-      Vanilla                 Chocolate
-      Chocolate               Red Velvet
-      Red Velvet              Rocky Road
-      Rocky Road              Strawberry Sorbet
-      Strawberry Sorbet       Vanilla
+.. _interfaces-and-polymorphism-exercise-solutions3:
 
 Sorting Cones by Cost
 ----------------------
@@ -115,4 +75,5 @@ expensive.
          }
       }
    }
-  
+
+:ref:`Back to the exercises <interfaces-and-polymorphism-exercises>`
