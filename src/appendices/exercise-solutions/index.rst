@@ -11,3 +11,4 @@ Exercise Solutions
    unit-testing
    inheritance
    interfaces-and-polymorphism
+   thymeleaf-views
