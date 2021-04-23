@@ -1,3 +1,5 @@
+.. _model-classes-exercises:
+
 Exercises: Edit Model Classes
 =============================
 
