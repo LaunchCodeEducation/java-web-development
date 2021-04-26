@@ -12,4 +12,5 @@ Exercise Solutions
    inheritance
    interfaces-and-polymorphism
    spring-controllers-and-routes
+   thymeleaf-views
    

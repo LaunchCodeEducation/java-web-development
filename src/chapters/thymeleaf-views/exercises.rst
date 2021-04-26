@@ -1,5 +1,7 @@
-Exercises: Thymeleaf
-=====================
+.. _thymeleaf-views-exercises:
+
+Exercises: Thymeleaf Views
+==========================
 
 In the chapter, we started working on an application for tracking various
 coding events around town.
@@ -22,17 +24,26 @@ Expanding our Events Schedule
 -----------------------------
 
 #. Comment out your previous code in the ``displayAllEvents`` method.
+
+   :ref:`Check your solution <thymeleaf-views-exercise-solutions1>`
+
 #. In the videos, we learned how to use templates to display the elements in a
    static list called ``events``. Let's make our ``events`` list a HashMap!
    This enables us to add descriptions to our events.
 #. Fill your ``events`` HashMap with the names and descriptions of 3 coding
    events around town.
+
+   :ref:`Check your solution <thymeleaf-views-exercise-solutions3>`
+
 #. Using ``th:block`` and ``th:each``, put together the events and their
    descriptions in a table as opposed to an unordered list.
 #. Use fragments to store the address of the new tech hub where all of the
    programmers are hanging out. Use ``th:replace`` in your main template to
    bring in the address as a third column in your table.
    You may need to create a new ``fragments.html``.
+
+   :ref:`Check your solution <thymeleaf-views-exercise-solutions5>`
+
 #. Add some CSS to style your table to make it easier to read and center it on
    the page. You may need to create a new ``styles.css`` as well. Make sure to
    connect ``styles.css`` to the appropriate template with ``th:href``.
