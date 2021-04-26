@@ -3,11 +3,14 @@
 Exercise Solutions: Edit Model Classes
 ======================================
 
+.. _model-classes-exercise-solutions1:
+
 #. Create the two handler methods listed below in ``EventController``. We’ll add code
    to these in a moment, so just put the method outline in place for
    now.
 
    .. sourcecode:: java
+      :linenos:
 
       @Controller
       @RequestMapping("events")
@@ -61,8 +64,11 @@ Exercise Solutions: Edit Model Classes
       
       }
    
-#. Create an ``edit.html`` view template in ``resources/templates/events``.
-#. Back in the ``displayEditForm`` handler, round out the controller method.
+   :ref:`Back to the exercises <model-classes-exercises>`
+
+.. _model-classes-exercise-solutions5:
+
+5. Back in the ``displayEditForm`` handler, round out the controller method.
 
    .. sourcecode:: java
 
@@ -74,13 +80,12 @@ Exercise Solutions: Edit Model Classes
          model.addAttribute("title", title );
          return "events/edit";
       }
-#. Add another input to hold the id of the event being edited. This
-should be hidden from the user:
 
-   .. sourcecode:: html
+   :ref:`Back to the exercises <model-classes-exercises>`
 
-      <input type="hidden" th:value="${event.id}" name="eventId" />   
-#. In ``processEditForm``, 
+.. _model-classes-exercise-solutions9:
+
+9. In ``processEditForm``, 
    
    .. sourcecode:: java
 
@@ -91,4 +96,6 @@ should be hidden from the user:
          eventToEdit.setDescription(description);
          return "redirect:";
       }
+
+   :ref:`Back to the exercises <model-classes-exercises>`
 
