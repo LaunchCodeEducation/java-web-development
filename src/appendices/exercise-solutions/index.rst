@@ -13,4 +13,5 @@ Exercise Solutions
    interfaces-and-polymorphism
    spring-controllers-and-routes
    thymeleaf-views
+   spring-model-classes
    
