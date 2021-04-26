@@ -1,3 +1,5 @@
+.. _model-validation-exercises:
+
 Exercises: Model Validation
 ===========================
 
