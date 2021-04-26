@@ -11,7 +11,7 @@ greeted in the selected language. Your new feature should:
 
 .. sourcecode:: java
 
-   @RequestMapping(value="hello", method = RequestMethod.POST)
+    @RequestMapping(value="hello", method = RequestMethod.POST)
     @ResponseBody
     public String helloPost(@RequestParam String name, @RequestParam String language) {
         if (name == null) {
@@ -45,3 +45,5 @@ greeted in the selected language. Your new feature should:
 
         return greeting + " " + n;
     }
+
+:ref:`Back to the exercises <controllers-exercises>`
