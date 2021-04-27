@@ -38,6 +38,8 @@ greeted in the selected language. Your new feature should:
 #. Include at least 5 languages, with English being the default. If you don’t speak 5 languages yourself, ask your friend `the Internet <http://pocketcultures.com/2008/10/30/say-hello-in-20-languages/>`__.
 #. Include a new ``public static`` method, ``createMessage``, in the ``HelloController`` that takes a name as well as a language string. Based on the language string, you’ll display the proper greeting.
 
+:ref:`Check your solution <controllers-exercise-solutions>`
+
 Commit your changes!
 
 Bonus Mission
