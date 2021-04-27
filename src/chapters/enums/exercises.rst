@@ -1,3 +1,5 @@
+.. _enums-exercises:
+
 Exercises: Enum Practice
 ========================
 
