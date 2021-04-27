@@ -14,4 +14,5 @@ Exercise Solutions
    spring-controllers-and-routes
    thymeleaf-views
    spring-model-classes
+   spring-model-validation
    
