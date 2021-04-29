@@ -15,4 +15,5 @@ Exercise Solutions
    thymeleaf-views
    spring-model-classes
    spring-model-validation
+   orm-part1
    
