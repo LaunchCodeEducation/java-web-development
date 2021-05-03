@@ -1,5 +1,9 @@
+.. _orm1-exercise-solutions:
+
 Exercise Solutions: OMG the ORM!
 ================================
+
+.. _orm1-exercise-solutions-class:
 
 The ``EventCategory`` Class
 ---------------------------
@@ -16,8 +20,9 @@ First, create a new class called ``EventCategory`` in the ``models`` directory.
 ``EventCategory`` represents data that will be stored in our database, so you need to use the ``@Entity`` annotation!
 
 .. sourcecode:: java
+   :linenos:
 
-      @Entity
+   @Entity
    public class EventCategory {
 
       @Id
@@ -64,19 +69,12 @@ First, create a new class called ``EventCategory`` in the ``models`` directory.
       }
    }
 
+:ref:`Back to the exercises <orm1-exercises>`
+
+.. _orm1-exercise-solutions-methods1:
 
 The ``EventCategoryController`` Class
 -------------------------------------
-
-Create ``EventCategoryController`` in the ``controllers`` directory.
-You can use the ``@RequestMapping`` annotation to map to ``"eventCategories"``.
-To get our handlers working, we also need a variable of type ``EventCategoryRepository``.
-
-We will be creating 3 handlers in our controller:
-
-#. ``displayAllEvents``
-#. ``renderCreateEventCategoryForm``
-#. ``processCreateEventCategoryForm``
 
 ``displayAllEvents``
 ^^^^^^^^^^^^^^^^^^^^
@@ -88,14 +86,18 @@ We will be creating 3 handlers in our controller:
 #. Add an attribute for the ``categories`` that uses all of the values in your ``EventCategoryRepository`` variable.
 
 .. sourcecode:: java
+   :linenos:
 
    @GetMapping
-    public String displayAllCategories(Model model) {
-        model.addAttribute("title", "All Categories");
-        model.addAttribute("categories", eventCategoryRepository.findAll());
-        return "eventCategories/index";
-    }
+   public String displayAllCategories(Model model) {
+      model.addAttribute("title", "All Categories");
+      model.addAttribute("categories", eventCategoryRepository.findAll());
+      return "eventCategories/index";
+   }
 
+:ref:`Back to the exercises <orm1-exercises>`
+
+.. _orm1-exercise-solutions-methods3:
 
 ``processCreateEventCategoryForm``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -109,20 +111,24 @@ We will be creating 3 handlers in our controller:
 #. Either return ``"eventCategories/create"`` or ``"redirect:"``.
 
 .. sourcecode:: java
+   :linenos:
 
    @PostMapping("create")
-    public String processCreateEventCategoryForm(@Valid @ModelAttribute EventCategory eventCategory,
-                                                 Errors errors, Model model) {
+   public String processCreateEventCategoryForm(@Valid @ModelAttribute EventCategory eventCategory, Errors errors, Model model) {
 
-        if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Category");
-            model.addAttribute(new EventCategory());
-            return "eventCategories/create";
-        }
+      if (errors.hasErrors()) {
+         model.addAttribute("title", "Create Category");
+         model.addAttribute(new EventCategory());
+         return "eventCategories/create";
+      }
 
-        eventCategoryRepository.save(eventCategory);
-        return "redirect:";
-    }
+      eventCategoryRepository.save(eventCategory);
+      return "redirect:";
+   }
+
+:ref:`Back to the exercises <orm1-exercises>`
+
+.. _orm1-exercise-solutions-templates:
 
 Thymeleaf Templates
 -------------------
@@ -131,26 +137,29 @@ To finish the exercises, we need to make two new templates.
 
 #. ``eventCategories/index``, which will contain a table of the event categories.
 
-.. sourcecode:: html
+   .. sourcecode:: html
+      :linenos:
 
       <!DOCTYPE html>
-   <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-   <head th:replace="fragments :: head"></head>
-   <body class="container">
+         <html lang="en" xmlns:th="http://www.thymeleaf.org/">
+            <head th:replace="fragments :: head"></head>
+            <body class="container">
 
-   <header th:replace="fragments :: header"></header>
+               <header th:replace="fragments :: header"></header>
 
-   <table class="table table-striped">
-      <thead>
-      <tr>
-         <th>Category Name</th>
-      </tr>
-      </thead>
-      <tr th:each="category : ${categories}">
-         <td th:text="${category.name}"></td>
-      </tr>
+               <table class="table table-striped">
+                  <thead>
+                  <tr>
+                     <th>Category Name</th>
+                  </tr>
+                  </thead>
+                  <tr th:each="category : ${categories}">
+                     <td th:text="${category.name}"></td>
+                  </tr>
 
-   </table>
+               </table>
 
-   </body>
-   </html>
+            </body>
+         </html>
+
+:ref:`Back to the exercises <orm1-exercises>`
