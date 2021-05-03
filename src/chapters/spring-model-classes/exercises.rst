@@ -1,3 +1,5 @@
+.. _model-classes-exercises:
+
 Exercises: Edit Model Classes
 =============================
 
@@ -37,6 +39,8 @@ Create a new branch from here with a descriptive name, such as ``edit-events``. 
             // controller code will go here
          }
 
+   :ref:`Check your solution <model-classes-exercise-solutions1>`
+
 #. Add the necessary annotations to these methods for them to both live
    at the path ``/events/edit``.
     
@@ -63,6 +67,8 @@ Create a new branch from here with a descriptive name, such as ``edit-events``. 
 
    #. Return the appropriate template string.
 
+   :ref:`Check your solution <model-classes-exercise-solutions5>`
+
 #. Within the form fields in ``edit.html``, 
 
    #. Get the name and description from the event that was passed in via the ``model`` and
@@ -88,6 +94,8 @@ Create a new branch from here with a descriptive name, such as ``edit-events``. 
    #. Update the name and description of the event with the appropriate model setter methods.
 
    #. Redirect the user to ``/events`` (the event listing page).
+
+   :ref:`Check your solution <model-classes-exercise-solutions9>`
 
 #. To access event editing, the user will need an edit option in the list of event data.
 
