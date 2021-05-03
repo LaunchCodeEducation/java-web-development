@@ -18,4 +18,5 @@ Exercise Solutions
    enums
    sql-part1
    sql-part2
+   orm-part1
    
