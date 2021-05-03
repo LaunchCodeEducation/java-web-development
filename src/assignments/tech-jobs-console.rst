@@ -16,7 +16,7 @@ help them easily manage data for currently available jobs. Over the next few
 weeks, you will help them build this application alongside mentors from the
 Tech Team.
 
-This first project will be a simple proof-of-concept prototype. It won’t be
+This first project will be a simple proof-of-concept prototype. It won't be
 pretty or have lots of features, but it will give you a chance to work through
 some initial concepts and get feedback from LaunchCode staff.
 
@@ -66,9 +66,7 @@ or more of the :ref:`bonus missions <tech-jobs-console-bonus-missions>`.
 Getting Started
 ----------------
 
-#. Set up a local copy of the project: Visit the `repository page <https://github.com/LaunchCodeEducation/techjobs-console-java>`__
-   for this project and fork the repository to create a copy under your own
-   GitHub account.
+#. In Canvas, **Graded Assignment #1: TechJobs Console** contains a GitHub Classroom assignment invitation link. Refer back to the GitHub Classroom instructions from `Graded Assignment #0: Hello World <https://education.launchcode.org/js-independent-track/assignments/HelloWorld.html>`_ for details. Rather than workin in repl.it or VS Code, we'll clone and open this repo in IntelliJ
 #. Open IntelliJ. If IntelliJ is currently open, save your work, close the
    program, and then reopen it.
 #. If the app opens up to an existing project, select *IntelliJ > Preferences >
@@ -76,8 +74,8 @@ Getting Started
    startup*. Close and reopen IntelliJ.
 #. From the *Welcome to IntelliJ* dialog box, select *Check out from Version
    Control > GitHub*.
-#. Choose your fork from the repository dropdown, select the parent directory
-   where you’d like to store your project, and hit *Clone*.
+#. **TODO - verify these instructions.** Choose your fork from the repository dropdown, select the parent directory
+   where you'd like to store your project, and hit *Clone*.
 #. When asked *Would you like to create an IDEA project…* select *Yes*, and
    then accept all of the default options presented.
 #. In the screens that follow, be sure to choose *Create Project From Existing
@@ -85,7 +83,7 @@ Getting Started
    panes.
 
 Before diving in and starting to code, make sure you understand what the code
-you’ve been given does. Since you’re starting with a functioning---albeit
+you've been given does. Since you're starting with a functioning---albeit
 unfinished---program, go ahead and run it to get an idea of how it works. To do
 this, right-click on the ``main`` method in the ``TechJobs`` class and select
 *Run TechJobs.main()*.
@@ -93,38 +91,36 @@ this, right-click on the ``main`` method in the ``TechJobs`` class and select
 .. admonition:: Warning
 
    The application will run until you force it to quit, re-prompting time
-   after time. To kill it, press the red “stop” icon in the Run pane. We’ll
-   learn precisely how the program manages to work this way below.
+   after time. To kill it, press the red "stop" icon in the Run pane *or* entereing ``x`` from the initial prompt. We'll learn precisely how the program manages to work this way below.
 
-Let’s explore the code by starting with the source of the data our program is
+Let's explore the code by starting with the source of the data our program is
 providing access to.
 
 The Data File: ``jobs_data.csv``
 ---------------------------------
 
-Our simple app doesn’t connect to a database. If the prototype proves
-useful and we continue development, we’ll add that functionality later.
-But for now, we’ve been given a CSV (comma-separated values) file from
+Our simple app doesn't connect to a database. If the prototype proves
+useful and we continue development, we'll add that functionality later.
+But for now, we've been given a CSV (comma-separated values) file from
 the Company Team at LaunchCode that contains some recent jobs. This file
 was exported from an Excel spreadsheet into this format, which is easy
 for programs to read in.
 
-If CSV files are new to you, don’t worry, they’re easy to understand.
+If CSV files are new to you, don't worry, they're easy to understand.
 CSV files are conceptually similar to simple spreadsheets in that they
 organize data in rows and columns. The major difference is that they
-don’t have the ability to carry out calculations the way spreadsheets
+don't have the ability to carry out calculations the way spreadsheets
 do, and you can easily open, read, and edit them in plain text editors.
 
-Open up ``jobs_data.csv``, which is in the ``resources`` folder at the
-top level of the project. You’ll see that the first line is:
+Open up ``jobs_data.csv``, which is in the ``src/main/java/resources`` folder. You'll see that the first line is:
 
 .. sourcecode:: bash
 
    name,employer,location,position type,core competency
 
-While it isn’t required, the first line of a CSV file often represents
+While it isn't required, the first line of a CSV file often represents
 the column names. We have 5 names here, which indicates that each of our
-rows in the CSV file should have 5 fields. In this file format, a “row”
+rows in the CSV file should have 5 fields. In this file format, a "row"
 corresponds to a new line. So each line below the first will constitute
 a row of data, or a record.
 
@@ -140,35 +136,39 @@ The TechJobs Class
 -------------------
 
 The ``TechJobs`` class contains the ``main`` method that will drive our
-program’s functionality. It contains three methods:
+program's functionality. It contains three methods:
 
 #. ``main`` - The main application runner.
 #. ``getUserSelection`` - A utility method that displays a menu of choices and
-   returns the user’s selection.
+   returns the user's selection.
 #. ``printJobs`` - This is meant to print a list of jobs to the console in a
-   nicely formatted manner, but hasn’t been implemented yet. This will be part
+   nicely formatted manner, but hasn't been implemented yet. This will be part
    of your job.
 
-Let’s look at each of these.
+Let's look at each of these.
 
 The ``main`` Method
 ^^^^^^^^^^^^^^^^^^^^
 
 The logic within ``main`` presents menus in turn, and based on the
-user’s choice, takes appropriate action.
+user's choice, takes appropriate action.
 
 It begins by declaring two local variables: ``columnChoices`` and
 ``actionChoices``. These contain information relating to the menus that
-we’ll display, and we’ll look at them in more detail later.
+we'll display, and we'll look at them in more detail later.
 
 Next, we notice a ``while loop`` that starts ``while (true)``. While we usually
 want to avoid creating infinite loops, we have a good reason for doing so in
 this case! We want our application to continually run until the user decides
 they want to quit. The simplest way to do this is to loop forever. When the
-user wants to quit, they can kill our program by pressing ctrl-C (a
-widely-known command to kill a console application). As you saw above, however,
-IntelliJ’s Run pane works slightly differently and you’ll need to rely on the
-red “stop” icon to stop the program.
+user wants to quit, they can enter ``x`` at the initial ``View jobs by`` prompt. As you saw above, however,
+IntelliJ's *Run* pane works slightly differently and you'll need to rely on the
+red "stop" icon to stop the program.
+
+.. admonition:: Note
+
+   Another way to kill a running program from the terminal is by pressing ctrl-C (a widely-known command to kill a console application). This will work in any terminal context, and not just for our console program
+   in IntelliJ
 
 The ``main`` method can be summarized as follows:
 
@@ -228,26 +228,26 @@ The second usage of ``getUserSelection`` is a few lines below:
    String columnChoice = getUserSelection("List", columnChoices);
 
 This references ``columnChoices``, which is declared at the top of
-``main`` and has a similar structure to ``actionChoices`` (they’re the
+``main`` and has a similar structure to ``actionChoices`` (they're the
 same data type and are used in calls to the same method, so this
-shouldn’t be surprising). Most of the entries in ``columnChoices``
-correspond to columns in the jobs data set, but there’s one additional
+shouldn't be surprising). Most of the entries in ``columnChoices``
+correspond to columns in the jobs data set, but there's one additional
 entry with key/value pair ``"all"``/``"All"``. These entries will help
 us present to the user the options for searching our data, which will
 correspond to searching within a given column, or searching all columns
 at once.
 
 The keys in ``actionChoices`` and ``columnChoices`` represent the
-“internal” String we’ll use to refer to these options (e.g. when representing
-the user’s menu choice, or querying data). The values in the map represent the
-“external” way that these are represented to the user.
+"internal" String we'll use to refer to these options (e.g. when representing
+the user's menu choice, or querying data). The values in the map represent the
+"external" way that these are represented to the user.
 
 Within ``getUserSelection`` itself, most of the code is within a
 ``do-while loop``. A `do-while
 loop <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html>`__
 is similar to a ``while`` loop, but the conditional check is at the
-*end* of the loop’s code block. This has the net consequence that the
-loop’s code block *always runs at least once*. At the end of the block’s
+*end* of the loop's code block. This has the net consequence that the
+loop's code block *always runs at least once*. At the end of the block's
 execution, we check a condition to determine if we should run the block
 again. This nicely mimics the behavior of simple menu-driven
 applications.
@@ -261,7 +261,7 @@ re-prompts the user.
 
 The local variable ``choiceKeys`` is used to easily enumerate the
 ``choices`` ``HashMap``. In other words, it gives us a simple way to
-provide an ordering to ``choices``, which doesn’t have an ordering of
+provide an ordering to ``choices``, which doesn't have an ordering of
 its own.
 
 The JobData Class
@@ -277,7 +277,7 @@ private property ``allJobs`` which is of type
 
 .. admonition:: Note
 
-   We haven’t covered static properties and methods in-depth yet. For this
+   We haven't covered static properties and methods in-depth yet. For this
    assignment, know simply that they allow us to use properties and methods
    of a class without creating an object from that class. For example, we
    can call ``JobData.findAll()`` from the ``TechJob`` class.
@@ -285,7 +285,7 @@ private property ``allJobs`` which is of type
    If you want to create a new method in ``JobData``, or add a property, be
    sure to declare it as ``static``.
 
-Let’s look more closely at the data type of ``allJobs``. It purports to
+Let's look more closely at the data type of ``allJobs``. It purports to
 be an ``ArrayList`` that stores ``HashMap`` objects which have
 ``String`` keys and ``String`` values. If we were to represent some of
 this data visually, using ``[]`` for an ``ArrayList`` and ``{}`` with
@@ -312,8 +312,8 @@ key/value pairs, it would look like this:
        ...
    ]
 
-If you look at the ``loadData`` method you’ll see a lot of unfamiliar code.
-Blake wrote this essential piece of code for you, and while you won’t have to
+If you look at the ``loadData`` method you'll see a lot of unfamiliar code.
+Blake wrote this essential piece of code for you, and while you won't have to
 modify it, it will be useful to have an idea of how it works. Read
 through the code until you feel like you can describe its functionality
 at a basic level.
@@ -331,7 +331,7 @@ parameters (also called argument lists). Read more about
 
 Here are some questions to ask yourself while reading this code:
 
-#. What is the data type of a “job” record?
+#. What is the data type of a "job" record?
 #. Why does ``findAll(String)`` return something of type ``ArrayList<String>``
    while ``findByColumnAndValue(String, String)`` and ``findAll()`` return
    something of type ``ArrayList<HashMap<String, String>>``?
@@ -342,18 +342,88 @@ Here are some questions to ask yourself while reading this code:
 Your Tasks
 -----------
 
-Here are the tasks for you to carry out for your first apprenticeship
-assignment.
+Before outlining the tasks for you to complete, let's look at how to run the autograding script. 
+
+Running the Autograding Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As with previous assignments, this project contains code to automatically test your code for correctness. However, we need to learn a new technique to run these tests. 
+
+First, navigate to the test file, ``src/test/java/TechJobsTest``, in the *Project* pan:
+
+.. figure:: figures/TechJobsTest-location.png
+   :alt: The test file is at the location src/test/java/TechJobsTest
+
+   The test file
+
+To run the tests, click on the green "play" icon to the left of the class name and select *Run TechJobsTest*. 
+
+.. figure:: figures/run-tests.png
+   :alt: Selecting Run TechJobsTest runs all of the tests
+
+   Running all of the tests at once
+
+This will run *all* of the tests in the file. In doing so, IntelliJ opens the *Run* pane to display test results. At the left of this pane, we can expand the tests to see that all of have failed.
+
+.. figure:: figures/initial-test-failures.png
+   :alt: All of the tests initially fail
+
+   All of the tests initially fail
+
+.. admonition:: Note
+
+   As with previous autograding scripts, these tests work by running sample data through your code and making sure the correct output results.
+
+Note that each of the test names correspond to one of the tasks you will be asked to carry out below. Looking at the contents of ``TechJobsTest`` we see that each of these tests corresponds to a method within the class. There are a few helper methods, but below those we see four methods annotated with ``@Test``, corresponding to each of the four tests in the *Run* pane.
+
+.. admonition:: Note
+
+   In a future lesson, you'll learn how to write your own tests to automatically check your code.
+
+We can run a *single* test by clicking on the green "play" icon to the left of a given method name.
+
+.. figure:: figures/run-single-test.png
+   :alt: The green play icon next to a test method allows us to run a single test
+
+   Running a single test
+
+Go ahead and run ``testPrintJobs`` test on its own. You'll see in the left-hand pane that the test has failed. The right-hand pane contains useful information about why the test fails. Clicking on the name of the test at left, we see a failure message:
+
+.. figure:: figures/single-test-failure.png
+   :alt: Clicking on the test name at left displays the reason for failure
+
+   Test failure message
+
+The key things to look for here are ``expected`` near the top, and ``but was:`` a little over halfway down. This message is telling us what the test *expected* the code to print out compared to what was *actually* printed out. If these two differ in even the *tiniest* way (for example, a single character difference) then the test will fail. 
+
+This output can be hard to read, but IntelliJ provides us a cleaner way to view the difference. Clicking on the link ``<Click to see difference>`` opens up a new window that shows a side-by-side comparison.
+
+.. figure:: figures/test-output-comparison.png
+   :alt: The expected and actual output compared side-by-side
+
+   IntelliJ highlights the difference in outputs
+
+Viewing the result this way makes it obvious why the test failed: the ``printJobs`` method hasn't been implemented yet! This will be your first task to complete.
+
+Here's the workflow you should use for completing a single task:
+
+#. Write the code for the task, verifying manually that it works by running the ``TechJobs.main`` method.
+#. When you think you've completed a task, run the individual test that corresponds to the task. 
+#. If the test fails, review the test output and go back to your code to try to fix it.
+#. Once the single test passes, run *all* of the tests to make sure you didn't break any tests that previously passed.
+#. Repeat this process until all tests pass. 
+
+Now we'll outline the tasks for your first apprenticeship assignment.
 
 Implement ``printJobs``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 When trying out the program, and later when reading the code, you
-hopefully noticed that there’s some work to do in the ``printJobs``
+hopefully noticed that there's some work to do in the ``printJobs``
 method. As it stands, it currently just prints a message:
 ``"printJobs is not implemented yet"``.
 
-Complete this method. It should print out something like this:
+Complete this method. It should print out jobs *in this precise format*:
 
 .. sourcecode:: bash
 
@@ -365,11 +435,21 @@ Complete this method. It should print out something like this:
    core competency: Statistical Analysis
    *****
 
-If there are no results, it should print an appropriate message.
+   *****
+   position type: Web - Back End
+   name: Ruby specialist
+   employer: LaunchCode
+   location: Saint Louis
+   core competency: Javascript
+   *****
+
+For the autograding script to correctly grade your code, you'll need to match this format *exactly*. In particular, note the number of asterisks surrounding each listing, and the blank line between listings.
+
+If there are no results, it should print ``No Results``. Again, you should use this *exact* message.
 
 .. admonition:: Tip
 
-   To do this, you’ll need to iterate over an ``ArrayList`` of jobs. Each
+   To do this, you'll need to iterate over an ``ArrayList`` of jobs. Each
    job is itself a ``HashMap``. While you can get each of the items out of
    the ``HashMap`` using the known keys (``employer``, ``location``, etc.),
    think instead about creating a nested loop to loop over each
@@ -382,11 +462,11 @@ Test this method before moving on to your next step:
 #. Select *Run* from the Run menu and choose to run the ``TechJobs`` class (or
    if you have recently run it, just select the green arrow in the top right
    corner of the screen).
-#. Select “1” to list the jobs, and then “0” to list them all.
+#. Select "1" to list the jobs, and then "0" to list them all.
 #. Make sure the printout matches the styling above.
 #. Test that it prints a descriptive message if no jobs are found by selecting
-   “0” to search and then “3” to search for a location. Then enter a location
-   that is not in the data (e.g. “Cancun”). Your message should be displayed.
+   "0" to search and then "3" to search for a location. Then enter a location
+   that is not in the data (e.g. "Cancun"). Your message should be displayed.
 
 Create Method ``findByValue``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -395,13 +475,12 @@ At this stage, the application will allow users to search a *given
 column* of the data for a given String. Your next task is to enable a
 search that looks for the search term in *all* of the columns.
 
-In the ``JobData`` class, create a new (``public static``) method that
-will search for a string within each of the columns. Name it
-``findByValue``. Here are a few observations:
+In the ``JobData`` class, find the method ``findByValue``. This method has been outlined
+for you but contains none of the code needed to work (you should leave the ``loadData()`` call as the first line of the method, however). Here are a few observations:
 
-#. The method that you write should not contain duplicate jobs. So, for
-   example, if a listing has position type “Web - Front End” and name
-   “Front end web dev” then searching for “web” should not include the
+#. The code that you write should not contain duplicate jobs. So, for
+   example, if a listing has position type "Web - Front End" and name
+   "Front end web dev" then searching for "web" should not include the
    listing twice.
 #. As with ``printJobs``, you should write your code in a way that if a
    new column is added to the data, your code will automatically search
@@ -413,7 +492,7 @@ will search for a string within each of the columns. Name it
    ``findByColumnAndValue``, since your code will look similar in some
    ways.
 
-You’ll need to call ``findByValue`` from somewhere in ``main``. We’ll
+You'll need to call ``findByValue`` from somewhere in ``main``. We'll
 leave it up to you to find where. You might have noticed that when you
 try to search all columns using the app, a message is printed, so that
 is a good clue to help you find where to place this new method call.
@@ -423,7 +502,7 @@ again to test your code.
 Make Search Methods Case-Insensitive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You’ve completed your first two tasks!
+You've completed your first two tasks!
 
 Let's assume you demonstrated the updated application for the Company Team, and
 they noticed a feature that could be improved. When searching for jobs with
@@ -438,7 +517,7 @@ you told them that you are up to the task.
 Here are some questions to ask yourself as you get started:
 
 #. Which methods are called when searching?
-#. How is the user’s search string compared against the values of fields of the
+#. How is the user's search string compared against the values of fields of the
    job ``HashMap`` objects?
 #. How can you make this comparison in a way that effectively ignores the case
    of the strings?
@@ -449,7 +528,7 @@ Here are some questions to ask yourself as you get started:
 You might find it useful to review the String methods listed in the
 chapter on :ref:`Data Types <data-types>`.
 
-When this task is completed, you’re done!
+When this task is completed, you're done!
 
 Sanity Check
 -------------
@@ -482,7 +561,7 @@ Bonus Missions
 --------------
 
 If you want to take your learning a few steps further, here are some
-additional problems you can try to solve. We’re not providing you much
+additional problems you can try to solve. We're not providing you much
 guidance here, but we have confidence that you can figure these problems
 out!
 
@@ -490,7 +569,7 @@ out!
    locations, position types, etc., it would be nice if results were
    sorted alphabetically. Make this happen.
 #. **Returning a copy of allJobs**: Look at ``JobData.findAll()``.
-   Notice that it’s returning the ``allJobs`` property, which is a
+   Notice that it's returning the ``allJobs`` property, which is a
    static property of the ``JobData`` class. In general, this is not a
    great thing to do, since the person calling our ``findAll`` method
    could then mess with the data that ``allJobs`` contains. Fix this by
