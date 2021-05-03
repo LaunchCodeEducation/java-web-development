@@ -17,4 +17,5 @@ Exercise Solutions
    spring-model-validation
    enums
    sql-part1
+   sql-part2
    
