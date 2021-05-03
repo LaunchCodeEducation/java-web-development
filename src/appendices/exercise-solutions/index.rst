@@ -15,4 +15,7 @@ Exercise Solutions
    thymeleaf-views
    spring-model-classes
    spring-model-validation
+   enums
+   sql-part1
    sql-part2
+   
