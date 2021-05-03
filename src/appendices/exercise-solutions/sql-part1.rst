@@ -1,30 +1,42 @@
+.. _sql-part1-exercise-solutions:
+
 Exercise Solutions: SQL, Part 1
 ===============================
+
+.. _sql-part1-exercise-solutions-create:
 
 Create
 ------
 
-Open up a new query tab for the SQL commands you code in this section.
+Here is an example of how the query tab might look after adding different records:
 
-#. Use the following SQL command to add a new entry to the ``seeds`` table.
+.. sourcecode:: sql
+   :linenos:
 
-   .. sourcecode:: SQL
-      :linenos:
+   INSERT INTO seeds (crop, encourages, use_by)
+   VALUES ("Agastache", "bees & hummingbirds", 2020);
 
-      INSERT INTO seeds (crop, encourages, use_by)
-      VALUES ("Agastache", "bees & hummingbirds", 2020);
+   INSERT INTO seeds (crop, encourages, use_by)
+   VALUES ("Broccoli", "health", 2019);
 
-   Notice that you do NOT need to provide a value for ``seed_id``, since it is
-   set up to auto-increment every time a new record is created.
+   INSERT INTO seeds (crop, use_by)
+   VALUES ("Sun Gold Tomato", 2022);
 
-3. To add values to only *some* of the columns of the table, simply omit those
-   column names and values from the SQL command.
+   INSERT INTO seeds (crop, encourages, use_by)
+   VALUES ("Zinnia", "bees", 2020);
 
-   .. sourcecode:: SQL
-      :linenos:
+   INSERT INTO seeds (crop)
+   VALUES ("Rutabaga");
 
-      INSERT INTO seeds (crop, use_by)
-      VALUES ("Sun Gold Tomato", 2022);
+   INSERT INTO seeds (crop, use_by)
+   VALUES ("Sun Gold Tomato", 2024);
+
+   INSERT INTO seeds (crop, encourages, use_by)
+   VALUES ("Green Beans", "Cucumber", 2020);
+
+:ref:`Back to the exercises <sql-part1-exercises>`
+
+.. _sql-part1-exercise-solutions-read1:
 
 Read
 ----
@@ -38,6 +50,10 @@ Open up a new query tab for the SQL commands you code in this section.
 
       SELECT * FROM seeds;
 
+   :ref:`Back to the exercises <sql-part1-exercises>`
+
+.. _sql-part1-exercise-solutions-read3:
+
 3. List the ``crop`` and ``use_by`` data, and use ``ORDER BY`` to organize
    the information in *DECREASING* order by year.
 
@@ -49,7 +65,11 @@ Open up a new query tab for the SQL commands you code in this section.
       SELECT crop, use_by
       FROM seeds
       ORDER BY use_by DESC, crop ASC;
-   
+
+   :ref:`Back to the exercises <sql-part1-exercises>`
+
+.. _sql-part1-exercise-solutions-update1:
+
 Update
 ------
 
@@ -67,7 +87,11 @@ Update
       SET use_by = 2024
       WHERE seed_id = 1;
 
-#. With a single ``UPDATE`` command, set the ``expired`` value to ``true`` for
+   :ref:`Back to the exercises <sql-part1-exercises>`
+
+.. _sql-part1-exercise-solutions-update3:
+
+3. With a single ``UPDATE`` command, set the ``expired`` value to ``true`` for
    all entries that have a ``use_by`` of this year or earlier.
 
    .. sourcecode:: sql
@@ -76,6 +100,10 @@ Update
       SET expired = true
       WHERE use_by <= 2019;
    
+   :ref:`Back to the exercises <sql-part1-exercises>`
+
+.. _sql-part1-exercise-solutions-delete:
+
 Delete
 ------
 
@@ -85,3 +113,5 @@ Delete
    .. sourcecode:: sql
 
       DELETE FROM seeds WHERE seed_id = 4;
+
+   :ref:`Back to the exercises <sql-part1-exercises>`
