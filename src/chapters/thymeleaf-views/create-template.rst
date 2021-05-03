@@ -77,6 +77,8 @@ can add the functionality by updating the ``build.gradle`` file.
 .. figure:: ./figures/buildGradleFileTree.png
    :alt: build.gradle file in the src directory.
 
+   The ``build.gradle`` file in the src directory.
+
 In the ``dependencies`` block, just paste in the ``implementation`` statement
 seen in line 23 above. Also, be sure to include the Spring Boot libraries if
 the old project is missing those as well.
@@ -89,13 +91,13 @@ following video.
 
 .. admonition:: Note
 
-	We're assuming you've completed these :ref:`controllers-exercises` on your own ``hello-spring`` application and committed your 
-	changes to a branch reserved for the exercises. No matter where you are with those exercises, be sure that your own ``hello-spring``
-	application roughly matches the 
-	`hello-spring-demo forms branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__ 
-	so that you can follow along with the video lessons in this chapter. 
-	If you are using git branches to track your work, you can simply return to the branch you were on before starting the video walkthrough
-	on :ref:`this page <controllers-class-annotations>`.
+   We're assuming you've completed these :ref:`controllers-exercises` on your own ``hello-spring`` application and committed your 
+   changes to a branch reserved for the exercises. No matter where you are with those exercises, be sure that your own ``hello-spring``
+   application roughly matches the 
+   `hello-spring-demo forms branch <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__ 
+   so that you can follow along with the video lessons in this chapter. 
+   If you are using git branches to track your work, you can simply return to the branch you were on before starting the video walkthrough
+   on :ref:`this page <controllers-class-annotations>`.
 
 .. admonition:: Warning
 
@@ -108,11 +110,11 @@ following video.
 
 .. admonition:: Note
 
-	The starter code for this video is found at the 
-	`forms <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__ branch of ``hello-spring-demo``. 
-	The final code presented in this video is found on the 
-	`views-static <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/views-static>`__ 
-	branch.
+   The starter code for this video is found at the 
+   `forms <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/forms>`__ branch of ``hello-spring-demo``. 
+   The final code presented in this video is found on the 
+   `views-static <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/views-static>`__ 
+   branch.
 
 The sections below outline the main ideas presented in the video. However, the
 text is NOT a substitute for completing the work described in the clip.
