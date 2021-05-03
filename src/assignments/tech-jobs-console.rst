@@ -66,7 +66,7 @@ or more of the :ref:`bonus missions <tech-jobs-console-bonus-missions>`.
 Getting Started
 ----------------
 
-#. In Canvas, **Graded Assignment #1: TechJobs Console** contains a GitHub Classroom assignment invitation link. Refer back to the GitHub Classroom instructions from `Graded Assignment #0: Hello World <https://education.launchcode.org/js-independent-track/assignments/HelloWorld.html>`_ for details. Rather than workin in repl.it or VS Code, we'll clone and open this repo in IntelliJ
+#. In Canvas, **Graded Assignment #1: TechJobs Console** contains a GitHub Classroom assignment invitation link. Refer back to the GitHub Classroom instructions from `Graded Assignment #0: Hello World <https://education.launchcode.org/js-independent-track/assignments/HelloWorld.html>`_ for details. Once you've accepted the assignment invitation, clone your assignment repo to your computer.
 #. Open IntelliJ. If IntelliJ is currently open, save your work, close the
    program, and then reopen it.
 #. If the app opens up to an existing project, select *IntelliJ > Preferences >
