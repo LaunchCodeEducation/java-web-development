@@ -144,6 +144,8 @@ Open up a new query tab for the SQL commands you code in this section.
 Note that ``null`` gets stored in a column whenever a value for that field is
 not supplied.
 
+:ref:`Check your solution <sql-part1-exercise-solutions-create>`
+
 Read
 ----
 
@@ -151,12 +153,17 @@ Open up a new query tab for the SQL commands you code in this section.
 
 #. Use ``SELECT ... FROM ...`` to list all of the data for all of the columns
    in the ``seeds`` table.
+
+   :ref:`Check your solution <sql-part1-exercise-solutions-read1>`
+
 #. List ONLY the ``crop`` data from the table.
 #. List the ``crop`` and ``use_by`` data, and use ``ORDER BY`` to organize
    the information in *DECREASING* order by year.
 
    a. *Bonus*: For entries with matching ``use_by`` values, order first by
       year and then alphabetically by crop name.
+
+   :ref:`Check your solution <sql-part1-exercise-solutions-read3>`
 
 #. List a single entry based on its ``seed_id`` value. You will need to
    include a ``WHERE`` in your SQL command.
@@ -188,10 +195,14 @@ Open up a new query tab for the SQL commands you code in this section.
    b. Use a single ``UPDATE`` statement to change two columns for the entry
       with ``seed_id`` = 4.
 
+   :ref:`Check your solution <sql-part1-exercise-solutions-update1>`
+
 #. Use ``ALTER TABLE`` to add a new column, called ``expired``, to the table.
    Set the data type to ``boolean``.
 #. With a single ``UPDATE`` command, set the ``expired`` value to ``true`` for
    all entries that have a ``use_by`` of this year or earlier.
+
+   :ref:`Check your solution <sql-part1-exercise-solutions-update3>`
 
 Be sure to list the ``seeds`` table to confirm your changes.
 
@@ -209,6 +220,9 @@ Open up a new query tab for the SQL commands you code in this section.
 
 #. Delete a single record from the table. Be sure to use its ``seed_id`` rather
    than any other column value in the ``WHERE`` clause.
+
+   :ref:`Check your solution <sql-part1-exercise-solutions-delete>`
+
 #. Use a single ``DELETE`` command to remove any seeds from the table that have
    expired.
 
