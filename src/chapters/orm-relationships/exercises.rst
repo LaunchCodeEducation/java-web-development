@@ -1,3 +1,5 @@
+.. _orm-relationships-exercises:
+
 Exercises: The Early Bird Gets the ORM!
 =======================================
 
@@ -24,4 +26,5 @@ As you dream up answers to these questions, write the answers down in a note or 
 #. You should write three sections. The first should describe the purpose of the app. The second should describe the current state of the app.
    The third and final section should describe the future improvements you want to make to the app including your notes about the ``Person`` class.
 
+:ref:`Check your solution <orm-relationships-exercise-solutions>`
 

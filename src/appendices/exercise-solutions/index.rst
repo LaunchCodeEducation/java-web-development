@@ -19,4 +19,5 @@ Exercise Solutions
    sql-part1
    sql-part2
    orm-part1
+   orm-relationships
    
