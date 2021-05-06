@@ -488,7 +488,7 @@ How to Submit
 --------------
 
 To turn in your assignment and get credit, follow the
-:ref:`submission instructions <how-to-submit-work>`.
+:ref:`submission instructions <submitting-your-work>`.
 
 .. _tech-jobs-console-bonus-missions:
 

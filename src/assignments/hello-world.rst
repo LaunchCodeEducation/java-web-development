@@ -122,6 +122,8 @@ Your Task
 
 Your task is simple: make the program print out the string ``"Hello, World!"``. Edit the code in the ``HelloWorld`` class, withing the ``sayHello`` method. When your code is correct, running the tests will display passing results.
 
+.. _submitting-your-work:
+
 Submitting Your Work
 --------------------
 
