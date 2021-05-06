@@ -60,11 +60,8 @@ Assignments
    :maxdepth: 1
    :name: assignmentstoc
 
-   assignments/how-to-submit
+   assignments/hello-world
    assignments/tech-jobs-console
-   assignments/tech-jobs-oo
-   assignments/tech-jobs-mvc
-   assignments/tech-jobs-persistent
 
 Appendices
 -----------
