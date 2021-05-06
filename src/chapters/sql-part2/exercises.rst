@@ -1,3 +1,5 @@
+.. _sql-part2-exercises:
+
 Exercises: The SQL Sequel
 =========================
 
@@ -72,6 +74,8 @@ Inner Join
 
 Use an inner join on ``seeds`` and ``garden_bed`` to see which plants we have seeds for and are in our garden bed.
 
+:ref:`Check your solution <sql-part2-exercise-solutions-inner-join>`
+
 Left Join
 ^^^^^^^^^
 
@@ -81,6 +85,8 @@ Right Join
 ^^^^^^^^^^
 
 Write a query that joins ``seeds`` and ``garden_bed`` with a right join to see all the plants in the garden bed and any matching seeds we have.
+
+:ref:`Check your solution <sql-part2-exercise-solutions-right-join>`
 
 Full Join
 ^^^^^^^^^
@@ -96,6 +102,9 @@ Sub-Queries and Complex Queries
 -------------------------------
 
 #. When we were writing our joins, you may have noticed that the information that was most helpful to you (the ``plant_name``) was missing from the result set! Write a query that gets the name of the plant by joining the ``plant`` table on the result set of the inner join query above. *Hint*: Open the query tab with the inner join query and copy it into a new query tab to start. Once you have your inner join setup in a new query tab, it will be easier to write your subquery.
+
+   :ref:`Check your solution <sql-part2-exercise-solutions-sub-query>`
+
 #. Let's say our ``plant`` table is so large that we have no idea what the ``plant_id`` for a hosta is. All we know is that there is definitely a row for hostas in the ``plant`` table. Write a query that will insert a new row into our ``seeds`` table. This new row needs to show that we received 100 hosta seeds that will expire on 08/05/2020 (so no need to reorder!) and for the ``plant_id``, use a query *inside* the INSERT statement to get the appropriate ID for hostas. *Hint*: In order to get the ``plant_id`` of a hosta, you can use the following query in one line ``SELECT plant_id FROM plant WHERE (plant_name LIKE 'Hosta')`` inside the ``VALUES`` of the ``INSERT`` statement.
 
 Bonus Missions

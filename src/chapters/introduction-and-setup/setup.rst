@@ -45,17 +45,17 @@ Open a terminal window on your machine and enter the following command:
 
    java -version
 
-If the response returns a major version 15 (ie 15.0.0 or higher, but not as high as 16.0.0), you can move on to the section below,
+If the response returns a major version 11 (ie 11.0.0 or higher, but not as high as 12.0.0), you can move on to the section below,
 :ref:`terminal-java`.
 
-If you do not have Java 15, or the command does not work, you can download 
-it `here <https://www.oracle.com/java/technologies/javase-jdk15-downloads.html>`__.
+If you do not have Java 11, or the command does not work, you can download 
+it `here <https://www.oracle.com/java/technologies/javase-jdk11-downloads.html>`__.
 The relevant install link for your operating system is on the bottom of the page:
 
 .. figure:: figures/installJava.png
    :alt: Screenshot of different Java installation options on Oracle's website
 
-   Download options for Java installation.
+   The figure above shows options for downloading Java 15. You should download Java 11 from the link above.
 
 - **Mac users**: we recommend the ``.dmg`` option
 - **Windows users**: we recommend the ``.exe`` option

@@ -1,3 +1,5 @@
+.. _enums-exercises:
+
 Exercises: Enum Practice
 ========================
 
@@ -22,11 +24,15 @@ Exercises: Enum Practice
 #. Before adding any other fields to ``Planets``, go to ``PlanetController``
    and update the index handler to pass in a ``Model`` class argument (eg. ``Model model``). 
 
+   :ref:`Check your solution <enums-exercise-solutions5>`
+
 #. Use ``.addAttribute`` to add the planet values to the model.
 
 #. In ``templates/index``, create a list element and use the template
    variable you have just defined in the controller to list all of the 
    planet values on the page.
+
+   :ref:`Check your solution <enums-exercise-solutions7>`
 
 #. Add a ``name`` field to the planets.
 
@@ -34,6 +40,8 @@ Exercises: Enum Practice
    #. Add a constructor with the name field and a getter for the field.
 
 #. Update the template to display the planet names.
+
+   :ref:`Check your solution <enums-exercise-solutions9>`
 
 #. Back in the ``Planets`` enum, add a new field called ``yearLength``.
 
@@ -58,6 +66,8 @@ Exercises: Enum Practice
    #. The table can be styled to your liking. 
    #. Add a message to let the users know what data you are displaying
       with the ``yearLength`` field.
+
+   :ref:`Check your solution <enums-exercise-solutions11>`
 
 #. If you wish, add another field to ``Planets``. You can find plenty of information on `NASA's web site <https://solarsystem.nasa.gov/planets/overview/>`__.
 
