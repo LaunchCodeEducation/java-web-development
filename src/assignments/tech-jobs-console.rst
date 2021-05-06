@@ -66,21 +66,7 @@ or more of the :ref:`bonus missions <tech-jobs-console-bonus-missions>`.
 Getting Started
 ----------------
 
-#. In Canvas, **Graded Assignment #1: TechJobs Console** contains a GitHub Classroom assignment invitation link. Refer back to the GitHub Classroom instructions from `Graded Assignment #0: Hello World <https://education.launchcode.org/js-independent-track/assignments/HelloWorld.html>`_ for details. Once you've accepted the assignment invitation, clone your assignment repo to your computer.
-#. Open IntelliJ. If IntelliJ is currently open, save your work, close the
-   program, and then reopen it.
-#. If the app opens up to an existing project, select *IntelliJ > Preferences >
-   Appearance & Behavior > System Settings* and uncheck *Reopen last project on
-   startup*. Close and reopen IntelliJ.
-#. From the *Welcome to IntelliJ* dialog box, select *Check out from Version
-   Control > GitHub*.
-#. **TODO - verify these instructions.** Choose your fork from the repository dropdown, select the parent directory
-   where you'd like to store your project, and hit *Clone*.
-#. When asked *Would you like to create an IDEA project…* select *Yes*, and
-   then accept all of the default options presented.
-#. In the screens that follow, be sure to choose *Create Project From Existing
-   Sources* on the first pane, and select the default values of all following
-   panes.
+In Canvas, **Graded Assignment #1: TechJobs Console** contains a GitHub Classroom assignment invitation link and then set up the project in IntelliJ. Refer back to the GitHub Classroom instructions from :ref:`assignment0` for details. 
 
 Before diving in and starting to code, make sure you understand what the code
 you've been given does. Since you're starting with a functioning---albeit
@@ -342,76 +328,25 @@ Here are some questions to ask yourself while reading this code:
 Your Tasks
 -----------
 
-Before outlining the tasks for you to complete, let's look at how to run the autograding script. 
-
-Running the Autograding Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-As with previous assignments, this project contains code to automatically test your code for correctness. However, we need to learn a new technique to run these tests. 
-
-First, navigate to the test file, ``src/test/java/TechJobsTest``, in the *Project* pan:
-
-.. figure:: figures/TechJobsTest-location.png
-   :alt: The test file is at the location src/test/java/TechJobsTest
-
-   The test file
-
-To run the tests, click on the green "play" icon to the left of the class name and select *Run TechJobsTest*. 
-
-.. figure:: figures/run-tests.png
-   :alt: Selecting Run TechJobsTest runs all of the tests
-
-   Running all of the tests at once
-
-This will run *all* of the tests in the file. In doing so, IntelliJ opens the *Run* pane to display test results. At the left of this pane, we can expand the tests to see that all of have failed.
-
-.. figure:: figures/initial-test-failures.png
-   :alt: All of the tests initially fail
-
-   All of the tests initially fail
-
-.. admonition:: Note
-
-   As with previous autograding scripts, these tests work by running sample data through your code and making sure the correct output results.
-
-Note that each of the test names correspond to one of the tasks you will be asked to carry out below. Looking at the contents of ``TechJobsTest`` we see that each of these tests corresponds to a method within the class. There are a few helper methods, but below those we see four methods annotated with ``@Test``, corresponding to each of the four tests in the *Run* pane.
-
-.. admonition:: Note
-
-   In a future lesson, you'll learn how to write your own tests to automatically check your code.
-
-We can run a *single* test by clicking on the green "play" icon to the left of a given method name.
-
-.. figure:: figures/run-single-test.png
-   :alt: The green play icon next to a test method allows us to run a single test
-
-   Running a single test
-
-Go ahead and run ``testPrintJobs`` test on its own. You'll see in the left-hand pane that the test has failed. The right-hand pane contains useful information about why the test fails. Clicking on the name of the test at left, we see a failure message:
-
-.. figure:: figures/single-test-failure.png
-   :alt: Clicking on the test name at left displays the reason for failure
-
-   Test failure message
-
-The key things to look for here are ``expected`` near the top, and ``but was:`` a little over halfway down. This message is telling us what the test *expected* the code to print out compared to what was *actually* printed out. If these two differ in even the *tiniest* way (for example, a single character difference) then the test will fail. 
-
-This output can be hard to read, but IntelliJ provides us a cleaner way to view the difference. Clicking on the link ``<Click to see difference>`` opens up a new window that shows a side-by-side comparison.
-
-.. figure:: figures/test-output-comparison.png
-   :alt: The expected and actual output compared side-by-side
-
-   IntelliJ highlights the difference in outputs
-
-Viewing the result this way makes it obvious why the test failed: the ``printJobs`` method hasn't been implemented yet! This will be your first task to complete.
-
-Here's the workflow you should use for completing a single task:
+Before diving into your tasks, review :ref:`assignment0` for details on running the autograding tests for this assignment. This assignment has multiple tests, and we highly recommend the following workflow:
 
 #. Write the code for the task, verifying manually that it works by running the ``TechJobs.main`` method.
 #. When you think you've completed a task, run the individual test that corresponds to the task. 
 #. If the test fails, review the test output and go back to your code to try to fix it.
 #. Once the single test passes, run *all* of the tests to make sure you didn't break any tests that previously passed.
 #. Repeat this process until all tests pass. 
+
+.. admonition:: Warning
+
+   You may see an error in the test file on line 38.
+
+   .. image:: figures/lang-level-error.png
+      :alt: An error on line 39
+
+   This can easily be fixed by clicking on IntelliJ's red light-bulb menu next to the error and choosing the first option.
+
+   .. image:: figures/fix-lang-level.png
+      :alt: The first option in the fix menu fixes the error
 
 Now we'll outline the tasks for your first apprenticeship assignment.
 
