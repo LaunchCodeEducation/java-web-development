@@ -26,6 +26,8 @@ First, create a new class called ``EventCategory`` in the ``models`` directory.
 
 ``EventCategory`` represents data that will be stored in our database, so you need to use the ``@Entity`` annotation!
 
+:ref:`Check your solution <orm1-exercise-solutions-class>`
+
 The ``EventCategoryRepository`` Interface
 -----------------------------------------
 
@@ -54,6 +56,8 @@ We will be creating 3 handlers in our controller:
 #. Add an attribute for the ``title`` that uses ``"All Categories"``.
 #. Add an attribute for the ``categories`` that uses all of the values in your ``EventCategoryRepository`` variable.
 
+:ref:`Check your solution <orm1-exercise-solutions-methods1>`
+
 ``renderCreateEventCategoryForm``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -74,12 +78,17 @@ We will be creating 3 handlers in our controller:
 #. Add an attribute for a new instance of ``EventCategory``.
 #. Either return ``"eventCategories/create"`` or ``"redirect:"``.
 
+:ref:`Check your solution <orm1-exercise-solutions-methods3>`
+
 Thymeleaf Templates
 -------------------
 
 To finish the exercises, we need to make two new templates.
 
 #. ``eventCategories/index``, which will contain a table of the event categories.
+
+   :ref:`Check your solution <orm1-exercise-solutions-templates>`
+
 #. ``eventCategories/create``, which will contain a form for adding new event categories.
 
 The Final Application

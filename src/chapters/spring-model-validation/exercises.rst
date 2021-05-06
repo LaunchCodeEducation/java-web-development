@@ -1,3 +1,5 @@
+.. _model-validation-exercises:
+
 Exercises: Model Validation
 ===========================
 
@@ -20,11 +22,15 @@ Event information to add:
 #. Add a field to collect information about where the event will take place. This field should not be 
    null or blank. 
 
+   :ref:`Check your solution <model-validation-exercise-solutions1>`
+
 #. Add a field to collect information about whether an attendee must register for the event or not. For 
    the purposes of validation practice, make this field only able to be marked as true. 
 
 #. Add a field to collect information about the number of attendees for the event. Valid values for this 
    field should be any number over zero.
+
+   :ref:`Check your solution <model-validation-exercise-solutions3>`
 
 #. Browse the validation annotations to find one to use on another new field of your choosing.
 

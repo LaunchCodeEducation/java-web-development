@@ -76,6 +76,7 @@ Appendices
    appendices/about-this-book
    appendices/spring/thymeleaf
    appendices/sql-install
+   appendices/exercise-solutions/index
 
 .. toctree::
    :hidden:

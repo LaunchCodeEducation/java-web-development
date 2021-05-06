@@ -3,7 +3,7 @@ cache: pip
 python: "3.7"
 language: python
 
-if: type = push AND branch = master
+if: type = push AND branch = main
 
 install: # install dependencies (cached)
   - pip install -r requirements.txt
@@ -18,4 +18,5 @@ deploy:
   local_dir: gh-pages # the directory to deploy to GH pages
   target_branch: gh-pages # branch to push to
   github_token: $GITHUB_ACCESS_TOKEN # access token with repo:public scope
-  
+  on:
+    branch: main  

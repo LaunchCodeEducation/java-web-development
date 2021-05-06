@@ -6,6 +6,15 @@ implement the
 :ref:`MVC <mvc>` pattern. For more about Spring, check out `Spring
 IO <https://spring.io/>`__.
 
+As you code along with the videos, you will be working on your own project. Should you want to review a step or double-check 
+your code, fork LaunchCode’s ``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on 
+`Github <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__. The ``starter`` branch contains 
+the code after creation and also shows the starting point for the next chapter.
+
+We suggest you create and checkout a new branch in your ``hello-spring`` repository for each video lesson.
+This will help you return to earlier states of your application to review your work, and is a convenient opportunity to practice 
+your git workflow.
+
 .. _initialize-spring-boot-project:
 
 Initialize a Spring Boot Project - Video
@@ -16,16 +25,9 @@ Initialize a Spring Boot Project - Video
 
 .. admonition:: Note
 
-   As you code along with the videos, you will be working on your own project. However, should you want to review a step or double-check 
-   your code, fork LaunchCode’s ``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on 
-   `Github <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__. The ``starter`` branch contains 
-   the code after creation and also shows the starting point for the next chapter.
-
-.. admonition:: Tip
-
-   You also may find it useful to create and checkout a new branch in your ``hello-spring`` repository for each video lesson. 
-   This can help you return to earlier states of your application to review your work, and is a convenient opportunity to practice 
-   your git workflow.
+   In the video, Chris changes some Gradle configurations to use Java version 13 and Gradle version 6 for his project.
+   You should follow along with him in case you also need to update your own project. However, this course uses Java 
+   version 11, which is compatible with most versions of Gradle beyond 6.x.x.
 
 
 Initialize a Spring Boot Project - Text
@@ -34,8 +36,8 @@ Initialize a Spring Boot Project - Text
 #. Go to `start.spring.io <https://start.spring.io/>`__.
 #. For *Project*, select *Gradle Project*.
 #. For *Language*, select *Java*.
-#. For *Spring Boot*, select *2.2.x* (that is, the most
-   recent 2.2 non-SNAPSHOT release).
+#. For *Spring Boot*, select *2.4.x* (that is, the most
+   recent non-SNAPSHOT release).
 #. For *Project Metadata/Group*, enter ``org.launchcode``.
 
    .. note::
@@ -50,15 +52,21 @@ Initialize a Spring Boot Project - Text
 
       This is the title of your project.
 
-#. For *Project Metadata/Options/Java*, select *15*.
+#. For *Project Metadata/Options/Java*, select *11*.
 #. For *Dependencies*, search for and add the following: *Spring Web*,
    and *Spring Boot DevTools*.
+
+   .. admonition:: Note
+
+      For some projects in this book, you'll also need to add *ThymeLeaf* and *Validation*
+      as dependencies.
+      
 #. Click *Generate* to create a ``.zip`` file of the project starter code.
 
-.. figure:: figures/spring-initializr.png
-   :alt: Spring initializer with options
+.. figure:: figures/spring-initializr-11.png
+   :alt: browser page open to start.spring.io, Spring Boot 2.4.3 and Java 11 are selected
 
-   Spring Initializer with desired options selected.
+   Spring Initializr with Spring Boot 2.4.3 and Java 11 selected.
 
 Spring in IntelliJ
 ------------------
@@ -66,45 +74,36 @@ Spring in IntelliJ
 #. Move the downloaded, unzipped folder from your downloads folder into
    another location such as ``LC101`` or your home directory.
 #. Start IntelliJ.
-#. Select *Import Project* and browse to where you put the downloaded
+#. Select *Open* and browse to where you put the downloaded
    project. Unzip the project and select to import the top-level folder of the new Spring project.
-#. In the window that follows, select *Import project from external model* and pick *Gradle*. Select all other defaults
-   as you create the project.
 
-   .. note::
+.. admonition:: Tips
+   
+   Below are some troubleshooting tips we've found to be helpful. If these are not relevant to you and you experience issues, 
+   checkout `<https://help.launchcode.org/>`__ for more support.
 
-      If you encounter an alert that the selected folder is not empty, choose
-      the option to overwrite it.
+   - After you select to open the Spring project, if you encounter an alert that the selected folder is not empty, choose
+     the option to overwrite it.
+   - If you see a Gradle build popup, click
+     *Import Gradle Project*. This popup is fairly small and usually located in the lower right corner of the window.
+     After selecting import, you may be prompted again and should click the *Use auto-import* box. Leave other boxes as default.
 
-#. If you see a Gradle build popup, go ahead and click
-   *Import Gradle Project*.
+     .. figure:: figures/import-gradle-tip.png
+        :alt: Popup to import Gradle
 
-   .. figure:: figures/import-gradle-tip.png
-      :alt: Popup to import Gradle
+        A popup to suggest importing Gradle.
+   - You may see a pop-up in the lower left-hand corner in your *Event Log*
+     that reads: *Unindexed remote maven repositories found*.
 
-      A popup to suggest importing Gradle.
+     1. Select *Open repositories list* in the Event Log message. This will
+        open the *Preferences* (or *Settings* for Windows users) window to
+        *Build, Execution, Deployment > Build Tools > Maven > Repositories* .
+     2. Select the Maven repository (https://repo1.maven.org/maven2) and
+        click *Update* on the side.
 
-   .. note::
+     .. warning::
 
-      This popup is fairly small and usually located in the lower right corner of the window.
-
-#. If a window then opens, check the *Use auto-import* box and
-   leave everything else as it is.
-
-.. admonition:: Note
-
-   You may see a pop-up in the lower left-hand corner in your *Event Log*
-   that reads: *Unindexed remote maven repositories found*.
-
-   1. Select *Open repositories list* in the Event Log message. This will
-      open the *Preferences* (or *Settings* for Windows users) window to
-      *Build, Execution, Deployment > Build Tools > Maven > Repositories* .
-   2. Select the Maven repository (https://repo1.maven.org/maven2) and
-      click *Update* on the side.
-
-.. warning::
-
-   This update usually takes about 20 minutes but can last up to an hour.
+        This update can last up to an hour.
 
 The Spring Project Structure
 ----------------------------
@@ -137,7 +136,7 @@ applications in Java. Your Spring project contains a file called ``build.gradle`
 tools, you do not need to know everything that this file does. For now, the takeaway is that
 Gradle manages the external dependencies in our project.
 
-Remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
+Do you remember specifying the dependencies of the Spring project? Scroll down to the bottom of your
 ``build.gradle`` file and you will see these items specified in a structure called ``dependencies``.
 
 .. sourcecode:: guess
@@ -164,7 +163,7 @@ Before Running a Spring Project
 Before running your project, we need to check the configuration of a few items. 
 
 #. In ``build.gradle``, locate an item called ``sourceCompatibility``. If it's value is not equal to 
-   ``15``, change it and save the file.
+   ``11``, change it and save the file.
 
 #. In the ``gradle`` directory, open the subdirectory, ``wrapper``, and then the file 
    ``gradle-wrapper.properties`` inside of it. Ensure that the ``distributionUrl`` includes a gradle 
@@ -172,7 +171,7 @@ Before running your project, we need to check the configuration of a few items.
 
 #. Open the test class, ``HelloSpringApplicationTests`` located in ``src/test/java/org.launchcode.hellospring``.
    Run the single test. If you experience a JDK error, click on the ``Gradle Settings`` icon in the right-hand
-   gradle pane and ensure that the Gradle JVM is using Java 15.
+   gradle pane and ensure that the Gradle JVM is using Java 11.
 
 .. index:: ! bootRun
 

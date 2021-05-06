@@ -1,3 +1,5 @@
+.. _classes-exercises-part2:
+
 Exercises: Objects and Classes, Part 2
 =======================================
 
@@ -12,6 +14,8 @@ The ``getGradeLevel`` Method
 This method returns the student's level based on the number of credits they
 have earned: Freshman (0-29 credits), Sophomore (30-59 credits), Junior (60-89
 credits), or Senior (90+ credits).
+
+:ref:`Check your solution <classes2-exercise-solutions1>`
 
 The ``addGrade`` Method
 ------------------------
@@ -47,11 +51,16 @@ To update the student's GPA:
 #. Update the student's total ``numberOfCredits``.
 #. Compute their new GPA.
 
+:ref:`Check your solution <classes2-exercise-solutions2>`
+
 ``toString`` and ``equals``
 ----------------------------
 
 #. Add custom ``equals()`` and ``toString()`` methods to the ``Student``
    class.
+
+   :ref:`Check your solution <classes2-exercise-solutions3a>`
+
 #. Add custom ``equals()`` and ``toString()`` methods to the ``Course``
    class which you started in the exercises for the
    :ref:`previous chapter <classes-exercises-part1>`.
