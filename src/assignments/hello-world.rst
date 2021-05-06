@@ -10,7 +10,9 @@ Getting Started
 
 Let's set up the assignment on our computer and learn about its basic structure.
 
-First, make sure IntelliJ is running and all project windows are closed. You should see IntelliJ's **Welcome** pane. From here, select the *Get from Version Control* option.
+First, find Assignment #0 in Canvas and click on the invitation link. After accepting, go to your assignment repository on GitHub.
+
+Make sure IntelliJ is running and all project windows are closed. You should see IntelliJ's **Welcome** pane. From here, select the *Get from Version Control* option.
 
 .. figure:: figures/check-out-from-vcs.png
    :alt: Select the Check Out From Version Control option
