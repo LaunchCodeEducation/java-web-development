@@ -419,5 +419,5 @@ Before moving on to submitting your work, make sure that your application:
 How to Submit
 -------------
 
-To turn in your assignment and get credit, follow the :ref:`submission instructions <how-to-submit-work>`.
+To turn in your assignment and get credit...
 

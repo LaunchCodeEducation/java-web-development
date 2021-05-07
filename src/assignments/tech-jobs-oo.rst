@@ -615,5 +615,4 @@ better user interface.
 How to Submit
 --------------
 
-To turn in your assignment and get credit, follow the
-:ref:`submission instructions <how-to-submit-work>`.
+To turn in your assignment and get credit...
