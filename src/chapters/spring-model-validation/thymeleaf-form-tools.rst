@@ -24,6 +24,17 @@ Display Validation Errors for a Field - Video
    The final code presented in this video is found on the `display-errors branch <https://github.com/LaunchCodeEducation/coding-events/tree/display-errors>`__ As always, code along to the 
    videos on your own ``coding-events`` project.
 
+.. _display-errors-quirk:
+
+.. admonition:: Tip
+
+   Some hawk-eyed students notice a small quirk after finishing their
+   ``display-errors`` constructor. Each time the page reloads, the ``id``
+   counter for the database entries increases by 1, even if no new row is
+   added. This leads to a table that contains gaps between the ``id`` values.
+
+   This is OK! There is no need to correct the quirk right now.
+
 Display Validation Errors for a Field - Text
 --------------------------------------------
 

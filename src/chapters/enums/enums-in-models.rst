@@ -15,6 +15,10 @@ Enum Types in Models - Video
    The final code presented in this video is found on the `enums branch <https://github.com/LaunchCodeEducation/coding-events/tree/enums>`__. As always, code along to the 
    videos on your own ``coding-events`` project.
 
+   As mentioned in the :ref:`previous chapter <display-errors-quirk>`, your
+   ``display-errors`` constructor might contain a small quirk. If your
+   constructor assigns non-sequential ``id`` values, this is still OK!
+
 Enum Types in Models - Text
 ---------------------------
 
