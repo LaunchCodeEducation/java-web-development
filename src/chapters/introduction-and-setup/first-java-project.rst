@@ -10,25 +10,25 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
    suggest that you also add sub-folders with names corresponding to the
    related chapters and projects. Something like
    ``java-practice/chapter-name/project-name``.
-#. Select the *Create New Project* option from the welcome
-   screen.
+#. Select the *New Project* option from the welcome screen.
 
    .. figure:: figures/IntelliJWelcome.png
-      :scale: 80%
-      :alt: Welcome window for IntelliJ
+      :scale: 70%
+      :alt: Welcome window for IntelliJ. Select the New Project button.
 
-      Create new project
+      Start a new project
 
 #. Clicking *New Project* opens a window with a series of project settings to
-   select. This window is called the new project wizard.
+   select. This window is called the *new project wizard*.
 
    a. Choose *Java* from the options on the left in the project wizard.
    b. For *Project SDK*, you'll want to use version 15 that you have downloaded. 
-      If **15** is not already selected in the SDK window, click *New* on the right and find the JDK you have just downloaded.
+      If ``15`` is not already selected in the SDK window, click the arrow on
+      the right and find the JDK you just downloaded.
    
-   
-   This allows IntelliJ to compile our Java code in-app. 
-   Click *Next* in the lower right corner of the window to continue selecting settings.
+   The SDK allows IntelliJ to compile our Java code when we launch our
+   programs. Click *Next* in the lower right corner of the window to continue
+   selecting settings.
 
    .. figure:: figures/projectSDK.png
       :alt: Select project SDK
@@ -61,7 +61,7 @@ Following the "Hello, World" trend, let's create a new IntelliJ project.
 
       Initial IntelliJ project view
 
-   The section on the left is the project's file tree. 
+   The section on the left is the project's **file tree**. 
 
    Clicking the triangle next to the project name, ``HelloWorld``, displays the ``src`` file, 
    followed by the base package we created, and finally our ``Main.java`` file. 
