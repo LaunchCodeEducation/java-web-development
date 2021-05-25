@@ -62,6 +62,7 @@ Assignments
 
    assignments/hello-world
    assignments/tech-jobs-console
+   assignments/tech-jobs-oo
 
 Appendices
 -----------
@@ -81,3 +82,5 @@ Appendices
    todos
    index-full
    glossary
+   assignments/tech-jobs-mvc
+   assignments/tech-jobs-persistent
