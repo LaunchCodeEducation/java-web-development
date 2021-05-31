@@ -73,6 +73,8 @@ carefully as you solve each problem.
    to finish the rest. First, you'll create a controller method to retrieve search results.
 #. Finally, you'll display search results in the view. 
 
+Throughout your work, refer to our `demo app <https://quiet-ravine-03237.herokuapp.com/>`_ as needed to clarify questions about intended application behavior.
+
 Getting Started
 ----------------
 
@@ -419,6 +421,8 @@ Sanity Check
 -------------
 
 At this point, all autograding tests should be passing. To be sure, right-click on the ``org.launchcode.techjobs.mvc`` package in ``src/test/java`` and select *Run tests in...* If any test fails, evaluate the failure/error message and go back to fix your code.
+
+You might also want to check your app's behavior against that of `our demo app <https://quiet-ravine-03237.herokuapp.com/>`_.
 
 How to Submit
 --------------
