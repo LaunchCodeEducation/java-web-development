@@ -153,6 +153,8 @@ difficult moving forward.
 Your Assignment
 ---------------
 
+.. _assignment-2-autograding:
+
 Running the Autograding Tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

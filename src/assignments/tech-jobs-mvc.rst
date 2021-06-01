@@ -68,28 +68,23 @@ carefully as you solve each problem.
    for each field of the data (``employer``, ``location``, etc.). You will need
    to add some details to these views to allow users to select and display jobs
    stored in the system.
-#. Finally, Carly started working on the search feature, but only got as far as
+#. Carly started working on the search feature, but only got as far as
    writing the code to display the search form. She’s handed the project to you
-   to finish the rest. You’ll add code to the controller and view to process
-   and display and search results.
+   to finish the rest. First, you'll create a controller method to retrieve search results.
+#. Finally, you'll display search results in the view. 
+
+Throughout your work, refer to our `demo app <https://quiet-ravine-03237.herokuapp.com/>`_ as needed to clarify questions about intended application behavior.
 
 Getting Started
 ----------------
 
 Set up a local copy of the project:
 
-#. Visit the `repository page <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-mvc>`__
-   for this project. Fork the repository to create a copy under your own GitHub
-   account.
-#. Back in IntelliJ, close any open projects (after saving and committing your
-   work).
-#. From the welcome screen, click *Get From Version Control* and then select
-   the *Git* option.
-#. In the next panel, enter the URL for your fork, and then select the parent
-   directory where you want to store your project. Hit *Clone*.
+#. In Canvas, **Graded Assignment #3: TechJobs (MVC Edition)** contains a GitHub Classroom assignment invitation link and then set up the project in IntelliJ. Refer back to the GitHub Classroom instructions from :ref:`assignment0` for details. 
 #. Launch the application (via the Gradle pane, *Tasks > Application >
-   bootRun*), so you can refer to both the code as well as the running app
-   as you complete the assignment.
+   bootRun*) to make sure it starts up properly. Then shut it down.
+#. Run the autograding tests. The tests for this assignment are set up the same way as for :ref:`assignment 2 <assignment-2-autograding>`. There are four tasks for this assignment, but the first doesn't require any coding on your part. Therefore, there are 3 tests files (for tasks 2-4). As with assignment 2, we recommend that you only run the tests for the task you are currently working on.
+
 
 1) Review the Code
 -------------------
@@ -338,16 +333,14 @@ Display List of Jobs
 This page needs to show full job listings---ID, employer, location, etc.
 
 #. In ``list-jobs.html``, create a loop to display each job passed in from the
-   controller. The job data should be presented in a *table*. Be sure to check
-   in ``ListController`` to find the variable names available to the template.
+   controller. The job data should be presented in *tables*, with each job in its own table. Be sure to check in ``ListController`` to find the variable names available to the template.
 #. Adding the CSS class ``"job-listing"`` to a table provides some nice
    styling, courtesy of Carly’s work!
-#. Construct one table, putting each job in a separate row with the fields on
-   separate lines. Alternatively, you can put each job in its own table, with
+#. Construct a table for each job, with
    one job field per row.
 
-   .. figure:: figures/list-jobsTableOptions.png
-      :alt: Image of the different table options.
+   .. figure:: figures/job-listing-tables.png
+      :alt: Job listings, one per table
       :scale: 70%
 
 #. Be sure to test your code by running the program and clicking links from
@@ -381,14 +374,14 @@ Note that you only need to implement ONE option, not both.
 Be sure to test your code by clicking your new *View All* link in the table.
 There are 98 jobs in the data file.
 
-3) Complete the Search Functionality
+3) Complete ``SearchController``
 -------------------------------------
 
 Add a ``displaySearchResults`` handler method to ``SearchController``:
 
 #. Use the correct annotation for the method. To configure the correct mapping
    type and mapping route, refer to the ``form`` tag in the ``search.html``
-   template.
+   template. (Use ``@GetMapping`` or ``@PostMapping`` rather than ``@RequestMapping``.)
 #. The ``displaySearchResults`` method should take in a ``Model`` parameter.
 #. The method should also take in two other parameters, specifying the type of
    search and the search term.
@@ -404,15 +397,15 @@ Add a ``displaySearchResults`` handler method to ``SearchController``:
 #. Pass ``ListController.columnChoices`` into the view, as the existing
    ``search`` handler does.
 
-Display Search Results
-^^^^^^^^^^^^^^^^^^^^^^
+4) Display Search Results
+-------------------------
 
 Once you have your ``displaySearchResults`` handler passing information to the
 view, you need to display the data.
 
 #. In ``search.html``, create a loop to display each job passed in from the
    controller.
-#. Put the job results into a table, similar to what you did for the
+#. Put the job results into a set of tables, similar to what you did for the
    ``list-jobs`` view.
 
 .. admonition:: Tip
@@ -427,26 +420,15 @@ view, you need to display the data.
 Sanity Check
 -------------
 
-Before submitting, make sure that your application:
+At this point, all autograding tests should be passing. To be sure, right-click on the ``org.launchcode.techjobs.mvc`` package in ``src/test/java`` and select *Run tests in...* If any test fails, evaluate the failure/error message and go back to fix your code.
 
-#. Displays all 98 jobs in the system when the user goes to the ``/list`` page
-   and selects "All".
-#. Displays all jobs matching a particular category when the user selects a
-   specific employer, location, skill, or position type from the ``/list``
-   page.
-#. Displays jobs with alternating white and gray backgrounds (this is provided
-   by the ``"job-listing"`` class).
-#. Allows a user at ``/search`` to search for jobs matching a specific search
-   term, both within a specific category and across all categories.
-#. Displays search results below the form at ``/search/results``.
-
-Feel free to compare your project's behavior to that of the
-`demo app <https://java-web-dev-techjobs-mvc.cfapps.io/>`__.
+You might also want to check your app's behavior against that of `our demo app <https://quiet-ravine-03237.herokuapp.com/>`_.
 
 How to Submit
 --------------
 
-To turn in your assignment and get credit ...
+To turn in your assignment and get credit, follow the
+:ref:`submission instructions <submitting-your-work>`.
 
 Bonus Missions
 --------------
