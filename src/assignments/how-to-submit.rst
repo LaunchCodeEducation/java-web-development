@@ -8,7 +8,7 @@ The process for submitting your work is always the same:
 #. Finish the assignment.
 #. ``commit`` and ``push`` your work to a repository on your GitHub profile.
 #. Find the corresponding Canvas assignment on
-   `learn.launchcode.org <https://learn.launchcode.org>`__ and enter the
+   `launchcode.instructure.com <https://launchcode.instructure.com>`__ and enter the
    GitHub URL for your project.
 #. Find a TF and demo your project for them.
 
