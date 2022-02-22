@@ -36,7 +36,7 @@ The Starter Code
       .. admonition:: Tip
       
          To create a new schema in your current connection, refer 
-         back to the instructions in :ref:`sql-part1-exercises`.
+         back to the instructions in `SQL Part 1 Exercises <https://education.launchcode.org/SQL/chapters/mysql-part-1/exercises.html>`_.
 
          To create a new user with permissions, refresh your memory
          in :ref:`setup-orm-database`.
