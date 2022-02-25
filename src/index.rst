@@ -16,6 +16,7 @@ Chapters
    chapters/interfaces-and-polymorphism/index
    chapters/spring-intro/index
    chapters/spring-controllers-and-routes/index
+   chapters/exceptions/index
    chapters/thymeleaf-views/index
    chapters/spring-model-classes/index
    chapters/spring-model-validation/index
