@@ -44,6 +44,7 @@ Studios
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
    chapters/spring-controllers-and-routes/studio
+   chapters/tools-in-intelliJ/index
    chapters/thymeleaf-views/studio
    chapters/spring-model-classes/studio
    chapters/sql-part1/studio
