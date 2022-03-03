@@ -7,7 +7,6 @@ Tools in IntelliJ
    :maxdepth: 3
 
    gradle
-   maven
    debugging
    studio
    
