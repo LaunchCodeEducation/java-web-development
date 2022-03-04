@@ -6,7 +6,7 @@ Inside the ``Temperature`` package, take a look at the ``Temperature`` class.
 We worked with this exact class when learning more about :ref:`classes <temperature-class>`.
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 3
 
    public class Temperature {
 
@@ -45,7 +45,7 @@ Turn your attention to the ``TemperatureException`` class. Here is where we need
 First, all custom exceptions must inherit from the ``Exception`` class.
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 3
 
    public class TemperatureException extends Exception {
       // Write code here!
@@ -56,7 +56,7 @@ We do not want to call the ``Exception`` class directly, so we will use ``Temper
 The constructor will only have to deal with a ``message`` parameter.
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 4
 
    public TemperatureException(String message){
         super(message);
@@ -67,17 +67,17 @@ Back in the ``Temperature`` class, we need to use this exception to prevent the 
 You may be tempted to just throw the exception if the value is below absolute zero, like so:
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 15
 
    if (aFahrenheit < absoluteZeroFahrenheit) {
       throw new TemperatureException("That temperature is too low!");
    }
 
 However, if you do this, you will get an error in IntelliJ. You get this error because, in Java, we must handle every exception that is thrown.
-So first we need to encase our exception in a ``try/catch`` block. We want to *try* to throw the exception and if we *catch* the error, we want to print the stack trace.
+We need to encase our exception in a ``try/catch`` block. We want to *try* to throw the exception and if we *catch* the error, we want to print the stack trace.
 
 .. sourcecode:: java
-   :linenos:
+   :lineno-start: 15
 
    if (aFahrenheit < absoluteZeroFahrenheit) {
       try {
@@ -93,4 +93,4 @@ Now run the program and try to enter a value below absolute zero!
 Check Your Work
 ---------------
 
-Check out the ``end-of-walkthrough`` branch on Github to make sure you got everything.
+Check out the ``end-of-walkthrough`` branch on Github to make sure your code is correct.
