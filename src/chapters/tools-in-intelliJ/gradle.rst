@@ -13,83 +13,144 @@ Gradle is an **automated build tool** that is responsible for tasks like:
    - Testing protocols
    - Packaging the executable program for deployment.
 
-So far we have included Gradle in our project Spring Boot projects.  
+So far we have included Gradle in our Spring Boot projects.  
 
 .. admonition:: Note
 
    You can also import Gradle using the terminal. 
-   Instuction on that is beyond the scope of this class, 
+   Instruction on that is beyond the scope of this class, 
    but there is `documentation <https://spring.io/guides/gs/gradle/>`_ on this process if you are curious.
 
 
 How Gradle Works
 ----------------
 
-project > build scripts > tasks > plugins
-stay VERY high level on this
-
 A Gradle **project** contains all of the tasks, and plugins needed to build your application.
-A **Task** is a single step required to build and run your application.  
-Each task belongs to a **Project** and contains a sequence of 
-**Action objects** that executes when called.  
-
-When working with tasks, it is important to consider the order of execution.
-It is also worth considering how tasks interact with one another as some may work independently
-while others may rely on other tasks for proper execution.
-
-You can create your own tasks for a project, or import tasks by using **plugins**.
-Plugins contain all of the neccessary tasks and scripts to extend a project's capabilities.
-You have worked with plugins already.  
-In ``hello-spring`` and ``hello-spring-demo`` projects, the Spring Boot framework was added to our project as a plugin.
-
-`More information <https://docs.gradle.org/current/userguide/plugins.html>`_ on using plugins in Gradle.
+When you boot and run your Gradle project, it follows a build script that is contained in the ``build.gradle`` file.
 
 ``build.gradle``
-----------------
+^^^^^^^^^^^^^^^^
 
 The ``build.gradle`` file is the project build script.  
 This file holds any plugins, configurations, repositories, dependencies, and tests needed to run your project.
-Gradle will refer to this file as it runs through the task list.
+Gradle will refer to this file as it runs through the task list to build the application.  
 
-When you created your ``hello-spring`` project, Spring Boot flushed this file out for us.
-Open your ``build.gradle`` file and look at each section.  
-You should see a method called ``plugins``, which holds your plugins.
+.. admonition:: Note
+   
+   When you created your ``hello-spring`` and ``hello-spring-demo`` projects, 
+   Spring Boot populated this file as the projects were initialized.
+   Open your ``build.gradle`` file and look at each section.  
 
-``configurations`` works with the ``dependencies`` method for 
-https://medium.com/agorapulse-stories/gradle-configurations-explained-4b9608dd5e35 
+
+For better organization, Gradle holds all plugins, tasks, 
+dependencies, configurations, repos, and tests in their own methods as needed.  
+To create your own or import from outside sources, you add code to the appropriate method.
+
+``tasks`` and ``plugins``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Gradle builds a project by running **tasks**.
+A task is a single step required to build and run your application.  
+Each task belongs to a project and contains a sequence of action objects that execute when called. 
+
+You can create your own tasks for a project or import tasks by using **plugins** into the ``build.gradle`` file.
+Plugins contain all of the necessary tasks and scripts to extend a project's capabilities.
+Plugins will often require **dependencies** and external **repositories**.
+You have worked with plugins already with your Spring Boot framework projects.
 
 ``dependencies``
-https://www.tutorialspoint.com/gradle/gradle_dependency_management.htm
+^^^^^^^^^^^^^^^^
+
+``dependencies`` are external libraries or artifacts of code that are needed to build your project.  
+To keep ``dependencies`` organized, Gradle often groups related ``dependencies`` together in ``configurations``.
+Often you will see the ``configuration`` name then ``dependency`` information. 
+
+.. admonition:: Note
+
+  Your ``hello-spring`` and ``hello-spring-demo`` projects each have three dependencies with three different configurations.
+
+``configurations``
+^^^^^^^^^^^^^^^^^^
+
+Some projects contain a separate ``configurations`` method.  
+This is another level of bundling dependencies within a project.  
+In your ``hello-spring-demo`` project, the ``build.gradle`` file contains a ``configurations`` method. 
+However, there are none in your ``hello-spring`` project.
+
+.. admonition:: Note 
+
+   In your ``hello-spring`` project there is no separate configurations method.
+   However, there is one in your ``hello-spring-demo`` project.
 
 ``repositories``
-https://www.tutorialspoint.com/gradle/gradle_dependency_management.htm 
+^^^^^^^^^^^^^^^^
 
-https://tomgregory.com/gradle-dependency-tree/
+If dependencies are external libraries, then where does the source code come from?
+It comes from an external repository.  
+In this class we will be using **Maven Central**, which is a website that 
+contains files for your dependencies.
+Other repositories do exist and work in a similar way.
+
+In the ``build.gradle`` file we link up with Maven Central by using the ``repositories`` method.
 
 
-Gradle Repositories
+``tests``
+^^^^^^^^^
+
+If using testing tasks, this method holds any necessary configurations
+and dependencies for a certain test.
+
+.. admonition:: Note
+
+   In your ``hello-spring`` and ``hello-spring-demo`` projects
+   the ``build.gradle`` file was created by Spring Boot which 
+   populated most of the file.
+
+   This is not always the case depending on how you create a Gradle project.  
+
+Troubleshooting Tips
 --------------------
 
-text here
-transistion here into Maven
+**My dependencies won't build**
+   In this class, we are using IntelliJ as our IDE to build our Gradle projects.
+   IntelliJ's built-in IntelliSense should prompt you to refresh your ``build.gradle`` 
+   whenever you change the file.  You should see a small icon appear in the 
+   top right corner of the ``build.gradle`` file.  If you click on the icon, it will
+   refresh your build.  
+
+   .. figure:: figures/gradle-refresh-point.png
+      :alt: Gradle Refresh Icon
+
+      The refresh icon should appear whenever you make changes to your project.
+
+   However, if you update ``build.gradle`` and the icon does not appear, you can manually refresh the build.
+   **Mac** Users try  *Shift + Command + I* and **Windows/Linux** Users: try *Control + Shift + O*.
+   For more on Gradle and IntelliJ, visit this `website <https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/gradle-dependencies/>`_.
+
+
+
+
+
+Let's Recap
+-----------
+
+Gradle contains all code required to build an application.  
+This includes code that you create as well as code from outside sources.
+Gradle runs through each task, using code from you or external sources.
+Tests the build and then packages it up for deployment.  
+If everything goes to plan, you should have a functional application.
 
 
 Check Your Understanding
 ------------------------
 
+.. admonition:: Question
 
-here be questions
+   From where do ``dependencies`` access their source code?
+      a. An external repository such as Maven Central
+      b. Internal code within a Class you created
+
+   .. ans: a
 
 
 
-
-Each project is made up of **tasks**. 
-A task is a single step needed for building our project.
-
-Gradle comes with a collection of tasks, but you can add more tasks.
-You can either create your own tasks by writing them or you can 
-use pre-written ones called **plugins**.  
-Plugins will typically automatically add its tasks, tests, and 
-other packages to your application after installation.  
-If you look at your Spring projects ``build.gradle`` file, 
-you can see that the Spring Boot framework is a plugin.
