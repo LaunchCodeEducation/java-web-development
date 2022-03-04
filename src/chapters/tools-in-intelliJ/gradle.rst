@@ -42,8 +42,8 @@ Gradle will refer to this file as it runs through the task list to build the app
    Open your ``build.gradle`` file and look at each section.  
 
 
-For better organization, Gradle holds all plugins, tasks, 
-dependencies, configurations, repos, and tests in their own methods as needed.  
+Gradle holds all plugins, tasks, dependencies, configurations, repos, 
+and tests in methods, as needed, for better organization.  
 To create your own or import from outside sources, you add code to the appropriate method.
 
 ``tasks`` and ``plugins``
@@ -53,7 +53,7 @@ Gradle builds a project by running **tasks**.
 A task is a single step required to build and run your application.  
 Each task belongs to a project and contains a sequence of action objects that execute when called. 
 
-You can create your own tasks for a project or import tasks by using **plugins** into the ``build.gradle`` file.
+You can create your tasks for a project or import tasks by using **plugins** into the ``build.gradle`` file.
 Plugins contain all of the necessary tasks and scripts to extend a project's capabilities.
 Plugins will often require **dependencies** and external **repositories**.
 You have worked with plugins already with your Spring Boot framework projects.
@@ -79,7 +79,7 @@ However, there are none in your ``hello-spring`` project.
 
 .. admonition:: Note 
 
-   In your ``hello-spring`` project there is no separate configurations method.
+   In your ``hello-spring`` project, there is no separate configurations method.
    However, there is one in your ``hello-spring-demo`` project.
 
 ``repositories``
@@ -87,9 +87,8 @@ However, there are none in your ``hello-spring`` project.
 
 If dependencies are external libraries, then where does the source code come from?
 It comes from an external repository.  
-In this class we will be using **Maven Central**, which is a website that 
-contains files for your dependencies.
-Other repositories do exist and work in a similar way.
+In this class, we will be using Maven Central, a website containing files for any dependencies. 
+Other repositories do exist and work similarly.
 
 In the ``build.gradle`` file we link up with Maven Central by using the ``repositories`` method.
 
@@ -97,8 +96,8 @@ In the ``build.gradle`` file we link up with Maven Central by using the ``reposi
 ``tests``
 ^^^^^^^^^
 
-If using testing tasks, this method holds any necessary configurations
-and dependencies for a certain test.
+This method holds any necessary configurations and 
+dependencies for a certain test if using testing tasks.
 
 .. admonition:: Note
 
@@ -126,6 +125,14 @@ Troubleshooting Tips
    However, if you update ``build.gradle`` and the icon does not appear, you can manually refresh the build.
    **Mac** Users try  *Shift + Command + I* and **Windows/Linux** Users: try *Control + Shift + O*.
    For more on Gradle and IntelliJ, visit this `website <https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/gradle-dependencies/>`_.
+
+**I've refreshed, but they still won't build**
+   If the refreshing above did not work, you can check out this 
+   documentation on `Maven.Importing <https://www.jetbrains.com/help/idea/maven-importing.html>`_ 
+   from IntelliJ. 
+
+   If using 2019 IntelliJ, this article might offer some help.  `Check out tip #4 <https://tomgregory.com/5-tips-for-using-gradle-with-intellij-idea-2019/>`_.
+   Not sure which version you are using look for the **About...** menu option to verify which version you are using.
 
 
 
