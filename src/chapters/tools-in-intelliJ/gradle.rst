@@ -7,7 +7,7 @@ By now you have created at least two Spring projects using Gradle.
 If you recall, Spring is the framework that will enable us to create an MVC application.
 When we created each project, we selected "Gradle Project", but what is Gradle?
 
-Gradle is an **automated build tool** that is responsible for tasks like:
+Gradle is an **automated build tool** that handles tasks like:
    - Compiling source code
    - Managing Dependencies
    - Testing protocols
@@ -18,134 +18,128 @@ So far we have included Gradle in our Spring Boot projects.
 .. admonition:: Note
 
    You can also import Gradle using the terminal. 
-   Instruction on that is beyond the scope of this class, 
-   but there is `documentation <https://spring.io/guides/gs/gradle/>`_ on this process if you are curious.
+   Instruction on that is beyond the scope of this class.
+   Here is `documentation <https://spring.io/guides/gs/gradle/>`_ on this process if you are curious.
 
 
 How Gradle Works
 ----------------
 
-A Gradle **project** contains all of the tasks, and plugins needed to build your application.
-When you boot and run your Gradle project, it follows a build script that is contained in the ``build.gradle`` file.
+A Gradle build represents one or more **projects**.  
+Projects are craeted from a series of **tasks**.  
+Gradle manages tasks based on their function in the build.  
+Some tasks run tests, some compile, etc. 
+Gradle organizes these tasks in the ``build.gradle`` file. 
 
 ``build.gradle``
 ^^^^^^^^^^^^^^^^
 
-The ``build.gradle`` file is the project build script.  
-This file holds any plugins, configurations, repositories, dependencies, and tests needed to run your project.
+The ``build.gradle`` file is the project build script. 
 Gradle will refer to this file as it runs through the task list to build the application.  
+You can code tasks into this file or you can import tasks into this file.
+
+If we are using external tasks, we use methods to group tasks by functionality in this file. 
+Tasks call the methods to execute a task or series of tasks to build the project.
+You are also allowed code directly in the build file, but this is more common if you are creating a Gradle project from scratch.
+ 
+.. admonition:: Note
+   
+   Spring Boot populated this file as it initialized your ``hello-spring`` and ``hello-spring-demo`` builds. 
+   
+   Open your build.gradle file and look at each section.
+
+
+``tasks`` and ``plugins``
+*************************
+
+As stated earlier, Gradle builds a project by running tasks.  
+These tasks are kept in a task method that calls them when needed. 
+The task method is where you create tasks.   
+
 
 .. admonition:: Note
    
-   When you created your ``hello-spring`` and ``hello-spring-demo`` projects, 
-   Spring Boot populated this file as the projects were initialized.
-   Open your ``build.gradle`` file and look at each section.  
+  ``hello-spring`` has a task method that runs a test.
 
-
-Gradle holds all plugins, tasks, dependencies, configurations, repos, 
-and tests in methods, as needed, for better organization.  
-To create your own or import from outside sources, you add code to the appropriate method.
-
-``tasks`` and ``plugins``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Gradle builds a project by running **tasks**.
-A task is a single step required to build and run your application.  
-Each task belongs to a project and contains a sequence of action objects that execute when called. 
-
-You can create your tasks for a project or import tasks by using **plugins** into the ``build.gradle`` file.
-Plugins contain all of the necessary tasks and scripts to extend a project's capabilities.
-Plugins will often require **dependencies** and external **repositories**.
-You have worked with plugins already with your Spring Boot framework projects.
-
-``dependencies``
-^^^^^^^^^^^^^^^^
-
-``dependencies`` are external libraries or artifacts of code that are needed to build your project.  
-To keep ``dependencies`` organized, Gradle often groups related ``dependencies`` together in ``configurations``.
-Often you will see the ``configuration`` name then ``dependency`` information. 
+Often you will import tasks from an external resource as **plugins**.  
+Plugins contain any necessary tasks and scripts to extend a project’s capabilities.  
+Plugins often need **dependencies** and external **repositories**.  
 
 .. admonition:: Note
 
-  Your ``hello-spring`` and ``hello-spring-demo`` projects each have three dependencies with three different configurations.
+   Both of your Spring Boot framework projects contain plugins.
+
+``dependencies``
+****************
+
+``dependencies`` are external code libraries used by tasks to build your project.  
+Gradle often groups related dependencies together in ``configurations``.  
+In the ``dependencies`` method, the configuration name proceeds the dependency information.
+
+.. admonition:: Note
+
+   Both of your ``hello-spring`` and ``hello-spring-demo`` projects have three dependencies. 
+   Note that each dependency has its own configuration name.
 
 ``configurations``
-^^^^^^^^^^^^^^^^^^
+******************
 
-Some projects contain a separate ``configurations`` method.  
-This is another level of bundling dependencies within a project.  
-In your ``hello-spring-demo`` project, the ``build.gradle`` file contains a ``configurations`` method. 
-However, there are none in your ``hello-spring`` project.
+Some projects contain a stand-alone ``configurations`` method. 
+This method bundles dependencies together based on their role in the build.  
+Dependency configurations can extend from one another, reducing redundancies within your code.
+   
+.. admonition:: Note
+
+   In the ``hello-spring-demo`` project, the ``build.gradle`` file contains a configurations method.  
+   The ``hello-spring`` project does not.
+
+``repositories``
+****************
+
+Where do we get the source code if dependencies are external libraries?  
+It comes from an external repository site, such as Maven Central.  
+Maven Central is a repository website that contains files for dependencies.  
+This is not the only external repository.  Other repositories work the same as Maven Central.
+In the ``build.gradle`` file we link up with Maven Central by using the ``repositories`` method.
 
 .. admonition:: Note 
 
-   In your ``hello-spring`` project, there is no separate configurations method.
-   However, there is one in your ``hello-spring-demo`` project.
-
-``repositories``
-^^^^^^^^^^^^^^^^
-
-If dependencies are external libraries, then where does the source code come from?
-It comes from an external repository.  
-In this class, we will be using Maven Central, a website containing files for any dependencies. 
-Other repositories do exist and work similarly.
-
-In the ``build.gradle`` file we link up with Maven Central by using the ``repositories`` method.
-
+   You will see repositories in both of your Spring Boot projects.
 
 ``tests``
-^^^^^^^^^
+*********
 
-This method holds any necessary configurations and 
-dependencies for a certain test if using testing tasks.
+The test method holds any necessary configurations and dependencies needed for testing. 
 
 .. admonition:: Note
 
-   In your ``hello-spring`` and ``hello-spring-demo`` projects
-   the ``build.gradle`` file was created by Spring Boot which 
-   populated most of the file.
-
-   This is not always the case depending on how you create a Gradle project.  
+   Both of your projects have tests. 
+   One uses a test method while the other uses the test as part of a task.   
 
 Troubleshooting Tips
 --------------------
 
 **My dependencies won't build**
-   In this class, we are using IntelliJ as our IDE to build our Gradle projects.
-   IntelliJ's built-in IntelliSense should prompt you to refresh your ``build.gradle`` 
-   whenever you change the file.  You should see a small icon appear in the 
-   top right corner of the ``build.gradle`` file.  If you click on the icon, it will
-   refresh your build.  
+   We are using IntelliJ as our IDE to build our Gradle projects for this class. 
+   IntelliJ’s built-in IntelliSense should prompt you to refresh your build.gradle whenever 
+   you change a file. You should see a small icon appear in the top right corner of the build.gradle file. 
+   If you click on the icon, it will refresh your build.
 
    .. figure:: figures/gradle-refresh-point.png
-      :alt: Gradle Refresh Icon
+      :alt: Close up of the refresh icon
 
       The refresh icon should appear whenever you make changes to your project.
 
-   However, if you update ``build.gradle`` and the icon does not appear, you can manually refresh the build.
-   **Mac** Users try  *Shift + Command + I* and **Windows/Linux** Users: try *Control + Shift + O*.
+   If you update build.gradle and the icon does not appear, you can manually refresh the build. 
+   **Mac Users** try *Shift + Command + I* and **Windows/Linux Users** try *Control + Shift + O*.
+   
    For more on Gradle and IntelliJ, visit this `website <https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/gradle-dependencies/>`_.
 
 **I've refreshed, but they still won't build**
-   If the refreshing above did not work, you can check out this 
-   documentation on `Maven.Importing <https://www.jetbrains.com/help/idea/maven-importing.html>`_ 
-   from IntelliJ. 
-
+   Read IntelliJ's  documentation on `Maven.Importing <https://www.jetbrains.com/help/idea/maven-importing.html>`_ 
+ 
    If using 2019 IntelliJ, this article might offer some help.  `Check out tip #4 <https://tomgregory.com/5-tips-for-using-gradle-with-intellij-idea-2019/>`_.
-   Not sure which version you are using look for the **About...** menu option to verify which version you are using.
-
-
-
-
-
-Let's Recap
------------
-
-Gradle contains all code required to build an application.  
-This includes code that you create as well as code from outside sources.
-Gradle runs through each task, using code from you or external sources.
-Tests the build and then packages it up for deployment.  
-If everything goes to plan, you should have a functional application.
+   Not sure which version you are using, look for the **About...** menu option to verify which version you are using.
 
 
 Check Your Understanding
