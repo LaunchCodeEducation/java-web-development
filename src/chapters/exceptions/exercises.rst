@@ -2,6 +2,7 @@ Exercises: Exceptions
 =====================
 
 To get started, ensure that you have properly forked and cloned this `repo <https://github.com/LaunchCodeEducation/java-web-dev-exceptions>`_ from Github. 
+The starter code is in the ``exercises`` package inside ``org.launchcode``.
 
 Divide By Zero!
 ---------------
