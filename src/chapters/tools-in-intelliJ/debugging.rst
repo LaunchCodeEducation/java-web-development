@@ -34,6 +34,8 @@ Control the Flow of Execution
 - **Step-over** button executes a given line then steps to the next executable line
 - **Step-into** button allows you to review a called method and see what is going to line within the method
 - **Step-out-of** button allows you to move out of the method you stepped into and resume stepping through the main code
+- **Variables Pane** allows you to examine how variables are manipulated within your code.  Also allows you to identify specific *Watch expressions*
+- **Frames Pane** tracks any method calls and threads in your code line by line.  Best used with breakpoints.
 
 Advantage of Debugger Over Printing to the Console
 --------------------------------------------------
