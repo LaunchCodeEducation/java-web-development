@@ -104,6 +104,8 @@ do in the chapter exercises.
    When creating your classes, think about the behaviors that you want to
    make available, as well as the access level of those methods.
 
+.. _static-methods-demo:
+
 Static Methods
 --------------
 

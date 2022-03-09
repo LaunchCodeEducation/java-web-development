@@ -17,6 +17,7 @@ Chapters
    chapters/spring-intro/index
    chapters/spring-controllers-and-routes/index
    chapters/exceptions/index
+   chapters/tools-in-intelliJ/index
    chapters/thymeleaf-views/index
    chapters/spring-model-classes/index
    chapters/spring-model-validation/index
