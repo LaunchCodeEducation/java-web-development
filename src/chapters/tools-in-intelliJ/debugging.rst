@@ -13,7 +13,7 @@ You should have already downloaded this code from the ``java-web-dev-exercises``
 .. admonition:: Note
 
    The video is using an older version of IntelliJ.  
-   The overall functionality of the debugging pane is still there; however, 
+   The overall functionality of the debugging pane is still there, however, 
    you may have to explore the location of buttons.  
    We recommend hovering over each icon and looking at the names of each.
 
