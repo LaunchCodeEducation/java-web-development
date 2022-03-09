@@ -8,7 +8,7 @@ If you recall, Spring is the framework that will enable us to create an MVC appl
 When we created each project, we selected "Gradle Project", but what is Gradle?
 
 Gradle is an **automated build tool** that handles tasks like:
-   - Compiling source code
+
    - Managing dependencies
    - Testing protocols
    - Packaging the executable program for deployment.
@@ -47,6 +47,7 @@ You are also allowed code directly in the build file, but this is more common if
    Spring Boot populated this file as it initialized your ``hello-spring`` and ``hello-spring-demo`` builds. 
    
    Open your ``build.gradle`` file and look at each section.
+
 
 
 ``tasks`` and ``plugins``
