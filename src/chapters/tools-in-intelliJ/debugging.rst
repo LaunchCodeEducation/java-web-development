@@ -20,7 +20,7 @@ You should have already downloaded this code from the ``java-web-dev-exercises``
    IntelliJ has `documentation and videos <https://www.jetbrains.com/help/idea/debugging-code.html#df9fd13c>`_ exploring their debugger if you are curious.
 
 Steps to Find and Diagnose Logical Bugs
----------------------------------------
+--------------------------------------- 
 
 - Set a **breakpoint** where you want to pause the execution of the code. This will provide a more detailed look at what the program is doing at this point.  Right-click in the text editing window to add a breakpoint to your code.
 - Run your program in **Debug** mode
