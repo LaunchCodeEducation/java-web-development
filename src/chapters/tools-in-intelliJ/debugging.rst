@@ -13,14 +13,15 @@ You should have already downloaded this code from the ``java-web-dev-exercises``
 .. admonition:: Note
 
    The video is using an older version of IntelliJ.  
-   The overall functionality of the debugging pane is still there; however, 
+
+   The overall functionality of the debugging pane is still there, however, 
    you may have to explore the location of buttons.  
    We recommend hovering over each icon and looking at the names of each.
 
    IntelliJ has `documentation and videos <https://www.jetbrains.com/help/idea/debugging-code.html#df9fd13c>`_ exploring their debugger if you are curious.
 
 Steps to Find and Diagnose Logical Bugs
----------------------------------------
+--------------------------------------- 
 
 - Set a **breakpoint** where you want to pause the execution of the code. This will provide a more detailed look at what the program is doing at this point.  Right-click in the text editing window to add a breakpoint to your code.
 - Run your program in **Debug** mode
@@ -36,6 +37,7 @@ Control the Flow of Execution
 - **Step-out-of** button allows you to move out of the method you stepped into and resume stepping through the main code
 - **Variables Pane** allows you to examine how variables are manipulated within your code.  Also allows you to identify specific *Watch expressions*
 - **Frames Pane** tracks any method calls and threads in your code line by line.  Best used with breakpoints.
+
 
 Advantage of Debugger Over Printing to the Console
 --------------------------------------------------
