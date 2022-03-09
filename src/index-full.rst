@@ -15,6 +15,7 @@ Chapters
    chapters/interfaces-and-polymorphism/index
    chapters/spring-intro/index
    chapters/spring-controllers-and-routes/index
+   chapters/exceptions/index
    chapters/thymeleaf-views/index
    chapters/spring-model-classes/index
    chapters/spring-model-validation/index
@@ -44,6 +45,7 @@ Studios
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
    chapters/spring-controllers-and-routes/studio
+   chapters/tools-in-intelliJ/index
    chapters/thymeleaf-views/studio
    chapters/spring-model-classes/studio
    chapters/sql-part1/studio
