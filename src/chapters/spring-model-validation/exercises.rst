@@ -26,6 +26,6 @@ Event information to add:
 #. Add a field to collect information about the number of attendees for the event. Valid values for this 
    field should be any number over zero.
 
-#. Browse the validation annotations to find one to use on another new field of your choosing.
+#. Browse the validation annotations to find one to use on another new field of your choosing. 
 
 
