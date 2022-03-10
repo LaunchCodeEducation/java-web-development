@@ -5,4 +5,3 @@ Java Web Dev Software Installations
    :maxdepth: 2
 
    intellij-install
-   sql-install

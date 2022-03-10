@@ -1,7 +1,7 @@
 Types of Relationships
 ======================
 
-Just as data in different database tables :ref:`can have relationships <one-to-many-sql>` to each other, so can classes and objects. In fact, relationships between objects will translate into relationships between rows in a database when using ORM. 
+Just as data in different database tables `can have relationships <https://education.launchcode.org/SQL/chapters/mysql-part-2/relationships.html#one-to-many-relationships>`_ to each other, so can classes and objects. In fact, relationships between objects will translate into relationships between rows in a database when using ORM. 
 
 This chapter introduces the tools needed to create meaningful relationships using ORM. Before considering how to do this with Spring Boot, however, let's consider the different types of relationships at a conceptual level. 
 

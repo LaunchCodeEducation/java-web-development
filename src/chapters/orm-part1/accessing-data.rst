@@ -2,7 +2,7 @@ Accessing Data
 ==============
 
 Now that we have connected our Java application to a MySQL database, we need to set up our Java classes and interfaces.
-In the previous chapters, we learned about performing CRUD operations on a database and its tables.
+In the previous lessons, we learned about performing `CRUD operations <https://education.launchcode.org/SQL/chapters/mysql-part-1/queries.html>`_ on a database and its tables.
 One of the reasons we use ORM is so that now we can write Java code in our application to manage our relational database.
 
 .. index:: ! persistent class, ! entity class, ! @Entity, ! @Id, ! @GeneratedValue

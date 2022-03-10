@@ -33,11 +33,3 @@ Persistence
 -----------
 
 Graded assignment #4: :ref:`Work on TechJobs (Persistent Edition) <tech-jobs-persistent>`.
-
-
-Assignment #5
--------------
-
-Graded assignment #5:
-
-   Coming Soon ...
