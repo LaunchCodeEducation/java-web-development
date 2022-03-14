@@ -4,6 +4,50 @@ Conditionals
 Control flow statements in Java --- conditionals and loops --- are very
 straightforward.
 
+.. index:: ! Operators
+
+Operators
+---------
+
+Before we review the syntax for conditionals, let's go over the comparison and logical operators that we need to use in control flow statements.
+
+Comparison Operators
+^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: Comparison Operators
+   :header-rows: 1
+
+   * - Operator
+     - Description
+   * - ``==``
+     - Checks if two items are equal
+   * - ``!=`` 
+     - Checks if two items are not equal
+   * - ``<``
+     - Checks if item on left is lesser than item on right
+   * - ``<=``
+     - Checks if item on left is lesser than or equal to item on right 
+   * - ``>``
+     - Checks if item on left is greater than item on right 
+   * - ``>=``
+     - Checks if item on left is greater than or equal to item on right 
+
+Logical Operators
+^^^^^^^^^^^^^^^^^
+
+.. list-table:: Logical Operators
+   :header-rows: 1
+
+   * - Operator
+     - Description
+   * - ``&&``
+     - Combines two expressions with AND, returns true if both statements are true
+   * - ``||``
+     - Combines two expressions with OR, returns true if at least one of the statements is true
+   * - ``!``
+     - Reverses the evaluation of the operand, returns false if the result is true
+   
+
 .. index:: ! if statement
 
 ``if`` Statements
@@ -306,8 +350,10 @@ The output:
 
 
 References
-----------
+---------- 
 
+-  `Operators
+   (docs.oracle.com) <https://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html>`__
 -  `The if-then and if-then-else Statements
    (docs.oracle.com) <http://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html>`__
 -  `The switch Statement
