@@ -77,7 +77,7 @@ structure to display the data delivered by the controller, and the template
 guides where that information goes. This provides much more flexibility than
 hard-coding, since data can change based on a user's actions.
 
-.. sourcecode:: guess
+.. sourcecode:: html
    :linenos:
 
    <body>
@@ -93,6 +93,7 @@ hard-coding, since data can change based on a user's actions.
          <a {templateInstructions}></a>
       </div>
    </body>
+
 
 This HTML looks similar to the previous example, but it replaces some of the
 code with *instructions*.
