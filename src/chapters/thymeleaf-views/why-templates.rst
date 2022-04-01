@@ -77,7 +77,7 @@ structure to display the data delivered by the controller, and the template
 guides where that information goes. This provides much more flexibility than
 hard-coding, since data can change based on a user's actions.
 
-.. sourcecode:: html
+.. sourcecode:: bash
    :linenos:
 
    <body>
