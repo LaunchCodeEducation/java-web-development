@@ -71,6 +71,7 @@ Appendices
 .. toctree::
    :maxdepth: 1
    :name: appendicestoc
+<<<<<<< HEAD
 
    appendices/about-this-book
    appendices/spring/thymeleaf
@@ -82,3 +83,5 @@ Appendices
    todos
    index-full
    glossary
+=======
+>>>>>>> upstream/master
