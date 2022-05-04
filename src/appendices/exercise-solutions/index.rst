@@ -16,8 +16,6 @@ Exercise Solutions
    spring-model-classes
    spring-model-validation
    enums
-   sql-part1
-   sql-part2
    orm-part1
    orm-relationships
    
