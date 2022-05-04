@@ -1,6 +1,6 @@
 from docutils import nodes
 from docutils.parsers.rst import directives, Directive
-from sphinx.directives import CodeBlock
+from sphinx.directives.code import CodeBlock
 
 
 def setup(app):

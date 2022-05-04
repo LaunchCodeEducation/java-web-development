@@ -141,6 +141,8 @@ setters to control access. Here are just a few:
    without getters and setters, which could only be public to everyone
    or package-private to everyone.
 
+.. _temperature-class:
+
 As an example of reason 2, let’s take a short detour to look at a
 ``Temperature`` class. A valid temperature can only be so low (“absolute
 zero”), so we wouldn’t want to allow somebody to set an invalid value.

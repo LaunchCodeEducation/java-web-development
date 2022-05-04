@@ -15,12 +15,11 @@ Chapters
    chapters/interfaces-and-polymorphism/index
    chapters/spring-intro/index
    chapters/spring-controllers-and-routes/index
+   chapters/exceptions/index
    chapters/thymeleaf-views/index
    chapters/spring-model-classes/index
    chapters/spring-model-validation/index
    chapters/enums/index
-   chapters/sql-part1/index
-   chapters/sql-part2/index
    chapters/orm-part1/index
    chapters/orm-relationships/index
    chapters/auth/index
@@ -44,10 +43,9 @@ Studios
    chapters/inheritance/studio
    chapters/interfaces-and-polymorphism/studio
    chapters/spring-controllers-and-routes/studio
+   chapters/tools-in-intelliJ/studio
    chapters/thymeleaf-views/studio
    chapters/spring-model-classes/studio
-   chapters/sql-part1/studio
-   chapters/sql-part2/studio
    chapters/orm-part1/studio
    chapters/auth/studio
 
