@@ -436,14 +436,9 @@ Test It with SQL
 Run your application and make sure you can create a new job with an employer and several skills. You should now also have restored
 full list and search capabilities.
 
-#. **SQL TASK:** In ``queries.sql`` under "Part 4", write a query to return a list of all fields of all skills that are attached to jobs in alphabetical order by name.
+#. **SQL TASK:** In ``queries.sql`` under "Part 4", write a query to return the names of all skills that are attached to jobs in alphabetical order.
    If a skill does not have a job listed, it should not be
    included in the results of this query.
-
-   .. admonition:: Tip
-
-      You will need to make use of "is not null".
-
 
 When everything works, you’re done! Congrats!
 
