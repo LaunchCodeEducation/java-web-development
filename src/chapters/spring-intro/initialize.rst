@@ -36,8 +36,7 @@ Initialize a Spring Boot Project - Text
 #. Go to `start.spring.io <https://start.spring.io/>`__.
 #. For *Project*, select *Gradle Project*.
 #. For *Language*, select *Java*.
-#. For *Spring Boot*, select *2.4.x* (that is, the most
-   recent non-SNAPSHOT release).
+#. For *Spring Boot*, select the most recent non-SNAPSHOT release.
 #. For *Project Metadata/Group*, enter ``org.launchcode``.
 
    .. note::
