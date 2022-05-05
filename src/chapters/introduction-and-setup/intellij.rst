@@ -19,7 +19,7 @@ Select your operating system and the Community version. Follow the installation
 prompts to select your settings. 
 
 When you reach the window asking for *Installation Options*, select the
-*64-bit launcher* and *Add launchers dir to the PATH* boxes. Click *Next*. If
+*Add "bin" folder to the PATH* box. Click *Next*. If
 you are asked for any other input, accept the default options.
 
 .. figure:: figures/ij-install-options.png
