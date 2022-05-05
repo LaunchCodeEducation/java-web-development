@@ -7,7 +7,7 @@ implement the
 IO <https://spring.io/>`__.
 
 As you code along with the videos, you will be working on your own project. Should you want to review a step or double-check 
-your code, fork LaunchCode’s ``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on 
+your code, fork LaunchCode's ``hello-spring-demo`` repository to see what the code looked like at each stage. The repository is up on 
 `Github <https://github.com/LaunchCodeEducation/hello-spring-demo/tree/starter>`__. The ``starter`` branch contains 
 the code after creation and also shows the starting point for the next chapter.
 
@@ -110,7 +110,7 @@ The Spring Project Structure
 The Spring Initializr gives us a number of helpful files and
 directories to get our Spring project up and running.
 
-Within the ``src`` directory, you’ll find a familiar setup with both a ``main`` and
+Within the ``src`` directory, you'll find a familiar setup with both a ``main`` and
 ``test`` directory. Inside of ``main`` will be a ``java`` folder to house your packages and
 classes. Inside the ``java`` folder is a ``HelloSpringApplication``. Opening this for the first
 time, you'll likely see some import errors that can be resolved by clicking on the context menu
@@ -118,7 +118,7 @@ to add the corresponding library to the classpath. Expanding the main method sho
 that allows the application to run. We'll run the app in the section below but won't be working with
 much else with the main method in this course.
 
-You’ll also find that there is a ``resources`` folder in ``main``. ``resources`` is
+You'll also find that there is a ``resources`` folder in ``main``. ``resources`` is
 meant to hold your non-java code.
 
 Outside of ``src``, a ``.gitignore`` contains the basic items of our project that
@@ -146,7 +146,7 @@ Do you remember specifying the dependencies of the Spring project? Scroll down t
       implementation 'org.springframework.boot:spring-boot-starter-web'
       developmentOnly 'org.springframework.boot:spring-boot-devtools'
       testImplementation('org.springframework.boot:spring-boot-starter-test') {
-         exclude group: 'org.junit.vintage’, module: ‘junit-vintage-engine'
+         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
       }
    }
 
@@ -177,7 +177,7 @@ Before running your project, we need to check the configuration of a few items.
 Running a Spring Project
 ------------------------
 
-To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don’t see the Gradle side bar,
+To run the application, click on the Gradle icon on the side of your IntelliJ window. If you don't see the Gradle side bar,
 click the panel icon in the bottom left corner of your window and select *Gradle*.
 
 .. figure:: figures/panel-icon.png
@@ -232,7 +232,7 @@ You'll also notice a message above:
 
 Tomcat is the embedded web server within your Spring application. So this tells us that Tomcat is listening
 for requests on local port 8080. You can then visit the corresponding web page at ``localhost:8080``.
-Right now, you’ll see an error page, but we’ll fix that soon.
+Right now, you'll see an error page, but we'll fix that soon.
 Now go ahead and stop the application by hitting the red square on the left side of the *Run* pane.
 
 .. tip::
