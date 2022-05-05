@@ -22,7 +22,7 @@ assignment of this unit.
       
       #. **Mac users**: Select
          *IntelliJ > Preferences > Appearance & Behavior > System Settings* and
-         un-check *Reopen last project on startup*.
+         un-check *Reopen projects on startup*.
       #. **Windows users**: Use *File > Settings > Appearance & Behavior > System
          Settings*.
 
