@@ -1,5 +1,5 @@
 Thymeleaf Forms
-================
+===============
 
 Templates allow you to build generic forms. This lets you reuse the structure
 by rendering the same template with different labels and data. Thus, a single
@@ -21,13 +21,8 @@ Your new project will keep track of some fictional coding events.
 #. Follow the steps you used to setup
    :ref:`hello-spring <initialize-spring-boot-project>`, but call the new
    project ``coding-events``.
-#. Be sure to add the *Thymeleaf* dependency in addition to *Spring Web*, and
-   *Spring Boot DevTools*.
-
-   .. figure:: ./figures/codingEventsInit.png
-      :alt: Initialize ``coding-events`` project.
-      :scale: 80%
-
+#. Add the *Thymeleaf* dependency in addition to *Spring Web*, *Spring Boot DevTools*, and
+   *Validation*.
 #. *Generate* the ``.zip`` file and then import it into IntelliJ.
 
 Coding Events Setup - Video
@@ -47,8 +42,8 @@ coding along with the videos below:
    presented in this video is found on the
    `starter branch of coding-events-demo <https://github.com/LaunchCodeEducation/coding-events/tree/starter>`__. 
    
-   We recommend that you create your own version of ``coding-events`` from `Spring Initializer <https://start.spring.io/>`__ and refer to the video and this branch
-   to replicate our code. You may also fork and clone from the ``coding-events-demo`` project.
+   You should create your own version of ``coding-events`` from `Spring Initializer <https://start.spring.io/>`__ and refer to the video and this branch
+   to replicate our code. You may fork and clone from the ``coding-events-demo`` project for reference.
 
 Coding Events Setup - Text
 --------------------------

@@ -42,30 +42,10 @@ In this project, you’ll show that you can:
 Get the Starter Code
 ---------------------
 
-#. Set up a local copy of the project. Visit the
-   `repository page <https://github.com/LaunchCodeEducation/java-web-dev-techjobs-oo.git>`__
-   for this project and fork the repo to create a copy in your own GitHub
-   account.
-#. Open IntelliJ (if IntelliJ is currently open, close the current project).
-#. If the app opens up to an existing project, close it.
+In Canvas, **Graded Assignment #2: TechJobs (Object-Oriented Edition)** contains a GitHub Classroom assignment invitation link and then set up the project in IntelliJ. Refer back to the GitHub Classroom instructions from :ref:`assignment0` for details. 
 
-   .. admonition:: Tip
-
-      To prevent IntelliJ from defaulting to the last open project, select
-      *IntelliJ > Preferences >  Appearance & Behavior > System Settings* and
-      uncheck *Reopen last project on startup*.
-
-#. From the “Welcome to IntelliJ” dialog box, select *Check out from Version
-   Control > Git*.
-#. Choose your fork from the repository dropdown, select the parent directory
-   where you’d like to store your project, and hit *Clone*.
-#. In the screens that follow:
-
-   a. Choose *Create Project From Existing Sources* on the first pane.
-   b. Select the defaults in all the other panes.
-
-TechJobs (Object-Oriented Edition)
------------------------------------
+Introduction
+-------------
 
 Sally has gotten the ball rolling by adding a ``Job`` class, along with classes
 to represent the individual properties of a job: ``Employer``, ``Location``,
@@ -172,6 +152,32 @@ difficult moving forward.
 
 Your Assignment
 ---------------
+
+.. _assignment-2-autograding:
+
+Running the Autograding Tests
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before diving into your tasks, review :ref:`assignment0` for details on running the autograding tests for this assignment. This assignment has many more tests than the previous two, so we've organized them into separate files.
+
+.. image:: figures/test-files.png
+
+Each of the one test files, ``TestTaskXXXX``, contains the tests to grade one of the six tasks outlined in below (there's no coding work for your first task, so there is no ``TestTaskOne``). Run *all* of the tests by right-clicking on the ``org.launchcode.techjobs.oo`` and selecting ``Run tests...``
+
+.. image:: figures/run-all-tests2.png
+
+You should see a large number of failures along with a small number of passing tests. Your job is to get those failures to pass, while not breaking the few tests that already pass. 
+
+.. image:: figures/initial-failing-tests.png
+
+When you start on one of the tasks below, begin by running *only* the tests associated with that task. To do so, right-click on the test file and select *Run TestTaskXXXX*. 
+
+.. image:: figures/run-tests-single-task.png
+
+As you work on the components of the given tasks, continually re-run the tests to see the failing tests gradually turn to passing. When all tests within the file pass, you're ready to move onto the next task. 
+
+Your tasks
+^^^^^^^^^^
 
 The list below provides a general overview of your assigned tasks. Specific
 details for each part appear in the following sections, so be sure to read them
@@ -318,7 +324,7 @@ else.
 #. Code a second constructor that takes 5 parameters and assigns values to
    ``name``, ``employer``, ``location``, ``positionType``, and
    ``coreCompetency``. Also, this constructor should call the first in order to
-   initialize the ``id`` field.
+   initialize the ``id`` field. Make sure the parameters are defined in the specified order.
 #. Generate getters and setters for each field EXCEPT ``nextID`` and ``id``.
 #. Generate a getter for the ``id`` field.
 #. Generate the ``equals`` and ``hashCode`` methods. Consider two ``Job``
@@ -334,29 +340,57 @@ else.
 Instead of manually creating sample ``Job`` objects to verify that your class
 works correctly, you will use unit tests instead.
 
-Create a new package inside the ``techjobs_oo`` folder called ``Tests``, then
-create a new class inside this folder called ``JobTest``. The file will
-hold all of the tests for the ``Job`` class.
+Navigate to the package ``org.launchcode.techjobs.oo.test`` package and open the ``JobTest`` class. This file will hold all of the tests for the ``Job`` class.
+
+Creating a JUnit Run Configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since this project contains two sets of tests used for different purposses---the autograding tests and the JUnit tests you are about to write---we have to set up a **run configuration** to allow us to run them independently. We'll show you how to do that now.
+
+At the top right of IntelliJ, select *Add Configuration*, just left of the green *Run* button. 
+
+.. image:: figures/add-configuration.png
+   :alt: The Add Configuration item
+
+If this item doesn't have the label *Add Configuration*, then open the associated dropdown and select *Edit Configurations*.
+
+.. image:: figures/edit-configurations.png
+   :alt: The Edit Configurations item in the configurations menu
+
+In the modal that opens, click on the *+* icon at the top left, and select *JUnit*.
+
+.. image:: figures/select-junit-configuration.png
+   :alt: Choose JUnit from the Add Configuration menu
+
+Fill out the resulting form using the values:
+
+#. **Name**: JobTest
+#. **Java version**: Java 11
+#. **Module**: ``techjobs-oo.main``
+#. **Class**: ``org.launchcode.techjobs.oo.test.JobTest`` (Click on the icon at the right side of this field and select the ``JobTest`` class from the modal that opens.)
+
+.. image:: figures/junit-run-configuration.png
+   :alt: The JUnit run configuration form with the values we have entered
+
+Then hit *Apply* and *OK*.
+
+To run the tests, select the *JobTest* configuration from the configurations menu and hit the green *Run* button.
+
+.. image:: figures/running-junit-config.png
+   :alt: Selecting and running our JUnit configuration
+
+Now you're ready to start writing some tests!
 
 Test the Empty Constructor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Each ``Job`` object should contain a unique ID number, and these should also be
-sequential integers.
+Each ``Job`` object should have a unique ID that is an integer.
 
 #. In ``JobTest``, define a test called ``testSettingJobId``. Do not
    forget to annotate it with ``@Test``.
 #. Create two ``Job`` objects using the empty constructor.
-
-   .. admonition:: Note
-
-      Instead of creating the ``Job`` objects inside the test method, you could
-      declare and initialize them using ``@Before``.
-
-#. Use ``assertEquals``, ``assertTrue``, or ``assertFalse`` to test that the
-   ID values for the two objects are NOT the same and differ by 1.
-#. Run the test to verify that your ``Job()`` constructor correctly assigns
-   ID numbers.
+#. Use ``assertNotEquals`` to verify that the IDs of the two objects are distinct.
+#. Run the test using the run configuration that you created above.
 #. If the test doesn't pass, what should be your first thought?
 
    a. "Drat! I need to fix the unit test."
@@ -387,8 +421,7 @@ these fields are ``int``, ``String``, ``Employer``, ``Location``,
 
       new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-#. Use ``assert`` statements to test that the constructor correctly assigns the
-   class and value of each field.
+#. Use ``assertTrue`` and ``assertEquals`` statements to test that the constructor correctly assigns *both* the class and value of each field. Your test should have 5 assert statements of each type.
 
    .. admonition:: Tip
 
@@ -457,8 +490,11 @@ Before writing your first test, consider how we want the method to behave:
 #. (Bonus) If a ``Job`` object ONLY contains data for the ``id`` field, the
    method should return, "OOPS! This job does not seem to exist."
 
-In ``JobTest``, add a new test to check the first requirement, then run
-that test (it should fail).
+In ``JobTest``, add a new test named ``testToStringStartsAndEndsWithNewLine`` to check the first requirement. Be sure to use ``assertEquals`` to verify that these characters are correct, and to use the exact formatting demonstrated above.
+
+.. admonition:: Tip
+
+   This test should check that the first and last *characters* of the string both the newline character, ``\n``. Recall that can get the character at a given position in a string using the string method ``charAt``.
 
 Woo hoo! Failure is what we want here! Now you get to fix that.
 
@@ -477,12 +513,15 @@ line, make that happen.
 Finish the TDD for ``toString``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Code a new test for the second required behavior, then run the tests to make
+#. Code a new test for the second required behavior, named ``testToStringContainsCorrectLabelsAndData``. Then run the tests to make
    sure the new one fails.
 #. Modify ``toString`` to make the new test pass. Also, make sure that your
    updates still pass all of the old tests.
-#. Continue this test-refactor cycle until all of the behaviors we want for
-   ``toString`` work. Remember to add only ONE new test at a time.
+#. Follow the same TDD process for the third requirement, creating a test named ``testToStringHandlesEmptyField``.
+
+.. admonition:: Warning
+
+   As usual, the autograding tests are very picky about capitalization and spaces, so your code should match the format shown above *exactly*.
 
 Cool! Your ``Job`` class is now complete and operates as desired.
 
@@ -505,7 +544,7 @@ Let's move all of the repeated code into a separate class. We will then have
 ``Employer``, ``Location``, ``CoreCompetency``, and ``PositionType`` *inherit*
 this common code.
 
-#. Create a new class called ``JobField``.
+#. Create a new class called ``JobField`` in the package ``org.launchcode.techjobs.oo``.
 #. Consider the following questions to help you decide what code to put in the
    ``JobField`` class:
 
@@ -572,37 +611,9 @@ Finish DRYing Your Code
 Sanity Check
 -------------
 
-Once you finish all of the tasks outlined above, all that remains is to check
-the console display.
+At this point, all autograding tests should be passing. To be sure, right-click on the ``org.launchcode.techjobs.oo`` package in ``src/test/java`` and select *Run tests in...* If any test fails, evaluate the failure/error message and go back to fix your code.
 
-Sally has provided some commented-out code in ``Main`` that prints out a small
-ArrayList of ``Job`` objects. Go ahead and activate this code and run it.
-Properly done, your output should look something like:
-
-.. sourcecode:: bash
-
-   ID: 1
-   Name: Product tester
-   Employer: ACME
-   Location: Desert
-   Position Type: Quality control
-   Core Competency: Persistence
-
-
-   ID: 2
-   Name: Web Developer
-   Employer: LaunchCode
-   Location: St. Louis
-   Position Type: Front-end developer
-   Core Competency: JavaScript
-
-
-   ID: 3
-   Name: Ice cream tester
-   Employer: Data not available
-   Location: Home
-   Position Type: UX
-   Core Competency: Tasting ability
+.. image:: figures/all-tests-passing.png
 
 Excellent! You successfully shifted the old console app into a more useful
 object oriented configuration.
@@ -616,4 +627,4 @@ How to Submit
 --------------
 
 To turn in your assignment and get credit, follow the
-:ref:`submission instructions <how-to-submit-work>`.
+:ref:`submission instructions <submitting-your-work>`.

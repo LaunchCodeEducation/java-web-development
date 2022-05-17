@@ -1,5 +1,7 @@
+.. _interfaces-and-polymorphism-exercises:
+
 Exercises: Interfaces and Polymorphism
-=======================================
+======================================
 
 As a new Java coder, it might take you some time to recognize the usefulness of
 interfaces. At first glance, these tools do not seem to provide much benefit
@@ -22,7 +24,7 @@ To help overcome this, let's consider a common occurrence---sorting an
    ``Cat`` objects, this could include ``name``, ``age``, or ``mass``.
 
 Getting Started
------------------
+---------------
 
 Work on these exercises in the IntelliJ ``java-web-dev-exercises`` project.
 You will find the starter code in the ``lsn7interfaces`` package. Go ahead and
@@ -83,6 +85,8 @@ Create a Sorting Class
 
    This returns an integer (negative, positive, or zero) depending on
    whether ``Flavor`` object ``o1`` or ``o2`` comes first, alphabetically.
+
+:ref:`Check your solution <interfaces-and-polymorphism-exercise-solutions1>`
 
 Sorting the ``flavors`` ArrayList
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,6 +178,8 @@ expensive.
       Sugar: $0.75         Wafer: $0.50
       Wafer: $0.50         Sugar: $0.75
       Bowl: $0.05          Waffle: $1.25
+
+:ref:`Check your solution <interfaces-and-polymorphism-exercise-solutions3>`
 
 Troubleshooting
 ^^^^^^^^^^^^^^^^

@@ -1,3 +1,5 @@
+.. _data-types-exercises:
+
 Exercises: Data Types
 ======================
 
@@ -113,6 +115,7 @@ Exercises
 
    #. Right-click/Control-click the arrow next to your class and run the program.
 
+   :ref:`Check your solution <data-types-exercise-solutions2a>`
 
 #. **Numeric types**: Write a program to calculate the area of a
    rectangle and print the answer to the console. You should prompt the
@@ -140,6 +143,9 @@ Exercises
 #. **Numeric types**: Write a program that asks a user for the number of
    miles they have driven and the amount of gas they’ve consumed (in
    gallons), and print their miles-per-gallon.
+
+   :ref:`Check your solution <data-types-exercise-solutions2b>`
+
 #. **Strings**: The first sentence of *Alice’s Adventures in Wonderland*
    is below. Store this sentence in a string, and then prompt the user
    for a term to search for within this string. Print whether or not the
@@ -155,7 +161,7 @@ Exercises
    .. note::
 
       You may want to write the string above on more than one line in
-      your solution. Java 15 and IntelliJ gives you a few options to do so.
+      your solution. Java 11 and IntelliJ gives you a few options to do so.
       The easiest, thanks to your IDE, is to press *Enter* as you type the string.
       IntelliJ will close the string and concatenate it with the next line to create
       one longer string.
@@ -165,3 +171,5 @@ Exercises
    remove the word from the string and print the sentence again to confirm your
    code. Remember that strings are *immutable*, so you will need to reassign
    the old sentence variable or create a new one to store the updated phrase.
+
+   :ref:`Check your solution <data-types-exercise-solutions2c>`
