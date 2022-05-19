@@ -37,6 +37,12 @@ Initialize a Spring Boot Project - Text
 #. For *Project*, select *Gradle Project*.
 #. For *Language*, select *Java*.
 #. For *Spring Boot*, select the most recent non-SNAPSHOT release.
+
+   .. note::
+
+      See the figure below this list for a visual. 
+
+
 #. For *Project Metadata/Group*, enter ``org.launchcode``.
 
    .. note::
