@@ -11,9 +11,12 @@ functionality by using Spring Data. You will be responsible for completing the c
 to create new job data.
 
 Your final application will have the same list and search capabilities as your :ref:`Tech Jobs (MVC Edition) <tech-jobs-mvc>` but
-you'll need to do the work to connect the project to a database for storing user-submitted job data.
+you'll need to do the work to connect the project to a database for storing user-submitted job data. 
 
 Each of the four sections of this assignment will also ask you to demonstrate your SQL skills under an item labelled **SQL TASK**.
+
+As you work through each part, refer to our `demo app <https://lc-java-4-demo.herokuapp.com/>`_ to clarify questions about intended application behavior.
+
 
 Checkout and Review the Starter Code
 ------------------------------------
@@ -251,6 +254,8 @@ and view them.
    #. Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.
 
    When everything works, move on to Part 3 below.
+
+Throughout your work, refer to the `demo app <https://lc-java-4-demo.herokuapp.com/>`__ as needed.
 
 .. _tech-jobs-persistent-pt3:
 
