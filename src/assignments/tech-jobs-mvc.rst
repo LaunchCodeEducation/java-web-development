@@ -318,7 +318,7 @@ open the relevant file.
    :alt: TechJobs MVC TODO list.
 
 As you work on your tasks, refer to the
-`demo app <https://java-web-dev-techjobs-mvc.cfapps.io/>`__.
+`demo app <https://lc-java-3-demo.herokuapp.com/>`__.
 
 2) Complete the List Views
 ---------------------------
