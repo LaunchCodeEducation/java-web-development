@@ -7,7 +7,7 @@ Exercises: Enum Practice
 
 #. Use the *Get from Version Control* option to open the project in IntelliJ.
 
-#. In the project, navigate to the data package.
+#. In the project, create a data package.
 
 #. Create a new public enum called ``Planets``.
 

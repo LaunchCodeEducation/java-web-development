@@ -14,6 +14,11 @@ Before we can authenticate users, we need users to authenticate! We'll start by 
 A ``User`` Model
 ----------------------
 
+.. admonition:: Note
+
+   You can use the `add-tags branch <https://github.com/LaunchCodeEducation/coding-events/tree/add-tags>`_ as your starting point for this section. 
+
+
 A model class representing users needs, at a minimum, fields representing username and password.
 
 In the ``models`` package, create a ``User`` class with ``@Entity`` and extending ``AbstractEntity``. It should have two string fields, ``username`` and ``pwHash``. We only need a getter for ``username``.
@@ -123,7 +128,7 @@ Spring allows for additional, custom methods to be added to repository interface
 
 .. admonition:: Note
 
-	The code for this section is available in the 
+	The final code for this section is available in the 
 	`user-model branch <https://github.com/LaunchCodeEducation/coding-events/tree/user-model>`_ 
 	of the ``coding-events-demo`` repository.
 
