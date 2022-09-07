@@ -427,8 +427,8 @@ for you but contains none of the code needed to work (you should leave the ``loa
    ``findByColumnAndValue``, since your code will look similar in some
    ways.
 
-You'll need to call ``findByValue`` from somewhere in ``main``. We'll
-leave it up to you to find where. You might have noticed that when you
+
+You might have noticed that when you
 try to search all columns using the app, a message is printed, so that
 is a good clue to help you find where to place this new method call.
 Once you find where to call your new method, you can *Run* the program
