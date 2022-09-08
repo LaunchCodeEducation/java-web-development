@@ -1,8 +1,8 @@
 Data Types
 ===========
 
-Static vs. Dynamic Typing
--------------------------
+Static vs. Dynamic Typing!
+--------------------------
 
 .. index:: ! dynamically typed, ! statically typed
 
