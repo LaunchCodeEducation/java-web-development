@@ -90,6 +90,8 @@ Run the following command, replacing the ``{filepath}`` with the file path to yo
 This command sets a path in our system for ``java`` so that we can compile and run Java programs. 
 To make use of the new ``java`` command, you may have to restart your terminal window by closing it and opening a new one.
 
+Make sure that you are in your project's directory.
+
 .. sourcecode:: bash
 
    java HelloWorld.java
