@@ -26,7 +26,7 @@ How Gradle Works
 ----------------
 
 A Gradle build represents one or more **projects**.  
-Projects are craeted from a series of **tasks**.  
+Projects are created from a series of **tasks**.  
 Gradle manages tasks based on their function in the build.  
 Some tasks run tests, some compile, etc. 
 Gradle organizes these tasks in the ``build.gradle`` file. 
