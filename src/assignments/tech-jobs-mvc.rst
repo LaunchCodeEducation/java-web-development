@@ -73,7 +73,7 @@ carefully as you solve each problem.
    to finish the rest. First, you'll create a controller method to retrieve search results.
 #. Finally, you'll display search results in the view. 
 
-Throughout your work, refer to our `demo app <https://lc-java-3-demo.herokuapp.com/>`_ as needed to clarify questions about intended application behavior.
+Throughout your work, refer to our `demo app <https://java-techjobs-mvc.launchcodetechnicaltraining.org/>`_ as needed to clarify questions about intended application behavior.
 
 Getting Started
 ----------------
