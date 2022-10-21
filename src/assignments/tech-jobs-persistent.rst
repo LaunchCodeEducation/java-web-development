@@ -15,7 +15,7 @@ you'll need to do the work to connect the project to a database for storing user
 
 Each of the four sections of this assignment will also ask you to demonstrate your SQL skills under an item labelled **SQL TASK**.
 
-As you work through each part, refer to our `demo app <https://lc-java-4-demo.herokuapp.com/>`_ to clarify questions about intended application behavior.
+As you work through each part, refer to our `demo app <https://java-techjobs-persistent.launchcodetechnicaltraining.org/>`_ to clarify questions about intended application behavior.
 
 
 Checkout and Review the Starter Code
