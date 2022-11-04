@@ -69,12 +69,12 @@ Part 1: Connect a Database to a Spring App
 #. In the administration tab, create a new user, ``techjobs`` with the same settings as described in
    the lesson tutorial. This user should have the password ``techjobs`` as well.
 
-#. Update ``build.gradle`` with the necessary dependencies. At this point, you should be able to run the tests. Run the tests in `TestTaskOne` to verify your gradle dependencies.
-
 #. Update ``src/resources/application.properties`` with the correct info. This will include
    ``spring.datasource.url`` set to the address of your database connection, as well as the username and password
    for a user you have created. Refer to the tip below for the other properties you must add to complete your
    database setup.
+   
+#. Update ``build.gradle`` with the necessary dependencies. At this point, you should be able to run the tests. Run the tests in `TestTaskOne` to verify your gradle dependencies.
 
 .. admonition:: Tip
 
