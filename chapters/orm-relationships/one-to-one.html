@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18.4. Creating a One-to-One Relationship &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18.5. Creating a Many-to-Many Relationship" href="many-to-many.html" />
+    <link rel="prev" title="18.3. Creating a One-to-Many Relationship" href="one-to-many.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">18. </span>Relationships in Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">18.4. </span>Creating a One-to-One Relationship</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="creating-a-one-to-one-relationship">
+<h1><span class="section-number">18.4. </span>Creating a One-to-One Relationship<a class="headerlink" href="#creating-a-one-to-one-relationship" title="Permalink to this headline">¶</a></h1>
+<p>We <a class="reference internal" href="types-of-relationships.html#one-to-one-def"><span class="std std-ref">defined a one-to-one relationship</span></a> between two objects, A and B, as occurring when an object of type A can be related to only one instance of an object of type B, and vice versa.</p>
+<p>Such a relationship can be configured using the JPA annotation <code class="docutils literal notranslate"><span class="pre">&#64;OneToOne</span></code>.</p>
+<div class="section" id="creating-a-one-to-one-relationship-video">
+<h2><span class="section-number">18.4.1. </span>Creating a One-to-One Relationship - Video<a class="headerlink" href="#creating-a-one-to-one-relationship-video" title="Permalink to this headline">¶</a></h2>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/0yNIbAcd4ng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-many" target="_blank">one-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-one" target="_blank">one-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="creating-a-one-to-one-relationship-text">
+<h2><span class="section-number">18.4.2. </span>Creating a One-to-One Relationship - Text<a class="headerlink" href="#creating-a-one-to-one-relationship-text" title="Permalink to this headline">¶</a></h2>
+<p>We first need a class that makes sense to relate to <code class="docutils literal notranslate"><span class="pre">Event</span></code> in a one-to-one fashion.</p>
+<div class="section" id="the-eventdetails-class">
+<h3><span class="section-number">18.4.2.1. </span>The <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> Class<a class="headerlink" href="#the-eventdetails-class" title="Permalink to this headline">¶</a></h3>
+<p id="index-0">Given a class that contains lots of metadata, it is a common design pattern is to create a class to encapsulate all such data. For example, many apps will have a <code class="docutils literal notranslate"><span class="pre">UserProfile</span></code> class to model the data associated with a <code class="docutils literal notranslate"><span class="pre">User</span></code> class, such as a profile photo, interests, connections, and so on.</p>
+<p>We will follow this pattern to create an <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> class to model the data associated with an <code class="docutils literal notranslate"><span class="pre">Event</span></code>. This will provide a great opportunity to set up a one-to-one relationship. And while we don’t have a lot of data associated with events yet, this will set up our application to grow as we add more.</p>
+<p>To start, create a new class in the <code class="docutils literal notranslate"><span class="pre">models</span></code> packaged named <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code>. Like all of our model classes, it should be annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> and extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Then move the <code class="docutils literal notranslate"><span class="pre">description</span></code> and <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> fields out of <code class="docutils literal notranslate"><span class="pre">Event</span></code> and into <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code>. Finally, add constructors and accessor methods.</p>
+<p><code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> now looks like this:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EventDetails</span> <span class="kd">extends</span> <span class="n">AbstractEntity</span> <span class="p">{</span>
+
+   <span class="nd">@Size</span><span class="p">(</span><span class="n">max</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Description too long!&quot;</span><span class="p">)</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="p">;</span>
+
+   <span class="nd">@NotBlank</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Email is required&quot;</span><span class="p">)</span>
+   <span class="nd">@Email</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Invalid email. Try again.&quot;</span><span class="p">)</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">contactEmail</span><span class="p">;</span>
+
+   <span class="kd">public</span> <span class="nf">EventDetails</span><span class="p">(</span><span class="n">String</span> <span class="n">description</span><span class="p">,</span> <span class="n">String</span> <span class="n">contactEmail</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">contactEmail</span> <span class="o">=</span> <span class="n">contactEmail</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="nf">EventDetails</span><span class="p">()</span> <span class="p">{}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getDescription</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">description</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDescription</span><span class="p">(</span><span class="n">String</span> <span class="n">description</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">description</span> <span class="o">=</span> <span class="n">description</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getContactEmail</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">contactEmail</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setContactEmail</span><span class="p">(</span><span class="n">String</span> <span class="n">contactEmail</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">contactEmail</span> <span class="o">=</span> <span class="n">contactEmail</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Back in the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, clean up by removing all references to <code class="docutils literal notranslate"><span class="pre">description</span></code> and <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code>.</p>
+</div>
+<div class="section" id="relating-eventdetails-to-event">
+<h3><span class="section-number">18.4.2.2. </span>Relating <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> to <code class="docutils literal notranslate"><span class="pre">Event</span></code><a class="headerlink" href="#relating-eventdetails-to-event" title="Permalink to this headline">¶</a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Event</span></code> should have a single <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object, and vice versa. Breaking out metadata into a separate class allows us to grow <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code>—for example, adding location, date, time, and attendance information—without making <code class="docutils literal notranslate"><span class="pre">Event</span></code> too big. It also allows our application to load a set of <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects without also needing to fetch lots of additional metadata if it isn’t needed.</p>
+<p>To establish the relationship, add a new field of type <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> to <code class="docutils literal notranslate"><span class="pre">Event</span></code> and annotate it with <code class="docutils literal notranslate"><span class="pre">&#64;OneToOne</span></code>. Additionally, add the validation annotations <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@OneToOne</span>
+<span class="nd">@Valid</span>
+<span class="nd">@NotNull</span>
+<span class="kd">private</span> <span class="n">EventDetails</span> <span class="n">eventDetails</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p id="index-1">This is the first time we have used <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> on a class member.</p>
+<p>First, let’s review what <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> accomplishes. When an Event object is created, the <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> annotation will ensure that the <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> field is not null. But what if we also want to ensure that <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> is itself a valid object?</p>
+<p>As we have seen, using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> on a method parameter in a controller will result in the fields of that method being validated. For instance, with an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object, our <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> annotation will ensure that the <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> field is not null. By default, however, validation will not descend into the <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> class to check <em>its</em> validation annotations.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> on the <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> field ensures that such validation occurs. It makes sure that an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object will not be considered valid unless it has an <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object that is <em>also</em> valid (i.e. it has valid <code class="docutils literal notranslate"><span class="pre">description</span></code> and <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> fields).</p>
+<p>Before moving on, create a getter and setter pair for <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code>.</p>
+</div>
+<div class="section" id="template-updates">
+<h3><span class="section-number">18.4.2.3. </span>Template Updates<a class="headerlink" href="#template-updates" title="Permalink to this headline">¶</a></h3>
+<p>Our <code class="docutils literal notranslate"><span class="pre">events/create.html</span></code> and <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> templates reference the fields <code class="docutils literal notranslate"><span class="pre">event.description</span></code> and <code class="docutils literal notranslate"><span class="pre">event.contactEmail</span></code>, which no longer exist. We need to update those references to use the new <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> field.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">tr</span> <span class="n">th</span><span class="p">:</span><span class="n">each</span><span class="o">=</span><span class="s">&quot;event : ${events}&quot;</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">td</span> <span class="n">th</span><span class="p">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;${event.id}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">td</span> <span class="n">th</span><span class="p">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;${event.name}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">td</span> <span class="n">th</span><span class="p">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;${event.eventDetails.description}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">td</span> <span class="n">th</span><span class="p">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;${event.eventDetails.contactEmail}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">td</span> <span class="n">th</span><span class="p">:</span><span class="n">text</span><span class="o">=</span><span class="s">&quot;${event.eventCategory.name}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">td</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">tr</span><span class="o">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Notice that lines 21 and 22 now reference <code class="docutils literal notranslate"><span class="pre">description</span></code> and <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> off of <code class="docutils literal notranslate"><span class="pre">event.eventDetails</span></code>.</p>
+<p>Similarly, update <code class="docutils literal notranslate"><span class="pre">events/create.html</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">Description</span>
+      <span class="o">&lt;</span><span class="n">input</span> <span class="n">th</span><span class="p">:</span><span class="n">field</span><span class="o">=</span><span class="s">&quot;${event.eventDetails.description}&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span> <span class="n">th</span><span class="p">:</span><span class="n">errors</span><span class="o">=</span><span class="s">&quot;${event.eventDetails.description}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span><span class="n">Contact</span> <span class="n">Email</span>
+      <span class="o">&lt;</span><span class="n">input</span> <span class="n">th</span><span class="p">:</span><span class="n">field</span><span class="o">=</span><span class="s">&quot;${event.eventDetails.contactEmail}&quot;</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">p</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span> <span class="n">th</span><span class="p">:</span><span class="n">errors</span><span class="o">=</span><span class="s">&quot;${event.eventDetails.contactEmail}&quot;</span><span class="o">&gt;&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The inputs and error elements associated with <code class="docutils literal notranslate"><span class="pre">description</span></code> and <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> have now similarly been updated. With these changes in place, model binding in our controller will take place properly.</p>
+</div>
+<div class="section" id="cascading-orm-operations">
+<h3><span class="section-number">18.4.2.4. </span>Cascading ORM Operations<a class="headerlink" href="#cascading-orm-operations" title="Permalink to this headline">¶</a></h3>
+<p>We have one final update to make. To illustrate, let’s look at our <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler for creating and saving <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;create&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processCreateEventForm</span><span class="p">(</span><span class="nd">@ModelAttribute</span> <span class="nd">@Valid</span> <span class="n">Event</span> <span class="n">newEvent</span><span class="p">,</span>
+                                    <span class="n">Errors</span> <span class="n">errors</span><span class="p">,</span> <span class="n">Model</span> <span class="n">model</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span><span class="p">(</span><span class="n">errors</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;Create Event&quot;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="s">&quot;events/create&quot;</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="n">eventRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">newEvent</span><span class="p">);</span>
+   <span class="k">return</span> <span class="s">&quot;redirect:&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> parameter is created by Spring Boot using model binding. As usual, we validate the new model object using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> in conjunction with the <code class="docutils literal notranslate"><span class="pre">errors</span></code> object.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Recall that validation annotations within <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> will be checked (for the <code class="docutils literal notranslate"><span class="pre">Event.eventDetails</span></code> field) since we added <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> to that field.</p>
+</div>
+<p>If you were to start your application and run it at this point, an exception would occur when attempting to save <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> on line 73 (<code class="docutils literal notranslate"><span class="pre">eventRepository.save(newEvent)</span></code>). Specifically, the root exception would be:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>org.hibernate.TransientPropertyValueException: Not-null property references a transient value -
+transient instance must be saved before current operation :
+org.launchcode.codingevents.models.Event.eventDetails -&gt;
+org.launchcode.codingevents.models.EventDetails
+</pre></div>
+</div>
+<p id="index-2">This exception refers to the transient value <code class="docutils literal notranslate"><span class="pre">Event.eventDetails</span></code>. A <strong>transient</strong> value is a an object that <em>can</em> be saved to the database (i.e. is of an entity type) but has NOT been saved yet. In our case, trying to save <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> causes problems because its <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> field can not be null in the database, but the value of this field—a new <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object created on form submission—has not been saved yet.</p>
+<p id="index-3">The fix for this problem is simple, and allows us to introduce the concept of cascading. A database operation <strong>cascades</strong> from <code class="docutils literal notranslate"><span class="pre">Event</span></code> to <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> if, when the operation is applied to an <code class="docutils literal notranslate"><span class="pre">Event</span></code> instance, it is also applied to the associated <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> instance. If our call to <code class="docutils literal notranslate"><span class="pre">eventRepository.save</span></code> could be made to <em>cascade</em> then our problem would be solved!</p>
+<p>To cascade our save operation, go into the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class and add a <code class="docutils literal notranslate"><span class="pre">cascade</span></code> parameter to the <code class="docutils literal notranslate"><span class="pre">&#64;OneToOne</span></code> annotation:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@OneToOne</span><span class="p">(</span><span class="n">cascade</span> <span class="o">=</span> <span class="n">CascadeType</span><span class="p">.</span><span class="na">ALL</span><span class="p">)</span>
+<span class="nd">@Valid</span>
+<span class="nd">@NotNull</span>
+<span class="kd">private</span> <span class="n">EventDetails</span> <span class="n">eventDetails</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">cascade</span></code> parameter specifies which ORM operations should cascade from <code class="docutils literal notranslate"><span class="pre">Event</span></code> to its <code class="docutils literal notranslate"><span class="pre">eventDetails</span></code> field. Setting this to <code class="docutils literal notranslate"><span class="pre">CascadeType.ALL</span></code> specifies that <em>all</em> database operations—including save and delete—should cascade.</p>
+<p>We <em>could</em> set <code class="docutils literal notranslate"><span class="pre">cascade</span> <span class="pre">=</span> <span class="pre">CascadeType.PERSIST</span></code> and solve our current problem as well. However, that would mean that delete operations would not cascade. It makes sense for the <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object to be deleted when its associated <code class="docutils literal notranslate"><span class="pre">Event</span></code> object is deleted, so we use <code class="docutils literal notranslate"><span class="pre">CascadeType.ALL</span></code>.</p>
+<p>As you continue working with ORM, you are likely to need to use other <code class="docutils literal notranslate"><span class="pre">CascadeType</span></code> values. We won’t go into more depth on this topic here, but encourage you to <a class="reference external" href="https://docs.oracle.com/javaee/6/api/javax/persistence/CascadeType.html" target="_blank">read the documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on your own.</p>
+<p>At this point, your app should work. We have established our first one-to-one relationship, while learning about a new design pattern and cascading. Nice work!</p>
+</div>
+<div class="section" id="the-inverse-relationship">
+<h3><span class="section-number">18.4.2.5. </span>The Inverse Relationship<a class="headerlink" href="#the-inverse-relationship" title="Permalink to this headline">¶</a></h3>
+<p>Once we have set up the relationship from <code class="docutils literal notranslate"><span class="pre">Event</span></code> to <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code>, it is easy to configure the inverse relationship. We don’t need to do this for the functionality currently in <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, but we will walk through the steps here for demonstration purposes.</p>
+<p>To do so, add a field of type <code class="docutils literal notranslate"><span class="pre">Event</span></code> to <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code>. Then add <code class="docutils literal notranslate"><span class="pre">&#64;OneToOne</span></code> to the new field with a <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> parameter.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@OneToOne</span><span class="p">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">&quot;eventDetails&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">Event</span> <span class="n">event</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">mappedBy</span> <span class="pre">=</span> <span class="pre">&quot;eventDetails&quot;</span></code> will ensure that the field is populated correctly. For a specific <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object <code class="docutils literal notranslate"><span class="pre">details</span></code>, <code class="docutils literal notranslate"><span class="pre">event</span></code> will be populated with the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object that contains <code class="docutils literal notranslate"><span class="pre">details</span></code>. Then both sides of the one-to-one relationship will have a reference to the other.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">18.4.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True/False: When a new object is saved to a repository, all of its non-primitive fields are saved as well.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Consider an entity type A that has a reference to an entity type B, both of which are stored in a SQL database. Which of the following are true?</p>
+<ol class="last arabic simple">
+<li>A and B are in a one-to-one relationship.</li>
+<li>A is not valid unless B is also valid.</li>
+<li>Setting <code class="docutils literal notranslate"><span class="pre">cascade</span> <span class="pre">=</span> <span class="pre">CascadeType.ALL</span></code> on the relationship annotation ensures that B is saved whenever A is saved.</li>
+<li>A and B will have a foreign-key relationship in the database.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="one-to-many.html"><span aria-hidden="true">&larr;</span> <span class="section-number">18.3. </span>Creating a One-to-Many Relationship</a></li>
+        
+        
+        <li class="next"><a href="many-to-many.html"><span class="section-number">18.5. </span>Creating a Many-to-Many Relationship <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-relationships/one-to-one.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

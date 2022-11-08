@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.2. Setup For Java &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.3. Java in the Terminal" href="java-terminal.html" />
+    <link rel="prev" title="1.1. Why Learn Java?" href="why-java.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">1. </span>Introduction and Setup</a></li>
+    <li class="active"><span class="section-number">1.2. </span>Setup For Java</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="setup-for-java">
+<h1><span class="section-number">1.2. </span>Setup For Java<a class="headerlink" href="#setup-for-java" title="Permalink to this headline">¶</a></h1>
+<p>For the entirety of this course, we will be coding in Java. Besides installing Java on your machine, you must also add some support technologies to
+allow you to run and edit Java code.</p>
+<div class="section" id="java-development-kit">
+<span id="index-0"></span><h2><span class="section-number">1.2.1. </span>Java Development Kit<a class="headerlink" href="#java-development-kit" title="Permalink to this headline">¶</a></h2>
+<p>Installing Java means downloading a package of software called the <strong>Java Development Kit</strong>,
+or <strong>JDK</strong>, for short. The JDK contains software the tools needed to develop and
+run Java code, namely the the Java compiler, <strong>javac</strong>, and the
+<strong>Java Virtual Machine (JVM)</strong>.</p>
+<p>While the compiler is responsible for processing Java code into machine readable
+code, the JVM allows us to run that code on any computer. These tools
+together, downloaded as the JDK, give us the means to write, compile, and run Java
+on our machines.</p>
+<p id="compiling-java">A step-by-step walk-through of the process:</p>
+<ol class="arabic simple" id="index-1">
+<li>We write code in Java,</li>
+<li>The code is passed through the compiler program,</li>
+<li>The compiler translates Java into <strong>bytecode</strong>, a language readable by the JVM.</li>
+<li>In the JVM, bytecode is translated to machine code,</li>
+<li>Your computer then reads and executes the machine code.</li>
+</ol>
+<p>The JVM gives Java more flexibility than other compiled programming languages because
+it will translate bytecode into the appropriate machine code, depending on the
+operating environment.</p>
+</div>
+<div class="section" id="install-the-jdk">
+<h2><span class="section-number">1.2.2. </span>Install the JDK<a class="headerlink" href="#install-the-jdk" title="Permalink to this headline">¶</a></h2>
+<p>Open a terminal window on your machine and enter the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -version
+</pre></div>
+</div>
+<p>If the response returns a major version 11 (ie 11.0.0 or higher, but not as high as 12.0.0), you can move on to the section below,
+<a class="reference internal" href="java-terminal.html#terminal-java"><span class="std std-ref">Java in the Terminal</span></a>.</p>
+<p>If you do not have Java 11, or the command does not work, you can download
+it <a class="reference external" href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+The relevant install link for your operating system is on the bottom of the page:</p>
+<div class="figure align-default" id="id1">
+<img alt="Screenshot of different Java installation options on Oracle's website" src="../../_images/installJava.png" />
+<p class="caption"><span class="caption-text">The figure above shows options for downloading Java 15. You should download Java 11 from the link above.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><strong>Mac users</strong>: we recommend the <code class="docutils literal notranslate"><span class="pre">.dmg</span></code> option</li>
+<li><strong>Windows users</strong>: we recommend the <code class="docutils literal notranslate"><span class="pre">.exe</span></code> option</li>
+</ul>
+<p>To install, you must first select <em>Accept License Agreement</em>.</p>
+<p>Make note of the location where the Java JDK has been installed on your computer.</p>
+<ul class="simple">
+<li><strong>Mac users</strong>: This should be <code class="docutils literal notranslate"><span class="pre">/Library/Java/JavaVirtualMachines</span></code>.</li>
+<li><strong>Windows users</strong>: This should be in the C: Drive under <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">Files</span></code></li>
+</ul>
+<p>Once you have completed the installation steps, move onto the next section.</p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="why-java.html"><span aria-hidden="true">&larr;</span> <span class="section-number">1.1. </span>Why Learn Java?</a></li>
+        
+        
+        <li class="next"><a href="java-terminal.html"><span class="section-number">1.3. </span>Java in the Terminal <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/introduction-and-setup/setup.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

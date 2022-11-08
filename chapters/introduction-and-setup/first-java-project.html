@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.5. Your First Java Project &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.6. Java Web Dev Exercises" href="java-web-dev-exercises.html" />
+    <link rel="prev" title="1.4. IntelliJ" href="intellij.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">1. </span>Introduction and Setup</a></li>
+    <li class="active"><span class="section-number">1.5. </span>Your First Java Project</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="your-first-java-project">
+<span id="create-new-java-project"></span><h1><span class="section-number">1.5. </span>Your First Java Project<a class="headerlink" href="#your-first-java-project" title="Permalink to this headline">¶</a></h1>
+<p>Following the “Hello, World” trend, let’s create a new IntelliJ project.</p>
+<ol class="arabic">
+<li><p class="first">Create a new folder to hold your Java practice files. Since you will be
+creating lots of small projects as you move through this course, we
+suggest that you also add sub-folders with names corresponding to the
+related chapters and projects. Something like
+<code class="docutils literal notranslate"><span class="pre">java-practice/chapter-name/project-name</span></code>.</p>
+</li>
+<li><p class="first">Select the <em>New Project</em> option from the welcome screen.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/IntelliJWelcome.png"><img alt="Welcome window for IntelliJ. Select the New Project button." src="../../_images/IntelliJWelcome.png" style="width: 558.5999999999999px; height: 381.5px;" /></a>
+<p class="caption"><span class="caption-text">Start a new project</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">Clicking <em>New Project</em> opens a window with a series of project settings to
+select. This window is called the <em>new project wizard</em>.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/HelloWorldMaven.png"><img alt="New Project Wizard." src="../../_images/HelloWorldMaven.png" style="width: 690.1999999999999px; height: 573.3px;" /></a>
+</div>
+<ol class="loweralpha simple">
+<li>Name your project.  In this example, we named our project <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>.</li>
+<li>Select the <em>Location</em> to save your project.  The reading suggested using a folder to store all of your Java projects.  This example is using the Desktop.</li>
+<li>Choose <em>Java</em> from the <em>Language</em> options.</li>
+<li>For the <em>Build System</em>, select <em>Maven</em>.  We will discuss build systems more in a later lesson.</li>
+<li>For <em>JDK</em>, you’ll want to use version <strong>11</strong> that you have downloaded.
+If <strong>11</strong> is not already selected in the SDK window, click <em>New</em> on the right and find the JDK you have just downloaded.</li>
+<li>Check the <em>Add sample code</em> option for this project.  This will allow you to run Java in the terminal.</li>
+<li>Select <em>Create</em> to create your new Java project.</li>
+</ol>
+</li>
+<li><p class="first">You should now see your new Java Project. Below is the view of your new project.
+The section on the left is the project’s <strong>file tree</strong>.</p>
+<div class="figure align-default" id="id2">
+<img alt="New project view" src="../../_images/HelloWorldProgram.png" />
+<p class="caption"><span class="caption-text">IntelliJ project contains file tree (<strong>b</strong>) on left and Main class on the right (<strong>c</strong>).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<ol class="loweralpha simple">
+<li>Click on the item labeled <em>Project</em> with an icon that looks like a file folder on the left of the project window.  This will list the files in your file tree.</li>
+<li>Explore your file tree until you find your <code class="docutils literal notranslate"><span class="pre">Main.java</span></code> file.
+Clicking the triangle next to the project name, <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>, displays the <code class="docutils literal notranslate"><span class="pre">src</span></code> file,
+followed by the base package we created, and finally our <code class="docutils literal notranslate"><span class="pre">Main.java</span></code> file.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Main.java</span></code> is also opened on the right in this initial project view.</li>
+</ol>
+<p>In line 1, <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">org.example</span></code>, establishes a <em>package</em>, which Java uses to help
+organize and encapsulate our code. This is a default setting.
+You can update this in the <em>New Project Wizard</em> under the <em>Advanced Settings</em> drop down menu.
+For this project, the default setting is all we need.</p>
+</li>
+<li><p class="first">In line 3, you should see the <code class="docutils literal notranslate"><span class="pre">Main</span></code> class.  We’ll dive into the use of a <code class="docutils literal notranslate"><span class="pre">main</span></code> function and <code class="docutils literal notranslate"><span class="pre">Main</span></code> class later. At this point,
+let’s just get right to printing our greeting. Somewhere in your project you should see the following command:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Before we run this program, let’s guess what the output will be.
+Ok sure, we haven’t gone over this exact syntax yet, but you can take a guess at what this line will do.</p>
+</li>
+<li><p class="first">To run your program in IntelliJ, you have several options.</p>
+<div class="figure align-default" id="id3">
+<img alt="Run code options" src="../../_images/HelloWorldBuilt.png" />
+<p class="caption"><span class="caption-text">IntelliJ run code options</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>You can click on any of the green triangles indicated above, or choose <em>Run</em> from your top menu bar.</p>
+</li>
+</ol>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If you are having trouble running your program, try selecting the Main project from the <em>Configuations</em> menu.
+This is located between the green hammer and the green <em>Run</em> triangle on the top left of your menu.</p>
+<div class="last figure align-default">
+<a class="reference internal image-reference" href="../../_images/HelloWorldBuildProgramConfig.png"><img alt="Drop down menu to select Configuations." src="../../_images/HelloWorldBuildProgramConfig.png" style="width: 418.0px; height: 235.5px;" /></a>
+</div>
+</div>
+<ol class="arabic">
+<li><p class="first">Once run, IntelliJ will generate a third panel in your view, with your program’s output:</p>
+<div class="figure align-default" id="id4">
+<img alt="Run code output" src="../../_images/BuiltProject.png" />
+<p class="caption"><span class="caption-text">IntelliJ output</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+</ol>
+<p>This is just the start of your relationship with IntelliJ. Now that we know the fundamentals,
+let’s return to Java basics so we can start writing more code.</p>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">1.5.1. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Given the code below, which line is responsible for printing a message?</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="p">{</span>
+
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World&quot;</span><span class="p">);</span>
+   <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="last arabic simple">
+<li>line 1</li>
+<li>line 3</li>
+<li>line 4</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>In the sourcecode above, which line is responsible for defining the class?</p>
+<ol class="last arabic simple">
+<li>line 1</li>
+<li>line 3</li>
+<li>line 4</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="intellij.html"><span aria-hidden="true">&larr;</span> <span class="section-number">1.4. </span>IntelliJ</a></li>
+        
+        
+        <li class="next"><a href="java-web-dev-exercises.html"><span class="section-number">1.6. </span>Java Web Dev Exercises <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/introduction-and-setup/first-java-project.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

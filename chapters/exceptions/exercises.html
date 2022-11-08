@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11.2. Exercises: Exceptions &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12. Tools in IntelliJ" href="../tools-in-intelliJ/index.html" />
+    <link rel="prev" title="11.1. Check the Temperature with Exceptions" href="walkthrough.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">11. </span>Rules to the Exceptions</a></li>
+    <li class="active"><span class="section-number">11.2. </span>Exercises: Exceptions</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="exercises-exceptions">
+<h1><span class="section-number">11.2. </span>Exercises: Exceptions<a class="headerlink" href="#exercises-exceptions" title="Permalink to this headline">¶</a></h1>
+<p>To get started, ensure that you have properly forked and cloned this <a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-exceptions" target="_blank">repo<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> from Github.
+The starter code is in the <code class="docutils literal notranslate"><span class="pre">exercises</span></code> package inside <code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code>.</p>
+<div class="section" id="divide-by-zero">
+<h2><span class="section-number">11.2.1. </span>Divide By Zero!<a class="headerlink" href="#divide-by-zero" title="Permalink to this headline">¶</a></h2>
+<p>The professor you TA for, Professor Jackson, shared with you the code she uses to auto-grade students’ work.
+She and the other TAs have encountered some problems with the code in the past when they enter the total possible point value for an assignment.
+Occasionally, they accidentally enter <code class="docutils literal notranslate"><span class="pre">0</span></code> for the total number of possible points and the program encounters a fatal error when trying to divide by 0.</p>
+<p>To help out with this issue, complete a function called <code class="docutils literal notranslate"><span class="pre">Divide()</span></code> in <code class="docutils literal notranslate"><span class="pre">Main</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">Divide()</span></code> method takes in two parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<p>Your function should return the result of <code class="docutils literal notranslate"><span class="pre">x/y</span></code>.</p>
+<p>However, if <code class="docutils literal notranslate"><span class="pre">y</span></code> is zero, you should throw an exception.
+Try to use an <code class="docutils literal notranslate"><span class="pre">ArithmeticException</span></code> and put your <code class="docutils literal notranslate"><span class="pre">try/catch</span></code> block in <code class="docutils literal notranslate"><span class="pre">Divide()</span></code> to test out your error-handling skills.
+If an exception is caught, make sure to print out a helpful message.</p>
+</div>
+<div class="section" id="test-student-labs">
+<h2><span class="section-number">11.2.2. </span>Test Student Labs<a class="headerlink" href="#test-student-labs" title="Permalink to this headline">¶</a></h2>
+<p>After mentioning to Professor Jackson that you would like to get some more practice with exceptions, she offered to let you write some grading software!
+Before she gives you full control over auto-grading students’ work, she asked if you could write a function called <code class="docutils literal notranslate"><span class="pre">CheckFileExtension()</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">CheckFileExtension()</span></code> method takes in one parameter: <code class="docutils literal notranslate"><span class="pre">fileName</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CheckFileExtension()</span></code> should return an integer representing the number of points a student receives for properly submitting a file in Java.
+If a student’s submitted file ends in <code class="docutils literal notranslate"><span class="pre">.java</span></code>, they get 1 point.
+If a student’s submitted file doesn’t end in <code class="docutils literal notranslate"><span class="pre">.java</span></code>, they get 0 points.
+If the file submitted is <code class="docutils literal notranslate"><span class="pre">null</span></code> or an empty string, an exception should be thrown and you should give the student -1 points. What kind of exception is up to you, including to a custom exception!</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">Main()</span></code>, Professor Jackson has provided a hashmap of students and the names of their submitted files for you to test out your work.
+If an exception is caught, make sure to print out the error message.</p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="walkthrough.html"><span aria-hidden="true">&larr;</span> <span class="section-number">11.1. </span>Check the Temperature with Exceptions</a></li>
+        
+        
+        <li class="next"><a href="../tools-in-intelliJ/index.html"><span class="section-number">12. </span>Tools in IntelliJ <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/exceptions/exercises.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

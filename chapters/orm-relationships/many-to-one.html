@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18.2. Creating a Many-to-One Relationship &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18.3. Creating a One-to-Many Relationship" href="one-to-many.html" />
+    <link rel="prev" title="18.1. Types of Relationships" href="types-of-relationships.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">18. </span>Relationships in Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">18.2. </span>Creating a Many-to-One Relationship</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="creating-a-many-to-one-relationship">
+<h1><span class="section-number">18.2. </span>Creating a Many-to-One Relationship<a class="headerlink" href="#creating-a-many-to-one-relationship" title="Permalink to this headline">¶</a></h1>
+<p>The first relationship we implement will be between the <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> classes. We will allow multiple events to be in the same category, but each event will only have one category. Thus, this will be a many-to-one relationship.</p>
+<p>Before diving in, let’s reduce repetition in our persistent classes, that is, let’s DRY out our code.</p>
+<div class="section" id="creating-an-abstractentity-video">
+<h2><span class="section-number">18.2.1. </span>Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> - Video<a class="headerlink" href="#creating-an-abstractentity-video" title="Permalink to this headline">¶</a></h2>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/GKOCCjn86yk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category" target="_blank">add-persistent-category branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity" target="_blank">abstract-entity branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="creating-an-abstractentity-text">
+<h2><span class="section-number">18.2.2. </span>Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> - Text<a class="headerlink" href="#creating-an-abstractentity-text" title="Permalink to this headline">¶</a></h2>
+<p>The steps needed to implement <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> are outlined in <a class="reference internal" href="../orm-part1/studio.html#orm1-studio"><span class="std std-ref">Studio: Creating an AbstractEntity</span></a>.</p>
+</div>
+<div class="section" id="setting-up-the-relationship-video">
+<h2><span class="section-number">18.2.3. </span>Setting Up the Relationship - Video<a class="headerlink" href="#setting-up-the-relationship-video" title="Permalink to this headline">¶</a></h2>
+<p>We are now ready to create a relationship between <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>.</p>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/aFr_E2T7zZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity" target="_blank">abstract-entity branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one" target="_blank">many-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> . As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="setting-up-the-relationship-text">
+<h2><span class="section-number">18.2.4. </span>Setting Up the Relationship - Text<a class="headerlink" href="#setting-up-the-relationship-text" title="Permalink to this headline">¶</a></h2>
+<p>Our many-to-one relationship is established in the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class; each event will have one category, and there may be many events in a given category.</p>
+<p>Currently, similar functionality is enabled via the <code class="docutils literal notranslate"><span class="pre">EventType</span></code> field of <code class="docutils literal notranslate"><span class="pre">Event</span></code>. However, <code class="docutils literal notranslate"><span class="pre">EventType</span></code> is an enum, which means that new values can not be added without changing the code and re-compiling. Using the persistent <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> class to organize events will be a much more flexible and user-friendly approach.</p>
+<div class="section" id="replacing-eventtype-with-eventcategory">
+<h3><span class="section-number">18.2.4.1. </span>Replacing <code class="docutils literal notranslate"><span class="pre">EventType</span></code> With <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code><a class="headerlink" href="#replacing-eventtype-with-eventcategory" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, replace the <code class="docutils literal notranslate"><span class="pre">type</span></code> field with a new private field of type <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="n">EventCategory</span> <span class="n">eventCategory</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This will introduce compiler errors wherever <code class="docutils literal notranslate"><span class="pre">type</span></code> is referenced. We will fix these shortly.</p>
+<p>First, however, update <code class="docutils literal notranslate"><span class="pre">Event</span></code> so that:</p>
+<ol class="arabic simple">
+<li>Its main constructor (i.e. NOT the no-arg constructor) takes a parameter of type <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> and uses it to initialize <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
+<li>It has a getter/setter pair for <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code> field has the <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> validation annotation, along with an appropriate message.</li>
+</ol>
+<p>This establishes a relationship between the two classes, but that relationship is not yet <em>persistent</em>. To configure Hibernate to keep track of this relationship in the database, we add the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code> annotation to <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@ManyToOne</span>
+<span class="nd">@NotNull</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Category is required&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="n">EventCategory</span> <span class="n">eventCategory</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This annotation informs Hibernate that there can be many events for each category, but only one category per event.</p>
+<p>Before we can start up the app and test our changes, we need to remove the code that references the deleted <code class="docutils literal notranslate"><span class="pre">type</span></code> field. A quick way to find these references is to find <code class="docutils literal notranslate"><span class="pre">EventType</span></code> in the <em>Project</em> pane of IntelliJ, right-click, and select <em>Find Usages</em>. This will open a pane listing each location where <code class="docutils literal notranslate"><span class="pre">EventType</span></code> occurs in our project, whether that is an object of that type or a direct reference to the class itself.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/find-usages.png"><img alt="The search results pane after running Find Usages on EventType" src="../../_images/find-usages.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">All remaining references to <code class="docutils literal notranslate"><span class="pre">EventType</span></code> in our project</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The first occurrence is in <code class="docutils literal notranslate"><span class="pre">EventController.displayCreateEventForm</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;types&quot;</span><span class="p">,</span> <span class="n">EventType</span><span class="p">.</span><span class="na">values</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div>
+<p>This line passes a collection of all of the values of <code class="docutils literal notranslate"><span class="pre">EventType</span></code> into the view, to be rendered in the form used to create new events.</p>
+<p>Since we are now using <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> to group events, our code should instead be passing in all of the category objects in our app. To fetch category objects, we need an instance of <code class="docutils literal notranslate"><span class="pre">EventCategoryRepository</span></code> in our controller. Add an <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code> instance to the top of the controller:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Autowired</span>
+<span class="kd">private</span> <span class="n">EventCategoryRepository</span> <span class="n">eventCategoryRepository</span><span class="p">;</span>
+</pre></div>
+</td></tr></table></div>
+<p>Now, use the repository to fetch all saved categories:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>40</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;categories&quot;</span><span class="p">,</span> <span class="n">eventCategoryRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">());</span>
+</pre></div>
+</td></tr></table></div>
+<p>This line replaces the line references <code class="docutils literal notranslate"><span class="pre">EventType.values()</span></code>. Notice that we have relabeled this attribute <code class="docutils literal notranslate"><span class="pre">&quot;categories&quot;</span></code>
+to be more consistent. This also requires updating the <code class="docutils literal notranslate"><span class="pre">events/create.html</span></code> template:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>Category
+   <span class="p">&lt;</span><span class="nt">select</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${event.eventCategory}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">option</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;eventCategory : ${categories}&quot;</span>
+               <span class="na">th:value</span><span class="o">=</span><span class="s">&quot;${eventCategory.id}&quot;</span>
+               <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${eventCategory.name}&quot;</span>
+      <span class="p">&gt;&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span> <span class="na">th:errors</span><span class="o">=</span><span class="s">&quot;${event.eventCategory}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This new template code includes several changes:</p>
+<ol class="arabic simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">select</span></code> is now bound to the field <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
+<li>The loop references <code class="docutils literal notranslate"><span class="pre">categories</span></code> and has an updated iterator variable name, <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
+<li>The value of the <code class="docutils literal notranslate"><span class="pre">select</span></code> is now <code class="docutils literal notranslate"><span class="pre">eventCategory.id</span></code>. This allows model binding to occur upon form submission. Spring Boot will determine the category object to assign to the new event object by referencing the <code class="docutils literal notranslate"><span class="pre">id</span></code>.</li>
+<li>The text for each <code class="docutils literal notranslate"><span class="pre">option</span></code> is now <code class="docutils literal notranslate"><span class="pre">eventCategory.name</span></code></li>
+<li>The error message display now references the new field, <code class="docutils literal notranslate"><span class="pre">event.eventCategory</span></code>.</li>
+</ol>
+<p>The remaining usages of <code class="docutils literal notranslate"><span class="pre">EventType</span></code> refer to:</p>
+<ol class="arabic simple">
+<li>An <code class="docutils literal notranslate"><span class="pre">Event</span></code> constructor parameter.</li>
+<li>The getter/setter pair for <code class="docutils literal notranslate"><span class="pre">type</span></code> in <code class="docutils literal notranslate"><span class="pre">Event</span></code>.</li>
+<li>An import statement in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">EventType</span></code> class itself.</li>
+</ol>
+<p>Removing this unneeded code resolves all remaining compiler errors.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> template needs to be updated as well, since it still contains a reference to the <code class="docutils literal notranslate"><span class="pre">type</span></code> field of <code class="docutils literal notranslate"><span class="pre">Event</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.type}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This usage wasn’t found by IntelliJ because templates do not receive compile-time type checking like classes do. The updated version looks like this:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${event.eventCategory.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="testing-and-database-updates">
+<h3><span class="section-number">18.2.4.2. </span>Testing and Database Updates<a class="headerlink" href="#testing-and-database-updates" title="Permalink to this headline">¶</a></h3>
+<p>Before starting up the application, let’s look at our <code class="docutils literal notranslate"><span class="pre">event</span></code> table:</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/event-table-before-update.png"><img alt="The event table before starting up the application" src="../../_images/event-table-before-update.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">event</span></code> table will be updated the next time the app starts</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">type</span></code> column remains, even though we have deleted the <code class="docutils literal notranslate"><span class="pre">type</span></code> field from the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class. The next time we start up the application, Hibernate will attempt to update the schema to match the structure of our updated model class.</p>
+<div class="admonition-tip admonition" id="index-0">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Notice that existing events will not have a category, which violates our new <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> validation rule. The easiest way to handle this is to delete all rows in <code class="docutils literal notranslate"><span class="pre">event</span></code>.</p>
+<p class="last">To delete all events, truncate the <code class="docutils literal notranslate"><span class="pre">event</span></code> table in MySQL Workbench. (To <strong>truncate</strong> a SQL table is simply to delete all its rows.) To do this, select the table in the <em>Schemas</em> pane, right-click, and select <em>Truncate Table…</em></p>
+</div>
+<p>Start up the application and refresh the view in MySQL Workbench.</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/event-table-after-update.png"><img alt="The event table after starting up the application" src="../../_images/event-table-after-update.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">event</span></code> retains the <code class="docutils literal notranslate"><span class="pre">type</span></code> column, but has a new <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> column</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Notice that there is a new column, <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code>. This new column has type <code class="docutils literal notranslate"><span class="pre">int</span></code> and is a foreign key column to the <code class="docutils literal notranslate"><span class="pre">event_category</span></code> table. References to objects in Java are translated into foreign-key references by Hibernate.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>You may find it odd that the <code class="docutils literal notranslate"><span class="pre">type</span></code> column is <em>still</em> present, even after restarting. Hibernate will not drop columns from a table even if that field is removed from the corresponding class.</p>
+<p class="last">Hibernate will generally avoid deleting your data, since you may want to keep it around (even if just in the form of a backup). You can simply drop this column yourself.</p>
+</div>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">If your table was not updating upon restarting, make sure you have <code class="docutils literal notranslate"><span class="pre">spring.jpa.hibernate.ddl-auto</span></code> set to <code class="docutils literal notranslate"><span class="pre">update</span></code> in <code class="docutils literal notranslate"><span class="pre">application.properties</span></code>.</p>
+</div>
+<p>If we create some new events, we can see precisely how <code class="docutils literal notranslate"><span class="pre">event</span></code> rows are related to <code class="docutils literal notranslate"><span class="pre">event_category</span></code> rows.</p>
+<div class="figure align-default" id="id4">
+<img alt="The event table with two rows" src="../../_images/event-table-with-data.png" />
+<p class="caption"><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">event</span></code> table with new data</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="The event_category table with two rows" src="../../_images/event-category-table-with-data.png" />
+<p class="caption"><span class="caption-text">The <code class="docutils literal notranslate"><span class="pre">event_category</span></code> table</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Notice that our events have <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> values of <code class="docutils literal notranslate"><span class="pre">12</span></code> and <code class="docutils literal notranslate"><span class="pre">13</span></code> (these values may differ slightly in your application). These are foreign keys into the <code class="docutils literal notranslate"><span class="pre">event_category</span></code> table. For example, in the tables above, the <code class="docutils literal notranslate"><span class="pre">event</span></code> row with <code class="docutils literal notranslate"><span class="pre">id</span></code> equal to <code class="docutils literal notranslate"><span class="pre">14</span></code> is related to the <code class="docutils literal notranslate"><span class="pre">event_category</span></code> row with <code class="docutils literal notranslate"><span class="pre">id</span></code> equal to <code class="docutils literal notranslate"><span class="pre">12</span></code>. This database relationship corresponds to the relationship between objects that was created by Spring Boot when we submitted the form.</p>
+<p>With this many-to-one relationship in place, we next look at how to establish a persistent one-to-many relationship.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">18.2.5. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">What is the annotation that allows <code class="docutils literal notranslate"><span class="pre">&#64;AbstractEntity</span></code> to handle logic related to IDs/primary keys of subclasses,
+yet not be mapped to a database table.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>You are working on a Spring application tracking elected officials. Your model class, <code class="docutils literal notranslate"><span class="pre">Senator</span></code> has a many-to-one relationship
+with another model class, <code class="docutils literal notranslate"><span class="pre">State</span></code>. To properly configure this relationship in the Hibernate context, what must be present?</p>
+<ol class="last arabic simple">
+<li>In <code class="docutils literal notranslate"><span class="pre">Senator</span></code>, a <code class="docutils literal notranslate"><span class="pre">state</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code></li>
+<li>In <code class="docutils literal notranslate"><span class="pre">Senator</span></code>, a <code class="docutils literal notranslate"><span class="pre">state</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code></li>
+<li>In <code class="docutils literal notranslate"><span class="pre">State</span></code>, a <code class="docutils literal notranslate"><span class="pre">senator</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code></li>
+<li>In <code class="docutils literal notranslate"><span class="pre">State</span></code>, a <code class="docutils literal notranslate"><span class="pre">senator</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="types-of-relationships.html"><span aria-hidden="true">&larr;</span> <span class="section-number">18.1. </span>Types of Relationships</a></li>
+        
+        
+        <li class="next"><a href="one-to-many.html"><span class="section-number">18.3. </span>Creating a One-to-Many Relationship <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-relationships/many-to-one.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

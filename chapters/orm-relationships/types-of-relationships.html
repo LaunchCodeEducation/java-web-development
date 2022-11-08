@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18.1. Types of Relationships &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18.2. Creating a Many-to-One Relationship" href="many-to-one.html" />
+    <link rel="prev" title="18. Relationships in Object-Relational Mapping" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">18. </span>Relationships in Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">18.1. </span>Types of Relationships</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="types-of-relationships">
+<h1><span class="section-number">18.1. </span>Types of Relationships<a class="headerlink" href="#types-of-relationships" title="Permalink to this headline">¶</a></h1>
+<p>Just as data in different database tables <a class="reference external" href="https://education.launchcode.org/SQL/chapters/mysql-part-2/relationships.html#one-to-many-relationships" target="_blank">can have relationships<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to each other, so can classes and objects. In fact, relationships between objects will translate into relationships between rows in a database when using ORM.</p>
+<p>This chapter introduces the tools needed to create meaningful relationships using ORM. Before considering how to do this with Spring Boot, however, let’s consider the different types of relationships at a conceptual level.</p>
+<p>For the examples below, we use four classes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Event</span></code> - A class representing a coding event.</li>
+<li><code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> - A class representing categories of coding events.</li>
+<li><code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> - A class that encapsulates details about a single event, such as description, contact email, location, and so on.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Tag</span></code> - A piece of metadata labeling an event. You can think of these as topics that an event might include, such as Java, Spring, or JavaScript. An event can cover multiple topics, so it can have multiple tags.</li>
+</ul>
+<p>The first two of these are familiar to you from our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> app. The <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> and <code class="docutils literal notranslate"><span class="pre">Tag</span></code> classes will be introduced later in this chapter.</p>
+<div class="section" id="one-to-one">
+<span id="one-to-one-def"></span><h2><span class="section-number">18.1.1. </span>One-to-One<a class="headerlink" href="#one-to-one" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">The simplest type of relationship is the <strong>one-to-one relationship</strong>. This occurs when each instance of type A may be related to only one instance of type B, and vice versa.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>In the following examples, arrows point in the direction of the relationship. If A points to B, then you can say that A <em>knows about</em> B.</p>
+<p class="last">While relationships in SQL are bidirectional, relationships in programming languages are unidirectional. In other words, if A knows about B, then B doesn’t necessarily know about A.</p>
+</div>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/one-to-one.png"><img alt="A single Event object on the left, with a double-sided arrow point to a single EventDetails object on the right" src="../../_images/one-to-one.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">A one-to-one relationship between an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object and an <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>An <code class="docutils literal notranslate"><span class="pre">Event</span></code> object should only have one collection of details, so it should only be related to one <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object. Similarly, details about an event are specific to that event, so an <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object should only be related to one <code class="docutils literal notranslate"><span class="pre">Event</span></code> object.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>The following pairs of things generally have one-to-one relationships:</p>
+<ol class="arabic simple">
+<li>People / driver’s licenses</li>
+<li>States / capital cities</li>
+<li>iPhones / serial numbers</li>
+</ol>
+<p class="last">It is not <em>required</em> that each instance of type A be related to an instance of type B. For example, a person may not have a driver’s license.</p>
+</div>
+</div>
+<div class="section" id="one-to-many-and-many-to-one">
+<h2><span class="section-number">18.1.2. </span>One-to-Many and Many-to-One<a class="headerlink" href="#one-to-many-and-many-to-one" title="Permalink to this headline">¶</a></h2>
+<p id="index-1">A <strong>one-to-many</strong> relationship occurs when each instance of type A may be related to more than one instance of type B, but each instance of B can only be related to a single instance of type A.</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/one-to-many.png"><img alt="A single EventCategory object on the left, related to two Event objects on the right" src="../../_images/one-to-many.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">A one-to-many relationship between <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> and <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p id="index-2">In this case, we say that A has a one-to-many relationship to B. A category can contain multiple items, therefore an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object may be related to multiple <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects. But an event may only be in one category.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>The following pairs of things generally have one-to-many relationships:</p>
+<ol class="last arabic simple">
+<li>Birth dates / people</li>
+<li>States / U.S. Representatives</li>
+<li>Model numbers / iPhones</li>
+</ol>
+</div>
+<p>When discussing the inverse relationship, we say that B has a <strong>many-to-one</strong> relationship to A.</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/many-to-one.png"><img alt="Two Event objects on the left, related to a single EventCategory object on the right" src="../../_images/many-to-one.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">A many-to-one relationship between <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> objects</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>A many-to-one relationship operates in the opposite direction of a one-to-many relationship. The difference between the two is which side of the relationship <em>knows about</em> the objects on the other side. In Java terms, this will translate into a field on one class that references the other.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>Many-to-one relationships are simply the opposite direction of one-to-many. Therefore, each of the following pairs has a many-to-one relationship.</p>
+<ol class="last arabic simple">
+<li>People / birth dates</li>
+<li>U.S. Representatives / states</li>
+<li>iPhones / model numbers</li>
+</ol>
+</div>
+</div>
+<div class="section" id="many-to-many">
+<h2><span class="section-number">18.1.3. </span>Many-to-Many<a class="headerlink" href="#many-to-many" title="Permalink to this headline">¶</a></h2>
+<p><strong>Many-to-many</strong> relationships occur when each instance of type A can be related to multiple instances of type B, and vice versa.</p>
+<div class="figure align-default" id="id4">
+<span id="many-to-many-figure"></span><a class="reference internal image-reference" href="../../_images/many-to-many.png"><img alt="Three Event objects on the left, with various relationships to three Tag objects on the right" src="../../_images/many-to-many.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">A many-to-many relationship between Event and Tag objects</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>An event can have multiple tags, and a tag may be associated with multiple events. Thus, we have a many-to-many relationship.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>The following pairs of things generally have many-to-many relationships:</p>
+<ol class="last arabic simple">
+<li>Books / authors</li>
+<li>Recipes / ingredients</li>
+<li>Actors / movies</li>
+</ol>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">18.1.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Match the following pairs with the appropriate relationship type:</p>
+<ol class="last arabic simple">
+<li>car / manufacturer</li>
+<li>car / title</li>
+<li>car / driver</li>
+<li>car / tire</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: In order for two Java classes, A and B, to be mapped in a one-to-many relationship, class A must
+contain a field for instances of B and B must have a field for instances of A.</p>
+<ol class="last arabic simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> <span class="section-number">18. </span>Relationships in Object-Relational Mapping</a></li>
+        
+        
+        <li class="next"><a href="many-to-one.html"><span class="section-number">18.2. </span>Creating a Many-to-One Relationship <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-relationships/types-of-relationships.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

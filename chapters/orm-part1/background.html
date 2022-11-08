@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17.1. Object-Relational Mapping &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17.2. Accessing Data" href="accessing-data.html" />
+    <link rel="prev" title="17. Introduction to Object-Relational Mapping" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">17. </span>Introduction to Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">17.1. </span>Object-Relational Mapping</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="object-relational-mapping">
+<h1><span class="section-number">17.1. </span>Object-Relational Mapping<a class="headerlink" href="#object-relational-mapping" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">With all that we have learned about MVC applications and relational databases, we are ready to connect the two and add persistent data storage to our apps!
+To do so, we need to use <em>object-relational mapping</em>.</p>
+<p><strong>Object-Relational Mapping</strong> or <strong>ORM</strong> is a technique for converting data between Java objects and relational databases.
+ORM converts data between two incompatible type systems (Java and MySQL), such that each model class becomes a table in our database and each instance a row of the table.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>Let’s say we have a Java class called <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code>. <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code> has three fields: an integer <code class="docutils literal notranslate"><span class="pre">id</span></code>, a string <code class="docutils literal notranslate"><span class="pre">name</span></code>, and a string <code class="docutils literal notranslate"><span class="pre">email</span></code>.
+Now we want to store this information in a MySQL database.
+We can use ORM so that the database of our application has a table to contain all objects instantiated from the <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code> class.
+The table called <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> has three columns: an integer <code class="docutils literal notranslate"><span class="pre">id</span></code>, a varchar <code class="docutils literal notranslate"><span class="pre">name</span></code>, and a varchar <code class="docutils literal notranslate"><span class="pre">email</span></code>.</p>
+<p>Now, let’s instantiate a Java object:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">ContactInfo</span> <span class="n">frank</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContactInfo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;Frank&quot;</span><span class="p">,</span><span class="s">&quot;frank@email.com&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Having properly set up our application, we can add Frank’s info to our <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table.
+While we will write the code to add Frank’s info to our database in Java, the frameworks and APIs that make ORM happen will run the following MySQL query for us.</p>
+<div class="highlight-mysql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">contactinfo</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="k">name</span><span class="p">,</span><span class="n">email</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Frank&quot;</span><span class="p">,</span><span class="s2">&quot;frank@email.com&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p class="last">Now Frank’s info is safely stored in our MySQL database in the <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table!</p>
+</div>
+<p>At the most basic level, we need two components to make ORM work in our Java applications: an API and an object-relational mapper.
+The API will set the standards by which the <strong>object-relational mapper</strong> will convert between Java and MySQL.
+In the example above, the API reads through our Java code and designates a class that will be turned into a table.
+The mapper will then read through the class and create the following MySQL query to make the <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table.</p>
+<div class="highlight-mysql notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">contactinfo</span> <span class="p">(</span>
+   <span class="kt">INT</span> <span class="n">id</span><span class="p">,</span>
+   <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">name</span><span class="p">,</span>
+   <span class="kt">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="n">email</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>In Java, this API is called a <strong>JPA</strong> or <strong>Java Persistence API</strong>.
+JPAs makes use of <strong>data layers</strong>.
+When we learned about models, we learned that <a class="reference internal" href="../spring-model-classes/data-layer.html#data-layer"><span class="std std-ref">data layers</span></a> add abstraction between models and the data we want to store.
+Models are NOT persistent data stores and relational databases do NOT shape the Java objects we will be using.
+We want to make sure that the two remain separate.</p>
+<div class="section" id="orm-in-spring">
+<span id="index-1"></span><h2><span class="section-number">17.1.1. </span>ORM in Spring<a class="headerlink" href="#orm-in-spring" title="Permalink to this headline">¶</a></h2>
+<p>In Spring, our JPA is called the <strong>Spring Data JPA</strong>. If you look up JPA on the internet, you will find many different examples!
+While JPAs follow the same set of standards, different frameworks have different JPAs that work within their specific framework.
+The object-relational mapper we will be using with the Spring Data JPA is <strong>Hibernate</strong>.
+As you run your apps, you will notice Hibernate and JPA pop up in the logs!
+To run your apps, you need to connect MySQL to a Spring application. Let’s do this with <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>!</p>
+<div class="section" id="setting-up-a-persistent-database-video">
+<span id="setup-orm-database"></span><h3><span class="section-number">17.1.1.1. </span>Setting up a Persistent Database - Video<a class="headerlink" href="#setting-up-a-persistent-database-video" title="Permalink to this headline">¶</a></h3>
+<p>The following video explains how we can add a MySQL database to our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application.
+The accompanying text is a quick rundown of what happens in the video. To get started, create a branch off of your <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/enums" target="_blank">enums<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> branch.</p>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/GVOpKW3NcMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/enums" target="_blank">enums branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/db-config" target="_blank">db-config branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="setting-up-a-persistent-database-text">
+<h3><span class="section-number">17.1.1.2. </span>Setting up a Persistent Database - Text<a class="headerlink" href="#setting-up-a-persistent-database-text" title="Permalink to this headline">¶</a></h3>
+<p>To get started with using a relational database with our MVC applications, we need to first go to MySQL Workbench.</p>
+<p>In MySQL Workbench, you need to do the following:</p>
+<ol class="arabic">
+<li><p class="first">Create a new schema, <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">In the video, Chris names his schema <code class="docutils literal notranslate"><span class="pre">coding_events</span></code>. Either name works just fine, as long as you are
+consistent within your own application.</p>
+</div>
+</li>
+<li><p class="first">Add a new user with a new password. Give the user all privileges to modify your new schema.</p>
+</li>
+</ol>
+<p>In IntelliJ, attach MySQL to your project in <code class="docutils literal notranslate"><span class="pre">application.properties</span></code>.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="o">#</span> <span class="k">Database</span> <span class="k">connection</span> <span class="n">settings</span>
+<span class="n">spring</span><span class="p">.</span><span class="n">datasource</span><span class="p">.</span><span class="n">url</span><span class="o">=</span><span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">coding</span><span class="o">-</span><span class="n">events</span>
+<span class="n">spring</span><span class="p">.</span><span class="n">datasource</span><span class="p">.</span><span class="n">username</span><span class="o">=</span><span class="k">user</span>
+<span class="n">spring</span><span class="p">.</span><span class="n">datasource</span><span class="p">.</span><span class="n">password</span><span class="o">=</span><span class="n">greatpassword</span>
+
+<span class="o">#</span> <span class="n">Specify</span> <span class="n">the</span> <span class="n">DBMS</span>
+<span class="n">spring</span><span class="p">.</span><span class="n">jpa</span><span class="p">.</span><span class="k">database</span> <span class="o">=</span> <span class="n">MYSQL</span>
+
+<span class="o">#</span> <span class="k">Show</span> <span class="k">or</span> <span class="k">not</span> <span class="n">log</span> <span class="k">for</span> <span class="k">each</span> <span class="k">sql</span> <span class="n">query</span>
+<span class="n">spring</span><span class="p">.</span><span class="n">jpa</span><span class="p">.</span><span class="k">show</span><span class="o">-</span><span class="k">sql</span> <span class="o">=</span> <span class="k">false</span>
+
+<span class="o">#</span> <span class="n">Hibernate</span> <span class="n">ddl</span> <span class="n">auto</span> <span class="p">(</span><span class="k">create</span><span class="p">,</span> <span class="k">create</span><span class="o">-</span><span class="k">drop</span><span class="p">,</span> <span class="k">update</span><span class="p">)</span>
+<span class="n">spring</span><span class="p">.</span><span class="n">jpa</span><span class="p">.</span><span class="n">hibernate</span><span class="p">.</span><span class="n">ddl</span><span class="o">-</span><span class="n">auto</span> <span class="o">=</span> <span class="k">update</span>
+
+<span class="o">#</span> <span class="n">Use</span> <span class="n">spring</span><span class="p">.</span><span class="n">jpa</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="o">*</span> <span class="k">for</span> <span class="n">Hibernate</span> <span class="n">native</span> <span class="n">properties</span> <span class="p">(</span><span class="n">the</span> <span class="k">prefix</span> <span class="k">is</span>
+<span class="o">#</span> <span class="n">stripped</span> <span class="k">before</span> <span class="n">adding</span> <span class="n">them</span> <span class="k">to</span> <span class="n">the</span> <span class="n">entity</span> <span class="n">manager</span><span class="p">)</span>
+<span class="n">spring</span><span class="p">.</span><span class="n">jpa</span><span class="p">.</span><span class="n">properties</span><span class="p">.</span><span class="n">hibernate</span><span class="p">.</span><span class="n">dialect</span> <span class="o">=</span> <span class="n">org</span><span class="p">.</span><span class="n">hibernate</span><span class="p">.</span><span class="n">dialect</span><span class="p">.</span><span class="n">MySQL8Dialect</span>
+</pre></div>
+</div>
+<p>Set the value of <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code> to the username and password you set up in MySQL Workbench.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> of <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>, add MySQL and the Spring Data JPA, like so:</p>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">implementation</span> <span class="s1">&#39;org.springframework.boot:spring-boot-starter-data-jpa&#39;</span>
+<span class="n">implementation</span> <span class="s1">&#39;mysql:mysql-connector-java&#39;</span>
+</pre></div>
+</div>
+<p>Once you have taken these steps, you are ready to set up the appropriate models and controllers for the application!</p>
+</div>
+<div class="section" id="key-takeaways">
+<span id="index-2"></span><h3><span class="section-number">17.1.1.3. </span>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permalink to this headline">¶</a></h3>
+<p>Before we can get into the ins and outs of using ORM, we need to make sure that our application has a corresponding database and that our application is ready to connect to MySQL.
+We can start to do this by creating new schemas and setting user privileges in MySQL Workbench.
+We also <em>must</em> make sure that the Spring application has the correct dependencies, username, and password to access the schema.</p>
+<p>If we do not do these steps, then our application will not be able to use a persistent data source.</p>
+<p>As Chris noted in our video, while we can simply set the value of <code class="docutils literal notranslate"><span class="pre">spring.datasource.username</span></code> and <code class="docutils literal notranslate"><span class="pre">spring.datasource.password</span></code> to the value of the username and password, this is NOT best practice.
+We regularly commit our code to Github, meaning anyone who reads the code in our repository can see the username and password.
+While you can do it for the applications in this class, you do not want to do it in the future.</p>
+<p>To avoid this in the future, you can configure your <code class="docutils literal notranslate"><span class="pre">application.properties</span></code> file to use <strong>environment variables</strong>.
+You then hide the appropriate info by setting the environment variable’s value equal to the password, for example.</p>
+<p>We have written an <a class="reference external" href="https://education.launchcode.org/gis-devops/configurations/02-environment-variables-intellij/index.html" target="_blank">article<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on how to configure your environment variables to keep the username and password to your database safe and secure.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">17.1.2. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True or false: writing usernames and passwords in plain text in a file is a GREAT idea!</p>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True or false: an ORM converts data between Java objects and relational databases.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True or false: We need Hibernate AND Spring Data to successfully use ORM.</p>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> <span class="section-number">17. </span>Introduction to Object-Relational Mapping</a></li>
+        
+        
+        <li class="next"><a href="accessing-data.html"><span class="section-number">17.2. </span>Accessing Data <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-part1/background.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

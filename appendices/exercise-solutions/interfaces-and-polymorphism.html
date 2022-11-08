@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise Solutions: Interfaces and Polymorphism &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise Solutions: Controllers and Routing" href="spring-controllers-and-routes.html" />
+    <link rel="prev" title="Exercise Solutions: Inheritance" href="inheritance.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">Exercise Solutions</a></li>
+    <li class="active">Exercise Solutions: Interfaces and Polymorphism</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="exercise-solutions-interfaces-and-polymorphism">
+<span id="interfaces-and-polymorphism-exercise-solutions"></span><h1>Exercise Solutions: Interfaces and Polymorphism<a class="headerlink" href="#exercise-solutions-interfaces-and-polymorphism" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sorting-flavors-by-name">
+<span id="interfaces-and-polymorphism-exercise-solutions1"></span><h2>Sorting Flavors by Name<a class="headerlink" href="#sorting-flavors-by-name" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-sorting-class">
+<h3>Create a Sorting Class<a class="headerlink" href="#create-a-sorting-class" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Create a new class called <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> and have it implement the
+<code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FlavorComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Always returning <code class="docutils literal notranslate"><span class="pre">0</span></code> results in no sorting, so replace line 8 with:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">o2</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>This returns an integer (negative, positive, or zero) depending on
+whether <code class="docutils literal notranslate"><span class="pre">Flavor</span></code> object <code class="docutils literal notranslate"><span class="pre">o1</span></code> or <code class="docutils literal notranslate"><span class="pre">o2</span></code> comes first, alphabetically.</p>
+</li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FlavorComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span> <span class="p">{</span>
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Flavor</span> <span class="n">flavor1</span><span class="p">,</span> <span class="n">Flavor</span> <span class="n">flavor2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">flavor1</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">flavor2</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../chapters/interfaces-and-polymorphism/exercises.html#interfaces-and-polymorphism-exercises"><span class="std std-ref">Back to the exercises</span></a></p>
+</div>
+</div>
+<div class="section" id="sorting-cones-by-cost">
+<span id="interfaces-and-polymorphism-exercise-solutions3"></span><h2>Sorting Cones by Cost<a class="headerlink" href="#sorting-cones-by-cost" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s sort our <code class="docutils literal notranslate"><span class="pre">cones</span></code> list by cost, from least expensive to most
+expensive.</p>
+<ol class="arabic">
+<li><p class="first">Create the new class <code class="docutils literal notranslate"><span class="pre">ConeComparator</span></code>.</p>
+</li>
+<li><p class="first">Follow the example above to implement the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface and
+evaluate <code class="docutils literal notranslate"><span class="pre">Cone</span></code> objects by cost.</p>
+</li>
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, sort the <code class="docutils literal notranslate"><span class="pre">cones</span></code> list, then print the elements to the screen
+to verify the results.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Before:           After:
+
+Waffle: <span class="nv">$1</span>.25        Bowl: <span class="nv">$0</span>.05
+Sugar: <span class="nv">$0</span>.75         Wafer: <span class="nv">$0</span>.50
+Wafer: <span class="nv">$0</span>.50         Sugar: <span class="nv">$0</span>.75
+Bowl: <span class="nv">$0</span>.05          Waffle: <span class="nv">$1</span>.25
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConeComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Cone</span><span class="o">&gt;</span> <span class="p">{</span>
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="p">(</span><span class="n">Cone</span> <span class="n">cone1</span><span class="p">,</span> <span class="n">Cone</span> <span class="n">cone2</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">cone1</span><span class="p">.</span><span class="na">getCost</span><span class="p">()</span> <span class="o">-</span> <span class="n">cone2</span><span class="p">.</span><span class="na">getCost</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cone1</span><span class="p">.</span><span class="na">getCost</span><span class="p">()</span> <span class="o">-</span> <span class="n">cone2</span><span class="p">.</span><span class="na">getCost</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../chapters/interfaces-and-polymorphism/exercises.html#interfaces-and-polymorphism-exercises"><span class="std std-ref">Back to the exercises</span></a></p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="inheritance.html"><span aria-hidden="true">&larr;</span> Exercise Solutions: Inheritance</a></li>
+        
+        
+        <li class="next"><a href="spring-controllers-and-routes.html">Exercise Solutions: Controllers and Routing <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/appendices/exercise-solutions/interfaces-and-polymorphism.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

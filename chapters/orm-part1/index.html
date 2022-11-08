@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. Introduction to Object-Relational Mapping &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17.1. Object-Relational Mapping" href="background.html" />
+    <link rel="prev" title="16.3. Exercises: Enum Practice" href="../enums/exercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li class="active"><span class="section-number">17. </span>Introduction to Object-Relational Mapping</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="introduction-to-object-relational-mapping">
+<h1><span class="section-number">17. </span>Introduction to Object-Relational Mapping<a class="headerlink" href="#introduction-to-object-relational-mapping" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ol>
+<li class="toctree-l1"><a class="reference internal" href="background.html">17.1. Object-Relational Mapping</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="background.html#orm-in-spring">17.1.1. ORM in Spring</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="background.html#setting-up-a-persistent-database-video">17.1.1.1. Setting up a Persistent Database - Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="background.html#setting-up-a-persistent-database-text">17.1.1.2. Setting up a Persistent Database - Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="background.html#key-takeaways">17.1.1.3. Key Takeaways</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="background.html#check-your-understanding">17.1.2. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accessing-data.html">17.2. Accessing Data</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="accessing-data.html#persistent-classes">17.2.1. Persistent Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessing-data.html#repositories">17.2.2. Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessing-data.html#creating-persistent-models-video">17.2.3. Creating Persistent Models - Video</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="accessing-data.html#creating-persistent-models-text">17.2.3.1. Creating Persistent Models - Text</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accessing-data.html#check-your-understanding">17.2.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="repositories.html">17.3. Repositories</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="repositories.html#crud-operations">17.3.1. CRUD Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repositories.html#using-persistence-in-a-controller-video">17.3.2. Using Persistence in a Controller - Video</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="repositories.html#using-persistence-in-a-controller-text">17.3.2.1. Using Persistence in a Controller - Text</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="repositories.html#check-your-understanding">17.3.3. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">17.4. Exercises: OMG the ORM!</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#the-eventcategory-class">17.4.1. The <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#the-eventcategoryrepository-interface">17.4.2. The <code class="docutils literal notranslate"><span class="pre">EventCategoryRepository</span></code> Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#the-eventcategorycontroller-class">17.4.3. The <code class="docutils literal notranslate"><span class="pre">EventCategoryController</span></code> Class</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html#displayallevents">17.4.3.1. <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html#rendercreateeventcategoryform">17.4.3.2. <code class="docutils literal notranslate"><span class="pre">renderCreateEventCategoryForm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exercises.html#processcreateeventcategoryform">17.4.3.3. <code class="docutils literal notranslate"><span class="pre">processCreateEventCategoryForm</span></code></a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#thymeleaf-templates">17.4.4. Thymeleaf Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html#the-final-application">17.4.5. The Final Application</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="studio.html">17.5. Studio: Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code></a><ol>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#getting-ready">17.5.1. Getting Ready</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#your-tasks">17.5.2. Your Tasks</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="studio.html#create-and-extend-abstractentity">17.5.2.1. Create and Extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="studio.html#move-duplicated-code-into-the-superclass">17.5.2.2. Move Duplicated Code Into the Superclass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="studio.html#the-mappedsuperclass-annotation">17.5.2.3. The <code class="docutils literal notranslate"><span class="pre">&#64;MappedSuperclass</span></code> Annotation</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#making-sure-it-works">17.5.3. Making Sure It Works</a></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="../enums/exercises.html"><span aria-hidden="true">&larr;</span> <span class="section-number">16.3. </span>Exercises: Enum Practice</a></li>
+        
+        
+        <li class="next"><a href="background.html"><span class="section-number">17.1. </span>Object-Relational Mapping <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-part1/index.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

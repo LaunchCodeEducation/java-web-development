@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise Solutions: The Early Bird gets the ORM! &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TODOs" href="../../todos.html" />
+    <link rel="prev" title="Exercise Solutions: OMG the ORM!" href="orm-part1.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">Exercise Solutions</a></li>
+    <li class="active">Exercise Solutions: The Early Bird gets the ORM!</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="exercise-solutions-the-early-bird-gets-the-orm">
+<span id="orm-relationships-exercise-solutions"></span><h1>Exercise Solutions: The Early Bird gets the ORM!<a class="headerlink" href="#exercise-solutions-the-early-bird-gets-the-orm" title="Permalink to this headline">¶</a></h1>
+<p>Here is an example of how the README may turn out:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Our <code class="docutils literal notranslate"><span class="pre">Person</span></code> class might hold the following fields:</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">id</span></code> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) - the unique user ID</li>
+<li><code class="docutils literal notranslate"><span class="pre">firstName</span></code> (<code class="docutils literal notranslate"><span class="pre">String</span></code>) - the user’s first name</li>
+<li><code class="docutils literal notranslate"><span class="pre">lastName</span></code> (<code class="docutils literal notranslate"><span class="pre">String</span></code>) - the user’s last name</li>
+<li><code class="docutils literal notranslate"><span class="pre">email</span></code> (<code class="docutils literal notranslate"><span class="pre">String</span></code>) - the user’s email, which will also function as their username</li>
+<li><code class="docutils literal notranslate"><span class="pre">password</span></code> (<code class="docutils literal notranslate"><span class="pre">String</span></code>) - the user’s password</li>
+</ol>
+<p>The class would need getters for all of these fields. It could have setters for all fields except id (since it shouldn’t change).</p>
+</li>
+<li><p class="first">The <code class="docutils literal notranslate"><span class="pre">Person</span></code> class might also have the following references:</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">PersonProfile</span></code> - a class to gather up all of the profile information about the user</li>
+<li><code class="docutils literal notranslate"><span class="pre">List&lt;Events&gt;</span> <span class="pre">eventsAttending</span></code> - to store events the user wants to attend</li>
+<li><code class="docutils literal notranslate"><span class="pre">List&lt;Events&gt;</span> <span class="pre">eventsOwned</span></code> - a different list, to store the events the user has created</li>
+</ol>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">Person</span></code> would have a many-to-many relationship with <code class="docutils literal notranslate"><span class="pre">Event</span></code> via <code class="docutils literal notranslate"><span class="pre">List&lt;Events&gt;</span> <span class="pre">eventsAttending</span></code>.
+It would have a one-to-many relationship with <code class="docutils literal notranslate"><span class="pre">Event</span></code> via <code class="docutils literal notranslate"><span class="pre">List&lt;Events&gt;</span> <span class="pre">eventsOwned</span></code>.</p>
+</div></blockquote>
+<p><a class="reference internal" href="../../chapters/orm-relationships/exercises.html#orm-relationships-exercises"><span class="std std-ref">Back to the exercises</span></a></p>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="orm-part1.html"><span aria-hidden="true">&larr;</span> Exercise Solutions: OMG the ORM!</a></li>
+        
+        
+        <li class="next"><a href="../../todos.html">TODOs <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/appendices/exercise-solutions/orm-relationships.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

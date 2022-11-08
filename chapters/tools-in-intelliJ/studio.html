@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.3. Studio: If It Ain’t Broke, Add a Breakpoint! &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="13. Thymeleaf Views" href="../thymeleaf-views/index.html" />
+    <link rel="prev" title="12.2. Debugging in IntelliJ" href="debugging.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">12. </span>Tools in IntelliJ</a></li>
+    <li class="active"><span class="section-number">12.3. </span>Studio: If It Ain’t Broke, Add a Breakpoint!</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="studio-if-it-ain-t-broke-add-a-breakpoint">
+<h1><span class="section-number">12.3. </span>Studio: If It Ain’t Broke, Add a Breakpoint!<a class="headerlink" href="#studio-if-it-ain-t-broke-add-a-breakpoint" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this studio is to expand your current debugging strategies.
+First, as a group, you will discuss your current debugging strategies.
+Next, you will explore the debugger tools addressed in this chapter.</p>
+<p>This studio will use a previous studio assignment to explore IntelliJ’s Debugger.
+On your machine, open up your copy of <a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-studio7" target="_blank">java-web-dev-studio7<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> in IntelliJ.</p>
+<div class="section" id="part-one-pre-debugger-debugging">
+<h2><span class="section-number">12.3.1. </span>Part One: Pre-Debugger Debugging<a class="headerlink" href="#part-one-pre-debugger-debugging" title="Permalink to this headline">¶</a></h2>
+<p>Review with the group one error you encountered when working on your version of lesson 7’s studio.
+This could be the result of a typo or a logical error.</p>
+<ol class="arabic simple">
+<li>What was the error?</li>
+<li>How did you solve this error?</li>
+<li>What strategies and tools have you been using so far to debug your code?</li>
+<li>Could one of the debugging tools help you when addressing this error?</li>
+</ol>
+</div>
+<div class="section" id="part-two-debugger-debugging">
+<h2><span class="section-number">12.3.2. </span>Part Two: Debugger Debugging<a class="headerlink" href="#part-two-debugger-debugging" title="Permalink to this headline">¶</a></h2>
+<p>Now, check out the <code class="docutils literal notranslate"><span class="pre">debugging</span></code> branch of the studio repo.
+Review the code and then practice using IntelliJ’s debugging tools.
+To get started, try the following:</p>
+<ol class="arabic simple">
+<li>Add a few breakpoints inside <code class="docutils literal notranslate"><span class="pre">Main.java</span></code>.  Make a note of where you expect the program to break in its execution.</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">cd.name</span></code> as a <em>Watch expression</em> in the <em>Variables Pane</em> of the Debugger.</li>
+<li>Add a breakpoint inside some of the methods in <code class="docutils literal notranslate"><span class="pre">BaseDisc.java</span></code>.  Anticipate what you expect to see as the last line in the <em>Variables Pane</em>  when the debugger stops.</li>
+</ol>
+</div>
+<div class="section" id="part-three-more-debugger-debugging">
+<h2><span class="section-number">12.3.3. </span>Part Three: More Debugger Debugging<a class="headerlink" href="#part-three-more-debugger-debugging" title="Permalink to this headline">¶</a></h2>
+<p>Take your debugging skills one step further by answering these questions.</p>
+<ol class="arabic simple">
+<li>When would use a <em>Watch expression</em>?  If you run the app and it’s already functioning, what shows up there?</li>
+<li>Would a conditional breakpoint make sense to use in the context of this app? Try adding a conditional breakpoint and then run your app.</li>
+<li>What does the <em>Frames Pane</em> tell you as you step through your code?</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">dvd.aName</span></code> as a <em>Watch expression</em> and add a breakpoint.  Can you explain the output in the <em>Variables Pane</em>?</li>
+</ol>
+</div>
+<div class="section" id="part-four-debugging-beyond-this-studio">
+<h2><span class="section-number">12.3.4. </span>Part Four: Debugging Beyond This Studio<a class="headerlink" href="#part-four-debugging-beyond-this-studio" title="Permalink to this headline">¶</a></h2>
+<p>Once you have worked through the studio’s codebase, open up a piece of code you have been struggling with.
+In what ways, could the debugging tools help you figure out what is going on with the code?</p>
+<p><strong>Additional Resources for IntelliJ’s Debugger</strong></p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.jetbrains.com/help/idea/debugging-code.html#df9fd13c" target="_blank">Debug code<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><a class="reference external" href="https://www.jetbrains.com/help/idea/debugging-your-first-java-application.html" target="_blank">Tutorial: Debug your first Java application<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+</ul>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="debugging.html"><span aria-hidden="true">&larr;</span> <span class="section-number">12.2. </span>Debugging in IntelliJ</a></li>
+        
+        
+        <li class="next"><a href="../thymeleaf-views/index.html"><span class="section-number">13. </span>Thymeleaf Views <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/tools-in-intelliJ/studio.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

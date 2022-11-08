@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.1. Gradle &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.2. Debugging in IntelliJ" href="debugging.html" />
+    <link rel="prev" title="12. Tools in IntelliJ" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">12. </span>Tools in IntelliJ</a></li>
+    <li class="active"><span class="section-number">12.1. </span>Gradle</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="gradle">
+<h1><span class="section-number">12.1. </span>Gradle<a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">By now you have created at least two Spring projects using Gradle.
+If you recall, Spring is the framework that will enable us to create an MVC application.
+When we created each project, we selected “Gradle Project”, but what is Gradle?</p>
+<p>Gradle is an <strong>automated build tool</strong> that handles tasks like:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Managing dependencies</li>
+<li>Testing protocols</li>
+<li>Packaging the executable program for deployment.</li>
+</ul>
+</div></blockquote>
+<p>So far we have included Gradle in our Spring Boot projects.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">You can also import Gradle using the terminal.
+Instruction on that is beyond the scope of this class.
+Here is <a class="reference external" href="https://spring.io/guides/gs/gradle/" target="_blank">documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on this process if you are curious.</p>
+</div>
+<div class="section" id="how-gradle-works">
+<h2><span class="section-number">12.1.1. </span>How Gradle Works<a class="headerlink" href="#how-gradle-works" title="Permalink to this headline">¶</a></h2>
+<p>A Gradle build represents one or more <strong>projects</strong>.
+Projects are craeted from a series of <strong>tasks</strong>.
+Gradle manages tasks based on their function in the build.
+Some tasks run tests, some compile, etc.
+Gradle organizes these tasks in the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file.</p>
+<div class="section" id="build-gradle">
+<h3><span class="section-number">12.1.1.1. </span><code class="docutils literal notranslate"><span class="pre">build.gradle</span></code><a class="headerlink" href="#build-gradle" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file is the project build script.
+Gradle will refer to this file as it runs through the task list to build the application.
+You can code tasks into this file or you can import tasks into this file.</p>
+<p>If we are using external tasks, we use methods to group tasks by functionality in this file.
+Tasks call the methods to execute a task or series of tasks to build the project.
+You are also allowed code directly in the build file, but this is more common if you are creating a Gradle project from scratch.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Spring Boot populated this file as it initialized your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> and <code class="docutils literal notranslate"><span class="pre">hello-spring-demo</span></code> builds.</p>
+<p class="last">Open your <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file and look at each section.</p>
+</div>
+<div class="section" id="tasks-and-plugins">
+<h4><span class="section-number">12.1.1.1.1. </span><code class="docutils literal notranslate"><span class="pre">tasks</span></code> and <code class="docutils literal notranslate"><span class="pre">plugins</span></code><a class="headerlink" href="#tasks-and-plugins" title="Permalink to this headline">¶</a></h4>
+<p>As stated earlier, Gradle builds a project by running tasks.
+These tasks are kept in a task method that calls them when needed.
+The task method is where you create tasks.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> has a task method that runs a test.</p>
+</div>
+<p>Often you will import tasks from an external resource as <strong>plugins</strong>.
+Plugins contain any necessary tasks and scripts to extend a project’s capabilities.
+Plugins often need <strong>dependencies</strong> and external <strong>repositories</strong>.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Both of your Spring Boot framework projects contain plugins.</p>
+</div>
+</div>
+<div class="section" id="dependencies">
+<h4><span class="section-number">12.1.1.1.2. </span><code class="docutils literal notranslate"><span class="pre">dependencies</span></code><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">dependencies</span></code> are external code libraries used by tasks to build your project.
+Gradle often groups related dependencies together in <code class="docutils literal notranslate"><span class="pre">configurations</span></code>.
+In the <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> method, the configuration name proceeds the dependency information.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Both of your <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> and <code class="docutils literal notranslate"><span class="pre">hello-spring-demo</span></code> projects have three dependencies.
+Note that each dependency has its own configuration name.</p>
+</div>
+</div>
+<div class="section" id="configurations">
+<h4><span class="section-number">12.1.1.1.3. </span><code class="docutils literal notranslate"><span class="pre">configurations</span></code><a class="headerlink" href="#configurations" title="Permalink to this headline">¶</a></h4>
+<p>Some projects contain a stand-alone <code class="docutils literal notranslate"><span class="pre">configurations</span></code> method.
+This method bundles dependencies together based on their role in the build.
+Dependency configurations can extend from one another, reducing redundancies within your code.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">In the <code class="docutils literal notranslate"><span class="pre">hello-spring-demo</span></code> project, the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file contains a configurations method.
+The <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project does not.</p>
+</div>
+</div>
+<div class="section" id="repositories">
+<h4><span class="section-number">12.1.1.1.4. </span><code class="docutils literal notranslate"><span class="pre">repositories</span></code><a class="headerlink" href="#repositories" title="Permalink to this headline">¶</a></h4>
+<p>Where do we get the source code if dependencies are external libraries?
+It comes from an external repository site, such as Maven Central.
+Maven Central is a repository website that contains files for dependencies.
+This is not the only external repository.  Other repositories work the same as Maven Central.
+In the <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> file we link up with Maven Central by using the <code class="docutils literal notranslate"><span class="pre">repositories</span></code> method.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">You will see repositories in both of your Spring Boot projects.</p>
+</div>
+</div>
+<div class="section" id="tests">
+<h4><span class="section-number">12.1.1.1.5. </span><code class="docutils literal notranslate"><span class="pre">tests</span></code><a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h4>
+<p>The test method holds any necessary configurations and dependencies needed for testing.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Both of your projects have tests.
+One uses a test method while the other uses the test as part of a task.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="troubleshooting-tips">
+<h2><span class="section-number">12.1.2. </span>Troubleshooting Tips<a class="headerlink" href="#troubleshooting-tips" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><strong>My dependencies won’t build</strong></dt><dd><p>We are using IntelliJ as our IDE to build our Gradle projects for this class.
+IntelliJ’s built-in IntelliSense should prompt you to refresh your build.gradle whenever
+you change a file. You should see a small icon appear in the top right corner of the build.gradle file.
+If you click on the icon, it will refresh your build.</p>
+<div class="figure align-default" id="id1">
+<img alt="Close up of the refresh icon" src="../../_images/gradle-refresh-point.png" />
+<p class="caption"><span class="caption-text">The refresh icon should appear whenever you make changes to your project.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>If you update build.gradle and the icon does not appear, you can manually refresh the build.
+<strong>Mac Users</strong> try <em>Shift + Command + I</em> and <strong>Windows/Linux Users</strong> try <em>Control + Shift + O</em>.</p>
+<p>For more on Gradle and IntelliJ, visit this <a class="reference external" href="https://www.jetbrains.com/idea/guide/tutorials/working-with-gradle/gradle-dependencies/" target="_blank">website<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</dd>
+<dt><strong>I’ve refreshed, but they still won’t build</strong></dt><dd><p>Read IntelliJ’s  documentation on <a class="reference external" href="https://www.jetbrains.com/help/idea/maven-importing.html" target="_blank">Maven.Importing<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p>
+<p>If using 2019 IntelliJ, this article might offer some help.  <a class="reference external" href="https://tomgregory.com/5-tips-for-using-gradle-with-intellij-idea-2019/" target="_blank">Check out tip #4<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+Not sure which version you are using, look for the <strong>About…</strong> menu option to verify which version you are using.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">12.1.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<dl class="last docutils">
+<dt>From where do <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> access their source code?</dt><dd><ol class="loweralpha simple">
+<li>An external repository such as Maven Central</li>
+<li>Internal code within a Class you created</li>
+</ol>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> <span class="section-number">12. </span>Tools in IntelliJ</a></li>
+        
+        
+        <li class="next"><a href="debugging.html"><span class="section-number">12.2. </span>Debugging in IntelliJ <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/tools-in-intelliJ/gradle.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

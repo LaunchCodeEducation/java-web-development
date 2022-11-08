@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19.1. Introduction to Authentication &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="19.2. Hashing Passwords" href="hashing-passwords.html" />
+    <link rel="prev" title="19. Authentication" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">19. </span>Authentication</a></li>
+    <li class="active"><span class="section-number">19.1. </span>Introduction to Authentication</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="introduction-to-authentication">
+<h1><span class="section-number">19.1. </span>Introduction to Authentication<a class="headerlink" href="#introduction-to-authentication" title="Permalink to this headline">¶</a></h1>
+<p>We log into many, many websites every day. The process has become so routine that we expect it to work flawlessly every time. How surprised would you be if you logged into a website and saw a different user’s account info? What if you entered the wrong password and were still let in? What we have come to expect as routine is anything but when we consider the code needed to make it happen.</p>
+<div class="section" id="what-is-authentication">
+<h2><span class="section-number">19.1.1. </span>What Is Authentication?<a class="headerlink" href="#what-is-authentication" title="Permalink to this headline">¶</a></h2>
+<p id="index-0"><strong>Authentication</strong> is the process of determining a user’s <em>identity</em>. In other words, are they who they say they are?</p>
+<p>This is typically done by asking a user to provide a <em>secret</em> piece of data, which theoretically only they should know. Passwords are the most commonly used secrets, but there are others such as RSA keys and physical authentication tokens. Authentication relies on the ability of the user to keep their secret data, well, <em>secret</em>. If we are given a user’s secret data, we assume that only one person could have provided it.</p>
+<p id="index-1">A related, but different, concept is <strong>authorization</strong>. Authorization is the process of determining if a user is allowed to carry out a specific action.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="last">I can share a Google doc with my coworker with read-only permission. They are then <em>authorized</em> to view the document, but not to make changes.</p>
+</div>
+<p>Most applications that store personal data use authentication and authorization together. In this book, however, we will only discuss authentication.</p>
+</div>
+<div class="section" id="flow-for-simple-authentication">
+<h2><span class="section-number">19.1.2. </span>Flow for Simple Authentication<a class="headerlink" href="#flow-for-simple-authentication" title="Permalink to this headline">¶</a></h2>
+<p>Using authentication allows a web application to restrict access to certain pages to known users only. The simplest form of authentication treats all users the same. If a user is signed in, then they are allowed to view <em>all</em> restricted pages. Otherwise, they may not view any. With simple authentication, it is not possible to restrict a page to some users while allowing access by others.</p>
+<p>Simple authentication requires that for <em>every</em> request, the application answers two questions before the request is handled by a controller:</p>
+<ul class="simple">
+<li>Is the user asking for a restricted page?</li>
+<li>If so, do we know who they are?</li>
+</ul>
+<p>The answers to these questions determine whether or not the user is allowed to view the page.</p>
+<p>The logical flow of simple authentication looks like this:</p>
+<div class="figure align-default" id="id1">
+<img alt="A diagram showing the the flow of a username and password through the authentication process." src="../../_images/authenticationflowdiagram.png" />
+<p class="caption"><span class="caption-text">General authentication flow</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="sessions-and-cookies">
+<h3><span class="section-number">19.1.2.1. </span>Sessions and Cookies<a class="headerlink" href="#sessions-and-cookies" title="Permalink to this headline">¶</a></h3>
+<p id="index-2">The second question above—“Do we know who they are?”—sounds simple enough. However, to determine <em>which</em> user is making <em>which</em> request turns out to be more complicated. To do this, simple authentication relies on two standard web tools, <strong>sessions</strong> and <strong>cookies</strong>.</p>
+<p>A <strong>session</strong> is a collection of temporary data stored <em>on the server</em> that corresponds to a specific user. Sessions are often used to store data that an app wants to keep track of in the short term, but not permanently.</p>
+<div class="admonition-examples admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p>Some types of data that might be stored in a session:</p>
+<ul class="last simple">
+<li>Items in a shopping cart</li>
+<li>Whether or not a user is logged in</li>
+<li>Data from a multi-page form, such as a checkout process</li>
+</ul>
+</div>
+<p>A <strong>cookie</strong> is a piece of temporary data stored <em>in the user’s browser</em>. Cookies are also used to keep short-term data. While a session can hold lots of data entries, a cookie contains only a single key/value pair. However, a browser may hold a large number of cookies.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">A detailed discussion of cookies is beyond the scope of this book. For more info, read <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies" target="_blank">“HTTP Cookies” on MDN<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
+<p>Cookies and sessions work together to enable simple authentication in the following way:</p>
+<ol class="arabic simple" id="index-3">
+<li>When a user is authenticated—that is, they provide a valid username/password pair—a session containing their user ID is created on the server. The session has a unique <strong>session ID</strong>, such as <code class="docutils literal notranslate"><span class="pre">81LfWG9</span></code>.</li>
+<li>In order to associate the user with their session, the server creates a <strong>session cookie</strong> and returns the cookie to the browser within an HTTP response. The session cookie contains the session ID, and looks something like this: <code class="docutils literal notranslate"><span class="pre">session_id:</span> <span class="pre">81LfWG9</span></code>.</li>
+<li>For each subsequent request to the server, the browser passes the session cookie along with the request.</li>
+<li>When the server receives a request for a restricted resource, it checks for a session cookie. It then looks for a session with the given session ID. If such a session exists, then the server knows who the user is since their user ID is stored in the session. If the session does NOT exist, then the server does not know the user and they must authenticate themselves.</li>
+</ol>
+<p>The following diagram shows the initial creation (steps 1-2) of the session and cookie after a user signs in.</p>
+<div class="figure align-default" id="id2">
+<img alt="A flow diagram showing the session and subsequent cookie being created so the user can access a restricted page." src="../../_images/simplifiedsessionsandcookies.png" />
+<p class="caption"><span class="caption-text">A flow diagram showing the session and subsequent cookie being created so the user can access a restricted page.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>As the user navigates the site, sessions and cookies are used to validate whether users can access restricted pages.
+The next diagram shows the flow of steps 1-2 in black and the flow of steps 3-4 in blue.</p>
+<div class="figure align-default" id="id3">
+<img alt="A flow diagram showing how sessions and cookies are used to validate an initial request to the server and any subsequent requests to the server." src="../../_images/sessionsandcookiesdiagram.png" />
+<p class="caption"><span class="caption-text">A flow diagram showing how sessions and cookies are used to validate an initial request to the server and any subsequent requests to the server.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">At some point, you may have cleared all of the cookies from your browser only to find that you were suddenly logged out of every website on the Internet. This is because those cookies stored the session IDs that allowed the various sites to know who you were.</p>
+</div>
+<p>A logout request to a web app simply destroys the user’s session, erasing any memory of who they are. Even if they pass a session cookie in their subsequent requests, the old session and session ID will no longer exist.</p>
+</div>
+</div>
+<div class="section" id="a-note-on-authentication-in-spring">
+<h2><span class="section-number">19.1.3. </span>A Note On Authentication In Spring<a class="headerlink" href="#a-note-on-authentication-in-spring" title="Permalink to this headline">¶</a></h2>
+<p>Before we proceed, we want to point out something important about authentication in Spring. Spring contains a sub-project, <a class="reference external" href="https://spring.io/projects/spring-security" target="_blank">Spring Security<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>, that provides extensive support for authentication <em>and</em> authorization. In addition to supporting simple authentication, Spring Security also supports more sophisticated authorization flows/processes like <a class="reference external" href="https://oauth.net/2/" target="_blank">OAuth 2<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. Professional developers working with Spring nearly always use Spring Security.</p>
+<p>In this book, we are explicitly not introducing Spring Security for two reasons:</p>
+<ol class="arabic simple">
+<li>The project handles many aspects of the authentication process for you. This hides many of the steps that are important to understand as you learn about authentication.</li>
+<li>Setting up Spring Security is fairly complicated, and requires concepts that are beyond the scope of this course.</li>
+</ol>
+<p>That said, the authentication approach outlined in this chapter is sufficient for use in your personal projects. When you begin working with a team on professional applications, a senior developer will likely be on hand to help with authentication setup.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">If you are curious about simple authentication using Spring Security, check out <a class="reference external" href="https://github.com/chrisbay/event-log/" target="_blank">an example<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on GitHub. Start with the <a class="reference external" href="https://github.com/chrisbay/event-log/blob/master/src/main/java/net/chrisbay/eventlog/SecurityConfig.java" target="_blank">SecurityConfig class<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">19.1.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which of the following are true:</p>
+<ol class="last arabic simple">
+<li>A session is stored on the server.</li>
+<li>A session is stored in the browser.</li>
+<li>A cookie is stored on the server.</li>
+<li>A cookie is stored in the browser.</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>What is the difference between authentication and authorization?</p>
+<ol class="last arabic simple">
+<li>Authentication handles user permissions, authorization handles user restrictions.</li>
+<li>Authentication handles user identity, authorization handles user permissions.</li>
+<li>There is no difference, they are synonymous terms.</li>
+<li>User authorization can be changed in a request, authentication cannot.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span> <span class="section-number">19. </span>Authentication</a></li>
+        
+        
+        <li class="next"><a href="hashing-passwords.html"><span class="section-number">19.2. </span>Hashing Passwords <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/auth/intro.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18.3. Creating a One-to-Many Relationship &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18.4. Creating a One-to-One Relationship" href="one-to-one.html" />
+    <link rel="prev" title="18.2. Creating a Many-to-One Relationship" href="many-to-one.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">18. </span>Relationships in Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">18.3. </span>Creating a One-to-Many Relationship</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="creating-a-one-to-many-relationship">
+<h1><span class="section-number">18.3. </span>Creating a One-to-Many Relationship<a class="headerlink" href="#creating-a-one-to-many-relationship" title="Permalink to this headline">¶</a></h1>
+<p>The previous section established a persistent many-to-one relationship between <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> objects. This section demonstrates how to create the inverse one-to-many relationship.</p>
+<div class="section" id="setting-up-the-relationship-video">
+<h2><span class="section-number">18.3.1. </span>Setting Up the Relationship - Video<a class="headerlink" href="#setting-up-the-relationship-video" title="Permalink to this headline">¶</a></h2>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/RLykFBY9Rys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one" target="_blank">many-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-many" target="_blank">one-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="setting-up-the-relationship-text">
+<h2><span class="section-number">18.3.2. </span>Setting Up the Relationship - Text<a class="headerlink" href="#setting-up-the-relationship-text" title="Permalink to this headline">¶</a></h2>
+<p>Creating a one-to-many relationship from categories to events means that each <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object will have access to each event that belongs to it. Near the top of <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>, add a new field to store these events.</p>
+<div class="section" id="model-configuration">
+<h3><span class="section-number">18.3.2.1. </span>Model Configuration<a class="headerlink" href="#model-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">events</span></code> field will be initialized when an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object is created. It is marked <code class="docutils literal notranslate"><span class="pre">final</span></code> to ensure that the collection isn’t deleted or replaced. Since it is final, only a getter is needed; add one near the bottom of the class.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">Recall that when a collection is marked <code class="docutils literal notranslate"><span class="pre">final</span></code> its <em>contents</em> are allowed to change, but the collection object itself may not be changed. In other words, we may add or remove items from the <code class="docutils literal notranslate"><span class="pre">events</span></code> list, but we may not reassign the value of <code class="docutils literal notranslate"><span class="pre">events</span></code>.</p>
+</div>
+<p>To establish a persistent relationship, we use the <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code> annotation on <code class="docutils literal notranslate"><span class="pre">events</span></code>. This annotation requires a parameter to let Hibernate know <em>how</em> to determine which events belong to a given category object.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@OneToMany</span><span class="p">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">&quot;eventCategory&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>By specifying <code class="docutils literal notranslate"><span class="pre">mappedBy</span> <span class="pre">=</span> <span class="pre">&quot;eventCategory&quot;</span></code>, we are telling Hibernate that for a given category object, <code class="docutils literal notranslate"><span class="pre">someCategory</span></code>, the <code class="docutils literal notranslate"><span class="pre">events</span></code> collection should be populated by all events for which the <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code> field is set to <code class="docutils literal notranslate"><span class="pre">someCategory</span></code>. To determine this, Hibernate will look at the foreign key column on the <code class="docutils literal notranslate"><span class="pre">events</span></code> table.</p>
+</div>
+<div class="section" id="controller-updates">
+<h3><span class="section-number">18.3.2.2. </span>Controller Updates<a class="headerlink" href="#controller-updates" title="Permalink to this headline">¶</a></h3>
+<p>In order to use this newly established relationship, we need a controller and view that access the events for a given category. We will create a new view that lists <em>events by category</em>. In other words, given a category ID, the view will display a list of all events in the given category.</p>
+<p>The end result will look like this:</p>
+<div class="figure align-default" id="id1">
+<img alt="A table listing info for all events in a specific category" src="../../_images/events-by-category.png" />
+<p class="caption"><span class="caption-text">Events belonging to a specific category</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Notice that this view is extremely similar to our main view listing all events. The only differences are the title and the specific events in the list. Since both <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">events</span></code> are values that we pass into our <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> template, we can use the same template for this view as we have been using for the view at route <code class="docutils literal notranslate"><span class="pre">/events</span></code>.</p>
+<p>Taking this one step further, we will use the same controller as well. This will allow us to have a route, <code class="docutils literal notranslate"><span class="pre">/events</span></code> that displays <em>all</em> events if no <code class="docutils literal notranslate"><span class="pre">eventId</span></code> is specified, but displays a filtered list when a valid <code class="docutils literal notranslate"><span class="pre">eventId</span></code> is provided. Let’s get to work in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>.</p>
+<p>The method at the route <code class="docutils literal notranslate"><span class="pre">/events</span></code> is <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code>. Since this handler will no longer <em>always</em> display all events, we rename it to <code class="docutils literal notranslate"><span class="pre">displayEvents</span></code>.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">We have renamed this method in the repository linked above, but the video skips this step.</p>
+</div>
+<p>Let’s view the finished handler method and break down the changes one-by-one:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">displayEvents</span><span class="p">(</span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">Integer</span> <span class="n">categoryId</span><span class="p">,</span> <span class="n">Model</span> <span class="n">model</span><span class="p">)</span> <span class="p">{</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="n">categoryId</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;All Events&quot;</span><span class="p">);</span>
+      <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;events&quot;</span><span class="p">,</span> <span class="n">eventRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">());</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">Optional</span><span class="o">&lt;</span><span class="n">EventCategory</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">eventCategoryRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">categoryId</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;Invalid Category ID: &quot;</span> <span class="o">+</span> <span class="n">categoryId</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">EventCategory</span> <span class="n">category</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+            <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;Events in category: &quot;</span> <span class="o">+</span> <span class="n">category</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+            <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;events&quot;</span><span class="p">,</span> <span class="n">category</span><span class="p">.</span><span class="na">getEvents</span><span class="p">());</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="s">&quot;events/index&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="section" id="update-1-optional-categoryid-parameter">
+<h4><span class="section-number">18.3.2.2.1. </span>Update 1: Optional <code class="docutils literal notranslate"><span class="pre">categoryId</span></code> Parameter<a class="headerlink" href="#update-1-optional-categoryid-parameter" title="Permalink to this headline">¶</a></h4>
+<p>In order to filter events by category, we need the ID of a category to filter by. The handler now has a new parameter:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RequestParam</span><span class="p">(</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="n">Integer</span> <span class="n">categoryId</span>
+</pre></div>
+</div>
+<p>This allows requests to URLs like <code class="docutils literal notranslate"><span class="pre">/events?categoryId=1</span></code>. By specifying <code class="docutils literal notranslate"><span class="pre">required</span> <span class="pre">=</span> <span class="pre">false</span></code> we are telling Spring that it should call this handler for requests to the path <code class="docutils literal notranslate"><span class="pre">/events</span></code> even if no such ID is specified. This allows us to preserve our existing behavior that lists <em>all</em> events at <code class="docutils literal notranslate"><span class="pre">/events</span></code>. If no <code class="docutils literal notranslate"><span class="pre">categoryId</span></code> is specified in the request, then the <code class="docutils literal notranslate"><span class="pre">categoryId</span></code> parameter will be <code class="docutils literal notranslate"><span class="pre">null</span></code> when the handler is called.</p>
+</div>
+<div class="section" id="update-2-null-check">
+<h4><span class="section-number">18.3.2.2.2. </span>Update 2: <code class="docutils literal notranslate"><span class="pre">null</span></code> Check<a class="headerlink" href="#update-2-null-check" title="Permalink to this headline">¶</a></h4>
+<p>Much of the method consists of a large <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code> block.</p>
+<p>Before filtering by category, we check for the existence of the <code class="docutils literal notranslate"><span class="pre">categoryId</span></code> parameter. The first part of the conditional block is:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>32
+33
+34
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">categoryId</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;All Events&quot;</span><span class="p">);</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;events&quot;</span><span class="p">,</span> <span class="n">eventRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>If no <code class="docutils literal notranslate"><span class="pre">categoryId</span></code> is passed in, we carry out the same behavior as before, passing all events into the view.</p>
+</div>
+<div class="section" id="update-3-ensuring-the-category-object-exists">
+<h4><span class="section-number">18.3.2.2.3. </span>Update 3: Ensuring the Category Object Exists<a class="headerlink" href="#update-3-ensuring-the-category-object-exists" title="Permalink to this headline">¶</a></h4>
+<p>If the conditional check above fails, then we have a non-null <code class="docutils literal notranslate"><span class="pre">categoryId</span></code>. However, this does not guarantee that an object with the given ID exists in the database. We must manually check for the existence of such an object.</p>
+<p>Here’s our conditional block with the next piece added:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">categoryId</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;All Events&quot;</span><span class="p">);</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;events&quot;</span><span class="p">,</span> <span class="n">eventRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+   <span class="n">Optional</span><span class="o">&lt;</span><span class="n">EventCategory</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">eventCategoryRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">categoryId</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+         <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;Invalid Category ID: &quot;</span> <span class="o">+</span> <span class="n">categoryId</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="c1">// TODO</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Line 36 queries our repository for a category object with the given ID. Notice that the <code class="docutils literal notranslate"><span class="pre">findById</span></code> method returns not an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object, but something of type <code class="docutils literal notranslate"><span class="pre">Optional&lt;EventCategory&gt;</span></code>. Huh?</p>
+<p>Referring to the <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-" target="_blank">documentation for the CrudRepository.findById<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  method, we see that it returns an <code class="docutils literal notranslate"><span class="pre">Optional</span></code> instance. We don’t currently know what the heck that is, but referring to the <a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html?is-external=true" target="_blank">documentation for Optional<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> describes how to use this class.</p>
+<p>Essentially, by returning an <code class="docutils literal notranslate"><span class="pre">Optional&lt;EventCategory&gt;</span></code> object, the <code class="docutils literal notranslate"><span class="pre">findById</span></code> method is taking into account the exact situation we are in, that an object with such an ID may not exist. An <code class="docutils literal notranslate"><span class="pre">Optional</span></code> object can be thought of as a container for the results of our query. If such an object <em>does</em> exist, we can get it using <code class="docutils literal notranslate"><span class="pre">Optional.get()</span></code>. Otherwise, <code class="docutils literal notranslate"><span class="pre">Optional.isEmpty()</span></code> will return true.</p>
+<p>On lines 37-38 we use this fact to check to see if an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object was found. If not, we display an error message in the title.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="last">As you wade into vast waters of Java and Spring, you will frequently find yourself needing to use a method or class that you have not encountered before. In such cases, be brave and remember that you don’t have to understand <em>all</em> of the documentation for a method or class in order to use it.</p>
+</div>
+</div>
+<div class="section" id="update-4-retrieving-events-for-the-given-category">
+<h4><span class="section-number">18.3.2.2.4. </span>Update 4: Retrieving Events For the Given Category<a class="headerlink" href="#update-4-retrieving-events-for-the-given-category" title="Permalink to this headline">¶</a></h4>
+<p>We are finally ready to consider the full conditional:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">categoryId</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;All Events&quot;</span><span class="p">);</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;events&quot;</span><span class="p">,</span> <span class="n">eventRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">());</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+   <span class="n">Optional</span><span class="o">&lt;</span><span class="n">EventCategory</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">eventCategoryRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">categoryId</span><span class="p">);</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+         <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;Invalid Category ID: &quot;</span> <span class="o">+</span> <span class="n">categoryId</span><span class="p">);</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="n">EventCategory</span> <span class="n">category</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+         <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;Events in category: &quot;</span> <span class="o">+</span> <span class="n">category</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+         <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;events&quot;</span><span class="p">,</span> <span class="n">category</span><span class="p">.</span><span class="na">getEvents</span><span class="p">());</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Lines 39-42 will only execute if we know for sure that a category with the given ID exists. In this case, we extract the category from the <code class="docutils literal notranslate"><span class="pre">Optional</span></code> object <code class="docutils literal notranslate"><span class="pre">result</span></code> using the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method. Then we create an appropriate title using the category name, and pass the events belonging to the category into the view.</p>
+<p>Line 42 is what we have been building up to this entire time. Our <code class="docutils literal notranslate"><span class="pre">category</span></code> object now has an <code class="docutils literal notranslate"><span class="pre">events</span></code> field that is populated using the <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code> annotation that we added near the beginning of this section, allowing the inverse relationship to be established.</p>
+<p>Now, not only do events have categories, but categories know which events they contain.</p>
+</div>
+</div>
+<div class="section" id="linking-to-filtered-views">
+<h3><span class="section-number">18.3.2.3. </span>Linking to Filtered Views<a class="headerlink" href="#linking-to-filtered-views" title="Permalink to this headline">¶</a></h3>
+<p>With our new controller logic in place, we have one small update to make before we can fully use this new functionality.</p>
+<p>We need to provide a way for the user to access our new filtered views. In the <code class="docutils literal notranslate"><span class="pre">eventCategories/index.html</span></code> template, modify the loop within the table to include a link to the filtered view for each category:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">tr</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;category : ${categories}&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${category.name}&quot;</span> <span class="na">th:href</span><span class="o">=</span><span class="s">&quot;&#39;/events?categoryId=&#39; + ${category.id}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>The logic in <code class="docutils literal notranslate"><span class="pre">th:href</span></code> uses string concatenation to create the appropriate URL for each category.</p>
+<p>With this code in place, start up our application and test out the new functionality! Be sure to navigate to <code class="docutils literal notranslate"><span class="pre">/eventCategories</span></code> to see your new links to the filtered views. Also, be sure to test that <code class="docutils literal notranslate"><span class="pre">/events</span></code> still displays all events.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">18.3.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Which of the following is NOT a <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> method? Check all that apply.</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">.findAll()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">.findById()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">.value()</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">.get()</span></code></li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: The nested conditional in <code class="docutils literal notranslate"><span class="pre">displayEvents</span></code> in the <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> repo helps curtail an exception making its way to the user.</p>
+<ol class="last arabic simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="many-to-one.html"><span aria-hidden="true">&larr;</span> <span class="section-number">18.2. </span>Creating a Many-to-One Relationship</a></li>
+        
+        
+        <li class="next"><a href="one-to-one.html"><span class="section-number">18.4. </span>Creating a One-to-One Relationship <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-relationships/one-to-many.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

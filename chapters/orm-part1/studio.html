@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17.5. Studio: Creating an AbstractEntity &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18. Relationships in Object-Relational Mapping" href="../orm-relationships/index.html" />
+    <link rel="prev" title="17.4. Exercises: OMG the ORM!" href="exercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">17. </span>Introduction to Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">17.5. </span>Studio: Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code></li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="studio-creating-an-abstractentity">
+<span id="orm1-studio"></span><h1><span class="section-number">17.5. </span>Studio: Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code><a class="headerlink" href="#studio-creating-an-abstractentity" title="Permalink to this headline">¶</a></h1>
+<p>In <a class="reference internal" href="exercises.html#orm1-exercises"><span class="std std-ref">Exercises: OMG the ORM!</span></a>, you created a new persistent class, <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>. We will eventually use this class to categorize events in our application. However, your application now has a fair amount of duplication across the two model classes. In this studio, you will reduce repetition (i.e. “DRY out your code”) using inheritance and abstract classes.</p>
+<div class="section" id="getting-ready">
+<h2><span class="section-number">17.5.1. </span>Getting Ready<a class="headerlink" href="#getting-ready" title="Permalink to this headline">¶</a></h2>
+<p>In your <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> repository, create a new branch from your exercises work. Call this branch <code class="docutils literal notranslate"><span class="pre">abstract-entity-studio</span></code>.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">On <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code>, we have provided a branch called <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category" target="_blank">add-persistent-category<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+to make sure you have good starter code for the studio, even if you didn’t complete the exercises.</p>
+</div>
+</div>
+<div class="section" id="your-tasks">
+<h2><span class="section-number">17.5.2. </span>Your Tasks<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h2>
+<p>Let’s look at both the <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> classes. There are four class members that are (essentially) the same in both classes:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">id</span></code> field</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">getId</span></code> method</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">equals</span></code> method</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> method</li>
+</ul>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If you have a super-sharp eye, you’ll notice that the two <code class="docutils literal notranslate"><span class="pre">equals</span></code> methods aren’t <em>exactly</em> the same. For example, the next-to-last line of this method in <code class="docutils literal notranslate"><span class="pre">Event</span></code> looks like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Event</span> <span class="n">event</span> <span class="o">=</span> <span class="p">(</span><span class="n">Event</span><span class="p">)</span> <span class="n">o</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>while in <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> this line is slightly different;</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">EventCategory</span> <span class="n">that</span> <span class="o">=</span> <span class="p">(</span><span class="n">EventCategory</span><span class="p">)</span> <span class="n">o</span><span class="p">;</span>
+</pre></div>
+</div>
+<p class="last">This minor difference will not matter in the long run, as we’ll see later.</p>
+</div>
+<p>Your objective in this studio is to reduce this repetition by creating a class that contains the duplicated/shared code, which both <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> can inherit.</p>
+<div class="section" id="create-and-extend-abstractentity">
+<h3><span class="section-number">17.5.2.1. </span>Create and Extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code><a class="headerlink" href="#create-and-extend-abstractentity" title="Permalink to this headline">¶</a></h3>
+<p>In the <code class="docutils literal notranslate"><span class="pre">models</span></code> package, create a new class named <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Add the <code class="docutils literal notranslate"><span class="pre">abstract</span></code> keyword to the class declaration. We do this because, while we want to share code across our two models, we’ll never need to create an instance of <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. If you need a quick refresher, review our section on <a class="reference internal" href="../inheritance/abstract-inheritance.html#abstract-classes"><span class="std std-ref">Inheriting from Abstraction</span></a>.</p>
+<div class="admonition-tip admonition">
+<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>This class name seems a little odd at first, but it makes sense after a brief explanation.</p>
+<p>It is a commonly used convention in Java to prefix the name of an abstract class with <code class="docutils literal notranslate"><span class="pre">Abstract</span></code>, to make it obvious to other developers that they can’t create instances of the class.</p>
+<p class="last">Additionally, <em>every</em> entity class that we create will extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. (Recall that an entity is a class/object that can be stored in a database.)</p>
+</div>
+<p>Finally, in the class declarations of both <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>, extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>.</p>
+</div>
+<div class="section" id="move-duplicated-code-into-the-superclass">
+<h3><span class="section-number">17.5.2.2. </span>Move Duplicated Code Into the Superclass<a class="headerlink" href="#move-duplicated-code-into-the-superclass" title="Permalink to this headline">¶</a></h3>
+<p>Open up the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class file. Move the 4 class members that we identified as being duplicated across both models up into <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Now your <code class="docutils literal notranslate"><span class="pre">Event</span></code> class will <em>inherit</em> these members rather than define them itself.</p>
+<p>When you move the <code class="docutils literal notranslate"><span class="pre">equals</span></code> method up into <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>, you’ll see a compiler error on the last line (this is related to the note we made above). Let’s look at this method in detail.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">o</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">getClass</span><span class="p">()</span> <span class="o">!=</span> <span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+   <span class="n">Event</span> <span class="n">event</span> <span class="o">=</span> <span class="p">(</span><span class="n">Event</span><span class="p">)</span> <span class="n">o</span><span class="p">;</span>
+   <span class="k">return</span> <span class="n">id</span> <span class="o">==</span> <span class="n">event</span><span class="p">.</span><span class="na">id</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The compiler error occurs on the last line, and the context menu in IntelliJ describes it for us:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;id&#39; has private access in &#39;org.launchcode.codingevents.models.AbstractEntity&#39;
+</pre></div>
+</div>
+<p>What is this telling us? As written, <code class="docutils literal notranslate"><span class="pre">event</span></code> is an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object, since it is the result of casting <code class="docutils literal notranslate"><span class="pre">o</span></code> to <code class="docutils literal notranslate"><span class="pre">Event</span></code> in the line
+above: <code class="docutils literal notranslate"><span class="pre">Event</span> <span class="pre">event</span> <span class="pre">=</span> <span class="pre">(Event)</span> <span class="pre">o;</span></code>. But when we reference <code class="docutils literal notranslate"><span class="pre">event.id</span></code> we are attempting to reference the <em>private</em> field <code class="docutils literal notranslate"><span class="pre">id</span></code>, which
+lives not in <code class="docutils literal notranslate"><span class="pre">Event</span></code>, but in <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. This is not allowed.</p>
+<p>This error is easy to fix; simply change the cast on the next-to-last line to convert <code class="docutils literal notranslate"><span class="pre">o</span></code> to an instance of <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. And while
+we’re at it, let’s give the variable <code class="docutils literal notranslate"><span class="pre">event</span></code> a better name.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">o</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">getClass</span><span class="p">()</span> <span class="o">!=</span> <span class="n">o</span><span class="p">.</span><span class="na">getClass</span><span class="p">())</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+   <span class="n">AbstractEntity</span> <span class="n">entity</span> <span class="o">=</span> <span class="p">(</span><span class="n">AbstractEntity</span><span class="p">)</span> <span class="n">o</span><span class="p">;</span>
+   <span class="k">return</span> <span class="n">id</span> <span class="o">==</span> <span class="n">entity</span><span class="p">.</span><span class="na">id</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">equals</span></code> method works by checking the value of the identifier/primary key field <code class="docutils literal notranslate"><span class="pre">id</span></code>. If two objects have the same <code class="docutils literal notranslate"><span class="pre">id</span></code>, then they should be considered equal. Otherwise, they are not equal.</p>
+<p class="last">It may not be obvious that you can’t have an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object and an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object with the same <code class="docutils literal notranslate"><span class="pre">id</span></code>. However, the way in which the database manages and assigns these values ensures that won’t happen.</p>
+</div>
+<p>Now in your <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> model, delete the four class members that are inherited from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. You should have NO compiler errors in your application at this point.</p>
+</div>
+<div class="section" id="the-mappedsuperclass-annotation">
+<h3><span class="section-number">17.5.2.3. </span>The <code class="docutils literal notranslate"><span class="pre">&#64;MappedSuperclass</span></code> Annotation<a class="headerlink" href="#the-mappedsuperclass-annotation" title="Permalink to this headline">¶</a></h3>
+<p>One final step: Add the <code class="docutils literal notranslate"><span class="pre">&#64;MappedSuperclass</span></code> to your <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> class.</p>
+<p>This annotation will be discussed in more detail later. For now, you should understand that it ensures that the <code class="docutils literal notranslate"><span class="pre">id</span></code> values will still be stored in the <code class="docutils literal notranslate"><span class="pre">event</span></code> and <code class="docutils literal notranslate"><span class="pre">event_category</span></code> tables of the database, even though <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> don’t have <code class="docutils literal notranslate"><span class="pre">id</span></code> fields in their class definition.</p>
+</div>
+</div>
+<div class="section" id="making-sure-it-works">
+<h2><span class="section-number">17.5.3. </span>Making Sure It Works<a class="headerlink" href="#making-sure-it-works" title="Permalink to this headline">¶</a></h2>
+<p>Start up your application and make sure it all works! Be sure to add some new data and make sure you see it in the appropriate table(s).</p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="exercises.html"><span aria-hidden="true">&larr;</span> <span class="section-number">17.4. </span>Exercises: OMG the ORM!</a></li>
+        
+        
+        <li class="next"><a href="../orm-relationships/index.html"><span class="section-number">18. </span>Relationships in Object-Relational Mapping <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-part1/studio.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

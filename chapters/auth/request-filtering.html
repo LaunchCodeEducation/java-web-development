@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19.5. Filtering Requests &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="19.6. Studio: TechJobs Authentication" href="studio.html" />
+    <link rel="prev" title="19.4. Login and Registration Forms" href="login-registration-forms.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">19. </span>Authentication</a></li>
+    <li class="active"><span class="section-number">19.5. </span>Filtering Requests</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="filtering-requests">
+<h1><span class="section-number">19.5. </span>Filtering Requests<a class="headerlink" href="#filtering-requests" title="Permalink to this headline">¶</a></h1>
+<p>Our application now allows users to register and log in. However, access to
+pages on the site is NOT yet restricted in any way. Even if a user isn’t logged
+in, they may view any page on the site. To fully implement authentication, we
+need to be able to check a user’s login status on each request, <em>before</em> any
+controller methods are called.</p>
+<p id="index-0">We can do this by filtering requests. <strong>Request filtering</strong> is a mechanism
+available in many web frameworks. It allows a programmer to carry out certain
+actions before any controllers are called.</p>
+<div class="section" id="request-filters-in-spring">
+<h2><span class="section-number">19.5.1. </span>Request Filters in Spring<a class="headerlink" href="#request-filters-in-spring" title="Permalink to this headline">¶</a></h2>
+<p>A request filter in Spring can be built by extending the built-in class <code class="docutils literal notranslate"><span class="pre">HandlerInterceptorAdapter</span></code> and overriding one of its various methods. This class implements an interface called <code class="docutils literal notranslate"><span class="pre">HandlerInterceptor</span></code>, which <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html" target="_blank">specifies a few methods<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> that are called during the request-handling process:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">preHandle</span></code> - called <em>before</em> a request is handled by a controller</li>
+<li><code class="docutils literal notranslate"><span class="pre">postHandle</span></code> - called <em>after</em> a request is handled by a controller, but
+<em>before</em> the view is rendered</li>
+<li><code class="docutils literal notranslate"><span class="pre">afterCompletion</span></code> - called <em>after</em> the view is rendered</li>
+</ul>
+<p>By extending <code class="docutils literal notranslate"><span class="pre">HandlerInterceptorAdapter</span></code> and overriding one or more of these
+methods, we can write code that is executed at a specific point of <em>every</em>
+request to our application. This is exactly what we need to implement
+authentication. More specifically, we will override <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> and check for
+a user’s login status.</p>
+</div>
+<div class="section" id="creating-authenticationfilter">
+<h2><span class="section-number">19.5.2. </span>Creating <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code><a class="headerlink" href="#creating-authenticationfilter" title="Permalink to this headline">¶</a></h2>
+<p>In the top-level package of the app, <code class="docutils literal notranslate"><span class="pre">org.launchcode.codingevents</span></code>, create a
+class named <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code> that extends
+<code class="docutils literal notranslate"><span class="pre">HandlerInterceptorAdapter</span></code>.</p>
+<p>This class will need to access user data, so autowire a <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code>
+field. We will also need to use the
+<code class="docutils literal notranslate"><span class="pre">AuthenticationController.getUserFromSession</span></code> method, so autowire an
+<code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code> field as well.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AuthenticationFilter</span> <span class="kd">extends</span> <span class="n">HandlerInterceptorAdapter</span> <span class="p">{</span>
+
+   <span class="nd">@Autowired</span>
+   <span class="n">UserRepository</span> <span class="n">userRepository</span><span class="p">;</span>
+
+   <span class="nd">@Autowired</span>
+   <span class="n">AuthenticationController</span> <span class="n">authenticationController</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">For autowiring to work, a class must be Spring-managed. There are many ways
+a given class may registered as a Spring-managed class, but any class with
+<code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> will be automatically registered. Thus, any controller class
+may be autowired.</p>
+</div>
+<div class="section" id="overriding-prehandle">
+<h3><span class="section-number">19.5.2.1. </span>Overriding <code class="docutils literal notranslate"><span class="pre">preHandle</span></code><a class="headerlink" href="#overriding-prehandle" title="Permalink to this headline">¶</a></h3>
+<p>Here is our initial <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> method, with a detailed breakdown below.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span>
+                        <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
+                        <span class="n">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+   <span class="n">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getSession</span><span class="p">();</span>
+   <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">authenticationController</span><span class="p">.</span><span class="na">getUserFromSession</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
+
+   <span class="c1">// The user is logged in</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">user</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="c1">// The user is NOT logged in</span>
+   <span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">);</span>
+   <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The signature of our method must match the <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html#preHandle-javax.servlet.http.HttpServletRequest-javax.servlet.http.HttpServletResponse-java.lang.Object-" target="_blank">definition of preHandle<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> and <code class="docutils literal notranslate"><span class="pre">HandlerInterceptor</span></code> <em>exactly</em>, even if we don’t need all of the parameters. We will only use the <code class="docutils literal notranslate"><span class="pre">request</span></code> argument, but we still need to include the <code class="docutils literal notranslate"><span class="pre">response</span></code> and <code class="docutils literal notranslate"><span class="pre">handler</span></code> arguments.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The sharp-eyed reader will notice that our <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> and the overridden
+method in <code class="docutils literal notranslate"><span class="pre">HandlerInterceptor</span></code> throw different exception types. This is
+the one way in which the method signatures are allowed to differ, so long as
+the exception type of our method is a subclass of the overridden method.
+Since <code class="docutils literal notranslate"><span class="pre">IOException</span></code> extends <code class="docutils literal notranslate"><span class="pre">Exception</span></code>, this is allowed.</p>
+</div>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> returns a boolean. The return value will dictate what
+happens after the handler finishes running. If we return <code class="docutils literal notranslate"><span class="pre">true</span></code>, then request
+processing will continue as normal, with the appropriate controller method
+being called. If we return <code class="docutils literal notranslate"><span class="pre">false</span></code>, then processing will halt, and no
+controllers will be called.</p>
+<p>Let’s break down this method.</p>
+<ul class="simple">
+<li><strong>Line 32</strong>: Retrieves the user’s <code class="docutils literal notranslate"><span class="pre">session</span></code> object, which is contained in the <code class="docutils literal notranslate"><span class="pre">request</span></code>.</li>
+<li><strong>Line 33</strong>: Retrieves the <code class="docutils literal notranslate"><span class="pre">User</span></code> object corresponding to the given user. Recall that this will be <code class="docutils literal notranslate"><span class="pre">null</span></code> if the user is not logged in.</li>
+<li><strong>Lines 36-38</strong>: The <code class="docutils literal notranslate"><span class="pre">user</span></code> object is non-null, so the user is logged in. Allow the request to be handled as normal.</li>
+<li><strong>Lines 41-42</strong>: The <code class="docutils literal notranslate"><span class="pre">user</span></code> object is <code class="docutils literal notranslate"><span class="pre">null</span></code>, so we redirect the user to the login page.</li>
+</ul>
+<p>This method has the effect of preventing access to <em>every</em> page on the app if a user is not logged in. This creates one not-so-minor problem: How will a user access the login page if they are not logged in?</p>
+</div>
+<div class="section" id="creating-a-whitelist">
+<h3><span class="section-number">19.5.2.2. </span>Creating a Whitelist<a class="headerlink" href="#creating-a-whitelist" title="Permalink to this headline">¶</a></h3>
+<p id="index-1">The term <strong>whitelist</strong> often refers to a list of items that are NOT subject to a given restriction. For our filter to fully work, we need a whitelist of pages that may be accessed by <em>any</em> user, regardless of whether or not they are logged in.</p>
+<p>Let’s define our whitelist above <code class="docutils literal notranslate"><span class="pre">preHandle</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">whitelist</span> <span class="o">=</span> <span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">,</span> <span class="s">&quot;/register&quot;</span><span class="p">,</span> <span class="s">&quot;/logout&quot;</span><span class="p">,</span> <span class="s">&quot;/css&quot;</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>At minimum, users should be able to access the routes associated with logging in and out. Depending on the desired use-cases for your application, you may want to add additional pages to the whitelist. For example, many web apps have a home page that does not require being logged in to view.</p>
+<p>We now need a way to check whether or not a given request is whitelisted. The following utility method does the trick:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">isWhitelisted</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">pathRoot</span> <span class="p">:</span> <span class="n">whitelist</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="n">pathRoot</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>This method takes a string representing a URL path and checks to see if it <em>starts with</em> any of the entries in <code class="docutils literal notranslate"><span class="pre">whitelist</span></code>. If you wanted to be more restrictive, you could use <code class="docutils literal notranslate"><span class="pre">.equals()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.startsWith()</span></code>. If the path is whitelisted, we return true. Otherwise, we return false.</p>
+<p>We can now check all requests against the whitelist within <code class="docutils literal notranslate"><span class="pre">preHandle</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">preHandle</span><span class="p">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span>
+                        <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span>
+                        <span class="n">Object</span> <span class="n">handler</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+   <span class="c1">// Don&#39;t require sign-in for whitelisted pages</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">isWhitelisted</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="na">getRequestURI</span><span class="p">()))</span> <span class="p">{</span>
+      <span class="c1">// returning true indicates that the request may proceed</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="n">HttpSession</span> <span class="n">session</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="na">getSession</span><span class="p">();</span>
+   <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">authenticationController</span><span class="p">.</span><span class="na">getUserFromSession</span><span class="p">(</span><span class="n">session</span><span class="p">);</span>
+
+   <span class="c1">// The user is logged in</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">user</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="c1">// The user is NOT logged in</span>
+   <span class="n">response</span><span class="p">.</span><span class="na">sendRedirect</span><span class="p">(</span><span class="s">&quot;/login&quot;</span><span class="p">);</span>
+   <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">request.getRequestURI()</span></code> returns the request path (see <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/servlet/http/HttpServletRequest.html" target="_blank">the docs<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for more details). Lines 43-47 check the path against the whitelist, returning true (that is, allowing the request to proceed) if the path is whitelisted.</p>
+<p>With our filter complete, we simply need to let Spring know about it to complete our authentication code.</p>
+</div>
+</div>
+<div class="section" id="registering-the-filter-with-spring">
+<h2><span class="section-number">19.5.3. </span>Registering the Filter With Spring<a class="headerlink" href="#registering-the-filter-with-spring" title="Permalink to this headline">¶</a></h2>
+<p id="index-2">Spring Boot uses <strong>code-based configuration</strong>, which means that many application configurations can be done using Java classes. We’ll use code-based configuration to register our filter.</p>
+<p>At the top-level package of the app, <code class="docutils literal notranslate"><span class="pre">org.launchcode.codingevents</span></code>, create a class named <code class="docutils literal notranslate"><span class="pre">WebApplicationConfig</span></code> with the code below:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebApplicationConfig</span> <span class="kd">implements</span> <span class="n">WebMvcConfigurer</span> <span class="p">{</span>
+
+   <span class="c1">// Create spring-managed object to allow the app to access our filter</span>
+   <span class="nd">@Bean</span>
+   <span class="kd">public</span> <span class="n">AuthenticationFilter</span> <span class="nf">authenticationFilter</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="n">AuthenticationFilter</span><span class="p">();</span>
+   <span class="p">}</span>
+
+   <span class="c1">// Register the filter with the Spring container</span>
+   <span class="nd">@Override</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addInterceptors</span><span class="p">(</span><span class="n">InterceptorRegistry</span> <span class="n">registry</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">registry</span><span class="p">.</span><span class="na">addInterceptor</span><span class="p">(</span> <span class="n">authenticationFilter</span><span class="p">()</span> <span class="p">);</span>
+   <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;Configuration</span></code> annotation flags this class to Spring as one that contains configuration code. By implementing <code class="docutils literal notranslate"><span class="pre">WebMvcConfigurer</span></code>, we ensure that Spring will call our <code class="docutils literal notranslate"><span class="pre">addInterceptors</span></code> method during startup, giving us the chance to register our filter.</p>
+<p>The first method—<code class="docutils literal notranslate"><span class="pre">authenticationFilter</span></code>, which is annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Bean</span></code>—makes our filter available as a Spring-managed class.</p>
+<p>Now you can start your application and test. You should be required to log in to view anything other than login and registration pages.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The code for this section is available in the
+<a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/auth-filter" target="_blank">auth-filter branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repository.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">19.5.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: Request filtering takes place before any controller is called.</p>
+<ol class="last arabic simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: When our code checks a path against entries in the whitelist,
+it must match exactly in order for the path to be accessed without logging in.</p>
+<ol class="last arabic simple">
+<li>True</li>
+<li>False</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="login-registration-forms.html"><span aria-hidden="true">&larr;</span> <span class="section-number">19.4. </span>Login and Registration Forms</a></li>
+        
+        
+        <li class="next"><a href="studio.html"><span class="section-number">19.6. </span>Studio: TechJobs Authentication <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/auth/request-filtering.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

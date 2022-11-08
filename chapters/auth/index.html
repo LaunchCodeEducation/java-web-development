@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19. Authentication &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="19.1. Introduction to Authentication" href="intro.html" />
+    <link rel="prev" title="18.6. Exercises: The Early Bird Gets the ORM!" href="../orm-relationships/exercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li class="active"><span class="section-number">19. </span>Authentication</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="authentication">
+<h1><span class="section-number">19. </span>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ol>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">19.1. Introduction to Authentication</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#what-is-authentication">19.1.1. What Is Authentication?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#flow-for-simple-authentication">19.1.2. Flow for Simple Authentication</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#sessions-and-cookies">19.1.2.1. Sessions and Cookies</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#a-note-on-authentication-in-spring">19.1.3. A Note On Authentication In Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#check-your-understanding">19.1.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hashing-passwords.html">19.2. Hashing Passwords</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="hashing-passwords.html#two-way-encryption">19.2.1. Two-Way Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hashing-passwords.html#one-way-encryption">19.2.2. One-Way Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hashing-passwords.html#password-verification-with-hashes">19.2.3. Password Verification With Hashes</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="hashing-passwords.html#hashing-isn-t-perfect">19.2.3.1. Hashing Isn’t Perfect</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hashing-passwords.html#which-hash-function-should-i-use">19.2.4. Which Hash Function Should I Use?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hashing-passwords.html#check-your-understanding">19.2.5. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user-model.html">19.3. Creating a <code class="docutils literal notranslate"><span class="pre">User</span></code> Model</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="user-model.html#a-user-model">19.3.1. A <code class="docutils literal notranslate"><span class="pre">User</span></code> Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-model.html#hashing-passwords">19.3.2. Hashing Passwords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-model.html#creating-the-userrepository">19.3.3. Creating the <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-model.html#check-your-understanding">19.3.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="login-registration-forms.html">19.4. Login and Registration Forms</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="login-registration-forms.html#creating-authenticationcontroller">19.4.1. Creating <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="login-registration-forms.html#session-handling-utilities">19.4.2. Session-Handling Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login-registration-forms.html#form-dtos">19.4.3. Form DTOs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login-registration-forms.html#the-registration-form">19.4.4. The Registration Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login-registration-forms.html#the-login-form">19.4.5. The Login Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login-registration-forms.html#logging-out">19.4.6. Logging Out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login-registration-forms.html#check-your-understanding">19.4.7. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="request-filtering.html">19.5. Filtering Requests</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="request-filtering.html#request-filters-in-spring">19.5.1. Request Filters in Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request-filtering.html#creating-authenticationfilter">19.5.2. Creating <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code></a><ol>
+<li class="toctree-l3"><a class="reference internal" href="request-filtering.html#overriding-prehandle">19.5.2.1. Overriding <code class="docutils literal notranslate"><span class="pre">preHandle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="request-filtering.html#creating-a-whitelist">19.5.2.2. Creating a Whitelist</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="request-filtering.html#registering-the-filter-with-spring">19.5.3. Registering the Filter With Spring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request-filtering.html#check-your-understanding">19.5.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="studio.html">19.6. Studio: TechJobs Authentication</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#the-starter-code">19.6.1. The Starter Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#create-the-user-model">19.6.2. Create the User Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#create-the-login-and-registration-forms">19.6.3. Create the Login and Registration Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="studio.html#filter-requests">19.6.4. Filter Requests</a></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="../orm-relationships/exercises.html"><span aria-hidden="true">&larr;</span> <span class="section-number">18.6. </span>Exercises: The Early Bird Gets the ORM!</a></li>
+        
+        
+        <li class="next"><a href="intro.html"><span class="section-number">19.1. </span>Introduction to Authentication <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/auth/index.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.6. Java Web Dev Exercises &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.7. Java Naming Conventions" href="naming-conventions.html" />
+    <link rel="prev" title="1.5. Your First Java Project" href="first-java-project.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">1. </span>Introduction and Setup</a></li>
+    <li class="active"><span class="section-number">1.6. </span>Java Web Dev Exercises</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="java-web-dev-exercises">
+<h1><span class="section-number">1.6. </span>Java Web Dev Exercises<a class="headerlink" href="#java-web-dev-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="initial-setup">
+<h2><span class="section-number">1.6.1. </span>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">¶</a></h2>
+<p>The steps here will walk you through setting up the repository that you’ll
+use to study example code, work on studios, and complete your first
+assignment of this unit.</p>
+<ol class="arabic">
+<li><p class="first">Create a <em>Fork</em> of <a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-exercises" target="_blank">LaunchCodeEducation/java-web-dev-exercises<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
+Do not clone and create a local version of this repo just yet.</p>
+</li>
+<li><p class="first">Open IntelliJ.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If the app opens up to an existing project, simply close that window to
+return to the welcome screen.</p>
+<p>If you prefer to have IntelliJ NOT open your most recent project:</p>
+<ol class="last arabic simple">
+<li><strong>Mac users</strong>: Select
+<em>IntelliJ &gt; Preferences &gt; Appearance &amp; Behavior &gt; System Settings</em> and
+un-check <em>Reopen projects on startup</em>.</li>
+<li><strong>Windows users</strong>: Use <em>File &gt; Settings &gt; Appearance &amp; Behavior &gt; System
+Settings</em>.</li>
+</ol>
+</div>
+</li>
+<li><p class="first">The <em>Welcome to IntelliJ</em> dialog looks different now. It includes a list of
+your most recent projects. However, we have the same three options in the
+upper-right corner. Select <em>Get from VCS</em>.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/IntelliJVCS.png"><img alt="IntelliJ VCS button" src="../../_images/IntelliJVCS.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">Clone a repository from a version control system.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">Select the <em>GitHub</em> option on the left side of the next window. Click
+<em>Log In via GitHub</em> or <em>Use token</em> and follow the on-screen prompts.</p>
+<div class="figure align-default" id="id2">
+<img alt="IntelliJ login to GitHub button" src="../../_images/IJ-github-login.png" />
+<p class="caption"><span class="caption-text">Set up IntelliJ to talk to your GitHub account.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">To work with a remote repository in IntelliJ, you need to configure the
+program to access your GitHub account. We recommend authenticating your
+account using a <strong>token</strong>. This takes only one brief extra step, and will
+prevent you from having to update IntelliJ settings whenever you change
+your GitHub password.</p>
+</div>
+</li>
+<li><p class="first">Now return to the <em>Repository URL</em> tab. From the URL dropdown options,
+select your fork of <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>, along with an appropriate
+destination directory (like&nbsp;the folder where you’ve stored other projects
+for this class).</p>
+<p>When ready, click the <em>Clone</em> button!</p>
+<div class="figure align-default" id="id3">
+<img alt="IntelliJ Repo Selection" src="../../_images/IntelliJRepoSelection.png" />
+<p class="caption"><span class="caption-text">IntelliJ Repo Selection</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">If you’re asked about other settings for your project. Select the <em>Next</em>
+button every time to accept the default options.</p>
+</li>
+<li><p class="first">When your project is ready, you’ll see a page that looks like the image
+below. Click on the area in the top left labelled <em>Project</em>.</p>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/IntelliJNewProject.png"><img alt="IntelliJ New Project" src="../../_images/IntelliJNewProject.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">IntelliJ New Project</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">Clicking on <em>Project</em> opens a side panel, displaying the file structure of
+the project you have just set up.</p>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/IntelliJProjectWindow.png"><img alt="IntelliJ Project Window" src="../../_images/IntelliJProjectWindow.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">IntelliJ Project Window</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">Double-clicking on the <em>Hello</em> file opens it in the workspace to the right.</p>
+<div class="figure align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/IntelliJOpenFile.png"><img alt="IntelliJ Open File" src="../../_images/IntelliJOpenFile.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">IntelliJ Open File</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">To run the <em>Hello</em> program, click on the green arrow next to the class
+definition and select <em>Run ‘Hello.main()’</em> from the dropdown menu.</p>
+<div class="figure align-default" id="id7">
+<img alt="IntelliJ Run File" src="../../_images/IntelliJRunFile.png" />
+<p class="caption"><span class="caption-text">IntelliJ Run File</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>After a few seconds, you should see a new window appear with your program’s
+output.</p>
+<div class="figure align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/IntelliJFileOutput.png"><img alt="IntelliJ File Output" src="../../_images/IntelliJFileOutput.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">IntelliJ File Output</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+</ol>
+<p>With that, you’re ready to go!</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2><span class="section-number">1.6.2. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classnotfoundexception">
+<h3><span class="section-number">1.6.2.1. </span>ClassNotFoundException<a class="headerlink" href="#classnotfoundexception" title="Permalink to this headline">¶</a></h3>
+<p>After setting uo the project, if you experience <code class="docutils literal notranslate"><span class="pre">java.lang.ClassNotFoundException</span></code>
+when you run the code, follow these steps:</p>
+<ol class="arabic">
+<li><p class="first">Select <em>File &gt; Close Project</em>. If you have any other IntelliJ projects open,
+close them as well.</p>
+<div class="figure align-default" id="id9">
+<img alt="Find the Close Project option under the File menu." src="../../_images/closeProject.png" />
+<p class="caption"><span class="caption-text">Close Project</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">You should see the IntelliJ startup window. Click the gear icon next to
+<code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> and select <em>Remove from Recent Projects</em>.</p>
+<div class="figure align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/startupWithProject.png"><img alt="Startup with Project" src="../../_images/startupWithProject.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">Remove project from recently used list.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">From the same startup window, select
+<em>File –&gt; New –&gt; Project from Existing Sources</em>.</p>
+<div class="figure align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/startupWithoutProject.png"><img alt="Startup without Project" src="../../_images/startupWithoutProject.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-text">Start project from existing sources.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">When prompted, select the <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> folder and click <em>Open</em>.</p>
+</li>
+<li><p class="first">In the next panel, select the <em>Create project from existing sources</em> radio
+button. Click <em>Next</em>.</p>
+<div class="figure align-default" id="id12">
+<img alt="Create project from existing sources radio button." src="../../_images/existingSourcesOption.png" />
+<p class="caption"><span class="caption-text">Create the project from the cloned repository.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p class="first">Follow the steps that IntelliJ guides you through, accepting all defaults.
+Each time you are prompted to overwrite IntelliJ settings files, confirm
+that you want to do so.</p>
+</li>
+<li><p class="first">Eventually the project will open, and you can successfully run your code!</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="first-java-project.html"><span aria-hidden="true">&larr;</span> <span class="section-number">1.5. </span>Your First Java Project</a></li>
+        
+        
+        <li class="next"><a href="naming-conventions.html"><span class="section-number">1.7. </span>Java Naming Conventions <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/introduction-and-setup/java-web-dev-exercises.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18.5. Creating a Many-to-Many Relationship &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18.6. Exercises: The Early Bird Gets the ORM!" href="exercises.html" />
+    <link rel="prev" title="18.4. Creating a One-to-One Relationship" href="one-to-one.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">18. </span>Relationships in Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">18.5. </span>Creating a Many-to-Many Relationship</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="creating-a-many-to-many-relationship">
+<h1><span class="section-number">18.5. </span>Creating a Many-to-Many Relationship<a class="headerlink" href="#creating-a-many-to-many-relationship" title="Permalink to this headline">¶</a></h1>
+<p>Just as when introducing one-to-one relationships, our first step in exploring many-to-many relationships is to introduce a new class to relate to <code class="docutils literal notranslate"><span class="pre">Event</span></code>.</p>
+<div class="section" id="persistent-tags-video">
+<h2><span class="section-number">18.5.1. </span>Persistent Tags - Video<a class="headerlink" href="#persistent-tags-video" title="Permalink to this headline">¶</a></h2>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/bLK-VtZgx0Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-one" target="_blank">one-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-tags" target="_blank">add-tags branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> . As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="persistent-tags-text">
+<h2><span class="section-number">18.5.2. </span>Persistent Tags - Text<a class="headerlink" href="#persistent-tags-text" title="Permalink to this headline">¶</a></h2>
+<p>To create a persistent <code class="docutils literal notranslate"><span class="pre">Tag</span></code> class, we follow the same steps as when making <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> classes persistent, with no relationships. To review these steps, refer to <a class="reference internal" href="../orm-part1/exercises.html#orm1-exercises"><span class="std std-ref">Exercises: OMG the ORM!</span></a>.</p>
+</div>
+<div class="section" id="creating-a-many-to-many-relationship-video">
+<h2><span class="section-number">18.5.3. </span>Creating a Many-to-Many Relationship - Video<a class="headerlink" href="#creating-a-many-to-many-relationship-video" title="Permalink to this headline">¶</a></h2>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/qtbkUXAjpt4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-tags" target="_blank">add-tags branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many" target="_blank">many-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="creating-a-many-to-many-relationship-text">
+<h2><span class="section-number">18.5.4. </span>Creating a Many-to-Many Relationship - Text<a class="headerlink" href="#creating-a-many-to-many-relationship-text" title="Permalink to this headline">¶</a></h2>
+<p>As you might guess, a many-to-many relationship can be configured with the JPA annotation <code class="docutils literal notranslate"><span class="pre">&#64;ManyToMany</span></code>. We can set up both sides of the <code class="docutils literal notranslate"><span class="pre">Event</span></code>/<code class="docutils literal notranslate"><span class="pre">Tag</span></code> relationship with this annotation.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">Event</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@ManyToMany</span>
+<span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Tag</span><span class="o">&gt;</span> <span class="n">tags</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>This ensures that Hibernate creates a relationship from a given event to every <code class="docutils literal notranslate"><span class="pre">Tag</span></code> instance placed in its <code class="docutils literal notranslate"><span class="pre">tags</span></code> collection.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">Tag</span></code>:</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@ManyToMany</span><span class="p">(</span><span class="n">mappedBy</span> <span class="o">=</span> <span class="s">&quot;tags&quot;</span><span class="p">)</span>
+<span class="kd">private</span> <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="n">events</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</td></tr></table></div>
+<p>Along with the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToMany</span></code> annotation, the <code class="docutils literal notranslate"><span class="pre">mappedBy</span></code> parameter ensures that Hibernate populates the <code class="docutils literal notranslate"><span class="pre">events</span></code> collection of a given <code class="docutils literal notranslate"><span class="pre">Tag</span></code> object with every <code class="docutils literal notranslate"><span class="pre">Event</span></code> object that has that specific tag in <em>its</em> <code class="docutils literal notranslate"><span class="pre">tags</span></code> collection.</p>
+<p>These minor additions fully configure the many-to-many relationship. Making use of this relationship in our controllers and views will take quite a bit more work, however.</p>
+</div>
+<div class="section" id="many-to-many-forms-and-data-transfer-objects-video">
+<h2><span class="section-number">18.5.5. </span>Many-to-Many Forms and Data Transfer Objects - Video<a class="headerlink" href="#many-to-many-forms-and-data-transfer-objects-video" title="Permalink to this headline">¶</a></h2>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/1qMaEv_CJ6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many" target="_blank">many-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many-features" target="_blank">many-to-many-features branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+</div>
+<div class="section" id="many-to-many-forms-and-data-transfer-objects-text">
+<h2><span class="section-number">18.5.6. </span>Many-to-Many Forms and Data Transfer Objects - Text<a class="headerlink" href="#many-to-many-forms-and-data-transfer-objects-text" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">In order to make use of our new many-to-many relationship, we need to have a way for users to add a tag to an event. We will implement this feature by creating a form that, for a given event, lets the user add a single tag. The process of binding an <code class="docutils literal notranslate"><span class="pre">Event</span></code> and a <code class="docutils literal notranslate"><span class="pre">Tag</span></code> object together will be made easier through the use of a new design pattern.</p>
+<div class="section" id="data-transfer-objects-dto">
+<span id="dto"></span><h3><span class="section-number">18.5.6.1. </span>Data Transfer Objects (DTO)<a class="headerlink" href="#data-transfer-objects-dto" title="Permalink to this headline">¶</a></h3>
+<p id="index-1">A <strong>data transfer object</strong> (or DTO) is an object that enables multiple other objects or values to be passed around an application, in a single container. For reasons that will make more sense shortly, we will want to utilize a DTO to hold <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">Tag</span></code> instances that we want to relate to each other.</p>
+<p>A DTO for these two classes is very simple. It contains two fields, a no-arg constructor, and accessors for the fields. Each field is annotated with <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> because we will use this class in conjunction with model binding and form processing.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EventTagDTO</span> <span class="p">{</span>
+
+   <span class="nd">@NotNull</span>
+   <span class="kd">private</span> <span class="n">Event</span> <span class="n">event</span><span class="p">;</span>
+
+   <span class="nd">@NotNull</span>
+   <span class="kd">private</span> <span class="n">Tag</span> <span class="n">tag</span><span class="p">;</span>
+
+   <span class="kd">public</span> <span class="nf">EventTagDTO</span><span class="p">()</span> <span class="p">{}</span>
+
+   <span class="kd">public</span> <span class="n">Event</span> <span class="nf">getEvent</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">event</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setEvent</span><span class="p">(</span><span class="n">Event</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">event</span> <span class="o">=</span> <span class="n">event</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="n">Tag</span> <span class="nf">getTag</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">tag</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTag</span><span class="p">(</span><span class="n">Tag</span> <span class="n">tag</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">tag</span> <span class="o">=</span> <span class="n">tag</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>We place this class in a new package, <code class="docutils literal notranslate"><span class="pre">dto</span></code>, contained within the <code class="docutils literal notranslate"><span class="pre">models</span></code> package. It is a model since it structures data that our application uses. However, it is not persistent (there is no <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> annotation) because we won’t need to store it in the database.</p>
+</div>
+<div class="section" id="connecting-two-objects">
+<h3><span class="section-number">18.5.6.2. </span>Connecting Two Objects<a class="headerlink" href="#connecting-two-objects" title="Permalink to this headline">¶</a></h3>
+<p>The process of connecting two many-to-many objects is similar to that of connecting objects with other types of relationships. We need a form that can allow a user to create a new relationship, and processing the form should result in the relationship being saved to the database.</p>
+<div class="section" id="rendering-the-form">
+<h4><span class="section-number">18.5.6.2.1. </span>Rendering the Form<a class="headerlink" href="#rendering-the-form" title="Permalink to this headline">¶</a></h4>
+<p>Given a specific event, we want to be able to render a form that allows the user to add a tag to that event. This means that the form has to know <em>which event</em> the user wants to work with. One way to do this is with query parameters.</p>
+<p>For example, say a user wants to add a tag to the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object with ID 13. To get to the form that enables this, they may navigate to <code class="docutils literal notranslate"><span class="pre">/events/add-tag?eventId=13</span></code>. This request will return a form that allows a tag to be added to <em>only</em> the event with ID 13.</p>
+<p>Here is the handler method in <code class="docutils literal notranslate"><span class="pre">EventController</span></code> that renders the form, broken down line-by-line just below.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;add-tag&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">displayAddTagForm</span><span class="p">(</span><span class="nd">@RequestParam</span> <span class="n">Integer</span> <span class="n">eventId</span><span class="p">,</span> <span class="n">Model</span> <span class="n">model</span><span class="p">){</span>
+   <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">eventRepository</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">eventId</span><span class="p">);</span>
+   <span class="n">Event</span> <span class="n">event</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;title&quot;</span><span class="p">,</span> <span class="s">&quot;Add Tag to: &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;tags&quot;</span><span class="p">,</span> <span class="n">tagRepository</span><span class="p">.</span><span class="na">findAll</span><span class="p">());</span>
+   <span class="n">EventTagDTO</span> <span class="n">eventTag</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventTagDTO</span><span class="p">();</span>
+   <span class="n">eventTag</span><span class="p">.</span><span class="na">setEvent</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;eventTag&quot;</span><span class="p">,</span> <span class="n">eventTag</span><span class="p">);</span>
+   <span class="k">return</span> <span class="s">&quot;events/add-tag.html&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><strong>Line 112</strong>: Specifies that the handler will be available at the route <code class="docutils literal notranslate"><span class="pre">/events/add-tag</span></code>, and will respond to <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests.</li>
+<li><strong>Line 113</strong>: Defines the <code class="docutils literal notranslate"><span class="pre">displayAddTagForm</span></code> handler, which has a required query parameter, <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</li>
+<li><strong>Line 114</strong>: Queries the repository for the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object with ID equal to the value of <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</li>
+<li><strong>Line 115</strong>: Extracts the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object from the result of the query. We would ideally include a conditional to check that such an object exists before proceeding, but are omitting it here to focus on DTO usage.</li>
+<li><strong>Line 116</strong>: Creates a title for the form, which includes the name of the event.</li>
+<li><strong>LIne 117</strong>: Passes a collection of all available tags into the view. This collection will be used to render a dropdown that the user can use to select the tag to be added.</li>
+<li><strong>Line 118</strong>: Creates an empty <code class="docutils literal notranslate"><span class="pre">EventTagDTO</span></code> object. This will be used to help render the form, as we have done previously with model classes.</li>
+<li><strong>Line 119</strong>: Assigns the <code class="docutils literal notranslate"><span class="pre">event</span></code> property of the <code class="docutils literal notranslate"><span class="pre">eventTag</span></code> DTO object. This will enable us to reference the specific event when rendering the form, so we can assign the tag to the correct event.</li>
+<li><strong>Line 120</strong>: Passes the DTO into the view.</li>
+<li><strong>Line 121</strong>: Returns the name of the template containing the form.</li>
+</ul>
+<p>While this may seem like a lot of new concepts, it really isn’t. If you look closely, the one new thing that we are doing is using a DTO class to bind an <em>existing</em> event to the form. The other steps here are variations of thing you have done before.</p>
+<p>Now let’s look at the form in <code class="docutils literal notranslate"><span class="pre">events/add-tag.html</span></code>.</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns:th</span><span class="o">=</span><span class="s">&quot;http://www.thymeleaf.org/&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span> <span class="na">th:replace</span><span class="o">=</span><span class="s">&quot;fragments :: head&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">header</span> <span class="na">th:replace</span><span class="o">=</span><span class="s">&quot;fragments :: header&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${eventTag.event}&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">select</span> <span class="na">th:field</span><span class="o">=</span><span class="s">&quot;${eventTag.tag}&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;tag : ${tags}&quot;</span>
+                  <span class="na">th:value</span><span class="o">=</span><span class="s">&quot;${tag.id}&quot;</span>
+                  <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${tag.name}&quot;</span>
+            <span class="p">&gt;&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-success&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Add Tag&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p>This form has two inputs. The first—with <code class="docutils literal notranslate"><span class="pre">th:field=&quot;${eventTag.event}&quot;</span></code>—is hidden, since it should not be modified by the user. We use it to keep track of the specific event that we are about to add a tag to.</p>
+<p>The second field, the <code class="docutils literal notranslate"><span class="pre">select</span></code> element, is bound to the <code class="docutils literal notranslate"><span class="pre">eventTag.tag</span></code> field. The dropdown contains each of the available tags in our application.</p>
+<p>When this form is submitted, it will have all of the information necessary to create an <code class="docutils literal notranslate"><span class="pre">EventTagDTO</span></code> object using model binding.</p>
+</div>
+<div class="section" id="processing-the-form">
+<h4><span class="section-number">18.5.6.2.2. </span>Processing the Form<a class="headerlink" href="#processing-the-form" title="Permalink to this headline">¶</a></h4>
+<p>As with <code class="docutils literal notranslate"><span class="pre">displayAddTagForm</span></code>, we will break down the form’s <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler in <code class="docutils literal notranslate"><span class="pre">EventController</span></code> in detail.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;add-tag&quot;</span><span class="p">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">processAddTagForm</span><span class="p">(</span><span class="nd">@ModelAttribute</span> <span class="nd">@Valid</span> <span class="n">EventTagDTO</span> <span class="n">eventTag</span><span class="p">,</span>
+                              <span class="n">Errors</span> <span class="n">errors</span><span class="p">,</span>
+                              <span class="n">Model</span> <span class="n">model</span><span class="p">){</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">errors</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">())</span> <span class="p">{</span>
+      <span class="n">Event</span> <span class="n">event</span> <span class="o">=</span> <span class="n">eventTag</span><span class="p">.</span><span class="na">getEvent</span><span class="p">();</span>
+      <span class="n">Tag</span> <span class="n">tag</span> <span class="o">=</span> <span class="n">eventTag</span><span class="p">.</span><span class="na">getTag</span><span class="p">();</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">getTags</span><span class="p">().</span><span class="na">contains</span><span class="p">(</span><span class="n">tag</span><span class="p">)){</span>
+            <span class="n">event</span><span class="p">.</span><span class="na">addTag</span><span class="p">(</span><span class="n">tag</span><span class="p">);</span>
+            <span class="n">eventRepository</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">event</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="s">&quot;redirect:detail?eventId=&quot;</span> <span class="o">+</span> <span class="n">event</span><span class="p">.</span><span class="na">getId</span><span class="p">();</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="s">&quot;redirect:add-tag&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Using model binding, our method takes a valid parameter of type <code class="docutils literal notranslate"><span class="pre">EventTagDTO</span></code>. Since we referenced the <code class="docutils literal notranslate"><span class="pre">event</span></code> and <code class="docutils literal notranslate"><span class="pre">tag</span></code> fields of our DTO when rendering the form (in the template, using <code class="docutils literal notranslate"><span class="pre">th:field</span></code>), our submitted form should contain all of the data necessary to create an <code class="docutils literal notranslate"><span class="pre">EventTagDTO</span></code> instance. This instance will be valid if both <code class="docutils literal notranslate"><span class="pre">event</span></code> and <code class="docutils literal notranslate"><span class="pre">tag</span></code> are non-null.</p>
+<p>The reasons for creating a DTO model should hopefully be a bit clearer by now. Using a DTO allows us to create and validate these objects through model binding. The same event and tag relationship information could be processed without a DTO, but this would require passing query parameters for the IDs of both <code class="docutils literal notranslate"><span class="pre">event</span></code> and <code class="docutils literal notranslate"><span class="pre">tag</span></code> objects, querying the <code class="docutils literal notranslate"><span class="pre">eventRepository</span></code> and <code class="docutils literal notranslate"><span class="pre">tagRepository</span></code> for these items, validating those objects, etc. Simply put, the DTO makes this procedure cleaner and easier.</p>
+<p>Once we have a valid DTO, lines 130-131 retrieve the values it holds. Then, as long as the given event doesn’t already have the given tag, we add the tag to it’s collection in lines 132-134. Finally, we save the <code class="docutils literal notranslate"><span class="pre">event</span></code> to <code class="docutils literal notranslate"><span class="pre">eventRepository</span></code>, which results in the relationship being stored in the database.</p>
+<p>Exactly <em>how</em> this relationship is stored utilizes a new type of SQL table.</p>
+</div>
+</div>
+<div class="section" id="join-tables">
+<h3><span class="section-number">18.5.6.3. </span>Join Tables<a class="headerlink" href="#join-tables" title="Permalink to this headline">¶</a></h3>
+<p>Think about how relationships are established at the database level. One-to-one and one-to-many relationships are facilitated by the use of a foreign key column on one side of the relationship. Our <code class="docutils literal notranslate"><span class="pre">event</span></code> table has two foreign key columns: <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> and <code class="docutils literal notranslate"><span class="pre">event_details_id</span></code>.</p>
+<p>For a given row in <code class="docutils literal notranslate"><span class="pre">event</span></code>, the column <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> contains the primary key of the row in <code class="docutils literal notranslate"><span class="pre">event_category</span></code> that the <code class="docutils literal notranslate"><span class="pre">event</span></code> row is related to, and similarly for <code class="docutils literal notranslate"><span class="pre">event_details_id</span></code>.</p>
+<p>The only difference is the <em>number</em> of different <code class="docutils literal notranslate"><span class="pre">event</span></code> rows that may have the same value of <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> and <code class="docutils literal notranslate"><span class="pre">event_details_id</span></code>. The <code class="docutils literal notranslate"><span class="pre">event</span></code>/<code class="docutils literal notranslate"><span class="pre">event_category</span></code> relationship is many-to-one, so <em>many</em> event rows may have the same <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> value. The <code class="docutils literal notranslate"><span class="pre">event</span></code>/<code class="docutils literal notranslate"><span class="pre">event_details</span></code> relationship is one-to-one, so <em>only one</em> event row may have a certain value in <code class="docutils literal notranslate"><span class="pre">event_details_id</span></code>.</p>
+<p id="index-2">Using foreign and primary keys to create many-to-many relationships is a bit trickier. In order to relate rows in <code class="docutils literal notranslate"><span class="pre">event</span></code> to rows in <code class="docutils literal notranslate"><span class="pre">tag</span></code> we need need a third table, known as a <strong>join table</strong>. A join table consists of two columns, each of which is a foreign key column to another table. Each row in a join table represents a relationship between one row in each of the two tables. This technique enables many-to-many relationships.</p>
+<p>Consider some example data in our <code class="docutils literal notranslate"><span class="pre">event</span></code> and <code class="docutils literal notranslate"><span class="pre">tag</span></code> tables.</p>
+<table border="1" class="docutils align-default" id="id1">
+<caption><span class="caption-text">Sample <code class="docutils literal notranslate"><span class="pre">event</span></code> data</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">id</th>
+<th class="head">name</th>
+<th class="head">event_category_id</th>
+<th class="head">event_details_id</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>13</td>
+<td>WWDC</td>
+<td>2</td>
+<td>14</td>
+</tr>
+<tr class="row-odd"><td>15</td>
+<td>SpringOne Platform</td>
+<td>2</td>
+<td>16</td>
+</tr>
+<tr class="row-even"><td>17</td>
+<td>Java meetup</td>
+<td>3</td>
+<td>18</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default" id="id2">
+<caption><span class="caption-text">Sample <code class="docutils literal notranslate"><span class="pre">event_category</span></code> data</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">id</th>
+<th class="head">name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>2</td>
+<td>Conference</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Meetup</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default" id="id3">
+<caption><span class="caption-text">Sample <code class="docutils literal notranslate"><span class="pre">tag</span></code> data</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">id</th>
+<th class="head">name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4</td>
+<td>ios</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>spring</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>java</td>
+</tr>
+</tbody>
+</table>
+<p>A join table for these two tables would be called <code class="docutils literal notranslate"><span class="pre">event_tags</span></code>, and would have two columns, <code class="docutils literal notranslate"><span class="pre">event_id</span></code> and <code class="docutils literal notranslate"><span class="pre">tag_id</span></code>. Each of these columns are foreign key columns into their respective tables.</p>
+<p>If we want to relate the <code class="docutils literal notranslate"><span class="pre">ios</span></code> tag to the <code class="docutils literal notranslate"><span class="pre">WWDC</span></code> event, we create a new row in <code class="docutils literal notranslate"><span class="pre">event_tags</span></code>:</p>
+<table border="1" class="docutils align-default" id="id4">
+<caption><span class="caption-text">A join table with a single relationship</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">events_id</th>
+<th class="head">tags_id</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>13</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>We can do this again and again to generate more relationships. Let’s revisit the many-to-many diagram from earlier in the chapter.</p>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/many-to-many.png"><img alt="Three Event objects on the left, with various relationships to three Tag objects on the right" src="../../_images/many-to-many.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-text">A many-to-many relationship between Event and Tag objects</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>The join table representing these relationships looks like this:</p>
+<table border="1" class="docutils align-default" id="id6">
+<caption><span class="caption-text">The full join table representing the relationships in the figure above</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">events_id</th>
+<th class="head">tags_id</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>13</td>
+<td>4</td>
+</tr>
+<tr class="row-odd"><td>15</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>15</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>17</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>When configuring a many-to-many relationship with Hibernate and JPA annotations, a join table will be automatically created and populated for you. Pretty cool, huh?</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">18.5.7. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True/False: Model binding only works when using a persistent class.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>The use of join tables enables (select all that apply):</p>
+<ol class="last arabic simple">
+<li>A database where you never need to run a <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> query.</li>
+<li>Many-to-many relationships between tables.</li>
+<li>Many-to-many relationships between classes without using the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToMany</span></code> annotation.</li>
+<li>Rainbows and butterflies to be stored in your database.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="one-to-one.html"><span aria-hidden="true">&larr;</span> <span class="section-number">18.4. </span>Creating a One-to-One Relationship</a></li>
+        
+        
+        <li class="next"><a href="exercises.html"><span class="section-number">18.6. </span>Exercises: The Early Bird Gets the ORM! <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-relationships/many-to-many.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

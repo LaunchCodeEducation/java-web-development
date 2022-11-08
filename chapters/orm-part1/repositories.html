@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17.3. Repositories &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17.4. Exercises: OMG the ORM!" href="exercises.html" />
+    <link rel="prev" title="17.2. Accessing Data" href="accessing-data.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">17. </span>Introduction to Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">17.3. </span>Repositories</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="repositories">
+<h1><span class="section-number">17.3. </span>Repositories<a class="headerlink" href="#repositories" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">Now that we have a general idea of how to set up our entity classes and repositories, let’s take a deeper dive into how repositories are used to perform CRUD operations on a database.</p>
+<div class="section" id="crud-operations">
+<h2><span class="section-number">17.3.1. </span>CRUD Operations<a class="headerlink" href="#crud-operations" title="Permalink to this headline">¶</a></h2>
+<p>Previously, we learned that we can create a repository to fetch rows of a table in a database.
+To do so, we need to create a corresponding controller.
+When creating our controller, we add a variable of the repository type that has the annotation <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code>.</p>
+<p>Next, we will learn how to use some of the more common <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> methods, such as <code class="docutils literal notranslate"><span class="pre">delete(T</span> <span class="pre">entity)</span></code>, <code class="docutils literal notranslate"><span class="pre">deleteById(ID</span> <span class="pre">id)</span></code>, <code class="docutils literal notranslate"><span class="pre">findAll()</span></code>, <code class="docutils literal notranslate"><span class="pre">findById(ID</span> <span class="pre">id)</span></code>, and <code class="docutils literal notranslate"><span class="pre">save(S</span> <span class="pre">entity)</span></code>.</p>
+</div>
+<div class="section" id="using-persistence-in-a-controller-video">
+<h2><span class="section-number">17.3.2. </span>Using Persistence in a Controller - Video<a class="headerlink" href="#using-persistence-in-a-controller-video" title="Permalink to this headline">¶</a></h2>
+<p>The following video explains how we can add a controller to manage persistence in our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application.
+The accompanying text is a quick rundown of what happens in the video. To get started, create a branch off of your <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/persistent-model" target="_blank">persistent-model<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> branch.</p>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/0eug2HI7rbo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/persistent-model" target="_blank">persistent-model branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the  <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/persistent-controller" target="_blank">persistent-controller branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+</div>
+<div class="section" id="using-persistence-in-a-controller-text">
+<h3><span class="section-number">17.3.2.1. </span>Using Persistence in a Controller - Text<a class="headerlink" href="#using-persistence-in-a-controller-text" title="Permalink to this headline">¶</a></h3>
+<p>Inside of <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, we can add a variable of type <code class="docutils literal notranslate"><span class="pre">EventRepository</span></code> and give it an <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code> annotation.
+For events, we want to be able to display all of the events in our database as well as add and delete events.</p>
+<p>When displaying the events in our database, we write a method, <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code>.
+We want to use <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code> to display a table that contains all of our events.
+We did something similar to this before, but we used a list or iterable containing all of the objects we wanted to display.
+Since we have set up ORM between the MySQL database and our MVC application, we need to use the methods from <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> to get all of the instances of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class.
+We can use the <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> method to return an iterable containing all of the events in our database.</p>
+<p>As you write the methods necessary for <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, you might notice that this controller doesn’t look too different from other controllers we previously created.
+Now we need to use the methods in <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> to fetch the necessary information or update the correct table.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">17.3.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="last">True or false: We add different methods directly to our repository.</p>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="accessing-data.html"><span aria-hidden="true">&larr;</span> <span class="section-number">17.2. </span>Accessing Data</a></li>
+        
+        
+        <li class="next"><a href="exercises.html"><span class="section-number">17.4. </span>Exercises: OMG the ORM! <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-part1/repositories.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

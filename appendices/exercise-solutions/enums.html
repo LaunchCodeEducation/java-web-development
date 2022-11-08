@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise Solutions: Enum Practice &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercise Solutions: OMG the ORM!" href="orm-part1.html" />
+    <link rel="prev" title="Exercise Solutions: Model Validation" href="spring-model-validation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html">Exercise Solutions</a></li>
+    <li class="active">Exercise Solutions: Enum Practice</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="exercise-solutions-enum-practice">
+<span id="enums-exercise-solutions"></span><h1>Exercise Solutions: Enum Practice<a class="headerlink" href="#exercise-solutions-enum-practice" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic" id="enums-exercise-solutions5" start="5">
+<li><p class="first">Before adding any other fields to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>, go to <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code>
+and update the index handler to pass in a <code class="docutils literal notranslate"><span class="pre">Model</span></code> class argument (eg. <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">model</span></code>).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">()</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">displayIndex</span><span class="p">(</span><span class="n">Model</span> <span class="n">model</span><span class="p">)</span> <span class="p">{</span>
+   <span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="s">&quot;planets&quot;</span><span class="p">,</span> <span class="n">Planets</span><span class="p">.</span><span class="na">values</span><span class="p">());</span>
+   <span class="k">return</span> <span class="s">&quot;index&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../chapters/enums/exercises.html#enums-exercises"><span class="std std-ref">Back to the exercises</span></a></p>
+</li>
+</ol>
+<ol class="arabic" id="enums-exercise-solutions7" start="7">
+<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a list element and use the template
+variable you have just defined in the controller to list all of the
+planet values on the page.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;planet : ${planets}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${planet}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../chapters/enums/exercises.html#enums-exercises"><span class="std std-ref">Back to the exercises</span></a></p>
+</li>
+</ol>
+<ol class="arabic" id="enums-exercise-solutions9" start="9">
+<li><p class="first">Update the template to display the planet names.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;planet : ${planets}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${planet.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../chapters/enums/exercises.html#enums-exercises"><span class="std std-ref">Back to the exercises</span></a></p>
+</li>
+</ol>
+<ol class="arabic" id="enums-exercise-solutions11" start="11">
+<li><p class="first">Change the index template to display a table of each planet name and its year in earth days.</p>
+<ol class="arabic simple">
+<li>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a table element and add the appropriate bootstrap class.</li>
+<li>The table can be styled to your liking.</li>
+<li>Add a message to let the users know what data you are displaying with the <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> field.</li>
+</ol>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">table</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;planet : ${planets}&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-striped&quot;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">thead</span> <span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">th</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${planet.name}&quot;</span><span class="p">&gt;</span>
+         <span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">td</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${planet.yearLength} + &#39; Earth days in one year.&#39;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p><a class="reference internal" href="../../chapters/enums/exercises.html#enums-exercises"><span class="std std-ref">Back to the exercises</span></a></p>
+</li>
+</ol>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="spring-model-validation.html"><span aria-hidden="true">&larr;</span> Exercise Solutions: Model Validation</a></li>
+        
+        
+        <li class="next"><a href="orm-part1.html">Exercise Solutions: OMG the ORM! <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/appendices/exercise-solutions/enums.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

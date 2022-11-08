@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment #0: Hello, World! &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment #1: Tech Jobs (Console Edition)" href="tech-jobs-console.html" />
+    <link rel="prev" title="Index" href="../genindex.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../index.html">Contents</a></li>
+    <li class="active">Assignment #0: Hello, World!</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="assignment-0-hello-world">
+<span id="assignment0"></span><h1>Assignment #0: Hello, World!<a class="headerlink" href="#assignment-0-hello-world" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this initial assignment is to familiarize yourself with the process of running the autograding tests and submitting your work via GitHub Classroom. Even if you are familiar with GitHub Classroom, this assignment will contain several new items that are specific to working with Java assignments.</p>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Let’s set up the assignment on our computer and learn about its basic structure.</p>
+<p>First, find Assignment #0 in Canvas and click on the invitation link. After accepting, go to your assignment repository on GitHub.</p>
+<p>Make sure IntelliJ is running and all project windows are closed. You should see IntelliJ’s <strong>Welcome</strong> pane. From here, select the <em>Get from Version Control</em> option.</p>
+<div class="figure align-default" id="id2">
+<img alt="Select the Check Out From Version Control option" src="../_images/check-out-from-vcs.png" />
+<p class="caption"><span class="caption-text">IntelliJ Welcome Pane</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>While IntelliJ is working, go to your assignment repository on GitHub and copy the clone URL.</p>
+<div class="figure align-default" id="id3">
+<img alt="Click the Copy button in the Code dropdown" src="../_images/copy-clone-url.png" />
+<p class="caption"><span class="caption-text">Copying the repository’s clone URL</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Paste this URL in the URL field of the <em>Get from Version Control</em> pane that IntelliJ has opened. Make sure the <em>Directory</em> field is the location that you want your assignment to be saved within, then click the <em>Clone</em> button.</p>
+<div class="figure align-default" id="id4">
+<img alt="Paste the clone URL in IntelliJ's URL field" src="../_images/url-field.png" />
+<p class="caption"><span class="caption-text">The Clone URL field</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>After IntelliJ clones your repository, it will prompt you to open it. Select <em>Yes</em>.</p>
+<div class="figure align-default" id="id5">
+<img alt="IntelliJ asks whether or not you want to open the project after cloning" src="../_images/open-intellij-project.png" />
+<p class="caption"><span class="caption-text">Select Yes to open the newly cloned project</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>When the project opens initially, the <em>Project</em> pane, which shows the files within your project, may be closed. If so, click on the pane’s button at the top left to open it.</p>
+<div class="figure align-default" id="id6">
+<img alt="The IntelliJ project with closed project pane" src="../_images/project-pane-closed.png" />
+<p class="caption"><span class="caption-text">The Project pane may be closed initially</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>Navigate though the directories down to the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class. This will be in the <code class="docutils literal notranslate"><span class="pre">src/main/java/</span></code> directory. For all of the assignments we work on in this unit, our source code will live within this directory.</p>
+<div class="figure align-default" id="id7">
+<img alt="The HelloWorld class file" src="../_images/hw-class.png" />
+<p class="caption"><span class="caption-text">Navigate to the HelloWorld class and open it</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>Note that there are two green “play” buttons on the left of the source code. This indicates that IntelliJ recognizes this class as being runnable. You can use either of these buttons to run the program. They function exactly the same. Clicking on one of them opens up a menu with a few options. Choose the first to run the program.</p>
+<div class="figure align-default" id="id8">
+<img alt="Running the main program" src="../_images/run-program.png" />
+<p class="caption"><span class="caption-text">The Run Program menu</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>When the program runs, IntelliJ will open a pane at the bottom of the window and display program output. Currently, the program has no output. You’ll fix that in a bit.</p>
+</div>
+<div class="section" id="running-the-autograding-script">
+<h2>Running the Autograding Script<a class="headerlink" href="#running-the-autograding-script" title="Permalink to this headline">¶</a></h2>
+<p>Up to now, you have have had to push your code to GitHub in order to see grading results. For this unit, you’ll be able to run the autograding tests yourself <em>before</em> you push your code. This will make it quicker and easier to know whether or not your code is correct. Let’s learn how to run the tests.</p>
+<p>In the <em>Project</em> pane, navigate to the test class, <code class="docutils literal notranslate"><span class="pre">TestHelloWorld</span></code>, in the directory <code class="docutils literal notranslate"><span class="pre">src/test/java</span></code>. For each assignment, this directory will contain all of the autograding tests, and it may have more than one class.</p>
+<div class="figure align-default" id="id9">
+<img alt="Two green play buttons inside the test file" src="../_images/run-test-buttons.png" />
+<p class="caption"><span class="caption-text">Navigate to the TestHelloWorld class and open it</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<p>Notice the two slightly different “play” buttons at the left. The topmost button is actually two green “play” arrows staked on top of each other. It allows you to run <em>all</em> of the tests in a given file.</p>
+<p>The lower button, next to the <code class="docutils literal notranslate"><span class="pre">testSayHello</span></code> method, will run only that individual test. A test is a single method in a test file that has <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> just above it. A test file may have multiple tests.</p>
+<p>Run all of the tests (in this case, there is only one) but clicking on the topmost button.</p>
+<div class="figure align-default" id="id10">
+<img alt="The double play icon runs all tests in the file" src="../_images/run-all-tests.png" />
+<p class="caption"><span class="caption-text">Running all tests in the file</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<p>A menu opens, and selecting the first option runs the tests.</p>
+<div class="figure align-default" id="id11">
+<img alt="Test failure results" src="../_images/test-results-fail.png" />
+<p class="caption"><span class="caption-text">The test initially fails</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<p>When IntelliJ runs the tests, it opens a pane at the bottom of the window to display test results. At the left, we see that the test has failed. We can expand the tree to see each of the individual tests (again, in this case there is only one). Selecting one of the tests shows its results to the right.</p>
+<p>This console-based test output can be hard to read, but IntelliJ provides a nicer interface for viewing test results. Follow the <em>Click to see difference</em> link to open this pane.</p>
+<div class="figure align-default" id="id12">
+<img alt="IntelliJ's results comparison screen" src="../_images/test-results-comparison.png" />
+<p class="caption"><span class="caption-text">Viewing expected versus actual results</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<p>On the left, you’ll see the output that the test expected. On the right, you’ll see the output that your program actually provided. IntelliJ will highlight the difference between the two, showing you exactly why your test failed.</p>
+<p>In this case, the test expected our code to output <code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">World!</span></code>. Instead, it provided no output at all.</p>
+<div class="admonition-warning admonition">
+<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="last">The autograding tests are VERY exacting. A difference of just one character will result in a failed test. The tests are also case-sensitive. You’ll need to pay attention to detail in order complete your assignments.</p>
+</div>
+<p>When your code is correct, IntelliJ will display a green checkmark indicating passing tests.</p>
+<div class="figure align-default" id="id13">
+<img alt="When you complete the assignment successfully all tests pass" src="../_images/test-results-passing.png" />
+<p class="caption"><span class="caption-text">Passing test results</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="your-task">
+<h2>Your Task<a class="headerlink" href="#your-task" title="Permalink to this headline">¶</a></h2>
+<p>Your task is simple: make the program print out the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello,</span> <span class="pre">World!&quot;</span></code>. Edit the code in the <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class, withing the <code class="docutils literal notranslate"><span class="pre">sayHello</span></code> method. When your code is correct, running the tests will display passing results.</p>
+</div>
+<div class="section" id="submitting-your-work">
+<span id="id1"></span><h2>Submitting Your Work<a class="headerlink" href="#submitting-your-work" title="Permalink to this headline">¶</a></h2>
+<p>Once you get all of the tests to pass, open IntelliJ’s <em>Terminal</em> pane. Then you should commit and push your code to GitHub.</p>
+<div class="figure align-default" id="id14">
+<img alt="Git commands to commit and push code inside the Terminal pane" src="../_images/commit-and-push.png" />
+<p class="caption"><span class="caption-text">Commit and push your code from within IntelliJ’s Terminal pane</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<p>Visit your assignment repository page. Near the top right, you’ll see a green checkmark indicating that GitHub has graded your assignment as passing. If you see a red X, then your assignment is not yet correct.</p>
+<div class="figure align-default" id="id15">
+<img alt="A green checkmark next to the most recent commit ID" src="../_images/green-checkmark.png" />
+<p class="caption"><span class="caption-text">A green checkmark shows that GitHub marked our assignment as passing</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+<p>This process will be the same for all of your assignments in this unit. Revisit this page as needed to review instructions on running tests in Java projects.</p>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="../genindex.html"><span aria-hidden="true">&larr;</span> Index</a></li>
+        
+        
+        <li class="next"><a href="tech-jobs-console.html">Assignment #1: Tech Jobs (Console Edition) <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/assignments/hello-world.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

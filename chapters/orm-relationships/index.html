@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>18. Relationships in Object-Relational Mapping &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18.1. Types of Relationships" href="types-of-relationships.html" />
+    <link rel="prev" title="17.5. Studio: Creating an AbstractEntity" href="../orm-part1/studio.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li class="active"><span class="section-number">18. </span>Relationships in Object-Relational Mapping</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="relationships-in-object-relational-mapping">
+<h1><span class="section-number">18. </span>Relationships in Object-Relational Mapping<a class="headerlink" href="#relationships-in-object-relational-mapping" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ol>
+<li class="toctree-l1"><a class="reference internal" href="types-of-relationships.html">18.1. Types of Relationships</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="types-of-relationships.html#one-to-one">18.1.1. One-to-One</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types-of-relationships.html#one-to-many-and-many-to-one">18.1.2. One-to-Many and Many-to-One</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types-of-relationships.html#many-to-many">18.1.3. Many-to-Many</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types-of-relationships.html#check-your-understanding">18.1.4. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="many-to-one.html">18.2. Creating a Many-to-One Relationship</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="many-to-one.html#creating-an-abstractentity-video">18.2.1. Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-one.html#creating-an-abstractentity-text">18.2.2. Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> - Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-one.html#setting-up-the-relationship-video">18.2.3. Setting Up the Relationship - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-one.html#setting-up-the-relationship-text">18.2.4. Setting Up the Relationship - Text</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="many-to-one.html#replacing-eventtype-with-eventcategory">18.2.4.1. Replacing <code class="docutils literal notranslate"><span class="pre">EventType</span></code> With <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="many-to-one.html#testing-and-database-updates">18.2.4.2. Testing and Database Updates</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-one.html#check-your-understanding">18.2.5. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="one-to-many.html">18.3. Creating a One-to-Many Relationship</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="one-to-many.html#setting-up-the-relationship-video">18.3.1. Setting Up the Relationship - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="one-to-many.html#setting-up-the-relationship-text">18.3.2. Setting Up the Relationship - Text</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="one-to-many.html#model-configuration">18.3.2.1. Model Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="one-to-many.html#controller-updates">18.3.2.2. Controller Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="one-to-many.html#linking-to-filtered-views">18.3.2.3. Linking to Filtered Views</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="one-to-many.html#check-your-understanding">18.3.3. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="one-to-one.html">18.4. Creating a One-to-One Relationship</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="one-to-one.html#creating-a-one-to-one-relationship-video">18.4.1. Creating a One-to-One Relationship - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="one-to-one.html#creating-a-one-to-one-relationship-text">18.4.2. Creating a One-to-One Relationship - Text</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="one-to-one.html#the-eventdetails-class">18.4.2.1. The <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="one-to-one.html#relating-eventdetails-to-event">18.4.2.2. Relating <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> to <code class="docutils literal notranslate"><span class="pre">Event</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="one-to-one.html#template-updates">18.4.2.3. Template Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="one-to-one.html#cascading-orm-operations">18.4.2.4. Cascading ORM Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="one-to-one.html#the-inverse-relationship">18.4.2.5. The Inverse Relationship</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="one-to-one.html#check-your-understanding">18.4.3. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="many-to-many.html">18.5. Creating a Many-to-Many Relationship</a><ol>
+<li class="toctree-l2"><a class="reference internal" href="many-to-many.html#persistent-tags-video">18.5.1. Persistent Tags - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-many.html#persistent-tags-text">18.5.2. Persistent Tags - Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-many.html#creating-a-many-to-many-relationship-video">18.5.3. Creating a Many-to-Many Relationship - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-many.html#creating-a-many-to-many-relationship-text">18.5.4. Creating a Many-to-Many Relationship - Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-many.html#many-to-many-forms-and-data-transfer-objects-video">18.5.5. Many-to-Many Forms and Data Transfer Objects - Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-many.html#many-to-many-forms-and-data-transfer-objects-text">18.5.6. Many-to-Many Forms and Data Transfer Objects - Text</a><ol>
+<li class="toctree-l3"><a class="reference internal" href="many-to-many.html#data-transfer-objects-dto">18.5.6.1. Data Transfer Objects (DTO)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="many-to-many.html#connecting-two-objects">18.5.6.2. Connecting Two Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="many-to-many.html#join-tables">18.5.6.3. Join Tables</a></li>
+</ol>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="many-to-many.html#check-your-understanding">18.5.7. Check Your Understanding</a></li>
+</ol>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises.html">18.6. Exercises: The Early Bird Gets the ORM!</a></li>
+</ol>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="../orm-part1/studio.html"><span aria-hidden="true">&larr;</span> <span class="section-number">17.5. </span>Studio: Creating an <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code></a></li>
+        
+        
+        <li class="next"><a href="types-of-relationships.html"><span class="section-number">18.1. </span>Types of Relationships <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-relationships/index.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17.2. Accessing Data &#8212; Java Web Development  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fa/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/launchcode.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/site.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="17.3. Repositories" href="repositories.html" />
+    <link rel="prev" title="17.1. Object-Relational Mapping" href="background.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+
+  </head><body class="body-bc">
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/lc-ed-logo.png" alt="LaunchCode logo"></span>
+        </a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+    <label for="q" class="searchLabel">Search</label>
+    <input type="text" name="q" class="form-control" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<ol class="breadcrumb container">
+    <li><a href="../../index.html">Contents</a></li>
+    <li><a href="index.html"><span class="section-number">17. </span>Introduction to Object-Relational Mapping</a></li>
+    <li class="active"><span class="section-number">17.2. </span>Accessing Data</li>
+</ol>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 content " role="main">
+
+    
+  <div class="section" id="accessing-data">
+<h1><span class="section-number">17.2. </span>Accessing Data<a class="headerlink" href="#accessing-data" title="Permalink to this headline">¶</a></h1>
+<p>Now that we have connected our Java application to a MySQL database, we need to set up our Java classes and interfaces.
+In the previous lessons, we learned about performing <a class="reference external" href="https://education.launchcode.org/SQL/chapters/mysql-part-1/queries.html" target="_blank">CRUD operations<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on a database and its tables.
+One of the reasons we use ORM is so that now we can write Java code in our application to manage our relational database.</p>
+<div class="section" id="persistent-classes">
+<span id="index-0"></span><h2><span class="section-number">17.2.1. </span>Persistent Classes<a class="headerlink" href="#persistent-classes" title="Permalink to this headline">¶</a></h2>
+<p>Our JPA needs to know what Java class is going to be converted to a table in the MySQL database.
+A Java class that models a persistent data store is called a <strong>persistent class</strong> or <strong>entity class</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> denotes an entity class. Entity classes look very similar to any other Java class, <em>except</em> entity classes have <em>two</em> constructors.
+The first constructor creates an instance of the class.
+The second one is <code class="docutils literal notranslate"><span class="pre">protected</span></code> and has no arguments and/or no return statement.
+While you must set up this second constructor, it will only be used by the JPA to create a new instance.</p>
+<p>Since an entity class determines the <em>structure</em> of a table in our relational database, you can add fields to the class to create ids and primary keys.
+<code class="docutils literal notranslate"><span class="pre">&#64;Id</span></code> is an annotation that denotes that an integer id field is to be used as an id in the corresponding table in the database.
+<code class="docutils literal notranslate"><span class="pre">&#64;GeneratedValue</span></code> is used in conjunction with the <code class="docutils literal notranslate"><span class="pre">&#64;Id</span></code> annotation to create a primary key for the entity.</p>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>In the case of the previous example, we want to make our <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code> class an entity class.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Entity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ContactInfo</span> <span class="p">{</span>
+   <span class="nd">@Id</span>
+   <span class="nd">@GeneratedValue</span>
+   <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">email</span><span class="p">;</span>
+
+   <span class="kd">public</span> <span class="nf">ContactInfo</span><span class="p">(</span><span class="n">String</span> <span class="n">n</span><span class="p">,</span> <span class="n">String</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="na">email</span> <span class="o">=</span> <span class="n">e</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="kd">public</span> <span class="nf">ContactInfo</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last">This class declaration makes use of <code class="docutils literal notranslate"><span class="pre">&#64;Id</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;GeneratedValue</span></code> for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field. Every time we instantiate a new object of the <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code> class, the object will have an id that translates to the primary key of the <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table.
+We also have two constructors: the first is what we will use to instantiate an object for Frank, and the second is what the JPA uses to instantiate an object.</p>
+</div>
+</div>
+<div class="section" id="repositories">
+<span id="index-1"></span><h2><span class="section-number">17.2.2. </span>Repositories<a class="headerlink" href="#repositories" title="Permalink to this headline">¶</a></h2>
+<p>While entity classes determine the structure of a table in our relational database, a <strong>repository</strong> gets at the data <em>in</em> the table.
+Repositories are <em>not</em> models and are stored in a separate folder from models. Repositories are also interfaces, <em>not</em> classes.
+We use the <code class="docutils literal notranslate"><span class="pre">&#64;Repository</span></code> annotation to denote a repository.</p>
+<p>When we create repository interfaces, we are not going to be extending a particular class. Instead, we will be extending <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code>.
+Extending the <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> interface gives us access to methods to perform all of the CRUD operations that we made happen in SQL.</p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> has a number of different methods. You might want to bookmark the <a class="reference external" href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html" target="_blank">documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for later reference about the different methods.</p>
+</div>
+<div class="admonition-example admonition">
+<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>To get at the data in the <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table, we need to create a <code class="docutils literal notranslate"><span class="pre">ContactInfoRepository</span></code> interface.</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ContactInfoRepository</span> <span class="kd">extends</span> <span class="n">CrudRepository</span><span class="o">&lt;</span><span class="n">ContactInfo</span><span class="p">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p class="last">This code creates a repository called <code class="docutils literal notranslate"><span class="pre">ContactInfoRepository</span></code> so we can fetch data from the <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table.</p>
+</div>
+<p>On the next page, we will cover how to use a controller and <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> methods to get info in and out of the tables of our relational database.</p>
+</div>
+<div class="section" id="creating-persistent-models-video">
+<h2><span class="section-number">17.2.3. </span>Creating Persistent Models - Video<a class="headerlink" href="#creating-persistent-models-video" title="Permalink to this headline">¶</a></h2>
+<p>The following video explains how we can add an entity class and a repository to our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> application.
+The accompanying text is a quick rundown of what happens in the video. To get started, create a branch off of your <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/db-config" target="_blank">db-config<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> branch.</p>
+
+<div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/YAISqYMOIAw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p></p>
+<div class="admonition-note admonition">
+<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/db-config" target="_blank">db-config branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/persistent-model" target="_blank">persistent-model branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
+videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
+<p class="last">Remember when switching branches to update your <code class="docutils literal notranslate"><span class="pre">application.properties</span></code> file to reflect your schema and authentication settings.</p>
+</div>
+<div class="section" id="creating-persistent-models-text">
+<h3><span class="section-number">17.2.3.1. </span>Creating Persistent Models - Text<a class="headerlink" href="#creating-persistent-models-text" title="Permalink to this headline">¶</a></h3>
+<p>In summary, now that we have connected MySQL and <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, let’s create a persistent class and a repository.</p>
+<p>Create a persistent class for an event called <code class="docutils literal notranslate"><span class="pre">Events</span></code>.</p>
+<p>Create the following fields for <code class="docutils literal notranslate"><span class="pre">Events</span></code>:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">id</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">description</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">contactemail</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code></li>
+</ol>
+<p>For <code class="docutils literal notranslate"><span class="pre">Events</span></code>, create all of the getters and setters for these fields and <em>both</em> constructors.</p>
+<p>After making <code class="docutils literal notranslate"><span class="pre">Events</span></code>, we can add a repository to <code class="docutils literal notranslate"><span class="pre">data</span></code> called <code class="docutils literal notranslate"><span class="pre">EventRepository</span></code>.
+<code class="docutils literal notranslate"><span class="pre">EventRepository</span></code> extends <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code>. We will add more methods and info to make use of <code class="docutils literal notranslate"><span class="pre">EventRepository</span></code> soon.</p>
+</div>
+</div>
+<div class="section" id="check-your-understanding">
+<h2><span class="section-number">17.2.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-question admonition">
+<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Entity classes are _________ and repositories are ____________.</p>
+<ol class="last upperalpha simple">
+<li>classes, interfaces</li>
+<li>interfaces, classes</li>
+<li>classes, classes</li>
+<li>interfaces, interfaces</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+
+    
+    <nav aria-label="Next and Previous Pages">
+      <ul class="pager">
+        
+        <li class="previous"><a href="background.html"><span aria-hidden="true">&larr;</span> <span class="section-number">17.1. </span>Object-Relational Mapping</a></li>
+        
+        
+        <li class="next"><a href="repositories.html"><span class="section-number">17.3. </span>Repositories <span aria-hidden="true">&rarr;</span></a></li>
+        
+      </ul>
+    </nav>
+    
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../../_sources/chapters/orm-part1/accessing-data.rst.txt"
+     rel="nofollow">Page Source</a>
+</div>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
