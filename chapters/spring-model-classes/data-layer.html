@@ -99,8 +99,8 @@ and prepare ourselves for decoupling data from controller classes.</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/ijnIgreiNHU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-property" target="_blank">add-property branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-property" target="_blank">add-property branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-id" target="_blank">add-id branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -115,14 +115,15 @@ responsible for modelling data. This ensures that our address book can contain t
 our contacts who have the same name as one another.</p>
 <p>To accomplish the same data clarity with events, we’ll add a few things to the event model class:</p>
 <ol class="arabic simple">
-<li>A private <code class="docutils literal notranslate"><span class="pre">id</span></code> field .</li>
-<li>A static counter variable, <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</li>
-<li>Additional constructor code that:<ol class="loweralpha">
-<li>Sets the <code class="docutils literal notranslate"><span class="pre">id</span></code> field to the <code class="docutils literal notranslate"><span class="pre">nextId</span></code> value.</li>
-<li>Increments <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</li>
+<li><p>A private <code class="docutils literal notranslate"><span class="pre">id</span></code> field .</p></li>
+<li><p>A static counter variable, <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</p></li>
+<li><p>Additional constructor code that:</p>
+<ol class="loweralpha simple">
+<li><p>Sets the <code class="docutils literal notranslate"><span class="pre">id</span></code> field to the <code class="docutils literal notranslate"><span class="pre">nextId</span></code> value.</p></li>
+<li><p>Increments <code class="docutils literal notranslate"><span class="pre">nextId</span></code>.</p></li>
 </ol>
 </li>
-<li>A getter method for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</li>
+<li><p>A getter method for the <code class="docutils literal notranslate"><span class="pre">id</span></code> field.</p></li>
 </ol>
 <p>The result in <code class="docutils literal notranslate"><span class="pre">models/Event,java</span></code>:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
@@ -178,8 +179,8 @@ our contacts who have the same name as one another.</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/8AQtYZ_q57M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-id" target="_blank">add-id branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-id" target="_blank">add-id branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer" target="_blank">create-data-layer branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -260,8 +261,8 @@ of events at the top of the class. Consequently, for the <code class="docutils l
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/orsBBbDaJMM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer" target="_blank">create-data-layer branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/create-data-layer" target="_blank">create-data-layer branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/delete-events" target="_blank">delete-events branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -370,24 +371,24 @@ page once they have selected which event, or events, to remove from storage.</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">14.3.7. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, which method can we call to list every event object?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">Events.get()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">EventData.getEvery()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">Event.getAll()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">EventData.getAll()</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Events.get()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EventData.getEvery()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Event.getAll()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EventData.getAll()</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, breaking up the event storage from the <code class="docutils literal notranslate"><span class="pre">Event</span></code> model is an example of which object-oriented
 concept?</p>
-<ol class="last arabic simple">
-<li>Inheritance</li>
-<li>Polymorphism</li>
-<li>Encapsulation</li>
-<li>MVC design</li>
+<ol class="arabic simple">
+<li><p>Inheritance</p></li>
+<li><p>Polymorphism</p></li>
+<li><p>Encapsulation</p></li>
+<li><p>MVC design</p></li>
 </ol>
 </div>
 </div>

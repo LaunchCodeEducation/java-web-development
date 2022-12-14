@@ -92,23 +92,21 @@ let’s turn our attention back to class <em>behavior</em> (methods).</p>
 <h2><span class="section-number">5.2.1. </span>Quick Method Review<a class="headerlink" href="#quick-method-review" title="Permalink to this headline">¶</a></h2>
 <p>In the <a class="reference internal" href="../classes/index.html#classes-part1"><span class="std std-ref">last chapter</span></a>, we learned that:</p>
 <ol class="arabic">
-<li><p class="first">A <em>method</em> belongs to a class and performs an action.</p>
-</li>
-<li><p class="first">Methods cannot stand on their own—they must be part of a class.</p>
-</li>
-<li><p class="first">To call a method on an object, use dot notation:</p>
+<li><p>A <em>method</em> belongs to a class and performs an action.</p></li>
+<li><p>Methods cannot stand on their own—they must be part of a class.</p></li>
+<li><p>To call a method on an object, use dot notation:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">objectName</span><span class="p">.</span><span class="na">methodName</span><span class="p">(</span><span class="n">arguments</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Access modifiers apply to methods:</p>
+<li><p>Access modifiers apply to methods:</p>
 <ol class="loweralpha simple">
-<li><code class="docutils literal notranslate"><span class="pre">private</span></code> methods as those that are NOT useful outside of the class but
-contribute internally to helping the class behave as desired or expected.</li>
-<li><code class="docutils literal notranslate"><span class="pre">public</span></code> methods contain code that other classes need to use when they
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span></code> methods as those that are NOT useful outside of the class but
+contribute internally to helping the class behave as desired or expected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span></code> methods contain code that other classes need to use when they
 implement the class containing those methods. Make methods <code class="docutils literal notranslate"><span class="pre">public</span></code>
 only when you expect other classes to use them, and when you are
-committed to maintaining those methods for other programs.</li>
+committed to maintaining those methods for other programs.</p></li>
 </ol>
 </li>
 </ol>
@@ -213,8 +211,8 @@ do in the chapter exercises.</p>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">When creating your classes, think about the behaviors that you want to
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>When creating your classes, think about the behaviors that you want to
 make available, as well as the access level of those methods.</p>
 </div>
 </div>
@@ -237,7 +235,7 @@ must NOT rely on data from a specific object.</p>
 dot-notation. Here’s an example that we looked at
 <a class="reference internal" href="../data-types/more-data-types.html#more-data-types-static-method-example"><span class="std std-ref">previously</span></a>.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p><code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code></p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -257,7 +255,7 @@ dot-notation. Here’s an example that we looked at
 </pre></div>
 </td></tr></table></div>
 <p><code class="docutils literal notranslate"><span class="pre">Message.java</span></code></p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -289,8 +287,8 @@ dot-notation. Here’s an example that we looked at
 <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> without needing an instance of the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class. Instead,
 we use the name of the class itself.</p>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">It is technically allowed to call a static method using an instance of a
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>It is technically allowed to call a static method using an instance of a
 class: <code class="docutils literal notranslate"><span class="pre">myObject.someStaticMethod()</span></code>. However, best practice recommends
 using the class name instead: <code class="docutils literal notranslate"><span class="pre">ClassName.someStaticMethod()</span></code>. This makes
 it clear to other coders that you are calling a static method.</p>
@@ -323,43 +321,43 @@ class does not work. To print the color of a <code class="docutils literal notra
 method on that specific object: <code class="docutils literal notranslate"><span class="pre">myCar.printColor()</span></code>.</p>
 <p>Instance fields can only be called by instance methods.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">While static methods cannot access instance variables, an instance method
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>While static methods cannot access instance variables, an instance method
 CAN access a static variable. Why?</p>
 </div>
 </div>
 <div class="section" id="references">
 <h2><span class="section-number">5.2.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Encapsulation
-(wikipedia.org)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank">Defining Methods
-(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html" target="_blank">Passing Data to a Method or Constructor
-(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)" target="_blank">Encapsulation
+(wikipedia.org)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank">Defining Methods
+(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html" target="_blank">Passing Data to a Method or Constructor
+(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
 </ol>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">5.2.6. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Assume that we add two methods to a <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class—<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">String</span> <span class="pre">makeNoise()</span></code>
 and <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">increaseAge()</span></code>. Which of the following statements is
 true?</p>
-<ol class="last arabic simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method can be accessed outside of the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class,
-while the <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method cannot.</li>
-<li>Each <code class="docutils literal notranslate"><span class="pre">Pet</span></code> object carries a copy of the <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method but NOT
-a copy of the <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method can be accessed outside of the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class,
-while the <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method cannot.</li>
-<li>Each <code class="docutils literal notranslate"><span class="pre">Pet</span></code> object carries a copy of the <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method but
-NOT a copy of the <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method.</li>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method can be accessed outside of the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class,
+while the <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method cannot.</p></li>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">Pet</span></code> object carries a copy of the <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method but NOT
+a copy of the <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method can be accessed outside of the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class,
+while the <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method cannot.</p></li>
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">Pet</span></code> object carries a copy of the <code class="docutils literal notranslate"><span class="pre">increaseAge()</span></code> method but
+NOT a copy of the <code class="docutils literal notranslate"><span class="pre">makeNoise()</span></code> method.</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">Explain why it IS possible for an instance method to access a static field.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Explain why it IS possible for an instance method to access a static field.</p>
 </div>
 </div>
 </div>

@@ -91,8 +91,8 @@ make use of the fact that, when using model binding, each model field contains
 a lot of information about the corresponding form input needed. In particular,
 the model field and its annotations often determine:</p>
 <ol class="arabic simple">
-<li>The name of the form field (that is, the value of its <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute).</li>
-<li>The validation rules and corresponding error messages for the field.</li>
+<li><p>The name of the form field (that is, the value of its <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute).</p></li>
+<li><p>The validation rules and corresponding error messages for the field.</p></li>
 </ol>
 <p>Thymeleaf provides some convenient attributes to make wiring up a form much
 easier and cleaner.</p>
@@ -102,18 +102,18 @@ easier and cleaner.</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/yc-bSDSDuKg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/validation-errors" target="_blank">validation-errors branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/validation-errors" target="_blank">validation-errors branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/display-errors" target="_blank">display-errors branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
 <div class="admonition-tip admonition" id="display-errors-quirk">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>Some hawk-eyed students notice a small quirk after finishing their
 <code class="docutils literal notranslate"><span class="pre">display-errors</span></code> constructor. Each time the page reloads, the <code class="docutils literal notranslate"><span class="pre">id</span></code>
 counter for the database entries increases by 1, even if no new row is
 added. This leads to a table that contains gaps between the <code class="docutils literal notranslate"><span class="pre">id</span></code> values.</p>
-<p class="last">This is OK! There is no need to correct the quirk right now.</p>
+<p>This is OK! There is no need to correct the quirk right now.</p>
 </div>
 </div>
 <div class="section" id="display-validation-errors-for-a-field-text">
@@ -179,11 +179,11 @@ field identifier.</p>
 </td></tr></table></div>
 <p>This code includes two changes:</p>
 <ol class="arabic simple">
-<li>A no-arg constructor has been created. It simply sets the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the
-object, leaving all other fields <code class="docutils literal notranslate"><span class="pre">null</span></code>.</li>
-<li>The previously-existing constructor now calls <code class="docutils literal notranslate"><span class="pre">this()</span></code>, which calls the
+<li><p>A no-arg constructor has been created. It simply sets the <code class="docutils literal notranslate"><span class="pre">id</span></code> of the
+object, leaving all other fields <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></li>
+<li><p>The previously-existing constructor now calls <code class="docutils literal notranslate"><span class="pre">this()</span></code>, which calls the
 no-arg constructor to set the <code class="docutils literal notranslate"><span class="pre">id</span></code> before setting the values of all other
-fields.</li>
+fields.</p></li>
 </ol>
 <p>Finally, we have to pass in an empty <code class="docutils literal notranslate"><span class="pre">Event</span></code> created with the new no-arg
 constructor when rendering the form. Back in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>, we update the
@@ -204,12 +204,12 @@ handler:</p>
 <p>Notice line 29, which passes in an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object created by calling the
 no-arg constructor.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>It’s also allowable to pass in the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object without a label:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="k">new</span> <span class="n">Event</span><span class="p">());</span>
 </pre></div>
 </div>
-<p class="last">In this case, Spring will implicitly create the label <code class="docutils literal notranslate"><span class="pre">&quot;event&quot;</span></code>, which is
+<p>In this case, Spring will implicitly create the label <code class="docutils literal notranslate"><span class="pre">&quot;event&quot;</span></code>, which is
 the lowercase version of the class name.</p>
 </div>
 <p>Using this technique on our other form fields completes the task of binding the
@@ -332,8 +332,8 @@ red text. A simple rule in our <code class="docutils literal notranslate"><span 
 </pre></div>
 </div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Make sure that <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> is included in the <code class="docutils literal notranslate"><span class="pre">head</span></code> fragment of <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>, or the stylesheet will not load.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Make sure that <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> is included in the <code class="docutils literal notranslate"><span class="pre">head</span></code> fragment of <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>, or the stylesheet will not load.</p>
 </div>
 <p>Using this attribute on all of the fields gives us our final form template
 code:</p>
@@ -395,13 +395,13 @@ messages will display just below the given inputs.</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">15.4.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which HTML attributes will a <code class="docutils literal notranslate"><span class="pre">th:field</span></code> attribute NOT influence?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">id</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">name</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">value</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">field</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">field</span></code></p></li>
 </ol>
 </div>
 </div>

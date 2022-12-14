@@ -90,8 +90,8 @@
 basic Hello, World application using Spring Boot called <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code>. Open that project up
 in IntelliJ, and get ready to add some features!</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Before your start these exercises, take a look at the
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Before your start these exercises, take a look at the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/hello-spring-demo/tree/class-annotations" target="_blank">hello-spring-demo class-annotations branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 to make sure your own application matches ours.</p>
 </div>
@@ -106,23 +106,23 @@ would like to be greeted in. It should look something like this:</p>
 <p>The resulting form submission should return and display the message,
 “Bonjour Chris”.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The language is presented in a dropdown, more formally known
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The language is presented in a dropdown, more formally known
 as a <code class="docutils literal notranslate"><span class="pre">select</span></code> element. For more information about the <code class="docutils literal notranslate"><span class="pre">select</span></code> element and how it works, read the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select" target="_blank">MDN documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 <p>When the user submits the form (via a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request), they should be
 greeted in the selected language. Your new feature should:</p>
 <ol class="arabic simple">
-<li>Include at least 5 languages, with English being the default. If you don’t speak 5 languages yourself, ask your friend <a class="reference external" href="http://pocketcultures.com/2008/10/30/say-hello-in-20-languages/" target="_blank">the Internet<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
-<li>Include a new <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span></code> method, <code class="docutils literal notranslate"><span class="pre">createMessage</span></code>, in the <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> that takes a name as well as a language string. Based on the language string, you’ll display the proper greeting.</li>
+<li><p>Include at least 5 languages, with English being the default. If you don’t speak 5 languages yourself, ask your friend <a class="reference external" href="http://pocketcultures.com/2008/10/30/say-hello-in-20-languages/" target="_blank">the Internet<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p></li>
+<li><p>Include a new <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span></code> method, <code class="docutils literal notranslate"><span class="pre">createMessage</span></code>, in the <code class="docutils literal notranslate"><span class="pre">HelloController</span></code> that takes a name as well as a language string. Based on the language string, you’ll display the proper greeting.</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/spring-controllers-and-routes.html#controllers-exercise-solutions"><span class="std std-ref">Check your solution</span></a></p>
 <p>Commit your changes!</p>
 <div class="section" id="bonus-mission">
 <h2><span class="section-number">10.5.1. </span>Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Instead of returning the greeting as plain text, add a bit of HTML to
-the response string so that the displayed message looks a bit nicer.</li>
+<li><p>Instead of returning the greeting as plain text, add a bit of HTML to
+the response string so that the displayed message looks a bit nicer.</p></li>
 </ol>
 </div>
 </div>

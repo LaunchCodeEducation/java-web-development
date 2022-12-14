@@ -110,8 +110,8 @@ to access—like images, CSS stylesheets, JavaScript code, etc.</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/syzOmHnTnmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/fragments" target="_blank">fragments branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/fragments" target="_blank">fragments branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/static-resources" target="_blank">static-resources branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -129,7 +129,7 @@ need to do is fill in the last portion of the file path—everything after
 </pre></div>
 </div>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>If we have an image file called <code class="docutils literal notranslate"><span class="pre">familyPhoto1.jpg</span></code> stored in
 <code class="docutils literal notranslate"><span class="pre">static</span></code>, then we can display it in the view with an <code class="docutils literal notranslate"><span class="pre">img</span></code> tag as follows:</p>
 <div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">th:src </span><span class="o">=</span> <span class="s">&quot;@{/familyPhoto1.jpg}&quot;</span> <span class="p">/&gt;</span>
@@ -137,7 +137,7 @@ need to do is fill in the last portion of the file path—everything after
 </div>
 <p>If the image is contained in an <code class="docutils literal notranslate"><span class="pre">images</span></code> folder inside <code class="docutils literal notranslate"><span class="pre">static</span></code>, then the
 syntax is:</p>
-<div class="last highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">th:src </span><span class="o">=</span> <span class="s">&quot;@{/images/familyPhoto1.jpg}&quot;</span> <span class="p">/&gt;</span>
+<div class="highlight-HTML notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">th:src </span><span class="o">=</span> <span class="s">&quot;@{/images/familyPhoto1.jpg}&quot;</span> <span class="p">/&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -156,17 +156,17 @@ link to a CSS stylesheet:</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">13.8.2. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Given the file tree shown below, which option displays the correct syntax
 for finding the image <code class="docutils literal notranslate"><span class="pre">fluffy.jpg</span></code>?</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/srcCcFileTree.png"><img alt="File tree for finding ``fluffy.jpg``." src="../../_images/srcCcFileTree.png" style="width: 296.1px; height: 379.8px;" /></a>
 </div>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/pets/cats/fluffy.jpg}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/static/pets/cats/fluffy.jpg}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/static/pets/cats/images/fluffy.jpg}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/pets/cats/images/fluffy.jpg}&quot;</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/pets/cats/fluffy.jpg}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/static/pets/cats/fluffy.jpg}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/static/pets/cats/images/fluffy.jpg}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:src</span> <span class="pre">=</span> <span class="pre">&quot;&#64;{/pets/cats/images/fluffy.jpg}&quot;</span></code></p></li>
 </ol>
 </div>
 </div>

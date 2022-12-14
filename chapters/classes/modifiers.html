@@ -99,7 +99,7 @@ is <code class="docutils literal notranslate"><span class="pre">private</span></
 used within the class. Two additional access modifiers are available in Java,
 though they are used much less often than <code class="docutils literal notranslate"><span class="pre">public</span></code> and <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Let’s take another look at our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class from the last section,
 but with one small change.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -121,7 +121,7 @@ but with one small change.</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">In this <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class, we omit the <code class="docutils literal notranslate"><span class="pre">public</span></code> access modifier in lines
+<p>In this <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class, we omit the <code class="docutils literal notranslate"><span class="pre">public</span></code> access modifier in lines
 3 and 5. Doing this implicitly gives the message field and the <code class="docutils literal notranslate"><span class="pre">sayHello</span></code>
 method <strong>default access</strong>.</p>
 </div>
@@ -135,47 +135,47 @@ outside the class at the world-level. In Java, world-level is the level of the
 whole application and contains all of the packages and classes. While we will
 discuss later how to decide which access modifier to use for different
 scenarios, you should save this table now as reference for those conversations.</p>
-<table border="1" class="colwidths-auto docutils align-default" id="id2">
+<table class="colwidths-auto docutils align-default" id="id2">
 <caption><span class="caption-text">Is information accessible at certain levels with certain access modifiers?</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Modifier</th>
-<th class="head">Class</th>
-<th class="head">Package</th>
-<th class="head">World</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Modifier</p></th>
+<th class="head"><p>Class</p></th>
+<th class="head"><p>Package</p></th>
+<th class="head"><p>World</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">public</span></code></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">public</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">protected</span></code></td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">protected</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
 </tr>
-<tr class="row-even"><td>(no modifier, aka <em>package-private</em> or <em>default</em>)</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
+<tr class="row-even"><td><p>(no modifier, aka <em>package-private</em> or <em>default</em>)</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">private</span></code></td>
-<td>Yes</td>
-<td>No</td>
-<td>No</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">private</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">If you would like to learn more about access modifiers, you should check out the <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">Oracle documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on the subject.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If you would like to learn more about access modifiers, you should check out the <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">Oracle documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> on the subject.</p>
 </div>
 <p>Let’s take a look at our <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> class again and add some access
 modifiers.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -199,12 +199,12 @@ modifiers.</p>
 <code class="docutils literal notranslate"><span class="pre">private</span></code>. Since we want <code class="docutils literal notranslate"><span class="pre">sayHello</span></code> to be usable by anybody else, we
 declare it to be <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>In Java, you should always use the most restrictive access modifier
 possible. Minimizing access to class members allows code to be
 refactored more easily in the future, and hides details of how you
 implement your classes from others.</p>
-<p class="last">This makes your code more modular and modifiable. Each public member
+<p>This makes your code more modular and modifiable. Each public member
 that you expose is another field or property that can be referenced
 directly elsewhere in any program using your class. Thus, changing any
 such field in your code could potentially break any code referencing
@@ -212,8 +212,8 @@ such members. The fewer public members, the more you can change your
 code without breaking stuff elsewhere.</p>
 </div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">If you want to learn more about controlling access to members of a class, check
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If you want to learn more about controlling access to members of a class, check
 out this information from
 <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html" target="_blank">Oracle<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
@@ -221,7 +221,7 @@ out this information from
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">4.2.2. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>For this question, refer to the code block below.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Greeting</span> <span class="p">{</span>
 
@@ -234,11 +234,11 @@ out this information from
 </pre></div>
 </div>
 <p>What access modifier would you give <code class="docutils literal notranslate"><span class="pre">name</span></code>?</p>
-<ol class="last loweralpha simple">
-<li>no access modifier</li>
-<li><code class="docutils literal notranslate"><span class="pre">public</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">private</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">protected</span></code></li>
+<ol class="loweralpha simple">
+<li><p>no access modifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">protected</span></code></p></li>
 </ol>
 </div>
 </div>

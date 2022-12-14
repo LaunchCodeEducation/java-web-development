@@ -87,7 +87,7 @@
   <div class="section" id="exercise-solutions-edit-model-classes">
 <span id="model-classes-exercise-solutions"></span><h1>Exercise Solutions: Edit Model Classes<a class="headerlink" href="#exercise-solutions-edit-model-classes" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic" id="model-classes-exercise-solutions1">
-<li><p class="first">Create the two handler methods listed below in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>. We’ll add code
+<li><p>Create the two handler methods listed below in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>. We’ll add code
 to these in a moment, so just put the method outline in place for
 now.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -197,7 +197,7 @@ now.</p>
 </li>
 </ol>
 <ol class="arabic" id="model-classes-exercise-solutions5" start="5">
-<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, round out the controller method.</p>
+<li><p>Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, round out the controller method.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;edit/{eventId}&quot;</span><span class="p">)</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">displayEditForm</span><span class="p">(</span><span class="n">Model</span> <span class="n">model</span><span class="p">,</span> <span class="nd">@PathVariable</span> <span class="kt">int</span> <span class="n">eventId</span><span class="p">){</span>
    <span class="n">Event</span> <span class="n">eventToEdit</span> <span class="o">=</span> <span class="n">EventData</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">eventId</span><span class="p">);</span>
@@ -212,7 +212,7 @@ now.</p>
 </li>
 </ol>
 <ol class="arabic" id="model-classes-exercise-solutions9" start="9">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">processEditForm</span></code>,</p>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">processEditForm</span></code>,</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;edit&quot;</span><span class="p">)</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">processEditForm</span><span class="p">(</span><span class="kt">int</span> <span class="n">eventId</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">description</span><span class="p">)</span> <span class="p">{</span>
    <span class="n">Event</span> <span class="n">eventToEdit</span> <span class="o">=</span> <span class="n">EventData</span><span class="p">.</span><span class="na">getById</span><span class="p">(</span><span class="n">eventId</span><span class="p">);</span>

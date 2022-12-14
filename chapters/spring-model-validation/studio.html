@@ -98,11 +98,11 @@ class, adding in model validation.</p>
 annotations<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 to ensure these conditions are satisfied:</p>
 <ol class="arabic simple">
-<li>Username, password, and verify are required (they can’t be empty)</li>
-<li>Username is between 5 and 15 characters</li>
-<li>Email is optional</li>
-<li>If provided, the email has the format of a valid email address.</li>
-<li>The password is at least 6 characters long</li>
+<li><p>Username, password, and verify are required (they can’t be empty)</p></li>
+<li><p>Username is between 5 and 15 characters</p></li>
+<li><p>Email is optional</p></li>
+<li><p>If provided, the email has the format of a valid email address.</p></li>
+<li><p>The password is at least 6 characters long</p></li>
 </ol>
 </div>
 <div class="section" id="using-the-model-to-render-the-form">
@@ -114,8 +114,8 @@ form so that it passes in an empty <code class="docutils literal notranslate"><s
 </div>
 <p>This object will be accessible in the template, by name, as <code class="docutils literal notranslate"><span class="pre">user</span></code>.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Now that you’re passing in an empty <code class="docutils literal notranslate"><span class="pre">User</span></code> object, you may notice some redundant code
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Now that you’re passing in an empty <code class="docutils literal notranslate"><span class="pre">User</span></code> object, you may notice some redundant code
 in your <code class="docutils literal notranslate"><span class="pre">processAddUserForm</span></code> controller. Remove the model attribute additions
 and update the <code class="docutils literal notranslate"><span class="pre">user/add</span></code> template to make use of the model fields (eg. <code class="docutils literal notranslate"><span class="pre">user.username</span></code>).</p>
 </div>
@@ -136,8 +136,8 @@ add validation on form submission by adding the <code class="docutils literal no
 the <code class="docutils literal notranslate"><span class="pre">User</span></code> parameter that is bound, along with an additional
 parameter: <code class="docutils literal notranslate"><span class="pre">Errors</span> <span class="pre">errors</span></code>.</p>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">Remember, you must put this parameter directly
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>Remember, you must put this parameter directly
 after the <code class="docutils literal notranslate"><span class="pre">User</span></code> parameter in the method definition for it to work
 properly.</p>
 </div>
@@ -157,8 +157,8 @@ that the password fields match. Make sure they work in-sync with each
 other to properly return to the form if any of the validation conditions
 fail.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">You can, in fact, validate that passwords match using annotations by
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>You can, in fact, validate that passwords match using annotations by
 taking a slightly more difficult approach than we’ve done here. We
 outline how to do so in the Bonus Mission section.</p>
 </div>
@@ -174,21 +174,21 @@ everything works as expected.</p>
 <p>Let’s set up our <code class="docutils literal notranslate"><span class="pre">User</span></code> class so we can validate that the password
 fields match using annotations.</p>
 <ol class="arabic simple">
-<li>Add a <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">String</span> <span class="pre">verifyPassword</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with
-getters and setters.</li>
-<li>Add a new method, <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">void</span> <span class="pre">checkPassword</span></code>, that compares
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">String</span> <span class="pre">verifyPassword</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with
+getters and setters.</p></li>
+<li><p>Add a new method, <code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">void</span> <span class="pre">checkPassword</span></code>, that compares
 <code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code>. If neither is <code class="docutils literal notranslate"><span class="pre">null</span></code> and they
-don’t match, then set <code class="docutils literal notranslate"><span class="pre">verifyPassword</span> <span class="pre">=</span> <span class="pre">null</span></code>.</li>
-<li>In both <code class="docutils literal notranslate"><span class="pre">setPassword</span></code> and <code class="docutils literal notranslate"><span class="pre">setVerifyPassword</span></code>, call
-<code class="docutils literal notranslate"><span class="pre">checkPassword</span></code> <em>after</em> setting the given field.</li>
-<li>Add <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> to the <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code> field with the error
-message: “Passwords do not match”.</li>
-<li>Refactor the controller and <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template to use the
+don’t match, then set <code class="docutils literal notranslate"><span class="pre">verifyPassword</span> <span class="pre">=</span> <span class="pre">null</span></code>.</p></li>
+<li><p>In both <code class="docutils literal notranslate"><span class="pre">setPassword</span></code> and <code class="docutils literal notranslate"><span class="pre">setVerifyPassword</span></code>, call
+<code class="docutils literal notranslate"><span class="pre">checkPassword</span></code> <em>after</em> setting the given field.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> to the <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code> field with the error
+message: “Passwords do not match”.</p></li>
+<li><p>Refactor the controller and <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template to use the
 built-in, annotation-based validation instead of the manual password
 validation that we carried out previously. Be sure to update the
 verify field and label in the form to use the field on the <code class="docutils literal notranslate"><span class="pre">User</span></code>
 class, and to remove <code class="docutils literal notranslate"><span class="pre">String</span> <span class="pre">verify</span></code> from the <code class="docutils literal notranslate"><span class="pre">add</span></code> method
-signature.</li>
+signature.</p></li>
 </ol>
 <p>The result of these changes is that when the <code class="docutils literal notranslate"><span class="pre">User</span></code> object is bound to
 the request, both <code class="docutils literal notranslate"><span class="pre">password</span></code> and <code class="docutils literal notranslate"><span class="pre">verifyPassword</span></code> are set. Spring

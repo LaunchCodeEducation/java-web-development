@@ -125,11 +125,12 @@ GPA.</p>
 <h3>GPA Information<a class="headerlink" href="#gpa-information" title="Permalink to this headline">¶</a></h3>
 <p>GPA is computed via the formula:</p>
 <blockquote>
-<div>gpa = (total quality score) / (total number of credits)</div></blockquote>
+<div><p>gpa = (total quality score) / (total number of credits)</p>
+</div></blockquote>
 <ol class="arabic simple">
-<li>The <em>quality score</em> for a class is found by multiplying the letter grade
-score (0.0-4.0) by the number of credits.</li>
-<li>The <em>total quality score</em> is the sum of the quality scores for all classes.</li>
+<li><p>The <em>quality score</em> for a class is found by multiplying the letter grade
+score (0.0-4.0) by the number of credits.</p></li>
+<li><p>The <em>total quality score</em> is the sum of the quality scores for all classes.</p></li>
 </ol>
 <p>For example, if a student received an “A” (worth 4 points) in a 3-credit course
 and a “B” (worth 3 points) in a 4-credit course, their total quality score
@@ -139,12 +140,12 @@ would be: 4.0 * 3 + 3.0 * 4 = 24. Their GPA would then be 24 / 7 = 3.43.</p>
 <h3>Determine the New GPA<a class="headerlink" href="#determine-the-new-gpa" title="Permalink to this headline">¶</a></h3>
 <p>To update the student’s GPA:</p>
 <ol class="arabic simple">
-<li>Calculate their <em>current</em> total quality score by using the formula
-<code class="docutils literal notranslate"><span class="pre">gpa</span> <span class="pre">*</span> <span class="pre">numberOfCredits</span></code>.</li>
-<li>Use the new course grade and course credits to update their total quality
-score.</li>
-<li>Update the student’s total <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code>.</li>
-<li>Compute their new GPA.</li>
+<li><p>Calculate their <em>current</em> total quality score by using the formula
+<code class="docutils literal notranslate"><span class="pre">gpa</span> <span class="pre">*</span> <span class="pre">numberOfCredits</span></code>.</p></li>
+<li><p>Use the new course grade and course credits to update their total quality
+score.</p></li>
+<li><p>Update the student’s total <code class="docutils literal notranslate"><span class="pre">numberOfCredits</span></code>.</p></li>
+<li><p>Compute their new GPA.</p></li>
 </ol>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -165,7 +166,7 @@ score.</li>
 <div class="section" id="tostring-and-equals">
 <span id="classes2-exercise-solutions3a"></span><h2><code class="docutils literal notranslate"><span class="pre">toString</span></code> and <code class="docutils literal notranslate"><span class="pre">equals</span></code><a class="headerlink" href="#tostring-and-equals" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Add custom <code class="docutils literal notranslate"><span class="pre">equals()</span></code> and <code class="docutils literal notranslate"><span class="pre">toString()</span></code> methods to the <code class="docutils literal notranslate"><span class="pre">Student</span></code>
+<li><p>Add custom <code class="docutils literal notranslate"><span class="pre">equals()</span></code> and <code class="docutils literal notranslate"><span class="pre">toString()</span></code> methods to the <code class="docutils literal notranslate"><span class="pre">Student</span></code>
 class.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

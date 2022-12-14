@@ -110,10 +110,10 @@ project and left you some <code class="docutils literal notranslate"><span class
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
 <p>In this project, you’ll show that you can:</p>
 <ol class="arabic simple">
-<li>Read and understand code written by others.</li>
-<li>Work within the controller and view portions of a Spring Boot application.</li>
-<li>Use Thymeleaf syntax to display data within a view.</li>
-<li>Create new handler methods to process form submission.</li>
+<li><p>Read and understand code written by others.</p></li>
+<li><p>Work within the controller and view portions of a Spring Boot application.</p></li>
+<li><p>Use Thymeleaf syntax to display data within a view.</p></li>
+<li><p>Create new handler methods to process form submission.</p></li>
 </ol>
 </div>
 <div class="section" id="techjobs-mvc-edition">
@@ -133,16 +133,16 @@ functionality lets you focus on the views and controllers for now.</p>
 details for each part appear in the following sections, so be sure to read them
 carefully as you solve each problem.</p>
 <ol class="arabic simple">
-<li>Review Carly’s code in the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> file as well as in the existing
-controllers and views.</li>
-<li>As her next step, Carly created two basic templates to show lists of jobs
+<li><p>Review Carly’s code in the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> file as well as in the existing
+controllers and views.</p></li>
+<li><p>As her next step, Carly created two basic templates to show lists of jobs
 for each field of the data (<code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, etc.). You will need
 to add some details to these views to allow users to select and display jobs
-stored in the system.</li>
-<li>Carly started working on the search feature, but only got as far as
+stored in the system.</p></li>
+<li><p>Carly started working on the search feature, but only got as far as
 writing the code to display the search form. She’s handed the project to you
-to finish the rest. First, you’ll create a controller method to retrieve search results.</li>
-<li>Finally, you’ll display search results in the view.</li>
+to finish the rest. First, you’ll create a controller method to retrieve search results.</p></li>
+<li><p>Finally, you’ll display search results in the view.</p></li>
 </ol>
 <p>Throughout your work, refer to our <a class="reference external" href="https://java-techjobs-mvc.launchcodetechnicaltraining.org/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> as needed to clarify questions about intended application behavior.</p>
 </div>
@@ -150,21 +150,21 @@ to finish the rest. First, you’ll create a controller method to retrieve searc
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Set up a local copy of the project:</p>
 <ol class="arabic simple">
-<li>In Canvas, <strong>Graded Assignment #3: TechJobs (MVC Edition)</strong> contains a GitHub Classroom assignment invitation link and then set up the project in IntelliJ. Refer back to the GitHub Classroom instructions from <a class="reference internal" href="hello-world.html#assignment0"><span class="std std-ref">Assignment #0: Hello, World!</span></a> for details.</li>
-<li>Launch the application (via the Gradle pane, <em>Tasks &gt; Application &gt;
-bootRun</em>) to make sure it starts up properly. Then shut it down.</li>
-<li>Run the autograding tests. The tests for this assignment are set up the same way as for <a class="reference internal" href="tech-jobs-oo.html#assignment-2-autograding"><span class="std std-ref">assignment 2</span></a>. There are four tasks for this assignment, but the first doesn’t require any coding on your part. Therefore, there are 3 tests files (for tasks 2-4). As with assignment 2, we recommend that you only run the tests for the task you are currently working on.</li>
+<li><p>In Canvas, <strong>Graded Assignment #3: TechJobs (MVC Edition)</strong> contains a GitHub Classroom assignment invitation link and then set up the project in IntelliJ. Refer back to the GitHub Classroom instructions from <a class="reference internal" href="hello-world.html#assignment0"><span class="std std-ref">Assignment #0: Hello, World!</span></a> for details.</p></li>
+<li><p>Launch the application (via the Gradle pane, <em>Tasks &gt; Application &gt;
+bootRun</em>) to make sure it starts up properly. Then shut it down.</p></li>
+<li><p>Run the autograding tests. The tests for this assignment are set up the same way as for <a class="reference internal" href="tech-jobs-oo.html#assignment-2-autograding"><span class="std std-ref">assignment 2</span></a>. There are four tasks for this assignment, but the first doesn’t require any coding on your part. Therefore, there are 3 tests files (for tasks 2-4). As with assignment 2, we recommend that you only run the tests for the task you are currently working on.</p></li>
 </ol>
 </div>
 <div class="section" id="review-the-code">
 <h2>1) Review the Code<a class="headerlink" href="#review-the-code" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>One essential programming skill that you will develop is the ability to read
 and understand someone else’s code. This assignment begins with you
 practicing exactly that. Make sure you carefully examine the provided code
 BEFORE you start changing things.</p>
-<p class="last">Trying to “fix” a code sample before understanding how it works leads to
+<p>Trying to “fix” a code sample before understanding how it works leads to
 confusion, frustration, and a broken program. DO NOT SKIP the code review!</p>
 </div>
 <p>Carly created a Spring Boot application and filled in some features. She
@@ -175,8 +175,8 @@ your TechJobs-OO work, and she added controllers and views for a “Home”,
 <div class="section" id="the-model">
 <h3>The Model<a class="headerlink" href="#the-model" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">When referring to Java class locations, we’ll usually omit the leading
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>When referring to Java class locations, we’ll usually omit the leading
 path: <code class="docutils literal notranslate"><span class="pre">src/main/java/org/launchcode/</span></code>.</p>
 </div>
 <p>The “model” is contained in the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class, which is in the <code class="docutils literal notranslate"><span class="pre">models</span></code>
@@ -263,12 +263,12 @@ page structure and navigation to be shared across all of our views.</p>
 <p>Have a look at the structure of <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>, but you will NOT need to do
 any work within this file for this assignment.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>We use <a class="reference external" href="http://getbootstrap.com/" target="_blank">Twitter’s Bootstrap<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> CSS, HTML, and
 JS framework to provide some styling and functionality to our views. The
 appropriate files are included at the top of <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> and thus
 are included on every page of our app.</p>
-<p class="last">You won’t have to explicitly use Bootstrap at all in this assignment,
+<p>You won’t have to explicitly use Bootstrap at all in this assignment,
 but it’s a great way to make your sites look good with minimal work.
 Consider using it in your own projects!</p>
 </div>
@@ -296,17 +296,17 @@ the link text.</p>
 </pre></div>
 </td></tr></table></div>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">tableChoices</span></code> is a HashMap from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>, and it contains the names of
+<li><p><code class="docutils literal notranslate"><span class="pre">tableChoices</span></code> is a HashMap from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>, and it contains the names of
 the <code class="docutils literal notranslate"><span class="pre">Job</span></code> fields as keys (<code class="docutils literal notranslate"><span class="pre">employer</span></code>, etc.). The value for each key is
 an ArrayList of <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">CoreCompetency</span></code>, or
-<code class="docutils literal notranslate"><span class="pre">PositionType</span></code> objects.</li>
-<li>In line 21, <code class="docutils literal notranslate"><span class="pre">category</span></code> represents one key/value pair from
+<code class="docutils literal notranslate"><span class="pre">PositionType</span></code> objects.</p></li>
+<li><p>In line 21, <code class="docutils literal notranslate"><span class="pre">category</span></code> represents one key/value pair from
 <code class="docutils literal notranslate"><span class="pre">tableChoices</span></code>, and in line 23, <code class="docutils literal notranslate"><span class="pre">item</span></code> represents one entry from the
-stored ArrayList.</li>
-<li>We’ve seen the syntax <code class="docutils literal notranslate"><span class="pre">&#64;{/list/jobs}</span></code> to generate a link within a Thymeleaf
+stored ArrayList.</p></li>
+<li><p>We’ve seen the syntax <code class="docutils literal notranslate"><span class="pre">&#64;{/list/jobs}</span></code> to generate a link within a Thymeleaf
 template, but we haven’t seen the other portion of the link:
 <code class="docutils literal notranslate"><span class="pre">(column=${category.key},value=${position})</span></code>. This syntax causes Thymeleaf
-to dynamically generate query parameters for our URL.</li>
+to dynamically generate query parameters for our URL.</p></li>
 </ol>
 <p>In line 24, we set these parameters by using <code class="docutils literal notranslate"><span class="pre">column=</span></code> and <code class="docutils literal notranslate"><span class="pre">value=</span></code>. The
 values of these parameters are determined dynamically based on
@@ -326,13 +326,13 @@ outlined above, but doing so only displays a page with a title and no job list.<
 the <code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code> template. It has a similar structure as <code class="docutils literal notranslate"><span class="pre">list.html</span></code>,
 but the table consists of only one column.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>Select “Kansas City” from the list of locations, and then check the address
 bar of your browser:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/list/jobs?column<span class="o">=</span>location<span class="p">&amp;</span><span class="nv">value</span><span class="o">=</span>Kansas%20City
 </pre></div>
 </div>
-<p class="last">Thymeleaf inserts <code class="docutils literal notranslate"><span class="pre">%20</span></code> for us, to represent a space, but this may
+<p>Thymeleaf inserts <code class="docutils literal notranslate"><span class="pre">%20</span></code> for us, to represent a space, but this may
 actually be hidden in your browser’s address bar.</p>
 </div>
 </div>
@@ -372,25 +372,23 @@ job information.</p>
 <h3>Display List of Jobs<a class="headerlink" href="#display-list-of-jobs" title="Permalink to this headline">¶</a></h3>
 <p>This page needs to show full job listings—ID, employer, location, etc.</p>
 <ol class="arabic">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code>, create a loop to display each job passed in from the
-controller. The job data should be presented in <em>tables</em>, with each job in its own table. Be sure to check in <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to find the variable names available to the template.</p>
-</li>
-<li><p class="first">Adding the CSS class <code class="docutils literal notranslate"><span class="pre">&quot;job-listing&quot;</span></code> to a table provides some nice
-styling, courtesy of Carly’s work!</p>
-</li>
-<li><p class="first">Construct a table for each job, with
+<li><p>In <code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code>, create a loop to display each job passed in from the
+controller. The job data should be presented in <em>tables</em>, with each job in its own table. Be sure to check in <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to find the variable names available to the template.</p></li>
+<li><p>Adding the CSS class <code class="docutils literal notranslate"><span class="pre">&quot;job-listing&quot;</span></code> to a table provides some nice
+styling, courtesy of Carly’s work!</p></li>
+<li><p>Construct a table for each job, with
 one job field per row.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/job-listing-tables.png"><img alt="Job listings, one per table" src="../_images/job-listing-tables.png" style="width: 788.9px; height: 528.5px;" /></a>
 </div>
 </li>
-<li><p class="first">Be sure to test your code by running the program and clicking links from
+<li><p>Be sure to test your code by running the program and clicking links from
 different categories on the <code class="docutils literal notranslate"><span class="pre">/list</span></code> page.</p>
 <ol class="loweralpha simple">
-<li>Clicking the <em>Web - Back End</em> link yields 6 jobs.</li>
-<li><em>iOS</em> yields 4 jobs.</li>
-<li><em>New York</em> yields 1 job.</li>
-<li>Etc.</li>
+<li><p>Clicking the <em>Web - Back End</em> link yields 6 jobs.</p></li>
+<li><p><em>iOS</em> yields 4 jobs.</p></li>
+<li><p><em>New York</em> yields 1 job.</p></li>
+<li><p>Etc.</p></li>
 </ol>
 </li>
 </ol>
@@ -406,12 +404,12 @@ column is missing.</p>
 <p>You can fix this several different ways, but two options are presented below.
 Note that you only need to implement ONE option, not both.</p>
 <ol class="arabic simple">
-<li>Modify <code class="docutils literal notranslate"><span class="pre">tableChoices</span></code> in <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to include another key/value
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">tableChoices</span></code> in <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to include another key/value
 pair. Check the method that renders the template to help identify the name
-to use for the key.</li>
-<li>Modify <code class="docutils literal notranslate"><span class="pre">list.html</span></code> to fill in the empty table cell with the necessary
+to use for the key.</p></li>
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">list.html</span></code> to fill in the empty table cell with the necessary
 link. Check <code class="docutils literal notranslate"><span class="pre">ListController</span></code> to help identify the data to pass in for the
-query parameters.</li>
+query parameters.</p></li>
 </ol>
 <p>Be sure to test your code by clicking your new <em>View All</em> link in the table.
 There are 98 jobs in the data file.</p>
@@ -421,23 +419,23 @@ There are 98 jobs in the data file.</p>
 <h2>3) Complete <code class="docutils literal notranslate"><span class="pre">SearchController</span></code><a class="headerlink" href="#complete-searchcontroller" title="Permalink to this headline">¶</a></h2>
 <p>Add a <code class="docutils literal notranslate"><span class="pre">displaySearchResults</span></code> handler method to <code class="docutils literal notranslate"><span class="pre">SearchController</span></code>:</p>
 <ol class="arabic simple">
-<li>Use the correct annotation for the method. To configure the correct mapping
+<li><p>Use the correct annotation for the method. To configure the correct mapping
 type and mapping route, refer to the <code class="docutils literal notranslate"><span class="pre">form</span></code> tag in the <code class="docutils literal notranslate"><span class="pre">search.html</span></code>
-template. (Use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> rather than <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code>.)</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">displaySearchResults</span></code> method should take in a <code class="docutils literal notranslate"><span class="pre">Model</span></code> parameter.</li>
-<li>The method should also take in two other parameters, specifying the type of
-search and the search term.</li>
-<li>In order for these last two parameters to be properly passed in by Spring
+template. (Use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> rather than <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code>.)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">displaySearchResults</span></code> method should take in a <code class="docutils literal notranslate"><span class="pre">Model</span></code> parameter.</p></li>
+<li><p>The method should also take in two other parameters, specifying the type of
+search and the search term.</p></li>
+<li><p>In order for these last two parameters to be properly passed in by Spring
 Boot, you need to use the correct annotation. Also, you need to name them
 appropriately, based on the corresponding form field names defined in
-<code class="docutils literal notranslate"><span class="pre">search.html</span></code>.</li>
-<li>If the user enters “all” in the search box, or if they leave the box empty,
+<code class="docutils literal notranslate"><span class="pre">search.html</span></code>.</p></li>
+<li><p>If the user enters “all” in the search box, or if they leave the box empty,
 call the <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> method from <code class="docutils literal notranslate"><span class="pre">JobData</span></code>. Otherwise, send the search
 information to <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue</span></code>. In either case, store
-the results in a <code class="docutils literal notranslate"><span class="pre">jobs</span></code> ArrayList.</li>
-<li>Pass <code class="docutils literal notranslate"><span class="pre">jobs</span></code> into the <code class="docutils literal notranslate"><span class="pre">search.html</span></code> view via the <code class="docutils literal notranslate"><span class="pre">model</span></code> parameter.</li>
-<li>Pass <code class="docutils literal notranslate"><span class="pre">ListController.columnChoices</span></code> into the view, as the existing
-<code class="docutils literal notranslate"><span class="pre">search</span></code> handler does.</li>
+the results in a <code class="docutils literal notranslate"><span class="pre">jobs</span></code> ArrayList.</p></li>
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">jobs</span></code> into the <code class="docutils literal notranslate"><span class="pre">search.html</span></code> view via the <code class="docutils literal notranslate"><span class="pre">model</span></code> parameter.</p></li>
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">ListController.columnChoices</span></code> into the view, as the existing
+<code class="docutils literal notranslate"><span class="pre">search</span></code> handler does.</p></li>
 </ol>
 </div>
 <div class="section" id="display-search-results">
@@ -445,17 +443,17 @@ the results in a <code class="docutils literal notranslate"><span class="pre">jo
 <p>Once you have your <code class="docutils literal notranslate"><span class="pre">displaySearchResults</span></code> handler passing information to the
 view, you need to display the data.</p>
 <ol class="arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">search.html</span></code>, create a loop to display each job passed in from the
-controller.</li>
-<li>Put the job results into a set of tables, similar to what you did for the
-<code class="docutils literal notranslate"><span class="pre">list-jobs</span></code> view.</li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">search.html</span></code>, create a loop to display each job passed in from the
+controller.</p></li>
+<li><p>Put the job results into a set of tables, similar to what you did for the
+<code class="docutils literal notranslate"><span class="pre">list-jobs</span></code> view.</p></li>
 </ol>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>You can <em>reuse</em> the code you just wrote in <code class="docutils literal notranslate"><span class="pre">list-jobs.html</span></code> by defining a
 new <em>fragment</em> in that file. Then you need to include that fragment in
 <code class="docutils literal notranslate"><span class="pre">search.html</span></code>.</p>
-<p class="last">For the fragment to work properly in both files, the variables passed in by
+<p>For the fragment to work properly in both files, the variables passed in by
 <code class="docutils literal notranslate"><span class="pre">model.addAttribute()</span></code> must use the same names.</p>
 </div>
 </div>
@@ -473,18 +471,18 @@ new <em>fragment</em> in that file. Then you need to include that fragment in
 <h2>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <p>Here are some additional challenges, for those willing to take them on:</p>
 <ol class="arabic simple">
-<li>When we select a given field to search within and then submit, our choice is
+<li><p>When we select a given field to search within and then submit, our choice is
 forgotten and returns to “All” by default. Modify the view template to keep
-the previous search field selected when displaying the results.</li>
-<li>In the tables displaying the full job data, find a way to manipulate the
+the previous search field selected when displaying the results.</p></li>
+<li><p>In the tables displaying the full job data, find a way to manipulate the
 font, style, capitalization, etc. to further distinguish the labels from the
 data (e.g. <strong>Employer:</strong> <em>LaunchCode</em>). (<em>Hint:</em> We capitalize the title
-string in multiple templates, so have a look around).</li>
-<li>In the tables of the job results, make each value (except <code class="docutils literal notranslate"><span class="pre">name</span></code>)
+string in multiple templates, so have a look around).</p></li>
+<li><p>In the tables of the job results, make each value (except <code class="docutils literal notranslate"><span class="pre">name</span></code>)
 hyperlinked to a new listing of all jobs with that same value. For example,
 if we have a list of jobs with the <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> skill, clicking on a
 location value like <code class="docutils literal notranslate"><span class="pre">Saint</span> <span class="pre">Louis</span></code> will generate a new list with all the
-jobs available in that city.</li>
+jobs available in that city.</p></li>
 </ol>
 <div class="section" id="super-bonus-mission">
 <h3>Super Bonus Mission<a class="headerlink" href="#super-bonus-mission" title="Permalink to this headline">¶</a></h3>
@@ -504,22 +502,22 @@ to update.</p>
 </div>
 <p>Let’s fix this.</p>
 <ol class="arabic simple">
-<li>Make a new controller, <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>. This new controller should
+<li><p>Make a new controller, <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>. This new controller should
 have a static HashMap, <code class="docutils literal notranslate"><span class="pre">actionChoices</span></code>. The HashMap should be populated
 via a no-argument constructor, just like <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> is
 populated in <code class="docutils literal notranslate"><span class="pre">ListController</span></code>. You do NOT need to add the <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code>
-annotation to this class.</li>
-<li>Write a static method <code class="docutils literal notranslate"><span class="pre">getActionChoices</span></code> in <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code> that
-returns the <code class="docutils literal notranslate"><span class="pre">actions</span></code> HashMap.</li>
-<li>Add the annotation <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute(&quot;actions&quot;)</span></code> to this method. This
+annotation to this class.</p></li>
+<li><p>Write a static method <code class="docutils literal notranslate"><span class="pre">getActionChoices</span></code> in <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code> that
+returns the <code class="docutils literal notranslate"><span class="pre">actions</span></code> HashMap.</p></li>
+<li><p>Add the annotation <code class="docutils literal notranslate"><span class="pre">&#64;ModelAttribute(&quot;actions&quot;)</span></code> to this method. This
 annotation will cause the return value of the method to be set in the model
 with key <code class="docutils literal notranslate"><span class="pre">&quot;actions&quot;</span></code> for every controller that extends
-<code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</li>
-<li>Modify every one of your other controllers to extend <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</li>
-<li>Modify <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> to use the passed-in action choices to generate
-the navigation links.</li>
-<li>Finally, update your code so that <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> also lives in
-<code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</li>
+<code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</p></li>
+<li><p>Modify every one of your other controllers to extend <code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</p></li>
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> to use the passed-in action choices to generate
+the navigation links.</p></li>
+<li><p>Finally, update your code so that <code class="docutils literal notranslate"><span class="pre">columnChoices</span></code> also lives in
+<code class="docutils literal notranslate"><span class="pre">TechJobsController</span></code>.</p></li>
 </ol>
 </div>
 </div>

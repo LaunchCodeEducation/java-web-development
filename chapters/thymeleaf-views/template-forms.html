@@ -97,14 +97,14 @@ If you have not done so, commit and push any unsaved work from your
 <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code> project.</p>
 <p>Your new project will keep track of some fictional coding events.</p>
 <ol class="arabic simple">
-<li>Use the <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> website to initialize
-your new project.</li>
-<li>Follow the steps you used to setup
+<li><p>Use the <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> website to initialize
+your new project.</p></li>
+<li><p>Follow the steps you used to setup
 <a class="reference internal" href="../spring-intro/initialize.html#initialize-spring-boot-project"><span class="std std-ref">hello-spring</span></a>, but call the new
-project <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</li>
-<li>Add the <em>Thymeleaf</em> dependency in addition to <em>Spring Web</em>, <em>Spring Boot DevTools</em>, and
-<em>Validation</em>.</li>
-<li><em>Generate</em> the <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file and then import it into IntelliJ.</li>
+project <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p></li>
+<li><p>Add the <em>Thymeleaf</em> dependency in addition to <em>Spring Web</em>, <em>Spring Boot DevTools</em>, and
+<em>Validation</em>.</p></li>
+<li><p><em>Generate</em> the <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file and then import it into IntelliJ.</p></li>
 </ol>
 </div>
 <div class="section" id="coding-events-setup-video">
@@ -115,12 +115,12 @@ coding along with the videos below:</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/hmgxMOf51JU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>This video demonstrates the features we’ve added to a new MVC application we’ll be working with called <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
 <p>The code
 presented in this video is found on the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/starter" target="_blank">starter branch of coding-events-demo<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<p class="last">You should create your own version of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> from <a class="reference external" href="https://start.spring.io/" target="_blank">Spring Initializer<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> and refer to the video and this branch
+<p>You should create your own version of <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> from <a class="reference external" href="https://start.spring.io/" target="_blank">Spring Initializer<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> and refer to the video and this branch
 to replicate our code. You may fork and clone from the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> project for reference.</p>
 </div>
 </div>
@@ -128,16 +128,16 @@ to replicate our code. You may fork and clone from the <code class="docutils lit
 <h2><span class="section-number">13.6.3. </span>Coding Events Setup - Text<a class="headerlink" href="#coding-events-setup-text" title="Permalink to this headline">¶</a></h2>
 <p>The code reviewed in the video uses concepts learned in the <a class="reference internal" href="../spring-controllers-and-routes/index.html#controllers"><span class="std std-ref">previous chapter</span></a> to set up a controller and a couple of views. If you need to review any of these concepts, go back to that chapter.</p>
 <ol class="arabic simple">
-<li>Create a <code class="docutils literal notranslate"><span class="pre">controllers</span></code> package.</li>
-<li>Within the new package, create a new controller class named <code class="docutils literal notranslate"><span class="pre">HomeController</span></code>. Annotate the class with <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code>.</li>
-<li>Add a single <code class="docutils literal notranslate"><span class="pre">GET</span></code> handler method that returns the name templated <code class="docutils literal notranslate"><span class="pre">index</span></code>, which will be the name of the template we create in the next step.</li>
-<li>Create a new Thymeleaf template named <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in the <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code> directory. This template could contain a single link to <code class="docutils literal notranslate"><span class="pre">/events</span></code>.</li>
-<li>In the controllers package, create a new controller named <code class="docutils literal notranslate"><span class="pre">EventController</span></code>. Annotate the class with <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping(&quot;events&quot;)</span></code>.</li>
-<li>In the new controller, create a handler method for <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests that takes a single parameter, <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">model</span></code>.</li>
-<li>Within the handler, create an empty list and add a few event names to it.</li>
-<li>Add the list to the model by calling <code class="docutils literal notranslate"><span class="pre">model.addAttribute(&quot;events&quot;,</span> <span class="pre">events)</span></code>. Then return the template name <code class="docutils literal notranslate"><span class="pre">&quot;events/index&quot;</span></code>.</li>
-<li>Within the <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code> directory, create a new directory named <code class="docutils literal notranslate"><span class="pre">events</span></code>. Within this directory, create a new Thymeleaf template named <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</li>
-<li>Within the new template, loop over the <code class="docutils literal notranslate"><span class="pre">events</span></code> object and display the name of each event.</li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">controllers</span></code> package.</p></li>
+<li><p>Within the new package, create a new controller class named <code class="docutils literal notranslate"><span class="pre">HomeController</span></code>. Annotate the class with <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code>.</p></li>
+<li><p>Add a single <code class="docutils literal notranslate"><span class="pre">GET</span></code> handler method that returns the name templated <code class="docutils literal notranslate"><span class="pre">index</span></code>, which will be the name of the template we create in the next step.</p></li>
+<li><p>Create a new Thymeleaf template named <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in the <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code> directory. This template could contain a single link to <code class="docutils literal notranslate"><span class="pre">/events</span></code>.</p></li>
+<li><p>In the controllers package, create a new controller named <code class="docutils literal notranslate"><span class="pre">EventController</span></code>. Annotate the class with <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping(&quot;events&quot;)</span></code>.</p></li>
+<li><p>In the new controller, create a handler method for <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests that takes a single parameter, <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">model</span></code>.</p></li>
+<li><p>Within the handler, create an empty list and add a few event names to it.</p></li>
+<li><p>Add the list to the model by calling <code class="docutils literal notranslate"><span class="pre">model.addAttribute(&quot;events&quot;,</span> <span class="pre">events)</span></code>. Then return the template name <code class="docutils literal notranslate"><span class="pre">&quot;events/index&quot;</span></code>.</p></li>
+<li><p>Within the <code class="docutils literal notranslate"><span class="pre">src/main/resources/templates</span></code> directory, create a new directory named <code class="docutils literal notranslate"><span class="pre">events</span></code>. Within this directory, create a new Thymeleaf template named <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</p></li>
+<li><p>Within the new template, loop over the <code class="docutils literal notranslate"><span class="pre">events</span></code> object and display the name of each event.</p></li>
 </ol>
 </div>
 <div class="section" id="create-and-render-a-form-video">
@@ -146,8 +146,8 @@ to replicate our code. You may fork and clone from the <code class="docutils lit
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/lgT962si4eQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/starter" target="_blank">starter branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/starter" target="_blank">starter branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/form" target="_blank">form branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -208,18 +208,19 @@ piece of data you want to collect needs to have a unique <code class="docutils l
 </td></tr></table></div>
 <p>Some points to note:</p>
 <ol class="arabic simple">
-<li>Line 1: The string parameter for <code class="docutils literal notranslate"><span class="pre">GetMapping</span></code> must be the name of the form
-template you want to use.</li>
-<li>Line 2: Declare a <code class="docutils literal notranslate"><span class="pre">Model</span></code> object to hold data that needs to be passed to
-the template.</li>
-<li>The method code performs any data manipulation required before rendering the
-form. The <code class="docutils literal notranslate"><span class="pre">model.addAttribute</span></code> statements would be included here.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">return</span></code> string specifies the path to the template. Recall that Spring
+<li><p>Line 1: The string parameter for <code class="docutils literal notranslate"><span class="pre">GetMapping</span></code> must be the name of the form
+template you want to use.</p></li>
+<li><p>Line 2: Declare a <code class="docutils literal notranslate"><span class="pre">Model</span></code> object to hold data that needs to be passed to
+the template.</p></li>
+<li><p>The method code performs any data manipulation required before rendering the
+form. The <code class="docutils literal notranslate"><span class="pre">model.addAttribute</span></code> statements would be included here.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> string specifies the path to the template. Recall that Spring
 automatically adds MOST of the file path—up through <code class="docutils literal notranslate"><span class="pre">.../templates</span></code>. You
-need to add any path details that follow.<ol class="loweralpha">
-<li>For example, if our <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder contains a subfolder called
+need to add any path details that follow.</p>
+<ol class="loweralpha simple">
+<li><p>For example, if our <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder contains a subfolder called
 <code class="docutils literal notranslate"><span class="pre">events</span></code> that holds a template called <code class="docutils literal notranslate"><span class="pre">create.html</span></code>, then line 6
-would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;events/create&quot;;</span></code>.</li>
+would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;events/create&quot;;</span></code>.</p></li>
 </ol>
 </li>
 </ol>
@@ -233,8 +234,8 @@ Code along with the video below to add this functionality.</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/LnpJcq33uoM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/form" target="_blank">form branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/form" target="_blank">form branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/form2" target="_blank">form2 branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -261,25 +262,22 @@ a method to the controller using the <code class="docutils literal notranslate">
 </td></tr></table></div>
 <p>Some points to note:</p>
 <ol class="arabic">
-<li><p class="first">Line 1: The string parameter for <code class="docutils literal notranslate"><span class="pre">PostMapping</span></code> must be the name of the
-form template.</p>
-</li>
-<li><p class="first">Line 2: For each piece of data that needs to be retrieved from the form,
+<li><p>Line 1: The string parameter for <code class="docutils literal notranslate"><span class="pre">PostMapping</span></code> must be the name of the
+form template.</p></li>
+<li><p>Line 2: For each piece of data that needs to be retrieved from the form,
 declare a parameter of the appropriate type.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> matches the parameters to the submitted data. For this
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> matches the parameters to the submitted data. For this
 to work, the parameter names MUST match the <code class="docutils literal notranslate"><span class="pre">name</span></code> attributes used in
 each of the <code class="docutils literal notranslate"><span class="pre">input</span></code> elements.</p>
 </div>
 </li>
-<li><p class="first">The method code performs any data manipulation required after the
-information gets submitted.</p>
-</li>
-<li><p class="first">Line 6: Generally, we want to send the user to a different page after they
+<li><p>The method code performs any data manipulation required after the
+information gets submitted.</p></li>
+<li><p>Line 6: Generally, we want to send the user to a different page after they
 successfully submit a form. Instead of re-rendering the form, the <code class="docutils literal notranslate"><span class="pre">return</span></code>
-string <em>redirects</em> the user to a method that handles a different template.</p>
-</li>
+string <em>redirects</em> the user to a method that handles a different template.</p></li>
 </ol>
 </div>
 </div>

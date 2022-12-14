@@ -107,16 +107,16 @@ some initial concepts and get feedback from LaunchCode staff.</p>
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
 <p>In this project, you will show that you can:</p>
 <ol class="arabic simple">
-<li>Read and understand code written by others.</li>
-<li>Use core Java syntax (methods, variables, loops, conditionals).</li>
-<li>Utilize <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> and <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> collection types.</li>
-<li>Work with console I/O via the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class.</li>
-<li>Work with data types and arrays.</li>
+<li><p>Read and understand code written by others.</p></li>
+<li><p>Use core Java syntax (methods, variables, loops, conditionals).</p></li>
+<li><p>Utilize <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> and <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> collection types.</p></li>
+<li><p>Work with console I/O via the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> class.</p></li>
+<li><p>Work with data types and arrays.</p></li>
 </ol>
 </div>
 <div class="section" id="techjobs-console-edition">
 <h2>TechJobs (Console Edition)<a class="headerlink" href="#techjobs-console-edition" title="Permalink to this headline">¶</a></h2>
-<p>The app you must help design is a simple console (i.e.&nbsp;command-line) prototype
+<p>The app you must help design is a simple console (i.e. command-line) prototype
 of the new TechJobs app. It will allow LaunchCode staff to browse and search
 listings of open jobs by employer partners.</p>
 <p>The prototype process gives everybody a chance to work out some initial ideas
@@ -128,7 +128,7 @@ full-fledged application.</p>
 <h2>Your Assignment<a class="headerlink" href="#your-assignment" title="Permalink to this headline">¶</a></h2>
 <p>Blake created a console application and started to fill in some features. His
 code allows users to search job listings by one of several fields. It can also
-display lists of all of the values of a given field in the system (e.g.&nbsp;all
+display lists of all of the values of a given field in the system (e.g. all
 employers, or all locations).</p>
 <p>Blake has now handed the task off to you. You must add a couple of features and
 then get feedback from the Company Team.</p>
@@ -144,8 +144,8 @@ unfinished—program, go ahead and run it to get an idea of how it works. To do
 this, right-click on the <code class="docutils literal notranslate"><span class="pre">main</span></code> method in the <code class="docutils literal notranslate"><span class="pre">TechJobs</span></code> class and select
 <em>Run TechJobs.main()</em>.</p>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">The application will run until you force it to quit, re-prompting time
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>The application will run until you force it to quit, re-prompting time
 after time. To kill it, press the red “stop” icon in the Run pane <em>or</em> entereing <code class="docutils literal notranslate"><span class="pre">x</span></code> from the initial prompt. We’ll learn precisely how the program manages to work this way below.</p>
 </div>
 <p>Let’s explore the code by starting with the source of the data our program is
@@ -176,10 +176,10 @@ a row of data, or a record.</p>
 <p>Have a look at the data below line 1, and ask yourself the following
 questions:</p>
 <ol class="arabic simple">
-<li>Which fields match up with which column names above?</li>
-<li>Why do some lines/rows (e.g.&nbsp;line 10) have more commas than others, if
-commas are supposed to separate columns?</li>
-<li>What role do the double-quotes play?</li>
+<li><p>Which fields match up with which column names above?</p></li>
+<li><p>Why do some lines/rows (e.g. line 10) have more commas than others, if
+commas are supposed to separate columns?</p></li>
+<li><p>What role do the double-quotes play?</p></li>
 </ol>
 </div>
 <div class="section" id="the-techjobs-class">
@@ -187,12 +187,12 @@ commas are supposed to separate columns?</li>
 <p>The <code class="docutils literal notranslate"><span class="pre">TechJobs</span></code> class contains the <code class="docutils literal notranslate"><span class="pre">main</span></code> method that will drive our
 program’s functionality. It contains three methods:</p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">main</span></code> - The main application runner.</li>
-<li><code class="docutils literal notranslate"><span class="pre">getUserSelection</span></code> - A utility method that displays a menu of choices and
-returns the user’s selection.</li>
-<li><code class="docutils literal notranslate"><span class="pre">printJobs</span></code> - This is meant to print a list of jobs to the console in a
+<li><p><code class="docutils literal notranslate"><span class="pre">main</span></code> - The main application runner.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getUserSelection</span></code> - A utility method that displays a menu of choices and
+returns the user’s selection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">printJobs</span></code> - This is meant to print a list of jobs to the console in a
 nicely formatted manner, but hasn’t been implemented yet. This will be part
-of your job.</li>
+of your job.</p></li>
 </ol>
 <p>Let’s look at each of these.</p>
 <div class="section" id="the-main-method">
@@ -210,25 +210,25 @@ user wants to quit, they can enter <code class="docutils literal notranslate"><s
 IntelliJ’s <em>Run</em> pane works slightly differently and you’ll need to rely on the
 red “stop” icon to stop the program.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Another way to kill a running program from the terminal is by pressing ctrl-C (a widely-known command to kill a console application). This will work in any terminal context, and not just for our console program
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Another way to kill a running program from the terminal is by pressing ctrl-C (a widely-known command to kill a console application). This will work in any terminal context, and not just for our console program
 in IntelliJ</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> method can be summarized as follows:</p>
 <ol class="arabic simple">
-<li>Present the user with choices on how to view data: <em>list</em> or <em>search</em>.</li>
-<li>Based on that choice, prompt them for the column to apply the choice to. In
-the case of a search, we also ask for a search term.</li>
-<li>Carry out the request to the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class via one of its public
-methods.</li>
-<li>Display the results of the request.</li>
-<li>Repeat.</li>
+<li><p>Present the user with choices on how to view data: <em>list</em> or <em>search</em>.</p></li>
+<li><p>Based on that choice, prompt them for the column to apply the choice to. In
+the case of a search, we also ask for a search term.</p></li>
+<li><p>Carry out the request to the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class via one of its public
+methods.</p></li>
+<li><p>Display the results of the request.</p></li>
+<li><p>Repeat.</p></li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">main</span></code> simulates a <em>query</em> to an external source:</p>
 <ol class="arabic simple">
-<li>We ask the method for data that originates from a non-Java source.</li>
-<li>The method parses and filters that data.</li>
-<li>The method presents the data in a useful manner.</li>
+<li><p>We ask the method for data that originates from a non-Java source.</p></li>
+<li><p>The method parses and filters that data.</p></li>
+<li><p>The method presents the data in a useful manner.</p></li>
 </ol>
 </div>
 <div class="section" id="the-getuserselection-method">
@@ -308,12 +308,12 @@ advertises. After parsing the file data, it stores the data in the
 private property <code class="docutils literal notranslate"><span class="pre">allJobs</span></code> which is of type
 <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;HashMap&lt;String,</span> <span class="pre">String&gt;&gt;</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>We haven’t covered static properties and methods in-depth yet. For this
 assignment, know simply that they allow us to use properties and methods
 of a class without creating an object from that class. For example, we
 can call <code class="docutils literal notranslate"><span class="pre">JobData.findAll()</span></code> from the <code class="docutils literal notranslate"><span class="pre">TechJob</span></code> class.</p>
-<p class="last">If you want to create a new method in <code class="docutils literal notranslate"><span class="pre">JobData</span></code>, or add a property, be
+<p>If you want to create a new method in <code class="docutils literal notranslate"><span class="pre">JobData</span></code>, or add a property, be
 sure to declare it as <code class="docutils literal notranslate"><span class="pre">static</span></code>.</p>
 </div>
 <p>Let’s look more closely at the data type of <code class="docutils literal notranslate"><span class="pre">allJobs</span></code>. It purports to
@@ -371,31 +371,31 @@ parameters (also called argument lists). Read more about
 <a class="reference external" href="http://beginnersbook.com/2013/05/method-overloading/" target="_blank">overloading<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <p>Here are some questions to ask yourself while reading this code:</p>
 <ol class="arabic simple">
-<li>What is the data type of a “job” record?</li>
-<li>Why does <code class="docutils literal notranslate"><span class="pre">findAll(String)</span></code> return something of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code>
+<li><p>What is the data type of a “job” record?</p></li>
+<li><p>Why does <code class="docutils literal notranslate"><span class="pre">findAll(String)</span></code> return something of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;String&gt;</span></code>
 while <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue(String,</span> <span class="pre">String)</span></code> and <code class="docutils literal notranslate"><span class="pre">findAll()</span></code> return
-something of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;HashMap&lt;String,</span> <span class="pre">String&gt;&gt;</span></code>?</li>
-<li>Why is <code class="docutils literal notranslate"><span class="pre">loadData()</span></code> called at the top of each of these four methods? Does
+something of type <code class="docutils literal notranslate"><span class="pre">ArrayList&lt;HashMap&lt;String,</span> <span class="pre">String&gt;&gt;</span></code>?</p></li>
+<li><p>Why is <code class="docutils literal notranslate"><span class="pre">loadData()</span></code> called at the top of each of these four methods? Does
 this mean that we load the data from the CSV file each time one of them
-is called?</li>
+is called?</p></li>
 </ol>
 </div>
 <div class="section" id="your-tasks">
 <h2>Your Tasks<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h2>
 <p>Before diving into your tasks, review <a class="reference internal" href="hello-world.html#assignment0"><span class="std std-ref">Assignment #0: Hello, World!</span></a> for details on running the autograding tests for this assignment. This assignment has multiple tests, and we highly recommend the following workflow:</p>
 <ol class="arabic simple">
-<li>Write the code for the task, verifying manually that it works by running the <code class="docutils literal notranslate"><span class="pre">TechJobs.main</span></code> method.</li>
-<li>When you think you’ve completed a task, run the individual test that corresponds to the task.</li>
-<li>If the test fails, review the test output and go back to your code to try to fix it.</li>
-<li>Once the single test passes, run <em>all</em> of the tests to make sure you didn’t break any tests that previously passed.</li>
-<li>Repeat this process until all tests pass.</li>
+<li><p>Write the code for the task, verifying manually that it works by running the <code class="docutils literal notranslate"><span class="pre">TechJobs.main</span></code> method.</p></li>
+<li><p>When you think you’ve completed a task, run the individual test that corresponds to the task.</p></li>
+<li><p>If the test fails, review the test output and go back to your code to try to fix it.</p></li>
+<li><p>Once the single test passes, run <em>all</em> of the tests to make sure you didn’t break any tests that previously passed.</p></li>
+<li><p>Repeat this process until all tests pass.</p></li>
 </ol>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>You may see an error in the test file on line 38.</p>
 <img alt="An error on line 39" src="../_images/lang-level-error.png" />
 <p>This can easily be fixed by clicking on IntelliJ’s red light-bulb menu next to the error and choosing the first option.</p>
-<img alt="The first option in the fix menu fixes the error" class="last" src="../_images/fix-lang-level.png" />
+<img alt="The first option in the fix menu fixes the error" src="../_images/fix-lang-level.png" />
 </div>
 <p>Now we’ll outline the tasks for your first apprenticeship assignment.</p>
 <div class="section" id="implement-printjobs">
@@ -425,8 +425,8 @@ core competency: Javascript
 <p>For the autograding script to correctly grade your code, you’ll need to match this format <em>exactly</em>. In particular, note the number of asterisks surrounding each listing, and the blank line between listings.</p>
 <p>If there are no results, it should print <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">Results</span></code>. Again, you should use this <em>exact</em> message.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">To do this, you’ll need to iterate over an <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> of jobs. Each
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>To do this, you’ll need to iterate over an <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> of jobs. Each
 job is itself a <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>. While you can get each of the items out of
 the <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> using the known keys (<code class="docutils literal notranslate"><span class="pre">employer</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, etc.),
 think instead about creating a nested loop to loop over each
@@ -435,15 +435,15 @@ will print out the new field without any updates to <code class="docutils litera
 </div>
 <p>Test this method before moving on to your next step:</p>
 <ol class="arabic simple">
-<li>Save your changes.</li>
-<li>Select <em>Run</em> from the Run menu and choose to run the <code class="docutils literal notranslate"><span class="pre">TechJobs</span></code> class (or
+<li><p>Save your changes.</p></li>
+<li><p>Select <em>Run</em> from the Run menu and choose to run the <code class="docutils literal notranslate"><span class="pre">TechJobs</span></code> class (or
 if you have recently run it, just select the green arrow in the top right
-corner of the screen).</li>
-<li>Select “1” to list the jobs, and then “0” to list them all.</li>
-<li>Make sure the printout matches the styling above.</li>
-<li>Test that it prints a descriptive message if no jobs are found by selecting
+corner of the screen).</p></li>
+<li><p>Select “1” to list the jobs, and then “0” to list them all.</p></li>
+<li><p>Make sure the printout matches the styling above.</p></li>
+<li><p>Test that it prints a descriptive message if no jobs are found by selecting
 “0” to search and then “3” to search for a location. Then enter a location
-that is not in the data (e.g. “Cancun”). Your message should be displayed.</li>
+that is not in the data (e.g. “Cancun”). Your message should be displayed.</p></li>
 </ol>
 </div>
 <div class="section" id="create-method-findbyvalue">
@@ -454,19 +454,19 @@ search that looks for the search term in <em>all</em> of the columns.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class, find the method <code class="docutils literal notranslate"><span class="pre">findByValue</span></code>. This method has been outlined
 for you but contains none of the code needed to work (you should leave the <code class="docutils literal notranslate"><span class="pre">loadData()</span></code> call as the first line of the method, however). Here are a few observations:</p>
 <ol class="arabic simple">
-<li>The code that you write should not contain duplicate jobs. So, for
+<li><p>The code that you write should not contain duplicate jobs. So, for
 example, if a listing has position type “Web - Front End” and name
 “Front end web dev” then searching for “web” should not include the
-listing twice.</li>
-<li>As with <code class="docutils literal notranslate"><span class="pre">printJobs</span></code>, you should write your code in a way that if a
+listing twice.</p></li>
+<li><p>As with <code class="docutils literal notranslate"><span class="pre">printJobs</span></code>, you should write your code in a way that if a
 new column is added to the data, your code will automatically search
-the new column as well.</li>
-<li>You should NOT write code that calls <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue</span></code> once
+the new column as well.</p></li>
+<li><p>You should NOT write code that calls <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue</span></code> once
 for each column. Rather, utilize loops and collection methods as you
-did above.</li>
-<li>You <em>should</em>, on the other hand, read and understand
+did above.</p></li>
+<li><p>You <em>should</em>, on the other hand, read and understand
 <code class="docutils literal notranslate"><span class="pre">findByColumnAndValue</span></code>, since your code will look similar in some
-ways.</li>
+ways.</p></li>
 </ol>
 <p>You’ll need to call <code class="docutils literal notranslate"><span class="pre">findByValue</span></code> from somewhere in <code class="docutils literal notranslate"><span class="pre">main</span></code>. We’ll
 leave it up to you to find where. You might have noticed that when you
@@ -480,7 +480,7 @@ again to test your code.</p>
 <p>You’ve completed your first two tasks!</p>
 <p>Let’s assume you demonstrated the updated application for the Company Team, and
 they noticed a feature that could be improved. When searching for jobs with
-the skill <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> some results were missing (e.g.&nbsp;the Watchtower
+the skill <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> some results were missing (e.g. the Watchtower
 Security job on line 31 of the CSV file). The search methods turn out to be
 case-sensitive, so they treat <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> and <code class="docutils literal notranslate"><span class="pre">Javascript</span></code> as different
 strings.</p>
@@ -488,14 +488,14 @@ strings.</p>
 you told them that you are up to the task.</p>
 <p>Here are some questions to ask yourself as you get started:</p>
 <ol class="arabic simple">
-<li>Which methods are called when searching?</li>
-<li>How is the user’s search string compared against the values of fields of the
-job <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> objects?</li>
-<li>How can you make this comparison in a way that effectively ignores the case
-of the strings?</li>
-<li>How can you do this <em>without</em> altering the capitalization of the items in
+<li><p>Which methods are called when searching?</p></li>
+<li><p>How is the user’s search string compared against the values of fields of the
+job <code class="docutils literal notranslate"><span class="pre">HashMap</span></code> objects?</p></li>
+<li><p>How can you make this comparison in a way that effectively ignores the case
+of the strings?</p></li>
+<li><p>How can you do this <em>without</em> altering the capitalization of the items in
 <code class="docutils literal notranslate"><span class="pre">allJobs</span></code> so that the data gets printed out the same way that it appears
-in <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code>?</li>
+in <code class="docutils literal notranslate"><span class="pre">job_data.csv</span></code>?</p></li>
 </ol>
 <p>You might find it useful to review the String methods listed in the
 chapter on <a class="reference internal" href="../chapters/data-types/index.html#data-types"><span class="std std-ref">Data Types</span></a>.</p>
@@ -506,11 +506,11 @@ chapter on <a class="reference internal" href="../chapters/data-types/index.html
 <h2>Sanity Check<a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h2>
 <p>Before submitting, make sure that your application:</p>
 <ol class="arabic simple">
-<li>Prints each field of a job when using search functionality, and when
+<li><p>Prints each field of a job when using search functionality, and when
 listing all columns. If there are no search results, a descriptive
-message is displayed.</li>
-<li>Allows the user to search for a string across all columns.</li>
-<li>Returns case-insensitive results.</li>
+message is displayed.</p></li>
+<li><p>Allows the user to search for a string across all columns.</p></li>
+<li><p>Returns case-insensitive results.</p></li>
 </ol>
 </div>
 <div class="section" id="solution-demo">
@@ -532,16 +532,16 @@ additional problems you can try to solve. We’re not providing you much
 guidance here, but we have confidence that you can figure these problems
 out!</p>
 <ol class="arabic simple">
-<li><strong>Sorting list results</strong>: When a user asks for a list of employers,
+<li><p><strong>Sorting list results</strong>: When a user asks for a list of employers,
 locations, position types, etc., it would be nice if results were
-sorted alphabetically. Make this happen.</li>
-<li><strong>Returning a copy of allJobs</strong>: Look at <code class="docutils literal notranslate"><span class="pre">JobData.findAll()</span></code>.
+sorted alphabetically. Make this happen.</p></li>
+<li><p><strong>Returning a copy of allJobs</strong>: Look at <code class="docutils literal notranslate"><span class="pre">JobData.findAll()</span></code>.
 Notice that it’s returning the <code class="docutils literal notranslate"><span class="pre">allJobs</span></code> property, which is a
 static property of the <code class="docutils literal notranslate"><span class="pre">JobData</span></code> class. In general, this is not a
 great thing to do, since the person calling our <code class="docutils literal notranslate"><span class="pre">findAll</span></code> method
 could then mess with the data that <code class="docutils literal notranslate"><span class="pre">allJobs</span></code> contains. Fix this by
 creating a copy of <code class="docutils literal notranslate"><span class="pre">allJobs</span></code>. <em>Hint:</em> Look at the constructors in
-the Oracle <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> documentation.</li>
+the Oracle <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> documentation.</p></li>
 </ol>
 </div>
 </div>

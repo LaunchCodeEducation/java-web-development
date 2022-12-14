@@ -90,19 +90,19 @@
 <p>This chapter introduces the tools needed to create meaningful relationships using ORM. Before considering how to do this with Spring Boot, however, let’s consider the different types of relationships at a conceptual level.</p>
 <p>For the examples below, we use four classes:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Event</span></code> - A class representing a coding event.</li>
-<li><code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> - A class representing categories of coding events.</li>
-<li><code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> - A class that encapsulates details about a single event, such as description, contact email, location, and so on.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Tag</span></code> - A piece of metadata labeling an event. You can think of these as topics that an event might include, such as Java, Spring, or JavaScript. An event can cover multiple topics, so it can have multiple tags.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Event</span></code> - A class representing a coding event.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> - A class representing categories of coding events.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> - A class that encapsulates details about a single event, such as description, contact email, location, and so on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tag</span></code> - A piece of metadata labeling an event. You can think of these as topics that an event might include, such as Java, Spring, or JavaScript. An event can cover multiple topics, so it can have multiple tags.</p></li>
 </ul>
 <p>The first two of these are familiar to you from our <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> app. The <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> and <code class="docutils literal notranslate"><span class="pre">Tag</span></code> classes will be introduced later in this chapter.</p>
 <div class="section" id="one-to-one">
 <span id="one-to-one-def"></span><h2><span class="section-number">18.1.1. </span>One-to-One<a class="headerlink" href="#one-to-one" title="Permalink to this headline">¶</a></h2>
 <p id="index-0">The simplest type of relationship is the <strong>one-to-one relationship</strong>. This occurs when each instance of type A may be related to only one instance of type B, and vice versa.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>In the following examples, arrows point in the direction of the relationship. If A points to B, then you can say that A <em>knows about</em> B.</p>
-<p class="last">While relationships in SQL are bidirectional, relationships in programming languages are unidirectional. In other words, if A knows about B, then B doesn’t necessarily know about A.</p>
+<p>While relationships in SQL are bidirectional, relationships in programming languages are unidirectional. In other words, if A knows about B, then B doesn’t necessarily know about A.</p>
 </div>
 <div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="../../_images/one-to-one.png"><img alt="A single Event object on the left, with a double-sided arrow point to a single EventDetails object on the right" src="../../_images/one-to-one.png" style="width: 800px;" /></a>
@@ -110,14 +110,14 @@
 </div>
 <p>An <code class="docutils literal notranslate"><span class="pre">Event</span></code> object should only have one collection of details, so it should only be related to one <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object. Similarly, details about an event are specific to that event, so an <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> object should only be related to one <code class="docutils literal notranslate"><span class="pre">Event</span></code> object.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>The following pairs of things generally have one-to-one relationships:</p>
 <ol class="arabic simple">
-<li>People / driver’s licenses</li>
-<li>States / capital cities</li>
-<li>iPhones / serial numbers</li>
+<li><p>People / driver’s licenses</p></li>
+<li><p>States / capital cities</p></li>
+<li><p>iPhones / serial numbers</p></li>
 </ol>
-<p class="last">It is not <em>required</em> that each instance of type A be related to an instance of type B. For example, a person may not have a driver’s license.</p>
+<p>It is not <em>required</em> that each instance of type A be related to an instance of type B. For example, a person may not have a driver’s license.</p>
 </div>
 </div>
 <div class="section" id="one-to-many-and-many-to-one">
@@ -129,12 +129,12 @@
 </div>
 <p id="index-2">In this case, we say that A has a one-to-many relationship to B. A category can contain multiple items, therefore an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object may be related to multiple <code class="docutils literal notranslate"><span class="pre">Event</span></code> objects. But an event may only be in one category.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>The following pairs of things generally have one-to-many relationships:</p>
-<ol class="last arabic simple">
-<li>Birth dates / people</li>
-<li>States / U.S. Representatives</li>
-<li>Model numbers / iPhones</li>
+<ol class="arabic simple">
+<li><p>Birth dates / people</p></li>
+<li><p>States / U.S. Representatives</p></li>
+<li><p>Model numbers / iPhones</p></li>
 </ol>
 </div>
 <p>When discussing the inverse relationship, we say that B has a <strong>many-to-one</strong> relationship to A.</p>
@@ -144,12 +144,12 @@
 </div>
 <p>A many-to-one relationship operates in the opposite direction of a one-to-many relationship. The difference between the two is which side of the relationship <em>knows about</em> the objects on the other side. In Java terms, this will translate into a field on one class that references the other.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>Many-to-one relationships are simply the opposite direction of one-to-many. Therefore, each of the following pairs has a many-to-one relationship.</p>
-<ol class="last arabic simple">
-<li>People / birth dates</li>
-<li>U.S. Representatives / states</li>
-<li>iPhones / model numbers</li>
+<ol class="arabic simple">
+<li><p>People / birth dates</p></li>
+<li><p>U.S. Representatives / states</p></li>
+<li><p>iPhones / model numbers</p></li>
 </ol>
 </div>
 </div>
@@ -162,34 +162,34 @@
 </div>
 <p>An event can have multiple tags, and a tag may be associated with multiple events. Thus, we have a many-to-many relationship.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>The following pairs of things generally have many-to-many relationships:</p>
-<ol class="last arabic simple">
-<li>Books / authors</li>
-<li>Recipes / ingredients</li>
-<li>Actors / movies</li>
+<ol class="arabic simple">
+<li><p>Books / authors</p></li>
+<li><p>Recipes / ingredients</p></li>
+<li><p>Actors / movies</p></li>
 </ol>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">18.1.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Match the following pairs with the appropriate relationship type:</p>
-<ol class="last arabic simple">
-<li>car / manufacturer</li>
-<li>car / title</li>
-<li>car / driver</li>
-<li>car / tire</li>
+<ol class="arabic simple">
+<li><p>car / manufacturer</p></li>
+<li><p>car / title</p></li>
+<li><p>car / driver</p></li>
+<li><p>car / tire</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>True/False: In order for two Java classes, A and B, to be mapped in a one-to-many relationship, class A must
 contain a field for instances of B and B must have a field for instances of A.</p>
-<ol class="last arabic simple">
-<li>True</li>
-<li>False</li>
+<ol class="arabic simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
 </ol>
 </div>
 </div>

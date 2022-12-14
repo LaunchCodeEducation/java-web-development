@@ -93,14 +93,13 @@ like, but remember to use the proper
 <div class="section" id="array-practice">
 <h2><span class="section-number">3.7.1. </span>Array Practice<a class="headerlink" href="#array-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Create and initialize an array with the following values in a single line:
+<li><p>Create and initialize an array with the following values in a single line:
 <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">8</span></code>.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/control-flow-and-collections.html#control-flow-and-collections-exercise-solutions1a"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Loop through the array and print out each value, then modify the loop to
-only print the odd numbers.</p>
-</li>
-<li><p class="first">For this exercise, use the string <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">would</span> <span class="pre">not,</span> <span class="pre">could</span> <span class="pre">not,</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">box.</span> <span class="pre">I</span>
+<li><p>Loop through the array and print out each value, then modify the loop to
+only print the odd numbers.</p></li>
+<li><p>For this exercise, use the string <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">would</span> <span class="pre">not,</span> <span class="pre">could</span> <span class="pre">not,</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">box.</span> <span class="pre">I</span>
 <span class="pre">would</span> <span class="pre">not,</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">fox.</span> <span class="pre">I</span> <span class="pre">will</span> <span class="pre">not</span> <span class="pre">eat</span> <span class="pre">them</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">house.</span> <span class="pre">I</span> <span class="pre">will</span> <span class="pre">not</span>
 <span class="pre">eat</span> <span class="pre">them</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">mouse.</span></code> Use the <code class="docutils literal notranslate"><span class="pre">split</span></code> method to divide the string at
 each space and store the individual words in an array. If you need to review
@@ -108,20 +107,19 @@ the method syntax, look back at the <a class="reference internal" href="../data-
 table.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/control-flow-and-collections.html#control-flow-and-collections-exercise-solutions1b"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Print the array of words to verify that your code works. The syntax is:</p>
+<li><p>Print the array of words to verify that your code works. The syntax is:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">arrayName</span><span class="p">));</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Repeat steps 3 and 4, but change the delimiter to split the string into
-separate sentences.</p>
-</li>
+<li><p>Repeat steps 3 and 4, but change the delimiter to split the string into
+separate sentences.</p></li>
 </ol>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>Some characters, like a period <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code>, have special meanings when used with
 the <code class="docutils literal notranslate"><span class="pre">split</span></code> method. They cannot be used as-is for the deliminator.</p>
-<p class="last">To use these characters as the deliminator, we must <em>escape</em> their special
+<p>To use these characters as the deliminator, we must <em>escape</em> their special
 meanings. Instead of <code class="docutils literal notranslate"><span class="pre">.split(&quot;.&quot;)</span></code>, we need to use <code class="docutils literal notranslate"><span class="pre">.split(&quot;\\.&quot;)</span></code>.</p>
 </div>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/control-flow-and-collections.html#control-flow-and-collections-exercise-solutions1c"><span class="std std-ref">Check your solution</span></a></p>
@@ -129,32 +127,30 @@ meanings. Instead of <code class="docutils literal notranslate"><span class="pre
 <div class="section" id="arraylist-practice">
 <h2><span class="section-number">3.7.2. </span>ArrayList Practice<a class="headerlink" href="#arraylist-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Write a static method to find the sum of all the even numbers in an
+<li><p>Write a static method to find the sum of all the even numbers in an
 ArrayList. Within <code class="docutils literal notranslate"><span class="pre">main</span></code>, create a list with at least 10 integers and call
 your method on the list.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/control-flow-and-collections.html#control-flow-and-collections-exercise-solutions2a"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Write a static method to print out each word in a list that has exactly 5
-letters.</p>
-</li>
-<li><p class="first">Modify your code to prompt the user to enter the word length for the search.</p>
+<li><p>Write a static method to print out each word in a list that has exactly 5
+letters.</p></li>
+<li><p>Modify your code to prompt the user to enter the word length for the search.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/control-flow-and-collections.html#control-flow-and-collections-exercise-solutions2b"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">BONUS: Instead of creating our own list of words, what if we want to use the
+<li><p>BONUS: Instead of creating our own list of words, what if we want to use the
 string from the <em>Array Practice</em> section? Search “Java convert String to
 ArrayList” online to see how to split a string into the more flexible
-<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> collection.</p>
-</li>
+<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code> collection.</p></li>
 </ol>
 </div>
 <div class="section" id="hashmap-practice">
 <h2><span class="section-number">3.7.3. </span>HashMap Practice<a class="headerlink" href="#hashmap-practice" title="Permalink to this headline">¶</a></h2>
 <p>Make a program similar to <code class="docutils literal notranslate"><span class="pre">GradebookHashMap</span></code> that does the following:</p>
 <ol class="arabic simple">
-<li>It takes in student names and ID numbers (as integers) instead of names and
-grades.</li>
-<li>The keys should be the IDs and the values should be the names.</li>
-<li>Modify the roster printing code accordingly.</li>
+<li><p>It takes in student names and ID numbers (as integers) instead of names and
+grades.</p></li>
+<li><p>The keys should be the IDs and the values should be the names.</p></li>
+<li><p>Modify the roster printing code accordingly.</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/control-flow-and-collections.html#control-flow-and-collections-exercise-solutions3"><span class="std std-ref">Check your solution</span></a></p>
 </div>

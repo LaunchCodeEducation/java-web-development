@@ -93,8 +93,8 @@
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/bLK-VtZgx0Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-one" target="_blank">one-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-one" target="_blank">one-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-tags" target="_blank">add-tags branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> . As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -109,8 +109,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/qtbkUXAjpt4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-tags" target="_blank">add-tags branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-tags" target="_blank">add-tags branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many" target="_blank">many-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -140,8 +140,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/1qMaEv_CJ6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many" target="_blank">many-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many" target="_blank">many-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-many-features" target="_blank">many-to-many-features branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -240,16 +240,16 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
-<li><strong>Line 112</strong>: Specifies that the handler will be available at the route <code class="docutils literal notranslate"><span class="pre">/events/add-tag</span></code>, and will respond to <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests.</li>
-<li><strong>Line 113</strong>: Defines the <code class="docutils literal notranslate"><span class="pre">displayAddTagForm</span></code> handler, which has a required query parameter, <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</li>
-<li><strong>Line 114</strong>: Queries the repository for the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object with ID equal to the value of <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</li>
-<li><strong>Line 115</strong>: Extracts the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object from the result of the query. We would ideally include a conditional to check that such an object exists before proceeding, but are omitting it here to focus on DTO usage.</li>
-<li><strong>Line 116</strong>: Creates a title for the form, which includes the name of the event.</li>
-<li><strong>LIne 117</strong>: Passes a collection of all available tags into the view. This collection will be used to render a dropdown that the user can use to select the tag to be added.</li>
-<li><strong>Line 118</strong>: Creates an empty <code class="docutils literal notranslate"><span class="pre">EventTagDTO</span></code> object. This will be used to help render the form, as we have done previously with model classes.</li>
-<li><strong>Line 119</strong>: Assigns the <code class="docutils literal notranslate"><span class="pre">event</span></code> property of the <code class="docutils literal notranslate"><span class="pre">eventTag</span></code> DTO object. This will enable us to reference the specific event when rendering the form, so we can assign the tag to the correct event.</li>
-<li><strong>Line 120</strong>: Passes the DTO into the view.</li>
-<li><strong>Line 121</strong>: Returns the name of the template containing the form.</li>
+<li><p><strong>Line 112</strong>: Specifies that the handler will be available at the route <code class="docutils literal notranslate"><span class="pre">/events/add-tag</span></code>, and will respond to <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests.</p></li>
+<li><p><strong>Line 113</strong>: Defines the <code class="docutils literal notranslate"><span class="pre">displayAddTagForm</span></code> handler, which has a required query parameter, <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</p></li>
+<li><p><strong>Line 114</strong>: Queries the repository for the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object with ID equal to the value of <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</p></li>
+<li><p><strong>Line 115</strong>: Extracts the <code class="docutils literal notranslate"><span class="pre">Event</span></code> object from the result of the query. We would ideally include a conditional to check that such an object exists before proceeding, but are omitting it here to focus on DTO usage.</p></li>
+<li><p><strong>Line 116</strong>: Creates a title for the form, which includes the name of the event.</p></li>
+<li><p><strong>LIne 117</strong>: Passes a collection of all available tags into the view. This collection will be used to render a dropdown that the user can use to select the tag to be added.</p></li>
+<li><p><strong>Line 118</strong>: Creates an empty <code class="docutils literal notranslate"><span class="pre">EventTagDTO</span></code> object. This will be used to help render the form, as we have done previously with model classes.</p></li>
+<li><p><strong>Line 119</strong>: Assigns the <code class="docutils literal notranslate"><span class="pre">event</span></code> property of the <code class="docutils literal notranslate"><span class="pre">eventTag</span></code> DTO object. This will enable us to reference the specific event when rendering the form, so we can assign the tag to the correct event.</p></li>
+<li><p><strong>Line 120</strong>: Passes the DTO into the view.</p></li>
+<li><p><strong>Line 121</strong>: Returns the name of the template containing the form.</p></li>
 </ul>
 <p>While this may seem like a lot of new concepts, it really isn’t. If you look closely, the one new thing that we are doing is using a DTO class to bind an <em>existing</em> event to the form. The other steps here are variations of thing you have done before.</p>
 <p>Now let’s look at the form in <code class="docutils literal notranslate"><span class="pre">events/add-tag.html</span></code>.</p>
@@ -353,98 +353,98 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <p>The only difference is the <em>number</em> of different <code class="docutils literal notranslate"><span class="pre">event</span></code> rows that may have the same value of <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> and <code class="docutils literal notranslate"><span class="pre">event_details_id</span></code>. The <code class="docutils literal notranslate"><span class="pre">event</span></code>/<code class="docutils literal notranslate"><span class="pre">event_category</span></code> relationship is many-to-one, so <em>many</em> event rows may have the same <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code> value. The <code class="docutils literal notranslate"><span class="pre">event</span></code>/<code class="docutils literal notranslate"><span class="pre">event_details</span></code> relationship is one-to-one, so <em>only one</em> event row may have a certain value in <code class="docutils literal notranslate"><span class="pre">event_details_id</span></code>.</p>
 <p id="index-2">Using foreign and primary keys to create many-to-many relationships is a bit trickier. In order to relate rows in <code class="docutils literal notranslate"><span class="pre">event</span></code> to rows in <code class="docutils literal notranslate"><span class="pre">tag</span></code> we need need a third table, known as a <strong>join table</strong>. A join table consists of two columns, each of which is a foreign key column to another table. Each row in a join table represents a relationship between one row in each of the two tables. This technique enables many-to-many relationships.</p>
 <p>Consider some example data in our <code class="docutils literal notranslate"><span class="pre">event</span></code> and <code class="docutils literal notranslate"><span class="pre">tag</span></code> tables.</p>
-<table border="1" class="docutils align-default" id="id1">
+<table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Sample <code class="docutils literal notranslate"><span class="pre">event</span></code> data</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">id</th>
-<th class="head">name</th>
-<th class="head">event_category_id</th>
-<th class="head">event_details_id</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>name</p></th>
+<th class="head"><p>event_category_id</p></th>
+<th class="head"><p>event_details_id</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>13</td>
-<td>WWDC</td>
-<td>2</td>
-<td>14</td>
+<tbody>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>WWDC</p></td>
+<td><p>2</p></td>
+<td><p>14</p></td>
 </tr>
-<tr class="row-odd"><td>15</td>
-<td>SpringOne Platform</td>
-<td>2</td>
-<td>16</td>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>SpringOne Platform</p></td>
+<td><p>2</p></td>
+<td><p>16</p></td>
 </tr>
-<tr class="row-even"><td>17</td>
-<td>Java meetup</td>
-<td>3</td>
-<td>18</td>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>Java meetup</p></td>
+<td><p>3</p></td>
+<td><p>18</p></td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils align-default" id="id2">
+<table class="docutils align-default" id="id2">
 <caption><span class="caption-text">Sample <code class="docutils literal notranslate"><span class="pre">event_category</span></code> data</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">id</th>
-<th class="head">name</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>name</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>2</td>
-<td>Conference</td>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Conference</p></td>
 </tr>
-<tr class="row-odd"><td>3</td>
-<td>Meetup</td>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Meetup</p></td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="docutils align-default" id="id3">
+<table class="docutils align-default" id="id3">
 <caption><span class="caption-text">Sample <code class="docutils literal notranslate"><span class="pre">tag</span></code> data</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">id</th>
-<th class="head">name</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>id</p></th>
+<th class="head"><p>name</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>4</td>
-<td>ios</td>
+<tbody>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>ios</p></td>
 </tr>
-<tr class="row-odd"><td>5</td>
-<td>spring</td>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>spring</p></td>
 </tr>
-<tr class="row-even"><td>6</td>
-<td>java</td>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>java</p></td>
 </tr>
 </tbody>
 </table>
 <p>A join table for these two tables would be called <code class="docutils literal notranslate"><span class="pre">event_tags</span></code>, and would have two columns, <code class="docutils literal notranslate"><span class="pre">event_id</span></code> and <code class="docutils literal notranslate"><span class="pre">tag_id</span></code>. Each of these columns are foreign key columns into their respective tables.</p>
 <p>If we want to relate the <code class="docutils literal notranslate"><span class="pre">ios</span></code> tag to the <code class="docutils literal notranslate"><span class="pre">WWDC</span></code> event, we create a new row in <code class="docutils literal notranslate"><span class="pre">event_tags</span></code>:</p>
-<table border="1" class="docutils align-default" id="id4">
+<table class="docutils align-default" id="id4">
 <caption><span class="caption-text">A join table with a single relationship</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">events_id</th>
-<th class="head">tags_id</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>events_id</p></th>
+<th class="head"><p>tags_id</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>13</td>
-<td>4</td>
+<tbody>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>4</p></td>
 </tr>
 </tbody>
 </table>
@@ -454,29 +454,29 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <p class="caption"><span class="caption-text">A many-to-many relationship between Event and Tag objects</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>The join table representing these relationships looks like this:</p>
-<table border="1" class="docutils align-default" id="id6">
+<table class="docutils align-default" id="id6">
 <caption><span class="caption-text">The full join table representing the relationships in the figure above</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">events_id</th>
-<th class="head">tags_id</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>events_id</p></th>
+<th class="head"><p>tags_id</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>13</td>
-<td>4</td>
+<tbody>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>4</p></td>
 </tr>
-<tr class="row-odd"><td>15</td>
-<td>5</td>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>5</p></td>
 </tr>
-<tr class="row-even"><td>15</td>
-<td>6</td>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>6</p></td>
 </tr>
-<tr class="row-odd"><td>17</td>
-<td>6</td>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>6</p></td>
 </tr>
 </tbody>
 </table>
@@ -486,17 +486,17 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">18.5.7. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True/False: Model binding only works when using a persistent class.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: Model binding only works when using a persistent class.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>The use of join tables enables (select all that apply):</p>
-<ol class="last arabic simple">
-<li>A database where you never need to run a <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> query.</li>
-<li>Many-to-many relationships between tables.</li>
-<li>Many-to-many relationships between classes without using the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToMany</span></code> annotation.</li>
-<li>Rainbows and butterflies to be stored in your database.</li>
+<ol class="arabic simple">
+<li><p>A database where you never need to run a <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> query.</p></li>
+<li><p>Many-to-many relationships between tables.</p></li>
+<li><p>Many-to-many relationships between classes without using the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToMany</span></code> annotation.</p></li>
+<li><p>Rainbows and butterflies to be stored in your database.</p></li>
 </ol>
 </div>
 </div>

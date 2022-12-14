@@ -108,13 +108,13 @@ to add the file to Git when the window appears.</p>
 <p>Write a class, <code class="docutils literal notranslate"><span class="pre">Area</span></code>, that prompts the user for the radius of a circle and
 then calculate its area and print the result.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Recall that the area of a circle is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">pi</span> <span class="pre">*</span> <span class="pre">r</span> <span class="pre">*</span> <span class="pre">r</span></code> where <code class="docutils literal notranslate"><span class="pre">pi</span></code> is
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Recall that the area of a circle is <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">pi</span> <span class="pre">*</span> <span class="pre">r</span> <span class="pre">*</span> <span class="pre">r</span></code> where <code class="docutils literal notranslate"><span class="pre">pi</span></code> is
 3.14 and <code class="docutils literal notranslate"><span class="pre">r</span></code> is the radius.</p>
 </div>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Unlike some other languages, Java does not have an exponent operator.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Unlike some other languages, Java does not have an exponent operator.</p>
 </div>
 <p>Here’s an example of how your program should work:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter a radius: 2.5
@@ -123,15 +123,15 @@ The area of a circle of radius 2.5 is: 19.625
 </div>
 <p>Some questions to ask yourself:</p>
 <ol class="arabic simple">
-<li>What data type should the radius be?</li>
-<li>What is the best way to get user input into a variable <code class="docutils literal notranslate"><span class="pre">radius</span></code> of
-that type?</li>
+<li><p>What data type should the radius be?</p></li>
+<li><p>What is the best way to get user input into a variable <code class="docutils literal notranslate"><span class="pre">radius</span></code> of
+that type?</p></li>
 </ol>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>Be sure to create a <code class="docutils literal notranslate"><span class="pre">main</span></code> method to place your code within. It’s
 signature <em>must</em> be:</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -141,9 +141,8 @@ signature <em>must</em> be:</p>
 <p>Add a second Java file to your program to delegate the area calculation away
 from the printing task.</p>
 <ol class="arabic">
-<li><p class="first">Add a new class in your <code class="docutils literal notranslate"><span class="pre">studios.areaofacircle</span></code> package called <code class="docutils literal notranslate"><span class="pre">Circle</span></code>.</p>
-</li>
-<li><p class="first">Create a method called <code class="docutils literal notranslate"><span class="pre">getArea</span></code> inside of <code class="docutils literal notranslate"><span class="pre">Circle</span></code> that takes a Double
+<li><p>Add a new class in your <code class="docutils literal notranslate"><span class="pre">studios.areaofacircle</span></code> package called <code class="docutils literal notranslate"><span class="pre">Circle</span></code>.</p></li>
+<li><p>Create a method called <code class="docutils literal notranslate"><span class="pre">getArea</span></code> inside of <code class="docutils literal notranslate"><span class="pre">Circle</span></code> that takes a Double
 <code class="docutils literal notranslate"><span class="pre">radius</span></code> as its only parameter and returns another <code class="docutils literal notranslate"><span class="pre">Double</span></code>, the result of
 the area calculation.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="n">Double</span> <span class="nf">getArea</span><span class="p">(</span><span class="n">Double</span> <span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
@@ -152,11 +151,11 @@ the area calculation.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Back in <code class="docutils literal notranslate"><span class="pre">Area</span></code>, replace your area calculation line with a call to
+<li><p>Back in <code class="docutils literal notranslate"><span class="pre">Area</span></code>, replace your area calculation line with a call to
 <code class="docutils literal notranslate"><span class="pre">Circle.getArea()</span></code>.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Check out the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> and <code class="docutils literal notranslate"><span class="pre">Message</span></code> example from
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Check out the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> and <code class="docutils literal notranslate"><span class="pre">Message</span></code> example from
 <a class="reference internal" href="more-data-types.html#static-methods"><span class="std std-ref">Static Methods</span></a> for a reference on how to use a class from another
 file.</p>
 </div>
@@ -166,14 +165,14 @@ file.</p>
 <div class="section" id="bonus-missions">
 <h2><span class="section-number">2.5.4. </span>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Add validation to your program. If the user enters a negative number? a
+<li><p>Add validation to your program. If the user enters a negative number? a
 non-numeric character? the empty string? Print an error message and quit.
 You’ll need to peek ahead to learn
 about <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html" target="_blank">conditional syntax in
-Java<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</li>
-<li>Extend your program further by using a <a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html" target="_blank">while or do-while
+Java<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p></li>
+<li><p>Extend your program further by using a <a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html" target="_blank">while or do-while
 loop<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>,
-so that when the user enters a negative number they are re-prompted.</li>
+so that when the user enters a negative number they are re-prompted.</p></li>
 </ol>
 </div>
 </div>

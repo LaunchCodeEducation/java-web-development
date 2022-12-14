@@ -103,8 +103,8 @@ your git workflow.</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/Z_exRQyLwOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">In the video, Chris changes some Gradle configurations to use Java version 13 and Gradle version 6 for his project.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>In the video, Chris changes some Gradle configurations to use Java version 13 and Gradle version 6 for his project.
 You should follow along with him in case you also need to update your own project. However, this course uses Java
 version 11, which is compatible with most versions of Gradle beyond 6.x.x.</p>
 </div>
@@ -112,44 +112,39 @@ version 11, which is compatible with most versions of Gradle beyond 6.x.x.</p>
 <div class="section" id="initialize-a-spring-boot-project-text">
 <h2><span class="section-number">9.2.2. </span>Initialize a Spring Boot Project - Text<a class="headerlink" href="#initialize-a-spring-boot-project-text" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Go to <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-</li>
-<li><p class="first">For <em>Project</em>, select <em>Gradle Project</em>.</p>
-</li>
-<li><p class="first">For <em>Language</em>, select <em>Java</em>.</p>
-</li>
-<li><p class="first">For <em>Spring Boot</em>, select the most recent non-SNAPSHOT release.</p>
+<li><p>Go to <a class="reference external" href="https://start.spring.io/" target="_blank">start.spring.io<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p></li>
+<li><p>For <em>Project</em>, select <em>Gradle Project</em>.</p></li>
+<li><p>For <em>Language</em>, select <em>Java</em>.</p></li>
+<li><p>For <em>Spring Boot</em>, select the most recent non-SNAPSHOT release.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">See the figure below this list for a visual.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>See the figure below this list for a visual.</p>
 </div>
 </li>
-<li><p class="first">For <em>Project Metadata/Group</em>, enter <code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code>.</p>
+<li><p>For <em>Project Metadata/Group</em>, enter <code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code>.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You can use whatever package name you want here. The convention is
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>You can use whatever package name you want here. The convention is
 <code class="docutils literal notranslate"><span class="pre">topleveldomain.domainname</span></code>. In other words, the reverse of what
 you would see in a URL.</p>
 </div>
 </li>
-<li><p class="first">For <em>Project Metadata/Artifact</em>, enter <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code>.</p>
+<li><p>For <em>Project Metadata/Artifact</em>, enter <code class="docutils literal notranslate"><span class="pre">hello-spring</span></code>.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">This is the title of your project.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>This is the title of your project.</p>
 </div>
 </li>
-<li><p class="first">For <em>Project Metadata/Options/Java</em>, select <em>11</em>.</p>
-</li>
-<li><p class="first">For <em>Dependencies</em>, search for and add the following: <em>Spring Web</em>,
+<li><p>For <em>Project Metadata/Options/Java</em>, select <em>11</em>.</p></li>
+<li><p>For <em>Dependencies</em>, search for and add the following: <em>Spring Web</em>,
 and <em>Spring Boot DevTools</em>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">For some projects in this book, you’ll also need to add <em>ThymeLeaf</em> and <em>Validation</em>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>For some projects in this book, you’ll also need to add <em>ThymeLeaf</em> and <em>Validation</em>
 as dependencies.</p>
 </div>
 </li>
-<li><p class="first">Click <em>Generate</em> to create a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file of the project starter code.</p>
-</li>
+<li><p>Click <em>Generate</em> to create a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> file of the project starter code.</p></li>
 </ol>
 <div class="figure align-default" id="id1">
 <img alt="browser page open to start.spring.io, Spring Boot 2.4.3 and Java 11 are selected" src="../../_images/spring-initializr-11.png" />
@@ -159,21 +154,20 @@ as dependencies.</p>
 <div class="section" id="spring-in-intellij">
 <h2><span class="section-number">9.2.3. </span>Spring in IntelliJ<a class="headerlink" href="#spring-in-intellij" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Move the downloaded, unzipped folder from your downloads folder into
-another location such as <code class="docutils literal notranslate"><span class="pre">LC101</span></code> or your home directory.</li>
-<li>Start IntelliJ.</li>
-<li>Select <em>Open</em> and browse to where you put the downloaded
-project. Unzip the project and select to import the top-level folder of the new Spring project.</li>
+<li><p>Move the downloaded, unzipped folder from your downloads folder into
+another location such as <code class="docutils literal notranslate"><span class="pre">LC101</span></code> or your home directory.</p></li>
+<li><p>Start IntelliJ.</p></li>
+<li><p>Select <em>Open</em> and browse to where you put the downloaded
+project. Unzip the project and select to import the top-level folder of the new Spring project.</p></li>
 </ol>
 <div class="admonition-tips admonition">
-<p class="first admonition-title">Tips</p>
+<p class="admonition-title">Tips</p>
 <p>Below are some troubleshooting tips we’ve found to be helpful. If these are not relevant to you and you experience issues,
 checkout <a class="reference external" href="https://help.launchcode.org/" target="_blank">https://help.launchcode.org/<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for more support.</p>
-<ul class="last">
-<li><p class="first">After you select to open the Spring project, if you encounter an alert that the selected folder is not empty, choose
-the option to overwrite it.</p>
-</li>
-<li><p class="first">If you see a Gradle build popup, click
+<ul>
+<li><p>After you select to open the Spring project, if you encounter an alert that the selected folder is not empty, choose
+the option to overwrite it.</p></li>
+<li><p>If you see a Gradle build popup, click
 <em>Import Gradle Project</em>. This popup is fairly small and usually located in the lower right corner of the window.
 After selecting import, you may be prompted again and should click the <em>Use auto-import</em> box. Leave other boxes as default.</p>
 <div class="figure align-default" id="id2">
@@ -181,18 +175,18 @@ After selecting import, you may be prompted again and should click the <em>Use a
 <p class="caption"><span class="caption-text">A popup to suggest importing Gradle.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">You may see a pop-up in the lower left-hand corner in your <em>Event Log</em>
+<li><p>You may see a pop-up in the lower left-hand corner in your <em>Event Log</em>
 that reads: <em>Unindexed remote maven repositories found</em>.</p>
 <ol class="arabic simple">
-<li>Select <em>Open repositories list</em> in the Event Log message. This will
+<li><p>Select <em>Open repositories list</em> in the Event Log message. This will
 open the <em>Preferences</em> (or <em>Settings</em> for Windows users) window to
-<em>Build, Execution, Deployment &gt; Build Tools &gt; Maven &gt; Repositories</em> .</li>
-<li>Select the Maven repository (<a class="reference external" href="https://repo1.maven.org/maven2" target="_blank">https://repo1.maven.org/maven2<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>) and
-click <em>Update</em> on the side.</li>
+<em>Build, Execution, Deployment &gt; Build Tools &gt; Maven &gt; Repositories</em> .</p></li>
+<li><p>Select the Maven repository (<a class="reference external" href="https://repo1.maven.org/maven2" target="_blank">https://repo1.maven.org/maven2<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>) and
+click <em>Update</em> on the side.</p></li>
 </ol>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">This update can last up to an hour.</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>This update can last up to an hour.</p>
 </div>
 </li>
 </ul>
@@ -248,14 +242,14 @@ is a decentralized place for developers to post their code for others to use.</p
 <span id="index-1"></span><h2><span class="section-number">9.2.5. </span>Before Running a Spring Project<a class="headerlink" href="#before-running-a-spring-project" title="Permalink to this headline">¶</a></h2>
 <p>Before running your project, we need to check the configuration of a few items.</p>
 <ol class="arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>, locate an item called <code class="docutils literal notranslate"><span class="pre">sourceCompatibility</span></code>. If it’s value is not equal to
-<code class="docutils literal notranslate"><span class="pre">11</span></code>, change it and save the file.</li>
-<li>In the <code class="docutils literal notranslate"><span class="pre">gradle</span></code> directory, open the subdirectory, <code class="docutils literal notranslate"><span class="pre">wrapper</span></code>, and then the file
+<li><p>In <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>, locate an item called <code class="docutils literal notranslate"><span class="pre">sourceCompatibility</span></code>. If it’s value is not equal to
+<code class="docutils literal notranslate"><span class="pre">11</span></code>, change it and save the file.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">gradle</span></code> directory, open the subdirectory, <code class="docutils literal notranslate"><span class="pre">wrapper</span></code>, and then the file
 <code class="docutils literal notranslate"><span class="pre">gradle-wrapper.properties</span></code> inside of it. Ensure that the <code class="docutils literal notranslate"><span class="pre">distributionUrl</span></code> includes a gradle
-version of at least <code class="docutils literal notranslate"><span class="pre">6.0</span></code>.</li>
-<li>Open the test class, <code class="docutils literal notranslate"><span class="pre">HelloSpringApplicationTests</span></code> located in <code class="docutils literal notranslate"><span class="pre">src/test/java/org.launchcode.hellospring</span></code>.
+version of at least <code class="docutils literal notranslate"><span class="pre">6.0</span></code>.</p></li>
+<li><p>Open the test class, <code class="docutils literal notranslate"><span class="pre">HelloSpringApplicationTests</span></code> located in <code class="docutils literal notranslate"><span class="pre">src/test/java/org.launchcode.hellospring</span></code>.
 Run the single test. If you experience a JDK error, click on the <code class="docutils literal notranslate"><span class="pre">Gradle</span> <span class="pre">Settings</span></code> icon in the right-hand
-gradle pane and ensure that the Gradle JVM is using Java 11.</li>
+gradle pane and ensure that the Gradle JVM is using Java 11.</p></li>
 </ol>
 </div>
 <div class="section" id="running-a-spring-project">
@@ -278,14 +272,14 @@ project. Inside <em>Tasks</em>, open <em>application</em> and double-click <em>b
 <p class="caption"><span class="caption-text">Output of the <code class="docutils literal notranslate"><span class="pre">bootRun</span></code> task.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>Also note that you may not see the same output in the Gradle panel as is
 shown above. You may see something that looks more like this:</p>
 <div class="figure align-default" id="id6">
 <img alt="Alternative bootrun view" src="../../_images/windows-bootrun.png" />
 <p class="caption"><span class="caption-text">Click the circled icon to switch the view.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
-<p class="last">If you do, click the circled icon to toggle the view so that it matches
+<p>If you do, click the circled icon to toggle the view so that it matches
 the one above.</p>
 </div>
 <p>Keep an eye out for a message that resembles:</p>
@@ -304,28 +298,28 @@ for requests on local port 8080. You can then visit the corresponding web page a
 Right now, you’ll see an error page, but we’ll fix that soon.
 Now go ahead and stop the application by hitting the red square on the left side of the <em>Run</em> pane.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">There is also a stop button up at the top right of the IntelliJ window.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>There is also a stop button up at the top right of the IntelliJ window.</p>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">9.2.7. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What is the name of the task to start a Spring Boot application?</p>
-<ol class="last loweralpha simple">
-<li>Gradle</li>
-<li>bootRun</li>
-<li>run</li>
-<li>Maven</li>
+<ol class="loweralpha simple">
+<li><p>Gradle</p></li>
+<li><p>bootRun</p></li>
+<li><p>run</p></li>
+<li><p>Maven</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>True/False: All custom code in a Spring Boot application is located in the <code class="docutils literal notranslate"><span class="pre">main</span></code> method.</p>
-<ol class="last loweralpha simple">
-<li>True</li>
-<li>False</li>
+<ol class="loweralpha simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
 </ol>
 </div>
 </div>

@@ -95,8 +95,8 @@ on how to properly execute your classes and methods.</p>
 <strong>JUnit4</strong>. Unit testing breaks down the codebase into its smallest
 building blocks, which are individual statements and methods.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">If you’re not yet familiar with the benefits of automated testing,
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>If you’re not yet familiar with the benefits of automated testing,
 you can familiarize yourself
 <a class="reference external" href="https://education.launchcode.org/intro-to-professional-web-dev/chapters/unit-testing/why-test.html" target="_blank">here<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
@@ -109,10 +109,10 @@ unit tests safeguard against bugs introduced in <strong>refactoring</strong>.
 Refactoring refers to the process of rewriting code without adding new features.</p>
 <p>Imagine this common workflow:</p>
 <ol class="arabic simple">
-<li>You practice TDD, writing your tests to stipulate your class’s code.</li>
-<li>You write your code to pass your tests.</li>
-<li>Later, a stakeholder in your project’s use requests that you refactor your code using
-different syntax.</li>
+<li><p>You practice TDD, writing your tests to stipulate your class’s code.</p></li>
+<li><p>You write your code to pass your tests.</p></li>
+<li><p>Later, a stakeholder in your project’s use requests that you refactor your code using
+different syntax.</p></li>
 </ol>
 <p>The features will be the same, but the implementation changes.
 Unit tests help in this scenario in that, changes to implementation
@@ -140,23 +140,23 @@ that a change has been made if a test fails.</p>
 <span id="id1"></span><h2><span class="section-number">6.1.2. </span>Testing Best Practices<a class="headerlink" href="#testing-best-practices" title="Permalink to this headline">¶</a></h2>
 <p>Below are some best practices to keep in mind when writing unit tests, in any language.</p>
 <ol class="arabic">
-<li><p class="first">The AAAs</p>
+<li><p>The AAAs</p>
 <p>The AAAs of unit testing refers to the pattern to follow when
 writing your unit tests.</p>
 <ol class="loweralpha simple">
-<li>Arrange the variables your test requires</li>
-<li>Act on the methods your test requires</li>
-<li>Assert the anticipated comparison of the expected and actual values</li>
+<li><p>Arrange the variables your test requires</p></li>
+<li><p>Act on the methods your test requires</p></li>
+<li><p>Assert the anticipated comparison of the expected and actual values</p></li>
 </ol>
 </li>
-<li><p class="first">Deterministic</p>
+<li><p>Deterministic</p>
 <p>Every, single, solitary time a test is run, it should produce the same outcome.
 A test that passes only most of the time is a worthless test.</p>
 </li>
-<li><p class="first">Relevant</p>
+<li><p>Relevant</p>
 <p>Tests, as they are written, should be grouped by related class and function.</p>
 </li>
-<li><p class="first">Meaningful</p>
+<li><p>Meaningful</p>
 <p>There is no need to test trivial code. For example, unless they contain additional
 functionality, there is no need to write tests for getters and setters. Your IntelliJ
 IDE offers code completion for these anyway.</p>
@@ -166,17 +166,17 @@ IDE offers code completion for these anyway.</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">6.1.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True or False: Comments are the best tool to make your code readable.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True or False: Comments are the best tool to make your code readable.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Unit tests are a form of:</p>
-<ol class="last arabic simple">
-<li>Manual testing</li>
-<li>Automated testing</li>
-<li>Integration testing</li>
-<li>Documentation testing</li>
+<ol class="arabic simple">
+<li><p>Manual testing</p></li>
+<li><p>Automated testing</p></li>
+<li><p>Integration testing</p></li>
+<li><p>Documentation testing</p></li>
 </ol>
 </div>
 </div>

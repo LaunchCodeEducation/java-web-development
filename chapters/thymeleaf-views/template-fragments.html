@@ -108,13 +108,13 @@ should consider ways to streamline your work.</p>
 <p>Let’s assume that you want to add the same styled header and a set of links to
 multiple pages within your web project.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>The common header styled with CSS:</p>
 <div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fancyTitle&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${title}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
 <p>The link list, which appears below a dividing line:</p>
-<div class="last highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
@@ -127,20 +127,19 @@ multiple pages within your web project.</p>
 <p>Instead of pasting this code into every template, we will store the HTML in
 a separate file.</p>
 <ol class="arabic">
-<li><p class="first">Create a new html file inside the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder and give it a clear
-name (e.g. <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> is a common practice).</p>
-</li>
-<li><p class="first">Inside this file, use the <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code> attribute on each block of code
+<li><p>Create a new html file inside the <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder and give it a clear
+name (e.g. <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> is a common practice).</p></li>
+<li><p>Inside this file, use the <code class="docutils literal notranslate"><span class="pre">th:fragment</span></code> attribute on each block of code
 that you want to reuse. Note that you must provide a different name for each
 sample.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>For the <code class="docutils literal notranslate"><span class="pre">h1</span></code> element:</p>
 <div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;styledHeader&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fancyTitle&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${title}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
 <p>For multiple elements, we need to wrap them in another tag:</p>
-<div class="last highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -159,7 +158,7 @@ sample.</p>
 <p>We can now pull either of the fragments—<code class="docutils literal notranslate"><span class="pre">styledHeader</span></code> or
 <code class="docutils literal notranslate"><span class="pre">linkList</span></code>–into any template in our project.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>What if we do not want to keep the link list inside its own <code class="docutils literal notranslate"><span class="pre">div</span></code> element?
 One option is to use <code class="docutils literal notranslate"><span class="pre">th:block</span></code>:</p>
 <div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -180,7 +179,7 @@ selectively discard the wrapper tag, but not any of its children.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:fragment </span><span class="o">=</span> <span class="s">&quot;linkList&quot;</span> <span class="na">th:remove </span><span class="o">=</span> <span class="s">&quot;tag&quot;</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">For a more detailed discussion of the different <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> options, consult
+<p>For a more detailed discussion of the different <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> options, consult
 the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#removing-template-fragments" target="_blank">Thymeleaf documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 </div>
@@ -196,8 +195,8 @@ with the entire code block.</p>
 to match the HTML tags in the fragment.</p>
 <p>Now let’s see how to pull fragments into a template:</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
-<div class="last highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -243,8 +242,8 @@ templates:</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/rbIyV6OoS-o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/form2" target="_blank">form2 branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/form2" target="_blank">form2 branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/fragments" target="_blank">fragments branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -254,7 +253,7 @@ supports the video and is NOT intended as a replacement.</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">13.7.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Given our code fragment in <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>:</p>
 <div class="highlight-HTML notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -271,23 +270,23 @@ supports the video and is NOT intended as a replacement.</p>
 </td></tr></table></div>
 <p>Which of the following would place the <code class="docutils literal notranslate"><span class="pre">linkList</span></code> fragment inside a
 <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> element in the template?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/div&gt;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;${th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;}&lt;/div&gt;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;&lt;p</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/p&gt;&lt;/div&gt;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;p&gt;&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/div&gt;&lt;/p&gt;</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/div&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;${th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;}&lt;/div&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;&lt;p</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/p&gt;&lt;/div&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;p&gt;&lt;div</span> <span class="pre">th:replace</span> <span class="pre">=</span> <span class="pre">&quot;fragments</span> <span class="pre">::</span> <span class="pre">linkList&quot;&gt;&lt;/div&gt;&lt;/p&gt;</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-bonus-question admonition">
-<p class="first admonition-title">Bonus Question</p>
+<p class="admonition-title">Bonus Question</p>
 <p>Research <code class="docutils literal notranslate"><span class="pre">th:remove</span></code> to answer this question. Which of the following does
 NOT remove the wrapper tag but does eliminate all of its children.</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;all&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;body&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;tag&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;all-but-first&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;none&quot;</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;all&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;body&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;tag&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;all-but-first&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:remove</span> <span class="pre">=</span> <span class="pre">&quot;none&quot;</span></code></p></li>
 </ol>
 </div>
 </div>

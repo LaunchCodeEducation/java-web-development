@@ -118,28 +118,27 @@ right-click within your class file and select
 </pre></div>
 </td></tr></table></div>
 <ol class="arabic">
-<li><p class="first">In the IntelliJ editor, right-click in the editor (or on the <code class="docutils literal notranslate"><span class="pre">Course</span></code>
+<li><p>In the IntelliJ editor, right-click in the editor (or on the <code class="docutils literal notranslate"><span class="pre">Course</span></code>
 class name to be really deliberate), then select <em>Generate</em> from the menu.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/IJgeneratemenu.png"><img alt="Pop up menu for IntelliJ's generate option." src="../../_images/IJgeneratemenu.png" style="width: 328.8px; height: 351.20000000000005px;" /></a>
 </div>
 </li>
-<li><p class="first">Select the <em>equals() and hashCode()</em> option:</p>
+<li><p>Select the <em>equals() and hashCode()</em> option:</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/selectEqualsOption.png"><img alt="Select ``equals`` option." src="../../_images/selectEqualsOption.png" style="width: 248.0px; height: 187.20000000000002px;" /></a>
 </div>
 </li>
-<li><p class="first">Select the default options until you are asked to choose the fields you
+<li><p>Select the default options until you are asked to choose the fields you
 want <code class="docutils literal notranslate"><span class="pre">equals</span></code> to consider. Let’s assume that two <code class="docutils literal notranslate"><span class="pre">Course</span></code> objects
 will be equal if they have the same <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">instructor</span></code> values.</p>
 <div class="figure align-default">
 <img alt="Select fields to compare." src="../../_images/chooseFields.png" />
 </div>
 </li>
-<li><p class="first">Repeat the selections in the next two prompts for the <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> and
-<code class="docutils literal notranslate"><span class="pre">null</span></code> fields.</p>
-</li>
-<li><p class="first">Click <em>Finish</em>. IntelliJ generates the <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> methods:</p>
+<li><p>Repeat the selections in the next two prompts for the <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> and
+<code class="docutils literal notranslate"><span class="pre">null</span></code> fields.</p></li>
+<li><p>Click <em>Finish</em>. IntelliJ generates the <code class="docutils literal notranslate"><span class="pre">equals</span></code> and <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> methods:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -202,17 +201,18 @@ will be equal if they have the same <code class="docutils literal notranslate"><
 <p>Looking at the new <code class="docutils literal notranslate"><span class="pre">equals</span></code> method shows that it includes all of the
 <a class="reference internal" href="special-methods.html#components-of-equals"><span class="std std-ref">best-practice components</span></a>:</p>
 <ol class="arabic simple">
-<li>Line 17 performs the reference check on the object <code class="docutils literal notranslate"><span class="pre">o</span></code>.</li>
-<li>Line 18 performs the <code class="docutils literal notranslate"><span class="pre">null</span></code> check and class check on <code class="docutils literal notranslate"><span class="pre">o</span></code>.</li>
-<li>Line 19 casts <code class="docutils literal notranslate"><span class="pre">o</span></code> as a <code class="docutils literal notranslate"><span class="pre">Course</span></code> object.</li>
-<li>Line 20 compares the <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">instructor</span></code> fields of the two objects.</li>
+<li><p>Line 17 performs the reference check on the object <code class="docutils literal notranslate"><span class="pre">o</span></code>.</p></li>
+<li><p>Line 18 performs the <code class="docutils literal notranslate"><span class="pre">null</span></code> check and class check on <code class="docutils literal notranslate"><span class="pre">o</span></code>.</p></li>
+<li><p>Line 19 casts <code class="docutils literal notranslate"><span class="pre">o</span></code> as a <code class="docutils literal notranslate"><span class="pre">Course</span></code> object.</p></li>
+<li><p>Line 20 compares the <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">instructor</span></code> fields of the two objects.</p></li>
 </ol>
 <div class="section" id="try-it">
 <h2><span class="section-number">5.4.1. </span>Try It!<a class="headerlink" href="#try-it" title="Permalink to this headline">¶</a></h2>
 <p>Use the <em>Generate</em> option to add getters, setters, and a <code class="docutils literal notranslate"><span class="pre">toString</span></code> method
 to the <code class="docutils literal notranslate"><span class="pre">Course</span></code> class.</p>
 <blockquote>
-<div>COOL!!!!!</div></blockquote>
+<div><p>COOL!!!!!</p>
+</div></blockquote>
 </div>
 </div>
 

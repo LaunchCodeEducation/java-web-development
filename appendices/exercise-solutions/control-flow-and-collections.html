@@ -89,7 +89,7 @@
 <div class="section" id="array-practice">
 <h2>Array Practice<a class="headerlink" href="#array-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic" id="control-flow-and-collections-exercise-solutions1a">
-<li><p class="first">Create and initialize an array with the following values in a single line:
+<li><p>Create and initialize an array with the following values in a single line:
 <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">8</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[]</span> <span class="n">integerArray</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
 </pre></div>
@@ -98,7 +98,7 @@
 </li>
 </ol>
 <ol class="arabic" id="control-flow-and-collections-exercise-solutions1b" start="3">
-<li><p class="first">For this exercise, use the string <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">would</span> <span class="pre">not,</span> <span class="pre">could</span> <span class="pre">not,</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">box.</span> <span class="pre">I</span>
+<li><p>For this exercise, use the string <code class="docutils literal notranslate"><span class="pre">I</span> <span class="pre">would</span> <span class="pre">not,</span> <span class="pre">could</span> <span class="pre">not,</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">box.</span> <span class="pre">I</span>
 <span class="pre">would</span> <span class="pre">not,</span> <span class="pre">could</span> <span class="pre">not</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">fox.</span> <span class="pre">I</span> <span class="pre">will</span> <span class="pre">not</span> <span class="pre">eat</span> <span class="pre">them</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">house.</span> <span class="pre">I</span> <span class="pre">will</span> <span class="pre">not</span>
 <span class="pre">eat</span> <span class="pre">them</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">mouse.</span></code> Use the <code class="docutils literal notranslate"><span class="pre">split</span></code> method to divide the string at
 each space and store the individual words in an array. If you need to review
@@ -113,7 +113,7 @@ table.</p>
 </li>
 </ol>
 <ol class="arabic" id="control-flow-and-collections-exercise-solutions1c" start="5">
-<li><p class="first">Repeat steps 3 and 4, but change the delimiter to split the string into
+<li><p>Repeat steps 3 and 4, but change the delimiter to split the string into
 separate sentences.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">sentences</span> <span class="o">=</span> <span class="n">phrase</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\\.&quot;</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">sentences</span><span class="p">));</span>
@@ -126,7 +126,7 @@ separate sentences.</p>
 <div class="section" id="arraylist-practice">
 <h2>ArrayList Practice<a class="headerlink" href="#arraylist-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic" id="control-flow-and-collections-exercise-solutions2a">
-<li><p class="first">Write a static method to find the sum of all the even numbers in an
+<li><p>Write a static method to find the sum of all the even numbers in an
 ArrayList. Within <code class="docutils literal notranslate"><span class="pre">main</span></code>, create a list with at least 10 integers and call
 your method on the list.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -152,7 +152,7 @@ your method on the list.</p>
 </li>
 </ol>
 <ol class="arabic" id="control-flow-and-collections-exercise-solutions2b" start="3">
-<li><p class="first">Modify your code to prompt the user to enter the word length for the search.</p>
+<li><p>Modify your code to prompt the user to enter the word length for the search.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Enter a word length: &quot;</span><span class="p">);</span>
 <span class="kt">int</span> <span class="n">numChars</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
 </pre></div>
@@ -165,10 +165,10 @@ your method on the list.</p>
 <h2>HashMap Practice<a class="headerlink" href="#hashmap-practice" title="Permalink to this headline">¶</a></h2>
 <p id="control-flow-and-collections-exercise-solutions3">Make a program similar to <code class="docutils literal notranslate"><span class="pre">GradebookHashMap</span></code> that does the following:</p>
 <ol class="arabic simple">
-<li>It takes in student names and ID numbers (as integers) instead of names and
-grades.</li>
-<li>The keys should be the IDs and the values should be the names.</li>
-<li>Modify the roster printing code accordingly.</li>
+<li><p>It takes in student names and ID numbers (as integers) instead of names and
+grades.</p></li>
+<li><p>The keys should be the IDs and the values should be the names.</p></li>
+<li><p>Modify the roster printing code accordingly.</p></li>
 </ol>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

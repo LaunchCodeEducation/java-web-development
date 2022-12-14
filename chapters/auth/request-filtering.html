@@ -98,10 +98,10 @@ actions before any controllers are called.</p>
 <h2><span class="section-number">19.5.1. </span>Request Filters in Spring<a class="headerlink" href="#request-filters-in-spring" title="Permalink to this headline">¶</a></h2>
 <p>A request filter in Spring can be built by extending the built-in class <code class="docutils literal notranslate"><span class="pre">HandlerInterceptorAdapter</span></code> and overriding one of its various methods. This class implements an interface called <code class="docutils literal notranslate"><span class="pre">HandlerInterceptor</span></code>, which <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html" target="_blank">specifies a few methods<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> that are called during the request-handling process:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">preHandle</span></code> - called <em>before</em> a request is handled by a controller</li>
-<li><code class="docutils literal notranslate"><span class="pre">postHandle</span></code> - called <em>after</em> a request is handled by a controller, but
-<em>before</em> the view is rendered</li>
-<li><code class="docutils literal notranslate"><span class="pre">afterCompletion</span></code> - called <em>after</em> the view is rendered</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">preHandle</span></code> - called <em>before</em> a request is handled by a controller</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">postHandle</span></code> - called <em>after</em> a request is handled by a controller, but
+<em>before</em> the view is rendered</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">afterCompletion</span></code> - called <em>after</em> the view is rendered</p></li>
 </ul>
 <p>By extending <code class="docutils literal notranslate"><span class="pre">HandlerInterceptorAdapter</span></code> and overriding one or more of these
 methods, we can write code that is executed at a specific point of <em>every</em>
@@ -138,8 +138,8 @@ field. We will also need to use the
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">For autowiring to work, a class must be Spring-managed. There are many ways
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>For autowiring to work, a class must be Spring-managed. There are many ways
 a given class may registered as a Spring-managed class, but any class with
 <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> will be automatically registered. Thus, any controller class
 may be autowired.</p>
@@ -184,8 +184,8 @@ may be autowired.</p>
 </td></tr></table></div>
 <p>The signature of our method must match the <a class="reference external" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/HandlerInterceptor.html#preHandle-javax.servlet.http.HttpServletRequest-javax.servlet.http.HttpServletResponse-java.lang.Object-" target="_blank">definition of preHandle<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> and <code class="docutils literal notranslate"><span class="pre">HandlerInterceptor</span></code> <em>exactly</em>, even if we don’t need all of the parameters. We will only use the <code class="docutils literal notranslate"><span class="pre">request</span></code> argument, but we still need to include the <code class="docutils literal notranslate"><span class="pre">response</span></code> and <code class="docutils literal notranslate"><span class="pre">handler</span></code> arguments.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The sharp-eyed reader will notice that our <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> and the overridden
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The sharp-eyed reader will notice that our <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> and the overridden
 method in <code class="docutils literal notranslate"><span class="pre">HandlerInterceptor</span></code> throw different exception types. This is
 the one way in which the method signatures are allowed to differ, so long as
 the exception type of our method is a subclass of the overridden method.
@@ -198,10 +198,10 @@ being called. If we return <code class="docutils literal notranslate"><span clas
 controllers will be called.</p>
 <p>Let’s break down this method.</p>
 <ul class="simple">
-<li><strong>Line 32</strong>: Retrieves the user’s <code class="docutils literal notranslate"><span class="pre">session</span></code> object, which is contained in the <code class="docutils literal notranslate"><span class="pre">request</span></code>.</li>
-<li><strong>Line 33</strong>: Retrieves the <code class="docutils literal notranslate"><span class="pre">User</span></code> object corresponding to the given user. Recall that this will be <code class="docutils literal notranslate"><span class="pre">null</span></code> if the user is not logged in.</li>
-<li><strong>Lines 36-38</strong>: The <code class="docutils literal notranslate"><span class="pre">user</span></code> object is non-null, so the user is logged in. Allow the request to be handled as normal.</li>
-<li><strong>Lines 41-42</strong>: The <code class="docutils literal notranslate"><span class="pre">user</span></code> object is <code class="docutils literal notranslate"><span class="pre">null</span></code>, so we redirect the user to the login page.</li>
+<li><p><strong>Line 32</strong>: Retrieves the user’s <code class="docutils literal notranslate"><span class="pre">session</span></code> object, which is contained in the <code class="docutils literal notranslate"><span class="pre">request</span></code>.</p></li>
+<li><p><strong>Line 33</strong>: Retrieves the <code class="docutils literal notranslate"><span class="pre">User</span></code> object corresponding to the given user. Recall that this will be <code class="docutils literal notranslate"><span class="pre">null</span></code> if the user is not logged in.</p></li>
+<li><p><strong>Lines 36-38</strong>: The <code class="docutils literal notranslate"><span class="pre">user</span></code> object is non-null, so the user is logged in. Allow the request to be handled as normal.</p></li>
+<li><p><strong>Lines 41-42</strong>: The <code class="docutils literal notranslate"><span class="pre">user</span></code> object is <code class="docutils literal notranslate"><span class="pre">null</span></code>, so we redirect the user to the login page.</p></li>
 </ul>
 <p>This method has the effect of preventing access to <em>every</em> page on the app if a user is not logged in. This creates one not-so-minor problem: How will a user access the login page if they are not logged in?</p>
 </div>
@@ -325,28 +325,28 @@ controllers will be called.</p>
 <p>The first method—<code class="docutils literal notranslate"><span class="pre">authenticationFilter</span></code>, which is annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Bean</span></code>—makes our filter available as a Spring-managed class.</p>
 <p>Now you can start your application and test. You should be required to log in to view anything other than login and registration pages.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The code for this section is available in the
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The code for this section is available in the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/auth-filter" target="_blank">auth-filter branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repository.</p>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">19.5.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>True/False: Request filtering takes place before any controller is called.</p>
-<ol class="last arabic simple">
-<li>True</li>
-<li>False</li>
+<ol class="arabic simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>True/False: When our code checks a path against entries in the whitelist,
 it must match exactly in order for the path to be accessed without logging in.</p>
-<ol class="last arabic simple">
-<li>True</li>
-<li>False</li>
+<ol class="arabic simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
 </ol>
 </div>
 </div>

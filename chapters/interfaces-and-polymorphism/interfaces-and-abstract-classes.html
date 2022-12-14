@@ -94,26 +94,26 @@ methods that only have signatures (that is, they don’t have
 implementation code).</p>
 <p>The main differences between interfaces and abstract classes are:</p>
 <ol class="arabic simple">
-<li>You <em>implement</em> an interface, while you <em>extend</em> an abstract class. The net effect of this is that a class may implement interfaces while also extending a class. Note that while you can implement <em>more than one</em> interface, you can only extend <em>one</em> class.</li>
-<li>Abstract classes may contain non-constant fields, while interfaces can only contain constant fields.</li>
-<li>Interfaces may only contain implementation code inside of default or static methods. Therefore, interfaces can’t contain methods that need to be shared by class instances in the same way that abstract classes do. In particular, any method that needs to use an instance property may not be part of an interface, since interfaces don’t have instance properties. Unlike interfaces, abstract classes may have methods which are not static or default and which do have instance properties.</li>
+<li><p>You <em>implement</em> an interface, while you <em>extend</em> an abstract class. The net effect of this is that a class may implement interfaces while also extending a class. Note that while you can implement <em>more than one</em> interface, you can only extend <em>one</em> class.</p></li>
+<li><p>Abstract classes may contain non-constant fields, while interfaces can only contain constant fields.</p></li>
+<li><p>Interfaces may only contain implementation code inside of default or static methods. Therefore, interfaces can’t contain methods that need to be shared by class instances in the same way that abstract classes do. In particular, any method that needs to use an instance property may not be part of an interface, since interfaces don’t have instance properties. Unlike interfaces, abstract classes may have methods which are not static or default and which do have instance properties.</p></li>
 </ol>
 <p><em>We should use abstract classes to collect and specify behavior by related classes, while we should use an interface to specify related behaviors that may be common across unrelated classes.</em></p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p class="last">Let’s go back to our <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface. If we want to add a <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class to our application, we might implement the <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface for our <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class.
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>Let’s go back to our <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface. If we want to add a <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class to our application, we might implement the <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface for our <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class.
 This makes sense as dogs are creatures that we feed. However, as dogs and cats are so different, it is unlikely that they would share many behaviors through the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class.</p>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">8.3.1. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Check all statements that are TRUE about the differences between interfaces and abstract classes.</p>
-<ol class="last loweralpha simple">
-<li>You extend an abstract class, but implement an interface.</li>
-<li>You can implement many interfaces and many classes.</li>
-<li>Interfaces cannot contain non-constant fields, but abstract classes can.</li>
-<li>Methods that use instance properties can be in both interfaces and abstract classes.</li>
+<ol class="loweralpha simple">
+<li><p>You extend an abstract class, but implement an interface.</p></li>
+<li><p>You can implement many interfaces and many classes.</p></li>
+<li><p>Interfaces cannot contain non-constant fields, but abstract classes can.</p></li>
+<li><p>Methods that use instance properties can be in both interfaces and abstract classes.</p></li>
 </ol>
 </div>
 </div>

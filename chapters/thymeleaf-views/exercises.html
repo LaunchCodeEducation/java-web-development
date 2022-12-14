@@ -93,8 +93,8 @@ coding events around town.</p>
 <h2><span class="section-number">13.10.1. </span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>From your own <code class="docutils literal notranslate"><span class="pre">add-bootstrap</span></code> branch, create and checkout a new branch called <code class="docutils literal notranslate"><span class="pre">my-views-exercises-solution</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">If you need to make sure your code matches ours to start, look at the
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>If you need to make sure your code matches ours to start, look at the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-bootstrap" target="_blank">add-bootstrap branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  on <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code>.</p>
 </div>
 <p>Now, let’s add descriptions to our events!</p>
@@ -102,30 +102,27 @@ coding events around town.</p>
 <div class="section" id="expanding-our-events-schedule">
 <h2><span class="section-number">13.10.2. </span>Expanding our Events Schedule<a class="headerlink" href="#expanding-our-events-schedule" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Comment out your previous code in the <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code> method.</p>
+<li><p>Comment out your previous code in the <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code> method.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/thymeleaf-views.html#thymeleaf-views-exercise-solutions1"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">In the videos, we learned how to use templates to display the elements in a
+<li><p>In the videos, we learned how to use templates to display the elements in a
 static list called <code class="docutils literal notranslate"><span class="pre">events</span></code>. Let’s make our <code class="docutils literal notranslate"><span class="pre">events</span></code> list a HashMap!
-This enables us to add descriptions to our events.</p>
-</li>
-<li><p class="first">Fill your <code class="docutils literal notranslate"><span class="pre">events</span></code> HashMap with the names and descriptions of 3 coding
+This enables us to add descriptions to our events.</p></li>
+<li><p>Fill your <code class="docutils literal notranslate"><span class="pre">events</span></code> HashMap with the names and descriptions of 3 coding
 events around town.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/thymeleaf-views.html#thymeleaf-views-exercise-solutions3"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Using <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and <code class="docutils literal notranslate"><span class="pre">th:each</span></code>, put together the events and their
-descriptions in a table as opposed to an unordered list.</p>
-</li>
-<li><p class="first">Use fragments to store the address of the new tech hub where all of the
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and <code class="docutils literal notranslate"><span class="pre">th:each</span></code>, put together the events and their
+descriptions in a table as opposed to an unordered list.</p></li>
+<li><p>Use fragments to store the address of the new tech hub where all of the
 programmers are hanging out. Use <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> in your main template to
 bring in the address as a third column in your table.
 You may need to create a new <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/thymeleaf-views.html#thymeleaf-views-exercise-solutions5"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Add some CSS to style your table to make it easier to read and center it on
+<li><p>Add some CSS to style your table to make it easier to read and center it on
 the page. You may need to create a new <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> as well. Make sure to
-connect <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to the appropriate template with <code class="docutils literal notranslate"><span class="pre">th:href</span></code>.</p>
-</li>
+connect <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to the appropriate template with <code class="docutils literal notranslate"><span class="pre">th:href</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="bonus-mission">

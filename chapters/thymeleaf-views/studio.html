@@ -93,10 +93,10 @@ Instead of heading out to our favorite spa, let’s make an application for the
 owners!</p>
 <p>Our application needs to do the following:</p>
 <ol class="arabic simple">
-<li>Display the user’s name and skin type under their customer profile.</li>
-<li>Display the appropriate facial treatments for their skin type.</li>
-<li>Display the description of the spa’s manicures or pedicures depending on the
-user’s interest.</li>
+<li><p>Display the user’s name and skin type under their customer profile.</p></li>
+<li><p>Display the appropriate facial treatments for their skin type.</p></li>
+<li><p>Display the description of the spa’s manicures or pedicures depending on the
+user’s interest.</p></li>
 </ol>
 <p>As always, read through the whole page before starting to code.</p>
 <div class="section" id="setup">
@@ -113,21 +113,21 @@ user’s interest.</li>
 <p>In <code class="docutils literal notranslate"><span class="pre">controllers</span></code>, we have one controller called <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code>. Inside
 <code class="docutils literal notranslate"><span class="pre">SpaDayController</span></code>, we have three methods.</p>
 <ol class="arabic simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">checkSkinType()</span></code> method. The owners gave us this method to help us
-figure out which facial treatments are appropriate for which skin type.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">customerForm()</span></code> method, which looks very similar to what we did in
-the last lesson.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">spaMenu()</span></code> method, which we will use to bring in our Thymeleaf
-template, <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">checkSkinType()</span></code> method. The owners gave us this method to help us
+figure out which facial treatments are appropriate for which skin type.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">customerForm()</span></code> method, which looks very similar to what we did in
+the last lesson.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">spaMenu()</span></code> method, which we will use to bring in our Thymeleaf
+template, <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.</p></li>
 </ol>
 <p>In <code class="docutils literal notranslate"><span class="pre">templates</span></code>, we have a Thymeleaf template called <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>.
 Inside <code class="docutils literal notranslate"><span class="pre">menu.html</span></code>, there are two main divs in the body.
 Let’s focus on the div with the id, <code class="docutils literal notranslate"><span class="pre">clientProfile</span></code>.</p>
 <ol class="arabic simple">
-<li>Add an <code class="docutils literal notranslate"><span class="pre">h2</span></code> that says “My profile”.</li>
-<li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag and use <code class="docutils literal notranslate"><span class="pre">th:text</span></code> to bring in the value of <code class="docutils literal notranslate"><span class="pre">name</span></code>.</li>
-<li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag and use <code class="docutils literal notranslate"><span class="pre">th:text</span></code> to bring in the value of <code class="docutils literal notranslate"><span class="pre">skintype</span></code>.</li>
-<li>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag and use <code class="docutils literal notranslate"><span class="pre">th:text</span></code> to bring in the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code>.</li>
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">h2</span></code> that says “My profile”.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag and use <code class="docutils literal notranslate"><span class="pre">th:text</span></code> to bring in the value of <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag and use <code class="docutils literal notranslate"><span class="pre">th:text</span></code> to bring in the value of <code class="docutils literal notranslate"><span class="pre">skintype</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">p</span></code> tag and use <code class="docutils literal notranslate"><span class="pre">th:text</span></code> to bring in the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code>.</p></li>
 </ol>
 <p>Run the application and head to <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> to see the results! When we
 fill out the form, we should see a new page with the client profile at the top!</p>
@@ -161,14 +161,14 @@ it is either a manicure or pedicure. This new <code class="docutils literal notr
 <p>Use <code class="docutils literal notranslate"><span class="pre">th:if</span></code> to determine if the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is a <code class="docutils literal notranslate"><span class="pre">&quot;manicure&quot;</span></code> or
 <code class="docutils literal notranslate"><span class="pre">&quot;pedicure&quot;</span></code>.</p>
 <ol class="arabic simple">
-<li>If the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;manicure&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">div</span></code> element
+<li><p>If the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;manicure&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">div</span></code> element
 containing the <code class="docutils literal notranslate"><span class="pre">h3</span></code> that says <code class="docutils literal notranslate"><span class="pre">&quot;Manicure&quot;</span></code> needs to be on the page and
 the <code class="docutils literal notranslate"><span class="pre">p</span></code> tag needs to be <em>replaced</em> with the fragment of the manicure
-description from <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</li>
-<li>If the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;pedicure&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">div</span></code> element
+description from <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</p></li>
+<li><p>If the value of <code class="docutils literal notranslate"><span class="pre">manipedi</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;pedicure&quot;</span></code>, the <code class="docutils literal notranslate"><span class="pre">div</span></code> element
 containing the <code class="docutils literal notranslate"><span class="pre">h3</span></code> that says <code class="docutils literal notranslate"><span class="pre">&quot;Pedicure&quot;</span></code> needs to be on the page and
 the <code class="docutils literal notranslate"><span class="pre">p</span></code> tag needs to be <em>replaced</em> with the fragment of the pedicure
-description from <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</li>
+description from <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="end-result">
@@ -185,14 +185,14 @@ click “Submit”, and see your profile page.</p>
 <div class="section" id="bonus-mission">
 <h2><span class="section-number">13.11.6. </span>Bonus Mission<a class="headerlink" href="#bonus-mission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Modify <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to get some CSS practice! Try add a footer with square
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">styles.css</span></code> to get some CSS practice! Try add a footer with square
 shaped <code class="docutils literal notranslate"><span class="pre">div</span></code> elements. Each square should be a different color for
-different available nail polishes.</li>
-<li>Modify the form to allow the user to select either a manicure or pedicure or
+different available nail polishes.</p></li>
+<li><p>Modify the form to allow the user to select either a manicure or pedicure or
 <em>both</em>. If the user selects both, display both the manicure and pedicure
-descriptions on the <code class="docutils literal notranslate"><span class="pre">Spa</span> <span class="pre">Menu</span></code> page.</li>
-<li>Work with routes and paths to display the spa menu page on a separate route
-from the form.</li>
+descriptions on the <code class="docutils literal notranslate"><span class="pre">Spa</span> <span class="pre">Menu</span></code> page.</p></li>
+<li><p>Work with routes and paths to display the spa menu page on a separate route
+from the form.</p></li>
 </ol>
 </div>
 </div>

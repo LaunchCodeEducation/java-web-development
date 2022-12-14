@@ -99,11 +99,11 @@ week an event takes place. You might start by creating a new field:</p>
 <p>As defined here, a user could submit any of the following values representing
 Wednesday:</p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">&quot;Wednesday&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;wednesday&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;Wed&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;WED&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;W&quot;</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Wednesday&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;wednesday&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Wed&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;WED&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;W&quot;</span></code></p></li>
 </ol>
 <p>Accepting data like this leads to many complications. For example, searching
 for all events taking place on Wednesday would need to account for all of these
@@ -121,8 +121,8 @@ are one way to model fields like this.</p>
 <h2><span class="section-number">16.1.1. </span>Creating an Enum Type<a class="headerlink" href="#creating-an-enum-type" title="Permalink to this headline">¶</a></h2>
 <p>Let’s see how we can create an enum type, or enum class.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Recall that a class defines a new <em>data type</em>. Thus, the term “data type” can be used in place of “class.” We’ll typically call enum classes “enum types” since this is what most Java developers do.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Recall that a class defines a new <em>data type</em>. Thus, the term “data type” can be used in place of “class.” We’ll typically call enum classes “enum types” since this is what most Java developers do.</p>
 </div>
 <p>The simplest enum type that we can define to represent days of the week looks
 like this:</p>
@@ -383,9 +383,9 @@ possibility of bad, or dirty, values.</p>
 <p>The world is filled with examples ripe for representation by enums. Here are a
 few from both the real world and the world of programming.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Months of the year.</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -420,9 +420,9 @@ few from both the real world and the world of programming.</p>
 </td></tr></table></div>
 </div>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Given a model type like our <code class="docutils literal notranslate"><span class="pre">Event</span></code> class, enums can represent categories that model objects can fall into.</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -441,7 +441,7 @@ few from both the real world and the world of programming.</p>
 </td></tr></table></div>
 </div>
 <div class="admonition-example admonition" id="index-2">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>A common use of enums in programming is to set the log level of an
 application. The <strong>log level</strong> represents the types of log messages that
 should be displayed as the application runs.</p>
@@ -463,11 +463,11 @@ should be displayed as the application runs.</p>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">An application can change the way it logs messages by changing the log level.</p>
+<p>An application can change the way it logs messages by changing the log level.</p>
 </div>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<p class="last">An enum that you have <a class="reference internal" href="../spring-controllers-and-routes/controllers-simple.html#request-method-example"><span class="std std-ref">already encountered</span></a> is <code class="docutils literal notranslate"><span class="pre">RequestMapping</span></code>, which we have used to specify which HTTP methods a controller method can respond to. This enum has values <code class="docutils literal notranslate"><span class="pre">RequestMapping.GET</span></code>, <code class="docutils literal notranslate"><span class="pre">RequestMapping.POST</span></code>, <code class="docutils literal notranslate"><span class="pre">RequestMapping.DELETE</span></code>, and so on.</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p>An enum that you have <a class="reference internal" href="../spring-controllers-and-routes/controllers-simple.html#request-method-example"><span class="std std-ref">already encountered</span></a> is <code class="docutils literal notranslate"><span class="pre">RequestMapping</span></code>, which we have used to specify which HTTP methods a controller method can respond to. This enum has values <code class="docutils literal notranslate"><span class="pre">RequestMapping.GET</span></code>, <code class="docutils literal notranslate"><span class="pre">RequestMapping.POST</span></code>, <code class="docutils literal notranslate"><span class="pre">RequestMapping.DELETE</span></code>, and so on.</p>
 </div>
 </div>
 <div class="section" id="adding-properties-to-enums">
@@ -571,28 +571,28 @@ this:</p>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Notice that we now have to add a semi-colon after our list of enum values.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Notice that we now have to add a semi-colon after our list of enum values.</p>
 </div>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">16.1.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>We mentioned above that all classes define a data type. Is the inverse of this statement true? In other words, do all data types correspond to a class? (<em>Hint:</em> Try to think of a data type that is NOT a class.)</p>
-<ol class="last arabic simple">
-<li>Yes, everything in Java is a class.</li>
-<li>No, there are data types that do not correspond to a class. (Be sure to provide an example.)</li>
+<ol class="arabic simple">
+<li><p>Yes, everything in Java is a class.</p></li>
+<li><p>No, there are data types that do not correspond to a class. (Be sure to provide an example.)</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which of the following would NOT be a good choice for an enum type?</p>
-<ol class="last arabic simple">
-<li>States in the US</li>
-<li>Shoe sizes (using the American scale)</li>
-<li>Price of a gallon of milk</li>
-<li>Sections in a bookstore</li>
+<ol class="arabic simple">
+<li><p>States in the US</p></li>
+<li><p>Shoe sizes (using the American scale)</p></li>
+<li><p>Price of a gallon of milk</p></li>
+<li><p>Sections in a bookstore</p></li>
 </ol>
 </div>
 </div>

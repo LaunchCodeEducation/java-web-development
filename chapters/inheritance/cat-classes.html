@@ -202,8 +202,8 @@ constructor.</p>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">This constructor is a bad one, and is included merely to introduce
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>This constructor is a bad one, and is included merely to introduce
 syntax and usage. We would not want to have a constructor for
 <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> that didn’t initialize an essential field such as <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
 </div>
@@ -257,12 +257,12 @@ of the base method and the overriding method match up. If they don’t, it will
 flag an error. This can help prevent you from inadvertently creating a method
 with a different signature.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>When overriding a method from a base class, the method signatures <em>must
 be exactly the same</em>. Recall that the signature of a method is the
 method name and access level, along with it’s return type and the type
 and number of input parameters.</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">noise</span><span class="p">();</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">noise</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -307,16 +307,16 @@ implementations of these methods as well.</p>
 <div class="section" id="references">
 <h2><span class="section-number">7.3.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html" target="_blank">The &#64;Override annotation
-(docs.oracle.com)]<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" target="_blank">The Object Class
-(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html" target="_blank">The &#64;Override annotation
+(docs.oracle.com)]<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html" target="_blank">The Object Class
+(docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
 </ul>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">7.3.6. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>For this question, refer to the code block below.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span> <span class="p">{</span>
    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">friendly</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -346,18 +346,18 @@ implementations of these methods as well.</p>
 <code class="docutils literal notranslate"><span class="pre">Message</span></code> are both defined within a package called <code class="docutils literal notranslate"><span class="pre">Speech</span></code>.
 Select all of the fields and methods that are inherited by
 <code class="docutils literal notranslate"><span class="pre">Greeting</span></code>.</p>
-<ol class="last loweralpha simple">
-<li><code class="docutils literal notranslate"><span class="pre">friendly</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">language</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">text</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">Message</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">getFriendly</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">getLanguage</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">getText</span></code></li>
+<ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">friendly</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">language</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Message</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getFriendly</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getLanguage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getText</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>For this question, refer to the code block below.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Message</span> <span class="p">{</span>
    <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">friendly</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -385,27 +385,27 @@ Select all of the fields and methods that are inherited by
 </div>
 <p>A class called <code class="docutils literal notranslate"><span class="pre">Greeting</span></code> extends <code class="docutils literal notranslate"><span class="pre">Message</span></code>. What would a constructor for
 <code class="docutils literal notranslate"><span class="pre">Greeting</span></code> need to be to call the <code class="docutils literal notranslate"><span class="pre">Message</span></code> constructor?</p>
-<ol class="last loweralpha">
-<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="p">,</span> <span class="n">String</span> <span class="n">aText</span><span class="p">,</span> <span class="kt">boolean</span> <span class="n">isFriendly</span><span class="p">)</span> <span class="p">{</span>
+<ol class="loweralpha">
+<li><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="p">,</span> <span class="n">String</span> <span class="n">aText</span><span class="p">,</span> <span class="kt">boolean</span> <span class="n">isFriendly</span><span class="p">)</span> <span class="p">{</span>
    <span class="kd">super</span><span class="p">(</span><span class="n">aLanguage</span><span class="p">,</span> <span class="n">aText</span><span class="p">);</span>
    <span class="n">friendly</span> <span class="o">=</span> <span class="n">isFriendly</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </li>
-<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="p">,</span> <span class="n">String</span> <span class="n">aText</span><span class="p">)</span> <span class="p">{</span>
+<li><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="p">,</span> <span class="n">String</span> <span class="n">aText</span><span class="p">)</span> <span class="p">{</span>
    <span class="kd">super</span><span class="p">(</span><span class="n">aLanguage</span><span class="p">,</span> <span class="n">aText</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </li>
-<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">()</span> <span class="p">{</span>
+<li><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">()</span> <span class="p">{</span>
    <span class="kd">super</span><span class="p">(</span><span class="n">aLanguage</span><span class="p">,</span> <span class="n">aText</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </li>
-<li><div class="first highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="p">,</span> <span class="n">String</span> <span class="n">aText</span><span class="p">)</span> <span class="p">{</span>
+<li><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="nf">Greeting</span><span class="p">(</span><span class="n">String</span> <span class="n">aLanguage</span><span class="p">,</span> <span class="n">String</span> <span class="n">aText</span><span class="p">)</span> <span class="p">{</span>
    <span class="n">language</span> <span class="o">=</span> <span class="n">aLanguage</span><span class="p">;</span>
    <span class="n">text</span> <span class="o">=</span> <span class="n">aText</span><span class="p">;</span>
 <span class="p">}</span>

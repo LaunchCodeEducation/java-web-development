@@ -91,8 +91,8 @@
 <h2><span class="section-number">17.5.1. </span>Getting Ready<a class="headerlink" href="#getting-ready" title="Permalink to this headline">¶</a></h2>
 <p>In your <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> repository, create a new branch from your exercises work. Call this branch <code class="docutils literal notranslate"><span class="pre">abstract-entity-studio</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">On <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code>, we have provided a branch called <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category" target="_blank">add-persistent-category<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>On <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code>, we have provided a branch called <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category" target="_blank">add-persistent-category<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 to make sure you have good starter code for the studio, even if you didn’t complete the exercises.</p>
 </div>
 </div>
@@ -100,13 +100,13 @@ to make sure you have good starter code for the studio, even if you didn’t com
 <h2><span class="section-number">17.5.2. </span>Your Tasks<a class="headerlink" href="#your-tasks" title="Permalink to this headline">¶</a></h2>
 <p>Let’s look at both the <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> classes. There are four class members that are (essentially) the same in both classes:</p>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">id</span></code> field</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">getId</span></code> method</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">equals</span></code> method</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> method</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">id</span></code> field</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">getId</span></code> method</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">equals</span></code> method</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">hashCode</span></code> method</p></li>
 </ul>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>If you have a super-sharp eye, you’ll notice that the two <code class="docutils literal notranslate"><span class="pre">equals</span></code> methods aren’t <em>exactly</em> the same. For example, the next-to-last line of this method in <code class="docutils literal notranslate"><span class="pre">Event</span></code> looks like this:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Event</span> <span class="n">event</span> <span class="o">=</span> <span class="p">(</span><span class="n">Event</span><span class="p">)</span> <span class="n">o</span><span class="p">;</span>
 </pre></div>
@@ -115,17 +115,17 @@ to make sure you have good starter code for the studio, even if you didn’t com
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">EventCategory</span> <span class="n">that</span> <span class="o">=</span> <span class="p">(</span><span class="n">EventCategory</span><span class="p">)</span> <span class="n">o</span><span class="p">;</span>
 </pre></div>
 </div>
-<p class="last">This minor difference will not matter in the long run, as we’ll see later.</p>
+<p>This minor difference will not matter in the long run, as we’ll see later.</p>
 </div>
 <p>Your objective in this studio is to reduce this repetition by creating a class that contains the duplicated/shared code, which both <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> can inherit.</p>
 <div class="section" id="create-and-extend-abstractentity">
 <h3><span class="section-number">17.5.2.1. </span>Create and Extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code><a class="headerlink" href="#create-and-extend-abstractentity" title="Permalink to this headline">¶</a></h3>
 <p>In the <code class="docutils literal notranslate"><span class="pre">models</span></code> package, create a new class named <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Add the <code class="docutils literal notranslate"><span class="pre">abstract</span></code> keyword to the class declaration. We do this because, while we want to share code across our two models, we’ll never need to create an instance of <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. If you need a quick refresher, review our section on <a class="reference internal" href="../inheritance/abstract-inheritance.html#abstract-classes"><span class="std std-ref">Inheriting from Abstraction</span></a>.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>This class name seems a little odd at first, but it makes sense after a brief explanation.</p>
 <p>It is a commonly used convention in Java to prefix the name of an abstract class with <code class="docutils literal notranslate"><span class="pre">Abstract</span></code>, to make it obvious to other developers that they can’t create instances of the class.</p>
-<p class="last">Additionally, <em>every</em> entity class that we create will extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. (Recall that an entity is a class/object that can be stored in a database.)</p>
+<p>Additionally, <em>every</em> entity class that we create will extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. (Recall that an entity is a class/object that can be stored in a database.)</p>
 </div>
 <p>Finally, in the class declarations of both <code class="docutils literal notranslate"><span class="pre">Event</span></code> and <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>, extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>.</p>
 </div>
@@ -173,9 +173,9 @@ we’re at it, let’s give the variable <code class="docutils literal notransla
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">equals</span></code> method works by checking the value of the identifier/primary key field <code class="docutils literal notranslate"><span class="pre">id</span></code>. If two objects have the same <code class="docutils literal notranslate"><span class="pre">id</span></code>, then they should be considered equal. Otherwise, they are not equal.</p>
-<p class="last">It may not be obvious that you can’t have an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object and an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object with the same <code class="docutils literal notranslate"><span class="pre">id</span></code>. However, the way in which the database manages and assigns these values ensures that won’t happen.</p>
+<p>It may not be obvious that you can’t have an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object and an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object with the same <code class="docutils literal notranslate"><span class="pre">id</span></code>. However, the way in which the database manages and assigns these values ensures that won’t happen.</p>
 </div>
 <p>Now in your <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> model, delete the four class members that are inherited from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. You should have NO compiler errors in your application at this point.</p>
 </div>

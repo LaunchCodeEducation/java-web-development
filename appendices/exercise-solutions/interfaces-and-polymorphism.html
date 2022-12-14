@@ -91,13 +91,13 @@
 <div class="section" id="create-a-sorting-class">
 <h3>Create a Sorting Class<a class="headerlink" href="#create-a-sorting-class" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first">Create a new class called <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> and have it implement the
+<li><p>Create a new class called <code class="docutils literal notranslate"><span class="pre">FlavorComparator</span></code> and have it implement the
 <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FlavorComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Flavor</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Always returning <code class="docutils literal notranslate"><span class="pre">0</span></code> results in no sorting, so replace line 8 with:</p>
+<li><p>Always returning <code class="docutils literal notranslate"><span class="pre">0</span></code> results in no sorting, so replace line 8 with:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">o1</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">compareTo</span><span class="p">(</span><span class="n">o2</span><span class="p">.</span><span class="na">getName</span><span class="p">());</span>
 </pre></div>
 </div>
@@ -121,12 +121,10 @@ whether <code class="docutils literal notranslate"><span class="pre">Flavor</spa
 <p>Now let’s sort our <code class="docutils literal notranslate"><span class="pre">cones</span></code> list by cost, from least expensive to most
 expensive.</p>
 <ol class="arabic">
-<li><p class="first">Create the new class <code class="docutils literal notranslate"><span class="pre">ConeComparator</span></code>.</p>
-</li>
-<li><p class="first">Follow the example above to implement the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface and
-evaluate <code class="docutils literal notranslate"><span class="pre">Cone</span></code> objects by cost.</p>
-</li>
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, sort the <code class="docutils literal notranslate"><span class="pre">cones</span></code> list, then print the elements to the screen
+<li><p>Create the new class <code class="docutils literal notranslate"><span class="pre">ConeComparator</span></code>.</p></li>
+<li><p>Follow the example above to implement the <code class="docutils literal notranslate"><span class="pre">Comparator</span></code> interface and
+evaluate <code class="docutils literal notranslate"><span class="pre">Cone</span></code> objects by cost.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Main</span></code>, sort the <code class="docutils literal notranslate"><span class="pre">cones</span></code> list, then print the elements to the screen
 to verify the results.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Before:           After:
 

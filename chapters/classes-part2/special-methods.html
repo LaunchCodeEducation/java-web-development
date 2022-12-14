@@ -96,14 +96,14 @@ important examples of these methods.</p>
 Calling <code class="docutils literal notranslate"><span class="pre">toString</span></code> on a class that you’ve written will result in
 something like this:</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Student</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">(</span><span class="s">&quot;Violet&quot;</span><span class="p">);</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
 </pre></div>
 </td></tr></table></div>
 <p><strong>Console Output</strong></p>
-<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>org.launchcode.java.demos.classes2.Student@61bbe9ba
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>org.launchcode.java.demos.classes2.Student@61bbe9ba
 </pre></div>
 </div>
 </div>
@@ -114,7 +114,7 @@ better results.</p>
 <p>Here’s how we might do it for <code class="docutils literal notranslate"><span class="pre">Student</span></code> to produce a much more friendly
 message:</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -129,7 +129,7 @@ message:</p>
 </pre></div>
 </td></tr></table></div>
 <p><strong>Console Output</strong></p>
-<div class="last highlight-none notranslate"><div class="highlight"><pre><span></span>Violet (Credits: 0, GPA: 0.0)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Violet (Credits: 0, GPA: 0.0)
 </pre></div>
 </div>
 </div>
@@ -158,7 +158,7 @@ and <code class="docutils literal notranslate"><span class="pre">student2</span>
 when they refer to, or point at, the exact same object. Consider the example
 below, which creates two <code class="docutils literal notranslate"><span class="pre">Student</span></code> objects:</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -173,7 +173,7 @@ below, which creates two <code class="docutils literal notranslate"><span class=
 </pre></div>
 </td></tr></table></div>
 <p><strong>Console Output</strong></p>
-<div class="last highlight-bash notranslate"><div class="highlight"><pre><span></span>Maria, <span class="m">1234</span>: org.launchcode.java.demos.classes2.Student@3e3abc88
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Maria, <span class="m">1234</span>: org.launchcode.java.demos.classes2.Student@3e3abc88
 Maria, <span class="m">1234</span>: org.launchcode.java.demos.classes2.Student@6ce253f1
 <span class="nb">false</span>
 </pre></div>
@@ -218,14 +218,14 @@ we need to define our own <code class="docutils literal notranslate"><span class
 method (and by the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator), and how we would like to compare our
 classes, is the difference between <em>identity</em> and <em>equality</em>.</p>
 <ol class="arabic simple">
-<li>Two objects are <em>identical</em> if they both point to the same memory address.
+<li><p>Two objects are <em>identical</em> if they both point to the same memory address.
 In essence, they are the same object. If <code class="docutils literal notranslate"><span class="pre">object1</span></code> and <code class="docutils literal notranslate"><span class="pre">object2</span></code> are
 identical, then changing one property value in <code class="docutils literal notranslate"><span class="pre">object1</span></code> also changes
-that value for <code class="docutils literal notranslate"><span class="pre">object2</span></code>.</li>
-<li>Two objects are <em>equal</em> if the values they store are the same at the time of
+that value for <code class="docutils literal notranslate"><span class="pre">object2</span></code>.</p></li>
+<li><p>Two objects are <em>equal</em> if the values they store are the same at the time of
 comparison. <code class="docutils literal notranslate"><span class="pre">student1</span></code> and <code class="docutils literal notranslate"><span class="pre">student2</span></code> point to different memory
 addresses, but their values are all the same. Thus, we can consider them
-equal, even though they are not identical.</li>
+equal, even though they are not identical.</p></li>
 </ol>
 <p id="index-0">The default <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method and the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator test for <em>identity</em>,
 whereas we want to test for <em>equality</em> instead. We can do so by <strong>overriding</strong>
@@ -394,16 +394,16 @@ unnecessary.</p>
 <p>Almost every <code class="docutils literal notranslate"><span class="pre">equals</span></code> method you write will look similar to the last example
 above. It will contain the following segments in this order:</p>
 <ol class="arabic simple">
-<li><strong>Reference check:</strong> If the two objects are the same, return <code class="docutils literal notranslate"><span class="pre">true</span></code>
-right away.</li>
-<li><strong>Null check:</strong> If the argument is <code class="docutils literal notranslate"><span class="pre">null</span></code>, return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
-<li><strong>Class check:</strong> Compare the classes of the two objects to ensure a
-safe cast. Return <code class="docutils literal notranslate"><span class="pre">false</span></code> if the classes are different.</li>
-<li><strong>Cast:</strong> Convert the argument to the type of our class, so getters
-and other methods can be called.</li>
-<li><strong>Custom comparison:</strong> Use custom logic to determine whether or not
+<li><p><strong>Reference check:</strong> If the two objects are the same, return <code class="docutils literal notranslate"><span class="pre">true</span></code>
+right away.</p></li>
+<li><p><strong>Null check:</strong> If the argument is <code class="docutils literal notranslate"><span class="pre">null</span></code>, return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><strong>Class check:</strong> Compare the classes of the two objects to ensure a
+safe cast. Return <code class="docutils literal notranslate"><span class="pre">false</span></code> if the classes are different.</p></li>
+<li><p><strong>Cast:</strong> Convert the argument to the type of our class, so getters
+and other methods can be called.</p></li>
+<li><p><strong>Custom comparison:</strong> Use custom logic to determine whether or not
 the two objects should be considered equal. This will usually be a
-comparison of properties or fields.</li>
+comparison of properties or fields.</p></li>
 </ol>
 </div>
 <div class="section" id="characteristics-of-equals">
@@ -413,18 +413,18 @@ characteristics that every such method should have. Following the general
 outline above makes it easier to ensure that your <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method has these
 characteristics.</p>
 <ol class="arabic simple">
-<li><strong>Reflexivity:</strong> For any non-null reference value <code class="docutils literal notranslate"><span class="pre">x</span></code>,
-<code class="docutils literal notranslate"><span class="pre">x.equals(x)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
-<li><strong>Symmetry:</strong> For any non-null reference values <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>,
+<li><p><strong>Reflexivity:</strong> For any non-null reference value <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+<code class="docutils literal notranslate"><span class="pre">x.equals(x)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>Symmetry:</strong> For any non-null reference values <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>,
 <code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code> if and only if <code class="docutils literal notranslate"><span class="pre">y.equals(x)</span></code> also
-returns <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
-<li><strong>Transitivity:</strong> For any non-null reference values <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and
+returns <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>Transitivity:</strong> For any non-null reference values <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">z</span></code>, if <code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">y.equals(z)</span></code>
-returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, then <code class="docutils literal notranslate"><span class="pre">x.equals(z)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
-<li><strong>Consistency:</strong> As long as <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> do not change
-<code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code> should always return the same result.</li>
-<li><strong>Non-null:</strong> For any non-null reference value <code class="docutils literal notranslate"><span class="pre">x</span></code>,
-<code class="docutils literal notranslate"><span class="pre">x.equals(null)</span></code> should return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
+returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, then <code class="docutils literal notranslate"><span class="pre">x.equals(z)</span></code> should return <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><strong>Consistency:</strong> As long as <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> do not change
+<code class="docutils literal notranslate"><span class="pre">x.equals(y)</span></code> should always return the same result.</p></li>
+<li><p><strong>Non-null:</strong> For any non-null reference value <code class="docutils literal notranslate"><span class="pre">x</span></code>,
+<code class="docutils literal notranslate"><span class="pre">x.equals(null)</span></code> should return <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
 </ol>
 <p>If you think back to what your math classes had to say about equality, then
 these concepts make sense.</p>
@@ -433,8 +433,8 @@ make it easier to meet these characteristics. However, always check your
 method! Missing one or more characteristics can be disastrous for your Java
 applications.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Seasoned Java developers will tell you that every time you implement
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Seasoned Java developers will tell you that every time you implement
 your own version of <code class="docutils literal notranslate"><span class="pre">equals()</span></code> you should also implement your own
 version of <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code>. <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code> is another special method that
 every class has. Understanding <code class="docutils literal notranslate"><span class="pre">hashCode()</span></code> would take us a bit far
@@ -450,7 +450,8 @@ overflow<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <p>You may not need to write your own <code class="docutils literal notranslate"><span class="pre">equals()</span></code> method for every class you
 create. However, as a new Java programmer, remember the following:</p>
 <blockquote>
-<div>Always use <code class="docutils literal notranslate"><span class="pre">equals()</span></code> to compare objects.</div></blockquote>
+<div><p>Always use <code class="docutils literal notranslate"><span class="pre">equals()</span></code> to compare objects.</p>
+</div></blockquote>
 <p>This is especially true when working with objects of types provided by Java,
 such as <code class="docutils literal notranslate"><span class="pre">String</span></code>. A class that is part of Java or a third-party library will
 have implemented <code class="docutils literal notranslate"><span class="pre">equals()</span></code> in a way appropriate for the particular class,
@@ -461,16 +462,16 @@ literal object.</p>
 <div class="section" id="references">
 <h2><span class="section-number">5.3.3. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://www.sitepoint.com/implement-javas-equals-method-correctly/" target="_blank">How to Implement Java’s equals Method
-Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
-<li><a class="reference external" href="https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/" target="_blank">How to Implement Java’s hashCode
-Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><p><a class="reference external" href="https://www.sitepoint.com/implement-javas-equals-method-correctly/" target="_blank">How to Implement Java’s equals Method
+Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
+<li><p><a class="reference external" href="https://www.sitepoint.com/how-to-implement-javas-hashcode-correctly/" target="_blank">How to Implement Java’s hashCode
+Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
 </ol>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">5.3.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Given the code:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -506,16 +507,16 @@ Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 </pre></div>
 </td></tr></table></div>
 <p>Which of the following statements evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.getName().equals(firstPet);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thirdPet.getName().equals(firstPet);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>We add the following code inside the <code class="docutils literal notranslate"><span class="pre">Pet</span></code> class:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -554,12 +555,12 @@ Correctly<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
 </td></tr></table></div>
 <p>Which of the following statements evaluated to <code class="docutils literal notranslate"><span class="pre">false</span></code> before, but now
 evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.getName().equals(firstPet);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">firstPet</span> <span class="pre">==</span> <span class="pre">secondPet;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secondPet</span> <span class="pre">==</span> <span class="pre">thirdPet;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(secondPet);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thirdPet.getName().equals(firstPet);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thirdPet.equals(firstPet);</span></code></p></li>
 </ol>
 </div>
 </div>

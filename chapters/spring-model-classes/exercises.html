@@ -91,19 +91,19 @@ These exercises assume that you have added all of the code from this section of 
 application resembles the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/model-binding" target="_blank">model-binding branch of coding-events-demo<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <p>Create a new branch from here with a descriptive name, such as <code class="docutils literal notranslate"><span class="pre">edit-events</span></code>. The edit form will resemble the form used to create an event.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">As you work through these steps, test your code along the way!
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>As you work through these steps, test your code along the way!
 With each change you apply to your code, ask yourself what you expect to see when the application
 is run. You may not find that all of the steps result in observable changes, though.
 Use IntelliJ’s debugger and read your error messages if you run into issues after applying any of
 the changes.</p>
 </div>
 <ol class="arabic">
-<li><p class="first">Create the two handler methods listed below in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>. We’ll add code
+<li><p>Create the two handler methods listed below in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>. We’ll add code
 to these in a moment, so just put the method outline in place for
 now.</p>
 <ol class="arabic">
-<li><p class="first">Create a method to display an edit form with this signature:</p>
+<li><p>Create a method to display an edit form with this signature:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">displayEditForm</span><span class="p">(</span><span class="n">Model</span> <span class="n">model</span><span class="p">,</span> <span class="nd">@PathVariable</span> <span class="kt">int</span> <span class="n">eventId</span><span class="p">)</span> <span class="p">{</span>
@@ -112,7 +112,7 @@ now.</p>
 </pre></div>
 </td></tr></table></div>
 </li>
-<li><p class="first">Create a method to process the form with this signature:</p>
+<li><p>Create a method to process the form with this signature:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">processEditForm</span><span class="p">(</span><span class="kt">int</span> <span class="n">eventId</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">String</span> <span class="n">description</span><span class="p">)</span> <span class="p">{</span>
@@ -124,60 +124,58 @@ now.</p>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/spring-model-classes.html#model-classes-exercise-solutions1"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Add the necessary annotations to these methods for them to both live
+<li><p>Add the necessary annotations to these methods for them to both live
 at the path <code class="docutils literal notranslate"><span class="pre">/events/edit</span></code>.</p>
 <ol class="arabic simple">
-<li>Judging by the names of the handlers, which should handle <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests and which should
-handle <code class="docutils literal notranslate"><span class="pre">POST</span></code> requests?</li>
-<li>Remember, we’ve configured <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> with a URL segment on the controller class already.</li>
-<li>You’ll need to configure the route for <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> to include the path variable <code class="docutils literal notranslate"><span class="pre">eventId</span></code>,
-so that paths like <code class="docutils literal notranslate"><span class="pre">/events/edit/3</span></code> will work.</li>
+<li><p>Judging by the names of the handlers, which should handle <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests and which should
+handle <code class="docutils literal notranslate"><span class="pre">POST</span></code> requests?</p></li>
+<li><p>Remember, we’ve configured <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping</span></code> with a URL segment on the controller class already.</p></li>
+<li><p>You’ll need to configure the route for <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> to include the path variable <code class="docutils literal notranslate"><span class="pre">eventId</span></code>,
+so that paths like <code class="docutils literal notranslate"><span class="pre">/events/edit/3</span></code> will work.</p></li>
 </ol>
 </li>
-<li><p class="first">Create an <code class="docutils literal notranslate"><span class="pre">edit.html</span></code> view template in
-<code class="docutils literal notranslate"><span class="pre">resources/templates/events</span></code>.</p>
-</li>
-<li><p class="first">Copy the code from <code class="docutils literal notranslate"><span class="pre">create.html</span></code> into <code class="docutils literal notranslate"><span class="pre">edit.html</span></code>.</p>
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">edit.html</span></code> view template in
+<code class="docutils literal notranslate"><span class="pre">resources/templates/events</span></code>.</p></li>
+<li><p>Copy the code from <code class="docutils literal notranslate"><span class="pre">create.html</span></code> into <code class="docutils literal notranslate"><span class="pre">edit.html</span></code>.</p>
 <ol class="arabic simple">
-<li>You’ll want to update the text of the submit button to reflect the edit functionality.</li>
+<li><p>You’ll want to update the text of the submit button to reflect the edit functionality.</p></li>
 </ol>
 </li>
-<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, round out the controller method.</p>
+<li><p>Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, round out the controller method.</p>
 <ol class="arabic simple">
-<li>Use an <code class="docutils literal notranslate"><span class="pre">EventData</span></code> method to find the event object with the given <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</li>
-<li>Put the event object in the <code class="docutils literal notranslate"><span class="pre">model</span></code> with <code class="docutils literal notranslate"><span class="pre">.addAttribute()</span></code>.</li>
-<li>Return the appropriate template string.</li>
+<li><p>Use an <code class="docutils literal notranslate"><span class="pre">EventData</span></code> method to find the event object with the given <code class="docutils literal notranslate"><span class="pre">eventId</span></code>.</p></li>
+<li><p>Put the event object in the <code class="docutils literal notranslate"><span class="pre">model</span></code> with <code class="docutils literal notranslate"><span class="pre">.addAttribute()</span></code>.</p></li>
+<li><p>Return the appropriate template string.</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/spring-model-classes.html#model-classes-exercise-solutions5"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Within the form fields in <code class="docutils literal notranslate"><span class="pre">edit.html</span></code>,</p>
+<li><p>Within the form fields in <code class="docutils literal notranslate"><span class="pre">edit.html</span></code>,</p>
 <ol class="arabic simple">
-<li>Get the name and description from the event that was passed in via the <code class="docutils literal notranslate"><span class="pre">model</span></code> and
-set them as the values of the form fields.</li>
-<li>Add <code class="docutils literal notranslate"><span class="pre">th:action=&quot;&#64;{/events/edit}&quot;</span></code> to the <code class="docutils literal notranslate"><span class="pre">form</span></code> tag.</li>
+<li><p>Get the name and description from the event that was passed in via the <code class="docutils literal notranslate"><span class="pre">model</span></code> and
+set them as the values of the form fields.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">th:action=&quot;&#64;{/events/edit}&quot;</span></code> to the <code class="docutils literal notranslate"><span class="pre">form</span></code> tag.</p></li>
 </ol>
 </li>
-<li><p class="first">Add another input to hold the id of the event being edited. This
+<li><p>Add another input to hold the id of the event being edited. This
 should be hidden from the user:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="na">th:value</span><span class="o">=</span><span class="s">&quot;${event.id}&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;eventId&quot;</span> <span class="p">/&gt;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, add a title to <code class="docutils literal notranslate"><span class="pre">model</span></code> that reads “Edit Event
+<li><p>Back in the <code class="docutils literal notranslate"><span class="pre">displayEditForm</span></code> handler, add a title to <code class="docutils literal notranslate"><span class="pre">model</span></code> that reads “Edit Event
 NAME (id=ID)” where NAME and ID are replaced by the values for the
-given event.</p>
-</li>
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">processEditForm</span></code>,</p>
+given event.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">processEditForm</span></code>,</p>
 <ol class="arabic simple">
-<li>Query <code class="docutils literal notranslate"><span class="pre">EventData</span></code> for the event being edited with the given id parameter.</li>
-<li>Update the name and description of the event with the appropriate model setter methods.</li>
-<li>Redirect the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code> (the event listing page).</li>
+<li><p>Query <code class="docutils literal notranslate"><span class="pre">EventData</span></code> for the event being edited with the given id parameter.</p></li>
+<li><p>Update the name and description of the event with the appropriate model setter methods.</p></li>
+<li><p>Redirect the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code> (the event listing page).</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/spring-model-classes.html#model-classes-exercise-solutions9"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">To access event editing, the user will need an edit option in the list of event data.</p>
+<li><p>To access event editing, the user will need an edit option in the list of event data.</p>
 <ol class="arabic">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">resources/templates/events/index.html</span></code>, add a link in a new table column to edit the
+<li><p>In <code class="docutils literal notranslate"><span class="pre">resources/templates/events/index.html</span></code>, add a link in a new table column to edit the
 event:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2

@@ -88,15 +88,15 @@
 <span id="user-auth-walkthrough"></span><h1><span class="section-number">19.3. </span>Creating a <code class="docutils literal notranslate"><span class="pre">User</span></code> Model<a class="headerlink" href="#creating-a-user-model" title="Permalink to this headline">¶</a></h1>
 <p>The next few sections walk through the steps necessary to enable simple authentication in the <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> app. Along the way, we will use some advanced concepts that you haven’t fully learned. That’s okay. We don’t expect you to understand every detail the next few sections. However, you do need to understand the purpose of each step in enabling authentication.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">While we’ll use <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, these steps would be the same for any other app. If you want to add simple authentication to a Spring Boot application in the future, reference this chapter.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>While we’ll use <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, these steps would be the same for any other app. If you want to add simple authentication to a Spring Boot application in the future, reference this chapter.</p>
 </div>
 <p>Before we can authenticate users, we need users to authenticate! We’ll start by adding a <code class="docutils literal notranslate"><span class="pre">User</span></code> model.</p>
 <div class="section" id="a-user-model">
 <h2><span class="section-number">19.3.1. </span>A <code class="docutils literal notranslate"><span class="pre">User</span></code> Model<a class="headerlink" href="#a-user-model" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You can use the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-tags" target="_blank">add-tags branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> as your starting point for this section.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>You can use the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-tags" target="_blank">add-tags branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> as your starting point for this section.</p>
 </div>
 <p>A model class representing users needs, at a minimum, fields representing username and password.</p>
 <p>In the <code class="docutils literal notranslate"><span class="pre">models</span></code> package, create a <code class="docutils literal notranslate"><span class="pre">User</span></code> class with <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> and extending <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. It should have two string fields, <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">pwHash</span></code>. We only need a getter for <code class="docutils literal notranslate"><span class="pre">username</span></code>.</p>
@@ -145,8 +145,8 @@
 </td></tr></table></div>
 <p>Notice that the constructor takes a parameter named <code class="docutils literal notranslate"><span class="pre">password</span></code> and uses it to set the value of <code class="docutils literal notranslate"><span class="pre">pwHash</span></code>. We mentioned <a class="reference internal" href="hashing-passwords.html#hashing-passwords"><span class="std std-ref">previously</span></a> that we should never store passwords, so in a moment, we will update line 26 by creating a hash from the given password to store.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Our validation annotations on <code class="docutils literal notranslate"><span class="pre">User</span></code> are very lenient. This is okay, however, because we will validate user input used to make <code class="docutils literal notranslate"><span class="pre">User</span></code> objects using a DTO with more restrictive validation.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Our validation annotations on <code class="docutils literal notranslate"><span class="pre">User</span></code> are very lenient. This is okay, however, because we will validate user input used to make <code class="docutils literal notranslate"><span class="pre">User</span></code> objects using a DTO with more restrictive validation.</p>
 </div>
 </div>
 <div class="section" id="hashing-passwords">
@@ -179,7 +179,7 @@
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>Notice that we are using <code class="docutils literal notranslate"><span class="pre">encoder.matches()</span></code> rather than directly comparing hash values. More explicitly, the following comparison will NOT work to compare hashes generated by bcrypt:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isMatchingPassword</span><span class="p">(</span><span class="n">String</span> <span class="n">password</span><span class="p">)</span> <span class="p">{</span>
    <span class="n">String</span> <span class="n">candidateHash</span> <span class="o">=</span> <span class="n">encoder</span><span class="p">.</span><span class="na">encode</span><span class="p">(</span><span class="n">password</span><span class="p">);</span>
@@ -187,7 +187,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="last">While our conceptual example in the previous section used direct comparison of hashes—and some hashing techniques allow you to do so—bcrypt does not. This is because bcrypt internally uses a technique called <a class="reference external" href="https://en.wikipedia.org/wiki/Salt_(cryptography)" target="_blank">salting<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>, which requires additional steps before comparison. These additional steps are carried out by <code class="docutils literal notranslate"><span class="pre">encoder.matches()</span></code>.</p>
+<p>While our conceptual example in the previous section used direct comparison of hashes—and some hashing techniques allow you to do so—bcrypt does not. This is because bcrypt internally uses a technique called <a class="reference external" href="https://en.wikipedia.org/wiki/Salt_(cryptography)" target="_blank">salting<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>, which requires additional steps before comparison. These additional steps are carried out by <code class="docutils literal notranslate"><span class="pre">encoder.matches()</span></code>.</p>
 </div>
 </div>
 <div class="section" id="creating-the-userrepository">
@@ -207,8 +207,8 @@
 <p id="index-1">While our repository extends <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code>, it also contains a new method, <code class="docutils literal notranslate"><span class="pre">findByUsername</span></code>. Based on the method signature, it appears that this method is intended to take a username, and return the given user with that username. Indeed, when our application runs, the <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code> will have such a method.</p>
 <p>Spring allows for additional, custom methods to be added to repository interfaces, as long as they follow some basic naming conventions. These conventions are straightforward to use, and allow you to create additional, more sophisticated query methods. Methods created in this way are called <strong>query methods</strong>, and their rules are defined in <a class="reference external" href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation" target="_blank">Spring’s documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The final code for this section is available in the
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The final code for this section is available in the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/user-model" target="_blank">user-model branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repository.</p>
 </div>
@@ -216,17 +216,17 @@ of the <code class="docutils literal notranslate"><span class="pre">coding-event
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">19.3.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Why can we not use Java string comparison when evaluating values generated with bcrypt?</p>
-<ol class="last arabic simple">
-<li>bcrypt will never create two matching hashes.</li>
-<li>Java does not have a native string comparator method.</li>
-<li>Salting adds variance to hashes generated from the same plain text.</li>
-<li>Answers a and c.</li>
+<ol class="arabic simple">
+<li><p>bcrypt will never create two matching hashes.</p></li>
+<li><p>Java does not have a native string comparator method.</p></li>
+<li><p>Salting adds variance to hashes generated from the same plain text.</p></li>
+<li><p>Answers a and c.</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 9
 10
 11
@@ -239,9 +239,9 @@ of the <code class="docutils literal notranslate"><span class="pre">coding-event
 </pre></div>
 </td></tr></table></div>
 <p>True/False: From the code block above, line 11 is missing a return statement.</p>
-<ol class="last arabic simple">
-<li>True</li>
-<li>False</li>
+<ol class="arabic simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
 </ol>
 </div>
 </div>

@@ -93,8 +93,8 @@
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/RLykFBY9Rys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one" target="_blank">many-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one" target="_blank">many-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-many" target="_blank">one-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -109,8 +109,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 </td></tr></table></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">events</span></code> field will be initialized when an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object is created. It is marked <code class="docutils literal notranslate"><span class="pre">final</span></code> to ensure that the collection isn’t deleted or replaced. Since it is final, only a getter is needed; add one near the bottom of the class.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Recall that when a collection is marked <code class="docutils literal notranslate"><span class="pre">final</span></code> its <em>contents</em> are allowed to change, but the collection object itself may not be changed. In other words, we may add or remove items from the <code class="docutils literal notranslate"><span class="pre">events</span></code> list, but we may not reassign the value of <code class="docutils literal notranslate"><span class="pre">events</span></code>.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Recall that when a collection is marked <code class="docutils literal notranslate"><span class="pre">final</span></code> its <em>contents</em> are allowed to change, but the collection object itself may not be changed. In other words, we may add or remove items from the <code class="docutils literal notranslate"><span class="pre">events</span></code> list, but we may not reassign the value of <code class="docutils literal notranslate"><span class="pre">events</span></code>.</p>
 </div>
 <p>To establish a persistent relationship, we use the <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code> annotation on <code class="docutils literal notranslate"><span class="pre">events</span></code>. This annotation requires a parameter to let Hibernate know <em>how</em> to determine which events belong to a given category object.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>18
@@ -132,8 +132,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <p>Taking this one step further, we will use the same controller as well. This will allow us to have a route, <code class="docutils literal notranslate"><span class="pre">/events</span></code> that displays <em>all</em> events if no <code class="docutils literal notranslate"><span class="pre">eventId</span></code> is specified, but displays a filtered list when a valid <code class="docutils literal notranslate"><span class="pre">eventId</span></code> is provided. Let’s get to work in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>.</p>
 <p>The method at the route <code class="docutils literal notranslate"><span class="pre">/events</span></code> is <code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code>. Since this handler will no longer <em>always</em> display all events, we rename it to <code class="docutils literal notranslate"><span class="pre">displayEvents</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">We have renamed this method in the repository linked above, but the video skips this step.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>We have renamed this method in the repository linked above, but the video skips this step.</p>
 </div>
 <p>Let’s view the finished handler method and break down the changes one-by-one:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>29
@@ -230,8 +230,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <p>Essentially, by returning an <code class="docutils literal notranslate"><span class="pre">Optional&lt;EventCategory&gt;</span></code> object, the <code class="docutils literal notranslate"><span class="pre">findById</span></code> method is taking into account the exact situation we are in, that an object with such an ID may not exist. An <code class="docutils literal notranslate"><span class="pre">Optional</span></code> object can be thought of as a container for the results of our query. If such an object <em>does</em> exist, we can get it using <code class="docutils literal notranslate"><span class="pre">Optional.get()</span></code>. Otherwise, <code class="docutils literal notranslate"><span class="pre">Optional.isEmpty()</span></code> will return true.</p>
 <p>On lines 37-38 we use this fact to check to see if an <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> object was found. If not, we display an error message in the title.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">As you wade into vast waters of Java and Spring, you will frequently find yourself needing to use a method or class that you have not encountered before. In such cases, be brave and remember that you don’t have to understand <em>all</em> of the documentation for a method or class in order to use it.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>As you wade into vast waters of Java and Spring, you will frequently find yourself needing to use a method or class that you have not encountered before. In such cases, be brave and remember that you don’t have to understand <em>all</em> of the documentation for a method or class in order to use it.</p>
 </div>
 </div>
 <div class="section" id="update-4-retrieving-events-for-the-given-category">
@@ -287,21 +287,21 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">18.3.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which of the following is NOT a <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> method? Check all that apply.</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">.findAll()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">.findById()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">.value()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">.get()</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.findAll()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.findById()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.value()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.get()</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>True/False: The nested conditional in <code class="docutils literal notranslate"><span class="pre">displayEvents</span></code> in the <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> repo helps curtail an exception making its way to the user.</p>
-<ol class="last arabic simple">
-<li>True</li>
-<li>False</li>
+<ol class="arabic simple">
+<li><p>True</p></li>
+<li><p>False</p></li>
 </ol>
 </div>
 </div>

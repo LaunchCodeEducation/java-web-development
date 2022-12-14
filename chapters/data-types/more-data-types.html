@@ -152,11 +152,11 @@ using the <code class="docutils literal notranslate"><span class="pre">new</span
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">myCat</span></code> declares the variable <code class="docutils literal notranslate"><span class="pre">myCat</span></code> and sets it to be of type
-<code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">new</span> <span class="pre">Cat()</span></code> initializes the variable with a new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object.</li>
-<li>Any arguments that are required to build the new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object must be
-included within the parentheses.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cat</span> <span class="pre">myCat</span></code> declares the variable <code class="docutils literal notranslate"><span class="pre">myCat</span></code> and sets it to be of type
+<code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">new</span> <span class="pre">Cat()</span></code> initializes the variable with a new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object.</p></li>
+<li><p>Any arguments that are required to build the new <code class="docutils literal notranslate"><span class="pre">Cat</span></code> object must be
+included within the parentheses.</p></li>
 </ol>
 <p>Just like a variable can be declared as a primitive data type like <code class="docutils literal notranslate"><span class="pre">char</span></code> or
 <code class="docutils literal notranslate"><span class="pre">double</span></code>, it can also be declared as a specific <em>class</em> type. Variables
@@ -165,11 +165,11 @@ to be <em>reference variables</em>. Using this terminology, <code class="docutil
 reference variable of the <code class="docutils literal notranslate"><span class="pre">String</span></code> class, and <code class="docutils literal notranslate"><span class="pre">myCat</span></code> is a reference
 variable of type <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>Java uses two general data types—primitive and object. A <em>class type</em> is
 NOT a new data type. Instead, it is just a specific name applied to the
 more general object data type.</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">char</span></code> are both primitive data types, but the values they can
+<p><code class="docutils literal notranslate"><span class="pre">int</span></code> and <code class="docutils literal notranslate"><span class="pre">char</span></code> are both primitive data types, but the values they can
 store differ. Similarly, <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">Cat</span></code> are both object types, but
 they represent different classes.</p>
 </div>
@@ -220,8 +220,8 @@ function that checks if an integer is even needs to be defined within a class.</
 <p id="index-3">Within the context of a class, functions are referred to as <strong>methods</strong>, and we
 will adopt this terminology from now on.</p>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
-<p class="last">Be prepared to receive a vocabulary lesson from veteran Java coders if you
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p>Be prepared to receive a vocabulary lesson from veteran Java coders if you
 accidentally refer to <em>methods</em> as <em>functions</em>.</p>
 </div>
 <p id="index-4">We’ll dive deeper into classes and objects in Java soon enough. For now, we
@@ -229,7 +229,7 @@ will explore how to write methods. In particular, we’ll use <strong>static met
 A static method is one that can be called without creating an instance of the
 class to which it belongs.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Define the class <code class="docutils literal notranslate"><span class="pre">Cat</span></code> and include the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword before the
 <code class="docutils literal notranslate"><span class="pre">makeNoise</span></code> method name:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cat</span> <span class="p">{</span>
@@ -248,7 +248,7 @@ access it.</p>
 </pre></div>
 </td></tr></table></div>
 <p>We can call the method directly:</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Cat</span><span class="p">.</span><span class="na">makeNoise</span><span class="p">(</span><span class="s">&quot;roar&quot;</span><span class="p">);</span>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Cat</span><span class="p">.</span><span class="na">makeNoise</span><span class="p">(</span><span class="s">&quot;roar&quot;</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -264,7 +264,7 @@ first class is defined in the <code class="docutils literal notranslate"><span c
 file, and it contains a <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> method that we want to call from within
 <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p><code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code>:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -284,7 +284,7 @@ file, and it contains a <code class="docutils literal notranslate"><span class="
 </pre></div>
 </td></tr></table></div>
 <p><code class="docutils literal notranslate"><span class="pre">Message.java</span></code>:</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -315,15 +315,15 @@ file, and it contains a <code class="docutils literal notranslate"><span class="
 <p>We won’t explore every new aspect of this example, but instead focus on the two
 methods.</p>
 <ol class="arabic simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">main</span></code> method in the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> class has the same structure as
-that of our <a class="reference internal" href="some-java-practice.html#temp-conversion"><span class="std std-ref">temperature conversion example</span></a>.</li>
-<li>Take a look at the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class. Note that it does NOT have a <code class="docutils literal notranslate"><span class="pre">main</span></code>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> method in the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> class has the same structure as
+that of our <a class="reference internal" href="some-java-practice.html#temp-conversion"><span class="std std-ref">temperature conversion example</span></a>.</p></li>
+<li><p>Take a look at the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class. Note that it does NOT have a <code class="docutils literal notranslate"><span class="pre">main</span></code>
 method, so it can’t be run on its own. Code within the <code class="docutils literal notranslate"><span class="pre">Message</span></code> class
-must be called from elsewhere in order to execute.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">Message</span></code> class contains the <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> method. Like <code class="docutils literal notranslate"><span class="pre">main</span></code>, it
+must be called from elsewhere in order to execute.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Message</span></code> class contains the <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> method. Like <code class="docutils literal notranslate"><span class="pre">main</span></code>, it
 has the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword. Unlike <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">getMessage</span></code> has a return
-type of <code class="docutils literal notranslate"><span class="pre">String</span></code> instead of <code class="docutils literal notranslate"><span class="pre">void</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">getMessage</span></code> takes a single <code class="docutils literal notranslate"><span class="pre">String</span></code> parameter, <code class="docutils literal notranslate"><span class="pre">lang</span></code>.</li>
+type of <code class="docutils literal notranslate"><span class="pre">String</span></code> instead of <code class="docutils literal notranslate"><span class="pre">void</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getMessage</span></code> takes a single <code class="docutils literal notranslate"><span class="pre">String</span></code> parameter, <code class="docutils literal notranslate"><span class="pre">lang</span></code>.</p></li>
 </ol>
 <p>Since Java is statically typed, we must declare the data type for each
 parameter AND the return value.</p>
@@ -349,12 +349,12 @@ restrict the method from being called by another class, we could instead use
 the <code class="docutils literal notranslate"><span class="pre">private</span></code> modifier. We will explore access modifiers in more depth in
 coming lessons.</p>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>As you have been following along with these examples, you may have noticed
 that each class file, for example <code class="docutils literal notranslate"><span class="pre">Message.java</span></code> and
 <code class="docutils literal notranslate"><span class="pre">HelloMethods.java</span></code>, is named exactly the same as the class it holds
 (<code class="docutils literal notranslate"><span class="pre">Message</span></code> and <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code>, respectively).</p>
-<p class="last">It is a rule in Java that a file containing a class marked <code class="docutils literal notranslate"><span class="pre">public</span></code>
+<p>It is a rule in Java that a file containing a class marked <code class="docutils literal notranslate"><span class="pre">public</span></code>
 MUST be named the same as that class.</p>
 </div>
 </div>
@@ -364,45 +364,45 @@ MUST be named the same as that class.</p>
 <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code> project in IntelliJ and experiment with the
 following:</p>
 <ol class="arabic simple">
-<li>Figure out how to alter the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> code to change the message
-returned.</li>
-<li>Add another “Hello, World” language option.</li>
-<li>Change one <code class="docutils literal notranslate"><span class="pre">public</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">private</span></code> to see what happens. Repeat for
-each occurrence of <code class="docutils literal notranslate"><span class="pre">public</span></code>.</li>
+<li><p>Figure out how to alter the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> code to change the message
+returned.</p></li>
+<li><p>Add another “Hello, World” language option.</p></li>
+<li><p>Change one <code class="docutils literal notranslate"><span class="pre">public</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">private</span></code> to see what happens. Repeat for
+each occurrence of <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p></li>
 </ol>
 </div>
 </div>
 <div class="section" id="references">
 <h2><span class="section-number">2.3.5. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank">Arrays (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></li>
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank">Arrays (docs.oracle.com)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a></p></li>
 </ol>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">2.3.6. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which of the following defines a method that takes an integer as a parameter
 and returns a string value?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">methodName(String</span> <span class="pre">parameterName)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">methodName(int</span> <span class="pre">parameterName)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">int</span> <span class="pre">methodName(String</span> <span class="pre">parameterName)</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">String</span> <span class="pre">methodName(int</span> <span class="pre">parameterName)</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">methodName(String</span> <span class="pre">parameterName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">methodName(int</span> <span class="pre">parameterName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">int</span> <span class="pre">methodName(String</span> <span class="pre">parameterName)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">String</span> <span class="pre">methodName(int</span> <span class="pre">parameterName)</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Assume that we declare the following Java array:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">someWords</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Which of the following shows a correct initialization for the array?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{'hello',</span> <span class="pre">'world',</span> <span class="pre">'123',</span> <span class="pre">'LaunchCode</span> <span class="pre">ROCKS!'}</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{&quot;hello&quot;,</span> <span class="pre">&quot;world&quot;,</span> <span class="pre">&quot;123&quot;,</span> <span class="pre">&quot;LaunchCode</span> <span class="pre">ROCKS!&quot;,</span> <span class="pre">&quot;Java&quot;}</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{&quot;hello&quot;,</span> <span class="pre">&quot;world&quot;,</span> <span class="pre">'a',</span> <span class="pre">&quot;LaunchCode</span> <span class="pre">ROCKS!&quot;,</span> <span class="pre">&quot;Java&quot;}</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{&quot;hello&quot;,</span> <span class="pre">&quot;world&quot;,</span> <span class="pre">&quot;avocado&quot;,</span> <span class="pre">&quot;LaunchCode</span> <span class="pre">ROCKS!&quot;}</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{'hello',</span> <span class="pre">'world',</span> <span class="pre">'123',</span> <span class="pre">'LaunchCode</span> <span class="pre">ROCKS!'}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{&quot;hello&quot;,</span> <span class="pre">&quot;world&quot;,</span> <span class="pre">&quot;123&quot;,</span> <span class="pre">&quot;LaunchCode</span> <span class="pre">ROCKS!&quot;,</span> <span class="pre">&quot;Java&quot;}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{&quot;hello&quot;,</span> <span class="pre">&quot;world&quot;,</span> <span class="pre">'a',</span> <span class="pre">&quot;LaunchCode</span> <span class="pre">ROCKS!&quot;,</span> <span class="pre">&quot;Java&quot;}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">someWords</span> <span class="pre">=</span> <span class="pre">{&quot;hello&quot;,</span> <span class="pre">&quot;world&quot;,</span> <span class="pre">&quot;avocado&quot;,</span> <span class="pre">&quot;LaunchCode</span> <span class="pre">ROCKS!&quot;}</span></code></p></li>
 </ol>
 </div>
 </div>

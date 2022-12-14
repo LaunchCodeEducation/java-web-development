@@ -112,7 +112,7 @@ and more to validate that the subclass constructor has inherited the base class 
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">7.6.1. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Fill in the blank to test that the default constructor of <code class="docutils literal notranslate"><span class="pre">Cat</span></code> is called when the second
 constructor on <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> is used?</p>
 <p>Second <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> constructor:</p>
@@ -134,15 +134,15 @@ constructor on <code class="docutils literal notranslate"><span class="pre">Hous
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<ol class="last loweralpha simple">
-<li><code class="docutils literal notranslate"><span class="pre">assertEquals(13,</span> <span class="pre">keyboardCat.getWeight());</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">assertNotNull(keyboardCat.getWeight());</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">assertEquals(13,</span> <span class="pre">keyboardCat.getWeight(),</span> <span class="pre">.001);</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">assertNotNull(keyboardCat.weight);</span></code></li>
+<ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assertEquals(13,</span> <span class="pre">keyboardCat.getWeight());</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assertNotNull(keyboardCat.getWeight());</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assertEquals(13,</span> <span class="pre">keyboardCat.getWeight(),</span> <span class="pre">.001);</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assertNotNull(keyboardCat.weight);</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What additional assert method can we add to this test to properly verify that <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>
 inherits <code class="docutils literal notranslate"><span class="pre">eat()</span></code>?</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -160,11 +160,11 @@ inherits <code class="docutils literal notranslate"><span class="pre">eat()</spa
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<ol class="last loweralpha simple">
-<li><code class="docutils literal notranslate"><span class="pre">assertFalse(keyboardCat.isTired());</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">assertTrue(keyboardCat.isTired());</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">assertTrue(keyboardCat.isHungry());</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">assertFalse(keyboardCat.tired);</span></code></li>
+<ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assertFalse(keyboardCat.isTired());</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assertTrue(keyboardCat.isTired());</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assertTrue(keyboardCat.isHungry());</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assertFalse(keyboardCat.tired);</span></code></p></li>
 </ol>
 </div>
 </div>

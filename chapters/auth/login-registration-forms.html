@@ -151,25 +151,25 @@
 </pre></div>
 </td></tr></table></div>
 <p>This code allows us to store and retrieve the login status of a user in a session. More specifically, a logged-in user’s user ID will be stored in their session.</p>
-<table border="1" class="docutils align-default" id="id1">
+<table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Sample session data for a logged-in user</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">session_id</th>
-<td>81LfWG9</td>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>session_id</p></th>
+<td><p>81LfWG9</p></td>
 </tr>
-<tr class="row-even"><th class="stub">user</th>
-<td>42</td>
+<tr class="row-even"><th class="stub"><p>user</p></th>
+<td><p>42</p></td>
 </tr>
 </tbody>
 </table>
 <p>The static field <code class="docutils literal notranslate"><span class="pre">userSessionKey</span></code> is the key used to store user IDs. <code class="docutils literal notranslate"><span class="pre">setUserInSession</span></code> uses an <code class="docutils literal notranslate"><span class="pre">HttpSession</span></code> object (part of the standard <code class="docutils literal notranslate"><span class="pre">javax.servlet.http</span></code> package) to store key/value pair. <code class="docutils literal notranslate"><span class="pre">getUserFromSession</span></code> looks for data with the key <code class="docutils literal notranslate"><span class="pre">user</span></code> in the user’s session. If it finds one, it attempts to retrieve the corresponding <code class="docutils literal notranslate"><span class="pre">User</span></code> object from the database. If no user ID is in the session, or if there is no user with the given ID, <code class="docutils literal notranslate"><span class="pre">null</span></code> is returned.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">HttpSession</span></code> class handles the details of session creation and lookup for us, including generating unique session IDs and session cookies.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">HttpSession</span></code> class handles the details of session creation and lookup for us, including generating unique session IDs and session cookies.</p>
 </div>
 <p>These utility methods will allow our handlers to manage authentication.</p>
 </div>
@@ -238,12 +238,12 @@
 </td></tr></table></div>
 <p><code class="docutils literal notranslate"><span class="pre">LoginFormDTO</span></code> should live in the <code class="docutils literal notranslate"><span class="pre">models.dto</span></code> package.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">To better understand this approach, think of a DTO associated with a form as an object that represents each of the form fields. Using a DTO to represent the data associated with a form makes form rendering and processing much easier when the form does not line up with a specific model class.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>To better understand this approach, think of a DTO associated with a form as an object that represents each of the form fields. Using a DTO to represent the data associated with a form makes form rendering and processing much easier when the form does not line up with a specific model class.</p>
 </div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">In the class above, we have a password field that will store a plain-text password. However, this does not contradict our early imperative about NOT storing passwords, since <code class="docutils literal notranslate"><span class="pre">LoginFormDTO</span></code> is not a persistent class.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>In the class above, we have a password field that will store a plain-text password. However, this does not contradict our early imperative about NOT storing passwords, since <code class="docutils literal notranslate"><span class="pre">LoginFormDTO</span></code> is not a persistent class.</p>
 </div>
 <p>Our registration form will ask for a username/password pair, and then ask the user to confirm the password by typing it in again. So the associated DTO can extend <code class="docutils literal notranslate"><span class="pre">LoginFormDTO</span></code> and add an additional field for password verification.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 6
@@ -293,9 +293,9 @@
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>When passing an object into the view with <code class="docutils literal notranslate"><span class="pre">model.addAttribute</span></code>, specifying a label for the object is optional. If a label is not specified the class name is used, with the first letter converted to lowercase.</p>
-<p class="last">In the method above, <code class="docutils literal notranslate"><span class="pre">model.addAttribute(new</span> <span class="pre">RegisterFormDTO())</span></code> will pass a <code class="docutils literal notranslate"><span class="pre">RegisterFormDTO</span></code> object in with the label <code class="docutils literal notranslate"><span class="pre">registerFormDTO</span></code>.</p>
+<p>In the method above, <code class="docutils literal notranslate"><span class="pre">model.addAttribute(new</span> <span class="pre">RegisterFormDTO())</span></code> will pass a <code class="docutils literal notranslate"><span class="pre">RegisterFormDTO</span></code> object in with the label <code class="docutils literal notranslate"><span class="pre">registerFormDTO</span></code>.</p>
 </div>
 <p>The registration form (in <code class="docutils literal notranslate"><span class="pre">templates/register.html</span></code>) uses the three DTO fields to render the form fields:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -428,26 +428,26 @@
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
-<li><strong>Lines 55-58</strong>: Define the handler method at the route <code class="docutils literal notranslate"><span class="pre">/register</span></code> that takes a valid <code class="docutils literal notranslate"><span class="pre">RegisterFormDTO</span></code> object, associated errors, and a <code class="docutils literal notranslate"><span class="pre">Model</span></code>. In addition, the method needs an <code class="docutils literal notranslate"><span class="pre">HttpServletRequest</span></code> object. This object represents the incoming request, and will be provided by Spring.</li>
-<li><strong>Lines 60-63</strong>: Return the user to the form if an validation errors occur.</li>
-<li><strong>Line 65</strong>: Retrieve the user with the given username from the database.</li>
-<li><strong>Lines 67-71</strong>: If a user with the given username already exists, register a custom error with the <code class="docutils literal notranslate"><span class="pre">errors</span></code> object and return the user to the form. See the note on using <code class="docutils literal notranslate"><span class="pre">errors.rejectValue</span></code> below.</li>
-<li><strong>Lines 73-79</strong>: Compare the two passwords submitted. If they do not match, register a custom error and return the user to the form.</li>
-<li><strong>Lines 81-83</strong>: At this point, we know that a user with the given username does NOT already exist, and the rest of the form data is valid. So we create a new user object, store it in the database, and then create a new session for the user.</li>
-<li><strong>Line 85</strong>: Finally, redirect the user to the home page.</li>
+<li><p><strong>Lines 55-58</strong>: Define the handler method at the route <code class="docutils literal notranslate"><span class="pre">/register</span></code> that takes a valid <code class="docutils literal notranslate"><span class="pre">RegisterFormDTO</span></code> object, associated errors, and a <code class="docutils literal notranslate"><span class="pre">Model</span></code>. In addition, the method needs an <code class="docutils literal notranslate"><span class="pre">HttpServletRequest</span></code> object. This object represents the incoming request, and will be provided by Spring.</p></li>
+<li><p><strong>Lines 60-63</strong>: Return the user to the form if an validation errors occur.</p></li>
+<li><p><strong>Line 65</strong>: Retrieve the user with the given username from the database.</p></li>
+<li><p><strong>Lines 67-71</strong>: If a user with the given username already exists, register a custom error with the <code class="docutils literal notranslate"><span class="pre">errors</span></code> object and return the user to the form. See the note on using <code class="docutils literal notranslate"><span class="pre">errors.rejectValue</span></code> below.</p></li>
+<li><p><strong>Lines 73-79</strong>: Compare the two passwords submitted. If they do not match, register a custom error and return the user to the form.</p></li>
+<li><p><strong>Lines 81-83</strong>: At this point, we know that a user with the given username does NOT already exist, and the rest of the form data is valid. So we create a new user object, store it in the database, and then create a new session for the user.</p></li>
+<li><p><strong>Line 85</strong>: Finally, redirect the user to the home page.</p></li>
 </ul>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Errors</span></code> class we have been using in conjunction with model binding will always contain information about errors related to validation annotations on the given model. However, it can also be used to manually generate additional errors. In the method above, we call:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">errors</span><span class="p">.</span><span class="na">rejectValue</span><span class="p">(</span><span class="s">&quot;username&quot;</span><span class="p">,</span> <span class="s">&quot;username.alreadyexists&quot;</span><span class="p">,</span>
                    <span class="s">&quot;A user with that username already exists&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">errors.rejectValue</span></code> takes three parameters:</p>
-<ol class="last arabic simple">
-<li>The field containing the error.</li>
-<li>A label representing the error. This allows error messages to be imported from another file. While we don’t have such a file, this parameter is required.</li>
-<li>A default message to use if no external error message file is available (as is the case here).</li>
+<ol class="arabic simple">
+<li><p>The field containing the error.</p></li>
+<li><p>A label representing the error. This allows error messages to be imported from another file. While we don’t have such a file, this parameter is required.</p></li>
+<li><p>A default message to use if no external error message file is available (as is the case here).</p></li>
 </ol>
 </div>
 <p>This is a good time to test your application. Start it up, navigate to <code class="docutils literal notranslate"><span class="pre">/register</span></code> and try to create a user. If everything goes well, you will see a new row in the <code class="docutils literal notranslate"><span class="pre">user</span></code> table of the database.</p>
@@ -567,13 +567,13 @@ also similar to the registration template:</p>
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
-<li><strong>Lines 96-104</strong>: The method definition, parameters, and initial error checking are nearly identical to the registration <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler above.</li>
-<li><strong>Line 106</strong>: Retrieves the <code class="docutils literal notranslate"><span class="pre">User</span></code> object with the given password from the database.</li>
-<li><strong>Lines 108-112</strong>: If no such user exists, register a custom error and return to the form.</li>
-<li><strong>Line 114</strong>: Retrieves the <em>submitted</em> password from the form DTO.</li>
-<li><strong>Lines 116-120</strong>: If the password is incorrect, register a custom error and return to the form. Password verification uses the <code class="docutils literal notranslate"><span class="pre">User.isMatchingPassword()</span></code> method, which handles the details associated with checking hashed passwords.</li>
-<li><strong>Line 122</strong>: At this point, we know the given user exists and that the submitted password is correct. So we create a new session for the user.</li>
-<li><strong>Line 124</strong>: Finally, redirect the user to the home page.</li>
+<li><p><strong>Lines 96-104</strong>: The method definition, parameters, and initial error checking are nearly identical to the registration <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler above.</p></li>
+<li><p><strong>Line 106</strong>: Retrieves the <code class="docutils literal notranslate"><span class="pre">User</span></code> object with the given password from the database.</p></li>
+<li><p><strong>Lines 108-112</strong>: If no such user exists, register a custom error and return to the form.</p></li>
+<li><p><strong>Line 114</strong>: Retrieves the <em>submitted</em> password from the form DTO.</p></li>
+<li><p><strong>Lines 116-120</strong>: If the password is incorrect, register a custom error and return to the form. Password verification uses the <code class="docutils literal notranslate"><span class="pre">User.isMatchingPassword()</span></code> method, which handles the details associated with checking hashed passwords.</p></li>
+<li><p><strong>Line 122</strong>: At this point, we know the given user exists and that the submitted password is correct. So we create a new session for the user.</p></li>
+<li><p><strong>Line 124</strong>: Finally, redirect the user to the home page.</p></li>
 </ul>
 <p>Now you can test your login form. Upon successful form submission, you should be redirected to the home page. To verify that a session was created, open Firefox’s developer tools and navigate to the <em>Storage</em> pane. Select <em>Cookies &gt; http://localhost:8080</em> in the left-hand pane and you should see a cookie with the key <code class="docutils literal notranslate"><span class="pre">JSESSIONID</span></code>. This is the session cookie created by the application. (You may see other cookies as well, which is okay.)</p>
 <div class="figure align-default" id="id3">
@@ -600,8 +600,8 @@ out is refreshingly simple.</p>
 This removes all data from the session, so that when the user makes a
 subsequent request, they will be forced to log in again.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The code for this section is available in the
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The code for this section is available in the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/login-reg-forms" target="_blank">login-reg-forms branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
 of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repository.</p>
 </div>
@@ -609,23 +609,23 @@ of the <code class="docutils literal notranslate"><span class="pre">coding-event
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">19.4.7. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What is the name of the new method we have introduced on the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> object?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">Errors.hasErrors()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">Errors.errors()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">Errors.isNotEmpty()</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">Errors.rejectValue()</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Errors.hasErrors()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Errors.errors()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Errors.isNotEmpty()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Errors.rejectValue()</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which developer tool panel can we use to verify that a user session has been started?</p>
-<ol class="last arabic simple">
-<li>Console</li>
-<li>Network</li>
-<li>Storage</li>
-<li>Performance</li>
+<ol class="arabic simple">
+<li><p>Console</p></li>
+<li><p>Network</p></li>
+<li><p>Storage</p></li>
+<li><p>Performance</p></li>
 </ol>
 </div>
 </div>

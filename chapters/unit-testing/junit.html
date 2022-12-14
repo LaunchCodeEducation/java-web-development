@@ -108,8 +108,8 @@ common Java file format used for bundling many classes and files together. The J
 code is bundled and packaged in both the <code class="docutils literal notranslate"><span class="pre">junit-4.13-beta-3.jar</span></code> and
 <code class="docutils literal notranslate"><span class="pre">hamcrest-core-1.3.jar</span></code> <code class="docutils literal notranslate"><span class="pre">.jar</span></code> files.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The versions of these packages may change before this text.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The versions of these packages may change before this text.</p>
 </div>
 <p>In this project, we call these external libraries <strong>dependencies</strong>. A dependency is a
 separately developed program or piece of code that another program or piece of code
@@ -162,8 +162,8 @@ be sure write this code rather than copy/paste it:</p>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">In some cases, IntelliJ may sense which testing library and method you want to
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>In some cases, IntelliJ may sense which testing library and method you want to
 use and add the import statements as you type. If this is the case, just make sure they
 are the correct paths. Aren’t <a class="reference internal" href="../introduction-and-setup/intellij.html#install-intellij"><span class="std std-ref">IDEs</span></a> wonderful?</p>
 </div>
@@ -177,13 +177,13 @@ asserting. Nor is it relevant, for that matter.</p>
 expected value of <code class="docutils literal notranslate"><span class="pre">10</span></code> to equal an actual value of <code class="docutils literal notranslate"><span class="pre">10</span></code>,
 with an accepted <code class="docutils literal notranslate"><span class="pre">.001</span></code> variance.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>The third argument, called <code class="docutils literal notranslate"><span class="pre">delta</span></code>, is the amount of allowed difference between the
 expected and actual values. If the difference between the two values is within
 that range, then the test still passes.
 This argument is optional for some comparisons and required for others. One
 scenario in which it is required is when comparing doubles.</p>
-<p class="last">Why is it required? Well, that’s kind of a long story. Some number types are
+<p>Why is it required? Well, that’s kind of a long story. Some number types are
 <a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic" target="_blank">floating-point numbers<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.
 Due to the nature of their storage, these types carry with them a certain
 degree of
@@ -219,8 +219,8 @@ By now, you’ve probably already imported the <code class="docutils literal not
 </div>
 <p>Run <code class="docutils literal notranslate"><span class="pre">CarTest</span></code> to see that both tests pass.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">If you want to run only one test, click the green arrow next to the test method’s name.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>If you want to run only one test, click the green arrow next to the test method’s name.</p>
 </div>
 </div>
 <div class="section" id="before">
@@ -256,8 +256,8 @@ writing the method? If not, add it:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&#64;After</span></code>, conversely, defines a set of conditions to be met after each test in a
 suite is run.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">A good or frequent use case for <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code> would be if you needed to test
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>A good or frequent use case for <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code> would be if you needed to test
 some code that requires access to a database. Here, you could open the database
 connection with a <code class="docutils literal notranslate"><span class="pre">&#64;Before</span></code> method and close the connection in an <code class="docutils literal notranslate"><span class="pre">&#64;After</span></code> method.</p>
 </div>
@@ -267,29 +267,29 @@ connection with a <code class="docutils literal notranslate"><span class="pre">&
 <p>In addition to the very commonly used <code class="docutils literal notranslate"><span class="pre">assertEquals()</span></code> method
 you see above, here are a few other methods you should have in
 your unit testing playbook.</p>
-<table border="1" class="docutils align-default" id="id3">
+<table class="docutils align-default" id="id3">
 <caption><span class="caption-text">JUnit4 Assertion Methods</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Assertion</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Assertion</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">assertEquals(expected,</span> <span class="pre">actual,</span> <span class="pre">optional_delta)</span></code></td>
-<td>Asserts that two values, expected and actual, are equal to each other (optionally, within a given range of difference)</td>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">assertEquals(expected,</span> <span class="pre">actual,</span> <span class="pre">optional_delta)</span></code></p></td>
+<td><p>Asserts that two values, expected and actual, are equal to each other (optionally, within a given range of difference)</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">assertFalse(condition)</span></code></td>
-<td>Asserts that a given condition is false</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">assertFalse(condition)</span></code></p></td>
+<td><p>Asserts that a given condition is false</p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">assertTrue(condition)</span></code></td>
-<td>Asserts that a given condition is true</td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">assertTrue(condition)</span></code></p></td>
+<td><p>Asserts that a given condition is true</p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">assertNotNull(object)</span></code></td>
-<td>Asserts that a given object is not null</td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">assertNotNull(object)</span></code></p></td>
+<td><p>Asserts that a given object is not null</p></td>
 </tr>
 </tbody>
 </table>
@@ -297,12 +297,12 @@ your unit testing playbook.</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">6.2.7. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">Write another version of <code class="docutils literal notranslate"><span class="pre">testInitialGasTank()</span></code> using <code class="docutils literal notranslate"><span class="pre">assertFalse()</span></code>, comparing the value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Write another version of <code class="docutils literal notranslate"><span class="pre">testInitialGasTank()</span></code> using <code class="docutils literal notranslate"><span class="pre">assertFalse()</span></code>, comparing the value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">Write another version of <code class="docutils literal notranslate"><span class="pre">testInitialGasTank()</span></code> using <code class="docutils literal notranslate"><span class="pre">assertTrue()</span></code>.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>Write another version of <code class="docutils literal notranslate"><span class="pre">testInitialGasTank()</span></code> using <code class="docutils literal notranslate"><span class="pre">assertTrue()</span></code>.</p>
 </div>
 </div>
 </div>

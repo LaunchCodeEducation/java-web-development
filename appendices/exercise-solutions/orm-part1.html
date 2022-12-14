@@ -91,10 +91,10 @@
 <p>First, create a new class called <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> in the <code class="docutils literal notranslate"><span class="pre">models</span></code> directory.</p>
 <p><code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> needs to have the following:</p>
 <ol class="arabic simple">
-<li>An <code class="docutils literal notranslate"><span class="pre">id</span></code> field of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">name</span></code> field of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.</li>
-<li>A constructor.</li>
-<li>The appropriate getters and setters.</li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">id</span></code> field of type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">name</span></code> field of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p></li>
+<li><p>A constructor.</p></li>
+<li><p>The appropriate getters and setters.</p></li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> represents data that will be stored in our database, so you need to use the <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> annotation!</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -198,9 +198,9 @@
 <h3><code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code><a class="headerlink" href="#displayallevents" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">displayAllEvents</span></code> needs to do the following:</p>
 <ol class="arabic simple">
-<li>Use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code> and return <code class="docutils literal notranslate"><span class="pre">&quot;eventCategories/index&quot;</span></code>.</li>
-<li>Add an attribute for the <code class="docutils literal notranslate"><span class="pre">title</span></code> that uses <code class="docutils literal notranslate"><span class="pre">&quot;All</span> <span class="pre">Categories&quot;</span></code>.</li>
-<li>Add an attribute for the <code class="docutils literal notranslate"><span class="pre">categories</span></code> that uses all of the values in your <code class="docutils literal notranslate"><span class="pre">EventCategoryRepository</span></code> variable.</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping</span></code> and return <code class="docutils literal notranslate"><span class="pre">&quot;eventCategories/index&quot;</span></code>.</p></li>
+<li><p>Add an attribute for the <code class="docutils literal notranslate"><span class="pre">title</span></code> that uses <code class="docutils literal notranslate"><span class="pre">&quot;All</span> <span class="pre">Categories&quot;</span></code>.</p></li>
+<li><p>Add an attribute for the <code class="docutils literal notranslate"><span class="pre">categories</span></code> that uses all of the values in your <code class="docutils literal notranslate"><span class="pre">EventCategoryRepository</span></code> variable.</p></li>
 </ol>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -221,11 +221,11 @@
 <span id="orm1-exercise-solutions-methods3"></span><h3><code class="docutils literal notranslate"><span class="pre">processCreateEventCategoryForm</span></code><a class="headerlink" href="#processcreateeventcategoryform" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">processCreateEventCategoryForm</span></code> needs to do the following:</p>
 <ol class="arabic simple">
-<li>Use <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code>.</li>
-<li>Use error validation and the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> object appropriately. If you want to review how to use the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> object, check out the section on <a class="reference internal" href="../../chapters/spring-model-validation/validation-controller.html#validating-models"><span class="std std-ref">error validation</span></a>.</li>
-<li>Add an attribute for the <code class="docutils literal notranslate"><span class="pre">title</span></code> and assign it <code class="docutils literal notranslate"><span class="pre">&quot;Create</span> <span class="pre">Category&quot;</span></code>.</li>
-<li>Add an attribute for a new instance of <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>.</li>
-<li>Either return <code class="docutils literal notranslate"><span class="pre">&quot;eventCategories/create&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;redirect:&quot;</span></code>.</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code>.</p></li>
+<li><p>Use error validation and the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> object appropriately. If you want to review how to use the <code class="docutils literal notranslate"><span class="pre">Errors</span></code> object, check out the section on <a class="reference internal" href="../../chapters/spring-model-validation/validation-controller.html#validating-models"><span class="std std-ref">error validation</span></a>.</p></li>
+<li><p>Add an attribute for the <code class="docutils literal notranslate"><span class="pre">title</span></code> and assign it <code class="docutils literal notranslate"><span class="pre">&quot;Create</span> <span class="pre">Category&quot;</span></code>.</p></li>
+<li><p>Add an attribute for a new instance of <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code>.</p></li>
+<li><p>Either return <code class="docutils literal notranslate"><span class="pre">&quot;eventCategories/create&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;redirect:&quot;</span></code>.</p></li>
 </ol>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -259,7 +259,7 @@
 <span id="orm1-exercise-solutions-templates"></span><h2>Thymeleaf Templates<a class="headerlink" href="#thymeleaf-templates" title="Permalink to this headline">¶</a></h2>
 <p>To finish the exercises, we need to make two new templates.</p>
 <ol class="arabic">
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">eventCategories/index</span></code>, which will contain a table of the event categories.</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">eventCategories/index</span></code>, which will contain a table of the event categories.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3

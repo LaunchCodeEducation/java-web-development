@@ -91,22 +91,19 @@ errors in provided code.</p>
 <div class="section" id="getting-started">
 <h2><span class="section-number">6.4.1. </span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Fork the <a class="reference external" href="https://github.com/LaunchCodeEducation/junit-studio-lc101" target="_blank">studio repository<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-</li>
-<li><p class="first">In IntelliJ, check out your forked repository from Version Control.</p>
-</li>
-<li><p class="first">Write unit tests to find the errors in <code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code>.</p>
+<li><p>Fork the <a class="reference external" href="https://github.com/LaunchCodeEducation/junit-studio-lc101" target="_blank">studio repository<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p></li>
+<li><p>In IntelliJ, check out your forked repository from Version Control.</p></li>
+<li><p>Write unit tests to find the errors in <code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code>.</p>
 <ol class="loweralpha">
-<li><p class="first">The tests you write should guide how you revise the sourcecode. Use TDD to
+<li><p>The tests you write should guide how you revise the sourcecode. Use TDD to
 first write tests that will work for the desired behavior of <code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code>.
-When your tests fail, correct the class to pass your tests.</p>
-</li>
-<li><p class="first">The content of your tests is up to you, but you should write at least 12 tests.</p>
+When your tests fail, correct the class to pass your tests.</p></li>
+<li><p>The content of your tests is up to you, but you should write at least 12 tests.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>Here’s a first test to help get you started:</p>
 <p>Assert that brackets in the correct order, <code class="docutils literal notranslate"><span class="pre">&quot;[]&quot;</span></code>, return true.</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onlyBracketsReturnsTrue</span><span class="p">()</span> <span class="p">{</span>
    <span class="n">assertTrue</span><span class="p">(</span><span class="n">BalancedBrackets</span><span class="p">.</span><span class="na">hasBalancedBrackets</span><span class="p">(</span><span class="s">&quot;[]&quot;</span><span class="p">));</span>
 <span class="p">}</span>
@@ -118,14 +115,14 @@ When your tests fail, correct the class to pass your tests.</p>
 </li>
 </ol>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code> is essentially a wrapper class for a method. And
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">BalancedBrackets</span></code> is essentially a wrapper class for a method. And
 because it’s only method is static, we don’t need to create an instance
 to test <code class="docutils literal notranslate"><span class="pre">hasBalancedBrackets()</span></code>.</p>
 </div>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Discuss with your fellow students and TA how the
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Discuss with your fellow students and TA how the
 class should behave. What are some examples of input, and
 what would the desired output be for each input?</p>
 </div>

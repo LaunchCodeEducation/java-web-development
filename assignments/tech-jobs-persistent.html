@@ -99,10 +99,10 @@ you’ll need to do the work to connect the project to a database for storing us
 <h2>Checkout and Review the Starter Code<a class="headerlink" href="#checkout-and-review-the-starter-code" title="Permalink to this headline">¶</a></h2>
 <p>Set up a local copy of the project:</p>
 <ol class="arabic simple">
-<li>In Canvas, <strong>Graded Assignment #4: TechJobs (Persistent Edition)</strong> contains a GitHub Classroom assignment invitation link and then set up the project in IntelliJ. Refer back to the GitHub Classroom instructions from <a class="reference internal" href="hello-world.html#assignment0"><span class="std std-ref">Assignment #0: Hello, World!</span></a> for details.</li>
-<li>Launch the application (via the Gradle pane, <em>Tasks &gt; Application &gt;
-bootRun</em>) to make sure it starts up properly. Then shut it down.</li>
-<li>The tests for this assignment are set up the same way as for <a class="reference internal" href="tech-jobs-oo.html#assignment-2-autograding"><span class="std std-ref">assignment 2</span></a>.</li>
+<li><p>In Canvas, <strong>Graded Assignment #4: TechJobs (Persistent Edition)</strong> contains a GitHub Classroom assignment invitation link and then set up the project in IntelliJ. Refer back to the GitHub Classroom instructions from <a class="reference internal" href="hello-world.html#assignment0"><span class="std std-ref">Assignment #0: Hello, World!</span></a> for details.</p></li>
+<li><p>Launch the application (via the Gradle pane, <em>Tasks &gt; Application &gt;
+bootRun</em>) to make sure it starts up properly. Then shut it down.</p></li>
+<li><p>The tests for this assignment are set up the same way as for <a class="reference internal" href="tech-jobs-oo.html#assignment-2-autograding"><span class="std std-ref">assignment 2</span></a>.</p></li>
 </ol>
 <p>You won’t be able to run your application or the tests yet. If you try to do so, you’ll see a host of errors relating to the
 Spring Data annotations and classes. Some of these have already been used in the code, but the dependency that includes them has not yet been declared. That will be one of your tasks. You’ll need to complete <a class="reference internal" href="#tech-jobs-persistent-pt1"><span class="std std-ref">Part1</span></a> before you can
@@ -128,36 +128,33 @@ appropriate queries nonetheless.</p>
 <div class="section" id="part-1-connect-a-database-to-a-spring-app">
 <span id="tech-jobs-persistent-pt1"></span><h2>Part 1: Connect a Database to a Spring App<a class="headerlink" href="#part-1-connect-a-database-to-a-spring-app" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Start MySQL Workbench and create a new schema named <code class="docutils literal notranslate"><span class="pre">techjobs</span></code>.</p>
+<li><p>Start MySQL Workbench and create a new schema named <code class="docutils literal notranslate"><span class="pre">techjobs</span></code>.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Remember to double click on the schema name in the file tree to make it the default schema.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Remember to double click on the schema name in the file tree to make it the default schema.</p>
 </div>
 </li>
-<li><p class="first">In the administration tab, create a new user, <code class="docutils literal notranslate"><span class="pre">techjobs</span></code> with the same settings as described in
-the lesson tutorial. This user should have the password <code class="docutils literal notranslate"><span class="pre">techjobs</span></code> as well.</p>
-</li>
-<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> with the necessary dependencies. At this point, you should be able to run the tests. Run the tests in <cite>TestTaskOne</cite> to verify your gradle dependencies.</p>
-</li>
-<li><p class="first">Update <code class="docutils literal notranslate"><span class="pre">src/resources/application.properties</span></code> with the correct info. This will include
+<li><p>In the administration tab, create a new user, <code class="docutils literal notranslate"><span class="pre">techjobs</span></code> with the same settings as described in
+the lesson tutorial. This user should have the password <code class="docutils literal notranslate"><span class="pre">techjobs</span></code> as well.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code> with the necessary dependencies. At this point, you should be able to run the tests. Run the tests in <cite>TestTaskOne</cite> to verify your gradle dependencies.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">src/resources/application.properties</span></code> with the correct info. This will include
 <code class="docutils literal notranslate"><span class="pre">spring.datasource.url</span></code> set to the address of your database connection, as well as the username and password
 for a user you have created. Refer to the tip below for the other properties you must add to complete your
-database setup.</p>
-</li>
+database setup.</p></li>
 </ol>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">You can double check your setup against what you’ve already done for
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>You can double check your setup against what you’ve already done for
 <a class="reference internal" href="../chapters/orm-part1/background.html#setup-orm-database"><span class="std std-ref">your coding events repo</span></a>. You can copy these property assignments from your coding
 events repo, only needing to change the database address and username/password values.</p>
 </div>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>If when starting your application, you encounter an error similar to</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>com.mysql.cj.exceptions.InvalidConnectionAttributeException: The server <span class="nb">time</span> zone value <span class="s1">&#39;CDT&#39;</span> is unrecognized …
 </pre></div>
 </div>
-<p class="last">then add <cite>?useLegacyDatetimeCode=false&amp;serverTimezone=America/Chicago</cite> to the end of your <cite>spring.datasource.url</cite> value.</p>
+<p>then add <cite>?useLegacyDatetimeCode=false&amp;serverTimezone=America/Chicago</cite> to the end of your <cite>spring.datasource.url</cite> value.</p>
 </div>
 <div class="section" id="test-it-with-sql">
 <h3>Test It with SQL<a class="headerlink" href="#test-it-with-sql" title="Permalink to this headline">¶</a></h3>
@@ -165,8 +162,8 @@ events repo, only needing to change the database address and username/password v
 and check the compiler output to make sure this is the case. If everything runs, you will be able to view your app
 locally in the browser at <code class="docutils literal notranslate"><span class="pre">Localhost:8080</span></code> (unless of course you have changed the server port).</p>
 <ol class="arabic simple">
-<li>In your MySQL workbench, open a new query tab to check your database connection.</li>
-<li><strong>SQL TASK:</strong> At this point, you will have one table, <code class="docutils literal notranslate"><span class="pre">job</span></code>. In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 1”, list the columns and their data types in the table as a SQL comment.</li>
+<li><p>In your MySQL workbench, open a new query tab to check your database connection.</p></li>
+<li><p><strong>SQL TASK:</strong> At this point, you will have one table, <code class="docutils literal notranslate"><span class="pre">job</span></code>. In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 1”, list the columns and their data types in the table as a SQL comment.</p></li>
 </ol>
 <p>Your running application still has limited functionality. You won’t yet be able to add a job with the <em>Add Job</em> form. You also
 won’t yet be able to view the list of jobs or search for jobs - but this is mostly because you have no job data. Move on to
@@ -183,16 +180,17 @@ section.</p>
 <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. This class holds the fields and methods that are common across the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class
 and the classes it contains as fields.</p>
 <ol class="arabic simple">
-<li>We will be creating tables for the subclasses that inherit from
+<li><p>We will be creating tables for the subclasses that inherit from
 <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> but not a table for this parent class. Therefore, give <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> the
-<code class="docutils literal notranslate"><span class="pre">&#64;MappedSuperclass</span></code> annotation.</li>
-<li>Since all of the subclasses of <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> will be entities themselves, add the <code class="docutils literal notranslate"><span class="pre">&#64;Id</span></code>
-and <code class="docutils literal notranslate"><span class="pre">&#64;GeneratedValue</span></code> annotations to the field <code class="docutils literal notranslate"><span class="pre">id</span></code>.</li>
-<li>Each subclass will also inherit the <code class="docutils literal notranslate"><span class="pre">name</span></code> field from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Add appropriate
-validation annotations so that:<ol class="loweralpha">
-<li>a user cannot leave this field blank when creating an object.</li>
-<li>there are reasonable limitations on the size of the name string. Keep in mind that the name field will be
-shared across <code class="docutils literal notranslate"><span class="pre">Job</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, and <code class="docutils literal notranslate"><span class="pre">Skill</span></code> classes. Some employer names might be longer than 50 characters.</li>
+<code class="docutils literal notranslate"><span class="pre">&#64;MappedSuperclass</span></code> annotation.</p></li>
+<li><p>Since all of the subclasses of <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code> will be entities themselves, add the <code class="docutils literal notranslate"><span class="pre">&#64;Id</span></code>
+and <code class="docutils literal notranslate"><span class="pre">&#64;GeneratedValue</span></code> annotations to the field <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p></li>
+<li><p>Each subclass will also inherit the <code class="docutils literal notranslate"><span class="pre">name</span></code> field from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Add appropriate
+validation annotations so that:</p>
+<ol class="loweralpha simple">
+<li><p>a user cannot leave this field blank when creating an object.</p></li>
+<li><p>there are reasonable limitations on the size of the name string. Keep in mind that the name field will be
+shared across <code class="docutils literal notranslate"><span class="pre">Job</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, and <code class="docutils literal notranslate"><span class="pre">Skill</span></code> classes. Some employer names might be longer than 50 characters.</p></li>
 </ol>
 </li>
 </ol>
@@ -203,24 +201,21 @@ shared across <code class="docutils literal notranslate"><span class="pre">Job</
 and skill (formerly core competency) information about a particular job will now be stored in classes themselves.
 These items themselves will hold their own supplementary information.</p>
 <ol class="arabic">
-<li><p class="first">Open the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> model class. In addition to the fields inherited from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code> should have a
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">Employer</span></code> model class. In addition to the fields inherited from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>, <code class="docutils literal notranslate"><span class="pre">Employer</span></code> should have a
 string field for <code class="docutils literal notranslate"><span class="pre">location</span></code>. Add the field for <code class="docutils literal notranslate"><span class="pre">location</span></code> with validation that ensures it is not empty and has a reasonable length. In addition, add public accessor methods
 to <code class="docutils literal notranslate"><span class="pre">Employer</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">For the purposes of this application, an employer can only have one location.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>For the purposes of this application, an employer can only have one location.</p>
 </div>
 </li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Employer</span></code> is a class that will be mapped to one of our tables. Make sure the class has the
+<li><p><code class="docutils literal notranslate"><span class="pre">Employer</span></code> is a class that will be mapped to one of our tables. Make sure the class has the
 <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> annotation, as well as the no-arg constructor required for Hibernate to create an
-object.</p>
-</li>
-<li><p class="first">In the model class <code class="docutils literal notranslate"><span class="pre">Skill</span></code>, add a field for a longer description of the skill, named <code class="docutils literal notranslate"><span class="pre">description</span></code>, with public accessor methods. Some hiring managers like to have
-more information available about the nature of a given programming language or framework.</p>
-</li>
-<li><p class="first">As with <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, give this class the <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> annotation and be sure it contains a no-arg
-constructor.</p>
-</li>
+object.</p></li>
+<li><p>In the model class <code class="docutils literal notranslate"><span class="pre">Skill</span></code>, add a field for a longer description of the skill, named <code class="docutils literal notranslate"><span class="pre">description</span></code>, with public accessor methods. Some hiring managers like to have
+more information available about the nature of a given programming language or framework.</p></li>
+<li><p>As with <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, give this class the <code class="docutils literal notranslate"><span class="pre">&#64;Entity</span></code> annotation and be sure it contains a no-arg
+constructor.</p></li>
 </ol>
 </div>
 <div class="section" id="data-layer">
@@ -229,51 +224,49 @@ constructor.</p>
 objects, similar to the existing <code class="docutils literal notranslate"><span class="pre">JobRepository</span></code> interface. Like <code class="docutils literal notranslate"><span class="pre">JobRepository</span></code>, make use of the Spring Data
 <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> interface to map our objects.</p>
 <ol class="arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">models/data</span></code>, create a new interface <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code>.<ol class="loweralpha">
-<li><code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> should extend <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> should be annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Repository</span></code>.</li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">models/data</span></code>, create a new interface <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code>.</p>
+<ol class="loweralpha simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> should extend <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> should be annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Repository</span></code>.</p></li>
 </ol>
 </li>
-<li>Repeat the steps above for an interface, <code class="docutils literal notranslate"><span class="pre">SkillRepository</span></code>.</li>
+<li><p>Repeat the steps above for an interface, <code class="docutils literal notranslate"><span class="pre">SkillRepository</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="controllers">
 <h3>Controllers<a class="headerlink" href="#controllers" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>The tests in <code class="docutils literal notranslate"><span class="pre">TestTaskTwo</span></code> relating to the following tasks have been commented out because they depend on the code you wrote earlier. Open <code class="docutils literal notranslate"><span class="pre">TestTaskTwo</span></code> in IntelliJ and find these tests. For each one:</p>
 <ol class="arabic simple">
-<li>Select the entire commented-out method. These methods start around line 328. You may need to add <code class="docutils literal notranslate"><span class="pre">import</span></code> statements for some of the classes used in these methods.</li>
-<li>Uncomment the method by using <code class="docutils literal notranslate"><span class="pre">cmd+/</span></code> on Mac or <code class="docutils literal notranslate"><span class="pre">ctrl+/</span></code> on Windows.</li>
+<li><p>Select the entire commented-out method. These methods start around line 328. You may need to add <code class="docutils literal notranslate"><span class="pre">import</span></code> statements for some of the classes used in these methods.</p></li>
+<li><p>Uncomment the method by using <code class="docutils literal notranslate"><span class="pre">cmd+/</span></code> on Mac or <code class="docutils literal notranslate"><span class="pre">ctrl+/</span></code> on Windows.</p></li>
 </ol>
 <p>If you do not uncomment these tests, your code will not pass the autograder.</p>
-<p class="last">Uncommenting these methods will introduce some new errors related to a class named <code class="docutils literal notranslate"><span class="pre">SkillController</span></code>, but these will be fixed by the code you are about to write. If you like, you can leave these commented out until you get to that task.</p>
+<p>Uncommenting these methods will introduce some new errors related to a class named <code class="docutils literal notranslate"><span class="pre">SkillController</span></code>, but these will be fixed by the code you are about to write. If you like, you can leave these commented out until you get to that task.</p>
 </div>
 <p>With the employer repository in place, we will reference this to send object information through
 the <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code> handlers. <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code> contains two handlers with missing
 information. Your task here is to make use of the <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> class in these handlers.</p>
 <ol class="arabic">
-<li><p class="first">Add a private field of <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> type called <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> to
-<code class="docutils literal notranslate"><span class="pre">EmployerController</span></code>. Give this field an <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code> annotation.</p>
-</li>
-<li><p class="first">Add an <code class="docutils literal notranslate"><span class="pre">index</span></code> method that responds at <code class="docutils literal notranslate"><span class="pre">/employers</span></code> with a list of all employers in the database. This method should use the template <code class="docutils literal notranslate"><span class="pre">employers/index</span></code>. To figure out the name of the model attribute you should use to pass employers into the view, review this template.</p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">processAddEmployerForm</span></code> already takes care of sending the form back if any of the submitted
+<li><p>Add a private field of <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> type called <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> to
+<code class="docutils literal notranslate"><span class="pre">EmployerController</span></code>. Give this field an <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code> annotation.</p></li>
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">index</span></code> method that responds at <code class="docutils literal notranslate"><span class="pre">/employers</span></code> with a list of all employers in the database. This method should use the template <code class="docutils literal notranslate"><span class="pre">employers/index</span></code>. To figure out the name of the model attribute you should use to pass employers into the view, review this template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">processAddEmployerForm</span></code> already takes care of sending the form back if any of the submitted
 employer object information is invalid. However, it doesn’t yet contain the code to save a
-valid object. Use <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> and the appropriate method to do so.</p>
-</li>
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">displayViewEmployer</span></code> will be in charge of rendering a page to view the contents of an individual
+valid object. Use <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> and the appropriate method to do so.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayViewEmployer</span></code> will be in charge of rendering a page to view the contents of an individual
 employer object. It will make use of that employer object’s <code class="docutils literal notranslate"><span class="pre">id</span></code> field to grab the correct
 information from <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code>. <code class="docutils literal notranslate"><span class="pre">optEmployer</span></code> is currently initialized to <code class="docutils literal notranslate"><span class="pre">null</span></code>. Replace this using
 the <code class="docutils literal notranslate"><span class="pre">.findById()</span></code> method with the right argument to look for the given employer object from
 the data layer.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">The variable holding the id you want to query for is already provided for you in the controller
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>The variable holding the id you want to query for is already provided for you in the controller
 method’s parameters.</p>
 </div>
 </li>
-<li><p class="first">Create a <code class="docutils literal notranslate"><span class="pre">SkillController</span></code> class and replicate the steps you followed above for <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code>. The new controller should have the methods, <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">displayAddSkillForm</span></code>, <code class="docutils literal notranslate"><span class="pre">processAddSkillForm</span></code>, and <code class="docutils literal notranslate"><span class="pre">displayViewSkill</span></code>. These methods should behave exactly as the corresponding methods in <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code>. The relevant templates have already been created for you.</p>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">SkillController</span></code> class and replicate the steps you followed above for <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code>. The new controller should have the methods, <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">displayAddSkillForm</span></code>, <code class="docutils literal notranslate"><span class="pre">processAddSkillForm</span></code>, and <code class="docutils literal notranslate"><span class="pre">displayViewSkill</span></code>. These methods should behave exactly as the corresponding methods in <code class="docutils literal notranslate"><span class="pre">EmployerController</span></code>. The relevant templates have already been created for you.</p>
 <p>At this point, uncomment all remaining methods in <code class="docutils literal notranslate"><span class="pre">TestTaskTwo</span></code>, if you have not done so already. You’ll need to add an <code class="docutils literal notranslate"><span class="pre">import</span></code> statement for the new controller to the test file.</p>
 </li>
 </ol>
@@ -284,27 +277,27 @@ method’s parameters.</p>
 test your application now to make sure it runs as expected. You should be able to create Employer and Skill objects
 and view them.</p>
 <ol class="arabic simple">
-<li>Start up your application – don’t forget to have your SQL server running – and go to the <em>Add Jobs</em>
-view from the application’s navigation menu.</li>
-<li>You won’t be able to add a job yet, but you’ll see a link to <em>Add Employers</em> and <em>Add Skills</em> in the form. Click them and proceed
-to check the functionality of the forms that follow.</li>
-<li>Be sure to test your validation requirements and error handling.</li>
-<li><strong>SQL TASK:</strong> In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 2”, write a query to list the names of the employers in St. Louis City. Do NOT specify an ordering for the query results.</li>
+<li><p>Start up your application – don’t forget to have your SQL server running – and go to the <em>Add Jobs</em>
+view from the application’s navigation menu.</p></li>
+<li><p>You won’t be able to add a job yet, but you’ll see a link to <em>Add Employers</em> and <em>Add Skills</em> in the form. Click them and proceed
+to check the functionality of the forms that follow.</p></li>
+<li><p>Be sure to test your validation requirements and error handling.</p></li>
+<li><p><strong>SQL TASK:</strong> In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 2”, write a query to list the names of the employers in St. Louis City. Do NOT specify an ordering for the query results.</p></li>
 </ol>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>If everything seems to work – that is, you are
 able to submit the form without any errors – but you don’t see your
 employers or skills in the list after submission, here’s what you should check:</p>
 <ol class="arabic simple">
-<li>Is there any data in the <code class="docutils literal notranslate"><span class="pre">employers</span></code> and <code class="docutils literal notranslate"><span class="pre">skills</span></code> table? Check by going to MySQL Workbench
-and looking for the employer/skill data within your schema.</li>
-<li>If there’s data in the database, check that you are correctly
+<li><p>Is there any data in the <code class="docutils literal notranslate"><span class="pre">employers</span></code> and <code class="docutils literal notranslate"><span class="pre">skills</span></code> table? Check by going to MySQL Workbench
+and looking for the employer/skill data within your schema.</p></li>
+<li><p>If there’s data in the database, check that you are correctly
 querying for the list of all objects in the controller
-Are you calling <code class="docutils literal notranslate"><span class="pre">.findAll()</span></code> on the repository?</li>
-<li>Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.</li>
+Are you calling <code class="docutils literal notranslate"><span class="pre">.findAll()</span></code> on the repository?</p></li>
+<li><p>Ensure you’re passing the list into the view, and it is named the same as the variable in the ThymeLeaf template.</p></li>
 </ol>
-<p class="last">When everything works, move on to Part 3 below.</p>
+<p>When everything works, move on to Part 3 below.</p>
 </div>
 <p>Throughout your work, refer to the <a class="reference external" href="https://lc-java-4-demo.herokuapp.com/" target="_blank">demo app<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> as needed.</p>
 </div>
@@ -319,54 +312,51 @@ with each instance.</p>
 <div class="section" id="add-a-jobs-field-to-employer">
 <h3>Add a <code class="docutils literal notranslate"><span class="pre">jobs</span></code> Field to <code class="docutils literal notranslate"><span class="pre">Employer</span></code><a class="headerlink" href="#add-a-jobs-field-to-employer" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, add a private property <code class="docutils literal notranslate"><span class="pre">jobs</span></code> of type
+<li><p>Within <code class="docutils literal notranslate"><span class="pre">Employer</span></code>, add a private property <code class="docutils literal notranslate"><span class="pre">jobs</span></code> of type
 <code class="docutils literal notranslate"><span class="pre">List&lt;Job&gt;</span></code> and initialize it to an empty <code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>. After we
 set up the <code class="docutils literal notranslate"><span class="pre">Job</span></code> class to work with <code class="docutils literal notranslate"><span class="pre">Employer</span></code> objects, this list
 will represent the list of all items in a given job. We’ll do this
-in a bit.</li>
-<li>Use the <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;JoinColumn</span></code> annotations on the jobs list in <code class="docutils literal notranslate"><span class="pre">Employer</span></code> to declare the relationship between
-data tables. Recall that this annotation needs a <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter. What should its value be?</li>
+in a bit.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;JoinColumn</span></code> annotations on the jobs list in <code class="docutils literal notranslate"><span class="pre">Employer</span></code> to declare the relationship between
+data tables. Recall that this annotation needs a <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter. What should its value be?</p></li>
 </ol>
 </div>
 <div class="section" id="update-job-model">
 <h3>Update <code class="docutils literal notranslate"><span class="pre">Job</span></code> Model<a class="headerlink" href="#update-job-model" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Since the <code class="docutils literal notranslate"><span class="pre">Job</span></code> model class has <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> fields, it too can inherit from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Update the
-class definition of <code class="docutils literal notranslate"><span class="pre">Job</span></code> to extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Remove the redundant fields from <code class="docutils literal notranslate"><span class="pre">Job</span></code>.</li>
-<li>Replace the type of the field <code class="docutils literal notranslate"><span class="pre">employer</span></code> to be of type <code class="docutils literal notranslate"><span class="pre">Employer</span></code>. You will also need to refactor the affected constructor
-and getter and setter that use this field.</li>
-<li>Add the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code> annotation on the field <code class="docutils literal notranslate"><span class="pre">employer</span></code></li>
+<li><p>Since the <code class="docutils literal notranslate"><span class="pre">Job</span></code> model class has <code class="docutils literal notranslate"><span class="pre">id</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> fields, it too can inherit from <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Update the
+class definition of <code class="docutils literal notranslate"><span class="pre">Job</span></code> to extend <code class="docutils literal notranslate"><span class="pre">AbstractEntity</span></code>. Remove the redundant fields from <code class="docutils literal notranslate"><span class="pre">Job</span></code>.</p></li>
+<li><p>Replace the type of the field <code class="docutils literal notranslate"><span class="pre">employer</span></code> to be of type <code class="docutils literal notranslate"><span class="pre">Employer</span></code>. You will also need to refactor the affected constructor
+and getter and setter that use this field.</p></li>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code> annotation on the field <code class="docutils literal notranslate"><span class="pre">employer</span></code></p></li>
 </ol>
 </div>
 <div class="section" id="updating-homecontroller">
 <span id="data-in-homecontroller"></span><h3>Updating <code class="docutils literal notranslate"><span class="pre">HomeController</span></code><a class="headerlink" href="#updating-homecontroller" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>As above, there is a test in <code class="docutils literal notranslate"><span class="pre">TestTaskThree</span></code> that needs to be uncommented. There is only one, and it is near the end of the file. Do that now.</p>
 <p>Open <code class="docutils literal notranslate"><span class="pre">TestTaskThree</span></code> in IntelliJ and find this test.</p>
 <ol class="arabic simple">
-<li>Select the entire commented-out method.</li>
-<li>Uncomment the method by using <code class="docutils literal notranslate"><span class="pre">cmd+/</span></code> on Mac or <code class="docutils literal notranslate"><span class="pre">ctrl+/</span></code> on Windows.</li>
+<li><p>Select the entire commented-out method.</p></li>
+<li><p>Uncomment the method by using <code class="docutils literal notranslate"><span class="pre">cmd+/</span></code> on Mac or <code class="docutils literal notranslate"><span class="pre">ctrl+/</span></code> on Windows.</p></li>
 </ol>
-<p class="last">If you do not uncomment this test, your code will not pass the autograder.</p>
+<p>If you do not uncomment this test, your code will not pass the autograder.</p>
 </div>
 <p>We’ll make several updates here. Similar to what you have done in Part 1, several of the methods in <code class="docutils literal notranslate"><span class="pre">HomeController</span></code> are
 missing code because the class has not yet been <em>wired</em> with the data layer yet.</p>
 <ol class="arabic">
-<li><p class="first">Add a field <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code>.</p>
-</li>
-<li><p class="first">A user will select an employer when they create a job. Add the employer data from <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> into the form template.
+<li><p>Add a field <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> annotated with <code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code>.</p></li>
+<li><p>A user will select an employer when they create a job. Add the employer data from <code class="docutils literal notranslate"><span class="pre">employerRepository</span></code> into the form template.
 The add job form already includes an employer selection option. Be sure your variable name for the employer data matches that
-already used in <code class="docutils literal notranslate"><span class="pre">templates/add</span></code>.</p>
-</li>
-<li><p class="first">Checkout <code class="docutils literal notranslate"><span class="pre">templates/add.html</span></code>. Make a mental note of the name of the variable being used to pass the selected employer
-id on form submission.</p>
-</li>
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">processAddJobForm</span></code>, add code inside of this method to select the employer object that has been chosen to be
+already used in <code class="docutils literal notranslate"><span class="pre">templates/add</span></code>.</p></li>
+<li><p>Checkout <code class="docutils literal notranslate"><span class="pre">templates/add.html</span></code>. Make a mental note of the name of the variable being used to pass the selected employer
+id on form submission.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">processAddJobForm</span></code>, add code inside of this method to select the employer object that has been chosen to be
 affiliated with the new job. You will need to select the employer using the request parameter you’ve added to the method.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">An employer only needs to be found and set on the new job object if the form data is validated.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>An employer only needs to be found and set on the new job object if the form data is validated.</p>
 </div>
 </li>
 </ol>
@@ -383,7 +373,7 @@ create a new job object from the <em>Add Jobs</em> form, selecting a pre-existin
 <code class="docutils literal notranslate"><span class="pre">employer_id</span></code> column but you’ll note that job still has the now defunct <code class="docutils literal notranslate"><span class="pre">employer</span></code> column. You can keep your database
 clean by removing the job table. It will be recreated when you run the application again.</p>
 <ol class="arabic simple">
-<li><strong>SQL TASK:</strong> In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 3”, write the SQL statement to remove the job table.</li>
+<li><p><strong>SQL TASK:</strong> In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 3”, write the SQL statement to remove the job table.</p></li>
 </ol>
 <p>The <em>List</em> and <em>Search</em> functionality still isn’t quite fixed so to view a job in the application, make a note
 of the job’s id in the SQL table. Back in your browser, enter the path for <code class="docutils literal notranslate"><span class="pre">/view/{jobId}</span></code>.</p>
@@ -397,22 +387,23 @@ a job can have many skills listed as strings. In this section, you’ll be taske
 of skills. Just as a job requires many skills, any skill can be associated with several jobs. With this in mind, you’ll also
 add a list of jobs as a field onto the skill class.</p>
 <div class="admonition-warning admonition">
-<p class="first admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
+<p class="admonition-title"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>Warning</p>
 <p>As before, there are a few tests in <code class="docutils literal notranslate"><span class="pre">TestTaskFour</span></code> that have been commented out because they depend on the code you wrote in Part 1. Open <code class="docutils literal notranslate"><span class="pre">TestTaskFour</span></code> in IntelliJ and find these tests. For each one:</p>
 <ol class="arabic simple">
-<li>Select the entire commented-out method.</li>
-<li>Uncomment the method by using <code class="docutils literal notranslate"><span class="pre">cmd+/</span></code> on Mac or <code class="docutils literal notranslate"><span class="pre">ctrl+/</span></code> on Windows.</li>
+<li><p>Select the entire commented-out method.</p></li>
+<li><p>Uncomment the method by using <code class="docutils literal notranslate"><span class="pre">cmd+/</span></code> on Mac or <code class="docutils literal notranslate"><span class="pre">ctrl+/</span></code> on Windows.</p></li>
 </ol>
-<p class="last">If you do not uncomment these tests, your code will not pass the autograder.</p>
+<p>If you do not uncomment these tests, your code will not pass the autograder.</p>
 </div>
 <div class="section" id="skill-jobs">
 <h3><code class="docutils literal notranslate"><span class="pre">Skill.jobs</span></code><a class="headerlink" href="#skill-jobs" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>In your <code class="docutils literal notranslate"><span class="pre">Skill</span></code> class, add a jobs field.<ol class="arabic">
-<li>What type should this field be? Initialize it in the field declaration accordingly.</li>
-<li>Add a getter and setter for the field.</li>
-<li>This field has a many-to-many type relationship with skills. You’ll need to add the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToMany</span></code> annotation
-with an argument <code class="docutils literal notranslate"><span class="pre">mappedBy=&quot;skills&quot;</span></code> to configure this mapping.</li>
+<li><p>In your <code class="docutils literal notranslate"><span class="pre">Skill</span></code> class, add a jobs field.</p>
+<ol class="arabic simple">
+<li><p>What type should this field be? Initialize it in the field declaration accordingly.</p></li>
+<li><p>Add a getter and setter for the field.</p></li>
+<li><p>This field has a many-to-many type relationship with skills. You’ll need to add the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToMany</span></code> annotation
+with an argument <code class="docutils literal notranslate"><span class="pre">mappedBy=&quot;skills&quot;</span></code> to configure this mapping.</p></li>
 </ol>
 </li>
 </ol>
@@ -420,12 +411,12 @@ with an argument <code class="docutils literal notranslate"><span class="pre">ma
 <div class="section" id="refactor-job-skills">
 <h3>Refactor <code class="docutils literal notranslate"><span class="pre">Job.skills</span></code><a class="headerlink" href="#refactor-job-skills" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p class="first">Update your <code class="docutils literal notranslate"><span class="pre">Job</span></code> model class to fit its many-to-many relationship with skills.</p>
+<li><p>Update your <code class="docutils literal notranslate"><span class="pre">Job</span></code> model class to fit its many-to-many relationship with skills.</p>
 <ol class="arabic">
-<li><p class="first"><code class="docutils literal notranslate"><span class="pre">Job.skills</span></code> already exists. What needs to change and/or be added to map this relationship?</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">Job.skills</span></code> already exists. What needs to change and/or be added to map this relationship?</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Be sure to check the whole class for any necessary type updates.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Be sure to check the whole class for any necessary type updates.</p>
 </div>
 </li>
 </ol>
@@ -441,23 +432,22 @@ This will look almost precisely like what you have done for employer data above.
 field. Many skills can be added to a single job, though. Here’s what we’ll say about how to send the right skills along with
 the job form.</p>
 <ol class="arabic">
-<li><p class="first">The code for the view has already been written. Look in <code class="docutils literal notranslate"><span class="pre">templates/add.html</span></code>. You’ll see a form-group section that iterates
-over available skills data and renders a checkbox for each skill. Each checkbox input contains an attribute <code class="docutils literal notranslate"><span class="pre">name=&quot;skills&quot;</span></code>.</p>
-</li>
-<li><p class="first">You’ll need to pass in that attribute value to <code class="docutils literal notranslate"><span class="pre">processAddJobForm</span></code> in <code class="docutils literal notranslate"><span class="pre">HomeController</span></code> as a <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code>.</p>
+<li><p>The code for the view has already been written. Look in <code class="docutils literal notranslate"><span class="pre">templates/add.html</span></code>. You’ll see a form-group section that iterates
+over available skills data and renders a checkbox for each skill. Each checkbox input contains an attribute <code class="docutils literal notranslate"><span class="pre">name=&quot;skills&quot;</span></code>.</p></li>
+<li><p>You’ll need to pass in that attribute value to <code class="docutils literal notranslate"><span class="pre">processAddJobForm</span></code> in <code class="docutils literal notranslate"><span class="pre">HomeController</span></code> as a <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RequestParam</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">skills</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Then, to get the skills data from a list of ids (rather than a single id as we did with employer), use the <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> method
+<li><p>Then, to get the skills data from a list of ids (rather than a single id as we did with employer), use the <code class="docutils literal notranslate"><span class="pre">CrudRepository</span></code> method
 <code class="docutils literal notranslate"><span class="pre">.findAllById(ids)</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Skill</span><span class="o">&gt;</span> <span class="n">skillObjs</span> <span class="o">=</span> <span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Skill</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">skillRepository</span><span class="p">.</span><span class="na">findAllById</span><span class="p">(</span><span class="n">skills</span><span class="p">);</span>
 <span class="n">newJob</span><span class="p">.</span><span class="na">setSkills</span><span class="p">(</span><span class="n">skillObjs</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">As with a job’s employer, you only need to query your database for skills if the job model is valid.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>As with a job’s employer, you only need to query your database for skills if the job model is valid.</p>
 </div>
 </li>
 </ol>
@@ -466,10 +456,10 @@ over available skills data and renders a checkbox for each skill. Each checkbox 
 <h3>It’s Your Job, List It and Re-Search It<a class="headerlink" href="#it-s-your-job-list-it-and-re-search-it" title="Permalink to this headline">¶</a></h3>
 <p>You now have all the tools in place to re-implement the list and search views from <a class="reference internal" href="tech-jobs-mvc.html#tech-jobs-mvc"><span class="std std-ref">Assignment #3: Tech Jobs (MVC Edition)</span></a>.</p>
 <ol class="arabic simple">
-<li>In the <code class="docutils literal notranslate"><span class="pre">ListController</span></code> class, add fields for <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> and <code class="docutils literal notranslate"><span class="pre">SkillRepository</span></code>, both annotated with
-<code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code>.</li>
-<li>You’ll also need to pass the employer and skill data from those repositories into the view template rendered at <code class="docutils literal notranslate"><span class="pre">list/</span></code>.
-Add the right <code class="docutils literal notranslate"><span class="pre">model.addAttribute(name,</span> <span class="pre">value)</span></code> statements to pass this info into <code class="docutils literal notranslate"><span class="pre">templates/list.html</span></code>.</li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">ListController</span></code> class, add fields for <code class="docutils literal notranslate"><span class="pre">EmployerRepository</span></code> and <code class="docutils literal notranslate"><span class="pre">SkillRepository</span></code>, both annotated with
+<code class="docutils literal notranslate"><span class="pre">&#64;Autowired</span></code>.</p></li>
+<li><p>You’ll also need to pass the employer and skill data from those repositories into the view template rendered at <code class="docutils literal notranslate"><span class="pre">list/</span></code>.
+Add the right <code class="docutils literal notranslate"><span class="pre">model.addAttribute(name,</span> <span class="pre">value)</span></code> statements to pass this info into <code class="docutils literal notranslate"><span class="pre">templates/list.html</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="id3">
@@ -477,9 +467,9 @@ Add the right <code class="docutils literal notranslate"><span class="pre">model
 <p>Run your application and make sure you can create a new job with an employer and several skills. You should now also have restored
 full list and search capabilities.</p>
 <ol class="arabic simple">
-<li><strong>SQL TASK:</strong> In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 4”, write a query to return the names of all skills that are attached to jobs in alphabetical order.
+<li><p><strong>SQL TASK:</strong> In <code class="docutils literal notranslate"><span class="pre">queries.sql</span></code> under “Part 4”, write a query to return the names of all skills that are attached to jobs in alphabetical order.
 If a skill does not have a job listed, it should not be
-included in the results of this query.</li>
+included in the results of this query.</p></li>
 </ol>
 <p>When everything works, you’re done! Congrats!</p>
 </div>

@@ -94,8 +94,8 @@
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/0yNIbAcd4ng" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-many" target="_blank">one-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-many" target="_blank">one-to-many branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/one-to-one" target="_blank">one-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -273,8 +273,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 </td></tr></table></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> parameter is created by Spring Boot using model binding. As usual, we validate the new model object using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> in conjunction with the <code class="docutils literal notranslate"><span class="pre">errors</span></code> object.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Recall that validation annotations within <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> will be checked (for the <code class="docutils literal notranslate"><span class="pre">Event.eventDetails</span></code> field) since we added <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> to that field.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Recall that validation annotations within <code class="docutils literal notranslate"><span class="pre">EventDetails</span></code> will be checked (for the <code class="docutils literal notranslate"><span class="pre">Event.eventDetails</span></code> field) since we added <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> to that field.</p>
 </div>
 <p>If you were to start your application and run it at this point, an exception would occur when attempting to save <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> on line 73 (<code class="docutils literal notranslate"><span class="pre">eventRepository.save(newEvent)</span></code>). Specifically, the root exception would be:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>org.hibernate.TransientPropertyValueException: Not-null property references a transient value -
@@ -314,17 +314,17 @@ org.launchcode.codingevents.models.EventDetails
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">18.4.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True/False: When a new object is saved to a repository, all of its non-primitive fields are saved as well.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True/False: When a new object is saved to a repository, all of its non-primitive fields are saved as well.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Consider an entity type A that has a reference to an entity type B, both of which are stored in a SQL database. Which of the following are true?</p>
-<ol class="last arabic simple">
-<li>A and B are in a one-to-one relationship.</li>
-<li>A is not valid unless B is also valid.</li>
-<li>Setting <code class="docutils literal notranslate"><span class="pre">cascade</span> <span class="pre">=</span> <span class="pre">CascadeType.ALL</span></code> on the relationship annotation ensures that B is saved whenever A is saved.</li>
-<li>A and B will have a foreign-key relationship in the database.</li>
+<ol class="arabic simple">
+<li><p>A and B are in a one-to-one relationship.</p></li>
+<li><p>A is not valid unless B is also valid.</p></li>
+<li><p>Setting <code class="docutils literal notranslate"><span class="pre">cascade</span> <span class="pre">=</span> <span class="pre">CascadeType.ALL</span></code> on the relationship annotation ensures that B is saved whenever A is saved.</p></li>
+<li><p>A and B will have a foreign-key relationship in the database.</p></li>
 </ol>
 </div>
 </div>

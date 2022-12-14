@@ -96,7 +96,7 @@ of different types to be used in the same way.</p>
 In that case, we stored an object of type <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code> in its compatible type, <code class="docutils literal notranslate"><span class="pre">Cat</span></code>.</p>
 <p>Let’s take a closer look at how polymorphism might work in our cat-centric application.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Suppose we had a <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class like the one below:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -141,7 +141,7 @@ acceptable to use an instance of <code class="docutils literal notranslate"><spa
 <span class="n">Annie</span><span class="p">.</span><span class="na">feedTheCat</span><span class="p">();</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last">Similarly, <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> can accept <code class="docutils literal notranslate"><span class="pre">Tiger</span></code> instances as well. This
+<p>Similarly, <code class="docutils literal notranslate"><span class="pre">feedTheCat</span></code> can accept <code class="docutils literal notranslate"><span class="pre">Tiger</span></code> instances as well. This
 is because the only thing that the method requires is that the input
 parameter has the methods defined within <code class="docutils literal notranslate"><span class="pre">Cat</span></code>, and via inheritance,
 both of the subclasses satisfy this requirement.</p>

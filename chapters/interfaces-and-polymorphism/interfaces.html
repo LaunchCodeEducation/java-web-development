@@ -90,10 +90,10 @@
 create a set of behaviors that a class must fulfill. A Java interface may
 contain:</p>
 <ol class="arabic simple">
-<li>Constants (that is, <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span></code> fields)</li>
-<li>Method signatures</li>
-<li>Static methods</li>
-<li>Default methods</li>
+<li><p>Constants (that is, <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span></code> fields)</p></li>
+<li><p>Method signatures</p></li>
+<li><p>Static methods</p></li>
+<li><p>Default methods</p></li>
 </ol>
 <div class="section" id="creating-an-interface">
 <span id="create-an-interface"></span><h2><span class="section-number">8.2.1. </span>Creating an Interface<a class="headerlink" href="#creating-an-interface" title="Permalink to this headline">¶</a></h2>
@@ -104,8 +104,8 @@ A <strong>method signature</strong> includes the name, parameters, and return
 type of a method, but no body.</p>
 <p>As part of our cat application, let’s create a method signature, <code class="docutils literal notranslate"><span class="pre">eat</span></code>, as part of an interface, <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -121,11 +121,11 @@ type of a method, but no body.</p>
 </div>
 <p>In the code above, notice the following:</p>
 <ol class="arabic simple">
-<li>That we need to use the <code class="docutils literal notranslate"><span class="pre">interface</span></code> keyword to define our interface, <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">eat</span></code> only has a signature. We are NOT allowed to provide a body for methods defined in interfaces.</li>
-<li><code class="docutils literal notranslate"><span class="pre">eat</span></code> also does not have an access modifier. Interface members are always <code class="docutils literal notranslate"><span class="pre">public</span></code>, and while we may use the <code class="docutils literal notranslate"><span class="pre">public</span></code> modifier, it’s unnecessary. An interface method may NOT have an access modifier that is more restrictive than <code class="docutils literal notranslate"><span class="pre">public</span></code>.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface itself is declared <code class="docutils literal notranslate"><span class="pre">public</span></code>, which means any other class may use it. We may also leave off <code class="docutils literal notranslate"><span class="pre">public</span></code>, making the interface package-private, or usable only within the same package.</li>
-<li>The name is indicative of the behavior that the interface is intended to describe. While this is only a convention, most interfaces have names that are adjectives. Whatever you do, use meaningful names!</li>
+<li><p>That we need to use the <code class="docutils literal notranslate"><span class="pre">interface</span></code> keyword to define our interface, <code class="docutils literal notranslate"><span class="pre">Feedable</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eat</span></code> only has a signature. We are NOT allowed to provide a body for methods defined in interfaces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eat</span></code> also does not have an access modifier. Interface members are always <code class="docutils literal notranslate"><span class="pre">public</span></code>, and while we may use the <code class="docutils literal notranslate"><span class="pre">public</span></code> modifier, it’s unnecessary. An interface method may NOT have an access modifier that is more restrictive than <code class="docutils literal notranslate"><span class="pre">public</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface itself is declared <code class="docutils literal notranslate"><span class="pre">public</span></code>, which means any other class may use it. We may also leave off <code class="docutils literal notranslate"><span class="pre">public</span></code>, making the interface package-private, or usable only within the same package.</p></li>
+<li><p>The name is indicative of the behavior that the interface is intended to describe. While this is only a convention, most interfaces have names that are adjectives. Whatever you do, use meaningful names!</p></li>
 </ol>
 </div>
 <div class="section" id="static-methods">
@@ -171,8 +171,8 @@ interface”. The syntax for implementation is similar to that for
 inheritance. Here’s how we can use the <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> interface in
 defining our <code class="docutils literal notranslate"><span class="pre">Cat</span></code> class.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -206,9 +206,9 @@ that situation, using <code class="docutils literal notranslate"><span class="pr
 an interface will enable the compiler to check that your method
 signature does indeed match that of the interface.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>You may both extend a class and implement an interface at the same time:</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="n">MySubclass</span> <span class="kd">implements</span> <span class="n">MyInterface</span>
@@ -327,8 +327,8 @@ Also notice that we’ve used the object <code class="docutils literal notransla
 creating it as a <code class="docutils literal notranslate"><span class="pre">HouseCat</span></code>, but using it as a <code class="docutils literal notranslate"><span class="pre">Feedable</span></code> within the
 <code class="docutils literal notranslate"><span class="pre">CatOwner</span></code> class.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Like inheritance, interfaces enable polymorphic usage of objects. We can
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Like inheritance, interfaces enable polymorphic usage of objects. We can
 create an object and then use it in different contexts based on the
 interfaces that it implements.</p>
 </div>
@@ -346,14 +346,14 @@ coding to classes, and your code will become more flexible and
 extensible.</p>
 <p>Here are a few benefits of using interfaces:</p>
 <ol class="arabic simple">
-<li>You can only extend one class, but you may implement many interfaces.</li>
-<li>You can extend a class and implement an interface at the same time.</li>
-<li>By declaring variables and parameters as interface types, you make
-your code useful for a much wider variety of situations.</li>
-<li>When you declare properties and return types to be interface types,
+<li><p>You can only extend one class, but you may implement many interfaces.</p></li>
+<li><p>You can extend a class and implement an interface at the same time.</p></li>
+<li><p>By declaring variables and parameters as interface types, you make
+your code useful for a much wider variety of situations.</p></li>
+<li><p>When you declare properties and return types to be interface types,
 you decouple code using your classes from the actual class types you
 use. This means that you are free to change the specific
-implementation of your classes without affecting those using them.</li>
+implementation of your classes without affecting those using them.</p></li>
 </ol>
 <p>Remember that you don’t need to start creating interfaces to use their
 power! As we will cover later in the chapter, when working with collections, we can declare variables and parameters
@@ -363,25 +363,25 @@ ordering or iteration.</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">8.2.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Choose the appropriate option to fill in the blanks.</p>
 <p>A class can extend _______ class(s) and implement ________ interface(s).</p>
-<ol class="last loweralpha simple">
-<li>one, one</li>
-<li>one, more than one</li>
-<li>more than one, one</li>
-<li>more than one, more than one</li>
+<ol class="loweralpha simple">
+<li><p>one, one</p></li>
+<li><p>one, more than one</p></li>
+<li><p>more than one, one</p></li>
+<li><p>more than one, more than one</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>True or False:</p>
-<p class="last">An interface can contain a <code class="docutils literal notranslate"><span class="pre">static</span></code> variable, a <code class="docutils literal notranslate"><span class="pre">final</span></code> variable, and a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span></code> variable.</p>
+<p>An interface can contain a <code class="docutils literal notranslate"><span class="pre">static</span></code> variable, a <code class="docutils literal notranslate"><span class="pre">final</span></code> variable, and a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">final</span></code> variable.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What keywords are missing from the following interface?</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4

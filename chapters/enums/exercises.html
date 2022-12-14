@@ -87,13 +87,10 @@
   <div class="section" id="exercises-enum-practice">
 <span id="enums-exercises"></span><h1><span class="section-number">16.3. </span>Exercises: Enum Practice<a class="headerlink" href="#exercises-enum-practice" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic">
-<li><p class="first">Fork and clone <a class="reference external" href="https://github.com/LaunchCodeEducation/enumerable-planets" target="_blank">enumerable-planets<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-</li>
-<li><p class="first">Use the <em>Get from Version Control</em> option to open the project in IntelliJ.</p>
-</li>
-<li><p class="first">In the project, create a data package.</p>
-</li>
-<li><p class="first">Create a new public enum called <code class="docutils literal notranslate"><span class="pre">Planets</span></code>.</p>
+<li><p>Fork and clone <a class="reference external" href="https://github.com/LaunchCodeEducation/enumerable-planets" target="_blank">enumerable-planets<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p></li>
+<li><p>Use the <em>Get from Version Control</em> option to open the project in IntelliJ.</p></li>
+<li><p>In the project, create a data package.</p></li>
+<li><p>Create a new public enum called <code class="docutils literal notranslate"><span class="pre">Planets</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Planets</span> <span class="p">{</span>
    <span class="c1">// list the planets here.</span>
    <span class="c1">// Mercury, Venus, Earth, Mars, Jupiter,</span>
@@ -104,58 +101,59 @@
 </pre></div>
 </div>
 </li>
-<li><p class="first">Before adding any other fields to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>, go to <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code>
+<li><p>Before adding any other fields to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>, go to <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code>
 and update the index handler to pass in a <code class="docutils literal notranslate"><span class="pre">Model</span></code> class argument (eg. <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">model</span></code>).</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/enums.html#enums-exercise-solutions5"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Use <code class="docutils literal notranslate"><span class="pre">.addAttribute</span></code> to add the planet values to the model.</p>
-</li>
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a list element and use the template
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">.addAttribute</span></code> to add the planet values to the model.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a list element and use the template
 variable you have just defined in the controller to list all of the
 planet values on the page.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/enums.html#enums-exercise-solutions7"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Add a <code class="docutils literal notranslate"><span class="pre">name</span></code> field to the planets.</p>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">name</span></code> field to the planets.</p>
 <ol class="loweralpha simple">
-<li>Create a name property to display a non-capitalized version of each of the planet names.</li>
-<li>Add a constructor with the name field and a getter for the field.</li>
+<li><p>Create a name property to display a non-capitalized version of each of the planet names.</p></li>
+<li><p>Add a constructor with the name field and a getter for the field.</p></li>
 </ol>
 </li>
-<li><p class="first">Update the template to display the planet names.</p>
+<li><p>Update the template to display the planet names.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/enums.html#enums-exercise-solutions9"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">Back in the <code class="docutils literal notranslate"><span class="pre">Planets</span></code> enum, add a new field called <code class="docutils literal notranslate"><span class="pre">yearLength</span></code>.</p>
+<li><p>Back in the <code class="docutils literal notranslate"><span class="pre">Planets</span></code> enum, add a new field called <code class="docutils literal notranslate"><span class="pre">yearLength</span></code>.</p>
 <ol class="arabic simple">
-<li>The value of each <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> should be the number of earth days of a year on the given planet.<ol class="arabic">
-<li>Number of earth days on each planet:<ol class="arabic">
-<li>Mercury: 88</li>
-<li>Venus: 225</li>
-<li>Earth: 365</li>
-<li>Mars: 687</li>
-<li>Jupiter: 4333</li>
-<li>Saturn: 10759</li>
-<li>Uranus: 30687</li>
-<li>Neptune: 60200</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Update the constructor and add a getter for this field.</li>
-</ol>
-</li>
-<li><p class="first">Change the index template to display a table of each planet name and its year in earth days.</p>
+<li><p>The value of each <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> should be the number of earth days of a year on the given planet.</p>
 <ol class="arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a table element and add the appropriate bootstrap class.</li>
-<li>The table can be styled to your liking.</li>
-<li>Add a message to let the users know what data you are displaying
-with the <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> field.</li>
+<li><p>Number of earth days on each planet:</p>
+<ol class="arabic simple">
+<li><p>Mercury: 88</p></li>
+<li><p>Venus: 225</p></li>
+<li><p>Earth: 365</p></li>
+<li><p>Mars: 687</p></li>
+<li><p>Jupiter: 4333</p></li>
+<li><p>Saturn: 10759</p></li>
+<li><p>Uranus: 30687</p></li>
+<li><p>Neptune: 60200</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Update the constructor and add a getter for this field.</p></li>
+</ol>
+</li>
+<li><p>Change the index template to display a table of each planet name and its year in earth days.</p>
+<ol class="arabic simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a table element and add the appropriate bootstrap class.</p></li>
+<li><p>The table can be styled to your liking.</p></li>
+<li><p>Add a message to let the users know what data you are displaying
+with the <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> field.</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/enums.html#enums-exercise-solutions11"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first">If you wish, add another field to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>. You can find plenty of information on <a class="reference external" href="https://solarsystem.nasa.gov/planets/overview/" target="_blank">NASA’s web site<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
+<li><p>If you wish, add another field to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>. You can find plenty of information on <a class="reference external" href="https://solarsystem.nasa.gov/planets/overview/" target="_blank">NASA’s web site<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 <ol class="arabic simple">
-<li>Update the enum with the new field, including changing the constructor and adding a getter method.</li>
-<li>Add the field to display in the table, with a message if helpful to convey the information or units of measure.</li>
+<li><p>Update the enum with the new field, including changing the constructor and adding a getter method.</p></li>
+<li><p>Add the field to display in the table, with a message if helpful to convey the information or units of measure.</p></li>
 </ol>
 </li>
 </ol>

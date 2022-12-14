@@ -102,20 +102,20 @@ the same, but the implementation requires practice.</p>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">th:if</span></code> statement gets placed inside an HTML tag.</li>
-<li><code class="docutils literal notranslate"><span class="pre">condition</span></code> represents a boolean variable provided by the controller.</li>
-<li>Alternatively, <code class="docutils literal notranslate"><span class="pre">condition</span></code> can be a statement that evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>
-or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">th:if</span></code> statement gets placed inside an HTML tag.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">condition</span></code> represents a boolean variable provided by the controller.</p></li>
+<li><p>Alternatively, <code class="docutils literal notranslate"><span class="pre">condition</span></code> can be a statement that evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>
+or <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
 </ol>
 <p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, then Thymeleaf adds the HTML element to
 the webpage, and the content gets displayed in the view. If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is
 <code class="docutils literal notranslate"><span class="pre">false</span></code>, then Thymeleaf does NOT generate the element, and the content stays
 off the page.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Assume that <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> and <code class="docutils literal notranslate"><span class="pre">userSelection</span></code> represent an ArrayList
 and String, respectively, that are passed in by the controller.</p>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -147,12 +147,12 @@ consideration when including items like images or videos on your website.</p>
 variables and statements. It will also return <code class="docutils literal notranslate"><span class="pre">true</span></code> according to these
 rules:</p>
 <ol class="arabic simple">
-<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a boolean or statement and <code class="docutils literal notranslate"><span class="pre">true</span></code>.</li>
-<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a non-zero number or character.</li>
-<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a string that is NOT <code class="docutils literal notranslate"><span class="pre">&quot;false&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code>, or
-<code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code>.</li>
-<li>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a data type other than a boolean, number, character, or
-String.</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a boolean or statement and <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a non-zero number or character.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a string that is NOT <code class="docutils literal notranslate"><span class="pre">&quot;false&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">&quot;no&quot;</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">condition</span></code> is a data type other than a boolean, number, character, or
+String.</p></li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">th:if</span></code> will evaluate to <code class="docutils literal notranslate"><span class="pre">false</span></code> whenever <code class="docutils literal notranslate"><span class="pre">condition</span></code> is <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
 </div>
@@ -169,8 +169,8 @@ tag. In this case, however, Thymeleaf adds the HTML element to the webpage when
 <code class="docutils literal notranslate"><span class="pre">condition</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <p>We could update our coffee code with an <code class="docutils literal notranslate"><span class="pre">unless</span></code>:</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">th:unless </span><span class="o">=</span> <span class="s">&#39;${userSelection.equals(&quot;instant&quot;)}&#39;</span><span class="p">&gt;</span>Excellent choice!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">th:unless </span><span class="o">=</span> <span class="s">&#39;${userSelection.equals(&quot;instant&quot;)}&#39;</span><span class="p">&gt;</span>Excellent choice!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -179,8 +179,8 @@ tag. In this case, however, Thymeleaf adds the HTML element to the webpage when
 <p>If we want to set up a situation like <em>if true, do this thing. Otherwise, do
 this other thing</em>, we need to pair a <code class="docutils literal notranslate"><span class="pre">th:if</span></code> with a <code class="docutils literal notranslate"><span class="pre">th:unless</span></code>.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -201,19 +201,19 @@ this other thing</em>, we need to pair a <code class="docutils literal notransla
 <p>We can use logical operators with <code class="docutils literal notranslate"><span class="pre">th:if</span></code> and <code class="docutils literal notranslate"><span class="pre">th:unless</span></code>. The Thymeleaf
 syntax for these is as follows:</p>
 <ol class="arabic">
-<li><p class="first">Logical AND = <code class="docutils literal notranslate"><span class="pre">and</span></code>,</p>
+<li><p>Logical AND = <code class="docutils literal notranslate"><span class="pre">and</span></code>,</p>
 <div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${condition1 and condition2 and...}&quot;</span>
 <span class="c1">// Evaluates to true if ALL conditions are true</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Logical OR = <code class="docutils literal notranslate"><span class="pre">or</span></code>,</p>
+<li><p>Logical OR = <code class="docutils literal notranslate"><span class="pre">or</span></code>,</p>
 <div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${condition1 or condition2 or...}&quot;</span>
 <span class="c1">// Evaluates to true if ANY condition is true</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">NOT = <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
+<li><p>NOT = <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>.</p>
 <div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${!condition}&quot;</span>
 <span class="c1">// Evaluates to true when condition is false</span>
 </pre></div>
@@ -221,7 +221,7 @@ syntax for these is as follows:</p>
 </li>
 </ol>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>Since <code class="docutils literal notranslate"><span class="pre">th:unless</span></code> looks for a <code class="docutils literal notranslate"><span class="pre">false</span></code> result, we can accomplish the same
 thing by adding a <code class="docutils literal notranslate"><span class="pre">not</span></code> operator to a <code class="docutils literal notranslate"><span class="pre">th:if</span></code> statement.</p>
 <p>The code:</p>
@@ -229,7 +229,7 @@ thing by adding a <code class="docutils literal notranslate"><span class="pre">n
 </pre></div>
 </div>
 <p>does the same thing as:</p>
-<div class="last highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span> <span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${variableName != 5}&quot;</span><span class="o">&gt;</span><span class="n">Value</span> <span class="n">is</span> <span class="n">NOT</span> <span class="n">equal</span> <span class="n">to</span> <span class="mi">5</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span> <span class="nl">th:</span><span class="k">if</span> <span class="o">=</span> <span class="s2">&quot;${variableName != 5}&quot;</span><span class="o">&gt;</span><span class="n">Value</span> <span class="n">is</span> <span class="n">NOT</span> <span class="n">equal</span> <span class="n">to</span> <span class="mi">5</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -244,8 +244,8 @@ the clip.</p>
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/bT5Zt9xZYSU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/hello-spring-demo/tree/views-static" target="_blank">views-static<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> branch of <code class="docutils literal notranslate"><span class="pre">hello-spring-demo</span></code>.
 The final code presented in this video is found on the
 <a class="reference external" href="https://github.com/LaunchCodeEducation/hello-spring-demo/tree/views-dynamic" target="_blank">views-dynamic<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
@@ -272,36 +272,36 @@ the values in an unordered list.</p>
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>You want to display the list only if <code class="docutils literal notranslate"><span class="pre">numbers</span></code> contains data. Which of the
 following attributes should you add to the <code class="docutils literal notranslate"><span class="pre">ul</span></code> tag?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${numbers.size()}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${numbers.size()}&quot;</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${numbers.size()}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${numbers.size()}&quot;</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Now you want to display ONLY the positive values in the list. Which of the
 following attributes could you add to the <code class="docutils literal notranslate"><span class="pre">li</span></code> tag? Select ALL that work.</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;</span> <span class="pre">0}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;</span> <span class="pre">0}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;=</span> <span class="pre">0}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;=</span> <span class="pre">0}&quot;</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;</span> <span class="pre">0}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;</span> <span class="pre">0}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;=</span> <span class="pre">0}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;=</span> <span class="pre">0}&quot;</span></code></p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Now you want to display ONLY the positive, even values in the list. Which of
 the following should you add to the <code class="docutils literal notranslate"><span class="pre">li</span></code> tag?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">and</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;</span> <span class="pre">0</span> <span class="pre">and</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">and</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:if</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&gt;</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;</span> <span class="pre">0</span> <span class="pre">and</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:unless</span> <span class="pre">=</span> <span class="pre">&quot;${number</span> <span class="pre">&lt;</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">number%2</span> <span class="pre">==</span> <span class="pre">0}&quot;</span></code></p></li>
 </ol>
 </div>
 </div>

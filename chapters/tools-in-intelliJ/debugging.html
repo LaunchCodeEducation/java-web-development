@@ -95,49 +95,49 @@ from the <a class="reference internal" href="../control-flow-and-collections/arr
 and the <code class="docutils literal notranslate"><span class="pre">HelloMethods</span></code> and <code class="docutils literal notranslate"><span class="pre">Message</span></code> from  <a class="reference internal" href="../classes-part2/instance-and-static-methods.html#static-methods-demo"><span class="std std-ref">Classes and Objects, Part 2</span></a> chapter.
 You should have already downloaded this code from the <code class="docutils literal notranslate"><span class="pre">java-web-dev-exercises</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>The video is using an older version of IntelliJ.</p>
 <p>The overall functionality of the debugging pane is still there, however,
 you may have to explore the location of buttons.
 We recommend hovering over each icon and looking at the names of each.</p>
-<p class="last">IntelliJ has <a class="reference external" href="https://www.jetbrains.com/help/idea/debugging-code.html#df9fd13c" target="_blank">documentation and videos<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> exploring their debugger if you are curious.</p>
+<p>IntelliJ has <a class="reference external" href="https://www.jetbrains.com/help/idea/debugging-code.html#df9fd13c" target="_blank">documentation and videos<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> exploring their debugger if you are curious.</p>
 </div>
 <div class="section" id="steps-to-find-and-diagnose-logical-bugs">
 <h2><span class="section-number">12.2.1. </span>Steps to Find and Diagnose Logical Bugs<a class="headerlink" href="#steps-to-find-and-diagnose-logical-bugs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Set a <strong>breakpoint</strong> where you want to pause the execution of the code. This will provide a more detailed look at what the program is doing at this point.  Right-click in the text editing window to add a breakpoint to your code.</li>
-<li>Run your program in <strong>Debug</strong> mode</li>
-<li>Inspect the values of your variables in the <strong>Debugger Pane</strong>.</li>
-<li>If needed, use the <strong>Add/Watch</strong> button to watch a specific expression as your program executes.</li>
-<li>You can also set a <strong>conditional breakpoint</strong> to pause the execution of the code when a certain condition is a method.</li>
+<li><p>Set a <strong>breakpoint</strong> where you want to pause the execution of the code. This will provide a more detailed look at what the program is doing at this point.  Right-click in the text editing window to add a breakpoint to your code.</p></li>
+<li><p>Run your program in <strong>Debug</strong> mode</p></li>
+<li><p>Inspect the values of your variables in the <strong>Debugger Pane</strong>.</p></li>
+<li><p>If needed, use the <strong>Add/Watch</strong> button to watch a specific expression as your program executes.</p></li>
+<li><p>You can also set a <strong>conditional breakpoint</strong> to pause the execution of the code when a certain condition is a method.</p></li>
 </ul>
 </div>
 <div class="section" id="control-the-flow-of-execution">
 <h2><span class="section-number">12.2.2. </span>Control the Flow of Execution<a class="headerlink" href="#control-the-flow-of-execution" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><strong>Step-over</strong> button executes a given line then steps to the next executable line</li>
-<li><strong>Step-into</strong> button allows you to review a called method and see what is going to line within the method</li>
-<li><strong>Step-out-of</strong> button allows you to move out of the method you stepped into and resume stepping through the main code</li>
-<li><strong>Variables Pane</strong> allows you to examine how variables are manipulated within your code.  Also allows you to identify specific <em>Watch expressions</em></li>
-<li><strong>Frames Pane</strong> tracks any method calls and threads in your code line by line.  Best used with breakpoints.</li>
+<li><p><strong>Step-over</strong> button executes a given line then steps to the next executable line</p></li>
+<li><p><strong>Step-into</strong> button allows you to review a called method and see what is going to line within the method</p></li>
+<li><p><strong>Step-out-of</strong> button allows you to move out of the method you stepped into and resume stepping through the main code</p></li>
+<li><p><strong>Variables Pane</strong> allows you to examine how variables are manipulated within your code.  Also allows you to identify specific <em>Watch expressions</em></p></li>
+<li><p><strong>Frames Pane</strong> tracks any method calls and threads in your code line by line.  Best used with breakpoints.</p></li>
 </ul>
 </div>
 <div class="section" id="advantage-of-debugger-over-printing-to-the-console">
 <h2><span class="section-number">12.2.3. </span>Advantage of Debugger Over Printing to the Console<a class="headerlink" href="#advantage-of-debugger-over-printing-to-the-console" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>The debugger lets you look at <strong>all</strong> the values in your program instead of just guessing which values you want to track via logging to the console.</li>
+<li><p>The debugger lets you look at <strong>all</strong> the values in your program instead of just guessing which values you want to track via logging to the console.</p></li>
 </ul>
 </div>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">12.2.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>What is a breakpoint?</p>
-<ol class="last loweralpha simple">
-<li>A point in our code where the debugger will stop running and provide information about the current state.</li>
-<li>A point in our code that we anticipate will result in an exception or error.</li>
-<li>A point in our code where we include a print statement to see what’s going on.</li>
-<li>A point in our code where we want to throw the computer out of a window because nothing works.</li>
+<ol class="loweralpha simple">
+<li><p>A point in our code where the debugger will stop running and provide information about the current state.</p></li>
+<li><p>A point in our code that we anticipate will result in an exception or error.</p></li>
+<li><p>A point in our code where we include a print statement to see what’s going on.</p></li>
+<li><p>A point in our code where we want to throw the computer out of a window because nothing works.</p></li>
 </ol>
 </div>
 </div>

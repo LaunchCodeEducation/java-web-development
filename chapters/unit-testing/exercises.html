@@ -93,12 +93,12 @@ more test cases.</p>
 <h2><span class="section-number">6.3.1. </span><code class="docutils literal notranslate"><span class="pre">testGasTankAfterDriving()</span></code><a class="headerlink" href="#testgastankafterdriving" title="Permalink to this headline">¶</a></h2>
 <p>Add a test for the third TODO, “gasTankLevel is accurate after driving within tank range”.</p>
 <ol class="arabic">
-<li><p class="first">Your test must use the <code class="docutils literal notranslate"><span class="pre">Car</span></code> method <code class="docutils literal notranslate"><span class="pre">drive()</span></code></p>
+<li><p>Your test must use the <code class="docutils literal notranslate"><span class="pre">Car</span></code> method <code class="docutils literal notranslate"><span class="pre">drive()</span></code></p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">test_car</span><span class="p">.</span><span class="na">drive</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">With a value of <code class="docutils literal notranslate"><span class="pre">50</span></code> miles passed into <code class="docutils literal notranslate"><span class="pre">drive()</span></code>, we expect
+<li><p>With a value of <code class="docutils literal notranslate"><span class="pre">50</span></code> miles passed into <code class="docutils literal notranslate"><span class="pre">drive()</span></code>, we expect
 <code class="docutils literal notranslate"><span class="pre">test_car</span></code> to have a <code class="docutils literal notranslate"><span class="pre">gasTankLevel</span></code> of <code class="docutils literal notranslate"><span class="pre">9</span></code>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">test_car</span><span class="p">.</span><span class="na">getGasTankLevel</span><span class="p">(),</span> <span class="mf">.001</span><span class="p">);</span>
 </pre></div>
@@ -111,8 +111,8 @@ more test cases.</p>
 <h2><span class="section-number">6.3.2. </span><code class="docutils literal notranslate"><span class="pre">testGasTankAfterExceedingTankRange()</span></code><a class="headerlink" href="#testgastankafterexceedingtankrange" title="Permalink to this headline">¶</a></h2>
 <p>Add a test for the fourth TODO, “gasTankLevel is accurate after attempting to drive past tank range”.</p>
 <ol class="arabic simple">
-<li>You’re on your own for this one. You’ll need to simulate the <code class="docutils literal notranslate"><span class="pre">Car</span></code>
-travelling farther than it’s <code class="docutils literal notranslate"><span class="pre">gasTankLevel</span></code> allows.</li>
+<li><p>You’re on your own for this one. You’ll need to simulate the <code class="docutils literal notranslate"><span class="pre">Car</span></code>
+travelling farther than it’s <code class="docutils literal notranslate"><span class="pre">gasTankLevel</span></code> allows.</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/unit-testing.html#unit-testing-exercise-solutions2"><span class="std std-ref">Check your solution</span></a></p>
 </div>
@@ -123,7 +123,7 @@ perform an action on our car object, and we are expecting the object
 to throw an error. In this case, we are going to attempt to add gas
 to our car that exceeds the gas tank size.</p>
 <ol class="arabic">
-<li><p class="first">First, we’ll add some text to our <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> annotation to tell JUnit
+<li><p>First, we’ll add some text to our <code class="docutils literal notranslate"><span class="pre">&#64;Test</span></code> annotation to tell JUnit
 to expect an exception.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">//TODO: can&#39;t have more gas than tank size, expect an exception</span>
 <span class="nd">@Test</span><span class="p">(</span><span class="n">expected</span> <span class="o">=</span> <span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
@@ -135,14 +135,14 @@ to expect an exception.</p>
 <p>This lets JUnit know that this test should pass if an
 <code class="docutils literal notranslate"><span class="pre">IllegalArgumentException</span></code> is thrown at any point during this test.</p>
 </li>
-<li><p class="first">Update the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class to include an <code class="docutils literal notranslate"><span class="pre">addGas()</span></code> method.</p>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class to include an <code class="docutils literal notranslate"><span class="pre">addGas()</span></code> method.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">addGas</span><span class="p">(</span><span class="kt">double</span> <span class="n">gas</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="na">setGasTankLevel</span><span class="p">(</span><span class="n">gas</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="na">getGasTankLevel</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Back in <code class="docutils literal notranslate"><span class="pre">CarTest</span></code>, implement the new <code class="docutils literal notranslate"><span class="pre">addGas()</span></code> method and a
+<li><p>Back in <code class="docutils literal notranslate"><span class="pre">CarTest</span></code>, implement the new <code class="docutils literal notranslate"><span class="pre">addGas()</span></code> method and a
 <code class="docutils literal notranslate"><span class="pre">fail()</span></code> scenario.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">test_car</span><span class="p">.</span><span class="na">addGas</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <span class="n">fail</span><span class="p">(</span><span class="s">&quot;Shouldn&#39;t get here, car cannot have more gas in tank than the size of the tank&quot;</span><span class="p">);</span>
@@ -151,14 +151,13 @@ to expect an exception.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">fail()</span></code> message will be displayed if the test fails.
 We have to import <code class="docutils literal notranslate"><span class="pre">fail</span></code> into this class to use it.</p>
 </li>
-<li><p class="first">Run the test. It should fail! In the output is an unexpected
+<li><p>Run the test. It should fail! In the output is an unexpected
 exception. This test was expecting an <code class="docutils literal notranslate"><span class="pre">IllegalArgumentException</span></code>,
 but it got an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> exception. This caused the test
 to fail. Further down in the output log, we can see that our
 <code class="docutils literal notranslate"><span class="pre">fail()</span></code> statement printed out the statement about not being
-able to add more gas than is possible.</p>
-</li>
-<li><p class="first">We need to refactor <code class="docutils literal notranslate"><span class="pre">Car</span></code> to throw an exception when too much
+able to add more gas than is possible.</p></li>
+<li><p>We need to refactor <code class="docutils literal notranslate"><span class="pre">Car</span></code> to throw an exception when too much
 gas is added to the tank. Find the <code class="docutils literal notranslate"><span class="pre">setGasTankLevel</span></code> method and
 modify it:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setGasTankLevel</span><span class="p">(</span><span class="kt">double</span> <span class="n">gasTankLevel</span><span class="p">)</span> <span class="p">{</span>
@@ -170,8 +169,7 @@ modify it:</p>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Now, run the test - it should pass!</p>
-</li>
+<li><p>Now, run the test - it should pass!</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/unit-testing.html#unit-testing-exercise-solutions3"><span class="std std-ref">Check your solution</span></a></p>
 </div>

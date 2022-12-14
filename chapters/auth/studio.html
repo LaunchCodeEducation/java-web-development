@@ -91,22 +91,21 @@
 in <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>. You should refer back to the tutorial starting
 <a class="reference internal" href="user-model.html#user-auth-walkthrough"><span class="std std-ref">here</span></a>.</p>
 <ol class="arabic simple">
-<li><a class="reference internal" href="#auth-studio-user-model"><span class="std std-ref">Create the User Model</span></a></li>
-<li><a class="reference internal" href="#auth-studio-forms"><span class="std std-ref">Create the Login and Registration Forms</span></a></li>
-<li><a class="reference internal" href="#auth-studio-filter"><span class="std std-ref">Filter Requests</span></a></li>
+<li><p><a class="reference internal" href="#auth-studio-user-model"><span class="std std-ref">Create the User Model</span></a></p></li>
+<li><p><a class="reference internal" href="#auth-studio-forms"><span class="std std-ref">Create the Login and Registration Forms</span></a></p></li>
+<li><p><a class="reference internal" href="#auth-studio-filter"><span class="std std-ref">Filter Requests</span></a></p></li>
 </ol>
 <div class="section" id="the-starter-code">
 <h2><span class="section-number">19.6.1. </span>The Starter Code<a class="headerlink" href="#the-starter-code" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Fork and clone the starter code for
-<a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-techjobs-authentication" target="_blank">TechJobs (Auth Edition)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-</li>
-<li><p class="first">The dependencies for the database connection and hashing function
+<li><p>Fork and clone the starter code for
+<a class="reference external" href="https://github.com/LaunchCodeEducation/java-web-dev-techjobs-authentication" target="_blank">TechJobs (Auth Edition)<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p></li>
+<li><p>The dependencies for the database connection and hashing function
 are already added for you in <code class="docutils literal notranslate"><span class="pre">build.gradle</span></code>. You will need to
 do some work to ensure that the schema, user, and database password
 match your own local MySQL setup.</p>
 <ol class="arabic">
-<li><p class="first">Open <code class="docutils literal notranslate"><span class="pre">application.properties</span></code> and view the first three statements:</p>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">application.properties</span></code> and view the first three statements:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Database connection settings
 spring.datasource.url=jdbc:mysql://localhost:3306/techjobs_auth
 spring.datasource.username=techjobs_auth
@@ -114,13 +113,13 @@ spring.datasource.password=auth
 </pre></div>
 </div>
 </li>
-<li><p class="first">You likely do not already have a schema named <code class="docutils literal notranslate"><span class="pre">techjobs_auth</span></code> or
+<li><p>You likely do not already have a schema named <code class="docutils literal notranslate"><span class="pre">techjobs_auth</span></code> or
 this combination of username and password so you must create them.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>To create a new schema in your current connection, refer
 back to the instructions in <a class="reference external" href="https://education.launchcode.org/SQL/chapters/mysql-part-1/exercises.html" target="_blank">SQL Part 1 Exercises<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<p class="last">To create a new user with permissions, refresh your memory
+<p>To create a new user with permissions, refresh your memory
 in <a class="reference internal" href="../orm-part1/background.html#setup-orm-database"><span class="std std-ref">Setting up a Persistent Database - Video</span></a>.</p>
 </div>
 </li>
@@ -128,8 +127,8 @@ in <a class="reference internal" href="../orm-part1/background.html#setup-orm-da
 </li>
 </ol>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">We’ve greatly reduced the functionality of the app so you can focus
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>We’ve greatly reduced the functionality of the app so you can focus
 on the work to set up authentication. Running the application now
 gives you a familiar-looking navbar with two menu options, <em>Add Jobs</em> and <em>Logout</em>.
 You can add jobs right away and an astute observer of the starter code and
@@ -141,26 +140,29 @@ this studio.</p>
 <div class="section" id="create-the-user-model">
 <span id="auth-studio-user-model"></span><h2><span class="section-number">19.6.2. </span>Create the User Model<a class="headerlink" href="#create-the-user-model" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>In the project you have cloned, create a <code class="docutils literal notranslate"><span class="pre">User</span></code> model identical to that in <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>. The class needs:<ol class="arabic">
-<li>To be an entity.</li>
-<li>To have username and encrypted password fields.</li>
-<li>To have appropriate constructors, getters, setters.</li>
+<li><p>In the project you have cloned, create a <code class="docutils literal notranslate"><span class="pre">User</span></code> model identical to that in <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>. The class needs:</p>
+<ol class="arabic simple">
+<li><p>To be an entity.</p></li>
+<li><p>To have username and encrypted password fields.</p></li>
+<li><p>To have appropriate constructors, getters, setters.</p></li>
 </ol>
 </li>
-<li>Encode the <code class="docutils literal notranslate"><span class="pre">User</span></code> password field.<ol class="arabic">
-<li>Add a static <code class="docutils literal notranslate"><span class="pre">BCryptPasswordEncoder</span></code> variable.</li>
-<li>Update the constructor that has arguments to encode the password field.</li>
-<li>Add a method to check password values.</li>
+<li><p>Encode the <code class="docutils literal notranslate"><span class="pre">User</span></code> password field.</p>
+<ol class="arabic simple">
+<li><p>Add a static <code class="docutils literal notranslate"><span class="pre">BCryptPasswordEncoder</span></code> variable.</p></li>
+<li><p>Update the constructor that has arguments to encode the password field.</p></li>
+<li><p>Add a method to check password values.</p></li>
 </ol>
 </li>
-<li>Create a <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code>.<ol class="arabic">
-<li>Add the special query method to find a user by username.</li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Add the special query method to find a user by username.</p></li>
 </ol>
 </li>
 </ol>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">At this point, re-starting your application will not change the view
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>At this point, re-starting your application will not change the view
 at <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>, but you can confirm you have done everything correctly if you see a <code class="docutils literal notranslate"><span class="pre">user</span></code>
 table in MySQL Workbench.</p>
 </div>
@@ -168,63 +170,73 @@ table in MySQL Workbench.</p>
 <div class="section" id="create-the-login-and-registration-forms">
 <span id="auth-studio-forms"></span><h2><span class="section-number">19.6.3. </span>Create the Login and Registration Forms<a class="headerlink" href="#create-the-login-and-registration-forms" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Create an <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code>.<ol class="arabic">
-<li>Include an autowired <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code>.</li>
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Include an autowired <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code>.</p></li>
 </ol>
 </li>
-<li>Add session handling utilities. This includes:<ol class="arabic">
-<li>A static final variable for the session key.</li>
-<li>A method to get the user information from the session.</li>
-<li>A method to set the user in the session.</li>
+<li><p>Add session handling utilities. This includes:</p>
+<ol class="arabic simple">
+<li><p>A static final variable for the session key.</p></li>
+<li><p>A method to get the user information from the session.</p></li>
+<li><p>A method to set the user in the session.</p></li>
 </ol>
 </li>
-<li>Create two DTOs for the user registration and login forms in a new package, <code class="docutils literal notranslate"><span class="pre">dto</span></code> under <code class="docutils literal notranslate"><span class="pre">models</span></code>.<ol class="arabic">
-<li>Create a login form DTO with username and password fields.</li>
-<li>Create a register form DTO with the fields above and a field to verify a password.</li>
+<li><p>Create two DTOs for the user registration and login forms in a new package, <code class="docutils literal notranslate"><span class="pre">dto</span></code> under <code class="docutils literal notranslate"><span class="pre">models</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Create a login form DTO with username and password fields.</p></li>
+<li><p>Create a register form DTO with the fields above and a field to verify a password.</p></li>
 </ol>
 </li>
-<li>Handle the registration data.<ol class="arabic">
-<li>Add a <code class="docutils literal notranslate"><span class="pre">GET</span></code> handler in <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code> to display a registration form.</li>
-<li>Create a register template with form fields corresponding to the register DTO.</li>
-<li>Create a <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler in <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code> to process the form.<ol class="arabic">
-<li>If the form has validation errors, re-render the registration form with a useful message.</li>
-<li>If the username is already tied to a user, add a fitting error message and re-render the form.</li>
-<li>If the two form fields for passwords do not match, add an error message and re-render the form.</li>
-<li>If none of the above conditions are met,<ol class="arabic">
-<li>Create a new user with the form data,</li>
-<li>Save the user to the database,</li>
-<li>Create a new user session,</li>
-<li>Redirect to the home page.</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Handle the login data.<ol class="arabic">
-<li>Repeat steps 1 + 2 for handling the registration data, this time with the login information.</li>
-<li>Apart from model validation checks and the final redirect, the <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler for the login form will
-have some different checks from that of the registration form:<ol class="arabic">
-<li>If the database does not contain a user with the submitted username, add an error message and re-render.</li>
-<li>If the submitted password does not match the encoded password attached to the username in the form,
-add an error message and re-render.</li>
-<li>If the submission passes all of these checks, create a new user session.</li>
+<li><p>Handle the registration data.</p>
+<ol class="arabic simple">
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">GET</span></code> handler in <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code> to display a registration form.</p></li>
+<li><p>Create a register template with form fields corresponding to the register DTO.</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler in <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code> to process the form.</p>
+<ol class="arabic simple">
+<li><p>If the form has validation errors, re-render the registration form with a useful message.</p></li>
+<li><p>If the username is already tied to a user, add a fitting error message and re-render the form.</p></li>
+<li><p>If the two form fields for passwords do not match, add an error message and re-render the form.</p></li>
+<li><p>If none of the above conditions are met,</p>
+<ol class="arabic simple">
+<li><p>Create a new user with the form data,</p></li>
+<li><p>Save the user to the database,</p></li>
+<li><p>Create a new user session,</p></li>
+<li><p>Redirect to the home page.</p></li>
 </ol>
 </li>
 </ol>
 </li>
-<li>Handle logging out.<ol class="arabic">
-<li>Still in <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code>, create a <code class="docutils literal notranslate"><span class="pre">GET</span></code> handler method for a path to logout.<ol class="arabic">
-<li>Invalidate the session data from the request object.</li>
-<li>Redirect the user to the login form.</li>
+</ol>
+</li>
+<li><p>Handle the login data.</p>
+<ol class="arabic simple">
+<li><p>Repeat steps 1 + 2 for handling the registration data, this time with the login information.</p></li>
+<li><p>Apart from model validation checks and the final redirect, the <code class="docutils literal notranslate"><span class="pre">POST</span></code> handler for the login form will
+have some different checks from that of the registration form:</p>
+<ol class="arabic simple">
+<li><p>If the database does not contain a user with the submitted username, add an error message and re-render.</p></li>
+<li><p>If the submitted password does not match the encoded password attached to the username in the form,
+add an error message and re-render.</p></li>
+<li><p>If the submission passes all of these checks, create a new user session.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Handle logging out.</p>
+<ol class="arabic simple">
+<li><p>Still in <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code>, create a <code class="docutils literal notranslate"><span class="pre">GET</span></code> handler method for a path to logout.</p>
+<ol class="arabic simple">
+<li><p>Invalidate the session data from the request object.</p></li>
+<li><p>Redirect the user to the login form.</p></li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Now, clicking the <em>Logout</em> navbar link will result in a redirect to the login page. You can also now create
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Now, clicking the <em>Logout</em> navbar link will result in a redirect to the login page. You can also now create
 a brand new user through the link to register as one, and confirm the object’s existence in your <code class="docutils literal notranslate"><span class="pre">user</span></code>
 table.</p>
 </div>
@@ -232,34 +244,36 @@ table.</p>
 <div class="section" id="filter-requests">
 <span id="auth-studio-filter"></span><h2><span class="section-number">19.6.4. </span>Filter Requests<a class="headerlink" href="#filter-requests" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Create an <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code> class in the <code class="docutils literal notranslate"><span class="pre">javawebdevtechjobsauthentication</span></code> package.</p>
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code> class in the <code class="docutils literal notranslate"><span class="pre">javawebdevtechjobsauthentication</span></code> package.</p>
 <ol class="arabic simple">
-<li>Have this class inherit from <code class="docutils literal notranslate"><span class="pre">HandlerInterceptorAdapter</span></code>.</li>
-<li>Add autowired instances of both <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code> and <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code>.</li>
-<li>Add a <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> method.<ol class="arabic">
-<li>This must override the inherited method of the same name.</li>
-<li>Grab the session information from the request object.</li>
-<li>Query the the session data for a user.</li>
-<li>If a user exists, return true. Otherwise, redirect to the login page and return false.</li>
-</ol>
-</li>
-</ol>
-</li>
-<li><p class="first">Create a whitelist.</p>
+<li><p>Have this class inherit from <code class="docutils literal notranslate"><span class="pre">HandlerInterceptorAdapter</span></code>.</p></li>
+<li><p>Add autowired instances of both <code class="docutils literal notranslate"><span class="pre">UserRepository</span></code> and <code class="docutils literal notranslate"><span class="pre">AuthenticationController</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> method.</p>
 <ol class="arabic simple">
-<li>In the top of <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code>, add a whitelist variable containing the paths that can be
-accessed without a user session.</li>
-<li>Create a method next that checks a given path against the values in the whitelist.</li>
-<li>Update <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> with a call to this method.<ol class="arabic">
-<li>Before looking for session and user status, add a conditional that checks the whitelist status
-of the current request object.</li>
+<li><p>This must override the inherited method of the same name.</p></li>
+<li><p>Grab the session information from the request object.</p></li>
+<li><p>Query the the session data for a user.</p></li>
+<li><p>If a user exists, return true. Otherwise, redirect to the login page and return false.</p></li>
 </ol>
 </li>
 </ol>
 </li>
-<li><p class="first">Register the filter with Spring.</p>
+<li><p>Create a whitelist.</p>
+<ol class="arabic simple">
+<li><p>In the top of <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code>, add a whitelist variable containing the paths that can be
+accessed without a user session.</p></li>
+<li><p>Create a method next that checks a given path against the values in the whitelist.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">preHandle</span></code> with a call to this method.</p>
+<ol class="arabic simple">
+<li><p>Before looking for session and user status, add a conditional that checks the whitelist status
+of the current request object.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Register the filter with Spring.</p>
 <ol class="arabic">
-<li><p class="first">Create a class called <code class="docutils literal notranslate"><span class="pre">WebApplicationConfig</span></code> at the same
+<li><p>Create a class called <code class="docutils literal notranslate"><span class="pre">WebApplicationConfig</span></code> at the same
 level as <code class="docutils literal notranslate"><span class="pre">AuthenticationFilter</span></code> with the following:</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>11
 12
@@ -299,10 +313,10 @@ level as <code class="docutils literal notranslate"><span class="pre">Authentica
 </li>
 </ol>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>You’ll know your filter setup works when you re-start your application and attempt to get to
 <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code> but instead get redirected to <code class="docutils literal notranslate"><span class="pre">/login</span></code>.</p>
-<p class="last">You’ll also know that your filters are working if hitting your login and and register forms now renders
+<p>You’ll also know that your filters are working if hitting your login and and register forms now renders
 them without any styling. Bonus points if you can determine why this is.</p>
 </div>
 <p>That’s it, that’s all. You’re done. Go forth and test the auth flow.

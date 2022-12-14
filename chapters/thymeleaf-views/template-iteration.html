@@ -120,11 +120,11 @@ need to learn a different syntax.</p>
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement gets placed INSIDE an HTML tag.</li>
-<li><code class="docutils literal notranslate"><span class="pre">collectionName</span></code> represents an ArrayList, HashMap, or other collection.</li>
-<li><code class="docutils literal notranslate"><span class="pre">variableName</span></code> represents an individual item or element within the
-collection.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">${}</span></code> specifies the data provided by the controller.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement gets placed INSIDE an HTML tag.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collectionName</span></code> represents an ArrayList, HashMap, or other collection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variableName</span></code> represents an individual item or element within the
+collection.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">${}</span></code> specifies the data provided by the controller.</p></li>
 </ol>
 <p>We can think of a <code class="docutils literal notranslate"><span class="pre">th:each</span></code> statement as saying, <em>“For each item within
 ‘collectionName’, repeat this HTML tag, but use the current value of
@@ -140,13 +140,13 @@ the coffee names as a string in an ArrayList called <code class="docutils litera
 </td></tr></table></div>
 <p>Some points to note:</p>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> is passed into the template by the controller.</li>
-<li>In the first pass through the loop, <code class="docutils literal notranslate"><span class="pre">item</span></code> takes the value of the first
-coffee name in the ArrayList.</li>
-<li><code class="docutils literal notranslate"><span class="pre">th:text=&quot;${item}&quot;</span></code> displays the value of <code class="docutils literal notranslate"><span class="pre">item</span></code> in the view, so the
-<code class="docutils literal notranslate"><span class="pre">li</span></code> element will show the first coffee name.</li>
-<li>Each successive iteration, <code class="docutils literal notranslate"><span class="pre">item</span></code> takes the next value in the list, and
-Thymeleaf adds a new <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;&lt;/li&gt;</span></code> element to display that data.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code> is passed into the template by the controller.</p></li>
+<li><p>In the first pass through the loop, <code class="docutils literal notranslate"><span class="pre">item</span></code> takes the value of the first
+coffee name in the ArrayList.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">th:text=&quot;${item}&quot;</span></code> displays the value of <code class="docutils literal notranslate"><span class="pre">item</span></code> in the view, so the
+<code class="docutils literal notranslate"><span class="pre">li</span></code> element will show the first coffee name.</p></li>
+<li><p>Each successive iteration, <code class="docutils literal notranslate"><span class="pre">item</span></code> takes the next value in the list, and
+Thymeleaf adds a new <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;&lt;/li&gt;</span></code> element to display that data.</p></li>
 </ol>
 <div class="section" id="location-matters">
 <span id="id1"></span><h3><span class="section-number">13.4.1.1. </span>Location Matters<a class="headerlink" href="#location-matters" title="Permalink to this headline">¶</a></h3>
@@ -155,7 +155,7 @@ Thymeleaf adds a new <code class="docutils literal notranslate"><span class="pre
 it.</p>
 <p>Consider the following code blocks:</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>Option #1:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -185,7 +185,7 @@ it.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Option #3:</p>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -201,10 +201,10 @@ it.</p>
 </div>
 <p>Which option produces:</p>
 <ol class="arabic simple">
-<li>One heading, 4 ordered lists, and 4 coffee names (each name labeled as “1”)?</li>
-<li>One heading, one ordered list, and 4 coffee names (with the names labeled
-1, 2, 3…)?</li>
-<li>4 headings, 4 ordered lists, and 4 coffee names (each name labeled as “1”)?</li>
+<li><p>One heading, 4 ordered lists, and 4 coffee names (each name labeled as “1”)?</p></li>
+<li><p>One heading, one ordered list, and 4 coffee names (with the names labeled
+1, 2, 3…)?</p></li>
+<li><p>4 headings, 4 ordered lists, and 4 coffee names (each name labeled as “1”)?</p></li>
 </ol>
 </div>
 </div>
@@ -249,13 +249,13 @@ elements once for each item in ‘coffeeOptions’.”</em> Each iteration of
 the loop renders a heading/paragraph pair using a new <code class="docutils literal notranslate"><span class="pre">coffee</span></code> object from
 <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Unlike a standard HTML tag (like <code class="docutils literal notranslate"><span class="pre">div</span></code>, <code class="docutils literal notranslate"><span class="pre">ul</span></code>, <code class="docutils literal notranslate"><span class="pre">p</span></code>, etc.), the
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Unlike a standard HTML tag (like <code class="docutils literal notranslate"><span class="pre">div</span></code>, <code class="docutils literal notranslate"><span class="pre">ul</span></code>, <code class="docutils literal notranslate"><span class="pre">p</span></code>, etc.), the
 <code class="docutils literal notranslate"><span class="pre">th:block</span></code> element does NOT get rendered in the view.</p>
 </div>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">To see an example for how to use <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and iteration to produce a
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>To see an example for how to use <code class="docutils literal notranslate"><span class="pre">th:block</span></code> and iteration to produce a
 table, check the <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#synthetic-thblock-tag" target="_blank">Thymeleaf docs<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
 </div>
 <div class="section" id="readability-and-nested-loops">
@@ -263,7 +263,7 @@ table, check the <a class="reference external" href="https://www.thymeleaf.org/d
 <p><code class="docutils literal notranslate"><span class="pre">th:block</span></code> helps clarify your HTML code by placing related Thymeleaf
 attributes into separate tags.</p>
 <div class="admonition-examples admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Examples</p>
 <p>This code generates multiple <code class="docutils literal notranslate"><span class="pre">li</span></code> elements and text by putting two
 attributes inside of the tag:</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -288,7 +288,7 @@ from the <code class="docutils literal notranslate"><span class="pre">th:text</s
 </td></tr></table></div>
 <p>The second format more closely mimics the appearance of a Java <code class="docutils literal notranslate"><span class="pre">for/each</span></code>
 loop, which improves the clarity of your code.</p>
-<div class="last highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">Coffee</span> <span class="n">item</span> <span class="p">:</span> <span class="n">coffeeOptions</span><span class="p">)</span> <span class="p">{</span>
    <span class="c1">// Code using the &quot;item&quot; variable...</span>
@@ -298,11 +298,11 @@ loop, which improves the clarity of your code.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">th:block</span></code> also allows you to set up nested loops:</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Assume you have a collection of different coffee shop objects, and each
 object stores a <code class="docutils literal notranslate"><span class="pre">name</span></code> and a list of <code class="docutils literal notranslate"><span class="pre">coffeeOptions</span></code>. To display a list
 of lists:</p>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -330,33 +330,33 @@ of lists:</p>
 <a class="reference internal" href="#location-matters"><span class="std std-ref">Location Matters</span></a> section to answer the following
 questions:</p>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which option produces one heading, 4 ordered lists, and 4 coffee names (each
 name labeled as “1”)?</p>
-<ol class="last arabic simple">
-<li>Option 1</li>
-<li>Option 2</li>
-<li>Option 3</li>
+<ol class="arabic simple">
+<li><p>Option 1</p></li>
+<li><p>Option 2</p></li>
+<li><p>Option 3</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which option produces one heading, one ordered list, and 4 coffee names
 (with the names labeled 1, 2, 3…)?</p>
-<ol class="last arabic simple">
-<li>Option 1</li>
-<li>Option 2</li>
-<li>Option 3</li>
+<ol class="arabic simple">
+<li><p>Option 1</p></li>
+<li><p>Option 2</p></li>
+<li><p>Option 3</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which option produces 4 headings, 4 ordered lists, and 4 coffee names
 (each name labeled as “1”)?</p>
-<ol class="last arabic simple">
-<li>Option 1</li>
-<li>Option 2</li>
-<li>Option 3</li>
+<ol class="arabic simple">
+<li><p>Option 1</p></li>
+<li><p>Option 2</p></li>
+<li><p>Option 3</p></li>
 </ol>
 </div>
 </div>

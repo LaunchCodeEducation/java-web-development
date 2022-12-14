@@ -87,7 +87,7 @@
   <div class="section" id="exercise-solutions-enum-practice">
 <span id="enums-exercise-solutions"></span><h1>Exercise Solutions: Enum Practice<a class="headerlink" href="#exercise-solutions-enum-practice" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic" id="enums-exercise-solutions5" start="5">
-<li><p class="first">Before adding any other fields to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>, go to <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code>
+<li><p>Before adding any other fields to <code class="docutils literal notranslate"><span class="pre">Planets</span></code>, go to <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code>
 and update the index handler to pass in a <code class="docutils literal notranslate"><span class="pre">Model</span></code> class argument (eg. <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">model</span></code>).</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">()</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">displayIndex</span><span class="p">(</span><span class="n">Model</span> <span class="n">model</span><span class="p">)</span> <span class="p">{</span>
@@ -100,7 +100,7 @@ and update the index handler to pass in a <code class="docutils literal notransl
 </li>
 </ol>
 <ol class="arabic" id="enums-exercise-solutions7" start="7">
-<li><p class="first">In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a list element and use the template
+<li><p>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a list element and use the template
 variable you have just defined in the controller to list all of the
 planet values on the page.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
@@ -112,7 +112,7 @@ planet values on the page.</p>
 </li>
 </ol>
 <ol class="arabic" id="enums-exercise-solutions9" start="9">
-<li><p class="first">Update the template to display the planet names.</p>
+<li><p>Update the template to display the planet names.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:each</span><span class="o">=</span><span class="s">&quot;planet : ${planets}&quot;</span> <span class="na">th:text</span><span class="o">=</span><span class="s">&quot;${planet.name}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
@@ -122,11 +122,11 @@ planet values on the page.</p>
 </li>
 </ol>
 <ol class="arabic" id="enums-exercise-solutions11" start="11">
-<li><p class="first">Change the index template to display a table of each planet name and its year in earth days.</p>
+<li><p>Change the index template to display a table of each planet name and its year in earth days.</p>
 <ol class="arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a table element and add the appropriate bootstrap class.</li>
-<li>The table can be styled to your liking.</li>
-<li>Add a message to let the users know what data you are displaying with the <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> field.</li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">templates/index</span></code>, create a table element and add the appropriate bootstrap class.</p></li>
+<li><p>The table can be styled to your liking.</p></li>
+<li><p>Add a message to let the users know what data you are displaying with the <code class="docutils literal notranslate"><span class="pre">yearLength</span></code> field.</p></li>
 </ol>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

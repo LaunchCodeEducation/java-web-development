@@ -100,12 +100,12 @@ a user is logging in who is not also <code class="docutils literal notranslate">
 <h2><span class="section-number">14.6.1. </span>Getting Ready<a class="headerlink" href="#getting-ready" title="Permalink to this headline">¶</a></h2>
 <p>Within <code class="docutils literal notranslate"><span class="pre">spa-day</span></code>, create the following files.</p>
 <ol class="arabic simple">
-<li>Create a <code class="docutils literal notranslate"><span class="pre">UserController</span></code> in <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.controllers</span></code>. Add the
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">UserController</span></code> in <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.controllers</span></code>. Add the
 <code class="docutils literal notranslate"><span class="pre">&#64;Controller</span></code> annotation, along with <code class="docutils literal notranslate"><span class="pre">&#64;RequestMapping(&quot;user&quot;)</span></code> to
-configure routes into the controller.</li>
-<li>Create a new folder, <code class="docutils literal notranslate"><span class="pre">user/</span></code> within <code class="docutils literal notranslate"><span class="pre">resources/templates</span></code></li>
-<li>Create <code class="docutils literal notranslate"><span class="pre">index.html</span></code> and <code class="docutils literal notranslate"><span class="pre">add.html</span></code> templates within <code class="docutils literal notranslate"><span class="pre">resources/templates/user/</span></code></li>
-<li>Create a <code class="docutils literal notranslate"><span class="pre">User</span></code> class within <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.models</span></code></li>
+configure routes into the controller.</p></li>
+<li><p>Create a new folder, <code class="docutils literal notranslate"><span class="pre">user/</span></code> within <code class="docutils literal notranslate"><span class="pre">resources/templates</span></code></p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">index.html</span></code> and <code class="docutils literal notranslate"><span class="pre">add.html</span></code> templates within <code class="docutils literal notranslate"><span class="pre">resources/templates/user/</span></code></p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">User</span></code> class within <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.models</span></code></p></li>
 </ol>
 </div>
 <div class="section" id="creating-the-model">
@@ -116,31 +116,29 @@ setters: <code class="docutils literal notranslate"><span class="pre">username</
 <div class="section" id="rendering-the-add-user-form">
 <h2><span class="section-number">14.6.3. </span>Rendering the Add User Form<a class="headerlink" href="#rendering-the-add-user-form" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">In the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method <code class="docutils literal notranslate"><span class="pre">displayAddUserForm()</span></code> to
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method <code class="docutils literal notranslate"><span class="pre">displayAddUserForm()</span></code> to
 render the form. This handler should correspond to the path
 <code class="docutils literal notranslate"><span class="pre">/user/add</span></code>, and for now, it can just return the path to the
 <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Don’t forget to add <code class="docutils literal notranslate"><span class="pre">/user/add</span></code> to your path when you test your new features.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Don’t forget to add <code class="docutils literal notranslate"><span class="pre">/user/add</span></code> to your path when you test your new features.</p>
 </div>
 </li>
-<li><p class="first">Within the <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template, create a form that accepts inputs for
+<li><p>Within the <code class="docutils literal notranslate"><span class="pre">add.html</span></code> template, create a form that accepts inputs for
 each of the <code class="docutils literal notranslate"><span class="pre">User</span></code> class properties. Include an additional password input field to verify
-the password input. The form should be set up to <code class="docutils literal notranslate"><span class="pre">POST</span></code> to <code class="docutils literal notranslate"><span class="pre">/user</span></code>.</p>
-</li>
-<li><p class="first">Be sure to set <code class="docutils literal notranslate"><span class="pre">type=&quot;password&quot;</span></code> for the password and verify inputs,
+the password input. The form should be set up to <code class="docutils literal notranslate"><span class="pre">POST</span></code> to <code class="docutils literal notranslate"><span class="pre">/user</span></code>.</p></li>
+<li><p>Be sure to set <code class="docutils literal notranslate"><span class="pre">type=&quot;password&quot;</span></code> for the password and verify inputs,
 to ensure the passwords are not visible when being typed into the form.
 You can also set <code class="docutils literal notranslate"><span class="pre">type=&quot;email&quot;</span></code> on the email input, which will enable
 some basic client-side validation. We’ll tackle validation in more detail
-in the next studio.</p>
-</li>
+in the next studio.</p></li>
 </ol>
 </div>
 <div class="section" id="processing-form-submission">
 <h2><span class="section-number">14.6.4. </span>Processing Form Submission<a class="headerlink" href="#processing-form-submission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Within the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method with this signature:</p>
+<li><p>Within the <code class="docutils literal notranslate"><span class="pre">UserController</span></code>, create a handler method with this signature:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">processAddUserForm</span><span class="p">(</span><span class="n">Model</span> <span class="n">model</span><span class="p">,</span> <span class="nd">@ModelAttribute</span> <span class="n">User</span> <span class="n">user</span><span class="p">,</span> <span class="n">String</span> <span class="n">verify</span><span class="p">)</span> <span class="p">{</span>
    <span class="c1">// add form submission handling code here</span>
 <span class="p">}</span>
@@ -149,36 +147,37 @@ in the next studio.</p>
 <p>This will use model binding to create a new user object, <code class="docutils literal notranslate"><span class="pre">user</span></code>, and
 pass it into your handler method.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You don’t need to store the <code class="docutils literal notranslate"><span class="pre">User</span></code> object anywhere for this studio.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>You don’t need to store the <code class="docutils literal notranslate"><span class="pre">User</span></code> object anywhere for this studio.
 We’re focusing on form handling and validation in this exercise. If you
 want to keep track of users using the method we employed in the models
 lesson video, check out the Bonus Missions below.</p>
 </div>
 </li>
-<li><p class="first">Check that the <code class="docutils literal notranslate"><span class="pre">verify</span></code> parameter matches the
+<li><p>Check that the <code class="docutils literal notranslate"><span class="pre">verify</span></code> parameter matches the
 password within the <code class="docutils literal notranslate"><span class="pre">user</span></code> object. If it does, render the
 <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code> view template with a message that welcomes the user by
-username. If the passwords don’t match, render the form again.</p>
-</li>
+username. If the passwords don’t match, render the form again.</p></li>
 </ol>
 </div>
 <div class="section" id="refining-form-submission">
 <h2><span class="section-number">14.6.5. </span>Refining Form Submission<a class="headerlink" href="#refining-form-submission" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Once registered, we want the user to access the form selecting their spa services.<ol class="loweralpha">
-<li>In <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code>, add a <code class="docutils literal notranslate"><span class="pre">th:href</span></code> element to take the user back to the root path, <code class="docutils literal notranslate"><span class="pre">/</span></code>, of the app, where the <code class="docutils literal notranslate"><span class="pre">serviceSelection</span></code> template will be rendered.</li>
+<li><p>Once registered, we want the user to access the form selecting their spa services.</p>
+<ol class="loweralpha simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code>, add a <code class="docutils literal notranslate"><span class="pre">th:href</span></code> element to take the user back to the root path, <code class="docutils literal notranslate"><span class="pre">/</span></code>, of the app, where the <code class="docutils literal notranslate"><span class="pre">serviceSelection</span></code> template will be rendered.</p></li>
 </ol>
 </li>
-<li>If the form is re-rendered when a password is not verified, we should let the user know that their form
+<li><p>If the form is re-rendered when a password is not verified, we should let the user know that their form
 was not properly submitted. Use <code class="docutils literal notranslate"><span class="pre">model.addAttribute</span></code> to add an <code class="docutils literal notranslate"><span class="pre">error</span></code> attribute, letting the user know
-that their passwords should match. This model attribute will need to correspond to an element in the template that will only render the error text when the passwords do not match.</li>
-<li>If we send a user back to re-populate the form, it would be nice to not clear their previous
-submission. We won’t need to save the password entries in this fashion.<ol class="loweralpha">
-<li>In the form submission handler, add the <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">email</span></code> fields of the submitted user as
-model attributes.</li>
-<li>Back in the form, add a value attribute to these form fields and make them equal to the
-model attributes.</li>
+that their passwords should match. This model attribute will need to correspond to an element in the template that will only render the error text when the passwords do not match.</p></li>
+<li><p>If we send a user back to re-populate the form, it would be nice to not clear their previous
+submission. We won’t need to save the password entries in this fashion.</p>
+<ol class="loweralpha simple">
+<li><p>In the form submission handler, add the <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">email</span></code> fields of the submitted user as
+model attributes.</p></li>
+<li><p>Back in the form, add a value attribute to these form fields and make them equal to the
+model attributes.</p></li>
 </ol>
 </li>
 </ol>
@@ -186,18 +185,19 @@ model attributes.</li>
 <div class="section" id="bonus-missions">
 <h2><span class="section-number">14.6.6. </span>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Add an <code class="docutils literal notranslate"><span class="pre">id</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with accessor methods (with
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">id</span></code> field to <code class="docutils literal notranslate"><span class="pre">User</span></code>, along with accessor methods (with
 appropriate access level). Create a <code class="docutils literal notranslate"><span class="pre">UserData</span></code> class within
 <code class="docutils literal notranslate"><span class="pre">org.launchcode.spaday.data</span></code> that provides access to a list of users via
-<code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">getAll</span></code>, and <code class="docutils literal notranslate"><span class="pre">getById</span></code>.<ol class="loweralpha">
-<li>In the <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code> view, display a list of
+<code class="docutils literal notranslate"><span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">getAll</span></code>, and <code class="docutils literal notranslate"><span class="pre">getById</span></code>.</p>
+<ol class="loweralpha simple">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">user/index.html</span></code> view, display a list of
 all users by username. Each username should have a link that takes
-you to a detail page that lists the user’s username and email.</li>
+you to a detail page that lists the user’s username and email.</p></li>
 </ol>
 </li>
-<li>Add a <code class="docutils literal notranslate"><span class="pre">Date</span></code> field in <code class="docutils literal notranslate"><span class="pre">User</span></code>, and initialize it to the time the
-user joined (i.e.&nbsp;when the <code class="docutils literal notranslate"><span class="pre">User</span></code> object was created). Display the
-value of this property in the user detail view.</li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">Date</span></code> field in <code class="docutils literal notranslate"><span class="pre">User</span></code>, and initialize it to the time the
+user joined (i.e. when the <code class="docutils literal notranslate"><span class="pre">User</span></code> object was created). Display the
+value of this property in the user detail view.</p></li>
 </ol>
 </div>
 </div>

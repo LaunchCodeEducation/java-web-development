@@ -92,40 +92,42 @@ character occurs in a string and then print the results to the console.</p>
 you might want to start by hard-coding some text and storing it in a variable.
 For your convenience, here is a quote from the movie <em>Hidden Figures</em>:</p>
 <blockquote>
-<div>If the product of two terms is zero then common sense says at least one of
+<div><p>If the product of two terms is zero then common sense says at least one of
 the two terms has to be zero to start with. So if you move all the terms
 over to one side, you can put the quadratics into a form that can be
 factored allowing that side of the equation to equal zero. Once you’ve done
-that, it’s pretty straightforward from there.</div></blockquote>
+that, it’s pretty straightforward from there.</p>
+</div></blockquote>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>Remember, you can turn a <code class="docutils literal notranslate"><span class="pre">String</span></code> object into an array of characters
 using:</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">charactersInString</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">();</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="o">[]</span> <span class="n">charactersInString</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="some-items-to-ponder-before-starting">
 <h2><span class="section-number">3.8.1. </span>Some Items to Ponder Before Starting<a class="headerlink" href="#some-items-to-ponder-before-starting" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>There are multiple ways to approach this task, but one way involves the
-following steps:<ol class="loweralpha">
-<li>Loop through the string one character at a time,</li>
-<li>Store and/or update the count for a given character using an appropriate
-data structure.</li>
-<li>Loop through the data structure to print the results (one character and its
-count per line).</li>
+<li><p>There are multiple ways to approach this task, but one way involves the
+following steps:</p>
+<ol class="loweralpha simple">
+<li><p>Loop through the string one character at a time,</p></li>
+<li><p>Store and/or update the count for a given character using an appropriate
+data structure.</p></li>
+<li><p>Loop through the data structure to print the results (one character and its
+count per line).</p></li>
 </ol>
 </li>
-<li>Which type of data structure (<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>, <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>, or <code class="docutils literal notranslate"><span class="pre">Array</span></code>)
+<li><p>Which type of data structure (<code class="docutils literal notranslate"><span class="pre">ArrayList</span></code>, <code class="docutils literal notranslate"><span class="pre">HashMap</span></code>, or <code class="docutils literal notranslate"><span class="pre">Array</span></code>)
 should you use to store character counts? Any can be made to work, but there
-is a BEST choice.</li>
-<li>You’ll need to <em>initialize</em> the counts for the characters in some fashion.
+is a BEST choice.</p></li>
+<li><p>You’ll need to <em>initialize</em> the counts for the characters in some fashion.
 It’s probably better to do this as you go through the string instead of
-doing so before you loop through it. (<em>WHY?</em>)</li>
-<li>If you need to review how to create a new class, revisit the instructions in
-<a class="reference internal" href="../data-types/studio.html#area-of-a-circle-studio"><span class="std std-ref">Studio: Area of a Circle</span></a>.</li>
-<li>Don’t forget to check out the <em>Bonus Missions</em> below.</li>
+doing so before you loop through it. (<em>WHY?</em>)</p></li>
+<li><p>If you need to review how to create a new class, revisit the instructions in
+<a class="reference internal" href="../data-types/studio.html#area-of-a-circle-studio"><span class="std std-ref">Studio: Area of a Circle</span></a>.</p></li>
+<li><p>Don’t forget to check out the <em>Bonus Missions</em> below.</p></li>
 </ol>
 </div>
 <div class="section" id="sample-output">
@@ -168,16 +170,16 @@ z: <span class="m">3</span>
 <h2><span class="section-number">3.8.3. </span>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <p>Try these modifications on your code:</p>
 <ol class="arabic simple">
-<li>Prompt the user to enter the string in the command line.</li>
-<li>Make the character counts case-insensitive.</li>
-<li>Exclude non-alphabetic characters.</li>
+<li><p>Prompt the user to enter the string in the command line.</p></li>
+<li><p>Make the character counts case-insensitive.</p></li>
+<li><p>Exclude non-alphabetic characters.</p></li>
 </ol>
 <div class="section" id="super-bonus">
 <h3><span class="section-number">3.8.3.1. </span>Super Bonus<a class="headerlink" href="#super-bonus" title="Permalink to this headline">¶</a></h3>
 <p>Read the string in from a file.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">This is a hard one. We won’t talk about reading from files in Java in this
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>This is a hard one. We won’t talk about reading from files in Java in this
 course, so be ready for a tough challenge if you accept this mission.</p>
 </div>
 </div>

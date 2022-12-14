@@ -93,11 +93,11 @@
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/FOvBYJxGPTQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/display-errors" target="_blank">display-errors branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/enums" target="_blank">enums branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
-<p class="last">As mentioned in the <a class="reference internal" href="../spring-model-validation/thymeleaf-form-tools.html#display-errors-quirk"><span class="std std-ref">previous chapter</span></a>, your
+<p>As mentioned in the <a class="reference internal" href="../spring-model-validation/thymeleaf-form-tools.html#display-errors-quirk"><span class="std std-ref">previous chapter</span></a>, your
 <code class="docutils literal notranslate"><span class="pre">display-errors</span></code> constructor might contain a small quirk. If your
 constructor assigns non-sequential <code class="docutils literal notranslate"><span class="pre">id</span></code> values, this is still OK!</p>
 </div>
@@ -332,18 +332,18 @@ more user-friendly view of the type value, we use the <code class="docutils lite
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">16.2.3. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>When we add a field to the <code class="docutils literal notranslate"><span class="pre">EventType</span></code> enum from <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, what is the strongest
 reason why we don’t we write a setter method for that field?</p>
-<ol class="last arabic simple">
-<li>Enum classes cannot contain setter methods</li>
-<li>Final variables cannot be reassigned</li>
-<li>Enum fields cannot be reassigned</li>
-<li>We don’t use a setter method in the rest of the application</li>
+<ol class="arabic simple">
+<li><p>Enum classes cannot contain setter methods</p></li>
+<li><p>Final variables cannot be reassigned</p></li>
+<li><p>Enum fields cannot be reassigned</p></li>
+<li><p>We don’t use a setter method in the rest of the application</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>, say we change our template variable name in
 <code class="docutils literal notranslate"><span class="pre">EventController.displayCreateEventForm</span></code> so that <code class="docutils literal notranslate"><span class="pre">EventType.values()</span></code> is now assigned to
 a variable, <code class="docutils literal notranslate"><span class="pre">categories</span></code>. Which of the template expressions in the following codeblock
@@ -369,11 +369,11 @@ from <code class="docutils literal notranslate"><span class="pre">create.html</s
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<ol class="last arabic simple">
-<li>In line 29, <code class="docutils literal notranslate"><span class="pre">${event.type}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${event.category}</span></code></li>
-<li>In line 30, <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">:</span> <span class="pre">${types}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">category</span> <span class="pre">:</span> <span class="pre">${categories}</span></code></li>
-<li>In line 31, <code class="docutils literal notranslate"><span class="pre">${type}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${category}</span></code></li>
-<li>In line 32, <code class="docutils literal notranslate"><span class="pre">${type.displayName}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${category.displayName}</span></code></li>
+<ol class="arabic simple">
+<li><p>In line 29, <code class="docutils literal notranslate"><span class="pre">${event.type}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${event.category}</span></code></p></li>
+<li><p>In line 30, <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">:</span> <span class="pre">${types}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">category</span> <span class="pre">:</span> <span class="pre">${categories}</span></code></p></li>
+<li><p>In line 31, <code class="docutils literal notranslate"><span class="pre">${type}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${category}</span></code></p></li>
+<li><p>In line 32, <code class="docutils literal notranslate"><span class="pre">${type.displayName}</span></code> should be changed to <code class="docutils literal notranslate"><span class="pre">${category.displayName}</span></code></p></li>
 </ol>
 </div>
 </div>

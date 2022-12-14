@@ -90,50 +90,50 @@
 <span class="target" id="index-0"></span><div class="section" id="common-annotations">
 <span id="index-1"></span><h2><span class="section-number">15.2.1. </span>Common Annotations<a class="headerlink" href="#common-annotations" title="Permalink to this headline">¶</a></h2>
 <p>We’ll use only a few of these annotations, but you can find a full list in the <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html" target="_blank">package documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>.</p>
-<table border="1" class="docutils align-default" id="id1">
+<table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Common Validation Annotations</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Annotation</th>
-<th class="head">Description</th>
-<th class="head">Syntax</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Annotation</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Syntax</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code></td>
-<td>Specifies minimum and/or maximum length for a string.</td>
-<td><code class="docutils literal notranslate"><span class="pre">&#64;Size(min</span> <span class="pre">=</span> <span class="pre">3,</span> <span class="pre">max</span> <span class="pre">=</span> <span class="pre">12)</span></code></td>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code></p></td>
+<td><p>Specifies minimum and/or maximum length for a string.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&#64;Size(min</span> <span class="pre">=</span> <span class="pre">3,</span> <span class="pre">max</span> <span class="pre">=</span> <span class="pre">12)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Min</span></code></td>
-<td>Specifies the minimum value of a numeric field.</td>
-<td><code class="docutils literal notranslate"><span class="pre">&#64;Min(0)</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;Min</span></code></p></td>
+<td><p>Specifies the minimum value of a numeric field.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&#64;Min(0)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;Max</span></code></td>
-<td>Specifies the maximum value of a numeric field.</td>
-<td><code class="docutils literal notranslate"><span class="pre">&#64;Max(365)</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;Max</span></code></p></td>
+<td><p>Specifies the maximum value of a numeric field.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&#64;Max(365)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;Email</span></code></td>
-<td>Specifies that a string field should conform to email formatting standards.</td>
-<td><code class="docutils literal notranslate"><span class="pre">&#64;Email</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;Email</span></code></p></td>
+<td><p>Specifies that a string field should conform to email formatting standards.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&#64;Email</span></code></p></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code></td>
-<td>Specifies that a field may not be <code class="docutils literal notranslate"><span class="pre">null</span></code>.</td>
-<td><code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code></p></td>
+<td><p>Specifies that a field may not be <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code></td>
-<td>Specifies that a string field contains at least one non-whitespace character.</td>
-<td><code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code></p></td>
+<td><p>Specifies that a string field contains at least one non-whitespace character.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>To apply the validation rules of the <a class="reference internal" href="server-side-validation.html#validation-example"><span class="std std-ref">example on the previous page</span></a> to the fields of a <code class="docutils literal notranslate"><span class="pre">User</span></code> model class, we can use <code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;NotBlank</span></code>.</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span>
 <span class="nd">@Size</span><span class="p">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="p">;</span>
 
@@ -148,8 +148,8 @@
 <h2><span class="section-number">15.2.2. </span>Defining Validation Messages<a class="headerlink" href="#defining-validation-messages" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="validation-messages"></span><p id="index-2">Each of these annotations takes an optional <code class="docutils literal notranslate"><span class="pre">message</span></code> parameter that allows you to define a user-friendly description to be used when validation fails.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Username is required&quot;</span><span class="p">)</span>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@NotBlank</span><span class="p">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Username is required&quot;</span><span class="p">)</span>
 <span class="nd">@Size</span><span class="p">(</span><span class="n">min</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Username must be between 3 and 12 characters long&quot;</span><span class="p">)</span>
 <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="p">;</span>
 
@@ -167,8 +167,8 @@
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/1aZxU0-dhgw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/model-binding" target="_blank">model-binding branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/model-binding" target="_blank">model-binding branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-validation-annotations" target="_blank">add-validation-annotations branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -334,8 +334,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </td></tr></table></div>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">The full list of Java validation annotations is in the <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html" target="_blank">documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for <code class="docutils literal notranslate"><span class="pre">javax.validation.constraints</span></code>.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>The full list of Java validation annotations is in the <a class="reference external" href="https://javaee.github.io/javaee-spec/javadocs/javax/validation/constraints/package-summary.html" target="_blank">documentation<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> for <code class="docutils literal notranslate"><span class="pre">javax.validation.constraints</span></code>.</p>
 </div>
 <p>Before we can start up our application, we need to add a new column to the <code class="docutils literal notranslate"><span class="pre">events/index</span></code> template to make <code class="docutils literal notranslate"><span class="pre">contactEmail</span></code> visible.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 8
@@ -382,12 +382,12 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">15.2.5. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last"><strong>True or False:</strong> When using <code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code> you must provide both <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> arguments.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p><strong>True or False:</strong> When using <code class="docutils literal notranslate"><span class="pre">&#64;Size</span></code> you must provide both <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> arguments.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last"><strong>True or False:</strong> Adding validation annotations to a model ensures that bad data is not saved.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p><strong>True or False:</strong> Adding validation annotations to a model ensures that bad data is not saved.</p>
 </div>
 </div>
 </div>

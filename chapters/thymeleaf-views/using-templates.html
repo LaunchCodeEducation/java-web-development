@@ -114,16 +114,16 @@ These methods have a structure similar to:</p>
 </td></tr></table></div>
 <p>Each method that sends data to a template requires:</p>
 <ol class="arabic simple">
-<li>A <code class="docutils literal notranslate"><span class="pre">Model</span></code> parameter (line 1). This object stores the variable names and
-values that get passed into a template.</li>
-<li>One or more <code class="docutils literal notranslate"><span class="pre">addAttribute</span></code> statements that add data to the <code class="docutils literal notranslate"><span class="pre">model</span></code>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Model</span></code> parameter (line 1). This object stores the variable names and
+values that get passed into a template.</p></li>
+<li><p>One or more <code class="docutils literal notranslate"><span class="pre">addAttribute</span></code> statements that add data to the <code class="docutils literal notranslate"><span class="pre">model</span></code>
 object (line 5). <code class="docutils literal notranslate"><span class="pre">variableName</span></code> must be a string. <code class="docutils literal notranslate"><span class="pre">variableValue</span></code> can
-be a variable of any type, a number, a ‘character’, or a “string”.</li>
-<li>A <code class="docutils literal notranslate"><span class="pre">return</span></code> statement of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">return</span></code> string contains the path and file name for the desired
+be a variable of any type, a number, a ‘character’, or a “string”.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">return</span></code> statement of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">return</span></code> string contains the path and file name for the desired
 template (line 7). For example, if our <code class="docutils literal notranslate"><span class="pre">templates</span></code> folder contains a
 subfolder called <code class="docutils literal notranslate"><span class="pre">animals</span></code> that holds a template called <code class="docutils literal notranslate"><span class="pre">dogs.html</span></code>,
-then the return statement would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;animals/dogs&quot;;</span></code>.</li>
+then the return statement would be <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&quot;animals/dogs&quot;;</span></code>.</p></li>
 </ol>
 <div class="section" id="accessing-data-in-a-template">
 <h3><span class="section-number">13.3.1.1. </span>Accessing Data in a Template<a class="headerlink" href="#accessing-data-in-a-template" title="Permalink to this headline">¶</a></h3>
@@ -183,8 +183,8 @@ and <code class="docutils literal notranslate"><span class="pre">linkText</span>
 Including it helps, however, if you need to visualize your planned layout for
 the webpage before your project is completely finished.</p>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">Best-practice encourages us to include default text in our templates. This
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>Best-practice encourages us to include default text in our templates. This
 improves the readability of the code, and it gives an outside observer a
 better idea of the structure of the webpage. Default text also indicates what
 data will appear in different sections.</p>
@@ -211,31 +211,31 @@ that need to be modified.</p>
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">13.3.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Given the code:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${name}&quot;</span><span class="p">&gt;</span>Name: Default<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>What will be displayed on the screen if the controller sends in a <code class="docutils literal notranslate"><span class="pre">name</span></code>
 variable with a value of “Blake”?</p>
-<ol class="last arabic simple">
-<li>Name: Default</li>
-<li>Name: Blake</li>
-<li>Blake: Default</li>
-<li>Blake</li>
+<ol class="arabic simple">
+<li><p>Name: Default</p></li>
+<li><p>Name: Blake</p></li>
+<li><p>Blake: Default</p></li>
+<li><p>Blake</p></li>
 </ol>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>We want a list element to read, “Item name: ______, Price = ______”, where
 the blanks need to be filled in with <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">price</span></code> values sent from
 the controller.</p>
 <p>Which of the following will produce the desired result?</p>
-<ol class="last arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${'Item</span> <span class="pre">name:</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">name</span> <span class="pre">+</span> <span class="pre">',</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">price}&quot;&gt;&lt;/li&gt;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;Item</span> <span class="pre">name:</span> <span class="pre">${name},</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">${price}&quot;&gt;&lt;/li&gt;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${name},</span> <span class="pre">${price}&quot;&gt;Item</span> <span class="pre">name:</span> <span class="pre">,</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">&lt;/li&gt;</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">&lt;li&gt;Item</span> <span class="pre">name:</span> <span class="pre">${name},</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">${price}&lt;/li&gt;</span></code></li>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${'Item</span> <span class="pre">name:</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">name</span> <span class="pre">+</span> <span class="pre">',</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">+</span> <span class="pre">price}&quot;&gt;&lt;/li&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;Item</span> <span class="pre">name:</span> <span class="pre">${name},</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">${price}&quot;&gt;&lt;/li&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;li</span> <span class="pre">th:text</span> <span class="pre">=</span> <span class="pre">&quot;${name},</span> <span class="pre">${price}&quot;&gt;Item</span> <span class="pre">name:</span> <span class="pre">,</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">&lt;/li&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;li&gt;Item</span> <span class="pre">name:</span> <span class="pre">${name},</span> <span class="pre">Price</span> <span class="pre">=</span> <span class="pre">${price}&lt;/li&gt;</span></code></p></li>
 </ol>
 </div>
 </div>

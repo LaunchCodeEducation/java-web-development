@@ -108,11 +108,11 @@ Let’s say we want to pull in the value of a variable called <code class="docut
 <code class="docutils literal notranslate"><span class="pre">th:if</span></code> will display the value of the element if the expression evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>. If the expression evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then the value of the element is NOT displayed.
 <code class="docutils literal notranslate"><span class="pre">th:unless</span></code> will display the value of the element if the expression evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>. If the expression evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the value of the element is NOT displayed.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Let’s say we want to conditionally display our grocery list. We do have a variable, <code class="docutils literal notranslate"><span class="pre">pantryStatus</span></code>, that is a String.
 If <code class="docutils literal notranslate"><span class="pre">pantryStatus</span></code> is <code class="docutils literal notranslate"><span class="pre">empty</span></code>, we want to display a list that includes staples like flour, sugar, and rice.
 If <code class="docutils literal notranslate"><span class="pre">pantryStatus</span></code> is not <code class="docutils literal notranslate"><span class="pre">empty</span></code>, we want our grocery list to include our favorite fresh fruits and veggies, like bananas, strawberries, and broccoli.</p>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -138,9 +138,9 @@ Instead we could use Thymeleaf to print the values of our grocery list as we ite
 <code class="docutils literal notranslate"><span class="pre">th:each</span></code> is used to iterate through items in an ArrayList.
 <code class="docutils literal notranslate"><span class="pre">th:block</span></code> is the command that creates an attribute container around the section we want to use the iteration for.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Our grocery list is stored in an ArrayList called <code class="docutils literal notranslate"><span class="pre">groceries</span></code>. Each item in our list is an object of type <code class="docutils literal notranslate"><span class="pre">foodItem</span></code> and has a property called <code class="docutils literal notranslate"><span class="pre">name</span></code>.</p>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">id </span><span class="o">=</span> <span class="s">&quot;groceryList&quot;</span> <span class="na">th:each </span><span class="o">=</span> <span class="s">&quot;item: ${groceries}&quot;</span><span class="p">&gt;</span>
    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">th:text </span><span class="o">=</span> <span class="s">&quot;${item.name}</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -154,7 +154,7 @@ Instead we could use Thymeleaf to print the values of our grocery list as we ite
 <p>A <em>fragment</em> in Thymeleaf is a section of HTML that is reusable. This could be a section of our site that includes the grocery store’s name, address, and phone number.</p>
 <p><code class="docutils literal notranslate"><span class="pre">th:fragment</span></code> defines template fragments. We can then use <code class="docutils literal notranslate"><span class="pre">th:replace</span></code> to denote a piece of HTML to be replaced by the fragment.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>For the grocery store application, we may want to keep the grocery store’s info in a separate file, <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code>.</p>
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -171,7 +171,7 @@ Instead we could use Thymeleaf to print the values of our grocery list as we ite
 <div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">th:replace </span><span class="o">=</span> <span class="s">&quot;fragments :: groceryStoreInfo&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </td></tr></table></div>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">th:replace</span></code> tells Thymeleaf to <em>replace</em> the <code class="docutils literal notranslate"><span class="pre">div</span></code> element in <code class="docutils literal notranslate"><span class="pre">index.html</span></code> with the one in <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> named <code class="docutils literal notranslate"><span class="pre">groceryStoreInfo</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">th:replace</span></code> tells Thymeleaf to <em>replace</em> the <code class="docutils literal notranslate"><span class="pre">div</span></code> element in <code class="docutils literal notranslate"><span class="pre">index.html</span></code> with the one in <code class="docutils literal notranslate"><span class="pre">fragments.html</span></code> named <code class="docutils literal notranslate"><span class="pre">groceryStoreInfo</span></code>.</p>
 </div>
 </div>
 <div class="section" id="static-resources">
@@ -179,14 +179,14 @@ Instead we could use Thymeleaf to print the values of our grocery list as we ite
 <p>We can use <code class="docutils literal notranslate"><span class="pre">th:src</span></code> to include static resources such as JavaScript files or images in your template.
 To include external URLs, we can use <code class="docutils literal notranslate"><span class="pre">th:href</span></code>.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>For our grocery store application, we have a few things we want to add.</p>
 <ol class="arabic simple">
-<li>A link to our favorite grocery store’s site so we can order online.</li>
-<li>A link to our styles, <code class="docutils literal notranslate"><span class="pre">styles.css</span></code>.</li>
-<li>A picture of our local grocery store.</li>
+<li><p>A link to our favorite grocery store’s site so we can order online.</p></li>
+<li><p>A link to our styles, <code class="docutils literal notranslate"><span class="pre">styles.css</span></code>.</p></li>
+<li><p>A picture of our local grocery store.</p></li>
 </ol>
-<div class="last highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4

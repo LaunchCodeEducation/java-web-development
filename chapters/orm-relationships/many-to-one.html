@@ -94,8 +94,8 @@
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/GKOCCjn86yk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category" target="_blank">add-persistent-category branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-persistent-category" target="_blank">add-persistent-category branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity" target="_blank">abstract-entity branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -111,8 +111,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/aFr_E2T7zZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity" target="_blank">abstract-entity branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/abstract-entity" target="_blank">abstract-entity branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>  of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/many-to-one" target="_blank">many-to-one branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> . As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -130,9 +130,9 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <p>This will introduce compiler errors wherever <code class="docutils literal notranslate"><span class="pre">type</span></code> is referenced. We will fix these shortly.</p>
 <p>First, however, update <code class="docutils literal notranslate"><span class="pre">Event</span></code> so that:</p>
 <ol class="arabic simple">
-<li>Its main constructor (i.e. NOT the no-arg constructor) takes a parameter of type <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> and uses it to initialize <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
-<li>It has a getter/setter pair for <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code> field has the <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> validation annotation, along with an appropriate message.</li>
+<li><p>Its main constructor (i.e. NOT the no-arg constructor) takes a parameter of type <code class="docutils literal notranslate"><span class="pre">EventCategory</span></code> and uses it to initialize <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</p></li>
+<li><p>It has a getter/setter pair for <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code> field has the <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> validation annotation, along with an appropriate message.</p></li>
 </ol>
 <p>This establishes a relationship between the two classes, but that relationship is not yet <em>persistent</em>. To configure Hibernate to keep track of this relationship in the database, we add the <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code> annotation to <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</p>
 <div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>27
@@ -190,18 +190,18 @@ to be more consistent. This also requires updating the <code class="docutils lit
 </td></tr></table></div>
 <p>This new template code includes several changes:</p>
 <ol class="arabic simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">select</span></code> is now bound to the field <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
-<li>The loop references <code class="docutils literal notranslate"><span class="pre">categories</span></code> and has an updated iterator variable name, <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</li>
-<li>The value of the <code class="docutils literal notranslate"><span class="pre">select</span></code> is now <code class="docutils literal notranslate"><span class="pre">eventCategory.id</span></code>. This allows model binding to occur upon form submission. Spring Boot will determine the category object to assign to the new event object by referencing the <code class="docutils literal notranslate"><span class="pre">id</span></code>.</li>
-<li>The text for each <code class="docutils literal notranslate"><span class="pre">option</span></code> is now <code class="docutils literal notranslate"><span class="pre">eventCategory.name</span></code></li>
-<li>The error message display now references the new field, <code class="docutils literal notranslate"><span class="pre">event.eventCategory</span></code>.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">select</span></code> is now bound to the field <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</p></li>
+<li><p>The loop references <code class="docutils literal notranslate"><span class="pre">categories</span></code> and has an updated iterator variable name, <code class="docutils literal notranslate"><span class="pre">eventCategory</span></code>.</p></li>
+<li><p>The value of the <code class="docutils literal notranslate"><span class="pre">select</span></code> is now <code class="docutils literal notranslate"><span class="pre">eventCategory.id</span></code>. This allows model binding to occur upon form submission. Spring Boot will determine the category object to assign to the new event object by referencing the <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p></li>
+<li><p>The text for each <code class="docutils literal notranslate"><span class="pre">option</span></code> is now <code class="docutils literal notranslate"><span class="pre">eventCategory.name</span></code></p></li>
+<li><p>The error message display now references the new field, <code class="docutils literal notranslate"><span class="pre">event.eventCategory</span></code>.</p></li>
 </ol>
 <p>The remaining usages of <code class="docutils literal notranslate"><span class="pre">EventType</span></code> refer to:</p>
 <ol class="arabic simple">
-<li>An <code class="docutils literal notranslate"><span class="pre">Event</span></code> constructor parameter.</li>
-<li>The getter/setter pair for <code class="docutils literal notranslate"><span class="pre">type</span></code> in <code class="docutils literal notranslate"><span class="pre">Event</span></code>.</li>
-<li>An import statement in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">EventType</span></code> class itself.</li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">Event</span></code> constructor parameter.</p></li>
+<li><p>The getter/setter pair for <code class="docutils literal notranslate"><span class="pre">type</span></code> in <code class="docutils literal notranslate"><span class="pre">Event</span></code>.</p></li>
+<li><p>An import statement in <code class="docutils literal notranslate"><span class="pre">EventController</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">EventType</span></code> class itself.</p></li>
 </ol>
 <p>Removing this unneeded code resolves all remaining compiler errors.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">events/index.html</span></code> template needs to be updated as well, since it still contains a reference to the <code class="docutils literal notranslate"><span class="pre">type</span></code> field of <code class="docutils literal notranslate"><span class="pre">Event</span></code>:</p>
@@ -222,9 +222,9 @@ to be more consistent. This also requires updating the <code class="docutils lit
 </div>
 <p>Notice that the <code class="docutils literal notranslate"><span class="pre">type</span></code> column remains, even though we have deleted the <code class="docutils literal notranslate"><span class="pre">type</span></code> field from the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class. The next time we start up the application, Hibernate will attempt to update the schema to match the structure of our updated model class.</p>
 <div class="admonition-tip admonition" id="index-0">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
 <p>Notice that existing events will not have a category, which violates our new <code class="docutils literal notranslate"><span class="pre">&#64;NotNull</span></code> validation rule. The easiest way to handle this is to delete all rows in <code class="docutils literal notranslate"><span class="pre">event</span></code>.</p>
-<p class="last">To delete all events, truncate the <code class="docutils literal notranslate"><span class="pre">event</span></code> table in MySQL Workbench. (To <strong>truncate</strong> a SQL table is simply to delete all its rows.) To do this, select the table in the <em>Schemas</em> pane, right-click, and select <em>Truncate Table…</em></p>
+<p>To delete all events, truncate the <code class="docutils literal notranslate"><span class="pre">event</span></code> table in MySQL Workbench. (To <strong>truncate</strong> a SQL table is simply to delete all its rows.) To do this, select the table in the <em>Schemas</em> pane, right-click, and select <em>Truncate Table…</em></p>
 </div>
 <p>Start up the application and refresh the view in MySQL Workbench.</p>
 <div class="figure align-default" id="id3">
@@ -233,13 +233,13 @@ to be more consistent. This also requires updating the <code class="docutils lit
 </div>
 <p>Notice that there is a new column, <code class="docutils literal notranslate"><span class="pre">event_category_id</span></code>. This new column has type <code class="docutils literal notranslate"><span class="pre">int</span></code> and is a foreign key column to the <code class="docutils literal notranslate"><span class="pre">event_category</span></code> table. References to objects in Java are translated into foreign-key references by Hibernate.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
 <p>You may find it odd that the <code class="docutils literal notranslate"><span class="pre">type</span></code> column is <em>still</em> present, even after restarting. Hibernate will not drop columns from a table even if that field is removed from the corresponding class.</p>
-<p class="last">Hibernate will generally avoid deleting your data, since you may want to keep it around (even if just in the form of a backup). You can simply drop this column yourself.</p>
+<p>Hibernate will generally avoid deleting your data, since you may want to keep it around (even if just in the form of a backup). You can simply drop this column yourself.</p>
 </div>
 <div class="admonition-tip admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">If your table was not updating upon restarting, make sure you have <code class="docutils literal notranslate"><span class="pre">spring.jpa.hibernate.ddl-auto</span></code> set to <code class="docutils literal notranslate"><span class="pre">update</span></code> in <code class="docutils literal notranslate"><span class="pre">application.properties</span></code>.</p>
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>If your table was not updating upon restarting, make sure you have <code class="docutils literal notranslate"><span class="pre">spring.jpa.hibernate.ddl-auto</span></code> set to <code class="docutils literal notranslate"><span class="pre">update</span></code> in <code class="docutils literal notranslate"><span class="pre">application.properties</span></code>.</p>
 </div>
 <p>If we create some new events, we can see precisely how <code class="docutils literal notranslate"><span class="pre">event</span></code> rows are related to <code class="docutils literal notranslate"><span class="pre">event_category</span></code> rows.</p>
 <div class="figure align-default" id="id4">
@@ -257,19 +257,19 @@ to be more consistent. This also requires updating the <code class="docutils lit
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">18.2.5. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">What is the annotation that allows <code class="docutils literal notranslate"><span class="pre">&#64;AbstractEntity</span></code> to handle logic related to IDs/primary keys of subclasses,
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>What is the annotation that allows <code class="docutils literal notranslate"><span class="pre">&#64;AbstractEntity</span></code> to handle logic related to IDs/primary keys of subclasses,
 yet not be mapped to a database table.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>You are working on a Spring application tracking elected officials. Your model class, <code class="docutils literal notranslate"><span class="pre">Senator</span></code> has a many-to-one relationship
 with another model class, <code class="docutils literal notranslate"><span class="pre">State</span></code>. To properly configure this relationship in the Hibernate context, what must be present?</p>
-<ol class="last arabic simple">
-<li>In <code class="docutils literal notranslate"><span class="pre">Senator</span></code>, a <code class="docutils literal notranslate"><span class="pre">state</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code></li>
-<li>In <code class="docutils literal notranslate"><span class="pre">Senator</span></code>, a <code class="docutils literal notranslate"><span class="pre">state</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code></li>
-<li>In <code class="docutils literal notranslate"><span class="pre">State</span></code>, a <code class="docutils literal notranslate"><span class="pre">senator</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code></li>
-<li>In <code class="docutils literal notranslate"><span class="pre">State</span></code>, a <code class="docutils literal notranslate"><span class="pre">senator</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code></li>
+<ol class="arabic simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Senator</span></code>, a <code class="docutils literal notranslate"><span class="pre">state</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code></p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Senator</span></code>, a <code class="docutils literal notranslate"><span class="pre">state</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code></p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">State</span></code>, a <code class="docutils literal notranslate"><span class="pre">senator</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;OneToMany</span></code></p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">State</span></code>, a <code class="docutils literal notranslate"><span class="pre">senator</span></code> field, annotated with <code class="docutils literal notranslate"><span class="pre">&#64;ManyToOne</span></code></p></li>
 </ol>
 </div>
 </div>

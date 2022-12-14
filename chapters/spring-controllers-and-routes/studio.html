@@ -96,9 +96,9 @@ Let’s build something that would let us do just that!</p>
 <h3><span class="section-number">10.6.1.1. </span>Using the Spring Initializr<a class="headerlink" href="#using-the-spring-initializr" title="Permalink to this headline">¶</a></h3>
 <p>Head to the <a class="reference external" href="https://start.spring.io/" target="_blank">Spring initializr<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> to initialize a new Spring project.</p>
 <ol class="arabic simple">
-<li>For Project, select <em>Gradle Project</em>, for Language, select <em>Java</em>, and for Spring Boot, select <em>2.4.x</em> (whichever is the most recent release, that is NOT a snapshot).</li>
-<li>For Project Metadata, we can use <em>org.launchcode</em> as Group and <em>skills-tracker</em> as the artifact. Also, remember to expand <em>Options</em> so you can make sure that Java 11 is selected!</li>
-<li>Finally, we want to add <em>Spring Web</em> and <em>Spring DevTools</em> as our dependencies.</li>
+<li><p>For Project, select <em>Gradle Project</em>, for Language, select <em>Java</em>, and for Spring Boot, select <em>2.4.x</em> (whichever is the most recent release, that is NOT a snapshot).</p></li>
+<li><p>For Project Metadata, we can use <em>org.launchcode</em> as Group and <em>skills-tracker</em> as the artifact. Also, remember to expand <em>Options</em> so you can make sure that Java 11 is selected!</p></li>
+<li><p>Finally, we want to add <em>Spring Web</em> and <em>Spring DevTools</em> as our dependencies.</p></li>
 </ol>
 <p>Double check that everything is ready to go and click <em>Generate</em>!</p>
 </div>
@@ -114,11 +114,11 @@ Let’s build something that would let us do just that!</p>
 <p>In your <code class="docutils literal notranslate"><span class="pre">org.launchcode</span></code> package, add another package called <code class="docutils literal notranslate"><span class="pre">controllers</span></code> and add a class called <code class="docutils literal notranslate"><span class="pre">SkillsController</span></code>.
 Inside <code class="docutils literal notranslate"><span class="pre">SkillsController</span></code>, you will add several methods to accomplish the following:</p>
 <ol class="arabic simple">
-<li>At <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>, add text that states the three possible programming languages someone could be working on.
-You need to have an <code class="docutils literal notranslate"><span class="pre">h1</span></code> with the title “Skills Tracker”, an <code class="docutils literal notranslate"><span class="pre">h2</span></code>, and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> containing three programming languages of your choosing.</li>
-<li>At <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, add a form that lets the user enter their name and choose their favorite, second favorite, and third favorite programming languages on your list.
-Use <code class="docutils literal notranslate"><span class="pre">select</span></code> elements for each of the rankings. Just as with the exercises, we will use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping()</span></code>.</li>
-<li>Also at <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, use <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> to update the HTML with an <code class="docutils literal notranslate"><span class="pre">h1</span></code> stating the user’s name and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> showing the three programming languages in the order they chose.</li>
+<li><p>At <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>, add text that states the three possible programming languages someone could be working on.
+You need to have an <code class="docutils literal notranslate"><span class="pre">h1</span></code> with the title “Skills Tracker”, an <code class="docutils literal notranslate"><span class="pre">h2</span></code>, and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> containing three programming languages of your choosing.</p></li>
+<li><p>At <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, add a form that lets the user enter their name and choose their favorite, second favorite, and third favorite programming languages on your list.
+Use <code class="docutils literal notranslate"><span class="pre">select</span></code> elements for each of the rankings. Just as with the exercises, we will use <code class="docutils literal notranslate"><span class="pre">&#64;GetMapping()</span></code>.</p></li>
+<li><p>Also at <code class="docutils literal notranslate"><span class="pre">localhost:8080/form</span></code>, use <code class="docutils literal notranslate"><span class="pre">&#64;PostMapping</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;RequestParam</span></code> to update the HTML with an <code class="docutils literal notranslate"><span class="pre">h1</span></code> stating the user’s name and an <code class="docutils literal notranslate"><span class="pre">ol</span></code> showing the three programming languages in the order they chose.</p></li>
 </ol>
 </div>
 <div class="section" id="end-result">
@@ -139,8 +139,8 @@ Use <code class="docutils literal notranslate"><span class="pre">select</span></
 <div class="section" id="bonus-missions">
 <h2><span class="section-number">10.6.4. </span>Bonus Missions<a class="headerlink" href="#bonus-missions" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Reformat your <code class="docutils literal notranslate"><span class="pre">form</span></code> page to use a table instead of an ordered list.</li>
-<li>Add a new path to the site to display the information from the completed form.</li>
+<li><p>Reformat your <code class="docutils literal notranslate"><span class="pre">form</span></code> page to use a table instead of an ordered list.</p></li>
+<li><p>Add a new path to the site to display the information from the completed form.</p></li>
 </ol>
 </div>
 </div>

@@ -91,7 +91,7 @@ To do so, we need to use <em>object-relational mapping</em>.</p>
 <p><strong>Object-Relational Mapping</strong> or <strong>ORM</strong> is a technique for converting data between Java objects and relational databases.
 ORM converts data between two incompatible type systems (Java and MySQL), such that each model class becomes a table in our database and each instance a row of the table.</p>
 <div class="admonition-example admonition">
-<p class="first admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
+<p class="admonition-title"><i class="fas fa-binoculars" aria-hidden="true"></i>Example</p>
 <p>Let’s say we have a Java class called <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code>. <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code> has three fields: an integer <code class="docutils literal notranslate"><span class="pre">id</span></code>, a string <code class="docutils literal notranslate"><span class="pre">name</span></code>, and a string <code class="docutils literal notranslate"><span class="pre">email</span></code>.
 Now we want to store this information in a MySQL database.
 We can use ORM so that the database of our application has a table to contain all objects instantiated from the <code class="docutils literal notranslate"><span class="pre">ContactInfo</span></code> class.
@@ -106,7 +106,7 @@ While we will write the code to add Frank’s info to our database in Java, the 
 <span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Frank&quot;</span><span class="p">,</span><span class="s2">&quot;frank@email.com&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p class="last">Now Frank’s info is safely stored in our MySQL database in the <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table!</p>
+<p>Now Frank’s info is safely stored in our MySQL database in the <code class="docutils literal notranslate"><span class="pre">contactinfo</span></code> table!</p>
 </div>
 <p>At the most basic level, we need two components to make ORM work in our Java applications: an API and an object-relational mapper.
 The API will set the standards by which the <strong>object-relational mapper</strong> will convert between Java and MySQL.
@@ -143,8 +143,8 @@ The accompanying text is a quick rundown of what happens in the video. To get st
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/GVOpKW3NcMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/enums" target="_blank">enums branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/enums" target="_blank">enums branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/db-config" target="_blank">db-config branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -154,15 +154,14 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <p>To get started with using a relational database with our MVC applications, we need to first go to MySQL Workbench.</p>
 <p>In MySQL Workbench, you need to do the following:</p>
 <ol class="arabic">
-<li><p class="first">Create a new schema, <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
+<li><p>Create a new schema, <code class="docutils literal notranslate"><span class="pre">coding-events</span></code>.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">In the video, Chris names his schema <code class="docutils literal notranslate"><span class="pre">coding_events</span></code>. Either name works just fine, as long as you are
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>In the video, Chris names his schema <code class="docutils literal notranslate"><span class="pre">coding_events</span></code>. Either name works just fine, as long as you are
 consistent within your own application.</p>
 </div>
 </li>
-<li><p class="first">Add a new user with a new password. Give the user all privileges to modify your new schema.</p>
-</li>
+<li><p>Add a new user with a new password. Give the user all privileges to modify your new schema.</p></li>
 </ol>
 <p>In IntelliJ, attach MySQL to your project in <code class="docutils literal notranslate"><span class="pre">application.properties</span></code>.</p>
 <div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="o">#</span> <span class="k">Database</span> <span class="k">connection</span> <span class="n">settings</span>
@@ -209,16 +208,16 @@ You then hide the appropriate info by setting the environment variable’s value
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">17.1.2. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True or false: writing usernames and passwords in plain text in a file is a GREAT idea!</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True or false: writing usernames and passwords in plain text in a file is a GREAT idea!</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True or false: an ORM converts data between Java objects and relational databases.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True or false: an ORM converts data between Java objects and relational databases.</p>
 </div>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
-<p class="last">True or false: We need Hibernate AND Spring Data to successfully use ORM.</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p>True or false: We need Hibernate AND Spring Data to successfully use ORM.</p>
 </div>
 </div>
 </div>

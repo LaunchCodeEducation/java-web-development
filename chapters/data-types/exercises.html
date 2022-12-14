@@ -97,7 +97,7 @@ the file name matches the class name.</p>
 <p>Here is how to create a new package to store these exercises, and how to
 create new classes within this package:</p>
 <ol class="arabic">
-<li><p class="first">Click on the folder <code class="docutils literal notranslate"><span class="pre">src</span></code> in the Project pane, then right-click (or
+<li><p>Click on the folder <code class="docutils literal notranslate"><span class="pre">src</span></code> in the Project pane, then right-click (or
 control-click for some Mac users) and select <em>New</em> and then select
 <em>Package</em>.</p>
 <div class="figure align-default" id="id1">
@@ -105,28 +105,28 @@ control-click for some Mac users) and select <em>New</em> and then select
 <p class="caption"><span class="caption-text">New Package</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Name the package “exercises”.</p>
+<li><p>Name the package “exercises”.</p>
 <div class="figure align-default" id="id2">
 <a class="reference internal image-reference" href="../../_images/namePackage.png"><img alt="Name Package" src="../../_images/namePackage.png" style="width: 514.5px; height: 574.0px;" /></a>
 <p class="caption"><span class="caption-text">Name Package</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Right-click/Control-click on the newly created <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder. Select
+<li><p>Right-click/Control-click on the newly created <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder. Select
 <em>New</em> and then <em>Java Class</em>.</p>
 <div class="figure align-default" id="id3">
 <a class="reference internal image-reference" href="../../_images/newClass.png"><img alt="New Class" src="../../_images/newClass.png" style="width: 490.2px; height: 491.4px;" /></a>
 <p class="caption"><span class="caption-text">New Class</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">Name this what you will name your class (for example, in the 4th exercise
+<li><p>Name this what you will name your class (for example, in the 4th exercise
 below, you might name the class <code class="docutils literal notranslate"><span class="pre">Alice</span></code>).</p>
 <div class="figure align-default" id="id4">
 <a class="reference internal image-reference" href="../../_images/nameClass.png"><img alt="Name Class" src="../../_images/nameClass.png" style="width: 440.4px; height: 212.4px;" /></a>
 <p class="caption"><span class="caption-text">Name Class</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You will be asked whether you want to add this file to Git.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>You will be asked whether you want to add this file to Git.
 Press the “Yes” button.</p>
 </div>
 <div class="figure align-default" id="id5">
@@ -134,7 +134,7 @@ Press the “Yes” button.</p>
 <p class="caption"><span class="caption-text">Add class to Git</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </li>
-<li><p class="first">You created the new class! You can proceed to write code within
+<li><p>You created the new class! You can proceed to write code within
 it. (Don’t forget to write the <code class="docutils literal notranslate"><span class="pre">main</span></code> method!)</p>
 <div class="figure align-default" id="id6">
 <a class="reference internal image-reference" href="../../_images/newClassCreated.png"><img alt="Ready to start" src="../../_images/newClassCreated.png" style="width: 792.6px; height: 489.0px;" /></a>
@@ -147,80 +147,70 @@ it. (Don’t forget to write the <code class="docutils literal notranslate"><spa
 <div class="section" id="exercises">
 <h2><span class="section-number">2.4.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first"><strong>Input/output</strong>: Write a new “Hello, World” program to prompt the
+<li><p><strong>Input/output</strong>: Write a new “Hello, World” program to prompt the
 user for their name and greet them by name.</p>
 <ol class="arabic">
-<li><p class="first">Follow steps 3-5 above to create a new <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> Class inside of
-your <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder.</p>
-</li>
-<li><p class="first">Add an import statement at the the top of the file to include
+<li><p>Follow steps 3-5 above to create a new <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> Class inside of
+your <code class="docutils literal notranslate"><span class="pre">exercises</span></code> folder.</p></li>
+<li><p>Add an import statement at the the top of the file to include
 <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="p">;</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Declare a variable of type <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> called <code class="docutils literal notranslate"><span class="pre">input</span></code>:</p>
+<li><p>Declare a variable of type <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> called <code class="docutils literal notranslate"><span class="pre">input</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Scanner</span> <span class="n">input</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Add a question to ask the user:</p>
+<li><p>Add a question to ask the user:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, what is your name:&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Create a variable to store the user’s response using the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>’s <code class="docutils literal notranslate"><span class="pre">.nextLine()</span></code> method</p>
+<li><p>Create a variable to store the user’s response using the <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>’s <code class="docutils literal notranslate"><span class="pre">.nextLine()</span></code> method</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Use concatenation to print the greeting:</p>
+<li><p>Use concatenation to print the greeting:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Right-click/Control-click the arrow next to your class and run the program.</p>
-</li>
+<li><p>Right-click/Control-click the arrow next to your class and run the program.</p></li>
 </ol>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/data-types.html#data-types-exercise-solutions2a"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first"><strong>Numeric types</strong>: Write a program to calculate the area of a
+<li><p><strong>Numeric types</strong>: Write a program to calculate the area of a
 rectangle and print the answer to the console. You should prompt the
 user for the dimensions. (What data types should the dimensions be?)</p>
 <ol class="arabic">
-<li><p class="first">Follow steps 3-5 above to create a new Class inside of your exercises.</p>
-</li>
-<li><p class="first">Add an import statement at the top of your file to use <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>.</p>
-</li>
-<li><p class="first">Add a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object to handle the user’s input.</p>
-</li>
-<li><p class="first">Add a print line to prompt the user for the length of the rectangle.</p>
-</li>
-<li><p class="first">Define a variable to handle the user’s response.
+<li><p>Follow steps 3-5 above to create a new Class inside of your exercises.</p></li>
+<li><p>Add an import statement at the top of your file to use <code class="docutils literal notranslate"><span class="pre">Scanner</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> object to handle the user’s input.</p></li>
+<li><p>Add a print line to prompt the user for the length of the rectangle.</p></li>
+<li><p>Define a variable to handle the user’s response.
 Now is the time to know what type the dimension will be.</p>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
-<p class="last">You’ll need to use a different <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> method than what we used
+<p class="admonition-title"><i class="fas fa-lightbulb" aria-hidden="true"></i>Tip</p>
+<p>You’ll need to use a different <code class="docutils literal notranslate"><span class="pre">Scanner</span></code> method than what we used
 in Exercise 1 above.</p>
 </div>
 </li>
-<li><p class="first">Repeat the previous two steps to ask for and store the rectangle’s width.</p>
-</li>
-<li><p class="first">Use the length and width values to calculate the rectangle’s area.</p>
-</li>
-<li><p class="first">Print a statement using concatenation to communicate to the user what the area of
-their rectangle is.</p>
-</li>
-<li><p class="first">Run the program to verify your code.</p>
-</li>
+<li><p>Repeat the previous two steps to ask for and store the rectangle’s width.</p></li>
+<li><p>Use the length and width values to calculate the rectangle’s area.</p></li>
+<li><p>Print a statement using concatenation to communicate to the user what the area of
+their rectangle is.</p></li>
+<li><p>Run the program to verify your code.</p></li>
 </ol>
 </li>
-<li><p class="first"><strong>Numeric types</strong>: Write a program that asks a user for the number of
+<li><p><strong>Numeric types</strong>: Write a program that asks a user for the number of
 miles they have driven and the amount of gas they’ve consumed (in
 gallons), and print their miles-per-gallon.</p>
 <p><a class="reference internal" href="../../appendices/exercise-solutions/data-types.html#data-types-exercise-solutions2b"><span class="std std-ref">Check your solution</span></a></p>
 </li>
-<li><p class="first"><strong>Strings</strong>: The first sentence of <em>Alice’s Adventures in Wonderland</em>
+<li><p><strong>Strings</strong>: The first sentence of <em>Alice’s Adventures in Wonderland</em>
 is below. Store this sentence in a string, and then prompt the user
 for a term to search for within this string. Print whether or not the
 search term was found. Make the search case-insensitive, so that searching
@@ -233,15 +223,15 @@ for “alice”, for example, prints <code class="docutils literal notranslate">
 <span class="pre">conversation?'</span></code></p>
 </div></blockquote>
 <div class="admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">You may want to write the string above on more than one line in
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>You may want to write the string above on more than one line in
 your solution. Java 11 and IntelliJ gives you a few options to do so.
 The easiest, thanks to your IDE, is to press <em>Enter</em> as you type the string.
 IntelliJ will close the string and concatenate it with the next line to create
 one longer string.</p>
 </div>
 </li>
-<li><p class="first"><strong>Strings</strong>: Extend the previous exercise. Assume the user enters a word that is
+<li><p><strong>Strings</strong>: Extend the previous exercise. Assume the user enters a word that is
 in the sentence. Print out its index within the string and its length. Next,
 remove the word from the string and print the sentence again to confirm your
 code. Remember that strings are <em>immutable</em>, so you will need to reassign

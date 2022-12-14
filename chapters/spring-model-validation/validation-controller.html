@@ -99,30 +99,30 @@
 </div>
 <p>The flow of this request can be described as follows:</p>
 <ol class="arabic simple">
-<li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
-<li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
-<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</li>
-<li>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></li>
+<li><p>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</p></li>
+<li><p>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</p></li>
+<li><p>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></p></li>
 </ol>
 <p>The request creates an <code class="docutils literal notranslate"><span class="pre">Event</span></code> object using data from the incoming request. Regardless of what the data looks like, the new object is saved to the data layer. The user could submit an empty form, with no name or description filled in, and our code would be happy to create an <code class="docutils literal notranslate"><span class="pre">Event</span></code> and save it. Similarly, a user could submit the full text of the massive novel “War and Peace” as the description. This isn’t great.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Technically, submitting a request containing “War and Peace” would fail with most applications. This is because web servers typically set a limit on the maximum size of a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request. However, our application code is willing to take requests of any size, at this point.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Technically, submitting a request containing “War and Peace” would fail with most applications. This is because web servers typically set a limit on the maximum size of a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request. However, our application code is willing to take requests of any size, at this point.</p>
 </div>
 <p>Some modest validation rules for a new <code class="docutils literal notranslate"><span class="pre">Event</span></code> object might be:</p>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">name</span></code> field must contain between 3 and 20 characters, and</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">description</span></code> field may be empty, but may contain no more than 500 characters.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">name</span></code> field must contain between 3 and 20 characters, and</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">description</span></code> field may be empty, but may contain no more than 500 characters.</p></li>
 </ul>
 <p>With these rules in place, conceptually, the flow of our controller code should look more like the following:</p>
 <ol class="arabic simple">
-<li>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</li>
-<li>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</li>
-<li><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></li>
-<li><strong>Controller checks for validation errors in the model object. If errors are found, return the user to the form. Otherwise, proceed.</strong></li>
-<li><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</li>
-<li>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></li>
+<li><p>Server receives <code class="docutils literal notranslate"><span class="pre">POST</span></code> request</p></li>
+<li><p>Server creates <code class="docutils literal notranslate"><span class="pre">newEvent</span></code> object using request parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">processCreateEventForm</span></code> is called with <code class="docutils literal notranslate"><span class="pre">newEvent</span></code></p></li>
+<li><p><strong>Controller checks for validation errors in the model object. If errors are found, return the user to the form. Otherwise, proceed.</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">newEvent</span></code> is saved</p></li>
+<li><p>A 303 redirect response is returned, redirecting the user to <code class="docutils literal notranslate"><span class="pre">/events</span></code></p></li>
 </ol>
 <p>Let’s look at how we can practically do this within Spring Boot.</p>
 </div>
@@ -132,8 +132,8 @@
 <div style="text-align:center;"><iframe width="800" height="450" src="https://www.youtube.com/embed/omSQO6721cU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <p></p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-validation-annotations" target="_blank">add-validation-annotations branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>The starter code for this video is found at the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/add-validation-annotations" target="_blank">add-validation-annotations branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a> of the <code class="docutils literal notranslate"><span class="pre">coding-events-demo</span></code> repo.
 The final code presented in this video is found on the <a class="reference external" href="https://github.com/LaunchCodeEducation/coding-events/tree/validation-errors" target="_blank">validation-errors branch<i class="fas fa-external-link-alt" aria-hidden="true"></i></a>. As always, code along to the
 videos on your own <code class="docutils literal notranslate"><span class="pre">coding-events</span></code> project.</p>
 </div>
@@ -160,8 +160,8 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 </div>
 <p>However, the user experience for this flow is not great. If a user submits bad data, rather than showing them a complicated stack trace, we would be better off to provide a helpful message and allow them to try again.</p>
 <div class="admonition-note admonition">
-<p class="first admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
-<p class="last">Remember, exceptions should be messages to programmers and programs, not end users. Even if an exception occurs, we should avoid displaying it to the user.</p>
+<p class="admonition-title"><i class="fas fa-sticky-note" aria-hidden="true"></i>Note</p>
+<p>Remember, exceptions should be messages to programmers and programs, not end users. Even if an exception occurs, we should avoid displaying it to the user.</p>
 </div>
 </div>
 <div class="section" id="using-the-errors-object">
@@ -202,13 +202,13 @@ videos on your own <code class="docutils literal notranslate"><span class="pre">
 <div class="section" id="check-your-understanding">
 <h2><span class="section-number">15.3.4. </span>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-question admonition">
-<p class="first admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
+<p class="admonition-title"><i class="fas fa-question" aria-hidden="true"></i>Question</p>
 <p>Which of the following statements are true?</p>
-<ol class="last arabic simple">
-<li>A method parameter may have only one annotation.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> can only be used in conjunction with model binding.</li>
-<li>Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> means that a method will never be called with invalid data.</li>
-<li>Spring Boot can infer validation requirements based on the name of a field.</li>
+<ol class="arabic simple">
+<li><p>A method parameter may have only one annotation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> can only be used in conjunction with model binding.</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">&#64;Valid</span></code> means that a method will never be called with invalid data.</p></li>
+<li><p>Spring Boot can infer validation requirements based on the name of a field.</p></li>
 </ol>
 </div>
 </div>
