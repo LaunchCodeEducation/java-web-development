@@ -153,7 +153,7 @@ address* of the object, which we visualize as an arrow pointing from the
 variable box to where the data is stored. Instead of holding the actual ``Cat``
 data, ``myCat`` stores *directions* for finding the data in memory.
 
-When we to assign ``myCat`` to another variable, as in ``Cat sameCat = myCat``,
+When we assign ``myCat`` to another variable, as in ``Cat sameCat = myCat``,
 we do NOT create a second copy of the object or its data. Instead, we make a
 second arrow pointing to the same memory location.
 
