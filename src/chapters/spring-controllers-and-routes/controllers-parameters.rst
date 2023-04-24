@@ -121,11 +121,12 @@ Check Your Understanding
       @GetMapping("venus")
       @ResponseBody
       public String venusSurface(@RequestParam String terrestrial) {
-      if (terrestrial == true) {
-         return "Venus is rocky."        
-      } else {
-         return "Venus is gaseous."
-      }
+	if (terrestrial.equals("true")) {
+	    return "Venus is rocky.";        
+	 } else {
+	    return "Venus is gaseous.";
+	 }
+	}
  
    a. ``myfavoriteplanets.net/venus?terrestrial=true``
       
@@ -148,7 +149,7 @@ Check Your Understanding
       @GetMapping("venus/{orbiter}")
       @ResponseBody
       public String venusOrbiter(@PathVariable String orbiter) {
-         return orbiter + " currently orbits Venus."
+         return orbiter + " currently orbits Venus.";
       }
 
    a. ``myfavoriteplanets.net/venus/{Akatsuki}``
