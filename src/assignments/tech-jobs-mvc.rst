@@ -318,7 +318,7 @@ open the relevant file.
    :alt: TechJobs MVC TODO list.
 
 As you work on your tasks, refer to the
-`demo app <https://lc-java-3-demo.herokuapp.com/>`__.
+`demo app <https://java-techjobs-mvc.launchcodetechnicaltraining.org/>`__.
 
 2) Complete the List Views
 ---------------------------
@@ -422,7 +422,7 @@ Sanity Check
 
 At this point, all autograding tests should be passing. To be sure, right-click on the ``org.launchcode.techjobs.mvc`` package in ``src/test/java`` and select *Run tests in...* If any test fails, evaluate the failure/error message and go back to fix your code.
 
-You might also want to check your app's behavior against that of `our demo app <https://quiet-ravine-03237.herokuapp.com/>`_.
+You might also want to check your app's behavior against that of `our demo app <https://java-techjobs-mvc.launchcodetechnicaltraining.org/>`_.
 
 How to Submit
 --------------
