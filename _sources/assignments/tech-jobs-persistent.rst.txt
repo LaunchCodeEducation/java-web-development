@@ -255,7 +255,7 @@ and view them.
 
    When everything works, move on to Part 3 below.
 
-Throughout your work, refer to the `demo app <https://lc-java-4-demo.herokuapp.com/>`__ as needed.
+Throughout your work, refer to the `demo app <https://techjobs-persistent.launchcodetechnicaltraining.org/>`_ as needed.
 
 .. _tech-jobs-persistent-pt3:
 
